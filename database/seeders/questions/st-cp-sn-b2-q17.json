@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 71,
+        "uuid": "st-cp-sn-b2-q17",
+        "question": "Everyone enjoyed the concert, {a1}?",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 47,
+                "name": "Tag question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "tag_id": 47,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 79,
+                "option": "didn't they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "option_id": 79,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 80,
+                "option": "did they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "option_id": 80,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 105,
+                "option": "hadn't they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "option_id": 105,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 71,
+                "question_id": 71,
+                "marker": "a1",
+                "option_id": 79,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 79,
+                "option": "didn't they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 71,
+            "question_id": 71,
+            "text": "Everyone enjoyed the concert, {a1}?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 212,
+            "question_id": 71,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 213,
+            "question_id": 71,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 211,
+            "question_id": 71,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Everyone» граматично — однина (everyone enjoyed), але у хвості займенник — «they» (загальноприйнятий нейтральний займенник).\n«Enjoyed» — Past Simple стверджувальне → хвіст заперечний «didn't they».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 848,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "did they",
+            "correct_answer": "didn't they",
+            "language": "en",
+            "explanation": "Incorrect. «did they» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 851,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "did they",
+            "correct_answer": "didn't they",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «did they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 843,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "did they",
+            "correct_answer": "didn't they",
+            "language": "ua",
+            "explanation": "«Did they» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 844,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "did they",
+            "correct_answer": "didn't they",
+            "language": "uk",
+            "explanation": "«Did they» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 847,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "didn't they",
+            "correct_answer": "didn't they",
+            "language": "en",
+            "explanation": "Correct. «didn't they» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 850,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "didn't they",
+            "correct_answer": "didn't they",
+            "language": "pl",
+            "explanation": "Poprawnie. «didn't they» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 841,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "didn't they",
+            "correct_answer": "didn't they",
+            "language": "ua",
+            "explanation": "«Didn't they» — правильно: стверджувальне Past Simple → заперечний хвіст; «everyone» → «they».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 842,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "didn't they",
+            "correct_answer": "didn't they",
+            "language": "uk",
+            "explanation": "«Didn't they» — правильно: стверджувальне Past Simple → заперечний хвіст; «everyone» → «they».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 849,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "hadn't they",
+            "correct_answer": "didn't they",
+            "language": "en",
+            "explanation": "Incorrect. «hadn't they» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 852,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "hadn't they",
+            "correct_answer": "didn't they",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «hadn't they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 845,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "hadn't they",
+            "correct_answer": "didn't they",
+            "language": "ua",
+            "explanation": "«Hadn't they» вживалося б для Past Perfect; «enjoyed» — Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 846,
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "wrong_answer": "hadn't they",
+            "correct_answer": "didn't they",
+            "language": "uk",
+            "explanation": "«Hadn't they» вживалося б для Past Perfect; «enjoyed» — Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

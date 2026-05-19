@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 4,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:13.000000Z",
-        "updated_at": "2026-05-06T23:45:13.000000Z"
+        "created_at": "2026-05-19T14:43:10.000000Z",
+        "updated_at": "2026-05-19T14:43:40.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 4,
         "name": "Word Order with Verbs and Objects",
-        "created_at": "2026-05-06T23:45:13.000000Z",
-        "updated_at": "2026-05-06T23:45:13.000000Z"
+        "created_at": "2026-05-19T14:43:10.000000Z",
+        "updated_at": "2026-05-19T14:43:10.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 30,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 218,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 41,
+                "name": "Modal Verbs",
+                "category": null,
+                "created_at": "2026-05-19T14:42:56.000000Z",
+                "updated_at": "2026-05-19T14:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 218,
+                "tag_id": 41,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 597,
+                "option": "drink milk",
+                "created_at": "2026-05-19T14:43:10.000000Z",
+                "updated_at": "2026-05-19T14:43:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 218,
+                "option_id": 597,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 598,
+                "option": "milk drink",
+                "created_at": "2026-05-19T14:43:10.000000Z",
+                "updated_at": "2026-05-19T14:43:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 218,
+                "option_id": 598,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 599,
+                "option": "milk they drink",
+                "created_at": "2026-05-19T14:43:10.000000Z",
+                "updated_at": "2026-05-19T14:43:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 218,
+                "option_id": 599,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 218,
+                "question_id": 218,
+                "marker": "a2",
+                "option_id": 597,
+                "created_at": "2026-05-19T14:43:10.000000Z",
+                "updated_at": "2026-05-19T14:43:10.000000Z"
+            },
+            "option": {
+                "id": 597,
+                "option": "drink milk",
+                "created_at": "2026-05-19T14:43:10.000000Z",
+                "updated_at": "2026-05-19T14:43:10.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 218,
+                "question_id": 218,
+                "marker": "a2",
+                "option_id": 596,
+                "created_at": "2026-05-19T14:43:10.000000Z",
+                "updated_at": "2026-05-19T14:43:10.000000Z"
+            },
+            "option": {
+                "id": 596,
+                "option": "verb + object order",
+                "created_at": "2026-05-19T14:43:10.000000Z",
+                "updated_at": "2026-05-19T14:43:10.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 218,
+            "question_id": 218,
+            "text": "They {a2} in the morning.",
+            "created_at": "2026-05-19T14:43:10.000000Z",
+            "updated_at": "2026-05-19T14:43:10.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

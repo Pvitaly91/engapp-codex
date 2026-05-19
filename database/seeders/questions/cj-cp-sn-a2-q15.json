@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 33,
+        "uuid": "cj-cp-sn-a2-q15",
+        "question": "Should we travel by train {a1} by car?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:26.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Choosing the correct conjunction",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 32,
+                "name": "Alternative conjunction 'or'",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 32,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 37,
+                "name": "Alternative coordination",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 37,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "and",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 3,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 33,
+                "question_id": 33,
+                "marker": "a1",
+                "option_id": 3,
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 33,
+            "question_id": 33,
+            "text": "Should we travel by train {a1} by car?",
+            "created_at": "2026-05-18T13:17:20.000000Z",
+            "updated_at": "2026-05-18T13:17:20.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 98,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Use 'or' in questions offering a choice between two modes of transport.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 99,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Użyj 'or' w pytaniach oferujących wybór między dwoma środkami transportu.\nДва варіанти подорожі `by train` та `by car` — альтернативи, і питальна форма Should we вимагає вибору.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 97,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Сполучник or у питаннях пропонує вибір між двома способами пересування.\nДва варіанти подорожі `by train` та `by car` — альтернативи, і питальна форма Should we вимагає вибору.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 392,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'And' would mean both are used at the same time, but only one mode per journey.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 395,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «And» oznaczałoby użycie obu środków transportu jednocześnie.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 387,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«and» об'єднав би обидва варіанти, але питання передбачає вибір одного способу.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 388,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«and» об'єднав би обидва варіанти, але питання передбачає вибір одного способу.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 393,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'But' would contrast the options rather than offering a choice.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 396,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «But» kontrastowałoby opcje zamiast oferować wybór.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 389,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«but» виражав би протиставлення між транспортом, якого в контексті вибору немає.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 390,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«but» виражав би протиставлення між транспортом, якого в контексті вибору немає.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 391,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Correct. 'Or' presents train and car as two options for the journey.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 394,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Poprawnie. «Or» prezentuje pociąg i samochód jako dwie opcje podróży.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 385,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«or» правильний: питання про вибір транспорту між двома варіантами завжди використовує or.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 386,
+            "question": "Should we travel by train {a1} by car?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«or» правильний: питання про вибір транспорту між двома варіантами завжди використовує or.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ]
+}

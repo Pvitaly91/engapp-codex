@@ -8,26 +8,124 @@
         "category_id": 1,
         "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:10.000000Z",
-        "updated_at": "2026-05-06T23:45:10.000000Z"
+        "created_at": "2026-05-19T14:43:07.000000Z",
+        "updated_at": "2026-05-19T14:43:38.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 3,
         "name": "Word Order with Adverbs and Adverbials",
-        "created_at": "2026-05-06T23:45:10.000000Z",
-        "updated_at": "2026-05-06T23:45:10.000000Z"
+        "created_at": "2026-05-19T14:43:07.000000Z",
+        "updated_at": "2026-05-19T14:43:07.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 35,
+                "name": "Adverbials",
+                "category": null,
+                "created_at": "2026-05-19T14:42:56.000000Z",
+                "updated_at": "2026-05-19T14:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 145,
+                "tag_id": 35,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 15,
+                "option": "always",
+                "created_at": "2026-05-19T14:43:00.000000Z",
+                "updated_at": "2026-05-19T14:43:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 145,
+                "option_id": 15,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 368,
+                "option": "goes always",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 145,
+                "option_id": 368,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 369,
+                "option": "always goes to",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 145,
+                "option_id": 369,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 145,
+                "question_id": 145,
+                "marker": "a1",
+                "option_id": 15,
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "option": {
+                "id": 15,
+                "option": "always",
+                "created_at": "2026-05-19T14:43:00.000000Z",
+                "updated_at": "2026-05-19T14:43:00.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 145,
+                "question_id": 145,
+                "marker": "a1",
+                "option_id": 367,
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "option": {
+                "id": 367,
+                "option": "frequency adverb",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 145,
+            "question_id": 145,
+            "text": "She {a1} goes to school by bus.",
+            "created_at": "2026-05-19T14:43:07.000000Z",
+            "updated_at": "2026-05-19T14:43:07.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

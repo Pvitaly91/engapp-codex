@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 104,
+        "uuid": "86-only-after-reviewing-all-evidence",
+        "question": "Only after reviewing all evidence {a86} their verdict.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:16:50.000000Z",
+        "updated_at": "2026-05-18T13:16:54.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:49.000000Z",
+        "updated_at": "2026-05-18T13:16:49.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-18T13:16:47.000000Z",
+        "updated_at": "2026-05-18T13:16:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-18T13:16:45.000000Z",
+                "updated_at": "2026-05-18T13:16:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 104,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 48,
+                "name": "Fronting and inversion",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 104,
+                "tag_id": 48,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 323,
+                "option": "did the jury announce",
+                "created_at": "2026-05-18T13:16:50.000000Z",
+                "updated_at": "2026-05-18T13:16:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 104,
+                "option_id": 323,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 325,
+                "option": "the jury announced",
+                "created_at": "2026-05-18T13:16:50.000000Z",
+                "updated_at": "2026-05-18T13:16:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 104,
+                "option_id": 325,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 326,
+                "option": "the jury did announce",
+                "created_at": "2026-05-18T13:16:50.000000Z",
+                "updated_at": "2026-05-18T13:16:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 104,
+                "option_id": 326,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 104,
+                "question_id": 104,
+                "marker": "a86",
+                "option_id": 323,
+                "created_at": "2026-05-18T13:16:50.000000Z",
+                "updated_at": "2026-05-18T13:16:50.000000Z"
+            },
+            "option": {
+                "id": 323,
+                "option": "did the jury announce",
+                "created_at": "2026-05-18T13:16:50.000000Z",
+                "updated_at": "2026-05-18T13:16:50.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 86,
+                "question_id": 104,
+                "marker": "a86",
+                "option_id": 324,
+                "created_at": "2026-05-18T13:16:50.000000Z",
+                "updated_at": "2026-05-18T13:16:50.000000Z"
+            },
+            "option": {
+                "id": 324,
+                "option": "inversion after only after",
+                "created_at": "2026-05-18T13:16:50.000000Z",
+                "updated_at": "2026-05-18T13:16:50.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 104,
+            "question_id": 104,
+            "text": "Only after reviewing all evidence {a86} their verdict.",
+            "created_at": "2026-05-18T13:16:50.000000Z",
+            "updated_at": "2026-05-18T13:16:50.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 274,
+            "question_id": 104,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Inversion after `Only after`: did + S + V.\nFronted 'Only after' requires inversion.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 275,
+            "question_id": 104,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Inversion after `Only after`: did + S + V.\nFronted 'Only after' requires inversion.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 276,
+            "question_id": 104,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Інверсія після `Only after`: Only after X + did + S + V.\nПісля `Only after reviewing all evidence` потрібне: did + S + V.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1129,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "did the jury announce",
+            "correct_answer": "did the jury announce",
+            "language": "en",
+            "explanation": "Correct: inversion — 'did' before 'the jury', then 'announce'.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1132,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "did the jury announce",
+            "correct_answer": "did the jury announce",
+            "language": "pl",
+            "explanation": "Correct: inversion — 'did' before 'the jury', then 'announce'.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1135,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "did the jury announce",
+            "correct_answer": "did the jury announce",
+            "language": "ua",
+            "explanation": "Правильно: інверсія — `did` перед підметом `the jury`, потім `announce`.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1136,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "did the jury announce",
+            "correct_answer": "did the jury announce",
+            "language": "uk",
+            "explanation": "Правильно: інверсія — `did` перед підметом `the jury`, потім `announce`.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1130,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury announced",
+            "correct_answer": "did the jury announce",
+            "language": "en",
+            "explanation": "Incorrect: direct order after 'Only after' needs inversion.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1133,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury announced",
+            "correct_answer": "did the jury announce",
+            "language": "pl",
+            "explanation": "Incorrect: direct order after 'Only after' needs inversion.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1137,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury announced",
+            "correct_answer": "did the jury announce",
+            "language": "ua",
+            "explanation": "Неправильно: прямий порядок після `Only after` на початку — потрібна інверсія.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1138,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury announced",
+            "correct_answer": "did the jury announce",
+            "language": "uk",
+            "explanation": "Неправильно: прямий порядок після `Only after` на початку — потрібна інверсія.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1131,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury did announce",
+            "correct_answer": "did the jury announce",
+            "language": "en",
+            "explanation": "Incorrect: emphatic order, not inversion.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1134,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury did announce",
+            "correct_answer": "did the jury announce",
+            "language": "pl",
+            "explanation": "Incorrect: emphatic order, not inversion.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1139,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury did announce",
+            "correct_answer": "did the jury announce",
+            "language": "ua",
+            "explanation": "Неправильно: `did` після підмета — це емфатичний порядок, а не інверсія.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 1140,
+            "question": "Only after reviewing all evidence {a86} their verdict.",
+            "wrong_answer": "the jury did announce",
+            "correct_answer": "did the jury announce",
+            "language": "uk",
+            "explanation": "Неправильно: `did` після підмета — це емфатичний порядок, а не інверсія.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        }
+    ]
+}

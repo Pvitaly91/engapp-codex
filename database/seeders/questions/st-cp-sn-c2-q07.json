@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 97,
+        "uuid": "st-cp-sn-c2-q07",
+        "question": "The committee has yet to establish what {a1} the most effective course of action.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 97,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 53,
+                "name": "Word order in indirect questions",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 97,
+                "tag_id": 53,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 17,
+                "option": "is",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 97,
+                "option_id": 17,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 111,
+                "option": "was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 97,
+                "option_id": 111,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 135,
+                "option": "would be",
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 97,
+                "option_id": 135,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 97,
+                "question_id": 97,
+                "marker": "a1",
+                "option_id": 135,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 135,
+                "option": "would be",
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 97,
+            "question_id": 97,
+            "text": "The committee has yet to establish what {a1} the most effective course of action.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 290,
+            "question_id": 97,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Indirect (embedded) questions use **statement word order** (subject + verb), not question inversion.\nAfter **tell me / know / wonder / ask**, the clause uses normal sentence order: **subject + verb**, not inverted question order.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 291,
+            "question_id": 97,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "W pytaniach pośrednich po słowie pytającym obowiązuje szyk twierdzący: **podmiot + orzeczenie** (bez inwersji).\nPo **tell me / know / wonder / ask** szyk jest twierdzący: **podmiot + orzeczenie**, bez inwersji.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 289,
+            "question_id": 97,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Непряме питання після «establish what» зберігає стверджувальний порядок; «would be» виражає гіпотетичний характер ще не прийнятого рішення.\nКонтекст невизначеності («has yet to establish») передбачає умовне «would be», а не фактичне «is/was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1160,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "is",
+            "correct_answer": "would be",
+            "language": "en",
+            "explanation": "Incorrect. «is» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1163,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "is",
+            "correct_answer": "would be",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «is» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1155,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "is",
+            "correct_answer": "would be",
+            "language": "ua",
+            "explanation": "«Is» — теперішній час; але рішення ще не прийнято, тому гіпотетичне «would be» точніше.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1156,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "is",
+            "correct_answer": "would be",
+            "language": "uk",
+            "explanation": "«Is» — теперішній час; але рішення ще не прийнято, тому гіпотетичне «would be» точніше.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1161,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "was",
+            "correct_answer": "would be",
+            "language": "en",
+            "explanation": "Incorrect. «was» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1164,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "was",
+            "correct_answer": "would be",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «was» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1157,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "was",
+            "correct_answer": "would be",
+            "language": "ua",
+            "explanation": "«Was» — Past Simple; рішення ще шукається, тому «would be» є граматично та семантично точнішим.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1158,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "was",
+            "correct_answer": "would be",
+            "language": "uk",
+            "explanation": "«Was» — Past Simple; рішення ще шукається, тому «would be» є граматично та семантично точнішим.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1159,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "would be",
+            "correct_answer": "would be",
+            "language": "en",
+            "explanation": "Correct. «would be» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1162,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "would be",
+            "correct_answer": "would be",
+            "language": "pl",
+            "explanation": "Poprawnie. «would be» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1153,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "would be",
+            "correct_answer": "would be",
+            "language": "ua",
+            "explanation": "«Would be» — правильно: непряме питання зі стверджувальним порядком; «would be» передає гіпотетичний статус рішення.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1154,
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "wrong_answer": "would be",
+            "correct_answer": "would be",
+            "language": "uk",
+            "explanation": "«Would be» — правильно: непряме питання зі стверджувальним порядком; «would be» передає гіпотетичний статус рішення.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

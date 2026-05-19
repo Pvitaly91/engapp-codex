@@ -1,33 +1,378 @@
 {
     "question": {
-        "id": 281,
+        "id": 299,
         "uuid": "polyglot-some-any-q17",
         "question": "На столі є вода?",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 11,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-08T23:33:49.000000Z",
-        "updated_at": "2026-05-08T23:33:49.000000Z"
+        "created_at": "2026-05-19T14:42:17.000000Z",
+        "updated_at": "2026-05-19T14:42:36.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "English Sentence Builder A1",
-        "created_at": "2026-05-08T23:33:27.000000Z",
-        "updated_at": "2026-05-08T23:33:27.000000Z"
+        "created_at": "2026-05-19T14:42:16.000000Z",
+        "updated_at": "2026-05-19T14:42:16.000000Z"
     },
     "source": {
-        "id": 11,
+        "id": 3,
         "name": "Some / Any — Things",
-        "created_at": "2026-05-08T23:33:49.000000Z",
-        "updated_at": "2026-05-08T23:33:49.000000Z"
+        "created_at": "2026-05-19T14:42:11.000000Z",
+        "updated_at": "2026-05-19T14:42:11.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 24,
+                "name": "A1",
+                "category": "level",
+                "created_at": "2026-05-19T14:42:05.000000Z",
+                "updated_at": "2026-05-19T14:42:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "tag_id": 24,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence Builder compose tokens",
+                "category": "mode",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 30,
+                "name": "some / any",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "quantifiers",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 33,
+                "name": "any",
+                "category": "quantifier",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "tag_id": 33,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 36,
+                "name": "question",
+                "category": "pattern",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "tag_id": 36,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 37,
+                "option": "some",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 37,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 38,
+                "option": "water",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 38,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 39,
+                "option": "on",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 39,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 40,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 41,
+                "option": "table",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 41,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 42,
+                "option": "any",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 42,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 55,
+                "option": "books",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 55,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71,
+                "option": "Is",
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 71,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 72,
+                "option": "there",
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 72,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 73,
+                "option": "Are",
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 299,
+                "option_id": 73,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 379,
+                "question_id": 299,
+                "marker": "a1",
+                "option_id": 71,
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "option": {
+                "id": 71,
+                "option": "Is",
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 380,
+                "question_id": 299,
+                "marker": "a2",
+                "option_id": 72,
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "option": {
+                "id": 72,
+                "option": "there",
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 381,
+                "question_id": 299,
+                "marker": "a3",
+                "option_id": 42,
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "option": {
+                "id": 42,
+                "option": "any",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 382,
+                "question_id": 299,
+                "marker": "a4",
+                "option_id": 38,
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "option": {
+                "id": 38,
+                "option": "water",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 383,
+                "question_id": 299,
+                "marker": "a5",
+                "option_id": 39,
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "option": {
+                "id": 39,
+                "option": "on",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 384,
+                "question_id": 299,
+                "marker": "a6",
+                "option_id": 40,
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 385,
+                "question_id": 299,
+                "marker": "a7",
+                "option_id": 41,
+                "created_at": "2026-05-19T14:42:17.000000Z",
+                "updated_at": "2026-05-19T14:42:17.000000Z"
+            },
+            "option": {
+                "id": 41,
+                "option": "table",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
     "variants": [],
-    "hints": [],
+    "hints": [
+        {
+            "id": 17,
+            "question_id": 299,
+            "provider": "polyglot-v3",
+            "locale": "uk",
+            "hint": "Схема питання: Is there + any + noun + місце?",
+            "created_at": "2026-05-19T14:42:17.000000Z",
+            "updated_at": "2026-05-19T14:42:17.000000Z"
+        }
+    ],
     "chatgpt_explanations": []
 }

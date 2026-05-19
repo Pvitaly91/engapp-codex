@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 10,
+        "uuid": "imp-cp-sn-a1-q10",
+        "question": "Don't {a1} late for school.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:45.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Дієслова та дієслівні форми",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Imperatives — Наказовий спосіб",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 17,
+                "name": "Imperatives",
+                "category": null,
+                "created_at": "2026-05-18T13:17:36.000000Z",
+                "updated_at": "2026-05-18T13:17:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 10,
+                "tag_id": 17,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Affirmative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 10,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 30,
+                "name": "Imperative verb form (be)",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 10,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 28,
+                "option": "be",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 10,
+                "option_id": 28,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 29,
+                "option": "are",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 10,
+                "option_id": 29,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 30,
+                "option": "were",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 10,
+                "option_id": 30,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 10,
+                "question_id": 10,
+                "marker": "a1",
+                "option_id": 28,
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "option": {
+                "id": 28,
+                "option": "be",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 10,
+            "question_id": 10,
+            "text": "Don't {a1} late for school.",
+            "created_at": "2026-05-18T13:17:38.000000Z",
+            "updated_at": "2026-05-18T13:17:38.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 29,
+            "question_id": 10,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "In the negative imperative, the verb 'be' takes its base form 'be' after 'Don't'; conjugated forms are not used.\nThe marker 'Don't' before the gap requires the base form; 'are' and 'were' are conjugated or past-tense forms of 'be'.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 30,
+            "question_id": 10,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "W przeczącym trybie rozkazującym czasownik «be» przyjmuje swoją podstawową formę «be» po «Don't»; formy odmienione są niepoprawne.\nMarker «Don't» przed luką wymaga formy podstawowej; «are» i «were» to odmienione lub przeszłe formy «be».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 28,
+            "question_id": 10,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "У заперечному наказовому способі дієслово «be» вживається у базовій формі «be» після «Don't»; відмінювані форми не підходять.\nМаркер «Don't» перед пропуском вимагає базової форми; «are» і «were» є відмінюваними або часовими формами «be».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 116,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "are",
+            "correct_answer": "be",
+            "language": "en",
+            "explanation": "'Are' is the present-tense conjugated form of 'be'. Only the base form 'be' follows 'Don't' in an imperative.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 119,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "are",
+            "correct_answer": "be",
+            "language": "pl",
+            "explanation": "«Are» to odmieniona forma czasu teraźniejszego «be». Po «Don't» w trybie rozkazującym używa się tylko formy podstawowej «be».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 111,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "are",
+            "correct_answer": "be",
+            "language": "ua",
+            "explanation": "Форма «are» — відмінювана форма теперішнього часу дієслова «be» (Present Simple). Після «Don't» у наказовому способі вживається лише «be».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 112,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "are",
+            "correct_answer": "be",
+            "language": "uk",
+            "explanation": "Форма «are» — відмінювана форма теперішнього часу дієслова «be» (Present Simple). Після «Don't» у наказовому способі вживається лише «be».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 115,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "be",
+            "correct_answer": "be",
+            "language": "en",
+            "explanation": "'Be' is the base form of 'to be' and the correct form in a negative imperative after 'Don't'.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 118,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "be",
+            "correct_answer": "be",
+            "language": "pl",
+            "explanation": "«Be» to podstawowa forma «to be» i poprawna forma w przeczącym trybie rozkazującym po «Don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 109,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "be",
+            "correct_answer": "be",
+            "language": "ua",
+            "explanation": "Форма «be» є базовою формою дієслова «to be» і правильно вживається у заперечному наказовому способі після «Don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 110,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "be",
+            "correct_answer": "be",
+            "language": "uk",
+            "explanation": "Форма «be» є базовою формою дієслова «to be» і правильно вживається у заперечному наказовому способі після «Don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 117,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "were",
+            "correct_answer": "be",
+            "language": "en",
+            "explanation": "'Were' is the past tense of 'be'. Negative imperatives require the base form 'be', not a past-tense form.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 120,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "were",
+            "correct_answer": "be",
+            "language": "pl",
+            "explanation": "«Were» to czas przeszły «be». Przeczący tryb rozkazujący wymaga formy podstawowej «be», a nie czasu przeszłego.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 113,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "were",
+            "correct_answer": "be",
+            "language": "ua",
+            "explanation": "Форма «were» — минулий час дієслова «be». Заперечний наказ потребує базової форми «be», а не минулого часу.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 114,
+            "question": "Don't {a1} late for school.",
+            "wrong_answer": "were",
+            "correct_answer": "be",
+            "language": "uk",
+            "explanation": "Форма «were» — минулий час дієслова «be». Заперечний наказ потребує базової форми «be», а не минулого часу.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 96,
+        "uuid": "st-cp-sn-c2-q06",
+        "question": "You must be exhausted after such a long journey, {a1}?",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 96,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 52,
+                "name": "Tag question with must (deduction)",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 96,
+                "tag_id": 52,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 132,
+                "option": "mustn't you",
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 96,
+                "option_id": 132,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 133,
+                "option": "aren't you",
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 96,
+                "option_id": 133,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 134,
+                "option": "must you",
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 96,
+                "option_id": 134,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 96,
+                "question_id": 96,
+                "marker": "a1",
+                "option_id": 132,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 132,
+                "option": "mustn't you",
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 96,
+            "question_id": 96,
+            "text": "You must be exhausted after such a long journey, {a1}?",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 287,
+            "question_id": 96,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Tag for **must** (deduction): affirmative **must** → negative tag **mustn't + pronoun**.\n**Must** (expressing deduction) takes **mustn't** in the tag — do not replace it with **aren't** or **isn't**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 288,
+            "question_id": 96,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Ogon do **must** (wnioskowanie): twierdzące **must** → przeczący ogon **mustn't + zaimek**.\n**Must** (wnioskowanie) przyjmuje **mustn't** w ogonie — nie zastępuj go przez **aren't** czy **isn't**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 286,
+            "question_id": 96,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Хвіст до «must» у значенні логічного висновку (deduction) — «mustn't».\n«Must be exhausted» виражає висновок, а не обов'язок; хвіст — «mustn't you».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1148,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "aren't you",
+            "correct_answer": "mustn't you",
+            "language": "en",
+            "explanation": "Incorrect. «aren't you» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1151,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "aren't you",
+            "correct_answer": "mustn't you",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «aren't you» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1143,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "aren't you",
+            "correct_answer": "mustn't you",
+            "language": "ua",
+            "explanation": "«Aren't you» вживалося б у хвості до «you are»; тут допоміжне — «must».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1144,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "aren't you",
+            "correct_answer": "mustn't you",
+            "language": "uk",
+            "explanation": "«Aren't you» вживалося б у хвості до «you are»; тут допоміжне — «must».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1149,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "must you",
+            "correct_answer": "mustn't you",
+            "language": "en",
+            "explanation": "Incorrect. «must you» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1152,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "must you",
+            "correct_answer": "mustn't you",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «must you» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1145,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "must you",
+            "correct_answer": "mustn't you",
+            "language": "ua",
+            "explanation": "«Must you» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1146,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "must you",
+            "correct_answer": "mustn't you",
+            "language": "uk",
+            "explanation": "«Must you» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1147,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "mustn't you",
+            "correct_answer": "mustn't you",
+            "language": "en",
+            "explanation": "Correct. «mustn't you» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1150,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "mustn't you",
+            "correct_answer": "mustn't you",
+            "language": "pl",
+            "explanation": "Poprawnie. «mustn't you» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1141,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "mustn't you",
+            "correct_answer": "mustn't you",
+            "language": "ua",
+            "explanation": "«Mustn't you» — правильний хвіст до «must» (deduction); стверджув. «must» → заперечний «mustn't you».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1142,
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "wrong_answer": "mustn't you",
+            "correct_answer": "mustn't you",
+            "language": "uk",
+            "explanation": "«Mustn't you» — правильний хвіст до «must» (deduction); стверджув. «must» → заперечний «mustn't you».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

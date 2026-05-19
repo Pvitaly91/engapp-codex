@@ -1,0 +1,310 @@
+{
+    "question": {
+        "id": 111,
+        "uuid": "sentencetype-3-a3-you-like-ice-cream",
+        "question": "{a3} you like ice cream?",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:04.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2,
+                "name": "Sentence types",
+                "category": null,
+                "created_at": "2026-05-18T13:16:58.000000Z",
+                "updated_at": "2026-05-18T13:16:58.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "tag_id": 2,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 60,
+                "name": "Yes/No question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "tag_id": 60,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 64,
+                "name": "Auxiliary do/does usage",
+                "category": "mechanism",
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "tag_id": 64,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "option_id": 7,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 8,
+                "option": "Does",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "option_id": 8,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 9,
+                "option": "Are",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "option_id": 9,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 111,
+                "question_id": 111,
+                "marker": "a3",
+                "option_id": 7,
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            },
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 3,
+                "question_id": 111,
+                "marker": "a3",
+                "option_id": 147,
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            },
+            "option": {
+                "id": 147,
+                "option": "question auxiliary",
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 111,
+            "question_id": 111,
+            "text": "{a3} you like ice cream?",
+            "created_at": "2026-05-18T13:17:04.000000Z",
+            "updated_at": "2026-05-18T13:17:04.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 331,
+            "question_id": 111,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "This is a yes/no question — it requires an auxiliary verb before the subject.\nThe auxiliary 'do/does/did' is needed for questions and negatives with action verbs in simple tenses.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 332,
+            "question_id": 111,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "To jest pytanie ogólne (tak/nie) — wymaga czasownika posiłkowego przed podmiotem.\nCzasownik posiłkowy 'do/does/did' jest potrzebny w pytaniach i przeczeniach z czasownikami czynnościowymi.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 333,
+            "question_id": 111,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Для утворення загального питання (Yes/No question) у Present Simple з `you` використовується допоміжне `Do`.\nПідмет `you` поєднується з `Do`, а не з `Does` (яке для третьої особи) чи `Are` (яке для `to be`).",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1323,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "en",
+            "explanation": "Incorrect: 'Are' does not fit the required grammatical structure of this sentence.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1326,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "pl",
+            "explanation": "Niepoprawnie: 'Are' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1331,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "ua",
+            "explanation": "Неправильно: `Are` вживається для питань з дієсловом `to be` (`Are you happy?`), а не зі смисловим дієсловом `like`.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1332,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "uk",
+            "explanation": "Неправильно: `Are` вживається для питань з дієсловом `to be` (`Are you happy?`), а не зі смисловим дієсловом `like`.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1321,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "en",
+            "explanation": "Correct: 'Do' is the right choice for this sentence type and grammatical context.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1324,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "pl",
+            "explanation": "Poprawnie: 'Do' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1327,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "ua",
+            "explanation": "Правильно: `Do you like…?` — стандартна форма загального питання у Present Simple з підметом `you`.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1328,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "uk",
+            "explanation": "Правильно: `Do you like…?` — стандартна форма загального питання у Present Simple з підметом `you`.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1322,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "en",
+            "explanation": "Incorrect: 'Does' does not fit the required grammatical structure of this sentence.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1325,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "pl",
+            "explanation": "Niepoprawnie: 'Does' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1329,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "ua",
+            "explanation": "Неправильно: `Does` використовується лише з третьою особою однини (`he`, `she`, `it`), а не з `you`.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        },
+        {
+            "id": 1330,
+            "question": "{a3} you like ice cream?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "uk",
+            "explanation": "Неправильно: `Does` використовується лише з третьою особою однини (`he`, `she`, `it`), а не з `you`.",
+            "created_at": "2026-05-18T13:17:06.000000Z",
+            "updated_at": "2026-05-18T13:17:06.000000Z"
+        }
+    ]
+}

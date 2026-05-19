@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 40,
+        "uuid": "cj-cp-sn-b1-q04",
+        "question": "You can pay by cash {a1} by card at this shop.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:26.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Choosing the correct conjunction",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 32,
+                "name": "Alternative conjunction 'or'",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "tag_id": 32,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 37,
+                "name": "Alternative coordination",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "tag_id": 37,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "and",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "option_id": 3,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 40,
+                "question_id": 40,
+                "marker": "a1",
+                "option_id": 3,
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 40,
+            "question_id": 40,
+            "text": "You can pay by cash {a1} by card at this shop.",
+            "created_at": "2026-05-18T13:17:20.000000Z",
+            "updated_at": "2026-05-18T13:17:20.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 119,
+            "question_id": 40,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Use 'or' when two payment methods are presented as alternatives.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 120,
+            "question_id": 40,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Użyj 'or', gdy dwa sposoby płatności są przedstawione jako alternatywy.\nДва варіанти оплати `by cash` та `by card` — взаємовиключні у конкретній транзакції.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 118,
+            "question_id": 40,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Сполучник or пропонує два альтернативні способи оплати на вибір.\nДва варіанти оплати `by cash` та `by card` — взаємовиключні у конкретній транзакції.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 476,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'And' would imply both methods are used simultaneously for one payment.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 479,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «And» sugerowałoby użycie obu metod jednocześnie w jednej transakcji.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 471,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«and» об'єднав би обидва способи, але кожен платіж здійснюється одним способом за раз.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 472,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«and» об'єднав би обидва способи, але кожен платіж здійснюється одним способом за раз.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 477,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'But' would contrast the payment methods rather than present them as options.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 480,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «But» kontrastowałoby metody płatności zamiast prezentować je jako opcje.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 473,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«but» виражав би протиставлення між способами оплати, якого в контексті зручності немає.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 474,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«but» виражав би протиставлення між способами оплати, якого в контексті зручності немає.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 475,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Correct. 'Or' presents cash and card as two alternatives for the customer to choose from.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 478,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Poprawnie. «Or» prezentuje gotówkę i kartę jako dwie alternatywne metody płatności.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 469,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«or» правильний: він вказує, що клієнт може обрати один зручний спосіб оплати.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 470,
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«or» правильний: він вказує, що клієнт може обрати один зручний спосіб оплати.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ]
+}

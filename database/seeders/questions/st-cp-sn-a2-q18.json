@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 36,
+        "uuid": "st-cp-sn-a2-q18",
+        "question": "How often {a1} you visit your grandparents?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 43,
+                "name": "WH question structure",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "tag_id": 43,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 16,
+                "option": "are",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "option_id": 16,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 22,
+                "option": "do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "option_id": 22,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23,
+                "option": "does",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "option_id": 23,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 36,
+                "question_id": 36,
+                "marker": "a1",
+                "option_id": 22,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 22,
+                "option": "do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 36,
+            "question_id": 36,
+            "text": "How often {a1} you visit your grandparents?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 107,
+            "question_id": 36,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "WH questions: **WH-word + auxiliary (do/does/did/is/are/will) + subject + base verb**.\nThe WH-word comes first, then the auxiliary, then the subject, then the base verb.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 108,
+            "question_id": 36,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania WH: **Słowo pytające + operator (do/does/did/is/are) + podmiot + forma podstawowa**.\nSłowo pytające, potem operator, potem podmiot, potem forma podstawowa.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 106,
+            "question_id": 36,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "WH-питання «how often» у Present Simple: How often + do/does + підмет + базова форма.\nПідмет «you» вимагає допоміжного «do», а не «does».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 429,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "are",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Incorrect. «are» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 432,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "are",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 425,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "are",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Are» — форма «to be»; «visit» — смислове дієслово, яке потребує «do».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 426,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "are",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Are» — форма «to be»; «visit» — смислове дієслово, яке потребує «do».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 427,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Correct. «do» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 430,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Poprawnie. «do» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 421,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Do» — правильне допоміжне для «you» у WH-питанні Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 422,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Do» — правильне допоміжне для «you» у WH-питанні Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 428,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "does",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Incorrect. «does» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 431,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "does",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «does» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 423,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "does",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Does» вживається для he/she/it; підмет тут — «you».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 424,
+            "question": "How often {a1} you visit your grandparents?",
+            "wrong_answer": "does",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Does» вживається для he/she/it; підмет тут — «you».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

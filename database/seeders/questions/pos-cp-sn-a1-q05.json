@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 23,
+        "uuid": "pos-cp-sn-a1-q05",
+        "question": "The word 'she' in 'She likes music.' is a {a1}.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 39,
+                "name": "Pronoun identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "tag_id": 39,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 137,
+                "option": "noun",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "option_id": 137,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 139,
+                "option": "adjective",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "option_id": 139,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 141,
+                "option": "pronoun",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "option_id": 141,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 133,
+                "question_id": 23,
+                "marker": "a1",
+                "option_id": 141,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "option": {
+                "id": 141,
+                "option": "pronoun",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 5,
+            "question_id": 23,
+            "text": "The word 'she' in 'She likes music.' is a {a1}.",
+            "created_at": "2026-05-18T13:16:19.000000Z",
+            "updated_at": "2026-05-18T13:16:19.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 5,
+            "question_id": 23,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Займенник (pronoun) — це слово, яке замінює іменник, щоб уникнути повторення.\nСлово `she` замінює ім'я конкретної особи — наприклад, 'Maria'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 29,
+            "question": "The word 'she' in 'She likes music.' is a {a1}.",
+            "wrong_answer": "adjective",
+            "correct_answer": "pronoun",
+            "language": "ua",
+            "explanation": "«She» не є прикметником. Прикметники описують іменники — наприклад, 'happy she' не є правильним використанням.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 30,
+            "question": "The word 'she' in 'She likes music.' is a {a1}.",
+            "wrong_answer": "adjective",
+            "correct_answer": "pronoun",
+            "language": "uk",
+            "explanation": "«She» не є прикметником. Прикметники описують іменники — наприклад, 'happy she' не є правильним використанням.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 27,
+            "question": "The word 'she' in 'She likes music.' is a {a1}.",
+            "wrong_answer": "noun",
+            "correct_answer": "pronoun",
+            "language": "ua",
+            "explanation": "«She» не є іменником, хоча позначає особу. Займенники замінюють іменники, а не є ними.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 28,
+            "question": "The word 'she' in 'She likes music.' is a {a1}.",
+            "wrong_answer": "noun",
+            "correct_answer": "pronoun",
+            "language": "uk",
+            "explanation": "«She» не є іменником, хоча позначає особу. Займенники замінюють іменники, а не є ними.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 25,
+            "question": "The word 'she' in 'She likes music.' is a {a1}.",
+            "wrong_answer": "pronoun",
+            "correct_answer": "pronoun",
+            "language": "ua",
+            "explanation": "«She» є займенником, бо замінює іменник (ім'я особи) і вказує, хто виконує дію.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 26,
+            "question": "The word 'she' in 'She likes music.' is a {a1}.",
+            "wrong_answer": "pronoun",
+            "correct_answer": "pronoun",
+            "language": "uk",
+            "explanation": "«She» є займенником, бо замінює іменник (ім'я особи) і вказує, хто виконує дію.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ]
+}

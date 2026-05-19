@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:11.000000Z",
-        "updated_at": "2026-05-06T23:45:11.000000Z"
+        "created_at": "2026-05-19T14:43:07.000000Z",
+        "updated_at": "2026-05-19T14:43:38.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 3,
         "name": "Word Order with Adverbs and Adverbials",
-        "created_at": "2026-05-06T23:45:10.000000Z",
-        "updated_at": "2026-05-06T23:45:10.000000Z"
+        "created_at": "2026-05-19T14:43:07.000000Z",
+        "updated_at": "2026-05-19T14:43:07.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 35,
+                "name": "Adverbials",
+                "category": null,
+                "created_at": "2026-05-19T14:42:56.000000Z",
+                "updated_at": "2026-05-19T14:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 166,
+                "tag_id": 35,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 36,
+                "name": "Manner",
+                "category": null,
+                "created_at": "2026-05-19T14:42:56.000000Z",
+                "updated_at": "2026-05-19T14:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 166,
+                "tag_id": 36,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 423,
+                "option": "there",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 166,
+                "option_id": 423,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 424,
+                "option": "there stayed",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 166,
+                "option_id": 424,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 425,
+                "option": "their",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 166,
+                "option_id": 425,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 166,
+                "question_id": 166,
+                "marker": "a28",
+                "option_id": 423,
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "option": {
+                "id": 423,
+                "option": "there",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 166,
+                "question_id": 166,
+                "marker": "a28",
+                "option_id": 377,
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "option": {
+                "id": 377,
+                "option": "place adverb",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 166,
+            "question_id": 166,
+            "text": "We stayed {a28} for two weeks.",
+            "created_at": "2026-05-19T14:43:07.000000Z",
+            "updated_at": "2026-05-19T14:43:07.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

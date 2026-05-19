@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 20,
+        "uuid": "st-cp-sn-a2-q02",
+        "question": "{a1} you finish the homework?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 40,
+                "name": "Yes/No question with did",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "tag_id": 40,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 7,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 36,
+                "option": "Did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 36,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 37,
+                "option": "Were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 37,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 20,
+                "question_id": 20,
+                "marker": "a1",
+                "option_id": 36,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 36,
+                "option": "Did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 20,
+            "question_id": 20,
+            "text": "{a1} you finish the homework?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 59,
+            "question_id": 20,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Past Simple yes/no questions: **Did + subject + base verb**.\nThe completed action in the past requires **Did** as the auxiliary, followed by the base verb form.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 60,
+            "question_id": 20,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania tak/nie w Past Simple: **Did + podmiot + forma podstawowa**.\nZakończona czynność w przeszłości wymaga **Did** jako operatora, po którym następuje forma podstawowa.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 58,
+            "question_id": 20,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Загальне питання у Past Simple будується за схемою: Did + підмет + базова форма дієслова.\nЗапитання стосується завершеної дії в минулому (finish the homework) — це Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 235,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Did",
+            "correct_answer": "Did",
+            "language": "en",
+            "explanation": "Correct. «Did» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 238,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Did",
+            "correct_answer": "Did",
+            "language": "pl",
+            "explanation": "Poprawnie. «Did» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 229,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Did",
+            "correct_answer": "Did",
+            "language": "ua",
+            "explanation": "«Did» — правильне допоміжне для питань Past Simple; після нього — базова форма «finish».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 230,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Did",
+            "correct_answer": "Did",
+            "language": "uk",
+            "explanation": "«Did» — правильне допоміжне для питань Past Simple; після нього — базова форма «finish».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 236,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Do",
+            "correct_answer": "Did",
+            "language": "en",
+            "explanation": "Incorrect. «Do» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 239,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Do",
+            "correct_answer": "Did",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Do» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 231,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Do",
+            "correct_answer": "Did",
+            "language": "ua",
+            "explanation": "«Do» вживається для питань Present Simple, а не минулого часу.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 232,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Do",
+            "correct_answer": "Did",
+            "language": "uk",
+            "explanation": "«Do» вживається для питань Present Simple, а не минулого часу.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 237,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Were",
+            "correct_answer": "Did",
+            "language": "en",
+            "explanation": "Incorrect. «Were» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 240,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Were",
+            "correct_answer": "Did",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Were» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 233,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Were",
+            "correct_answer": "Did",
+            "language": "ua",
+            "explanation": "«Were» — форма «to be» у Past Simple; «finish» — смислове дієслово, яке вимагає «did».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 234,
+            "question": "{a1} you finish the homework?",
+            "wrong_answer": "Were",
+            "correct_answer": "Did",
+            "language": "uk",
+            "explanation": "«Were» — форма «to be» у Past Simple; «finish» — смислове дієслово, яке вимагає «did».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

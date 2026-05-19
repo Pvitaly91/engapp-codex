@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 58,
+        "uuid": "st-cp-sn-b2-q04",
+        "question": "It never rains here, {a1}?",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 58,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 47,
+                "name": "Tag question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 58,
+                "tag_id": 47,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 72,
+                "option": "does it",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 58,
+                "option_id": 72,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 73,
+                "option": "doesn't it",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 58,
+                "option_id": 73,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 74,
+                "option": "is it",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 58,
+                "option_id": 74,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 58,
+                "question_id": 58,
+                "marker": "a1",
+                "option_id": 72,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 72,
+                "option": "does it",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 58,
+            "question_id": 58,
+            "text": "It never rains here, {a1}?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 173,
+            "question_id": 58,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 174,
+            "question_id": 58,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 172,
+            "question_id": 58,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Коли основне речення містить заперечний прислівник «never», воно вважається семантично заперечним; хвіст — стверджувальний.\nДієслово «rains» — Present Simple для «it»; стверджувальний хвіст для «it» — «does it».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 691,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "does it",
+            "correct_answer": "does it",
+            "language": "en",
+            "explanation": "Correct. «does it» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 694,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "does it",
+            "correct_answer": "does it",
+            "language": "pl",
+            "explanation": "Poprawnie. «does it» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 685,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "does it",
+            "correct_answer": "does it",
+            "language": "ua",
+            "explanation": "«Does it» — правильний стверджувальний хвіст, бо «never» робить речення семантично заперечним; для «it» вживається «does».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 686,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "does it",
+            "correct_answer": "does it",
+            "language": "uk",
+            "explanation": "«Does it» — правильний стверджувальний хвіст, бо «never» робить речення семантично заперечним; для «it» вживається «does».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 692,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "doesn't it",
+            "correct_answer": "does it",
+            "language": "en",
+            "explanation": "Incorrect. «doesn't it» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 695,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "doesn't it",
+            "correct_answer": "does it",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «doesn't it» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 687,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "doesn't it",
+            "correct_answer": "does it",
+            "language": "ua",
+            "explanation": "«Doesn't it» — заперечний хвіст; але після «never» потрібен стверджувальний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 688,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "doesn't it",
+            "correct_answer": "does it",
+            "language": "uk",
+            "explanation": "«Doesn't it» — заперечний хвіст; але після «never» потрібен стверджувальний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 693,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "is it",
+            "correct_answer": "does it",
+            "language": "en",
+            "explanation": "Incorrect. «is it» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 696,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "is it",
+            "correct_answer": "does it",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «is it» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 689,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "is it",
+            "correct_answer": "does it",
+            "language": "ua",
+            "explanation": "«Is it» вживалося б з дієсловом «to be»; тут «rains» — смислове, тому «does it».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 690,
+            "question": "It never rains here, {a1}?",
+            "wrong_answer": "is it",
+            "correct_answer": "does it",
+            "language": "uk",
+            "explanation": "«Is it» вживалося б з дієсловом «to be»; тут «rains» — смислове, тому «does it».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

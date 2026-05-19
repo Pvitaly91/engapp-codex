@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:11.000000Z",
-        "updated_at": "2026-05-06T23:45:11.000000Z"
+        "created_at": "2026-05-19T14:43:07.000000Z",
+        "updated_at": "2026-05-19T14:43:38.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 3,
         "name": "Word Order with Adverbs and Adverbials",
-        "created_at": "2026-05-06T23:45:10.000000Z",
-        "updated_at": "2026-05-06T23:45:10.000000Z"
+        "created_at": "2026-05-19T14:43:07.000000Z",
+        "updated_at": "2026-05-19T14:43:07.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 35,
+                "name": "Adverbials",
+                "category": null,
+                "created_at": "2026-05-19T14:42:56.000000Z",
+                "updated_at": "2026-05-19T14:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 161,
+                "tag_id": 35,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 36,
+                "name": "Manner",
+                "category": null,
+                "created_at": "2026-05-19T14:42:56.000000Z",
+                "updated_at": "2026-05-19T14:42:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 161,
+                "tag_id": 36,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 77,
+                "option": "usually",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 161,
+                "option_id": 77,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 393,
+                "option": "usual",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 161,
+                "option_id": 393,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 413,
+                "option": "finishes usually",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 161,
+                "option_id": 413,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 161,
+                "question_id": 161,
+                "marker": "a23",
+                "option_id": 77,
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "option": {
+                "id": 77,
+                "option": "usually",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 161,
+                "question_id": 161,
+                "marker": "a23",
+                "option_id": 367,
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            },
+            "option": {
+                "id": 367,
+                "option": "frequency adverb",
+                "created_at": "2026-05-19T14:43:07.000000Z",
+                "updated_at": "2026-05-19T14:43:07.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 161,
+            "question_id": 161,
+            "text": "He {a23} finishes work at five.",
+            "created_at": "2026-05-19T14:43:07.000000Z",
+            "updated_at": "2026-05-19T14:43:07.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

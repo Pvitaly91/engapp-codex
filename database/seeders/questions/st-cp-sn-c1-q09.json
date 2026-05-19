@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 81,
+        "uuid": "st-cp-sn-c1-q09",
+        "question": "{a1} I in your position, I would think twice about this.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 55,
+                "name": "Inverted conditional sentence (Should/Were/Had)",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "tag_id": 55,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 37,
+                "option": "Were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "option_id": 37,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53,
+                "option": "Would",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "option_id": 53,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 115,
+                "option": "Had",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "option_id": 115,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 81,
+                "question_id": 81,
+                "marker": "a1",
+                "option_id": 37,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 37,
+                "option": "Were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 81,
+            "question_id": 81,
+            "text": "{a1} I in your position, I would think twice about this.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 242,
+            "question_id": 81,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Formal inverted conditionals omit **if** and place the auxiliary first: **Should/Were/Had + subject + verb**.\nThe absence of **if** and the auxiliary at the start are the key signals. Match the conditional type to the tense in the result clause.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 243,
+            "question_id": 81,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Formalne zdania warunkowe z inwersją pomijają **if** i stawiają operator na początku: **Should/Were/Had + podmiot + czasownik**.\nBrak **if** i operator na początku to główne sygnały. Dobierz typ warunkowy do czasu w zdaniu głównym.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 241,
+            "question_id": 81,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Інвертований умовний II типу: замість «If I were in your position» → «Were I in your position».\n«Would think» у головному реченні — ознака умовного II типу; «Were» виноситься на початок.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 969,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Had",
+            "correct_answer": "Were",
+            "language": "en",
+            "explanation": "Incorrect. «Had» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 972,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Had",
+            "correct_answer": "Were",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Had» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 965,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Had",
+            "correct_answer": "Were",
+            "language": "ua",
+            "explanation": "«Had» — інверсія умовного III типу; «would think» (не «would have thought») вказує на II тип.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 966,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Had",
+            "correct_answer": "Were",
+            "language": "uk",
+            "explanation": "«Had» — інверсія умовного III типу; «would think» (не «would have thought») вказує на II тип.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 967,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "en",
+            "explanation": "Correct. «Were» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 970,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "pl",
+            "explanation": "Poprawnie. «Were» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 961,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "ua",
+            "explanation": "«Were» — правильна інверсія умовного II типу: «Were I in your position» = «If I were in your position».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 962,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "uk",
+            "explanation": "«Were» — правильна інверсія умовного II типу: «Were I in your position» = «If I were in your position».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 968,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Would",
+            "correct_answer": "Were",
+            "language": "en",
+            "explanation": "Incorrect. «Would» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 971,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Would",
+            "correct_answer": "Were",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Would» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 963,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Would",
+            "correct_answer": "Were",
+            "language": "ua",
+            "explanation": "«Would I in your position» — граматично некоректна конструкція; «would» стоїть у головному реченні.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 964,
+            "question": "{a1} I in your position, I would think twice about this.",
+            "wrong_answer": "Would",
+            "correct_answer": "Were",
+            "language": "uk",
+            "explanation": "«Would I in your position» — граматично некоректна конструкція; «would» стоїть у головному реченні.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

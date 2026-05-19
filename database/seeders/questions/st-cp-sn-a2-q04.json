@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 22,
+        "uuid": "st-cp-sn-a2-q04",
+        "question": "The film {a1} very interesting.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 22,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 34,
+                "name": "Negation with was/were + not",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 22,
+                "tag_id": 34,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 34,
+                "option": "didn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 22,
+                "option_id": 34,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 35,
+                "option": "wasn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 22,
+                "option_id": 35,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 40,
+                "option": "weren't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 22,
+                "option_id": 40,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 22,
+                "question_id": 22,
+                "marker": "a1",
+                "option_id": 35,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 35,
+                "option": "wasn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 22,
+            "question_id": 22,
+            "text": "The film {a1} very interesting.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 65,
+            "question_id": 22,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Past Simple negatives with **to be**: was not (wasn't) for singular, were not (weren't) for plural.\nCheck whether the subject is singular or plural to choose **wasn't** (singular) or **weren't** (plural).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 66,
+            "question_id": 22,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Przeczenia z **to be** w Past Simple: **wasn't** (l. poj.) lub **weren't** (l. mn.).\nSprawdź liczbę podmiotu: l. poj. → **wasn't**, l. mn. → **weren't**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 64,
+            "question_id": 22,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Заперечення дієслова «to be» у Past Simple: was not = wasn't (однина), were not = weren't (множина).\n«The film» — іменник в однині (= it), тому форма заперечення — «wasn't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 261,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "didn't",
+            "correct_answer": "wasn't",
+            "language": "en",
+            "explanation": "Incorrect. «didn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 264,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "didn't",
+            "correct_answer": "wasn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «didn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 257,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "didn't",
+            "correct_answer": "wasn't",
+            "language": "ua",
+            "explanation": "«Didn't» — заперечення смислових дієслів у Past Simple; тут присудок — «to be» (interesting).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 258,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "didn't",
+            "correct_answer": "wasn't",
+            "language": "uk",
+            "explanation": "«Didn't» — заперечення смислових дієслів у Past Simple; тут присудок — «to be» (interesting).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 259,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "wasn't",
+            "correct_answer": "wasn't",
+            "language": "en",
+            "explanation": "Correct. «wasn't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 262,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "wasn't",
+            "correct_answer": "wasn't",
+            "language": "pl",
+            "explanation": "Poprawnie. «wasn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 253,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "wasn't",
+            "correct_answer": "wasn't",
+            "language": "ua",
+            "explanation": "«Wasn't» — правильна заперечна форма «to be» для «the film» (однина) у Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 254,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "wasn't",
+            "correct_answer": "wasn't",
+            "language": "uk",
+            "explanation": "«Wasn't» — правильна заперечна форма «to be» для «the film» (однина) у Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 260,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "weren't",
+            "correct_answer": "wasn't",
+            "language": "en",
+            "explanation": "Incorrect. «weren't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 263,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "weren't",
+            "correct_answer": "wasn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «weren't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 255,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "weren't",
+            "correct_answer": "wasn't",
+            "language": "ua",
+            "explanation": "«Weren't» вживається для множини (they/the films); «the film» — однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 256,
+            "question": "The film {a1} very interesting.",
+            "wrong_answer": "weren't",
+            "correct_answer": "wasn't",
+            "language": "uk",
+            "explanation": "«Weren't» вживається для множини (they/the films); «the film» — однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

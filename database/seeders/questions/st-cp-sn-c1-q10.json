@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 82,
+        "uuid": "st-cp-sn-c1-q10",
+        "question": "Everyone must follow the rules, {a1}?",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 82,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 47,
+                "name": "Tag question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 82,
+                "tag_id": 47,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 116,
+                "option": "mustn't they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 82,
+                "option_id": 116,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 117,
+                "option": "must they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 82,
+                "option_id": 117,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 118,
+                "option": "shouldn't they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 82,
+                "option_id": 118,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 82,
+                "question_id": 82,
+                "marker": "a1",
+                "option_id": 116,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 116,
+                "option": "mustn't they",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 82,
+            "question_id": 82,
+            "text": "Everyone must follow the rules, {a1}?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 245,
+            "question_id": 82,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 246,
+            "question_id": 82,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 244,
+            "question_id": 82,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Стверджувальне речення з «must» → заперечний хвіст «mustn't»; «everyone» у хвості замінюється на «they».\n«Must» (стверджув.) → «mustn't they»; підмет «everyone» стає «they» у хвості.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 980,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "must they",
+            "correct_answer": "mustn't they",
+            "language": "en",
+            "explanation": "Incorrect. «must they» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 983,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "must they",
+            "correct_answer": "mustn't they",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «must they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 975,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "must they",
+            "correct_answer": "mustn't they",
+            "language": "ua",
+            "explanation": "«Must they» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 976,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "must they",
+            "correct_answer": "mustn't they",
+            "language": "uk",
+            "explanation": "«Must they» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 979,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "mustn't they",
+            "correct_answer": "mustn't they",
+            "language": "en",
+            "explanation": "Correct. «mustn't they» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 982,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "mustn't they",
+            "correct_answer": "mustn't they",
+            "language": "pl",
+            "explanation": "Poprawnie. «mustn't they» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 973,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "mustn't they",
+            "correct_answer": "mustn't they",
+            "language": "ua",
+            "explanation": "«Mustn't they» — правильний заперечний хвіст до «must» + займенник «they» для «everyone».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 974,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "mustn't they",
+            "correct_answer": "mustn't they",
+            "language": "uk",
+            "explanation": "«Mustn't they» — правильний заперечний хвіст до «must» + займенник «they» для «everyone».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 981,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "shouldn't they",
+            "correct_answer": "mustn't they",
+            "language": "en",
+            "explanation": "Incorrect. «shouldn't they» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 984,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "shouldn't they",
+            "correct_answer": "mustn't they",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «shouldn't they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 977,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "shouldn't they",
+            "correct_answer": "mustn't they",
+            "language": "ua",
+            "explanation": "«Shouldn't they» помилкове: у хвості повторюється саме допоміжне основного речення — «must», а не «should».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 978,
+            "question": "Everyone must follow the rules, {a1}?",
+            "wrong_answer": "shouldn't they",
+            "correct_answer": "mustn't they",
+            "language": "uk",
+            "explanation": "«Shouldn't they» помилкове: у хвості повторюється саме допоміжне основного речення — «must», а не «should».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

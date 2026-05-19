@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:06.000000Z",
-        "updated_at": "2026-05-06T23:45:06.000000Z"
+        "created_at": "2026-05-19T14:43:01.000000Z",
+        "updated_at": "2026-05-19T14:43:34.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 1,
         "name": "Basic Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 25,
+                "name": "Affirmative Sentences",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "tag_id": 25,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Place Adverbials",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 148,
+                "option": "lovely old stone",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "option_id": 148,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 149,
+                "option": "stone old lovely",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "option_id": 149,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 150,
+                "option": "old lovely stone",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "option_id": 150,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 44,
+                "question_id": 44,
+                "marker": "a62",
+                "option_id": 148,
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "option": {
+                "id": 148,
+                "option": "lovely old stone",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 44,
+                "question_id": 44,
+                "marker": "a62",
+                "option_id": 57,
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "option": {
+                "id": 57,
+                "option": "adjective order",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 44,
+            "question_id": 44,
+            "text": "She lives in a {a62} house.",
+            "created_at": "2026-05-19T14:43:01.000000Z",
+            "updated_at": "2026-05-19T14:43:01.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

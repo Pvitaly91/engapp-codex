@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 2,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:09.000000Z",
-        "updated_at": "2026-05-06T23:45:09.000000Z"
+        "created_at": "2026-05-19T14:43:05.000000Z",
+        "updated_at": "2026-05-19T14:43:37.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 2,
         "name": "Word Order in Questions and Negatives",
-        "created_at": "2026-05-06T23:45:08.000000Z",
-        "updated_at": "2026-05-06T23:45:08.000000Z"
+        "created_at": "2026-05-19T14:43:03.000000Z",
+        "updated_at": "2026-05-19T14:43:03.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 30,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 140,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "Do/Does/Did",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 140,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 136,
+                "option": "did",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 140,
+                "option_id": 136,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 137,
+                "option": "was",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 140,
+                "option_id": 137,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 138,
+                "option": "had",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 140,
+                "option_id": 138,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 140,
+                "question_id": 140,
+                "marker": "a98",
+                "option_id": 136,
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            },
+            "option": {
+                "id": 136,
+                "option": "did",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 140,
+                "question_id": 140,
+                "marker": "a98",
+                "option_id": 358,
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            },
+            "option": {
+                "id": 358,
+                "option": "inversion after only in retrospect",
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 140,
+            "question_id": 140,
+            "text": "Only in retrospect {a98} the full significance of the discovery become apparent.",
+            "created_at": "2026-05-19T14:43:05.000000Z",
+            "updated_at": "2026-05-19T14:43:05.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

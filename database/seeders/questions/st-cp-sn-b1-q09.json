@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 45,
+        "uuid": "st-cp-sn-b1-q09",
+        "question": "What should we {a1} about this problem?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 43,
+                "name": "WH question structure",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "tag_id": 43,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 22,
+                "option": "do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "option_id": 22,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 56,
+                "option": "doing",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "option_id": 56,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57,
+                "option": "done",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "option_id": 57,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 45,
+                "question_id": 45,
+                "marker": "a1",
+                "option_id": 22,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 22,
+                "option": "do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 45,
+            "question_id": 45,
+            "text": "What should we {a1} about this problem?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 134,
+            "question_id": 45,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "WH questions: **WH-word + auxiliary (do/does/did/is/are/will) + subject + base verb**.\nThe WH-word comes first, then the auxiliary, then the subject, then the base verb.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 135,
+            "question_id": 45,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania WH: **Słowo pytające + operator (do/does/did/is/are) + podmiot + forma podstawowa**.\nSłowo pytające, potem operator, potem podmiot, potem forma podstawowa.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 133,
+            "question_id": 45,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Після модального дієслова «should» завжди стоїть базова форма смислового дієслова.\n«Should we do» — правильна структура; «doing» та «done» після «should» граматично неможливі.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 535,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Correct. «do» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 538,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Poprawnie. «do» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 529,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Do» — правильна базова форма після «should»; модальні дієслова завжди поєднуються з інфінітивом без «to».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 530,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Do» — правильна базова форма після «should»; модальні дієслова завжди поєднуються з інфінітивом без «to».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 536,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "doing",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Incorrect. «doing» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 539,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "doing",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «doing» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 531,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "doing",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Doing» (Present Participle) не вживається після «should»; після модального потрібна базова форма.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 532,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "doing",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Doing» (Present Participle) не вживається після «should»; після модального потрібна базова форма.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 537,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "done",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Incorrect. «done» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 540,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "done",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «done» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 533,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "done",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Done» (Past Participle) вживається у Perfect конструкціях, але не після «should».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 534,
+            "question": "What should we {a1} about this problem?",
+            "wrong_answer": "done",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Done» (Past Participle) вживається у Perfect конструкціях, але не після «should».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

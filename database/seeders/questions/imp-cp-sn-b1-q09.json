@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 45,
+        "uuid": "imp-cp-sn-b1-q09",
+        "question": "Always {a1} a jacket when the weather is cold.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:45.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Дієслова та дієслівні форми",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Imperatives — Наказовий спосіб",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 17,
+                "name": "Imperatives",
+                "category": null,
+                "created_at": "2026-05-18T13:17:36.000000Z",
+                "updated_at": "2026-05-18T13:17:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "tag_id": 17,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Affirmative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 109,
+                "option": "bring",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "option_id": 109,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 110,
+                "option": "brings",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "option_id": 110,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 111,
+                "option": "brought",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 45,
+                "option_id": 111,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 45,
+                "question_id": 45,
+                "marker": "a1",
+                "option_id": 109,
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "option": {
+                "id": 109,
+                "option": "bring",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 45,
+            "question_id": 45,
+            "text": "Always {a1} a jacket when the weather is cold.",
+            "created_at": "2026-05-18T13:17:38.000000Z",
+            "updated_at": "2026-05-18T13:17:38.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 134,
+            "question_id": 45,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "'Always' in an imperative sentence is used with the base form of the verb; -s and past-tense forms are incorrect.\n'Always' at the start signals a regular recommendation-command; the verb 'bring' takes the base form.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 135,
+            "question_id": 45,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "«Always» w zdaniu rozkazującym jest używane z formą podstawową czasownika; formy -s i czasu przeszłego są błędne.\n«Always» na początku wskazuje na regularną rekomendację-rozkaz; czasownik «bring» przyjmuje formę podstawową.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 133,
+            "question_id": 45,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Always» у реченні-наказі вживається з базовою формою дієслова; форми -s та минулий час є хибними.\n«Always» на початку речення вказує на регулярну рекомендацію-наказ; дієслово «bring» вживається у базовій формі.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 535,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "bring",
+            "correct_answer": "bring",
+            "language": "en",
+            "explanation": "'Bring' is the base form and correctly follows 'Always' in a recommendation-imperative.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 538,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "bring",
+            "correct_answer": "bring",
+            "language": "pl",
+            "explanation": "«Bring» to forma podstawowa i poprawna forma po «Always» w rekomendacji-rozkazie.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 529,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "bring",
+            "correct_answer": "bring",
+            "language": "ua",
+            "explanation": "Форма «bring» є базовою формою дієслова і правильно вживається у наказовому реченні-рекомендації з «Always».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 530,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "bring",
+            "correct_answer": "bring",
+            "language": "uk",
+            "explanation": "Форма «bring» є базовою формою дієслова і правильно вживається у наказовому реченні-рекомендації з «Always».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 536,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brings",
+            "correct_answer": "bring",
+            "language": "en",
+            "explanation": "'Brings' is the third-person singular form. A command with 'Always' does not take the -s ending.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 539,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brings",
+            "correct_answer": "bring",
+            "language": "pl",
+            "explanation": "«Brings» to forma trzeciej osoby liczby pojedynczej. Rozkaz z «Always» nie używa końcówki -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 531,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brings",
+            "correct_answer": "bring",
+            "language": "ua",
+            "explanation": "Форма «brings» — форма третьої особи однини теперішнього часу. Наказ із «Always» не вживає закінчення -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 532,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brings",
+            "correct_answer": "bring",
+            "language": "uk",
+            "explanation": "Форма «brings» — форма третьої особи однини теперішнього часу. Наказ із «Always» не вживає закінчення -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 537,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brought",
+            "correct_answer": "bring",
+            "language": "en",
+            "explanation": "'Brought' is the irregular past tense of 'bring'. Commands require the base form, not a past tense.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 540,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brought",
+            "correct_answer": "bring",
+            "language": "pl",
+            "explanation": "«Brought» to nieregularny czas przeszły «bring». Rozkazy wymagają formy podstawowej, a nie czasu przeszłego.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 533,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brought",
+            "correct_answer": "bring",
+            "language": "ua",
+            "explanation": "Форма «brought» — неправильний минулий час дієслова «bring». Наказ вимагає базової форми, а не минулого часу.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 534,
+            "question": "Always {a1} a jacket when the weather is cold.",
+            "wrong_answer": "brought",
+            "correct_answer": "bring",
+            "language": "uk",
+            "explanation": "Форма «brought» — неправильний минулий час дієслова «bring». Наказ вимагає базової форми, а не минулого часу.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ]
+}

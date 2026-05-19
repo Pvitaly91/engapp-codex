@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 33,
+        "uuid": "imp-cp-sn-a2-q15",
+        "question": "Don't {a1} anyone else about this conversation.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:45.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Дієслова та дієслівні форми",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Imperatives — Наказовий спосіб",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 17,
+                "name": "Imperatives",
+                "category": null,
+                "created_at": "2026-05-18T13:17:36.000000Z",
+                "updated_at": "2026-05-18T13:17:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 17,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Affirmative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Negative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 25,
+                "option": "tell",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 25,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 26,
+                "option": "tells",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 26,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 27,
+                "option": "told",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 27,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 33,
+                "question_id": 33,
+                "marker": "a1",
+                "option_id": 25,
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "option": {
+                "id": 25,
+                "option": "tell",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 33,
+            "question_id": 33,
+            "text": "Don't {a1} anyone else about this conversation.",
+            "created_at": "2026-05-18T13:17:38.000000Z",
+            "updated_at": "2026-05-18T13:17:38.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 98,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "The negative imperative uses 'Don't + base verb'; -s and past-tense forms do not fit after 'Don't'.\n'Don't' before the gap unambiguously requires the base form; 'told' is the irregular past tense and 'tells' is the third-person form.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 99,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Przeczący tryb rozkazujący używa «Don't + forma podstawowa»; formy -s i czasu przeszłego nie pasują po «Don't».\n«Don't» przed luką jednoznacznie wymaga formy podstawowej; «told» to nieregularny czas przeszły, a «tells» to forma trzeciej osoby.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 97,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Заперечний наказовий спосіб вживає конструкцію «Don't + базова форма дієслова»; форми -s та минулий час не підходять після «Don't».\n«Don't» перед пропуском однозначно вимагає базової форми; «told» є неправильним минулим часом, а «tells» — формою третьої особи.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 391,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tell",
+            "correct_answer": "tell",
+            "language": "en",
+            "explanation": "'Tell' is the base form and the correct negative imperative after 'Don't'.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 394,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tell",
+            "correct_answer": "tell",
+            "language": "pl",
+            "explanation": "«Tell» to podstawowa forma i poprawny przeczący tryb rozkazujący po «Don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 385,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tell",
+            "correct_answer": "tell",
+            "language": "ua",
+            "explanation": "Форма «tell» є базовою формою дієслова і правильно вживається у заперечному наказовому способі після «Don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 386,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tell",
+            "correct_answer": "tell",
+            "language": "uk",
+            "explanation": "Форма «tell» є базовою формою дієслова і правильно вживається у заперечному наказовому способі після «Don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 392,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tells",
+            "correct_answer": "tell",
+            "language": "en",
+            "explanation": "'Tells' is the third-person singular form. After 'Don't' in an imperative, the -s form is incorrect.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 395,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tells",
+            "correct_answer": "tell",
+            "language": "pl",
+            "explanation": "«Tells» to forma trzeciej osoby liczby pojedynczej. Po «Don't» w trybie rozkazującym forma -s jest błędna.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 387,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tells",
+            "correct_answer": "tell",
+            "language": "ua",
+            "explanation": "Форма «tells» — форма третьої особи однини теперішнього часу. Після «Don't» у наказовому способі форма -s неправильна.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 388,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "tells",
+            "correct_answer": "tell",
+            "language": "uk",
+            "explanation": "Форма «tells» — форма третьої особи однини теперішнього часу. Після «Don't» у наказовому способі форма -s неправильна.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 393,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "told",
+            "correct_answer": "tell",
+            "language": "en",
+            "explanation": "'Told' is the irregular past tense of 'tell'. Negative imperatives use the base form, not a past tense.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 396,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "told",
+            "correct_answer": "tell",
+            "language": "pl",
+            "explanation": "«Told» to nieregularny czas przeszły «tell». Przeczący tryb rozkazujący używa formy podstawowej, a nie czasu przeszłego.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 389,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "told",
+            "correct_answer": "tell",
+            "language": "ua",
+            "explanation": "Форма «told» — неправильний минулий час дієслова «tell». Заперечний наказ будується з базовою формою, а не з минулим часом.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 390,
+            "question": "Don't {a1} anyone else about this conversation.",
+            "wrong_answer": "told",
+            "correct_answer": "tell",
+            "language": "uk",
+            "explanation": "Форма «told» — неправильний минулий час дієслова «tell». Заперечний наказ будується з базовою формою, а не з минулим часом.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ]
+}

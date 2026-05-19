@@ -1,0 +1,310 @@
+{
+    "question": {
+        "id": 139,
+        "uuid": "31-the-food-was-great-a31-the-servic",
+        "question": "The food was great, {a31} the service was slow.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:23.000000Z",
+        "updated_at": "2026-05-18T13:17:28.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Coordinating conjunctions",
+                "category": null,
+                "created_at": "2026-05-18T13:17:17.000000Z",
+                "updated_at": "2026-05-18T13:17:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 139,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 41,
+                "name": "Conjunction 'but' — contrast",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "pivot": {
+                "question_id": 139,
+                "tag_id": 41,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 46,
+                "name": "Contrast conjunctions",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "pivot": {
+                "question_id": 139,
+                "tag_id": 46,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "and",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 139,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 139,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4,
+                "option": "because",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 139,
+                "option_id": 4,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 139,
+                "question_id": 139,
+                "marker": "a31",
+                "option_id": 2,
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 31,
+                "question_id": 139,
+                "marker": "a31",
+                "option_id": 6,
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "option": {
+                "id": 6,
+                "option": "conjunction",
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 139,
+            "question_id": 139,
+            "text": "The food was great, {a31} the service was slow.",
+            "created_at": "2026-05-18T13:17:23.000000Z",
+            "updated_at": "2026-05-18T13:17:23.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 415,
+            "question_id": 139,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "'But' highlights the contrast between a positive and a negative evaluation of the same experience.\nThe first part `food was great` is a positive verdict; `service was slow` is a negative one. Which conjunction contrasts positive and negative?",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 416,
+            "question_id": 139,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "'But' podkreśla kontrast między pozytywną a negatywną oceną tego samego doświadczenia.\nPierwsza część `was great` to pozytywna ocena jedzenia; `service was slow` to negatywna. Który spójnik kontrastuje pozytywne z negatywnym?",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 417,
+            "question_id": 139,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Сполучник but підкреслює контраст між позитивною та негативною оцінкою одного досвіду.\nУ реченні `was great` — позитивна оцінка їжі, а `service was slow` — негативна оцінка обслуговування. Яке слово передає цей контраст?",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1650,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "en",
+            "explanation": "'And' would list both evaluations without highlighting their contrasting nature.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1653,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "pl",
+            "explanation": "'And' jedynie by wymieniało obie oceny bez podkreślania ich kontrastowego charakteru.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1657,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "ua",
+            "explanation": "«and» просто перелічував би: «їжа чудова І обслуговування повільне» — можливо, але «but» краще підкреслює контраст між позитивним і негативним.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1658,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "uk",
+            "explanation": "«and» просто перелічував би: «їжа чудова І обслуговування повільне» — можливо, але «but» краще підкреслює контраст між позитивним і негативним.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1651,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "because",
+            "correct_answer": "but",
+            "language": "en",
+            "explanation": "'Because' introduces a reason: 'food was great because service was slow' — illogically links the two evaluations.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1654,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "because",
+            "correct_answer": "but",
+            "language": "pl",
+            "explanation": "'Because' wprowadza przyczynę: 'jedzenie było świetne, bo obsługa była powolna' — logicznie błędne.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1659,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "because",
+            "correct_answer": "but",
+            "language": "ua",
+            "explanation": "«because» вводить причину: «їжа чудова, ТОМУ ЩО обслуговування повільне» — логічно хибно.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1660,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "because",
+            "correct_answer": "but",
+            "language": "uk",
+            "explanation": "«because» вводить причину: «їжа чудова, ТОМУ ЩО обслуговування повільне» — логічно хибно.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1649,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "en",
+            "explanation": "Correct: 'but' expresses the contrast — the food was great BUT the service was slow. A positive and a negative verdict are contrasted.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1652,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "pl",
+            "explanation": "Poprawnie: 'but' wyraża kontrast — jedzenie było świetne, ALE obsługa powolna. Zestawione są pozytywna i negatywna ocena.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1655,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "ua",
+            "explanation": "Правильно: «but» виражає контраст між двома оцінками — їжа чудова, АЛЕ обслуговування повільне.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1656,
+            "question": "The food was great, {a31} the service was slow.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "uk",
+            "explanation": "Правильно: «but» виражає контраст між двома оцінками — їжа чудова, АЛЕ обслуговування повільне.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        }
+    ]
+}

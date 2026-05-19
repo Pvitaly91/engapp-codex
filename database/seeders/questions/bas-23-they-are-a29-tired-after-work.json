@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 1,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:06.000000Z",
-        "updated_at": "2026-05-06T23:45:06.000000Z"
+        "created_at": "2026-05-19T14:43:01.000000Z",
+        "updated_at": "2026-05-19T14:43:33.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 1,
         "name": "Basic Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 25,
+                "name": "Affirmative Sentences",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "tag_id": 25,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 27,
+                "name": "Time Adverbials",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "tag_id": 27,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 77,
+                "option": "usually",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "option_id": 77,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 78,
+                "option": "tired usually",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "option_id": 78,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 79,
+                "option": "are usually",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 23,
+                "option_id": 79,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 23,
+                "question_id": 23,
+                "marker": "a29",
+                "option_id": 77,
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "option": {
+                "id": 77,
+                "option": "usually",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 23,
+                "question_id": 23,
+                "marker": "a29",
+                "option_id": 23,
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "option": {
+                "id": 23,
+                "option": "frequency adverb after be",
+                "created_at": "2026-05-19T14:43:00.000000Z",
+                "updated_at": "2026-05-19T14:43:00.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 23,
+            "question_id": 23,
+            "text": "They are {a29} tired after work.",
+            "created_at": "2026-05-19T14:43:01.000000Z",
+            "updated_at": "2026-05-19T14:43:01.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

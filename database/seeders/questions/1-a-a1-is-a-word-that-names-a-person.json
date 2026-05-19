@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 49,
+        "uuid": "1-a-a1-is-a-word-that-names-a-person",
+        "question": "A {a1} is a word that names a person, place, or thing.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-18T13:16:20.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:16.000000Z",
+                "updated_at": "2026-05-18T13:16:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 44,
+                "name": "Noun recognition",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:20.000000Z",
+                "updated_at": "2026-05-18T13:16:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "tag_id": 44,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 137,
+                "option": "noun",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "option_id": 137,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 138,
+                "option": "verb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "option_id": 138,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 139,
+                "option": "adjective",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "option_id": 139,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 159,
+                "question_id": 49,
+                "marker": "a1",
+                "option_id": 137,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 137,
+                "option": "noun",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 1,
+                "question_id": 49,
+                "marker": "a1",
+                "option_id": 146,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 146,
+                "option": "part of speech",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 31,
+            "question_id": 49,
+            "text": "A {a1} is a word that names a person, place, or thing.",
+            "created_at": "2026-05-18T13:16:21.000000Z",
+            "updated_at": "2026-05-18T13:16:21.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 31,
+            "question_id": 49,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "A noun is a word that identifies a person, place, thing, or idea.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 32,
+            "question_id": 49,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Rzeczownik (noun) to słowo nazywające osobę, miejsce lub rzecz.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 33,
+            "question_id": 49,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Питання стосується визначення іменника (noun) — частини мови, яка називає особу, місце або річ.\nУ реченні йдеться про слово, що «називає особу, місце або річ» — це пряма ознака іменника.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 183,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "adjective",
+            "correct_answer": "noun",
+            "language": "en",
+            "explanation": "Incorrect. An adjective describes a noun, which isn't the function here.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 186,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "adjective",
+            "correct_answer": "noun",
+            "language": "pl",
+            "explanation": "Przymiotnik (adjective) opisuje rzeczownik, ale nie nazywa osób, miejsc czy rzeczy.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 191,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "adjective",
+            "correct_answer": "noun",
+            "language": "ua",
+            "explanation": "Прикметник (adjective) описує ознаки предметів, а не називає їх.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 192,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "adjective",
+            "correct_answer": "noun",
+            "language": "uk",
+            "explanation": "Прикметник (adjective) описує ознаки предметів, а не називає їх.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 182,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "noun",
+            "correct_answer": "noun",
+            "language": "en",
+            "explanation": "Correct. A noun is defined as a word that names a person, place, or thing.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 185,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "noun",
+            "correct_answer": "noun",
+            "language": "pl",
+            "explanation": "Poprawnie! Rzeczownik (noun) to część mowy nazywająca osobę, miejsce lub rzecz.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 189,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "noun",
+            "correct_answer": "noun",
+            "language": "ua",
+            "explanation": "Іменник (noun) — це саме та частина мови, яка називає людей, місця та предмети.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 190,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "noun",
+            "correct_answer": "noun",
+            "language": "uk",
+            "explanation": "Іменник (noun) — це саме та частина мови, яка називає людей, місця та предмети.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 181,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "verb",
+            "correct_answer": "noun",
+            "language": "en",
+            "explanation": "Incorrect. A verb expresses action or state, not what's needed here.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 184,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "verb",
+            "correct_answer": "noun",
+            "language": "pl",
+            "explanation": "Czasownik (verb) opisuje działanie, a tutaj potrzebujemy nazwy części mowy.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 187,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "verb",
+            "correct_answer": "noun",
+            "language": "ua",
+            "explanation": "Дієслово (verb) виражає дію або стан, а не називає особу, місце чи річ.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 188,
+            "question": "A {a1} is a word that names a person, place, or thing.",
+            "wrong_answer": "verb",
+            "correct_answer": "noun",
+            "language": "uk",
+            "explanation": "Дієслово (verb) виражає дію або стан, а не називає особу, місце чи річ.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ]
+}

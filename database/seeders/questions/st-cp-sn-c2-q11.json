@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 101,
+        "uuid": "st-cp-sn-c2-q11",
+        "question": "She'd have told me if she knew, {a1}?",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 101,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 47,
+                "name": "Tag question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 101,
+                "tag_id": 47,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 121,
+                "option": "wouldn't she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 101,
+                "option_id": 121,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 127,
+                "option": "would she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 101,
+                "option_id": 127,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 128,
+                "option": "hadn't she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 101,
+                "option_id": 128,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 101,
+                "question_id": 101,
+                "marker": "a1",
+                "option_id": 121,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 121,
+                "option": "wouldn't she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 101,
+            "question_id": 101,
+            "text": "She'd have told me if she knew, {a1}?",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 302,
+            "question_id": 101,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 303,
+            "question_id": 101,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 301,
+            "question_id": 101,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«She'd have told» = «she would have told»; хвіст до стверджувального «would» — «wouldn't she».\n«Would» (стверджув.) → «wouldn't she» у хвості.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1209,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "hadn't she",
+            "correct_answer": "wouldn't she",
+            "language": "en",
+            "explanation": "Incorrect. «hadn't she» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1212,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "hadn't she",
+            "correct_answer": "wouldn't she",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «hadn't she» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1205,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "hadn't she",
+            "correct_answer": "wouldn't she",
+            "language": "ua",
+            "explanation": "«Hadn't she» вживалося б для Past Perfect як основне допоміжне; тут — «would have».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1206,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "hadn't she",
+            "correct_answer": "wouldn't she",
+            "language": "uk",
+            "explanation": "«Hadn't she» вживалося б для Past Perfect як основне допоміжне; тут — «would have».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1208,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "would she",
+            "correct_answer": "wouldn't she",
+            "language": "en",
+            "explanation": "Incorrect. «would she» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1211,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "would she",
+            "correct_answer": "wouldn't she",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «would she» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1203,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "would she",
+            "correct_answer": "wouldn't she",
+            "language": "ua",
+            "explanation": "«Would she» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1204,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "would she",
+            "correct_answer": "wouldn't she",
+            "language": "uk",
+            "explanation": "«Would she» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1207,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "wouldn't she",
+            "language": "en",
+            "explanation": "Correct. «wouldn't she» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1210,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "wouldn't she",
+            "language": "pl",
+            "explanation": "Poprawnie. «wouldn't she» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1201,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "wouldn't she",
+            "language": "ua",
+            "explanation": "«Wouldn't she» — правильний хвіст: «she'd have» = «she would have» (стверджув.) → «wouldn't she».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1202,
+            "question": "She'd have told me if she knew, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "wouldn't she",
+            "language": "uk",
+            "explanation": "«Wouldn't she» — правильний хвіст: «she'd have» = «she would have» (стверджув.) → «wouldn't she».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

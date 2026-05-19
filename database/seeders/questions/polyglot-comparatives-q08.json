@@ -1,33 +1,394 @@
 {
     "question": {
-        "id": 320,
+        "id": 512,
         "uuid": "polyglot-comparatives-q08",
         "question": "Ця книга цікавіша за ту книгу.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 13,
+        "category_id": 2,
+        "source_id": 2,
         "flag": 0,
-        "created_at": "2026-05-08T23:33:53.000000Z",
-        "updated_at": "2026-05-08T23:33:53.000000Z"
+        "created_at": "2026-05-19T14:44:31.000000Z",
+        "updated_at": "2026-05-19T14:45:06.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "English Sentence Builder A1",
-        "created_at": "2026-05-08T23:33:27.000000Z",
-        "updated_at": "2026-05-08T23:33:27.000000Z"
+        "created_at": "2026-05-19T14:44:31.000000Z",
+        "updated_at": "2026-05-19T14:44:31.000000Z"
     },
     "source": {
-        "id": 13,
+        "id": 2,
         "name": "Degrees of Comparison",
-        "created_at": "2026-05-08T23:33:52.000000Z",
-        "updated_at": "2026-05-08T23:33:52.000000Z"
+        "created_at": "2026-05-19T14:44:13.000000Z",
+        "updated_at": "2026-05-19T14:44:13.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 50,
+                "name": "Sentence Builder compose tokens",
+                "category": "mode",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "tag_id": 50,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 51,
+                "name": "comparatives",
+                "category": "topic",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "tag_id": 51,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 52,
+                "name": "adjectives",
+                "category": "topic",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "tag_id": 52,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 53,
+                "name": "comparative adjectives",
+                "category": "grammar",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "tag_id": 53,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 54,
+                "name": "affirmative",
+                "category": "pattern",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "tag_id": 54,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 57,
+                "name": "A1",
+                "category": "level",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "tag_id": 57,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 512,
+                "option": "boring",
+                "created_at": "2026-05-19T14:44:20.000000Z",
+                "updated_at": "2026-05-19T14:44:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 512,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 807,
+                "option": "interesting",
+                "created_at": "2026-05-19T14:44:25.000000Z",
+                "updated_at": "2026-05-19T14:44:25.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 807,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 946,
+                "option": "This",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 946,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 948,
+                "option": "is",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 948,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 949,
+                "option": "than",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 949,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 950,
+                "option": "that",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 950,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 952,
+                "option": "car",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 952,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 968,
+                "option": "book",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 968,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 969,
+                "option": "more",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 969,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 970,
+                "option": "most",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 512,
+                "option_id": 970,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 554,
+                "question_id": 512,
+                "marker": "a1",
+                "option_id": 946,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 946,
+                "option": "This",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 555,
+                "question_id": 512,
+                "marker": "a2",
+                "option_id": 968,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 968,
+                "option": "book",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 556,
+                "question_id": 512,
+                "marker": "a3",
+                "option_id": 948,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 948,
+                "option": "is",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 557,
+                "question_id": 512,
+                "marker": "a4",
+                "option_id": 969,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 969,
+                "option": "more",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 558,
+                "question_id": 512,
+                "marker": "a5",
+                "option_id": 807,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 807,
+                "option": "interesting",
+                "created_at": "2026-05-19T14:44:25.000000Z",
+                "updated_at": "2026-05-19T14:44:25.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 559,
+                "question_id": 512,
+                "marker": "a6",
+                "option_id": 949,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 949,
+                "option": "than",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 560,
+                "question_id": 512,
+                "marker": "a7",
+                "option_id": 950,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 950,
+                "option": "that",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 561,
+                "question_id": 512,
+                "marker": "a8",
+                "option_id": 968,
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            },
+            "option": {
+                "id": 968,
+                "option": "book",
+                "created_at": "2026-05-19T14:44:31.000000Z",
+                "updated_at": "2026-05-19T14:44:31.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
     "variants": [],
-    "hints": [],
+    "hints": [
+        {
+            "id": 8,
+            "question_id": 512,
+            "provider": "polyglot-v3",
+            "locale": "uk",
+            "hint": "Для довших прикметників використовуємо more + adjective.",
+            "created_at": "2026-05-19T14:44:32.000000Z",
+            "updated_at": "2026-05-19T14:44:32.000000Z"
+        }
+    ],
     "chatgpt_explanations": []
 }

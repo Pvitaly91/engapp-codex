@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 85,
+        "uuid": "st-cp-sn-c1-q13",
+        "question": "She used to live in Paris, {a1}?",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 47,
+                "name": "Tag question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "tag_id": 47,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 120,
+                "option": "didn't she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "option_id": 120,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 121,
+                "option": "wouldn't she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "option_id": 121,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 122,
+                "option": "used she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "option_id": 122,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 85,
+                "question_id": 85,
+                "marker": "a1",
+                "option_id": 120,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 120,
+                "option": "didn't she",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 85,
+            "question_id": 85,
+            "text": "She used to live in Paris, {a1}?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 254,
+            "question_id": 85,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 255,
+            "question_id": 85,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 253,
+            "question_id": 85,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Used to» — особлива форма; хвіст до неї в стандартній розмовній англійській — «didn't she» (Past Simple).\n«Used to» описує минулу звичку; хвіст для стверджувального Past — «didn't she».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1015,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "didn't she",
+            "correct_answer": "didn't she",
+            "language": "en",
+            "explanation": "Correct. «didn't she» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1018,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "didn't she",
+            "correct_answer": "didn't she",
+            "language": "pl",
+            "explanation": "Poprawnie. «didn't she» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1009,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "didn't she",
+            "correct_answer": "didn't she",
+            "language": "ua",
+            "explanation": "«Didn't she» — правильний стандартний хвіст до «used to»: стверджув. минула → «didn't she».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1010,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "didn't she",
+            "correct_answer": "didn't she",
+            "language": "uk",
+            "explanation": "«Didn't she» — правильний стандартний хвіст до «used to»: стверджув. минула → «didn't she».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1017,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "used she",
+            "correct_answer": "didn't she",
+            "language": "en",
+            "explanation": "Incorrect. «used she» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1020,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "used she",
+            "correct_answer": "didn't she",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «used she» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1013,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "used she",
+            "correct_answer": "didn't she",
+            "language": "ua",
+            "explanation": "«Used she» — архаїчний і нестандартний варіант; сучасна англійська вживає «didn't she».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1014,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "used she",
+            "correct_answer": "didn't she",
+            "language": "uk",
+            "explanation": "«Used she» — архаїчний і нестандартний варіант; сучасна англійська вживає «didn't she».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1016,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "didn't she",
+            "language": "en",
+            "explanation": "Incorrect. «wouldn't she» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1019,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "didn't she",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «wouldn't she» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1011,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "didn't she",
+            "language": "ua",
+            "explanation": "«Wouldn't she» використовувалося б для «would»; «used to» не пов'язане з «would» у хвості.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1012,
+            "question": "She used to live in Paris, {a1}?",
+            "wrong_answer": "wouldn't she",
+            "correct_answer": "didn't she",
+            "language": "uk",
+            "explanation": "«Wouldn't she» використовувалося б для «would»; «used to» не пов'язане з «would» у хвості.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

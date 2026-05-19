@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 95,
+        "uuid": "st-cp-sn-c2-q05",
+        "question": "Not until the final chapter {a1} the truth finally revealed.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 95,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 56,
+                "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 95,
+                "tag_id": 56,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 17,
+                "option": "is",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 95,
+                "option_id": 17,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 110,
+                "option": "had",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 95,
+                "option_id": 110,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 111,
+                "option": "was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 95,
+                "option_id": 111,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 95,
+                "question_id": 95,
+                "marker": "a1",
+                "option_id": 111,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 111,
+                "option": "was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 95,
+            "question_id": 95,
+            "text": "Not until the final chapter {a1} the truth finally revealed.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 284,
+            "question_id": 95,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "After negative/restrictive adverbials (Never, Hardly, Not only, Seldom, Only then…), **subject-auxiliary inversion** is required.\nThe inverted auxiliary must match the tense of the original clause. Only the auxiliary comes before the subject.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 285,
+            "question_id": 95,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Po przysłówkach o znaczeniu ograniczającym (Never, Hardly, Not only, Seldom…) wymagana jest inwersja podmiotu i operatora.\nInwertowany operator musi odpowiadać czasowi zdania. Tylko operator przechodzi przed podmiot.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 283,
+            "question_id": 95,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Not until» на початку викликає інверсію; у пасивному реченні: «Not until... was + підмет + Past Participle».\n«The truth revealed» — пасивна конструкція; «the truth» — однина → «was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1137,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "en",
+            "explanation": "Incorrect. «had» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1140,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «had» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1133,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "«Had» утворило б Past Perfect; але тут — Past Simple пасив із інверсією «was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1134,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "«Had» утворило б Past Perfect; але тут — Past Simple пасив із інверсією «was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1136,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "is",
+            "correct_answer": "was",
+            "language": "en",
+            "explanation": "Incorrect. «is» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1139,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "is",
+            "correct_answer": "was",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «is» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1131,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "is",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "«Is» — теперішній час; «the final chapter» описує минулу подію у книзі.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1132,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "is",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "«Is» — теперішній час; «the final chapter» описує минулу подію у книзі.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1135,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "en",
+            "explanation": "Correct. «was» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1138,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "pl",
+            "explanation": "Poprawnie. «was» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1129,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "«Was» — правильна форма: «Not until the final chapter was the truth revealed» — пасив Past Simple, однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1130,
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "«Was» — правильна форма: «Not until the final chapter was the truth revealed» — пасив Past Simple, однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

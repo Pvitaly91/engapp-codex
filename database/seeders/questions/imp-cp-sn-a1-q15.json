@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 15,
+        "uuid": "imp-cp-sn-a1-q15",
+        "question": "Please don't {a1} here.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:45.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Дієслова та дієслівні форми",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Imperatives — Наказовий спосіб",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 17,
+                "name": "Imperatives",
+                "category": null,
+                "created_at": "2026-05-18T13:17:36.000000Z",
+                "updated_at": "2026-05-18T13:17:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 17,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Affirmative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Negative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 43,
+                "option": "smoke",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 43,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 44,
+                "option": "smokes",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 44,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 45,
+                "option": "smoking",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 45,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 15,
+                "question_id": 15,
+                "marker": "a1",
+                "option_id": 43,
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "option": {
+                "id": 43,
+                "option": "smoke",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 15,
+            "question_id": 15,
+            "text": "Please don't {a1} here.",
+            "created_at": "2026-05-18T13:17:38.000000Z",
+            "updated_at": "2026-05-18T13:17:38.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 44,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "The polite negative imperative 'Please don't' requires the base form of the verb after 'don't'; no endings are added.\nThe structure 'Please don't ___' is a standard polite negative command; the verb after 'don't' is the base form.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 45,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Grzeczny przeczący tryb rozkazujący «Please don't» wymaga podstawowej formy czasownika po «don't»; nie dodaje się żadnych końcówek.\nStruktura «Please don't ___» to standardowy grzeczny rozkaz przeczący; czasownik po «don't» przyjmuje formę podstawową.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 43,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Ввічливий заперечний наказ «Please don't» вимагає базової форми дієслова після «don't»; жодних закінчень не додається.\nКонструкція «Please don't ___» є стандартним ввічливим заперечним наказом; дієслово після «don't» стоїть у базовій формі.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 175,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoke",
+            "correct_answer": "smoke",
+            "language": "en",
+            "explanation": "'Smoke' is the base form and the correct polite negative imperative after 'don't'.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 178,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoke",
+            "correct_answer": "smoke",
+            "language": "pl",
+            "explanation": "«Smoke» to podstawowa forma i poprawna forma grzecznego przeczącego trybu rozkazującego po «don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 169,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoke",
+            "correct_answer": "smoke",
+            "language": "ua",
+            "explanation": "Форма «smoke» є базовою формою дієслова і правильно вживається у ввічливому заперечному наказовому способі після «don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 170,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoke",
+            "correct_answer": "smoke",
+            "language": "uk",
+            "explanation": "Форма «smoke» є базовою формою дієслова і правильно вживається у ввічливому заперечному наказовому способі після «don't».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 176,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smokes",
+            "correct_answer": "smoke",
+            "language": "en",
+            "explanation": "'Smokes' is the third-person singular form. The -s ending is never used after 'don't' in an imperative.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 179,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smokes",
+            "correct_answer": "smoke",
+            "language": "pl",
+            "explanation": "«Smokes» to forma trzeciej osoby liczby pojedynczej. Końcówka -s nigdy nie jest używana po «don't» w trybie rozkazującym.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 171,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smokes",
+            "correct_answer": "smoke",
+            "language": "ua",
+            "explanation": "Форма «smokes» — форма третьої особи однини. Після «don't» у наказовому способі закінчення -s ніколи не використовується.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 172,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smokes",
+            "correct_answer": "smoke",
+            "language": "uk",
+            "explanation": "Форма «smokes» — форма третьої особи однини. Після «don't» у наказовому способі закінчення -s ніколи не використовується.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 177,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoking",
+            "correct_answer": "smoke",
+            "language": "en",
+            "explanation": "'Smoking' is the present participle. 'Don't smoking' is grammatically incorrect.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 180,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoking",
+            "correct_answer": "smoke",
+            "language": "pl",
+            "explanation": "«Smoking» to imiesłów teraźniejszy. «Don't smoking» jest gramatycznie niepoprawne.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 173,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoking",
+            "correct_answer": "smoke",
+            "language": "ua",
+            "explanation": "Форма «smoking» — дієприкметник теперішнього часу. Конструкція «don't smoking» граматично неправильна.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 174,
+            "question": "Please don't {a1} here.",
+            "wrong_answer": "smoking",
+            "correct_answer": "smoke",
+            "language": "uk",
+            "explanation": "Форма «smoking» — дієприкметник теперішнього часу. Конструкція «don't smoking» граматично неправильна.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ]
+}

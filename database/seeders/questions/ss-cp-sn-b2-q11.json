@@ -1,0 +1,215 @@
+{
+    "question": {
+        "id": 11,
+        "uuid": "ss-cp-sn-b2-q11",
+        "question": "This book {a1} published in 1999.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:16:48.000000Z",
+        "updated_at": "2026-05-18T13:16:52.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Речення та граматика",
+        "created_at": "2026-05-18T13:16:47.000000Z",
+        "updated_at": "2026-05-18T13:16:47.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-18T13:16:47.000000Z",
+        "updated_at": "2026-05-18T13:16:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 28,
+                "name": "Sentence structure SVO",
+                "category": "topic",
+                "created_at": "2026-05-18T13:16:47.000000Z",
+                "updated_at": "2026-05-18T13:16:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Basic SVO order",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:47.000000Z",
+                "updated_at": "2026-05-18T13:16:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 32,
+                "name": "Passive voice",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:47.000000Z",
+                "updated_at": "2026-05-18T13:16:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "tag_id": 32,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 25,
+                "option": "was",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "option_id": 25,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 27,
+                "option": "were",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "option_id": 27,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 28,
+                "option": "had",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "option_id": 28,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 11,
+                "question_id": 11,
+                "marker": "a1",
+                "option_id": 25,
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "option": {
+                "id": 25,
+                "option": "was",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 11,
+            "question_id": 11,
+            "text": "This book {a1} published in 1999.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 11,
+            "question_id": 11,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Рік «in 1999» вказує на конкретну завершену дію в минулому — Past Simple Passive.\nПідмет «This book» є однинним — потрібне допоміжне дієслово «was».",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 65,
+            "question": "This book {a1} published in 1999.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "Форма «had» — допоміжне дієслово Past Perfect або дієслово «мати»; без «been» не утворює пасивний стан (потрібно «had been published»).",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 66,
+            "question": "This book {a1} published in 1999.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "Форма «had» — допоміжне дієслово Past Perfect або дієслово «мати»; без «been» не утворює пасивний стан (потрібно «had been published»).",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 61,
+            "question": "This book {a1} published in 1999.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "Форма «was» правильна: Past Simple Passive для однинного підмета «this book»; «in 1999» підтверджує конкретний минулий час.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 62,
+            "question": "This book {a1} published in 1999.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "Форма «was» правильна: Past Simple Passive для однинного підмета «this book»; «in 1999» підтверджує конкретний минулий час.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 63,
+            "question": "This book {a1} published in 1999.",
+            "wrong_answer": "were",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "Форма «were» — Past Simple Passive для множини; підмет «this book» є однинним, тому «were» тут неправильне.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 64,
+            "question": "This book {a1} published in 1999.",
+            "wrong_answer": "were",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "Форма «were» — Past Simple Passive для множини; підмет «this book» є однинним, тому «were» тут неправильне.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        }
+    ]
+}

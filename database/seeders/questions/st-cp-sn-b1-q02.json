@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 38,
+        "uuid": "st-cp-sn-b1-q02",
+        "question": "{a1} you ever tried sushi?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 38,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 42,
+                "name": "Yes/No question in Present Perfect",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 38,
+                "tag_id": 42,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 36,
+                "option": "Did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 38,
+                "option_id": 36,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 47,
+                "option": "Have",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 38,
+                "option_id": 47,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 48,
+                "option": "Has",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 38,
+                "option_id": 48,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 38,
+                "question_id": 38,
+                "marker": "a1",
+                "option_id": 47,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 47,
+                "option": "Have",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 38,
+            "question_id": 38,
+            "text": "{a1} you ever tried sushi?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 113,
+            "question_id": 38,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Present Perfect yes/no questions: **Have/Has + subject + past participle**.\n**Have** is for I/you/we/they; **Has** for he/she/it. After the auxiliary comes **ever + past participle**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 114,
+            "question_id": 38,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania tak/nie w Present Perfect: **Have/Has + podmiot + imiesłów bierny**.\n**Have** dla I/you/we/they; **Has** dla he/she/it. Po operatorze — **ever + imiesłów**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 112,
+            "question_id": 38,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Загальне питання Present Perfect: Have/Has + підмет + ever + Past Participle.\n«Ever» — маркер Present Perfect; підмет «you» вимагає «Have».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 453,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Did",
+            "correct_answer": "Have",
+            "language": "en",
+            "explanation": "Incorrect. «Did» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 456,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Did",
+            "correct_answer": "Have",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Did» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 449,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Did",
+            "correct_answer": "Have",
+            "language": "ua",
+            "explanation": "«Did» — допоміжне Past Simple; «ever» і «tried» вказують на Present Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 450,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Did",
+            "correct_answer": "Have",
+            "language": "uk",
+            "explanation": "«Did» — допоміжне Past Simple; «ever» і «tried» вказують на Present Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 452,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Has",
+            "correct_answer": "Have",
+            "language": "en",
+            "explanation": "Incorrect. «Has» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 455,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Has",
+            "correct_answer": "Have",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Has» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 447,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Has",
+            "correct_answer": "Have",
+            "language": "ua",
+            "explanation": "«Has» вживається для he/she/it; підмет «you» вимагає «Have».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 448,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Has",
+            "correct_answer": "Have",
+            "language": "uk",
+            "explanation": "«Has» вживається для he/she/it; підмет «you» вимагає «Have».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 451,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Have",
+            "correct_answer": "Have",
+            "language": "en",
+            "explanation": "Correct. «Have» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 454,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Have",
+            "correct_answer": "Have",
+            "language": "pl",
+            "explanation": "Poprawnie. «Have» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 445,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Have",
+            "correct_answer": "Have",
+            "language": "ua",
+            "explanation": "«Have» — правильне допоміжне Present Perfect для «you»; далі йде «ever tried».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 446,
+            "question": "{a1} you ever tried sushi?",
+            "wrong_answer": "Have",
+            "correct_answer": "Have",
+            "language": "uk",
+            "explanation": "«Have» — правильне допоміжне Present Perfect для «you»; далі йде «ever tried».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

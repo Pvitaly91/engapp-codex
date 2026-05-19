@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 103,
+        "uuid": "st-cp-sn-c2-q13",
+        "question": "Rarely {a1} such a talented composer been so underappreciated.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 103,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 56,
+                "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 103,
+                "tag_id": 56,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 49,
+                "option": "have",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 103,
+                "option_id": 49,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 50,
+                "option": "has",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 103,
+                "option_id": 50,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 110,
+                "option": "had",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 103,
+                "option_id": 110,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 103,
+                "question_id": 103,
+                "marker": "a1",
+                "option_id": 50,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 50,
+                "option": "has",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 103,
+            "question_id": 103,
+            "text": "Rarely {a1} such a talented composer been so underappreciated.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 308,
+            "question_id": 103,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "After negative/restrictive adverbials (Never, Hardly, Not only, Seldom, Only then…), **subject-auxiliary inversion** is required.\nThe inverted auxiliary must match the tense of the original clause. Only the auxiliary comes before the subject.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 309,
+            "question_id": 103,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Po przysłówkach o znaczeniu ograniczającym (Never, Hardly, Not only, Seldom…) wymagana jest inwersja podmiotu i operatora.\nInwertowany operator musi odpowiadać czasowi zdania. Tylko operator przechodzi przed podmiot.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 307,
+            "question_id": 103,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Rarely» викликає інверсію; у Present Perfect: «Rarely has + підмет + Past Participle».\n«Such a talented composer» — підмет в однині; Present Perfect для однини вимагає «has».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1233,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "had",
+            "correct_answer": "has",
+            "language": "en",
+            "explanation": "Incorrect. «had» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1236,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "had",
+            "correct_answer": "has",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «had» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1229,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "had",
+            "correct_answer": "has",
+            "language": "ua",
+            "explanation": "«Had» утворило б Past Perfect; «Rarely» тут вводить Present Perfect про загальний факт.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1230,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "had",
+            "correct_answer": "has",
+            "language": "uk",
+            "explanation": "«Had» утворило б Past Perfect; «Rarely» тут вводить Present Perfect про загальний факт.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1231,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "has",
+            "correct_answer": "has",
+            "language": "en",
+            "explanation": "Correct. «has» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1234,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "has",
+            "correct_answer": "has",
+            "language": "pl",
+            "explanation": "Poprawnie. «has» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1225,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "has",
+            "correct_answer": "has",
+            "language": "ua",
+            "explanation": "«Has» — правильна інверсія Present Perfect після «Rarely»; «Rarely has such a composer been...»",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1226,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "has",
+            "correct_answer": "has",
+            "language": "uk",
+            "explanation": "«Has» — правильна інверсія Present Perfect після «Rarely»; «Rarely has such a composer been...»",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1232,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "have",
+            "correct_answer": "has",
+            "language": "en",
+            "explanation": "Incorrect. «have» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1235,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "have",
+            "correct_answer": "has",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «have» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1227,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "have",
+            "correct_answer": "has",
+            "language": "ua",
+            "explanation": "«Have» вживається для множини або I/you/they; підмет «a composer» — однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1228,
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "wrong_answer": "have",
+            "correct_answer": "has",
+            "language": "uk",
+            "explanation": "«Have» вживається для множини або I/you/they; підмет «a composer» — однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

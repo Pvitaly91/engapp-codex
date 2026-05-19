@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 26,
+        "uuid": "pos-cp-sn-a2-q03",
+        "question": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 37,
+                "name": "Adjective identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 26,
+                "tag_id": 37,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 137,
+                "option": "noun",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 26,
+                "option_id": 137,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 139,
+                "option": "adjective",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 26,
+                "option_id": 139,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 140,
+                "option": "adverb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 26,
+                "option_id": 140,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 136,
+                "question_id": 26,
+                "marker": "a1",
+                "option_id": 139,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "option": {
+                "id": 139,
+                "option": "adjective",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 8,
+            "question_id": 26,
+            "text": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+            "created_at": "2026-05-18T13:16:19.000000Z",
+            "updated_at": "2026-05-18T13:16:19.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 8,
+            "question_id": 26,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Прикметник (adjective) стоїть перед іменником і описує його якість.\nСлово `happy` описує іменник 'girl' і відповідає на питання «яка?».",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 43,
+            "question": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+            "wrong_answer": "adjective",
+            "correct_answer": "adjective",
+            "language": "ua",
+            "explanation": "«Happy» є прикметником: воно стоїть перед іменником 'girl' та описує її стан.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 44,
+            "question": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+            "wrong_answer": "adjective",
+            "correct_answer": "adjective",
+            "language": "uk",
+            "explanation": "«Happy» є прикметником: воно стоїть перед іменником 'girl' та описує її стан.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 45,
+            "question": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+            "wrong_answer": "adverb",
+            "correct_answer": "adjective",
+            "language": "ua",
+            "explanation": "«Happy» тут не є прислівником. Прислівник 'happily' описував би дієслово.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 46,
+            "question": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+            "wrong_answer": "adverb",
+            "correct_answer": "adjective",
+            "language": "uk",
+            "explanation": "«Happy» тут не є прислівником. Прислівник 'happily' описував би дієслово.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 47,
+            "question": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+            "wrong_answer": "noun",
+            "correct_answer": "adjective",
+            "language": "ua",
+            "explanation": "«Happy» не є іменником. Воно не називає особу, місце чи річ, а описує їх.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 48,
+            "question": "'Happy' in 'She is a {a1} girl.' functions as a(n) ___.",
+            "wrong_answer": "noun",
+            "correct_answer": "adjective",
+            "language": "uk",
+            "explanation": "«Happy» не є іменником. Воно не називає особу, місце чи річ, а описує їх.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 44,
+        "uuid": "pos-cp-sn-c2-q01",
+        "question": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-18T13:16:20.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 36,
+                "name": "Verb identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "tag_id": 36,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 138,
+                "option": "verb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "option_id": 138,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 139,
+                "option": "adjective",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "option_id": 139,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 140,
+                "option": "adverb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 44,
+                "option_id": 140,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 154,
+                "question_id": 44,
+                "marker": "a1",
+                "option_id": 138,
+                "created_at": "2026-05-18T13:16:20.000000Z",
+                "updated_at": "2026-05-18T13:16:20.000000Z"
+            },
+            "option": {
+                "id": 138,
+                "option": "verb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 26,
+            "question_id": 44,
+            "text": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 26,
+            "question_id": 44,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Зв'язкові дієслова (linking verbs) з'єднують підмет з предикативом і виражають стан.\nСлово `remained` є зв'язковим дієсловом, що вказує на стан суб'єкта, а не на дію.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 153,
+            "question": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+            "wrong_answer": "adjective",
+            "correct_answer": "verb",
+            "language": "ua",
+            "explanation": "«Remained» не є прикметником. Прикметник тут — 'silent', а дієслово — 'remained'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 154,
+            "question": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+            "wrong_answer": "adjective",
+            "correct_answer": "verb",
+            "language": "uk",
+            "explanation": "«Remained» не є прикметником. Прикметник тут — 'silent', а дієслово — 'remained'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 155,
+            "question": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+            "wrong_answer": "adverb",
+            "correct_answer": "verb",
+            "language": "ua",
+            "explanation": "«Remained» не є прислівником. Воно є основним дієсловом речення.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 156,
+            "question": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+            "wrong_answer": "adverb",
+            "correct_answer": "verb",
+            "language": "uk",
+            "explanation": "«Remained» не є прислівником. Воно є основним дієсловом речення.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 151,
+            "question": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+            "wrong_answer": "verb",
+            "correct_answer": "verb",
+            "language": "ua",
+            "explanation": "«Remained» є зв'язковим дієсловом (linking verb): воно з'єднує підмет 'the accused' з предикатом 'silent'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 152,
+            "question": "In 'The accused {a1} silent throughout the trial.', the word 'remained' is a ___.",
+            "wrong_answer": "verb",
+            "correct_answer": "verb",
+            "language": "uk",
+            "explanation": "«Remained» є зв'язковим дієсловом (linking verb): воно з'єднує підмет 'the accused' з предикатом 'silent'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ]
+}

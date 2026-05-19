@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 133,
+        "uuid": "senten-25-b7-did-you-buy-at-the-shop",
+        "question": "{b7} did you buy at the shop?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:05.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2,
+                "name": "Sentence types",
+                "category": null,
+                "created_at": "2026-05-18T13:16:58.000000Z",
+                "updated_at": "2026-05-18T13:16:58.000000Z"
+            },
+            "pivot": {
+                "question_id": 133,
+                "tag_id": 2,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 61,
+                "name": "Wh-question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 133,
+                "tag_id": 61,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 133,
+                "option_id": 7,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 36,
+                "option": "Did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 133,
+                "option_id": 36,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 170,
+                "option": "What",
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 133,
+                "option_id": 170,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 133,
+                "question_id": 133,
+                "marker": "b7",
+                "option_id": 170,
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            },
+            "option": {
+                "id": 170,
+                "option": "What",
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 25,
+                "question_id": 133,
+                "marker": "b7",
+                "option_id": 155,
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            },
+            "option": {
+                "id": 155,
+                "option": "question word",
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 133,
+            "question_id": 133,
+            "text": "{b7} did you buy at the shop?",
+            "created_at": "2026-05-18T13:17:05.000000Z",
+            "updated_at": "2026-05-18T13:17:05.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 397,
+            "question_id": 133,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "This is a wh-question — it begins with a question word (who, what, where, when, why, how).\nLook at the sentence context and the verb hint 'question word' to choose the correct form.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 398,
+            "question_id": 133,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "To jest pytanie szczegółowe — zaczyna się od słowa pytającego (who, what, where, when, why, how).\nPrzeanalizuj kontekst zdania i wskazówkę 'question word', aby wybrać właściwą formę.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 399,
+            "question_id": 133,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Спеціальне питання з `What` запитує про предмет або об'єкт дії.\nПитання `_____ did you buy…?` вимагає питального слова, що запитує «що саме».",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1586,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Did",
+            "correct_answer": "What",
+            "language": "en",
+            "explanation": "Incorrect: 'Did' does not fit the required grammatical structure of this sentence.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1589,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Did",
+            "correct_answer": "What",
+            "language": "pl",
+            "explanation": "Niepoprawnie: 'Did' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1593,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Did",
+            "correct_answer": "What",
+            "language": "ua",
+            "explanation": "Неправильно: `Did` утворює загальне (Yes/No) питання, а контекст потребує спеціального з питальним словом.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1594,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Did",
+            "correct_answer": "What",
+            "language": "uk",
+            "explanation": "Неправильно: `Did` утворює загальне (Yes/No) питання, а контекст потребує спеціального з питальним словом.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1587,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Do",
+            "correct_answer": "What",
+            "language": "en",
+            "explanation": "Incorrect: 'Do' does not fit the required grammatical structure of this sentence.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1590,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Do",
+            "correct_answer": "What",
+            "language": "pl",
+            "explanation": "Niepoprawnie: 'Do' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1595,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Do",
+            "correct_answer": "What",
+            "language": "ua",
+            "explanation": "Неправильно: `Do` — Present Simple, а `at the shop` з минулим контекстом вимагає `did`.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1596,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "Do",
+            "correct_answer": "What",
+            "language": "uk",
+            "explanation": "Неправильно: `Do` — Present Simple, а `at the shop` з минулим контекстом вимагає `did`.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1585,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "What",
+            "correct_answer": "What",
+            "language": "en",
+            "explanation": "Correct: 'What' is the right choice for this sentence type and grammatical context.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1588,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "What",
+            "correct_answer": "What",
+            "language": "pl",
+            "explanation": "Poprawnie: 'What' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1591,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "What",
+            "correct_answer": "What",
+            "language": "ua",
+            "explanation": "Правильно: `What did you buy?` — спеціальне питання з `What`, що запитує про об'єкт покупки.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1592,
+            "question": "{b7} did you buy at the shop?",
+            "wrong_answer": "What",
+            "correct_answer": "What",
+            "language": "uk",
+            "explanation": "Правильно: `What did you buy?` — спеціальне питання з `What`, що запитує про об'єкт покупки.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        }
+    ]
+}

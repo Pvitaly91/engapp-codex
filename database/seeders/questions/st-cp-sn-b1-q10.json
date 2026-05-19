@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 46,
+        "uuid": "st-cp-sn-b1-q10",
+        "question": "You {a1} use your phone during the exam.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 35,
+                "name": "Negation with modal verbs",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "tag_id": 35,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 42,
+                "option": "can't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "option_id": 42,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 51,
+                "option": "shouldn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "option_id": 51,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 58,
+                "option": "mustn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "option_id": 58,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 46,
+                "question_id": 46,
+                "marker": "a1",
+                "option_id": 58,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 58,
+                "option": "mustn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 46,
+            "question_id": 46,
+            "text": "You {a1} use your phone during the exam.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 137,
+            "question_id": 46,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Modal verbs form negatives by adding **not** after the modal: can't, couldn't, shouldn't, mustn't.\nThe modal verb expresses ability, permission, or obligation — choose the correct negative form.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 138,
+            "question_id": 46,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Czasowniki modalne tworzą przeczenia przez dodanie **not**: can't, couldn't, shouldn't, mustn't.\nCzasownik modalny wyraża zdolność, pozwolenie lub obowiązek — wybierz odpowiednią formę przeczącą.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 136,
+            "question_id": 46,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Mustn't» виражає суворе заперечення обов'язку або заборону (не можна, заборонено).\n«During the exam» вказує на офіційну заборону — саме значення «mustn't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 549,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "can't",
+            "correct_answer": "mustn't",
+            "language": "en",
+            "explanation": "Incorrect. «can't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 552,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "can't",
+            "correct_answer": "mustn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «can't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 545,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "can't",
+            "correct_answer": "mustn't",
+            "language": "ua",
+            "explanation": "«Can't» — нездатність або неможливість; тут мова про заборону, а не нездатність.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 546,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "can't",
+            "correct_answer": "mustn't",
+            "language": "uk",
+            "explanation": "«Can't» — нездатність або неможливість; тут мова про заборону, а не нездатність.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 547,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "mustn't",
+            "correct_answer": "mustn't",
+            "language": "en",
+            "explanation": "Correct. «mustn't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 550,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "mustn't",
+            "correct_answer": "mustn't",
+            "language": "pl",
+            "explanation": "Poprawnie. «mustn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 541,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "mustn't",
+            "correct_answer": "mustn't",
+            "language": "ua",
+            "explanation": "«Mustn't» — правильна форма: офіційна заборона не використовувати телефон на іспиті.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 542,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "mustn't",
+            "correct_answer": "mustn't",
+            "language": "uk",
+            "explanation": "«Mustn't» — правильна форма: офіційна заборона не використовувати телефон на іспиті.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 548,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "shouldn't",
+            "correct_answer": "mustn't",
+            "language": "en",
+            "explanation": "Incorrect. «shouldn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 551,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "shouldn't",
+            "correct_answer": "mustn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «shouldn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 543,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "shouldn't",
+            "correct_answer": "mustn't",
+            "language": "ua",
+            "explanation": "«Shouldn't» — порада або рекомендація, але «mustn't» сильніше і виражає правило/заборону.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 544,
+            "question": "You {a1} use your phone during the exam.",
+            "wrong_answer": "shouldn't",
+            "correct_answer": "mustn't",
+            "language": "uk",
+            "explanation": "«Shouldn't» — порада або рекомендація, але «mustn't» сильніше і виражає правило/заборону.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

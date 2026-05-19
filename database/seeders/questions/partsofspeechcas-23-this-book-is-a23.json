@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 71,
+        "uuid": "partsofspeechcas-23-this-book-is-a23",
+        "question": "This book is {a23}.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-18T13:16:21.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:16.000000Z",
+                "updated_at": "2026-05-18T13:16:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 48,
+                "name": "Pronoun usage",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:20.000000Z",
+                "updated_at": "2026-05-18T13:16:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "tag_id": 48,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 22,
+                "option": "me",
+                "created_at": "2026-05-18T13:16:18.000000Z",
+                "updated_at": "2026-05-18T13:16:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "option_id": 22,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 202,
+                "option": "mine",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "option_id": 202,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 204,
+                "option": "my",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 71,
+                "option_id": 204,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 181,
+                "question_id": 71,
+                "marker": "a23",
+                "option_id": 202,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 202,
+                "option": "mine",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 23,
+                "question_id": 71,
+                "marker": "a23",
+                "option_id": 203,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 203,
+                "option": "possessive pronoun",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 53,
+            "question_id": 71,
+            "text": "This book is {a23}.",
+            "created_at": "2026-05-18T13:16:21.000000Z",
+            "updated_at": "2026-05-18T13:16:21.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 97,
+            "question_id": 71,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Choose the word that best completes the sentence grammatically.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 98,
+            "question_id": 71,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Zaimek dzierżawczy 'mine' występuje po czasowniku 'is'.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 99,
+            "question_id": 71,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Після зв'язкового дієслова 'is' потрібен присвійний займенник, що вказує на володіння.\nЗайменник 'mine' (мій) вказує на те, що книга належить мені.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 447,
+            "question": "This book is {a23}.",
+            "wrong_answer": "me",
+            "correct_answer": "mine",
+            "language": "en",
+            "explanation": "Incorrect. 'me' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 450,
+            "question": "This book is {a23}.",
+            "wrong_answer": "me",
+            "correct_answer": "mine",
+            "language": "pl",
+            "explanation": "'Me' to zaimek dopełnienia, nie dzierżawczy.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 455,
+            "question": "This book is {a23}.",
+            "wrong_answer": "me",
+            "correct_answer": "mine",
+            "language": "ua",
+            "explanation": "Об'єктний займенник 'me' використовується як доповнення, а не присудок.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 456,
+            "question": "This book is {a23}.",
+            "wrong_answer": "me",
+            "correct_answer": "mine",
+            "language": "uk",
+            "explanation": "Об'єктний займенник 'me' використовується як доповнення, а не присудок.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 445,
+            "question": "This book is {a23}.",
+            "wrong_answer": "mine",
+            "correct_answer": "mine",
+            "language": "en",
+            "explanation": "Correct. 'mine' is the appropriate choice in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 448,
+            "question": "This book is {a23}.",
+            "wrong_answer": "mine",
+            "correct_answer": "mine",
+            "language": "pl",
+            "explanation": "Poprawnie! 'Mine' to samodzielny zaimek dzierżawczy (moja/mój).",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 451,
+            "question": "This book is {a23}.",
+            "wrong_answer": "mine",
+            "correct_answer": "mine",
+            "language": "ua",
+            "explanation": "Присвійний займенник 'mine' правильно вказує на приналежність без іменника.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 452,
+            "question": "This book is {a23}.",
+            "wrong_answer": "mine",
+            "correct_answer": "mine",
+            "language": "uk",
+            "explanation": "Присвійний займенник 'mine' правильно вказує на приналежність без іменника.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 446,
+            "question": "This book is {a23}.",
+            "wrong_answer": "my",
+            "correct_answer": "mine",
+            "language": "en",
+            "explanation": "Incorrect. 'my' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 449,
+            "question": "This book is {a23}.",
+            "wrong_answer": "my",
+            "correct_answer": "mine",
+            "language": "pl",
+            "explanation": "'My' występuje przed rzeczownikiem, nie po czasowniku.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 453,
+            "question": "This book is {a23}.",
+            "wrong_answer": "my",
+            "correct_answer": "mine",
+            "language": "ua",
+            "explanation": "Присвійний прикметник 'my' вживається перед іменником, а не після дієслова.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 454,
+            "question": "This book is {a23}.",
+            "wrong_answer": "my",
+            "correct_answer": "mine",
+            "language": "uk",
+            "explanation": "Присвійний прикметник 'my' вживається перед іменником, а не після дієслова.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ]
+}

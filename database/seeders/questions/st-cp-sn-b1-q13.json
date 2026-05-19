@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 49,
+        "uuid": "st-cp-sn-b1-q13",
+        "question": "Has she {a1} her passport?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 42,
+                "name": "Yes/No question in Present Perfect",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "tag_id": 42,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 59,
+                "option": "lost",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "option_id": 59,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 60,
+                "option": "lose",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "option_id": 60,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 61,
+                "option": "losing",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 49,
+                "option_id": 61,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 49,
+                "question_id": 49,
+                "marker": "a1",
+                "option_id": 59,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 59,
+                "option": "lost",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 49,
+            "question_id": 49,
+            "text": "Has she {a1} her passport?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 146,
+            "question_id": 49,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Present Perfect yes/no questions: **Have/Has + subject + past participle**.\n**Have** is for I/you/we/they; **Has** for he/she/it. After the auxiliary comes **ever + past participle**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 147,
+            "question_id": 49,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania tak/nie w Present Perfect: **Have/Has + podmiot + imiesłów bierny**.\n**Have** dla I/you/we/they; **Has** dla he/she/it. Po operatorze — **ever + imiesłów**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 145,
+            "question_id": 49,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "У Present Perfect після «has/have» стоїть Past Participle смислового дієслова.\n«Lost» — Past Participle неправильного дієслова «lose»; «Has she lost...?» — правильна конструкція.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 584,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lose",
+            "correct_answer": "lost",
+            "language": "en",
+            "explanation": "Incorrect. «lose» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 587,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lose",
+            "correct_answer": "lost",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «lose» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 579,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lose",
+            "correct_answer": "lost",
+            "language": "ua",
+            "explanation": "«Lose» — базова форма (інфінітив); після «has» у Present Perfect потрібен Past Participle.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 580,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lose",
+            "correct_answer": "lost",
+            "language": "uk",
+            "explanation": "«Lose» — базова форма (інфінітив); після «has» у Present Perfect потрібен Past Participle.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 585,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "losing",
+            "correct_answer": "lost",
+            "language": "en",
+            "explanation": "Incorrect. «losing» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 588,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "losing",
+            "correct_answer": "lost",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «losing» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 581,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "losing",
+            "correct_answer": "lost",
+            "language": "ua",
+            "explanation": "«Losing» — Present Participle; вживається у Continuous, а не у Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 582,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "losing",
+            "correct_answer": "lost",
+            "language": "uk",
+            "explanation": "«Losing» — Present Participle; вживається у Continuous, а не у Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 583,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lost",
+            "correct_answer": "lost",
+            "language": "en",
+            "explanation": "Correct. «lost» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 586,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lost",
+            "correct_answer": "lost",
+            "language": "pl",
+            "explanation": "Poprawnie. «lost» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 577,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lost",
+            "correct_answer": "lost",
+            "language": "ua",
+            "explanation": "«Lost» — правильний Past Participle для «lose»; використовується після «has» у Present Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 578,
+            "question": "Has she {a1} her passport?",
+            "wrong_answer": "lost",
+            "correct_answer": "lost",
+            "language": "uk",
+            "explanation": "«Lost» — правильний Past Participle для «lose»; використовується після «has» у Present Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

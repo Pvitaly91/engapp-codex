@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 99,
+        "uuid": "st-cp-sn-c2-q09",
+        "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 99,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 55,
+                "name": "Inverted conditional sentence (Should/Were/Had)",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 99,
+                "tag_id": 55,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 37,
+                "option": "Were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 99,
+                "option_id": 37,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 109,
+                "option": "Should",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 99,
+                "option_id": 109,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 115,
+                "option": "Had",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 99,
+                "option_id": 115,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 99,
+                "question_id": 99,
+                "marker": "a1",
+                "option_id": 115,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 115,
+                "option": "Had",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 99,
+            "question_id": 99,
+            "text": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 296,
+            "question_id": 99,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Formal inverted conditionals omit **if** and place the auxiliary first: **Should/Were/Had + subject + verb**.\nThe absence of **if** and the auxiliary at the start are the key signals. Match the conditional type to the tense in the result clause.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 297,
+            "question_id": 99,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Formalne zdania warunkowe z inwersją pomijają **if** i stawiają operator na początku: **Should/Were/Had + podmiot + czasownik**.\nBrak **if** i operator na początku to główne sygnały. Dobierz typ warunkowy do czasu w zdaniu głównym.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 295,
+            "question_id": 99,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Had it not been for» — інверсія умовного III типу: замість «If it had not been for».\n«Would have been unavoidable» у головному реченні — ознака умовного III типу; «Had» виноситься на початок.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1183,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Had",
+            "correct_answer": "Had",
+            "language": "en",
+            "explanation": "Correct. «Had» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1186,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Had",
+            "correct_answer": "Had",
+            "language": "pl",
+            "explanation": "Poprawnie. «Had» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1177,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Had",
+            "correct_answer": "Had",
+            "language": "ua",
+            "explanation": "«Had» — правильна інверсія умовного III типу; «Had it not been for» = «If it had not been for».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1178,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Had",
+            "correct_answer": "Had",
+            "language": "uk",
+            "explanation": "«Had» — правильна інверсія умовного III типу; «Had it not been for» = «If it had not been for».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1185,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Should",
+            "correct_answer": "Had",
+            "language": "en",
+            "explanation": "Incorrect. «Should» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1188,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Should",
+            "correct_answer": "Had",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Should» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1181,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Should",
+            "correct_answer": "Had",
+            "language": "ua",
+            "explanation": "«Should» — інверсія I типу; «would have been» у головному реченні підтверджує III тип із «Had».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1182,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Should",
+            "correct_answer": "Had",
+            "language": "uk",
+            "explanation": "«Should» — інверсія I типу; «would have been» у головному реченні підтверджує III тип із «Had».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1184,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Were",
+            "correct_answer": "Had",
+            "language": "en",
+            "explanation": "Incorrect. «Were» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1187,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Were",
+            "correct_answer": "Had",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Were» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1179,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Were",
+            "correct_answer": "Had",
+            "language": "ua",
+            "explanation": "«Were» — інверсія II типу; «would have been» вказує на III тип із «Had».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1180,
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "wrong_answer": "Were",
+            "correct_answer": "Had",
+            "language": "uk",
+            "explanation": "«Were» — інверсія II типу; «would have been» вказує на III тип із «Had».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

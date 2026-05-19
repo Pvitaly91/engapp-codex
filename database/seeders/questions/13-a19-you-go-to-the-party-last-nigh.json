@@ -8,26 +8,124 @@
         "category_id": 1,
         "source_id": 2,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:08.000000Z",
-        "updated_at": "2026-05-06T23:45:08.000000Z"
+        "created_at": "2026-05-19T14:43:04.000000Z",
+        "updated_at": "2026-05-19T14:43:36.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 2,
         "name": "Word Order in Questions and Negatives",
-        "created_at": "2026-05-06T23:45:08.000000Z",
-        "updated_at": "2026-05-06T23:45:08.000000Z"
+        "created_at": "2026-05-19T14:43:03.000000Z",
+        "updated_at": "2026-05-19T14:43:03.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 30,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 238,
+                "option": "Do",
+                "created_at": "2026-05-19T14:43:03.000000Z",
+                "updated_at": "2026-05-19T14:43:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "option_id": 238,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 261,
+                "option": "Did",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "option_id": 261,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 263,
+                "option": "Were",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 85,
+                "option_id": 263,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 85,
+                "question_id": 85,
+                "marker": "a19",
+                "option_id": 261,
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "option": {
+                "id": 261,
+                "option": "Did",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 85,
+                "question_id": 85,
+                "marker": "a19",
+                "option_id": 262,
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "option": {
+                "id": 262,
+                "option": "past simple auxiliary",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 85,
+            "question_id": 85,
+            "text": "{a19} you go to the party last night?",
+            "created_at": "2026-05-19T14:43:04.000000Z",
+            "updated_at": "2026-05-19T14:43:04.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

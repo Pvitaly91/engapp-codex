@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 76,
+        "uuid": "st-cp-sn-c1-q04",
+        "question": "I'm correct, {a1}?",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 76,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 48,
+                "name": "Tag question for I am (aren't I)",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 76,
+                "tag_id": 48,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 112,
+                "option": "aren't I",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 76,
+                "option_id": 112,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 113,
+                "option": "am I",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 76,
+                "option_id": 113,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 114,
+                "option": "am I not",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 76,
+                "option_id": 114,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 76,
+                "question_id": 76,
+                "marker": "a1",
+                "option_id": 112,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 112,
+                "option": "aren't I",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 76,
+            "question_id": 76,
+            "text": "I'm correct, {a1}?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 227,
+            "question_id": 76,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Special tag question for **I am/I'm**: the tag is always **aren't I** (not *amn't I*).\nEven though the main clause uses **am**, the negative tag is **aren't I** — this is an irregular but fixed form.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 228,
+            "question_id": 76,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Specjalny tag question dla **I am/I'm**: ogonek to zawsze **aren't I** (nie *amn't I*).\nMimo że zdanie główne używa **am**, ogon to **aren't I** — nieregularna, ale stała forma.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 226,
+            "question_id": 76,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Хвіст до «I am/I'm» — особливий виняток: замість «amn't I» вживається «aren't I».\n«I'm correct» — Present Simple з «to be»; стверджувальне → заперечний хвіст, але форма — «aren't I», не «amn't I».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 908,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I",
+            "correct_answer": "aren't I",
+            "language": "en",
+            "explanation": "Incorrect. «am I» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 911,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I",
+            "correct_answer": "aren't I",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «am I» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 903,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I",
+            "correct_answer": "aren't I",
+            "language": "ua",
+            "explanation": "«Am I» — стверджувальний хвіст; для ствердженого речення хвіст має бути заперечним.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 904,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I",
+            "correct_answer": "aren't I",
+            "language": "uk",
+            "explanation": "«Am I» — стверджувальний хвіст; для ствердженого речення хвіст має бути заперечним.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 909,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I not",
+            "correct_answer": "aren't I",
+            "language": "en",
+            "explanation": "Incorrect. «am I not» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 912,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I not",
+            "correct_answer": "aren't I",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «am I not» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 905,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I not",
+            "correct_answer": "aren't I",
+            "language": "ua",
+            "explanation": "«Am I not» — формально можливо, але дуже архаїчно; «aren't I» — стандартна розмовна форма.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 906,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "am I not",
+            "correct_answer": "aren't I",
+            "language": "uk",
+            "explanation": "«Am I not» — формально можливо, але дуже архаїчно; «aren't I» — стандартна розмовна форма.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 907,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "aren't I",
+            "correct_answer": "aren't I",
+            "language": "en",
+            "explanation": "Correct. «aren't I» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 910,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "aren't I",
+            "correct_answer": "aren't I",
+            "language": "pl",
+            "explanation": "Poprawnie. «aren't I» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 901,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "aren't I",
+            "correct_answer": "aren't I",
+            "language": "ua",
+            "explanation": "«Aren't I» — правильний хвіст до «I'm» (стверджувальне «am»); «amn't I» не вживається в стандартній англійській.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 902,
+            "question": "I'm correct, {a1}?",
+            "wrong_answer": "aren't I",
+            "correct_answer": "aren't I",
+            "language": "uk",
+            "explanation": "«Aren't I» — правильний хвіст до «I'm» (стверджувальне «am»); «amn't I» не вживається в стандартній англійській.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

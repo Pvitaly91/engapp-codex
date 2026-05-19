@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 69,
+        "uuid": "st-cp-sn-b2-q15",
+        "question": "{a1} they supposed to be here already?",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 69,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 54,
+                "name": "Negative question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 69,
+                "tag_id": 54,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 13,
+                "option": "Don't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 69,
+                "option_id": 13,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 101,
+                "option": "Aren't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 69,
+                "option_id": 101,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 102,
+                "option": "Haven't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 69,
+                "option_id": 102,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 69,
+                "question_id": 69,
+                "marker": "a1",
+                "option_id": 101,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 101,
+                "option": "Aren't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 69,
+            "question_id": 69,
+            "text": "{a1} they supposed to be here already?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 206,
+            "question_id": 69,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Negative questions (Isn't it...? Aren't they...?) express surprise, rhetorical emphasis, or seek confirmation.\nThe negative question starts with the contracted negative auxiliary (**Isn't/Aren't/Doesn't**), followed by the subject.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 207,
+            "question_id": 69,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania przeczące (Isn't it...? Aren't they...?) wyrażają zdziwienie lub szukają potwierdzenia.\nPytanie przeczące zaczyna się od skróconego przeczącego operatora (**Isn't/Aren't/Doesn't**), po którym następuje podmiot.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 205,
+            "question_id": 69,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Заперечне питання «Aren't they supposed to...?» виражає здивування або очікування.\n«Supposed to be» — конструкція з «to be»; заперечне питання будується через «Aren't» для «they».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 823,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Aren't",
+            "correct_answer": "Aren't",
+            "language": "en",
+            "explanation": "Correct. «Aren't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 826,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Aren't",
+            "correct_answer": "Aren't",
+            "language": "pl",
+            "explanation": "Poprawnie. «Aren't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 817,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Aren't",
+            "correct_answer": "Aren't",
+            "language": "ua",
+            "explanation": "«Aren't» — правильна форма заперечного питання «to be» для «they»; «supposed to» вимагає «to be».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 818,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Aren't",
+            "correct_answer": "Aren't",
+            "language": "uk",
+            "explanation": "«Aren't» — правильна форма заперечного питання «to be» для «they»; «supposed to» вимагає «to be».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 824,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Don't",
+            "correct_answer": "Aren't",
+            "language": "en",
+            "explanation": "Incorrect. «Don't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 827,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Don't",
+            "correct_answer": "Aren't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Don't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 819,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Don't",
+            "correct_answer": "Aren't",
+            "language": "ua",
+            "explanation": "«Don't» вживається для смислових дієслів; «supposed to be» — конструкція з «to be».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 820,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Don't",
+            "correct_answer": "Aren't",
+            "language": "uk",
+            "explanation": "«Don't» вживається для смислових дієслів; «supposed to be» — конструкція з «to be».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 825,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Haven't",
+            "correct_answer": "Aren't",
+            "language": "en",
+            "explanation": "Incorrect. «Haven't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 828,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Haven't",
+            "correct_answer": "Aren't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Haven't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 821,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Haven't",
+            "correct_answer": "Aren't",
+            "language": "ua",
+            "explanation": "«Haven't» — заперечення Present Perfect; «supposed to be» не є Present Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 822,
+            "question": "{a1} they supposed to be here already?",
+            "wrong_answer": "Haven't",
+            "correct_answer": "Aren't",
+            "language": "uk",
+            "explanation": "«Haven't» — заперечення Present Perfect; «supposed to be» не є Present Perfect.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 41,
+        "uuid": "23-he-always-a23-his-keys-on-the-tab",
+        "question": "He always {a23} his keys on the table.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:16:49.000000Z",
+        "updated_at": "2026-05-18T13:16:53.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:49.000000Z",
+        "updated_at": "2026-05-18T13:16:49.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-18T13:16:47.000000Z",
+        "updated_at": "2026-05-18T13:16:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-18T13:16:45.000000Z",
+                "updated_at": "2026-05-18T13:16:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 41,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 39,
+                "name": "SVO with adverb placement",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 41,
+                "tag_id": 39,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 117,
+                "option": "puts",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 41,
+                "option_id": 117,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 119,
+                "option": "always puts keys",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 41,
+                "option_id": 119,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 120,
+                "option": "keys puts",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 41,
+                "option_id": 120,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 41,
+                "question_id": 41,
+                "marker": "a23",
+                "option_id": 117,
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "option": {
+                "id": 117,
+                "option": "puts",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 23,
+                "question_id": 41,
+                "marker": "a23",
+                "option_id": 118,
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "option": {
+                "id": 118,
+                "option": "adverb before verb, object after",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 41,
+            "question_id": 41,
+            "text": "He always {a23} his keys on the table.",
+            "created_at": "2026-05-18T13:16:49.000000Z",
+            "updated_at": "2026-05-18T13:16:49.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 85,
+            "question_id": 41,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Frequency adverbs like `always` go before the main verb in SVO.\nNote: `always` is already placed — the gap needs the main verb.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 86,
+            "question_id": 41,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Frequency adverbs like `always` go before the main verb in SVO.\nNote: `always` is already placed — the gap needs the main verb.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 87,
+            "question_id": 41,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Прислівники частотності (`always`, `often`, `never`) стоять перед основним дієсловом у SVO.\nЗверніть увагу: `always` стоїть перед пропуском — отже, у пропуску має бути основне дієслово.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 374,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "always puts keys",
+            "correct_answer": "puts",
+            "language": "en",
+            "explanation": "Incorrect: the gap needs only the verb, not repeated elements.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 377,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "always puts keys",
+            "correct_answer": "puts",
+            "language": "pl",
+            "explanation": "Incorrect: the gap needs only the verb, not repeated elements.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 381,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "always puts keys",
+            "correct_answer": "puts",
+            "language": "ua",
+            "explanation": "Неправильно: у пропуску потрібне лише дієслово, а не ціла фраза з повтореними елементами.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 382,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "always puts keys",
+            "correct_answer": "puts",
+            "language": "uk",
+            "explanation": "Неправильно: у пропуску потрібне лише дієслово, а не ціла фраза з повтореними елементами.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 375,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "keys puts",
+            "correct_answer": "puts",
+            "language": "en",
+            "explanation": "Incorrect: the object cannot precede the verb.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 378,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "keys puts",
+            "correct_answer": "puts",
+            "language": "pl",
+            "explanation": "Incorrect: the object cannot precede the verb.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 383,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "keys puts",
+            "correct_answer": "puts",
+            "language": "ua",
+            "explanation": "Неправильно: додаток `keys` не може стояти перед дієсловом у стверджувальному реченні.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 384,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "keys puts",
+            "correct_answer": "puts",
+            "language": "uk",
+            "explanation": "Неправильно: додаток `keys` не може стояти перед дієсловом у стверджувальному реченні.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 373,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "puts",
+            "correct_answer": "puts",
+            "language": "en",
+            "explanation": "Correct: 'puts' is the main verb after 'always'. S + adverb + V + O.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 376,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "puts",
+            "correct_answer": "puts",
+            "language": "pl",
+            "explanation": "Correct: 'puts' is the main verb after 'always'. S + adverb + V + O.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 379,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "puts",
+            "correct_answer": "puts",
+            "language": "ua",
+            "explanation": "Правильно: «puts» — основне дієслово після прислівника `always`. Порядок: S + adverb + V + O.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 380,
+            "question": "He always {a23} his keys on the table.",
+            "wrong_answer": "puts",
+            "correct_answer": "puts",
+            "language": "uk",
+            "explanation": "Правильно: «puts» — основне дієслово після прислівника `always`. Порядок: S + adverb + V + O.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        }
+    ]
+}

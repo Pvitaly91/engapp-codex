@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 11,
+        "uuid": "st-cp-sn-a1-q11",
+        "question": "We {a1} lunch at noon every day.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 30,
+                "name": "Affirmative sentence structure",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 24,
+                "option": "eat",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "option_id": 24,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 25,
+                "option": "eats",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "option_id": 25,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 26,
+                "option": "ate",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 11,
+                "option_id": 26,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 11,
+                "question_id": 11,
+                "marker": "a1",
+                "option_id": 24,
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "option": {
+                "id": 24,
+                "option": "eat",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 11,
+            "question_id": 11,
+            "text": "We {a1} lunch at noon every day.",
+            "created_at": "2026-05-18T13:17:01.000000Z",
+            "updated_at": "2026-05-18T13:17:01.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 32,
+            "question_id": 11,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "In Present Simple affirmative sentences, the verb agrees with the subject (add **-s/-es** for he/she/it).\nThe subject determines the verb form — check whether it is he/she/it (3rd person singular) or another person.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 33,
+            "question_id": 11,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "W twierdzących zdaniach Present Simple czasownik jest odmieniony przez osoby (dodajemy **-s/-es** dla he/she/it).\nSprawdź podmiot — czy to he/she/it (3. os. l. poj.), czy inna osoba.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 31,
+            "question_id": 11,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "У стверджувальному реченні Present Simple з підметом «we» дієслово стоїть у базовій формі без закінчення -s.\nМаркер «every day» вказує на Present Simple; підмет «We» — 1-ша особа множини.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 129,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "ate",
+            "correct_answer": "eat",
+            "language": "en",
+            "explanation": "Incorrect. «ate» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 132,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "ate",
+            "correct_answer": "eat",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «ate» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 125,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "ate",
+            "correct_answer": "eat",
+            "language": "ua",
+            "explanation": "«Ate» — форма Past Simple; маркер «every day» вказує на теперішній час.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 126,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "ate",
+            "correct_answer": "eat",
+            "language": "uk",
+            "explanation": "«Ate» — форма Past Simple; маркер «every day» вказує на теперішній час.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 127,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eat",
+            "correct_answer": "eat",
+            "language": "en",
+            "explanation": "Correct. «eat» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 130,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eat",
+            "correct_answer": "eat",
+            "language": "pl",
+            "explanation": "Poprawnie. «eat» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 121,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eat",
+            "correct_answer": "eat",
+            "language": "ua",
+            "explanation": "«Eat» — базова форма для «we» у Present Simple; закінчення -s не потрібне.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 122,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eat",
+            "correct_answer": "eat",
+            "language": "uk",
+            "explanation": "«Eat» — базова форма для «we» у Present Simple; закінчення -s не потрібне.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 128,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eats",
+            "correct_answer": "eat",
+            "language": "en",
+            "explanation": "Incorrect. «eats» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 131,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eats",
+            "correct_answer": "eat",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «eats» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 123,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eats",
+            "correct_answer": "eat",
+            "language": "ua",
+            "explanation": "«Eats» — форма 3-ї особи однини (he/she/it); підмет «we» вимагає базову форму.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 124,
+            "question": "We {a1} lunch at noon every day.",
+            "wrong_answer": "eats",
+            "correct_answer": "eat",
+            "language": "uk",
+            "explanation": "«Eats» — форма 3-ї особи однини (he/she/it); підмет «we» вимагає базову форму.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

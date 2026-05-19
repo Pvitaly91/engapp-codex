@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 90,
+        "uuid": "st-cp-sn-c1-q18",
+        "question": "{a1} we reconsider this decision before it's too late?",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 90,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 54,
+                "name": "Negative question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 90,
+                "tag_id": 54,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 129,
+                "option": "Shouldn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 90,
+                "option_id": 129,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 130,
+                "option": "Wouldn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 90,
+                "option_id": 130,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 131,
+                "option": "Couldn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 90,
+                "option_id": 131,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 90,
+                "question_id": 90,
+                "marker": "a1",
+                "option_id": 129,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 129,
+                "option": "Shouldn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 90,
+            "question_id": 90,
+            "text": "{a1} we reconsider this decision before it's too late?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 269,
+            "question_id": 90,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Negative questions (Isn't it...? Aren't they...?) express surprise, rhetorical emphasis, or seek confirmation.\nThe negative question starts with the contracted negative auxiliary (**Isn't/Aren't/Doesn't**), followed by the subject.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 270,
+            "question_id": 90,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania przeczące (Isn't it...? Aren't they...?) wyrażają zdziwienie lub szukają potwierdzenia.\nPytanie przeczące zaczyna się od skróconego przeczącego operatora (**Isn't/Aren't/Doesn't**), po którym następuje podmiot.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 268,
+            "question_id": 90,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Заперечне питання «Shouldn't we...?» виражає пропозицію або рекомендацію переглянути рішення.\n«Reconsider» — смислове дієслово; порада «shouldn't we?» доречна для пропозиції.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1077,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Couldn't",
+            "correct_answer": "Shouldn't",
+            "language": "en",
+            "explanation": "Incorrect. «Couldn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1080,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Couldn't",
+            "correct_answer": "Shouldn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Couldn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1073,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Couldn't",
+            "correct_answer": "Shouldn't",
+            "language": "ua",
+            "explanation": "«Couldn't we reconsider?» означає «Хіба ми не могли б?» — запит про можливість, а не рекомендація.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1074,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Couldn't",
+            "correct_answer": "Shouldn't",
+            "language": "uk",
+            "explanation": "«Couldn't we reconsider?» означає «Хіба ми не могли б?» — запит про можливість, а не рекомендація.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1075,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Shouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "en",
+            "explanation": "Correct. «Shouldn't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1078,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Shouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "pl",
+            "explanation": "Poprawnie. «Shouldn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1069,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Shouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "ua",
+            "explanation": "«Shouldn't we reconsider?» — правильно: заперечне питання-пропозиція, що означає «Хіба нам не варто переглянути?»",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1070,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Shouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "uk",
+            "explanation": "«Shouldn't we reconsider?» — правильно: заперечне питання-пропозиція, що означає «Хіба нам не варто переглянути?»",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1076,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Wouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "en",
+            "explanation": "Incorrect. «Wouldn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1079,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Wouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Wouldn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1071,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Wouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "ua",
+            "explanation": "«Wouldn't we reconsider?» — нетипова конструкція для пропозиції; «shouldn't» є стандартним.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1072,
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "wrong_answer": "Wouldn't",
+            "correct_answer": "Shouldn't",
+            "language": "uk",
+            "explanation": "«Wouldn't we reconsider?» — нетипова конструкція для пропозиції; «shouldn't» є стандартним.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

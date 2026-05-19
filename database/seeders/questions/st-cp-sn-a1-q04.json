@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 4,
+        "uuid": "st-cp-sn-a1-q04",
+        "question": "Please {a1} the window.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:08.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 45,
+                "name": "Affirmative imperative",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4,
+                "tag_id": 45,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 10,
+                "option": "close",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4,
+                "option_id": 10,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 11,
+                "option": "closes",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4,
+                "option_id": 11,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 12,
+                "option": "closing",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 4,
+                "option_id": 12,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 4,
+                "question_id": 4,
+                "marker": "a1",
+                "option_id": 10,
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "option": {
+                "id": 10,
+                "option": "close",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 4,
+            "question_id": 4,
+            "text": "Please {a1} the window.",
+            "created_at": "2026-05-18T13:17:01.000000Z",
+            "updated_at": "2026-05-18T13:17:01.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 11,
+            "question_id": 4,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Affirmative imperative sentences use the **base form** of the verb with no subject.\nThere is no subject in the sentence — this is a command. Use the plain **base form**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 12,
+            "question_id": 4,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Tryb rozkazujący twierdząco = **forma podstawowa czasownika** bez podmiotu.\nBrak podmiotu i kontekst polecenia wskazują na tryb rozkazujący — używaj formy podstawowej.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 10,
+            "question_id": 4,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Стверджувальний наказовий спосіб (imperative) утворюється з базової форми дієслова без будь-яких закінчень.\nСлово «Please» перед пропуском вказує на ввічливу команду — саме наказовий спосіб.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 43,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "close",
+            "correct_answer": "close",
+            "language": "en",
+            "explanation": "Correct. «close» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 46,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "close",
+            "correct_answer": "close",
+            "language": "pl",
+            "explanation": "Poprawnie. «close» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 37,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "close",
+            "correct_answer": "close",
+            "language": "ua",
+            "explanation": "«Close» — правильна базова форма для наказового способу; imperativ не змінюється за особами.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 38,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "close",
+            "correct_answer": "close",
+            "language": "uk",
+            "explanation": "«Close» — правильна базова форма для наказового способу; imperativ не змінюється за особами.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 44,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closes",
+            "correct_answer": "close",
+            "language": "en",
+            "explanation": "Incorrect. «closes» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 47,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closes",
+            "correct_answer": "close",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «closes» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 39,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closes",
+            "correct_answer": "close",
+            "language": "ua",
+            "explanation": "«Closes» — форма Present Simple для 3-ї особи однини; наказовий спосіб не приймає -s/-es.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 40,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closes",
+            "correct_answer": "close",
+            "language": "uk",
+            "explanation": "«Closes» — форма Present Simple для 3-ї особи однини; наказовий спосіб не приймає -s/-es.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 45,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closing",
+            "correct_answer": "close",
+            "language": "en",
+            "explanation": "Incorrect. «closing» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 48,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closing",
+            "correct_answer": "close",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «closing» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 41,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closing",
+            "correct_answer": "close",
+            "language": "ua",
+            "explanation": "«Closing» — дієприкметник теперішнього часу (Present Participle); він не вживається як присудок наказового речення.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 42,
+            "question": "Please {a1} the window.",
+            "wrong_answer": "closing",
+            "correct_answer": "close",
+            "language": "uk",
+            "explanation": "«Closing» — дієприкметник теперішнього часу (Present Participle); він не вживається як присудок наказового речення.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

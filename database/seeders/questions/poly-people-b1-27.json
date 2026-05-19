@@ -6,26 +6,374 @@
         "difficulty": 3,
         "level": "B1",
         "category_id": 3,
-        "source_id": 2,
+        "source_id": 1,
         "flag": 0,
-        "created_at": "2026-05-06T23:40:00.000000Z",
-        "updated_at": "2026-05-06T23:40:00.000000Z"
+        "created_at": "2026-05-19T14:42:19.000000Z",
+        "updated_at": "2026-05-19T14:42:29.000000Z"
     },
     "category": {
         "id": 3,
         "name": "English Sentence Builder",
-        "created_at": "2026-05-06T23:39:59.000000Z",
-        "updated_at": "2026-05-06T23:39:59.000000Z"
+        "created_at": "2026-05-19T14:42:18.000000Z",
+        "updated_at": "2026-05-19T14:42:18.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 1,
         "name": "Some / Any — People",
-        "created_at": "2026-05-06T23:39:50.000000Z",
-        "updated_at": "2026-05-06T23:39:50.000000Z"
+        "created_at": "2026-05-19T14:42:05.000000Z",
+        "updated_at": "2026-05-19T14:42:05.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 25,
+                "name": "B1",
+                "category": "level",
+                "created_at": "2026-05-19T14:42:05.000000Z",
+                "updated_at": "2026-05-19T14:42:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "tag_id": 25,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 37,
+                "name": "Polyglot Compose Tokens",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:18.000000Z",
+                "updated_at": "2026-05-19T14:42:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "tag_id": 37,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 38,
+                "name": "Some / Any — People",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:18.000000Z",
+                "updated_at": "2026-05-19T14:42:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "tag_id": 38,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 10,
+                "option": "anyone",
+                "created_at": "2026-05-19T14:42:05.000000Z",
+                "updated_at": "2026-05-19T14:42:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 10,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 11,
+                "option": "someone",
+                "created_at": "2026-05-19T14:42:05.000000Z",
+                "updated_at": "2026-05-19T14:42:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 11,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 39,
+                "option": "on",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 39,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 40,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 85,
+                "option": "nobody",
+                "created_at": "2026-05-19T14:42:18.000000Z",
+                "updated_at": "2026-05-19T14:42:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 85,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 86,
+                "option": "no",
+                "created_at": "2026-05-19T14:42:18.000000Z",
+                "updated_at": "2026-05-19T14:42:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 86,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 87,
+                "option": "one",
+                "created_at": "2026-05-19T14:42:18.000000Z",
+                "updated_at": "2026-05-19T14:42:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 87,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 90,
+                "option": "No",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 90,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 144,
+                "option": "with",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 144,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 159,
+                "option": "panel",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 159,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 160,
+                "option": "agreed",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 160,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 161,
+                "option": "proposal.",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 161,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 594,
+                "question_id": 333,
+                "marker": "a1",
+                "option_id": 90,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 90,
+                "option": "No",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 595,
+                "question_id": 333,
+                "marker": "a2",
+                "option_id": 87,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 87,
+                "option": "one",
+                "created_at": "2026-05-19T14:42:18.000000Z",
+                "updated_at": "2026-05-19T14:42:18.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 596,
+                "question_id": 333,
+                "marker": "a3",
+                "option_id": 39,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 39,
+                "option": "on",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 597,
+                "question_id": 333,
+                "marker": "a4",
+                "option_id": 40,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 598,
+                "question_id": 333,
+                "marker": "a5",
+                "option_id": 159,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 159,
+                "option": "panel",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 599,
+                "question_id": 333,
+                "marker": "a6",
+                "option_id": 160,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 160,
+                "option": "agreed",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 600,
+                "question_id": 333,
+                "marker": "a7",
+                "option_id": 144,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 144,
+                "option": "with",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 601,
+                "question_id": 333,
+                "marker": "a8",
+                "option_id": 40,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 602,
+                "question_id": 333,
+                "marker": "a9",
+                "option_id": 161,
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            },
+            "option": {
+                "id": 161,
+                "option": "proposal.",
+                "created_at": "2026-05-19T14:42:19.000000Z",
+                "updated_at": "2026-05-19T14:42:19.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
     "variants": [],
     "hints": [],

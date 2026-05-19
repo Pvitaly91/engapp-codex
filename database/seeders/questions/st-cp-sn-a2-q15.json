@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 33,
+        "uuid": "st-cp-sn-a2-q15",
+        "question": "Sorry, I {a1} stay late today.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 35,
+                "name": "Negation with modal verbs",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 35,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4,
+                "option": "don't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 42,
+                "option": "can't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 42,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 44,
+                "option": "couldn't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 44,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 33,
+                "question_id": 33,
+                "marker": "a1",
+                "option_id": 42,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 42,
+                "option": "can't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 33,
+            "question_id": 33,
+            "text": "Sorry, I {a1} stay late today.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 98,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Modal verbs form negatives by adding **not** after the modal: can't, couldn't, shouldn't, mustn't.\nThe modal verb expresses ability, permission, or obligation — choose the correct negative form.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 99,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Czasowniki modalne tworzą przeczenia przez dodanie **not**: can't, couldn't, shouldn't, mustn't.\nCzasownik modalny wyraża zdolność, pozwolenie lub obowiązek — wybierz odpowiednią formę przeczącą.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 97,
+            "question_id": 33,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Модальне «can't» виражає нездатність у теперішньому/майбутньому; «couldn't» — нездатність у минулому.\nСлово «today» вказує на теперішній/майбутній момент, тому вживається «can't», а не «couldn't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 391,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "en",
+            "explanation": "Correct. «can't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 394,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "pl",
+            "explanation": "Poprawnie. «can't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 385,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "ua",
+            "explanation": "«Can't» — правильна форма для нинішньої неможливості залишитися пізно сьогодні.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 386,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "uk",
+            "explanation": "«Can't» — правильна форма для нинішньої неможливості залишитися пізно сьогодні.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 392,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "couldn't",
+            "correct_answer": "can't",
+            "language": "en",
+            "explanation": "Incorrect. «couldn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 395,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "couldn't",
+            "correct_answer": "can't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «couldn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 387,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "couldn't",
+            "correct_answer": "can't",
+            "language": "ua",
+            "explanation": "«Couldn't» вживається для неможливості у минулому; «today» вказує на теперішній або майбутній час.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 388,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "couldn't",
+            "correct_answer": "can't",
+            "language": "uk",
+            "explanation": "«Couldn't» вживається для неможливості у минулому; «today» вказує на теперішній або майбутній час.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 393,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "don't",
+            "correct_answer": "can't",
+            "language": "en",
+            "explanation": "Incorrect. «don't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 396,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "don't",
+            "correct_answer": "can't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «don't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 389,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "don't",
+            "correct_answer": "can't",
+            "language": "ua",
+            "explanation": "«Don't stay» мало б бути формою наказового способу або іншої конструкції; тут потрібна модальна нездатність «can't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 390,
+            "question": "Sorry, I {a1} stay late today.",
+            "wrong_answer": "don't",
+            "correct_answer": "can't",
+            "language": "uk",
+            "explanation": "«Don't stay» мало б бути формою наказового способу або іншої конструкції; тут потрібна модальна нездатність «can't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 73,
+        "uuid": "st-cp-sn-c1-q01",
+        "question": "{a1} you require further information, please contact us.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 73,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 55,
+                "name": "Inverted conditional sentence (Should/Were/Had)",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 73,
+                "tag_id": 55,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 37,
+                "option": "Were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 73,
+                "option_id": 37,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53,
+                "option": "Would",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 73,
+                "option_id": 53,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 109,
+                "option": "Should",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 73,
+                "option_id": 109,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 73,
+                "question_id": 73,
+                "marker": "a1",
+                "option_id": 109,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 109,
+                "option": "Should",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 73,
+            "question_id": 73,
+            "text": "{a1} you require further information, please contact us.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 218,
+            "question_id": 73,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Formal inverted conditionals omit **if** and place the auxiliary first: **Should/Were/Had + subject + verb**.\nThe absence of **if** and the auxiliary at the start are the key signals. Match the conditional type to the tense in the result clause.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 219,
+            "question_id": 73,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Formalne zdania warunkowe z inwersją pomijają **if** i stawiają operator na początku: **Should/Were/Had + podmiot + czasownik**.\nBrak **if** i operator na początku to główne sygnały. Dobierz typ warunkowy do czasu w zdaniu głównym.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 217,
+            "question_id": 73,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Інвертований умовний спосіб I типу: замість «If you should require», можна сказати «Should you require» (допоміжне виноситься на початок).\nМодальне «Should» на початку речення без «if» — ознака формальної умовної конструкції 1-го типу.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 871,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Should",
+            "correct_answer": "Should",
+            "language": "en",
+            "explanation": "Correct. «Should» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 874,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Should",
+            "correct_answer": "Should",
+            "language": "pl",
+            "explanation": "Poprawnie. «Should» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 865,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Should",
+            "correct_answer": "Should",
+            "language": "ua",
+            "explanation": "«Should» — правильна інверсія умовного I типу: «Should you require» = «If you should require» (формальний реєстр).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 866,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Should",
+            "correct_answer": "Should",
+            "language": "uk",
+            "explanation": "«Should» — правильна інверсія умовного I типу: «Should you require» = «If you should require» (формальний реєстр).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 873,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Were",
+            "correct_answer": "Should",
+            "language": "en",
+            "explanation": "Incorrect. «Were» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 876,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Were",
+            "correct_answer": "Should",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Were» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 869,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Were",
+            "correct_answer": "Should",
+            "language": "ua",
+            "explanation": "«Were you require» — граматично некоректна форма; «Were» вживається для інверсії II типу: «Were you to require» або «Were you in a situation».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 870,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Were",
+            "correct_answer": "Should",
+            "language": "uk",
+            "explanation": "«Were you require» — граматично некоректна форма; «Were» вживається для інверсії II типу: «Were you to require» або «Were you in a situation».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 872,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Would",
+            "correct_answer": "Should",
+            "language": "en",
+            "explanation": "Incorrect. «Would» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 875,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Would",
+            "correct_answer": "Should",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Would» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 867,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Would",
+            "correct_answer": "Should",
+            "language": "ua",
+            "explanation": "«Would you require» не є стандартною інвертованою умовою; «would» вживається у головному реченні умовного II типу.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 868,
+            "question": "{a1} you require further information, please contact us.",
+            "wrong_answer": "Would",
+            "correct_answer": "Should",
+            "language": "uk",
+            "explanation": "«Would you require» не є стандартною інвертованою умовою; «would» вживається у головному реченні умовного II типу.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

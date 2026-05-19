@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 35,
+        "uuid": "cj-cp-sn-a2-q17",
+        "question": "The shop was closed, {a1} we went to a different one.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:26.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Choosing the correct conjunction",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 34,
+                "name": "Resultive conjunction 'so'",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "tag_id": 34,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 39,
+                "name": "Result coordination",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "tag_id": 39,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4,
+                "option": "because",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5,
+                "option": "so",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "option_id": 5,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 35,
+                "question_id": 35,
+                "marker": "a1",
+                "option_id": 5,
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "option": {
+                "id": 5,
+                "option": "so",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 35,
+            "question_id": 35,
+            "text": "The shop was closed, {a1} we went to a different one.",
+            "created_at": "2026-05-18T13:17:20.000000Z",
+            "updated_at": "2026-05-18T13:17:20.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 104,
+            "question_id": 35,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Use 'so' to introduce the action taken as a result of a problem.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 105,
+            "question_id": 35,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Użyj 'so', aby wprowadzić działanie podjęte w wyniku problemu.\nЗачинений магазин `was closed` — перешкода, а похід до іншого `went to a different one` — результат цього.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 103,
+            "question_id": 35,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Сполучник so вводить логічний наступний крок після того, як щось не вдалося.\nЗачинений магазин `was closed` — перешкода, а похід до іншого `went to a different one` — результат цього.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 416,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "en",
+            "explanation": "Incorrect. 'Because' introduces a reason; the reason (closed shop) is already stated.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 419,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Because» wprowadza przyczynę; przyczyna (zamknięty sklep) jest już podana.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 411,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "ua",
+            "explanation": "«because» вводив би причину після наслідку, але тут причина (зачинено) стоїть першою.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 412,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "uk",
+            "explanation": "«because» вводив би причину після наслідку, але тут причина (зачинено) стоїть першою.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 417,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "en",
+            "explanation": "Incorrect. 'But' implies an unexpected contrast; finding an alternative is the expected response.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 420,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «But» sugeruje nieoczekiwany kontrast; szukanie alternatywy jest oczekiwaną reakcją.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 413,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "ua",
+            "explanation": "«but» передав би несподіваний контраст, але пошук альтернативного магазину — очікувана поведінка.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 414,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "uk",
+            "explanation": "«but» передав би несподіваний контраст, але пошук альтернативного магазину — очікувана поведінка.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 415,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "en",
+            "explanation": "Correct. 'So' shows that going to a different shop was the result of the first being closed.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 418,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "pl",
+            "explanation": "Poprawnie. «So» pokazuje, że pójście do innego sklepu było skutkiem zamknięcia pierwszego.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 409,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "ua",
+            "explanation": "«so» правильний: він показує, що через зачинений магазин вирішили піти до іншого.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 410,
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "uk",
+            "explanation": "«so» правильний: він показує, що через зачинений магазин вирішили піти до іншого.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ]
+}

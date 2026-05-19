@@ -1,33 +1,378 @@
 {
     "question": {
-        "id": 265,
+        "id": 283,
         "uuid": "polyglot-some-any-q01",
         "question": "На столі є трохи води.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 11,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-08T23:33:49.000000Z",
-        "updated_at": "2026-05-08T23:33:49.000000Z"
+        "created_at": "2026-05-19T14:42:16.000000Z",
+        "updated_at": "2026-05-19T14:42:35.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "English Sentence Builder A1",
-        "created_at": "2026-05-08T23:33:27.000000Z",
-        "updated_at": "2026-05-08T23:33:27.000000Z"
+        "created_at": "2026-05-19T14:42:16.000000Z",
+        "updated_at": "2026-05-19T14:42:16.000000Z"
     },
     "source": {
-        "id": 11,
+        "id": 3,
         "name": "Some / Any — Things",
-        "created_at": "2026-05-08T23:33:49.000000Z",
-        "updated_at": "2026-05-08T23:33:49.000000Z"
+        "created_at": "2026-05-19T14:42:11.000000Z",
+        "updated_at": "2026-05-19T14:42:11.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 24,
+                "name": "A1",
+                "category": "level",
+                "created_at": "2026-05-19T14:42:05.000000Z",
+                "updated_at": "2026-05-19T14:42:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "tag_id": 24,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence Builder compose tokens",
+                "category": "mode",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 30,
+                "name": "some / any",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "quantifiers",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 32,
+                "name": "some",
+                "category": "quantifier",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "tag_id": 32,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 34,
+                "name": "affirmative",
+                "category": "pattern",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "tag_id": 34,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 35,
+                "option": "There",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 35,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 36,
+                "option": "is",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 36,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 37,
+                "option": "some",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 37,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 38,
+                "option": "water",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 38,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 39,
+                "option": "on",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 39,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 40,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 41,
+                "option": "table",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 41,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 42,
+                "option": "any",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 42,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 43,
+                "option": "a",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 43,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 44,
+                "option": "book",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 283,
+                "option_id": 44,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 289,
+                "question_id": 283,
+                "marker": "a1",
+                "option_id": 35,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 35,
+                "option": "There",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 290,
+                "question_id": 283,
+                "marker": "a2",
+                "option_id": 36,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 36,
+                "option": "is",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 291,
+                "question_id": 283,
+                "marker": "a3",
+                "option_id": 37,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 37,
+                "option": "some",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 292,
+                "question_id": 283,
+                "marker": "a4",
+                "option_id": 38,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 38,
+                "option": "water",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 293,
+                "question_id": 283,
+                "marker": "a5",
+                "option_id": 39,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 39,
+                "option": "on",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 294,
+                "question_id": 283,
+                "marker": "a6",
+                "option_id": 40,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 295,
+                "question_id": 283,
+                "marker": "a7",
+                "option_id": 41,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 41,
+                "option": "table",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
     "variants": [],
-    "hints": [],
+    "hints": [
+        {
+            "id": 1,
+            "question_id": 283,
+            "provider": "polyglot-v3",
+            "locale": "uk",
+            "hint": "Схема: There is + some + noun + місце",
+            "created_at": "2026-05-19T14:42:17.000000Z",
+            "updated_at": "2026-05-19T14:42:17.000000Z"
+        }
+    ],
     "chatgpt_explanations": []
 }

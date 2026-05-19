@@ -1,0 +1,310 @@
+{
+    "question": {
+        "id": 127,
+        "uuid": "imperative-19-please-a19-me-the-salt",
+        "question": "Please {a19} me the salt.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:41.000000Z",
+        "updated_at": "2026-05-18T13:17:46.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:41.000000Z",
+        "updated_at": "2026-05-18T13:17:41.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Imperatives — Наказові речення",
+        "created_at": "2026-05-18T13:17:41.000000Z",
+        "updated_at": "2026-05-18T13:17:41.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 4,
+                "name": "Imperative sentences",
+                "category": null,
+                "created_at": "2026-05-18T13:17:35.000000Z",
+                "updated_at": "2026-05-18T13:17:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 127,
+                "tag_id": 4,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 38,
+                "name": "Affirmative imperative (base form)",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 127,
+                "tag_id": 38,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 40,
+                "name": "Polite imperative with please",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 127,
+                "tag_id": 40,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 55,
+                "option": "pass",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 127,
+                "option_id": 55,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 56,
+                "option": "passes",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 127,
+                "option_id": 56,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57,
+                "option": "passing",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 127,
+                "option_id": 57,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 127,
+                "question_id": 127,
+                "marker": "a19",
+                "option_id": 55,
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            },
+            "option": {
+                "id": 55,
+                "option": "pass",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 19,
+                "question_id": 127,
+                "marker": "a19",
+                "option_id": 256,
+                "created_at": "2026-05-18T13:17:42.000000Z",
+                "updated_at": "2026-05-18T13:17:42.000000Z"
+            },
+            "option": {
+                "id": 256,
+                "option": "polite imperative",
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 127,
+            "question_id": 127,
+            "text": "Please {a19} me the salt.",
+            "created_at": "2026-05-18T13:17:42.000000Z",
+            "updated_at": "2026-05-18T13:17:42.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 379,
+            "question_id": 127,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "After 'Please', the verb stays in base form: pass, not passes.\nThe pronoun 'me' and 'the salt' after the gap indicate a polite request.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 380,
+            "question_id": 127,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "W trybie rozkazującym czasownik zawsze stoi w formie podstawowej, nawet po 'Please', 'Always' lub 'Never'.\nZwróć uwagę na zaimek dopełnieniowy (me, him, her, them, it) — stoi on bezpośrednio po czasowniku.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 381,
+            "question_id": 127,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Після «Please» дієслово у наказі стоїть у базовій формі: pass, не passes чи passing.\nЗайменник «me» після пропуску і слово «the salt» вказують на ввічливе прохання передати сіль.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1513,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "en",
+            "explanation": "Correct: 'Please pass me' — polite imperative with base form.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1516,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "pl",
+            "explanation": "Poprawnie: 'Please pass me' — polite imperative with base form.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1519,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "ua",
+            "explanation": "Правильно: «Please pass me» — ввічливий наказ. Після «please» дієслово зберігає базову форму.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1520,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "uk",
+            "explanation": "Правильно: «Please pass me» — ввічливий наказ. Після «please» дієслово зберігає базову форму.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1514,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "en",
+            "explanation": "Wrong: 'passes' is third-person. Even with 'please', use the base form.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1517,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "pl",
+            "explanation": "Błąd: 'passes' is third-person. Even with 'please', use the base form.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1521,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "ua",
+            "explanation": "Помилка: «passes» — третя особа однини. Навіть із «please» наказ вимагає базової форми.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1522,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "uk",
+            "explanation": "Помилка: «passes» — третя особа однини. Навіть із «please» наказ вимагає базової форми.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1515,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "en",
+            "explanation": "Wrong: 'passing' is the -ing form, not suitable for an imperative.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1518,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "pl",
+            "explanation": "Błąd: 'passing' is the -ing form, not suitable for an imperative.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1523,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "ua",
+            "explanation": "Помилка: «passing» — -ing форма, непридатна для наказового речення.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1524,
+            "question": "Please {a19} me the salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "uk",
+            "explanation": "Помилка: «passing» — -ing форма, непридатна для наказового речення.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        }
+    ]
+}

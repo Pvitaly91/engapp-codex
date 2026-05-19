@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 111,
+        "uuid": "conjunct-3-do-you-want-tea-a3-coffee",
+        "question": "Do you want tea {a3} coffee?",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:23.000000Z",
+        "updated_at": "2026-05-18T13:17:27.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Coordinating conjunctions",
+                "category": null,
+                "created_at": "2026-05-18T13:17:17.000000Z",
+                "updated_at": "2026-05-18T13:17:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 42,
+                "name": "Conjunction 'or' — alternative",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "tag_id": 42,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "and",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 111,
+                "option_id": 3,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 111,
+                "question_id": 111,
+                "marker": "a3",
+                "option_id": 3,
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 3,
+                "question_id": 111,
+                "marker": "a3",
+                "option_id": 6,
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "option": {
+                "id": 6,
+                "option": "conjunction",
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 111,
+            "question_id": 111,
+            "text": "Do you want tea {a3} coffee?",
+            "created_at": "2026-05-18T13:17:23.000000Z",
+            "updated_at": "2026-05-18T13:17:23.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 331,
+            "question_id": 111,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "'Or' offers a choice between two alternatives — one or the other, but not both at once.\nThe question offers two drink options — `tea` and `coffee`. Look for the conjunction that introduces a choice.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 332,
+            "question_id": 111,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "'Or' oferuje wybór między dwoma alternatywami — jedno albo drugie, ale nie oba naraz.\nPytanie oferuje dwa napoje — `tea` i `coffee`. Szukaj spójnika, który wprowadza wybór.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 333,
+            "question_id": 111,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Сполучник or пропонує вибір між двома альтернативами — одна або друга, але не обидві одночасно.\nПитальне речення пропонує два варіанти напою — `tea` та `coffee`. Це структура вибору між альтернативами.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1314,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "'And' would join both drinks as a single offer, but the question asks for a preference, not a combination.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1317,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "'And' połączyłoby oba napoje jako jedną ofertę, ale pytanie dotyczy preferencji, a nie kombinacji.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1321,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«and» об'єднав би обидва напої як одну пропозицію, але питання передбачає вибір лише одного.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1322,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«and» об'єднав би обидва напої як одну пропозицію, але питання передбачає вибір лише одного.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1315,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "'But' signals contrast — 'tea but coffee' — which makes no sense as a preference question.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1318,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "'But' sygnalizuje kontrast — 'herbata, ale kawa' — co nie ma sensu jako pytanie o preferencje.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1323,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«but» означає протиставлення — «чай, але кава» — що позбавлено сенсу в контексті питання про перевагу.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1324,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«but» означає протиставлення — «чай, але кава» — що позбавлено сенсу в контексті питання про перевагу.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1313,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Correct: 'or' presents a choice between tea and coffee — the question expects one answer.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1316,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Poprawnie: 'or' przedstawia wybór między herbatą a kawą — pytanie oczekuje jednej odpowiedzi.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1319,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "Правильно: «or» надає вибір між чаєм і кавою. У питанні чекається відповідь «одне або інше».",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        },
+        {
+            "id": 1320,
+            "question": "Do you want tea {a3} coffee?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "Правильно: «or» надає вибір між чаєм і кавою. У питанні чекається відповідь «одне або інше».",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        }
+    ]
+}

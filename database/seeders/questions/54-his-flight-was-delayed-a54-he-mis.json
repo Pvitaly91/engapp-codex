@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 162,
+        "uuid": "54-his-flight-was-delayed-a54-he-mis",
+        "question": "His flight was delayed, {a54} he missed the connecting train.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:24.000000Z",
+        "updated_at": "2026-05-18T13:17:28.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Coordinating conjunctions",
+                "category": null,
+                "created_at": "2026-05-18T13:17:17.000000Z",
+                "updated_at": "2026-05-18T13:17:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 162,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 44,
+                "name": "Conjunction 'so' — result",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            },
+            "pivot": {
+                "question_id": 162,
+                "tag_id": 44,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 162,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4,
+                "option": "because",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 162,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5,
+                "option": "so",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 162,
+                "option_id": 5,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 162,
+                "question_id": 162,
+                "marker": "a54",
+                "option_id": 5,
+                "created_at": "2026-05-18T13:17:24.000000Z",
+                "updated_at": "2026-05-18T13:17:24.000000Z"
+            },
+            "option": {
+                "id": 5,
+                "option": "so",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 54,
+                "question_id": 162,
+                "marker": "a54",
+                "option_id": 6,
+                "created_at": "2026-05-18T13:17:24.000000Z",
+                "updated_at": "2026-05-18T13:17:24.000000Z"
+            },
+            "option": {
+                "id": 6,
+                "option": "conjunction",
+                "created_at": "2026-05-18T13:17:23.000000Z",
+                "updated_at": "2026-05-18T13:17:23.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 162,
+            "question_id": 162,
+            "text": "His flight was delayed, {a54} he missed the connecting train.",
+            "created_at": "2026-05-18T13:17:24.000000Z",
+            "updated_at": "2026-05-18T13:17:24.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 484,
+            "question_id": 162,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "'So' introduces the consequence of a travel delay.\nA comma after `His flight was delayed` and the logic: flight delay → missed connecting train. Which conjunction introduces this consequence?",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 485,
+            "question_id": 162,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "'So' wprowadza skutek opóźnienia podróży.\nPrzecinek po `His flight was delayed` i logika: opóźnienie lotu → spóźnienie na pociąg łączący. Który spójnik wprowadza ten skutek?",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 486,
+            "question_id": 162,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Сполучник so вводить наслідок транспортної затримки.\nКома після `His flight was delayed` та логіка: затримка рейсу → пропущений поїзд.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1927,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "en",
+            "explanation": "'Because' reverses the logic: 'flight was delayed because missed the train' — incorrect causal order.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1930,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "pl",
+            "explanation": "'Because' odwraca logikę: 'lot był opóźniony, bo spóźnił na pociąg' — błędna kolejność przyczynowo-skutkowa.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1935,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "ua",
+            "explanation": "«because» перевертало б логіку: «рейс затримано, ТОМУ ЩО пропустив поїзд» — хибний причинно-наслідковий порядок.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1936,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "because",
+            "correct_answer": "so",
+            "language": "uk",
+            "explanation": "«because» перевертало б логіку: «рейс затримано, ТОМУ ЩО пропустив поїзд» — хибний причинно-наслідковий порядок.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1926,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "en",
+            "explanation": "'But' would imply an unexpected contrast: 'flight delayed BUT missed the train' — missing the train is the natural result, not a surprise.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1929,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "pl",
+            "explanation": "'But' sugerowałoby nieoczekiwany kontrast: 'lot opóźniony, ALE spóźnił na pociąg' — spóźnienie na pociąg to naturalny skutek, nie niespodzianka.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1933,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "ua",
+            "explanation": "«but» означало б несподіваний контраст: «рейс затримано, АЛЕ пропустив поїзд» — пропуск поїзда є природним наслідком, а не несподіванкою.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1934,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "but",
+            "correct_answer": "so",
+            "language": "uk",
+            "explanation": "«but» означало б несподіваний контраст: «рейс затримано, АЛЕ пропустив поїзд» — пропуск поїзда є природним наслідком, а не несподіванкою.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1925,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "en",
+            "explanation": "Correct: 'so' shows the direct consequence of the flight delay — he missed the connecting train.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1928,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "pl",
+            "explanation": "Poprawnie: 'so' pokazuje bezpośredni skutek opóźnienia lotu — spóźnił się na pociąg łączący.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1931,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "ua",
+            "explanation": "Правильно: «so» показує наслідок затримки рейсу — пропустив пересадочний поїзд.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        },
+        {
+            "id": 1932,
+            "question": "His flight was delayed, {a54} he missed the connecting train.",
+            "wrong_answer": "so",
+            "correct_answer": "so",
+            "language": "uk",
+            "explanation": "Правильно: «so» показує наслідок затримки рейсу — пропустив пересадочний поїзд.",
+            "created_at": "2026-05-18T13:17:25.000000Z",
+            "updated_at": "2026-05-18T13:17:25.000000Z"
+        }
+    ]
+}

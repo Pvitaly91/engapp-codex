@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 81,
+        "uuid": "par-33-would-you-like-coffee-a33-tea",
+        "question": "Would you like coffee {a33} tea?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-18T13:16:21.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:16.000000Z",
+                "updated_at": "2026-05-18T13:16:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 50,
+                "name": "Conjunction usage",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:20.000000Z",
+                "updated_at": "2026-05-18T13:16:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "tag_id": 50,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 63,
+                "option": "and",
+                "created_at": "2026-05-18T13:16:18.000000Z",
+                "updated_at": "2026-05-18T13:16:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "option_id": 63,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 151,
+                "option": "but",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "option_id": 151,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 176,
+                "option": "or",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 81,
+                "option_id": 176,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 191,
+                "question_id": 81,
+                "marker": "a33",
+                "option_id": 176,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 176,
+                "option": "or",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 33,
+                "question_id": 81,
+                "marker": "a33",
+                "option_id": 223,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 223,
+                "option": "choice conjunction",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 63,
+            "question_id": 81,
+            "text": "Would you like coffee {a33} tea?",
+            "created_at": "2026-05-18T13:16:21.000000Z",
+            "updated_at": "2026-05-18T13:16:21.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 127,
+            "question_id": 81,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "The conjunction 'or' correctly connects the elements in this sentence.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 128,
+            "question_id": 81,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Spójnik 'or' wyraża wybór między dwiema opcjami.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 129,
+            "question_id": 81,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Сполучник вибору (choice conjunction) з'єднує альтернативні варіанти.\nПитання пропонує вибір між кавою і чаєм, тому потрібен 'or'.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 566,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'and' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 569,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "'And' łączyłoby obie opcje, nie dawałoby wyboru.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 573,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "Сполучник 'and' додає варіанти, а не пропонує вибір між ними.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 574,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "Сполучник 'and' додає варіанти, а не пропонує вибір між ними.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 567,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'but' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 570,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "'But' wyraża kontrast, nie wybór.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 575,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "Сполучник 'but' виражає протиставлення, що не підходить для питання про вибір.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 576,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "Сполучник 'but' виражає протиставлення, що не підходить для питання про вибір.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 565,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Correct. 'or' is the appropriate choice in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 568,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Poprawnie! 'Or' wyraża wybór między kawą a herbatą.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 571,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "Сполучник 'or' (або) правильно виражає вибір між двома варіантами.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 572,
+            "question": "Would you like coffee {a33} tea?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "Сполучник 'or' (або) правильно виражає вибір між двома варіантами.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ]
+}

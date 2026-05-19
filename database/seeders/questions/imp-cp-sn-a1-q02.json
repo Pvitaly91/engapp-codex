@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 2,
+        "uuid": "imp-cp-sn-a1-q02",
+        "question": "{a1} down! The movie is starting.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:45.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Дієслова та дієслівні форми",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Imperatives — Наказовий спосіб",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 17,
+                "name": "Imperatives",
+                "category": null,
+                "created_at": "2026-05-18T13:17:36.000000Z",
+                "updated_at": "2026-05-18T13:17:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 2,
+                "tag_id": 17,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Affirmative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 2,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4,
+                "option": "Sit",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 2,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5,
+                "option": "Sits",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 2,
+                "option_id": 5,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 6,
+                "option": "Sitting",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 2,
+                "option_id": 6,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 2,
+                "question_id": 2,
+                "marker": "a1",
+                "option_id": 4,
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "option": {
+                "id": 4,
+                "option": "Sit",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 2,
+            "question_id": 2,
+            "text": "{a1} down! The movie is starting.",
+            "created_at": "2026-05-18T13:17:38.000000Z",
+            "updated_at": "2026-05-18T13:17:38.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 5,
+            "question_id": 2,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "The affirmative imperative begins with the base form of the verb — typically the first word in the sentence.\nThe sentence is a short command; the verb takes the first position and must be in its base form.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 6,
+            "question_id": 2,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Twierdzący tryb rozkazujący zaczyna się od podstawowej formy czasownika — zazwyczaj jest to pierwsze słowo zdania rozkazującego.\nZdanie to krótkie polecenie; czasownik zajmuje pierwszą pozycję i musi być w formie podstawowej.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 4,
+            "question_id": 2,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Наказовий спосіб у стверджувальній формі — це базова форма дієслова, яка зазвичай стоїть першим словом у реченні-команді.\nРечення є короткою командою; дієслово займає першу позицію й вживається у базовій формі без жодних змін.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 19,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sit",
+            "correct_answer": "Sit",
+            "language": "en",
+            "explanation": "'Sit' is the base form of the verb and the correct imperative. Commands typically begin with the bare infinitive.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 22,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sit",
+            "correct_answer": "Sit",
+            "language": "pl",
+            "explanation": "«Sit» to podstawowa forma czasownika i poprawna forma trybu rozkazującego.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 13,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sit",
+            "correct_answer": "Sit",
+            "language": "ua",
+            "explanation": "Форма «Sit» є базовою формою дієслова і правильно вживається як стверджувальний наказовий спосіб.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 14,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sit",
+            "correct_answer": "Sit",
+            "language": "uk",
+            "explanation": "Форма «Sit» є базовою формою дієслова і правильно вживається як стверджувальний наказовий спосіб.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 20,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sits",
+            "correct_answer": "Sit",
+            "language": "en",
+            "explanation": "'Sits' is the third-person singular form. Imperatives do not conjugate by person and never take -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 23,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sits",
+            "correct_answer": "Sit",
+            "language": "pl",
+            "explanation": "«Sits» to forma trzeciej osoby liczby pojedynczej. Tryb rozkazujący nie odmienia się przez osoby i nie używa końcówki -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 15,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sits",
+            "correct_answer": "Sit",
+            "language": "ua",
+            "explanation": "Форма «Sits» — це форма третьої особи однини теперішнього часу. Наказовий спосіб не відмінюється за особами й ніколи не має закінчення -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 16,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sits",
+            "correct_answer": "Sit",
+            "language": "uk",
+            "explanation": "Форма «Sits» — це форма третьої особи однини теперішнього часу. Наказовий спосіб не відмінюється за особами й ніколи не має закінчення -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 21,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sitting",
+            "correct_answer": "Sit",
+            "language": "en",
+            "explanation": "'Sitting' is the present participle. Without 'is/are', it cannot open a command sentence.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 24,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sitting",
+            "correct_answer": "Sit",
+            "language": "pl",
+            "explanation": "«Sitting» to imiesłów teraźniejszy. Bez «is/are» nie może rozpoczynać zdania rozkazującego.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 17,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sitting",
+            "correct_answer": "Sit",
+            "language": "ua",
+            "explanation": "Форма «Sitting» — дієприкметник теперішнього часу. Без допоміжного дієслова «is/are» вона не може починати речення-команду.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 18,
+            "question": "{a1} down! The movie is starting.",
+            "wrong_answer": "Sitting",
+            "correct_answer": "Sit",
+            "language": "uk",
+            "explanation": "Форма «Sitting» — дієприкметник теперішнього часу. Без допоміжного дієслова «is/are» вона не може починати речення-команду.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ]
+}

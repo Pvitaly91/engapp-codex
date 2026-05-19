@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 24,
+        "uuid": "st-cp-sn-a2-q06",
+        "question": "He {a1} swim very well yet.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 24,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 35,
+                "name": "Negation with modal verbs",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 24,
+                "tag_id": 35,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 5,
+                "option": "doesn't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 24,
+                "option_id": 5,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 19,
+                "option": "isn't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 24,
+                "option_id": 19,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 42,
+                "option": "can't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 24,
+                "option_id": 42,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 24,
+                "question_id": 24,
+                "marker": "a1",
+                "option_id": 42,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 42,
+                "option": "can't",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 24,
+            "question_id": 24,
+            "text": "He {a1} swim very well yet.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 71,
+            "question_id": 24,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Modal verbs form negatives by adding **not** after the modal: can't, couldn't, shouldn't, mustn't.\nThe modal verb expresses ability, permission, or obligation — choose the correct negative form.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 72,
+            "question_id": 24,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Czasowniki modalne tworzą przeczenia przez dodanie **not**: can't, couldn't, shouldn't, mustn't.\nCzasownik modalny wyraża zdolność, pozwolenie lub obowiązek — wybierz odpowiednią formę przeczącą.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 70,
+            "question_id": 24,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Модальне дієслово «can» у заперечній формі — «can't» (cannot); воно виражає нездатність.\nСлово «yet» підсилює ідею поточної нездатності виконати дію — саме значення «can't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 283,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "en",
+            "explanation": "Correct. «can't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 286,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "pl",
+            "explanation": "Poprawnie. «can't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 277,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "ua",
+            "explanation": "«Can't» (= cannot) — правильна заперечна форма модального дієслова «can», що означає «не вміє/не може».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 278,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "can't",
+            "correct_answer": "can't",
+            "language": "uk",
+            "explanation": "«Can't» (= cannot) — правильна заперечна форма модального дієслова «can», що означає «не вміє/не може».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 284,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "can't",
+            "language": "en",
+            "explanation": "Incorrect. «doesn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 287,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "can't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «doesn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 279,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "can't",
+            "language": "ua",
+            "explanation": "«Doesn't» заперечує смислові дієслова у Present Simple; тут потрібна модальна форма «can't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 280,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "can't",
+            "language": "uk",
+            "explanation": "«Doesn't» заперечує смислові дієслова у Present Simple; тут потрібна модальна форма «can't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 285,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "isn't",
+            "correct_answer": "can't",
+            "language": "en",
+            "explanation": "Incorrect. «isn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 288,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "isn't",
+            "correct_answer": "can't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «isn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 281,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "isn't",
+            "correct_answer": "can't",
+            "language": "ua",
+            "explanation": "«Isn't» — заперечення «to be»; «swim» — смислове дієслово, а здатність виражається через «can».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 282,
+            "question": "He {a1} swim very well yet.",
+            "wrong_answer": "isn't",
+            "correct_answer": "can't",
+            "language": "uk",
+            "explanation": "«Isn't» — заперечення «to be»; «swim» — смислове дієслово, а здатність виражається через «can».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

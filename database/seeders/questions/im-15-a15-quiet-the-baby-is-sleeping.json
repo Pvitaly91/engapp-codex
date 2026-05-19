@@ -1,0 +1,310 @@
+{
+    "question": {
+        "id": 123,
+        "uuid": "im-15-a15-quiet-the-baby-is-sleeping",
+        "question": "{a15} quiet — the baby is sleeping.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:41.000000Z",
+        "updated_at": "2026-05-18T13:17:46.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:41.000000Z",
+        "updated_at": "2026-05-18T13:17:41.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Imperatives — Наказові речення",
+        "created_at": "2026-05-18T13:17:41.000000Z",
+        "updated_at": "2026-05-18T13:17:41.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 4,
+                "name": "Imperative sentences",
+                "category": null,
+                "created_at": "2026-05-18T13:17:35.000000Z",
+                "updated_at": "2026-05-18T13:17:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 123,
+                "tag_id": 4,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 38,
+                "name": "Affirmative imperative (base form)",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 123,
+                "tag_id": 38,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 43,
+                "name": "Be + adjective imperative",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 123,
+                "tag_id": 43,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 16,
+                "option": "Be",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 123,
+                "option_id": 16,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 17,
+                "option": "Are",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 123,
+                "option_id": 17,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 64,
+                "option": "Being",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 123,
+                "option_id": 64,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 123,
+                "question_id": 123,
+                "marker": "a15",
+                "option_id": 16,
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            },
+            "option": {
+                "id": 16,
+                "option": "Be",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 15,
+                "question_id": 123,
+                "marker": "a15",
+                "option_id": 249,
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            },
+            "option": {
+                "id": 249,
+                "option": "imperative with be",
+                "created_at": "2026-05-18T13:17:41.000000Z",
+                "updated_at": "2026-05-18T13:17:41.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 123,
+            "question_id": 123,
+            "text": "{a15} quiet — the baby is sleeping.",
+            "created_at": "2026-05-18T13:17:41.000000Z",
+            "updated_at": "2026-05-18T13:17:41.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 367,
+            "question_id": 123,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "The imperative of 'be' is 'Be' (not 'Are' or 'Being').\nAfter the gap, the adjective 'quiet' and reason 'the baby is sleeping' indicate a command to be quiet.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 368,
+            "question_id": 123,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Tryb rozkazujący 'be' to 'Be' (nie 'Are' ani 'Being').\nPrzymiotnik 'quiet' i powód 'the baby is sleeping' wskazują na rozkaz.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 369,
+            "question_id": 123,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Дієслово «be» у наказовому способі має форму «Be» (не «Are» чи «Being»).\nПісля пропуску стоїть прикметник «quiet» і пояснення «the baby is sleeping» — це прохання бути тихим.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1466,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Are",
+            "correct_answer": "Be",
+            "language": "en",
+            "explanation": "Wrong: 'Are' is for statements (You are quiet), not commands.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1469,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Are",
+            "correct_answer": "Be",
+            "language": "pl",
+            "explanation": "Błąd: 'Are' to forma oznajmująca, nie rozkazująca.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1473,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Are",
+            "correct_answer": "Be",
+            "language": "ua",
+            "explanation": "Помилка: «Are» — це форма дієслова «be» для you/we/they у розповідних реченнях, але не в наказах.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1474,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Are",
+            "correct_answer": "Be",
+            "language": "uk",
+            "explanation": "Помилка: «Are» — це форма дієслова «be» для you/we/they у розповідних реченнях, але не в наказах.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1465,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Be",
+            "correct_answer": "Be",
+            "language": "en",
+            "explanation": "Correct: 'Be quiet' — imperative with 'be' + adjective.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1468,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Be",
+            "correct_answer": "Be",
+            "language": "pl",
+            "explanation": "Poprawnie: 'Be quiet' — rozkaz z 'be' + przymiotnik.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1471,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Be",
+            "correct_answer": "Be",
+            "language": "ua",
+            "explanation": "Правильно: «Be quiet» — наказ із дієсловом «be» + прикметник. Наказ «be» не змінюється на «are» чи «is».",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1472,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Be",
+            "correct_answer": "Be",
+            "language": "uk",
+            "explanation": "Правильно: «Be quiet» — наказ із дієсловом «be» + прикметник. Наказ «be» не змінюється на «are» чи «is».",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1467,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Being",
+            "correct_answer": "Be",
+            "language": "en",
+            "explanation": "Wrong: 'Being quiet' is an -ing construction, not an imperative.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1470,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Being",
+            "correct_answer": "Be",
+            "language": "pl",
+            "explanation": "Błąd: 'Being' to forma -ing.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1475,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Being",
+            "correct_answer": "Be",
+            "language": "ua",
+            "explanation": "Помилка: «Being quiet» — це -ing конструкція, яка не утворює наказовий спосіб.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        },
+        {
+            "id": 1476,
+            "question": "{a15} quiet — the baby is sleeping.",
+            "wrong_answer": "Being",
+            "correct_answer": "Be",
+            "language": "uk",
+            "explanation": "Помилка: «Being quiet» — це -ing конструкція, яка не утворює наказовий спосіб.",
+            "created_at": "2026-05-18T13:17:43.000000Z",
+            "updated_at": "2026-05-18T13:17:43.000000Z"
+        }
+    ]
+}

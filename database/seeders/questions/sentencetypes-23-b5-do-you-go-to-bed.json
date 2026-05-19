@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 131,
+        "uuid": "sentencetypes-23-b5-do-you-go-to-bed",
+        "question": "{b5} do you go to bed?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:17:05.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2,
+                "name": "Sentence types",
+                "category": null,
+                "created_at": "2026-05-18T13:16:58.000000Z",
+                "updated_at": "2026-05-18T13:16:58.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "tag_id": 2,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 61,
+                "name": "Wh-question formation",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "tag_id": 61,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 7,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 21,
+                "option": "Is",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 21,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 168,
+                "option": "When",
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 168,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 131,
+                "question_id": 131,
+                "marker": "b5",
+                "option_id": 168,
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            },
+            "option": {
+                "id": 168,
+                "option": "When",
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 23,
+                "question_id": 131,
+                "marker": "b5",
+                "option_id": 155,
+                "created_at": "2026-05-18T13:17:05.000000Z",
+                "updated_at": "2026-05-18T13:17:05.000000Z"
+            },
+            "option": {
+                "id": 155,
+                "option": "question word",
+                "created_at": "2026-05-18T13:17:04.000000Z",
+                "updated_at": "2026-05-18T13:17:04.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 131,
+            "question_id": 131,
+            "text": "{b5} do you go to bed?",
+            "created_at": "2026-05-18T13:17:05.000000Z",
+            "updated_at": "2026-05-18T13:17:05.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 391,
+            "question_id": 131,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "This is a wh-question — it begins with a question word (who, what, where, when, why, how).\nLook at the sentence context and the verb hint 'question word' to choose the correct form.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 392,
+            "question_id": 131,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "To jest pytanie szczegółowe — zaczyna się od słowa pytającego (who, what, where, when, why, how).\nPrzeanalizuj kontekst zdania i wskazówkę 'question word', aby wybrać właściwą formę.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 393,
+            "question_id": 131,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Спеціальне питання (Wh-question) починається з питального слова, яке вказує на час.\nПитання про час — «коли» — перекладається як `When`.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1562,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Do",
+            "correct_answer": "When",
+            "language": "en",
+            "explanation": "Incorrect: 'Do' does not fit the required grammatical structure of this sentence.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1565,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Do",
+            "correct_answer": "When",
+            "language": "pl",
+            "explanation": "Niepoprawnie: 'Do' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1569,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Do",
+            "correct_answer": "When",
+            "language": "ua",
+            "explanation": "Неправильно: `Do` — допоміжне дієслово, яке в питанні стоїть після питального слова, а не замість нього.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1570,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Do",
+            "correct_answer": "When",
+            "language": "uk",
+            "explanation": "Неправильно: `Do` — допоміжне дієслово, яке в питанні стоїть після питального слова, а не замість нього.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1563,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Is",
+            "correct_answer": "When",
+            "language": "en",
+            "explanation": "Incorrect: 'Is' does not fit the required grammatical structure of this sentence.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1566,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Is",
+            "correct_answer": "When",
+            "language": "pl",
+            "explanation": "Niepoprawnie: 'Is' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1571,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Is",
+            "correct_answer": "When",
+            "language": "ua",
+            "explanation": "Неправильно: `Is` — допоміжне дієслова `to be`, яке не підходить для питання з `go` у Present Simple.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1572,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "Is",
+            "correct_answer": "When",
+            "language": "uk",
+            "explanation": "Неправильно: `Is` — допоміжне дієслова `to be`, яке не підходить для питання з `go` у Present Simple.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1561,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "When",
+            "correct_answer": "When",
+            "language": "en",
+            "explanation": "Correct: 'When' is the right choice for this sentence type and grammatical context.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1564,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "When",
+            "correct_answer": "When",
+            "language": "pl",
+            "explanation": "Poprawnie: 'When' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1567,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "When",
+            "correct_answer": "When",
+            "language": "ua",
+            "explanation": "Правильно: `When do you go to bed?` — спеціальне питання з `When`, що запитує про час дії.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        },
+        {
+            "id": 1568,
+            "question": "{b5} do you go to bed?",
+            "wrong_answer": "When",
+            "correct_answer": "When",
+            "language": "uk",
+            "explanation": "Правильно: `When do you go to bed?` — спеціальне питання з `When`, що запитує про час дії.",
+            "created_at": "2026-05-18T13:17:07.000000Z",
+            "updated_at": "2026-05-18T13:17:07.000000Z"
+        }
+    ]
+}

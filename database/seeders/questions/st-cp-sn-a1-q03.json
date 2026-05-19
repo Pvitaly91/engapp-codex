@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 3,
+        "uuid": "st-cp-sn-a1-q03",
+        "question": "{a1} you speak English?",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:08.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 3,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 37,
+                "name": "Yes/No question with do/does",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 3,
+                "tag_id": 37,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 3,
+                "option_id": 7,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 8,
+                "option": "Does",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 3,
+                "option_id": 8,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 9,
+                "option": "Are",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 3,
+                "option_id": 9,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 3,
+                "question_id": 3,
+                "marker": "a1",
+                "option_id": 7,
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 3,
+            "question_id": 3,
+            "text": "{a1} you speak English?",
+            "created_at": "2026-05-18T13:17:01.000000Z",
+            "updated_at": "2026-05-18T13:17:01.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 8,
+            "question_id": 3,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Yes/No questions in Present Simple: **Do/Does + subject + base verb**.\nIdentify the subject: **you/I/we/they** → **Do**; **he/she/it** → **Does**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 9,
+            "question_id": 3,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania tak/nie w Present Simple: **Do/Does + podmiot + bezokolicznik**.\nPodmiot **you/I/we/they** → **Do**; **he/she/it** → **Does**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 7,
+            "question_id": 3,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Загальне питання у Present Simple утворюється за схемою: Do/Does + підмет + базова форма дієслова.\nПідмет «you» вимагає допоміжного «Do», а не «Does» (яке вживається для he/she/it).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 33,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "en",
+            "explanation": "Incorrect. «Are» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 36,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 29,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "ua",
+            "explanation": "«Are» — це дієслово «to be», яке тут не підходить, бо присудок «speak» — смислове дієслово, а не стан/ознака.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 30,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Are",
+            "correct_answer": "Do",
+            "language": "uk",
+            "explanation": "«Are» — це дієслово «to be», яке тут не підходить, бо присудок «speak» — смислове дієслово, а не стан/ознака.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 31,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "en",
+            "explanation": "Correct. «Do» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 34,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "pl",
+            "explanation": "Poprawnie. «Do» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 25,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "ua",
+            "explanation": "«Do» — правильне допоміжне дієслово для питань з «you» у Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 26,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Do",
+            "correct_answer": "Do",
+            "language": "uk",
+            "explanation": "«Do» — правильне допоміжне дієслово для питань з «you» у Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 32,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "en",
+            "explanation": "Incorrect. «Does» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 35,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Does» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 27,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "ua",
+            "explanation": "«Does» вживається у питаннях для he/she/it, але не для «you».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 28,
+            "question": "{a1} you speak English?",
+            "wrong_answer": "Does",
+            "correct_answer": "Do",
+            "language": "uk",
+            "explanation": "«Does» вживається у питаннях для he/she/it, але не для «you».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

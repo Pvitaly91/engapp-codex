@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 51,
+        "uuid": "sent-33-i-send-a33-emails-every-week",
+        "question": "I send {a33} emails every week.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-18T13:16:49.000000Z",
+        "updated_at": "2026-05-18T13:16:53.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:49.000000Z",
+        "updated_at": "2026-05-18T13:16:49.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-18T13:16:47.000000Z",
+        "updated_at": "2026-05-18T13:16:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-18T13:16:45.000000Z",
+                "updated_at": "2026-05-18T13:16:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 51,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 40,
+                "name": "SVO with indirect object",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 51,
+                "tag_id": 40,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 96,
+                "option": "I",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 51,
+                "option_id": 96,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 146,
+                "option": "my boss",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 51,
+                "option_id": 146,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 148,
+                "option": "send I",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 51,
+                "option_id": 148,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 51,
+                "question_id": 51,
+                "marker": "a33",
+                "option_id": 146,
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "option": {
+                "id": 146,
+                "option": "my boss",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 33,
+                "question_id": 51,
+                "marker": "a33",
+                "option_id": 147,
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            },
+            "option": {
+                "id": 147,
+                "option": "indirect object after send",
+                "created_at": "2026-05-18T13:16:49.000000Z",
+                "updated_at": "2026-05-18T13:16:49.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 51,
+            "question_id": 51,
+            "text": "I send {a33} emails every week.",
+            "created_at": "2026-05-18T13:16:49.000000Z",
+            "updated_at": "2026-05-18T13:16:49.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 115,
+            "question_id": 51,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "IO comes between the verb and DO: S + V + IO + DO.\nVerb: `send`, DO: `emails`. To whom?",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 116,
+            "question_id": 51,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "IO comes between the verb and DO: S + V + IO + DO.\nVerb: `send`, DO: `emails`. To whom?",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 117,
+            "question_id": 51,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Непрямий додаток (IO) стоїть між дієсловом і прямим додатком: S + V + IO + DO.\nДієслово — `send`, прямий додаток — `emails`. Кому я відправляю листи?",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 494,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "I",
+            "correct_answer": "my boss",
+            "language": "en",
+            "explanation": "Incorrect: 'I' is the subject.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 497,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "I",
+            "correct_answer": "my boss",
+            "language": "pl",
+            "explanation": "Incorrect: 'I' is the subject.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 501,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "I",
+            "correct_answer": "my boss",
+            "language": "ua",
+            "explanation": "Неправильно: «I» — підмет речення, він уже на початку.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 502,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "I",
+            "correct_answer": "my boss",
+            "language": "uk",
+            "explanation": "Неправильно: «I» — підмет речення, він уже на початку.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 493,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "my boss",
+            "correct_answer": "my boss",
+            "language": "en",
+            "explanation": "Correct: 'my boss' is the IO between 'send' and 'emails'.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 496,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "my boss",
+            "correct_answer": "my boss",
+            "language": "pl",
+            "explanation": "Correct: 'my boss' is the IO between 'send' and 'emails'.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 499,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "my boss",
+            "correct_answer": "my boss",
+            "language": "ua",
+            "explanation": "Правильно: «my boss» — непрямий додаток після `send`, перед `emails`.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 500,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "my boss",
+            "correct_answer": "my boss",
+            "language": "uk",
+            "explanation": "Правильно: «my boss» — непрямий додаток після `send`, перед `emails`.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 495,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "send I",
+            "correct_answer": "my boss",
+            "language": "en",
+            "explanation": "Incorrect: repeating the verb with subject is ungrammatical.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 498,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "send I",
+            "correct_answer": "my boss",
+            "language": "pl",
+            "explanation": "Incorrect: repeating the verb with subject is ungrammatical.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 503,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "send I",
+            "correct_answer": "my boss",
+            "language": "ua",
+            "explanation": "Неправильно: підмет не може повторюватися з дієсловом у позиції додатка.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        },
+        {
+            "id": 504,
+            "question": "I send {a33} emails every week.",
+            "wrong_answer": "send I",
+            "correct_answer": "my boss",
+            "language": "uk",
+            "explanation": "Неправильно: підмет не може повторюватися з дієсловом у позиції додатка.",
+            "created_at": "2026-05-18T13:16:51.000000Z",
+            "updated_at": "2026-05-18T13:16:51.000000Z"
+        }
+    ]
+}

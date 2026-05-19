@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 28,
+        "uuid": "pos-cp-sn-a2-q05",
+        "question": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 38,
+                "name": "Adverb identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 28,
+                "tag_id": 38,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 139,
+                "option": "adjective",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 28,
+                "option_id": 139,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 140,
+                "option": "adverb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 28,
+                "option_id": 140,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 142,
+                "option": "preposition",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 28,
+                "option_id": 142,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 138,
+                "question_id": 28,
+                "marker": "a1",
+                "option_id": 140,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "option": {
+                "id": 140,
+                "option": "adverb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 10,
+            "question_id": 28,
+            "text": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+            "created_at": "2026-05-18T13:16:19.000000Z",
+            "updated_at": "2026-05-18T13:16:19.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 10,
+            "question_id": 28,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Слова, що закінчуються на -ly і описують дієслово, як правило є прислівниками.\nСлово `slowly` відповідає на питання «як?» стосовно дії 'moves'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 57,
+            "question": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+            "wrong_answer": "adjective",
+            "correct_answer": "adverb",
+            "language": "ua",
+            "explanation": "«Slowly» не є прикметником. Прикметники описують іменники, а не дієслова.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 58,
+            "question": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+            "wrong_answer": "adjective",
+            "correct_answer": "adverb",
+            "language": "uk",
+            "explanation": "«Slowly» не є прикметником. Прикметники описують іменники, а не дієслова.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 55,
+            "question": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+            "wrong_answer": "adverb",
+            "correct_answer": "adverb",
+            "language": "ua",
+            "explanation": "«Slowly» є прислівником: закінчується на -ly і описує дієслово 'moves'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 56,
+            "question": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+            "wrong_answer": "adverb",
+            "correct_answer": "adverb",
+            "language": "uk",
+            "explanation": "«Slowly» є прислівником: закінчується на -ly і описує дієслово 'moves'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 59,
+            "question": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+            "wrong_answer": "preposition",
+            "correct_answer": "adverb",
+            "language": "ua",
+            "explanation": "«Slowly» не є прийменником. Прийменники показують відношення між іменниками.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 60,
+            "question": "What part of speech is 'slowly' in 'The turtle moves {a1}.'?",
+            "wrong_answer": "preposition",
+            "correct_answer": "adverb",
+            "language": "uk",
+            "explanation": "«Slowly» не є прийменником. Прийменники показують відношення між іменниками.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ]
+}

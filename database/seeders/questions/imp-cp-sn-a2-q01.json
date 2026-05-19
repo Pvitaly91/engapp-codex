@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 19,
+        "uuid": "imp-cp-sn-a2-q01",
+        "question": "Please {a1} me some salt.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:45.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Дієслова та дієслівні форми",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Imperatives — Наказовий спосіб",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 17,
+                "name": "Imperatives",
+                "category": null,
+                "created_at": "2026-05-18T13:17:36.000000Z",
+                "updated_at": "2026-05-18T13:17:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 19,
+                "tag_id": 17,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Affirmative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 19,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "Polite imperatives with please",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 19,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 55,
+                "option": "pass",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 19,
+                "option_id": 55,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 56,
+                "option": "passes",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 19,
+                "option_id": 56,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57,
+                "option": "passing",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 19,
+                "option_id": 57,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 19,
+                "question_id": 19,
+                "marker": "a1",
+                "option_id": 55,
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "option": {
+                "id": 55,
+                "option": "pass",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 19,
+            "question_id": 19,
+            "text": "Please {a1} me some salt.",
+            "created_at": "2026-05-18T13:17:38.000000Z",
+            "updated_at": "2026-05-18T13:17:38.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 56,
+            "question_id": 19,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "The polite imperative with 'Please' uses the base form of the verb; third-person (-s) and participle forms are not used.\nThe polite particle 'Please' at the start signals a command; the verb in the gap must be in its base form.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 57,
+            "question_id": 19,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Grzeczny tryb rozkazujący z «Please» używa podstawowej formy czasownika; formy trzeciej osoby (-s) i imiesłowy nie są używane.\nGrzeczna partykuła «Please» na początku sygnalizuje rozkaz; czasownik w luce musi być w formie podstawowej.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 55,
+            "question_id": 19,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Стверджувальний наказовий спосіб із «Please» вживає базову форму дієслова; форми третьої особи (-s) та дієприкметники не вживаються.\nВвічлива частка «Please» на початку вказує на наказ; дієслово в пропуску має стояти у базовій формі.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 223,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "en",
+            "explanation": "'Pass' is the base form and the correct polite imperative after 'Please'.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 226,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "pl",
+            "explanation": "«Pass» to podstawowa forma i poprawna forma grzecznego trybu rozkazującego po «Please».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 217,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "ua",
+            "explanation": "Форма «pass» є базовою формою дієслова і правильно вживається у ввічливому наказовому способі після «Please».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 218,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "pass",
+            "correct_answer": "pass",
+            "language": "uk",
+            "explanation": "Форма «pass» є базовою формою дієслова і правильно вживається у ввічливому наказовому способі після «Please».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 224,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "en",
+            "explanation": "'Passes' is the third-person singular form. No -es ending is used after 'Please' in an imperative.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 227,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "pl",
+            "explanation": "«Passes» to forma trzeciej osoby liczby pojedynczej. Końcówka -es nie jest używana po «Please» w trybie rozkazującym.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 219,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "ua",
+            "explanation": "Форма «passes» — форма третьої особи однини (Present Simple). Наказовий спосіб не вживає закінчення -es після «Please».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 220,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passes",
+            "correct_answer": "pass",
+            "language": "uk",
+            "explanation": "Форма «passes» — форма третьої особи однини (Present Simple). Наказовий спосіб не вживає закінчення -es після «Please».",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 225,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "en",
+            "explanation": "'Passing' is the present participle. Without an auxiliary verb, it cannot express a polite command.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 228,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "pl",
+            "explanation": "«Passing» to imiesłów teraźniejszy. Bez czasownika posiłkowego nie może wyrażać grzecznego rozkazu.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 221,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "ua",
+            "explanation": "Форма «passing» — дієприкметник теперішнього часу. Без допоміжного дієслова він не може виражати ввічливий наказ.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 222,
+            "question": "Please {a1} me some salt.",
+            "wrong_answer": "passing",
+            "correct_answer": "pass",
+            "language": "uk",
+            "explanation": "Форма «passing» — дієприкметник теперішнього часу. Без допоміжного дієслова він не може виражати ввічливий наказ.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ]
+}

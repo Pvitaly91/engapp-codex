@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 54,
+        "uuid": "st-cp-sn-b1-q18",
+        "question": "Why {a1} I have to wait so long?",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 54,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 43,
+                "name": "WH question structure",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 54,
+                "tag_id": 43,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 22,
+                "option": "do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 54,
+                "option_id": 22,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 38,
+                "option": "did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 54,
+                "option_id": 38,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 62,
+                "option": "should",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 54,
+                "option_id": 62,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 54,
+                "question_id": 54,
+                "marker": "a1",
+                "option_id": 22,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 22,
+                "option": "do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 54,
+            "question_id": 54,
+            "text": "Why {a1} I have to wait so long?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 161,
+            "question_id": 54,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "WH questions: **WH-word + auxiliary (do/does/did/is/are/will) + subject + base verb**.\nThe WH-word comes first, then the auxiliary, then the subject, then the base verb.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 162,
+            "question_id": 54,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania WH: **Słowo pytające + operator (do/does/did/is/are) + podmiot + forma podstawowa**.\nSłowo pytające, potem operator, potem podmiot, potem forma podstawowa.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 160,
+            "question_id": 54,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "WH-питання «why» у Present Simple: Why + do/does + підмет + базова форма.\n«Have to wait» — смислова конструкція у Present Simple; підмет «I» вимагає «do».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 644,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "did",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Incorrect. «did» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 647,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "did",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «did» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 639,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "did",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Did» — допоміжне Past Simple; «have to wait» описує поточну ситуацію, а не минулу.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 640,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "did",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Did» — допоміжне Past Simple; «have to wait» описує поточну ситуацію, а не минулу.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 643,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Correct. «do» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 646,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Poprawnie. «do» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 637,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Do» — правильне допоміжне для «I» у WH-питанні Present Simple: «Why do I have to...?»",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 638,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "do",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Do» — правильне допоміжне для «I» у WH-питанні Present Simple: «Why do I have to...?»",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 645,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "should",
+            "correct_answer": "do",
+            "language": "en",
+            "explanation": "Incorrect. «should» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 648,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "should",
+            "correct_answer": "do",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «should» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 641,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "should",
+            "correct_answer": "do",
+            "language": "ua",
+            "explanation": "«Should» — модальне дієслово, що виражає бажаність; тут просте питання про вимогу Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 642,
+            "question": "Why {a1} I have to wait so long?",
+            "wrong_answer": "should",
+            "correct_answer": "do",
+            "language": "uk",
+            "explanation": "«Should» — модальне дієслово, що виражає бажаність; тут просте питання про вимогу Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

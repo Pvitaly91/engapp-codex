@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 32,
+        "uuid": "st-cp-sn-a2-q14",
+        "question": "{a1} the children playing in the garden?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 32,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 39,
+                "name": "Yes/No question with was/were",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 32,
+                "tag_id": 39,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 36,
+                "option": "Did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 32,
+                "option_id": 36,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 37,
+                "option": "Were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 32,
+                "option_id": 37,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 41,
+                "option": "Was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 32,
+                "option_id": 41,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 32,
+                "question_id": 32,
+                "marker": "a1",
+                "option_id": 37,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 37,
+                "option": "Were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 32,
+            "question_id": 32,
+            "text": "{a1} the children playing in the garden?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 95,
+            "question_id": 32,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Past Simple yes/no questions with **to be**: **Was/Were + subject**.\nChoose **Was** for singular subjects (he/she/it) or **Were** for plural/you.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 96,
+            "question_id": 32,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania tak/nie z **to be** w Past: **Was/Were + podmiot**.\nWybierz **Was** dla l. poj. (he/she/it) lub **Were** dla l. mn./you.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 94,
+            "question_id": 32,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Питання у Past Continuous: Was/Were + підмет + дієслово-ing.\n«The children» — множина (= they); Past Continuous для множини починається з «Were».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 381,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Did",
+            "correct_answer": "Were",
+            "language": "en",
+            "explanation": "Incorrect. «Did» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 384,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Did",
+            "correct_answer": "Were",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Did» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 377,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Did",
+            "correct_answer": "Were",
+            "language": "ua",
+            "explanation": "«Did» — допоміжне Past Simple для смислових дієслів; Past Continuous потребує «were/was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 378,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Did",
+            "correct_answer": "Were",
+            "language": "uk",
+            "explanation": "«Did» — допоміжне Past Simple для смислових дієслів; Past Continuous потребує «were/was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 380,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Was",
+            "correct_answer": "Were",
+            "language": "en",
+            "explanation": "Incorrect. «Was» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 383,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Was",
+            "correct_answer": "Were",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Was» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 375,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Was",
+            "correct_answer": "Were",
+            "language": "ua",
+            "explanation": "«Was» вживається в Past Continuous для однини (he/she/it); «the children» — множина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 376,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Was",
+            "correct_answer": "Were",
+            "language": "uk",
+            "explanation": "«Was» вживається в Past Continuous для однини (he/she/it); «the children» — множина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 379,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "en",
+            "explanation": "Correct. «Were» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 382,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "pl",
+            "explanation": "Poprawnie. «Were» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 373,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "ua",
+            "explanation": "«Were» — правильна форма «to be» у Past Continuous для «the children» (множина).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 374,
+            "question": "{a1} the children playing in the garden?",
+            "wrong_answer": "Were",
+            "correct_answer": "Were",
+            "language": "uk",
+            "explanation": "«Were» — правильна форма «to be» у Past Continuous для «the children» (множина).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

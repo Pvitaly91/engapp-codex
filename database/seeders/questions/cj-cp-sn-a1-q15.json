@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 15,
+        "uuid": "cj-cp-sn-a1-q15",
+        "question": "Can we go left {a1} right?",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:26.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Choosing the correct conjunction",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 32,
+                "name": "Alternative conjunction 'or'",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 32,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 37,
+                "name": "Alternative coordination",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 37,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "and",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2,
+                "option": "but",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 3,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 15,
+                "question_id": 15,
+                "marker": "a1",
+                "option_id": 3,
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "option": {
+                "id": 3,
+                "option": "or",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 15,
+            "question_id": 15,
+            "text": "Can we go left {a1} right?",
+            "created_at": "2026-05-18T13:17:20.000000Z",
+            "updated_at": "2026-05-18T13:17:20.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 44,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Use 'or' in questions where two directions or options are presented.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 45,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Użyj 'or' w pytaniach, gdy dwa kierunki lub opcje są do wyboru.\nУ питанні пропонуються два напрямки `left` та `right`, і or вказує на необхідність обрати один.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 43,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Сполучник or у питальних реченнях пропонує вибір між двома напрямками або варіантами.\nУ питанні пропонуються два напрямки `left` та `right`, і or вказує на необхідність обрати один.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 176,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'And' would combine both directions, but you cannot go both ways at once.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 179,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «And» łączyłoby oba kierunki, ale nie można jednocześnie iść w lewo i w prawo.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 171,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«and» об'єднував би обидва напрямки — але одночасно йти вліво і вправо неможливо.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 172,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "and",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«and» об'єднував би обидва напрямки — але одночасно йти вліво і вправо неможливо.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 177,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Incorrect. 'But' would contrast the directions, not offer a choice between them.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 180,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «But» kontrastowałoby kierunki, a nie oferowałoby wyboru.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 173,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«but» виражав би контраст між напрямками, а не пропозицію вибору.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 174,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "but",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«but» виражав би контраст між напрямками, а не пропозицію вибору.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 175,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "en",
+            "explanation": "Correct. 'Or' offers a choice between left and right — only one can be chosen.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 178,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "pl",
+            "explanation": "Poprawnie. «Or» oferuje wybór między lewą a prawą stroną — można wybrać tylko jedną.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 169,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "ua",
+            "explanation": "«or» правильний: питання про напрямок завжди передбачає вибір одного варіанта.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        },
+        {
+            "id": 170,
+            "question": "Can we go left {a1} right?",
+            "wrong_answer": "or",
+            "correct_answer": "or",
+            "language": "uk",
+            "explanation": "«or» правильний: питання про напрямок завжди передбачає вибір одного варіанта.",
+            "created_at": "2026-05-18T13:17:21.000000Z",
+            "updated_at": "2026-05-18T13:17:21.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 40,
+        "uuid": "pos-cp-sn-c1-q02",
+        "question": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 40,
+                "name": "Preposition identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "tag_id": 40,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 138,
+                "option": "verb",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "option_id": 138,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 142,
+                "option": "preposition",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "option_id": 142,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 143,
+                "option": "conjunction",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 40,
+                "option_id": 143,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 150,
+                "question_id": 40,
+                "marker": "a1",
+                "option_id": 142,
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            },
+            "option": {
+                "id": 142,
+                "option": "preposition",
+                "created_at": "2026-05-18T13:16:19.000000Z",
+                "updated_at": "2026-05-18T13:16:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 22,
+            "question_id": 40,
+            "text": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+            "created_at": "2026-05-18T13:16:19.000000Z",
+            "updated_at": "2026-05-18T13:16:19.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 22,
+            "question_id": 40,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Деякі дієприкметники набувають функції прийменника у фразах типу 'given that / given the'.\nСлово `given` тут вводить іменниковий зворот і функціонує як прийменник поступки.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 131,
+            "question": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+            "wrong_answer": "conjunction",
+            "correct_answer": "preposition",
+            "language": "ua",
+            "explanation": "«Given» не є сполучником у цьому контексті. Після нього не може стояти підрядне речення з підметом і присудком без 'that'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 132,
+            "question": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+            "wrong_answer": "conjunction",
+            "correct_answer": "preposition",
+            "language": "uk",
+            "explanation": "«Given» не є сполучником у цьому контексті. Після нього не може стояти підрядне речення з підметом і присудком без 'that'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 127,
+            "question": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+            "wrong_answer": "preposition",
+            "correct_answer": "preposition",
+            "language": "ua",
+            "explanation": "«Given» тут є прийменником: воно вводить іменниковий зворот 'the circumstances' і означає 'враховуючи'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 128,
+            "question": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+            "wrong_answer": "preposition",
+            "correct_answer": "preposition",
+            "language": "uk",
+            "explanation": "«Given» тут є прийменником: воно вводить іменниковий зворот 'the circumstances' і означає 'враховуючи'.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 129,
+            "question": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+            "wrong_answer": "verb",
+            "correct_answer": "preposition",
+            "language": "ua",
+            "explanation": "«Given» може бути дієприкметником, але тут воно не входить до дієслівного присудка.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        },
+        {
+            "id": 130,
+            "question": "Identify the part of speech of 'given' in '{a1} the circumstances, she made the best choice.'",
+            "wrong_answer": "verb",
+            "correct_answer": "preposition",
+            "language": "uk",
+            "explanation": "«Given» може бути дієприкметником, але тут воно не входить до дієслівного присудка.",
+            "created_at": "2026-05-18T13:16:20.000000Z",
+            "updated_at": "2026-05-18T13:16:20.000000Z"
+        }
+    ]
+}

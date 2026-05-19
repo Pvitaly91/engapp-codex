@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 2,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:09.000000Z",
-        "updated_at": "2026-05-06T23:45:09.000000Z"
+        "created_at": "2026-05-19T14:43:05.000000Z",
+        "updated_at": "2026-05-19T14:43:36.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 2,
         "name": "Word Order in Questions and Negatives",
-        "created_at": "2026-05-06T23:45:08.000000Z",
-        "updated_at": "2026-05-06T23:45:08.000000Z"
+        "created_at": "2026-05-19T14:43:03.000000Z",
+        "updated_at": "2026-05-19T14:43:03.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 30,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 134,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "Do/Does/Did",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 134,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 136,
+                "option": "did",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 134,
+                "option_id": 136,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 137,
+                "option": "was",
+                "created_at": "2026-05-19T14:43:01.000000Z",
+                "updated_at": "2026-05-19T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 134,
+                "option_id": 137,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 350,
+                "option": "could",
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 134,
+                "option_id": 350,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 134,
+                "question_id": 134,
+                "marker": "a92",
+                "option_id": 350,
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            },
+            "option": {
+                "id": 350,
+                "option": "could",
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 134,
+                "question_id": 134,
+                "marker": "a92",
+                "option_id": 351,
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            },
+            "option": {
+                "id": 351,
+                "option": "modal after negative inversion",
+                "created_at": "2026-05-19T14:43:05.000000Z",
+                "updated_at": "2026-05-19T14:43:05.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 134,
+            "question_id": 134,
+            "text": "So profound was the silence that not a murmur {a92} be heard in the auditorium.",
+            "created_at": "2026-05-19T14:43:05.000000Z",
+            "updated_at": "2026-05-19T14:43:05.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

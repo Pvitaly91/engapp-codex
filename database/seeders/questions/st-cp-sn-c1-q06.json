@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 78,
+        "uuid": "st-cp-sn-c1-q06",
+        "question": "She {a1} study hard, which is why she succeeded.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 78,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 57,
+                "name": "Emphatic do/does/did in affirmative sentences",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 78,
+                "tag_id": 57,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 17,
+                "option": "is",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 78,
+                "option_id": 17,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23,
+                "option": "does",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 78,
+                "option_id": 23,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 50,
+                "option": "has",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 78,
+                "option_id": 50,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 78,
+                "question_id": 78,
+                "marker": "a1",
+                "option_id": 23,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 23,
+                "option": "does",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 78,
+            "question_id": 78,
+            "text": "She {a1} study hard, which is why she succeeded.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 233,
+            "question_id": 78,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Emphatic **do/does/did** in affirmative sentences adds strong stress to confirm or contradict.\nThe emphatic auxiliary agrees with the tense and subject: **do** (I/you/we/they), **does** (he/she/it), **did** (past).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 234,
+            "question_id": 78,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Emfatyczne **do/does/did** w zdaniu twierdzącym podkreśla prawdziwość stwierdzenia.\nEmfatyczny operator zgadza się z czasem i osobą: **do** (I/you/we/they), **does** (he/she/it), **did** (przeszłość).",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 232,
+            "question_id": 78,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Емфатичне «does» додається до стверджувального речення для підсилення: «She does study» означає «вона справді/дійсно навчається».\nПідмет «She» — 3-та особа однини; емфатичне допоміжне для неї — «does» + базова форма.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 931,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "en",
+            "explanation": "Correct. «does» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 934,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "pl",
+            "explanation": "Poprawnie. «does» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 925,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "ua",
+            "explanation": "«Does» — правильна емфатична форма для «she» у Present Simple; підсилює факт навчання.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 926,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "uk",
+            "explanation": "«Does» — правильна емфатична форма для «she» у Present Simple; підсилює факт навчання.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 933,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "has",
+            "correct_answer": "does",
+            "language": "en",
+            "explanation": "Incorrect. «has» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 936,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "has",
+            "correct_answer": "does",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «has» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 929,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "has",
+            "correct_answer": "does",
+            "language": "ua",
+            "explanation": "«Has» утворило б Present Perfect («has studied»); тут потрібне емфатичне Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 930,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "has",
+            "correct_answer": "does",
+            "language": "uk",
+            "explanation": "«Has» утворило б Present Perfect («has studied»); тут потрібне емфатичне Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 932,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "en",
+            "explanation": "Incorrect. «is» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 935,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «is» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 927,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "ua",
+            "explanation": "«Is» — форма «to be»; тут «study» — смислове дієслово, а не стан.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 928,
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "uk",
+            "explanation": "«Is» — форма «to be»; тут «study» — смислове дієслово, а не стан.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

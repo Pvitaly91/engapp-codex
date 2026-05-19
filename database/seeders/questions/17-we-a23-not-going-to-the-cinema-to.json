@@ -8,26 +8,139 @@
         "category_id": 1,
         "source_id": 2,
         "flag": 2,
-        "created_at": "2026-05-06T23:45:08.000000Z",
-        "updated_at": "2026-05-06T23:45:08.000000Z"
+        "created_at": "2026-05-19T14:43:04.000000Z",
+        "updated_at": "2026-05-19T14:43:36.000000Z"
     },
     "category": {
         "id": 1,
         "name": "Базова граматика / Word Order",
-        "created_at": "2026-05-06T23:45:05.000000Z",
-        "updated_at": "2026-05-06T23:45:05.000000Z"
+        "created_at": "2026-05-19T14:43:00.000000Z",
+        "updated_at": "2026-05-19T14:43:00.000000Z"
     },
     "source": {
         "id": 2,
         "name": "Word Order in Questions and Negatives",
-        "created_at": "2026-05-06T23:45:08.000000Z",
-        "updated_at": "2026-05-06T23:45:08.000000Z"
+        "created_at": "2026-05-19T14:43:03.000000Z",
+        "updated_at": "2026-05-19T14:43:03.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
-    "verb_hints": [],
-    "variants": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 30,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 89,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "Do/Does/Did",
+                "category": null,
+                "created_at": "2026-05-19T14:42:55.000000Z",
+                "updated_at": "2026-05-19T14:42:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 89,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 242,
+                "option": "do",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 89,
+                "option_id": 242,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 244,
+                "option": "does",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 89,
+                "option_id": 244,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 257,
+                "option": "are",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 89,
+                "option_id": 257,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 89,
+                "question_id": 89,
+                "marker": "a23",
+                "option_id": 257,
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "option": {
+                "id": 257,
+                "option": "are",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 89,
+                "question_id": 89,
+                "marker": "a23",
+                "option_id": 267,
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            },
+            "option": {
+                "id": 267,
+                "option": "be for present continuous",
+                "created_at": "2026-05-19T14:43:04.000000Z",
+                "updated_at": "2026-05-19T14:43:04.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 89,
+            "question_id": 89,
+            "text": "We {a23} not going to the cinema tonight.",
+            "created_at": "2026-05-19T14:43:04.000000Z",
+            "updated_at": "2026-05-19T14:43:04.000000Z"
+        }
+    ],
     "hints": [],
     "chatgpt_explanations": []
 }

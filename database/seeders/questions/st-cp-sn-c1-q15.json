@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 87,
+        "uuid": "st-cp-sn-c1-q15",
+        "question": "They asked whether {a1} interested in the position.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 87,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 53,
+                "name": "Word order in indirect questions",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 87,
+                "tag_id": 53,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 124,
+                "option": "I was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 87,
+                "option_id": 124,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 125,
+                "option": "was I",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 87,
+                "option_id": 125,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 126,
+                "option": "I am",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 87,
+                "option_id": 126,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 87,
+                "question_id": 87,
+                "marker": "a1",
+                "option_id": 124,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 124,
+                "option": "I was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 87,
+            "question_id": 87,
+            "text": "They asked whether {a1} interested in the position.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 260,
+            "question_id": 87,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Indirect (embedded) questions use **statement word order** (subject + verb), not question inversion.\nAfter **tell me / know / wonder / ask**, the clause uses normal sentence order: **subject + verb**, not inverted question order.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 261,
+            "question_id": 87,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "W pytaniach pośrednich po słowie pytającym obowiązuje szyk twierdzący: **podmiot + orzeczenie** (bez inwersji).\nPo **tell me / know / wonder / ask** szyk jest twierdzący: **podmiot + orzeczenie**, bez inwersji.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 259,
+            "question_id": 87,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Непряме питання після «they asked whether» зберігає стверджувальний порядок слів із backshift.\n«Asked» (Past Simple) → backshift: Present Simple «I am» → Past Simple «I was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1041,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I am",
+            "correct_answer": "I was",
+            "language": "en",
+            "explanation": "Incorrect. «I am» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1044,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I am",
+            "correct_answer": "I was",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «I am» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1037,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I am",
+            "correct_answer": "I was",
+            "language": "ua",
+            "explanation": "«I am» — Present Simple без backshift; після «asked» (Past) потрібне «I was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1038,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I am",
+            "correct_answer": "I was",
+            "language": "uk",
+            "explanation": "«I am» — Present Simple без backshift; після «asked» (Past) потрібне «I was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1039,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I was",
+            "correct_answer": "I was",
+            "language": "en",
+            "explanation": "Correct. «I was» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1042,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I was",
+            "correct_answer": "I was",
+            "language": "pl",
+            "explanation": "Poprawnie. «I was» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1033,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I was",
+            "correct_answer": "I was",
+            "language": "ua",
+            "explanation": "«I was» — правильно: стверджувальний порядок у непрямому питанні + backshift у Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1034,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "I was",
+            "correct_answer": "I was",
+            "language": "uk",
+            "explanation": "«I was» — правильно: стверджувальний порядок у непрямому питанні + backshift у Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1040,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "was I",
+            "correct_answer": "I was",
+            "language": "en",
+            "explanation": "Incorrect. «was I» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1043,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "was I",
+            "correct_answer": "I was",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «was I» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1035,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "was I",
+            "correct_answer": "I was",
+            "language": "ua",
+            "explanation": "«Was I» — порядок прямого питання; у непрямому після «whether» інверсія не вживається.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1036,
+            "question": "They asked whether {a1} interested in the position.",
+            "wrong_answer": "was I",
+            "correct_answer": "I was",
+            "language": "uk",
+            "explanation": "«Was I» — порядок прямого питання; у непрямому після «whether» інверсія не вживається.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

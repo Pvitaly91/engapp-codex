@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 98,
+        "uuid": "st-cp-sn-c2-q08",
+        "question": "Under no circumstances {a1} the confidential files be shared externally.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 98,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 56,
+                "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 98,
+                "tag_id": 56,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 16,
+                "option": "are",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 98,
+                "option_id": 16,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 62,
+                "option": "should",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 98,
+                "option_id": 62,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 136,
+                "option": "must",
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 98,
+                "option_id": 136,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 98,
+                "question_id": 98,
+                "marker": "a1",
+                "option_id": 62,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 62,
+                "option": "should",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 98,
+            "question_id": 98,
+            "text": "Under no circumstances {a1} the confidential files be shared externally.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 293,
+            "question_id": 98,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "After negative/restrictive adverbials (Never, Hardly, Not only, Seldom, Only then…), **subject-auxiliary inversion** is required.\nThe inverted auxiliary must match the tense of the original clause. Only the auxiliary comes before the subject.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 294,
+            "question_id": 98,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Po przysłówkach o znaczeniu ograniczającym (Never, Hardly, Not only, Seldom…) wymagana jest inwersja podmiotu i operatora.\nInwertowany operator musi odpowiadać czasowi zdania. Tylko operator przechodzi przed podmiot.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 292,
+            "question_id": 98,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Under no circumstances» викликає інверсію: «Under no circumstances should + підмет + базова форма».\nМодальне «should» у заперечному контексті «Under no circumstances» виражає суворе правило.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1173,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "are",
+            "correct_answer": "should",
+            "language": "en",
+            "explanation": "Incorrect. «are» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1176,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "are",
+            "correct_answer": "should",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1169,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "are",
+            "correct_answer": "should",
+            "language": "ua",
+            "explanation": "«Are» — форма «to be» Present Simple; пасивна конструкція «be shared» вимагає модального «should».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1170,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "are",
+            "correct_answer": "should",
+            "language": "uk",
+            "explanation": "«Are» — форма «to be» Present Simple; пасивна конструкція «be shared» вимагає модального «should».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1172,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "must",
+            "correct_answer": "should",
+            "language": "en",
+            "explanation": "Incorrect. «must» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1175,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "must",
+            "correct_answer": "should",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «must» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1167,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "must",
+            "correct_answer": "should",
+            "language": "ua",
+            "explanation": "«Must the files be shared» граматично можливе в питанні, але не є стандартною конструкцією після «Under no circumstances».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1168,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "must",
+            "correct_answer": "should",
+            "language": "uk",
+            "explanation": "«Must the files be shared» граматично можливе в питанні, але не є стандартною конструкцією після «Under no circumstances».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1171,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "should",
+            "correct_answer": "should",
+            "language": "en",
+            "explanation": "Correct. «should» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1174,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "should",
+            "correct_answer": "should",
+            "language": "pl",
+            "explanation": "Poprawnie. «should» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1165,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "should",
+            "correct_answer": "should",
+            "language": "ua",
+            "explanation": "«Should» — правильна інверсія після «Under no circumstances»; «the files should be shared» → «should the files be shared».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1166,
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "wrong_answer": "should",
+            "correct_answer": "should",
+            "language": "uk",
+            "explanation": "«Should» — правильна інверсія після «Under no circumstances»; «the files should be shared» → «should the files be shared».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

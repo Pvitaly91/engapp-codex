@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 25,
+        "uuid": "st-cp-sn-a2-q07",
+        "question": "{a1} you play the piano?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 25,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 41,
+                "name": "Yes/No question with modal verbs",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 25,
+                "tag_id": 41,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 7,
+                "option": "Do",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 25,
+                "option_id": 7,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 9,
+                "option": "Are",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 25,
+                "option_id": 9,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 43,
+                "option": "Can",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 25,
+                "option_id": 43,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 25,
+                "question_id": 25,
+                "marker": "a1",
+                "option_id": 43,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 43,
+                "option": "Can",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 25,
+            "question_id": 25,
+            "text": "{a1} you play the piano?",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 74,
+            "question_id": 25,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Modal verb questions: **Modal + subject + base verb** (Can/Could/Will/Would + you + verb?).\nThe modal verb goes first, followed by the subject and the base verb form.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 75,
+            "question_id": 25,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Pytania z czasownikiem modalnym: **Modal + podmiot + forma podstawowa**.\nCzasownik modalny wychodzi na pierwsze miejsce, po nim podmiot, a następnie forma podstawowa.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 73,
+            "question_id": 25,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Питання про здатність утворюється з модального дієслова «Can» + підмет + базова форма.\nЗапитання «Can you play...?» стосується вміння, а не звичайної дії у Present Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 297,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Are",
+            "correct_answer": "Can",
+            "language": "en",
+            "explanation": "Incorrect. «Are» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 300,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Are",
+            "correct_answer": "Can",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 293,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Are",
+            "correct_answer": "Can",
+            "language": "ua",
+            "explanation": "«Are» — форма «to be»; питання про вміння будується через «can», а не «to be».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 294,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Are",
+            "correct_answer": "Can",
+            "language": "uk",
+            "explanation": "«Are» — форма «to be»; питання про вміння будується через «can», а не «to be».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 295,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Can",
+            "correct_answer": "Can",
+            "language": "en",
+            "explanation": "Correct. «Can» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 298,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Can",
+            "correct_answer": "Can",
+            "language": "pl",
+            "explanation": "Poprawnie. «Can» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 289,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Can",
+            "correct_answer": "Can",
+            "language": "ua",
+            "explanation": "«Can» — правильне модальне для питань про вміння/здатність.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 290,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Can",
+            "correct_answer": "Can",
+            "language": "uk",
+            "explanation": "«Can» — правильне модальне для питань про вміння/здатність.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 296,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Do",
+            "correct_answer": "Can",
+            "language": "en",
+            "explanation": "Incorrect. «Do» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 299,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Do",
+            "correct_answer": "Can",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «Do» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 291,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Do",
+            "correct_answer": "Can",
+            "language": "ua",
+            "explanation": "«Do» вживається для питань Present Simple зі смисловими дієсловами, але не для вираження здатності.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 292,
+            "question": "{a1} you play the piano?",
+            "wrong_answer": "Do",
+            "correct_answer": "Can",
+            "language": "uk",
+            "explanation": "«Do» вживається для питань Present Simple зі смисловими дієсловами, але не для вираження здатності.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

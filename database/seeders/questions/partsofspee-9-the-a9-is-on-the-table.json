@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 57,
+        "uuid": "partsofspee-9-the-a9-is-on-the-table",
+        "question": "The {a9} is on the table.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-18T13:16:21.000000Z",
+        "updated_at": "2026-05-18T13:16:24.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-18T13:16:19.000000Z",
+        "updated_at": "2026-05-18T13:16:19.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-18T13:16:16.000000Z",
+                "updated_at": "2026-05-18T13:16:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 57,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 44,
+                "name": "Noun recognition",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:20.000000Z",
+                "updated_at": "2026-05-18T13:16:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 57,
+                "tag_id": 44,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2,
+                "option": "read",
+                "created_at": "2026-05-18T13:16:17.000000Z",
+                "updated_at": "2026-05-18T13:16:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 57,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5,
+                "option": "book",
+                "created_at": "2026-05-18T13:16:17.000000Z",
+                "updated_at": "2026-05-18T13:16:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 57,
+                "option_id": 5,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 6,
+                "option": "quickly",
+                "created_at": "2026-05-18T13:16:17.000000Z",
+                "updated_at": "2026-05-18T13:16:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 57,
+                "option_id": 6,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 167,
+                "question_id": 57,
+                "marker": "a9",
+                "option_id": 5,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 5,
+                "option": "book",
+                "created_at": "2026-05-18T13:16:17.000000Z",
+                "updated_at": "2026-05-18T13:16:17.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 9,
+                "question_id": 57,
+                "marker": "a9",
+                "option_id": 160,
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            },
+            "option": {
+                "id": 160,
+                "option": "object noun",
+                "created_at": "2026-05-18T13:16:21.000000Z",
+                "updated_at": "2026-05-18T13:16:21.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 39,
+            "question_id": 57,
+            "text": "The {a9} is on the table.",
+            "created_at": "2026-05-18T13:16:21.000000Z",
+            "updated_at": "2026-05-18T13:16:21.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 55,
+            "question_id": 57,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Choose the word that best completes the sentence grammatically.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 56,
+            "question_id": 57,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Rzeczownik (noun) nazywa przedmiot znajdujący się na stole.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 57,
+            "question_id": 57,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "У реченні потрібен іменник — назва предмета, який «лежить на столі».\nСлово 'book' (книга) є іменником, що називає конкретний предмет.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 277,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "book",
+            "correct_answer": "book",
+            "language": "en",
+            "explanation": "Correct. 'book' is the appropriate choice in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 280,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "book",
+            "correct_answer": "book",
+            "language": "pl",
+            "explanation": "Poprawnie! 'Book' (książka) to rzeczownik nazywający przedmiot.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 283,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "book",
+            "correct_answer": "book",
+            "language": "ua",
+            "explanation": "Іменник 'book' називає предмет і може виконувати роль підмета в реченні.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 284,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "book",
+            "correct_answer": "book",
+            "language": "uk",
+            "explanation": "Іменник 'book' називає предмет і може виконувати роль підмета в реченні.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 279,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "quickly",
+            "correct_answer": "book",
+            "language": "en",
+            "explanation": "Incorrect. 'quickly' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 282,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "quickly",
+            "correct_answer": "book",
+            "language": "pl",
+            "explanation": "'Quickly' to przysłówek opisujący sposób działania.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 287,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "quickly",
+            "correct_answer": "book",
+            "language": "ua",
+            "explanation": "Прислівник 'quickly' описує спосіб дії, а не є назвою предмета.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 288,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "quickly",
+            "correct_answer": "book",
+            "language": "uk",
+            "explanation": "Прислівник 'quickly' описує спосіб дії, а не є назвою предмета.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 278,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "read",
+            "correct_answer": "book",
+            "language": "en",
+            "explanation": "Incorrect. 'read' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 281,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "read",
+            "correct_answer": "book",
+            "language": "pl",
+            "explanation": "'Read' to czasownik (działanie czytania), nie przedmiot.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 285,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "read",
+            "correct_answer": "book",
+            "language": "ua",
+            "explanation": "Дієслово 'read' виражає дію читання, а не називає предмет.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        },
+        {
+            "id": 286,
+            "question": "The {a9} is on the table.",
+            "wrong_answer": "read",
+            "correct_answer": "book",
+            "language": "uk",
+            "explanation": "Дієслово 'read' виражає дію читання, а не називає предмет.",
+            "created_at": "2026-05-18T13:16:23.000000Z",
+            "updated_at": "2026-05-18T13:16:23.000000Z"
+        }
+    ]
+}

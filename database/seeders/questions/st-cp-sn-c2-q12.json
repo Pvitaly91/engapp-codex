@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 102,
+        "uuid": "st-cp-sn-c2-q12",
+        "question": "At no time {a1} the suspect given a chance to speak.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:03.000000Z",
+        "updated_at": "2026-05-18T13:17:10.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 102,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 56,
+                "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 102,
+                "tag_id": 56,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 39,
+                "option": "were",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 102,
+                "option_id": 39,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 110,
+                "option": "had",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 102,
+                "option_id": 110,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 111,
+                "option": "was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 102,
+                "option_id": 111,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 102,
+                "question_id": 102,
+                "marker": "a1",
+                "option_id": 111,
+                "created_at": "2026-05-18T13:17:03.000000Z",
+                "updated_at": "2026-05-18T13:17:03.000000Z"
+            },
+            "option": {
+                "id": 111,
+                "option": "was",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 102,
+            "question_id": 102,
+            "text": "At no time {a1} the suspect given a chance to speak.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 305,
+            "question_id": 102,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "After negative/restrictive adverbials (Never, Hardly, Not only, Seldom, Only then…), **subject-auxiliary inversion** is required.\nThe inverted auxiliary must match the tense of the original clause. Only the auxiliary comes before the subject.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 306,
+            "question_id": 102,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Po przysłówkach o znaczeniu ograniczającym (Never, Hardly, Not only, Seldom…) wymagana jest inwersja podmiotu i operatora.\nInwertowany operator musi odpowiadać czasowi zdania. Tylko operator przechodzi przed podmiot.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 304,
+            "question_id": 102,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«At no time» — заперечний вираз, що викликає інверсію: «At no time was + підмет + Past Participle».\n«The suspect» — однина в пасивній конструкції Past Simple → «was».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1221,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "en",
+            "explanation": "Incorrect. «had» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1224,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «had» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1217,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "«Had» утворило б Past Perfect; тут пасив Past Simple «was given».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1218,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "had",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "«Had» утворило б Past Perfect; тут пасив Past Simple «was given».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1219,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "en",
+            "explanation": "Correct. «was» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1222,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "pl",
+            "explanation": "Poprawnie. «was» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1213,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "«Was» — правильна форма пасиву Past Simple для «the suspect» (однина) після «At no time».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1214,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "was",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "«Was» — правильна форма пасиву Past Simple для «the suspect» (однина) після «At no time».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1220,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "were",
+            "correct_answer": "was",
+            "language": "en",
+            "explanation": "Incorrect. «were» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1223,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "were",
+            "correct_answer": "was",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «were» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1215,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "were",
+            "correct_answer": "was",
+            "language": "ua",
+            "explanation": "«Were» вживається для множини; «the suspect» — однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1216,
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "wrong_answer": "were",
+            "correct_answer": "was",
+            "language": "uk",
+            "explanation": "«Were» вживається для множини; «the suspect» — однина.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

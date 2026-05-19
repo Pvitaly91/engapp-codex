@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 1,
+        "uuid": "imp-cp-sn-a1-q01",
+        "question": "Please {a1} the window. It's hot in here.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:45.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Дієслова та дієслівні форми",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Imperatives — Наказовий спосіб",
+        "created_at": "2026-05-18T13:17:38.000000Z",
+        "updated_at": "2026-05-18T13:17:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 17,
+                "name": "Imperatives",
+                "category": null,
+                "created_at": "2026-05-18T13:17:36.000000Z",
+                "updated_at": "2026-05-18T13:17:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "tag_id": 17,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 28,
+                "name": "Affirmative imperatives",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "open",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2,
+                "option": "opens",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3,
+                "option": "opening",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "option_id": 3,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 1,
+                "question_id": 1,
+                "marker": "a1",
+                "option_id": 1,
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            },
+            "option": {
+                "id": 1,
+                "option": "open",
+                "created_at": "2026-05-18T13:17:38.000000Z",
+                "updated_at": "2026-05-18T13:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 1,
+            "question_id": 1,
+            "text": "Please {a1} the window. It's hot in here.",
+            "created_at": "2026-05-18T13:17:38.000000Z",
+            "updated_at": "2026-05-18T13:17:38.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 2,
+            "question_id": 1,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "The affirmative imperative uses the base form of the verb — no -s, -ing, or -ed endings are added.\nThe word 'Please' before the gap indicates a polite affirmative command; the verb must be in its base form.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 3,
+            "question_id": 1,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Twierdzący tryb rozkazujący tworzy się przez użycie podstawowej formy czasownika — bez końcówek -s, -ing ani -ed.\nSłowo «Please» przed luką wskazuje na grzeczny rozkaz twierdzący; po nim używa się podstawowej formy czasownika.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 1,
+            "question_id": 1,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Наказовий спосіб у стверджувальній формі утворюється базовою (інфінітивною) формою дієслова без закінчень -s, -ing або -ed.\nСлово «Please» перед пропуском вказує на ввічливий стверджувальний наказ; дієслово після нього стоїть у базовій формі.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 7,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "open",
+            "correct_answer": "open",
+            "language": "en",
+            "explanation": "'Open' is the base form and the correct imperative. With 'Please', it forms a polite command.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 10,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "open",
+            "correct_answer": "open",
+            "language": "pl",
+            "explanation": "«Open» to podstawowa forma czasownika i poprawna forma trybu rozkazującego. Z «Please» tworzy uprzejme polecenie.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 1,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "open",
+            "correct_answer": "open",
+            "language": "ua",
+            "explanation": "Форма «open» є базовою формою дієслова і правильно виражає стверджувальний наказовий спосіб. Разом із «Please» речення звучить ввічливо.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 2,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "open",
+            "correct_answer": "open",
+            "language": "uk",
+            "explanation": "Форма «open» є базовою формою дієслова і правильно виражає стверджувальний наказовий спосіб. Разом із «Please» речення звучить ввічливо.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 9,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opening",
+            "correct_answer": "open",
+            "language": "en",
+            "explanation": "'Opening' is the present participle. Without an auxiliary verb, it cannot express a command.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 12,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opening",
+            "correct_answer": "open",
+            "language": "pl",
+            "explanation": "«Opening» to imiesłów teraźniejszy. Bez czasownika posiłkowego nie może samodzielnie wyrażać rozkazu.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 5,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opening",
+            "correct_answer": "open",
+            "language": "ua",
+            "explanation": "Форма «opening» — дієприкметник теперішнього часу (Present Participle). Без допоміжного дієслова «be» він не може виражати наказ.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 6,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opening",
+            "correct_answer": "open",
+            "language": "uk",
+            "explanation": "Форма «opening» — дієприкметник теперішнього часу (Present Participle). Без допоміжного дієслова «be» він не може виражати наказ.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 8,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opens",
+            "correct_answer": "open",
+            "language": "en",
+            "explanation": "'Opens' is the third-person singular present form. Imperatives never take the -s ending.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 11,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opens",
+            "correct_answer": "open",
+            "language": "pl",
+            "explanation": "«Opens» to forma trzeciej osoby liczby pojedynczej czasu teraźniejszego. W trybie rozkazującym nie dodaje się końcówki -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 3,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opens",
+            "correct_answer": "open",
+            "language": "ua",
+            "explanation": "Форма «opens» — форма третьої особи однини теперішнього часу (Present Simple). Наказовий спосіб ніколи не вживає закінчення -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        },
+        {
+            "id": 4,
+            "question": "Please {a1} the window. It's hot in here.",
+            "wrong_answer": "opens",
+            "correct_answer": "open",
+            "language": "uk",
+            "explanation": "Форма «opens» — форма третьої особи однини теперішнього часу (Present Simple). Наказовий спосіб ніколи не вживає закінчення -s.",
+            "created_at": "2026-05-18T13:17:39.000000Z",
+            "updated_at": "2026-05-18T13:17:39.000000Z"
+        }
+    ]
+}

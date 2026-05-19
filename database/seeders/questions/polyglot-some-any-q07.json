@@ -1,33 +1,378 @@
 {
     "question": {
-        "id": 271,
+        "id": 289,
         "uuid": "polyglot-some-any-q07",
         "question": "У саду є кілька квітів.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 11,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-08T23:33:49.000000Z",
-        "updated_at": "2026-05-08T23:33:49.000000Z"
+        "created_at": "2026-05-19T14:42:16.000000Z",
+        "updated_at": "2026-05-19T14:42:36.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "English Sentence Builder A1",
-        "created_at": "2026-05-08T23:33:27.000000Z",
-        "updated_at": "2026-05-08T23:33:27.000000Z"
+        "created_at": "2026-05-19T14:42:16.000000Z",
+        "updated_at": "2026-05-19T14:42:16.000000Z"
     },
     "source": {
-        "id": 11,
+        "id": 3,
         "name": "Some / Any — Things",
-        "created_at": "2026-05-08T23:33:49.000000Z",
-        "updated_at": "2026-05-08T23:33:49.000000Z"
+        "created_at": "2026-05-19T14:42:11.000000Z",
+        "updated_at": "2026-05-19T14:42:11.000000Z"
     },
-    "tags": [],
-    "options": [],
-    "answers": [],
+    "tags": [
+        {
+            "tag": {
+                "id": 24,
+                "name": "A1",
+                "category": "level",
+                "created_at": "2026-05-19T14:42:05.000000Z",
+                "updated_at": "2026-05-19T14:42:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "tag_id": 24,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence Builder compose tokens",
+                "category": "mode",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 30,
+                "name": "some / any",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "tag_id": 30,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "quantifiers",
+                "category": "topic",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 32,
+                "name": "some",
+                "category": "quantifier",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "tag_id": 32,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 34,
+                "name": "affirmative",
+                "category": "pattern",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "tag_id": 34,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 35,
+                "option": "There",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 35,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 36,
+                "option": "is",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 36,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 37,
+                "option": "some",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 37,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 40,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 42,
+                "option": "any",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 42,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 44,
+                "option": "book",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 44,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 59,
+                "option": "are",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 59,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 60,
+                "option": "flowers",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 60,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 61,
+                "option": "in",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 61,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 62,
+                "option": "garden",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 289,
+                "option_id": 62,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 316,
+                "question_id": 289,
+                "marker": "a1",
+                "option_id": 35,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 35,
+                "option": "There",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 317,
+                "question_id": 289,
+                "marker": "a2",
+                "option_id": 59,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 59,
+                "option": "are",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 318,
+                "question_id": 289,
+                "marker": "a3",
+                "option_id": 37,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 37,
+                "option": "some",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 319,
+                "question_id": 289,
+                "marker": "a4",
+                "option_id": 60,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 60,
+                "option": "flowers",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 320,
+                "question_id": 289,
+                "marker": "a5",
+                "option_id": 61,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 61,
+                "option": "in",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 321,
+                "question_id": 289,
+                "marker": "a6",
+                "option_id": 40,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 40,
+                "option": "the",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        },
+        {
+            "answer": {
+                "id": 322,
+                "question_id": 289,
+                "marker": "a7",
+                "option_id": 62,
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            },
+            "option": {
+                "id": 62,
+                "option": "garden",
+                "created_at": "2026-05-19T14:42:16.000000Z",
+                "updated_at": "2026-05-19T14:42:16.000000Z"
+            }
+        }
+    ],
     "verb_hints": [],
     "variants": [],
-    "hints": [],
+    "hints": [
+        {
+            "id": 7,
+            "question_id": 289,
+            "provider": "polyglot-v3",
+            "locale": "uk",
+            "hint": "Схема: There are + some + plural noun + місце",
+            "created_at": "2026-05-19T14:42:17.000000Z",
+            "updated_at": "2026-05-19T14:42:17.000000Z"
+        }
+    ],
     "chatgpt_explanations": []
 }

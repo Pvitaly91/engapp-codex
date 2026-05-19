@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 50,
+        "uuid": "st-cp-sn-b1-q14",
+        "question": "He {a1} talking to the manager right now.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 33,
+                "name": "Negation with am/is/are + not",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "tag_id": 33,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 5,
+                "option": "doesn't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 5,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 19,
+                "option": "isn't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 19,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 20,
+                "option": "aren't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 20,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 50,
+                "question_id": 50,
+                "marker": "a1",
+                "option_id": 19,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 19,
+                "option": "isn't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 50,
+            "question_id": 50,
+            "text": "He {a1} talking to the manager right now.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 149,
+            "question_id": 50,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Pay attention to the sentence type and required auxiliary verb.\nLook at the surrounding words for clues about tense, subject, and sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 150,
+            "question_id": 50,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Zwróć uwagę na rodzaj zdania i wymagany operator.\nSzukaj wskazówek w otaczających słowach — czas, podmiot i typ zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 148,
+            "question_id": 50,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Заперечення Present Continuous для he/she/it: isn't + дієслово-ing.\n«Right now» — маркер Present Continuous; підмет «He» вимагає «isn't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 596,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "aren't",
+            "correct_answer": "isn't",
+            "language": "en",
+            "explanation": "Incorrect. «aren't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 599,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "aren't",
+            "correct_answer": "isn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «aren't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 591,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "aren't",
+            "correct_answer": "isn't",
+            "language": "ua",
+            "explanation": "«Aren't» вживається для you/we/they; «he» вимагає «isn't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 592,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "aren't",
+            "correct_answer": "isn't",
+            "language": "uk",
+            "explanation": "«Aren't» вживається для you/we/they; «he» вимагає «isn't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 597,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "isn't",
+            "language": "en",
+            "explanation": "Incorrect. «doesn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 600,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "isn't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «doesn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 593,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "isn't",
+            "language": "ua",
+            "explanation": "«Doesn't» — заперечення Present Simple; «talking... right now» вказує на Continuous.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 594,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "isn't",
+            "language": "uk",
+            "explanation": "«Doesn't» — заперечення Present Simple; «talking... right now» вказує на Continuous.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 595,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "isn't",
+            "correct_answer": "isn't",
+            "language": "en",
+            "explanation": "Correct. «isn't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 598,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "isn't",
+            "correct_answer": "isn't",
+            "language": "pl",
+            "explanation": "Poprawnie. «isn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 589,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "isn't",
+            "correct_answer": "isn't",
+            "language": "ua",
+            "explanation": "«Isn't» — правильна форма заперечення Present Continuous для «he».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 590,
+            "question": "He {a1} talking to the manager right now.",
+            "wrong_answer": "isn't",
+            "correct_answer": "isn't",
+            "language": "uk",
+            "explanation": "«Isn't» — правильна форма заперечення Present Continuous для «he».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

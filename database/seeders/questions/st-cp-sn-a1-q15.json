@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 15,
+        "uuid": "st-cp-sn-a1-q15",
+        "question": "I {a1} watch TV in the morning.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 31,
+                "name": "Negation with do/does + not",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 31,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4,
+                "option": "don't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5,
+                "option": "doesn't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 5,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 6,
+                "option": "not",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 6,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 15,
+                "question_id": 15,
+                "marker": "a1",
+                "option_id": 4,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 4,
+                "option": "don't",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 15,
+            "question_id": 15,
+            "text": "I {a1} watch TV in the morning.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 44,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Negative sentences in Present Simple use **do not (don't)** or **does not (doesn't)** before the base verb form.\nLook at the subject: **I/you/we/they** → **don't**; **he/she/it** → **doesn't**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 45,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Przeczenia w Present Simple tworzymy przez **do not (don't)** lub **does not (doesn't)** przed bezokolicznikiem.\nPodmiot **I/you/we/they** → **don't**; **he/she/it** → **doesn't**.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 43,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Заперечне речення Present Simple з підметом «I» будується через «don't» + базова форма дієслова.\nПідмет «I» — 1-ша особа, тому допоміжне заперечне — «don't», а не «doesn't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 176,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "don't",
+            "language": "en",
+            "explanation": "Incorrect. «doesn't» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 179,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "don't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «doesn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 171,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "don't",
+            "language": "ua",
+            "explanation": "«Doesn't» вживається для he/she/it; підмет «I» вимагає «don't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 172,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "doesn't",
+            "correct_answer": "don't",
+            "language": "uk",
+            "explanation": "«Doesn't» вживається для he/she/it; підмет «I» вимагає «don't».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 175,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "don't",
+            "correct_answer": "don't",
+            "language": "en",
+            "explanation": "Correct. «don't» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 178,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "don't",
+            "correct_answer": "don't",
+            "language": "pl",
+            "explanation": "Poprawnie. «don't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 169,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "don't",
+            "correct_answer": "don't",
+            "language": "ua",
+            "explanation": "«Don't» — правильна форма для «I»: do + not, після чого стоїть базова форма «watch».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 170,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "don't",
+            "correct_answer": "don't",
+            "language": "uk",
+            "explanation": "«Don't» — правильна форма для «I»: do + not, після чого стоїть базова форма «watch».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 177,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "not",
+            "correct_answer": "don't",
+            "language": "en",
+            "explanation": "Incorrect. «not» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 180,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "not",
+            "correct_answer": "don't",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «not» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 173,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "not",
+            "correct_answer": "don't",
+            "language": "ua",
+            "explanation": "«Not» без допоміжного «do» не утворює граматичного заперечення смислового дієслова.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 174,
+            "question": "I {a1} watch TV in the morning.",
+            "wrong_answer": "not",
+            "correct_answer": "don't",
+            "language": "uk",
+            "explanation": "«Not» без допоміжного «do» не утворює граматичного заперечення смислового дієслова.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

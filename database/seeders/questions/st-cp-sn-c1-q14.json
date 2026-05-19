@@ -1,0 +1,278 @@
+{
+    "question": {
+        "id": 86,
+        "uuid": "st-cp-sn-c1-q14",
+        "question": "Only then {a1} we understand the true cost of the decision.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:02.000000Z",
+        "updated_at": "2026-05-18T13:17:09.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Types — Види речень",
+        "created_at": "2026-05-18T13:17:01.000000Z",
+        "updated_at": "2026-05-18T13:17:01.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Sentence type structure",
+                "category": "topic",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 86,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 56,
+                "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:01.000000Z",
+                "updated_at": "2026-05-18T13:17:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 86,
+                "tag_id": 56,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 38,
+                "option": "did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 86,
+                "option_id": 38,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 110,
+                "option": "had",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 86,
+                "option_id": 110,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 123,
+                "option": "could",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 86,
+                "option_id": 123,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 86,
+                "question_id": 86,
+                "marker": "a1",
+                "option_id": 38,
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            },
+            "option": {
+                "id": 38,
+                "option": "did",
+                "created_at": "2026-05-18T13:17:02.000000Z",
+                "updated_at": "2026-05-18T13:17:02.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 86,
+            "question_id": 86,
+            "text": "Only then {a1} we understand the true cost of the decision.",
+            "created_at": "2026-05-18T13:17:02.000000Z",
+            "updated_at": "2026-05-18T13:17:02.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 257,
+            "question_id": 86,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "After negative/restrictive adverbials (Never, Hardly, Not only, Seldom, Only then…), **subject-auxiliary inversion** is required.\nThe inverted auxiliary must match the tense of the original clause. Only the auxiliary comes before the subject.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 258,
+            "question_id": 86,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Po przysłówkach o znaczeniu ograniczającym (Never, Hardly, Not only, Seldom…) wymagana jest inwersja podmiotu i operatora.\nInwertowany operator musi odpowiadać czasowi zdania. Tylko operator przechodzi przed podmiot.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 256,
+            "question_id": 86,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Only then» на початку речення викликає інверсію Past Simple: «Only then did + підмет + базова форма».\n«Understand» — базова форма після «did»; обидва компоненти Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1029,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "could",
+            "correct_answer": "did",
+            "language": "en",
+            "explanation": "Incorrect. «could» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1032,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "could",
+            "correct_answer": "did",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «could» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1025,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "could",
+            "correct_answer": "did",
+            "language": "ua",
+            "explanation": "«Could we understand» — модальна інверсія; «Only then» тут описує конкретний момент усвідомлення в Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1026,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "could",
+            "correct_answer": "did",
+            "language": "uk",
+            "explanation": "«Could we understand» — модальна інверсія; «Only then» тут описує конкретний момент усвідомлення в Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1027,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "did",
+            "correct_answer": "did",
+            "language": "en",
+            "explanation": "Correct. «did» is the right form here based on the grammar rule for this sentence type.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1030,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "did",
+            "correct_answer": "did",
+            "language": "pl",
+            "explanation": "Poprawnie. «did» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1021,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "did",
+            "correct_answer": "did",
+            "language": "ua",
+            "explanation": "«Did» — правильна інверсія Past Simple після «Only then»; «Only then did we understand».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1022,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "did",
+            "correct_answer": "did",
+            "language": "uk",
+            "explanation": "«Did» — правильна інверсія Past Simple після «Only then»; «Only then did we understand».",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1028,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "had",
+            "correct_answer": "did",
+            "language": "en",
+            "explanation": "Incorrect. «had» does not fit the grammatical structure required in this sentence.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1031,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "had",
+            "correct_answer": "did",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «had» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1023,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "had",
+            "correct_answer": "did",
+            "language": "ua",
+            "explanation": "«Had» утворило б Past Perfect; «understand» у базовій формі вказує на Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        },
+        {
+            "id": 1024,
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "wrong_answer": "had",
+            "correct_answer": "did",
+            "language": "uk",
+            "explanation": "«Had» утворило б Past Perfect; «understand» у базовій формі вказує на Past Simple.",
+            "created_at": "2026-05-18T13:17:03.000000Z",
+            "updated_at": "2026-05-18T13:17:03.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,215 @@
+{
+    "question": {
+        "id": 15,
+        "uuid": "ss-cp-sn-c1-q15",
+        "question": "Not only {a1} he pass the exam, but he also won an award.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:16:48.000000Z",
+        "updated_at": "2026-05-18T13:16:52.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Речення та граматика",
+        "created_at": "2026-05-18T13:16:47.000000Z",
+        "updated_at": "2026-05-18T13:16:47.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-18T13:16:47.000000Z",
+        "updated_at": "2026-05-18T13:16:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 28,
+                "name": "Sentence structure SVO",
+                "category": "topic",
+                "created_at": "2026-05-18T13:16:47.000000Z",
+                "updated_at": "2026-05-18T13:16:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Basic SVO order",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:47.000000Z",
+                "updated_at": "2026-05-18T13:16:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 33,
+                "name": "Subject-auxiliary inversion",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:16:47.000000Z",
+                "updated_at": "2026-05-18T13:16:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "tag_id": 33,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 11,
+                "option": "does",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 11,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 12,
+                "option": "did",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 12,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 25,
+                "option": "was",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 15,
+                "option_id": 25,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 15,
+                "question_id": 15,
+                "marker": "a1",
+                "option_id": 12,
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            },
+            "option": {
+                "id": 12,
+                "option": "did",
+                "created_at": "2026-05-18T13:16:48.000000Z",
+                "updated_at": "2026-05-18T13:16:48.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 15,
+            "question_id": 15,
+            "text": "Not only {a1} he pass the exam, but he also won an award.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 15,
+            "question_id": 15,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«Not only» на початку речення вимагає інверсії: допоміжне дієслово ставиться перед підметом.\nДруга частина речення містить «won» — форму минулого часу (Past Simple), яка узгоджується з часом у першій частині.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 85,
+            "question": "Not only {a1} he pass the exam, but he also won an award.",
+            "wrong_answer": "did",
+            "correct_answer": "did",
+            "language": "ua",
+            "explanation": "Форма «did» правильна: «Not only did he pass» — інверсія у Past Simple; «won» у другій частині підтверджує минулий час.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 86,
+            "question": "Not only {a1} he pass the exam, but he also won an award.",
+            "wrong_answer": "did",
+            "correct_answer": "did",
+            "language": "uk",
+            "explanation": "Форма «did» правильна: «Not only did he pass» — інверсія у Past Simple; «won» у другій частині підтверджує минулий час.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 87,
+            "question": "Not only {a1} he pass the exam, but he also won an award.",
+            "wrong_answer": "does",
+            "correct_answer": "did",
+            "language": "ua",
+            "explanation": "Форма «does» — Present Simple; суперечить «won» у другій частині речення, що є формою минулого часу.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 88,
+            "question": "Not only {a1} he pass the exam, but he also won an award.",
+            "wrong_answer": "does",
+            "correct_answer": "did",
+            "language": "uk",
+            "explanation": "Форма «does» — Present Simple; суперечить «won» у другій частині речення, що є формою минулого часу.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 89,
+            "question": "Not only {a1} he pass the exam, but he also won an award.",
+            "wrong_answer": "was",
+            "correct_answer": "did",
+            "language": "ua",
+            "explanation": "Форма «was» — допоміжне дієслово пасивного стану або Past Simple «to be»; не підходить, оскільки «pass» потребує «did» для утворення інверсії.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        },
+        {
+            "id": 90,
+            "question": "Not only {a1} he pass the exam, but he also won an award.",
+            "wrong_answer": "was",
+            "correct_answer": "did",
+            "language": "uk",
+            "explanation": "Форма «was» — допоміжне дієслово пасивного стану або Past Simple «to be»; не підходить, оскільки «pass» потребує «did» для утворення інверсії.",
+            "created_at": "2026-05-18T13:16:48.000000Z",
+            "updated_at": "2026-05-18T13:16:48.000000Z"
+        }
+    ]
+}

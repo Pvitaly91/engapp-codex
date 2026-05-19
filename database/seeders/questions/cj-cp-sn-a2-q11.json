@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 29,
+        "uuid": "cj-cp-sn-a2-q11",
+        "question": "I feel tired {a1} I didn't sleep well.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:26.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Базова граматика",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Conjunctions — and, but, or, because, so",
+        "created_at": "2026-05-18T13:17:20.000000Z",
+        "updated_at": "2026-05-18T13:17:20.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 29,
+                "name": "Choosing the correct conjunction",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 29,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 33,
+                "name": "Causal conjunction 'because'",
+                "category": "pattern",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 29,
+                "tag_id": 33,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 38,
+                "name": "Causal subordination",
+                "category": "usage",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 29,
+                "tag_id": 38,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "and",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 29,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4,
+                "option": "because",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 29,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5,
+                "option": "so",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 29,
+                "option_id": 5,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 29,
+                "question_id": 29,
+                "marker": "a1",
+                "option_id": 4,
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            },
+            "option": {
+                "id": 4,
+                "option": "because",
+                "created_at": "2026-05-18T13:17:20.000000Z",
+                "updated_at": "2026-05-18T13:17:20.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 29,
+            "question_id": 29,
+            "text": "I feel tired {a1} I didn't sleep well.",
+            "created_at": "2026-05-18T13:17:20.000000Z",
+            "updated_at": "2026-05-18T13:17:20.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 86,
+            "question_id": 29,
+            "provider": "copilot-sonate",
+            "locale": "en",
+            "hint": "Use 'because' to explain the cause of a physical or emotional state.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 87,
+            "question_id": 29,
+            "provider": "copilot-sonate",
+            "locale": "pl",
+            "hint": "Użyj 'because', aby wyjaśnić przyczynę fizycznego lub emocjonalnego stanu.\nВтома `feel tired` — відчуття, а `didn't sleep well` — її пряма причина: поганий сон спричиняє втому.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 85,
+            "question_id": 29,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Сполучник because пояснює причину фізичного стану мовця.\nВтома `feel tired` — відчуття, а `didn't sleep well` — її пряма причина: поганий сон спричиняє втому.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 345,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "and",
+            "correct_answer": "because",
+            "language": "en",
+            "explanation": "Incorrect. 'And' would simply list two facts without the causal explanation.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 348,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "and",
+            "correct_answer": "because",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «And» po prostu łączyłoby dwa fakty bez wyjaśnienia przyczynowego.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 341,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "and",
+            "correct_answer": "because",
+            "language": "ua",
+            "explanation": "«and» просто з'єднав би два факти без пояснення того, чому мовець почувається втомленим.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 342,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "and",
+            "correct_answer": "because",
+            "language": "uk",
+            "explanation": "«and» просто з'єднав би два факти без пояснення того, чому мовець почувається втомленим.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 343,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "because",
+            "correct_answer": "because",
+            "language": "en",
+            "explanation": "Correct. 'Because' explains why the speaker feels tired — poor sleep.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 346,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "because",
+            "correct_answer": "because",
+            "language": "pl",
+            "explanation": "Poprawnie. «Because» wyjaśnia, dlaczego mówiący czuje się zmęczony — zły sen.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 337,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "because",
+            "correct_answer": "because",
+            "language": "ua",
+            "explanation": "«because» правильний: він пов'язує втому з поганим сном як її безпосередньою причиною.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 338,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "because",
+            "correct_answer": "because",
+            "language": "uk",
+            "explanation": "«because» правильний: він пов'язує втому з поганим сном як її безпосередньою причиною.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 344,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "so",
+            "correct_answer": "because",
+            "language": "en",
+            "explanation": "Incorrect. 'So' introduces a result; the second clause here is the reason for the tiredness.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 347,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "so",
+            "correct_answer": "because",
+            "language": "pl",
+            "explanation": "Niepoprawnie. «So» wprowadza skutek; tu drugie zdanie jest przyczyną zmęczenia.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 339,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "so",
+            "correct_answer": "because",
+            "language": "ua",
+            "explanation": "«so» вводив би наслідок, але друга частина речення є причиною, а не результатом втоми.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        },
+        {
+            "id": 340,
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "wrong_answer": "so",
+            "correct_answer": "because",
+            "language": "uk",
+            "explanation": "«so» вводив би наслідок, але друга частина речення є причиною, а не результатом втоми.",
+            "created_at": "2026-05-18T13:17:22.000000Z",
+            "updated_at": "2026-05-18T13:17:22.000000Z"
+        }
+    ]
+}
