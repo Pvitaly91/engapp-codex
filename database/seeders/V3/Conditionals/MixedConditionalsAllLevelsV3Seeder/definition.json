@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\MixedConditionalsAllLevelsV3Seeder",
+        "uuid_namespace": "MixedConditionalsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_mixed_conditionals": {
+            "name": "Mixed Conditionals"
+        }
+    },
+    "tags": {
+        "conditionals_mixed_conditionals": {
+            "name": "Mixed Conditionals",
+            "category": "conditionals"
+        },
+        "past_condition_present_result": {
+            "name": "Past Condition Present Result",
+            "category": "topic"
+        },
+        "present_condition_past_result": {
+            "name": "Present Condition Past Result",
+            "category": "topic"
+        },
+        "unreal_past_cause": {
+            "name": "Unreal Past Cause",
+            "category": "topic"
+        },
+        "present_consequence": {
+            "name": "Present Consequence",
+            "category": "topic"
+        },
+        "present_unreal_state": {
+            "name": "Present Unreal State",
+            "category": "topic"
+        },
+        "past_consequence": {
+            "name": "Past Consequence",
+            "category": "topic"
+        },
+        "time_relationship": {
+            "name": "Time Relationship",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_mixed_conditionals"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mc-v3-a1-01",
+            "question": "If I had studied medicine, I {a1} a doctor now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "am"
+                    ],
+                    "verb_hint": "Past condition with present result uses would + base verb.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If I had studied medicine, I {a1} a doctor now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 2,
+            "uuid": "mc-v3-a1-02",
+            "question": "If she were more careful, she {a1} that mistake yesterday.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have made",
+                    "options": [
+                        "would not have made",
+                        "would not make",
+                        "will not make",
+                        "did not make"
+                    ],
+                    "verb_hint": "Present unreal state can explain a past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If she were more careful, she {a1} that mistake yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 3,
+            "uuid": "mc-v3-a1-03",
+            "question": "If he had accepted the job, he {a1} in Berlin now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would live",
+                    "options": [
+                        "would live",
+                        "would have lived",
+                        "will live",
+                        "lived"
+                    ],
+                    "verb_hint": "The past choice affects the present situation.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If he had accepted the job, he {a1} in Berlin now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 4,
+            "uuid": "mc-v3-a1-04",
+            "question": "If we had left earlier, we {a1} at home now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "The result is present, so use would + base verb.",
+                    "gap_tags": [
+                        "present_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_consequence"
+            ],
+            "variants": [
+                "If we had left earlier, we {a1} at home now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 5,
+            "uuid": "mc-v3-a1-05",
+            "question": "If I were better at languages, I {a1} that email last week.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "could have translated",
+                    "options": [
+                        "could have translated",
+                        "could translate",
+                        "will translate",
+                        "translated"
+                    ],
+                    "verb_hint": "A present unreal ability explains a past result.",
+                    "gap_tags": [
+                        "present_unreal_state"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_unreal_state"
+            ],
+            "variants": [
+                "If I were better at languages, I {a1} that email last week."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 6,
+            "uuid": "mc-v3-a1-06",
+            "question": "If Tom were more organized, he {a1} the deadline.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have missed",
+                    "options": [
+                        "would not have missed",
+                        "would not miss",
+                        "will not miss",
+                        "did not miss"
+                    ],
+                    "verb_hint": "A present trait explains a past consequence.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Tom were more organized, he {a1} the deadline."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 7,
+            "uuid": "mc-v3-a1-07",
+            "question": "If I had slept better, I {a1} tired now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would not feel",
+                    "options": [
+                        "would not feel",
+                        "would not have felt",
+                        "will not feel",
+                        "do not feel"
+                    ],
+                    "verb_hint": "The past cause has a present result.",
+                    "gap_tags": [
+                        "time_relationship"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_relationship"
+            ],
+            "variants": [
+                "If I had slept better, I {a1} tired now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 8,
+            "uuid": "mc-v3-a1-08",
+            "question": "If she had taken the course, she {a1} more confident now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would feel",
+                    "options": [
+                        "would feel",
+                        "would have felt",
+                        "will feel",
+                        "felt"
+                    ],
+                    "verb_hint": "Do not use would have for a present result.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she had taken the course, she {a1} more confident now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 9,
+            "uuid": "mc-v3-a1-09",
+            "question": "If we had bought the tickets, we {a1} ready for the trip now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "Past condition, present result.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If we had bought the tickets, we {a1} ready for the trip now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 10,
+            "uuid": "mc-v3-a1-10",
+            "question": "If I were less nervous, I {a1} better in the interview.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have done",
+                    "options": [
+                        "would have done",
+                        "would do",
+                        "will do",
+                        "did"
+                    ],
+                    "verb_hint": "Present unreal state with past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If I were less nervous, I {a1} better in the interview."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 11,
+            "uuid": "mc-v3-a1-11",
+            "question": "If they had trained harder, they {a1} stronger now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "A past missed action affects the present.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If they had trained harder, they {a1} stronger now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 12,
+            "uuid": "mc-v3-a1-12",
+            "question": "If Marta knew the system better, she {a1} the file yesterday.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have deleted",
+                    "options": [
+                        "would not have deleted",
+                        "would not delete",
+                        "will not delete",
+                        "did not delete"
+                    ],
+                    "verb_hint": "Present knowledge explains a past mistake.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Marta knew the system better, she {a1} the file yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 13,
+            "uuid": "mc-v3-a2-01",
+            "question": "If I had studied medicine, I {a1} a doctor now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "am"
+                    ],
+                    "verb_hint": "Past condition with present result uses would + base verb.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If I had studied medicine, I {a1} a doctor now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 14,
+            "uuid": "mc-v3-a2-02",
+            "question": "If she were more careful, she {a1} that mistake yesterday.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have made",
+                    "options": [
+                        "would not have made",
+                        "would not make",
+                        "will not make",
+                        "did not make"
+                    ],
+                    "verb_hint": "Present unreal state can explain a past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If she were more careful, she {a1} that mistake yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 15,
+            "uuid": "mc-v3-a2-03",
+            "question": "If he had accepted the job, he {a1} in Berlin now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would live",
+                    "options": [
+                        "would live",
+                        "would have lived",
+                        "will live",
+                        "lived"
+                    ],
+                    "verb_hint": "The past choice affects the present situation.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If he had accepted the job, he {a1} in Berlin now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 16,
+            "uuid": "mc-v3-a2-04",
+            "question": "If we had left earlier, we {a1} at home now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "The result is present, so use would + base verb.",
+                    "gap_tags": [
+                        "present_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_consequence"
+            ],
+            "variants": [
+                "If we had left earlier, we {a1} at home now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 17,
+            "uuid": "mc-v3-a2-05",
+            "question": "If I were better at languages, I {a1} that email last week.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "could have translated",
+                    "options": [
+                        "could have translated",
+                        "could translate",
+                        "will translate",
+                        "translated"
+                    ],
+                    "verb_hint": "A present unreal ability explains a past result.",
+                    "gap_tags": [
+                        "present_unreal_state"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_unreal_state"
+            ],
+            "variants": [
+                "If I were better at languages, I {a1} that email last week."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 18,
+            "uuid": "mc-v3-a2-06",
+            "question": "If Tom were more organized, he {a1} the deadline.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have missed",
+                    "options": [
+                        "would not have missed",
+                        "would not miss",
+                        "will not miss",
+                        "did not miss"
+                    ],
+                    "verb_hint": "A present trait explains a past consequence.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Tom were more organized, he {a1} the deadline."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 19,
+            "uuid": "mc-v3-a2-07",
+            "question": "If I had slept better, I {a1} tired now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would not feel",
+                    "options": [
+                        "would not feel",
+                        "would not have felt",
+                        "will not feel",
+                        "do not feel"
+                    ],
+                    "verb_hint": "The past cause has a present result.",
+                    "gap_tags": [
+                        "time_relationship"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_relationship"
+            ],
+            "variants": [
+                "If I had slept better, I {a1} tired now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 20,
+            "uuid": "mc-v3-a2-08",
+            "question": "If she had taken the course, she {a1} more confident now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would feel",
+                    "options": [
+                        "would feel",
+                        "would have felt",
+                        "will feel",
+                        "felt"
+                    ],
+                    "verb_hint": "Do not use would have for a present result.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she had taken the course, she {a1} more confident now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 21,
+            "uuid": "mc-v3-a2-09",
+            "question": "If we had bought the tickets, we {a1} ready for the trip now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "Past condition, present result.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If we had bought the tickets, we {a1} ready for the trip now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 22,
+            "uuid": "mc-v3-a2-10",
+            "question": "If I were less nervous, I {a1} better in the interview.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have done",
+                    "options": [
+                        "would have done",
+                        "would do",
+                        "will do",
+                        "did"
+                    ],
+                    "verb_hint": "Present unreal state with past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If I were less nervous, I {a1} better in the interview."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 23,
+            "uuid": "mc-v3-a2-11",
+            "question": "If they had trained harder, they {a1} stronger now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "A past missed action affects the present.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If they had trained harder, they {a1} stronger now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 24,
+            "uuid": "mc-v3-a2-12",
+            "question": "If Marta knew the system better, she {a1} the file yesterday.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have deleted",
+                    "options": [
+                        "would not have deleted",
+                        "would not delete",
+                        "will not delete",
+                        "did not delete"
+                    ],
+                    "verb_hint": "Present knowledge explains a past mistake.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Marta knew the system better, she {a1} the file yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 25,
+            "uuid": "mc-v3-b1-01",
+            "question": "If I had studied medicine, I {a1} a doctor now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "am"
+                    ],
+                    "verb_hint": "Past condition with present result uses would + base verb.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If I had studied medicine, I {a1} a doctor now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 26,
+            "uuid": "mc-v3-b1-02",
+            "question": "If she were more careful, she {a1} that mistake yesterday.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have made",
+                    "options": [
+                        "would not have made",
+                        "would not make",
+                        "will not make",
+                        "did not make"
+                    ],
+                    "verb_hint": "Present unreal state can explain a past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If she were more careful, she {a1} that mistake yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 27,
+            "uuid": "mc-v3-b1-03",
+            "question": "If he had accepted the job, he {a1} in Berlin now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would live",
+                    "options": [
+                        "would live",
+                        "would have lived",
+                        "will live",
+                        "lived"
+                    ],
+                    "verb_hint": "The past choice affects the present situation.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If he had accepted the job, he {a1} in Berlin now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 28,
+            "uuid": "mc-v3-b1-04",
+            "question": "If we had left earlier, we {a1} at home now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "The result is present, so use would + base verb.",
+                    "gap_tags": [
+                        "present_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_consequence"
+            ],
+            "variants": [
+                "If we had left earlier, we {a1} at home now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 29,
+            "uuid": "mc-v3-b1-05",
+            "question": "If I were better at languages, I {a1} that email last week.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "could have translated",
+                    "options": [
+                        "could have translated",
+                        "could translate",
+                        "will translate",
+                        "translated"
+                    ],
+                    "verb_hint": "A present unreal ability explains a past result.",
+                    "gap_tags": [
+                        "present_unreal_state"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_unreal_state"
+            ],
+            "variants": [
+                "If I were better at languages, I {a1} that email last week."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 30,
+            "uuid": "mc-v3-b1-06",
+            "question": "If Tom were more organized, he {a1} the deadline.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have missed",
+                    "options": [
+                        "would not have missed",
+                        "would not miss",
+                        "will not miss",
+                        "did not miss"
+                    ],
+                    "verb_hint": "A present trait explains a past consequence.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Tom were more organized, he {a1} the deadline."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 31,
+            "uuid": "mc-v3-b1-07",
+            "question": "If I had slept better, I {a1} tired now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would not feel",
+                    "options": [
+                        "would not feel",
+                        "would not have felt",
+                        "will not feel",
+                        "do not feel"
+                    ],
+                    "verb_hint": "The past cause has a present result.",
+                    "gap_tags": [
+                        "time_relationship"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_relationship"
+            ],
+            "variants": [
+                "If I had slept better, I {a1} tired now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 32,
+            "uuid": "mc-v3-b1-08",
+            "question": "If she had taken the course, she {a1} more confident now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would feel",
+                    "options": [
+                        "would feel",
+                        "would have felt",
+                        "will feel",
+                        "felt"
+                    ],
+                    "verb_hint": "Do not use would have for a present result.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she had taken the course, she {a1} more confident now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 33,
+            "uuid": "mc-v3-b1-09",
+            "question": "If we had bought the tickets, we {a1} ready for the trip now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "Past condition, present result.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If we had bought the tickets, we {a1} ready for the trip now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 34,
+            "uuid": "mc-v3-b1-10",
+            "question": "If I were less nervous, I {a1} better in the interview.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have done",
+                    "options": [
+                        "would have done",
+                        "would do",
+                        "will do",
+                        "did"
+                    ],
+                    "verb_hint": "Present unreal state with past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If I were less nervous, I {a1} better in the interview."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 35,
+            "uuid": "mc-v3-b1-11",
+            "question": "If they had trained harder, they {a1} stronger now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "A past missed action affects the present.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If they had trained harder, they {a1} stronger now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 36,
+            "uuid": "mc-v3-b1-12",
+            "question": "If Marta knew the system better, she {a1} the file yesterday.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have deleted",
+                    "options": [
+                        "would not have deleted",
+                        "would not delete",
+                        "will not delete",
+                        "did not delete"
+                    ],
+                    "verb_hint": "Present knowledge explains a past mistake.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Marta knew the system better, she {a1} the file yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 37,
+            "uuid": "mc-v3-b2-01",
+            "question": "If I had studied medicine, I {a1} a doctor now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "am"
+                    ],
+                    "verb_hint": "Past condition with present result uses would + base verb.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If I had studied medicine, I {a1} a doctor now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 38,
+            "uuid": "mc-v3-b2-02",
+            "question": "If she were more careful, she {a1} that mistake yesterday.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have made",
+                    "options": [
+                        "would not have made",
+                        "would not make",
+                        "will not make",
+                        "did not make"
+                    ],
+                    "verb_hint": "Present unreal state can explain a past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If she were more careful, she {a1} that mistake yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 39,
+            "uuid": "mc-v3-b2-03",
+            "question": "If he had accepted the job, he {a1} in Berlin now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would live",
+                    "options": [
+                        "would live",
+                        "would have lived",
+                        "will live",
+                        "lived"
+                    ],
+                    "verb_hint": "The past choice affects the present situation.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If he had accepted the job, he {a1} in Berlin now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 40,
+            "uuid": "mc-v3-b2-04",
+            "question": "If we had left earlier, we {a1} at home now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "The result is present, so use would + base verb.",
+                    "gap_tags": [
+                        "present_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_consequence"
+            ],
+            "variants": [
+                "If we had left earlier, we {a1} at home now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 41,
+            "uuid": "mc-v3-b2-05",
+            "question": "If I were better at languages, I {a1} that email last week.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "could have translated",
+                    "options": [
+                        "could have translated",
+                        "could translate",
+                        "will translate",
+                        "translated"
+                    ],
+                    "verb_hint": "A present unreal ability explains a past result.",
+                    "gap_tags": [
+                        "present_unreal_state"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_unreal_state"
+            ],
+            "variants": [
+                "If I were better at languages, I {a1} that email last week."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 42,
+            "uuid": "mc-v3-b2-06",
+            "question": "If Tom were more organized, he {a1} the deadline.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have missed",
+                    "options": [
+                        "would not have missed",
+                        "would not miss",
+                        "will not miss",
+                        "did not miss"
+                    ],
+                    "verb_hint": "A present trait explains a past consequence.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Tom were more organized, he {a1} the deadline."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 43,
+            "uuid": "mc-v3-b2-07",
+            "question": "If I had slept better, I {a1} tired now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would not feel",
+                    "options": [
+                        "would not feel",
+                        "would not have felt",
+                        "will not feel",
+                        "do not feel"
+                    ],
+                    "verb_hint": "The past cause has a present result.",
+                    "gap_tags": [
+                        "time_relationship"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_relationship"
+            ],
+            "variants": [
+                "If I had slept better, I {a1} tired now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 44,
+            "uuid": "mc-v3-b2-08",
+            "question": "If she had taken the course, she {a1} more confident now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would feel",
+                    "options": [
+                        "would feel",
+                        "would have felt",
+                        "will feel",
+                        "felt"
+                    ],
+                    "verb_hint": "Do not use would have for a present result.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she had taken the course, she {a1} more confident now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 45,
+            "uuid": "mc-v3-b2-09",
+            "question": "If we had bought the tickets, we {a1} ready for the trip now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "Past condition, present result.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If we had bought the tickets, we {a1} ready for the trip now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 46,
+            "uuid": "mc-v3-b2-10",
+            "question": "If I were less nervous, I {a1} better in the interview.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have done",
+                    "options": [
+                        "would have done",
+                        "would do",
+                        "will do",
+                        "did"
+                    ],
+                    "verb_hint": "Present unreal state with past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If I were less nervous, I {a1} better in the interview."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 47,
+            "uuid": "mc-v3-b2-11",
+            "question": "If they had trained harder, they {a1} stronger now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "A past missed action affects the present.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If they had trained harder, they {a1} stronger now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 48,
+            "uuid": "mc-v3-b2-12",
+            "question": "If Marta knew the system better, she {a1} the file yesterday.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have deleted",
+                    "options": [
+                        "would not have deleted",
+                        "would not delete",
+                        "will not delete",
+                        "did not delete"
+                    ],
+                    "verb_hint": "Present knowledge explains a past mistake.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Marta knew the system better, she {a1} the file yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 49,
+            "uuid": "mc-v3-c1-01",
+            "question": "If I had studied medicine, I {a1} a doctor now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "am"
+                    ],
+                    "verb_hint": "Past condition with present result uses would + base verb.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If I had studied medicine, I {a1} a doctor now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 50,
+            "uuid": "mc-v3-c1-02",
+            "question": "If she were more careful, she {a1} that mistake yesterday.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have made",
+                    "options": [
+                        "would not have made",
+                        "would not make",
+                        "will not make",
+                        "did not make"
+                    ],
+                    "verb_hint": "Present unreal state can explain a past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If she were more careful, she {a1} that mistake yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 51,
+            "uuid": "mc-v3-c1-03",
+            "question": "If he had accepted the job, he {a1} in Berlin now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would live",
+                    "options": [
+                        "would live",
+                        "would have lived",
+                        "will live",
+                        "lived"
+                    ],
+                    "verb_hint": "The past choice affects the present situation.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If he had accepted the job, he {a1} in Berlin now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 52,
+            "uuid": "mc-v3-c1-04",
+            "question": "If we had left earlier, we {a1} at home now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "The result is present, so use would + base verb.",
+                    "gap_tags": [
+                        "present_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_consequence"
+            ],
+            "variants": [
+                "If we had left earlier, we {a1} at home now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 53,
+            "uuid": "mc-v3-c1-05",
+            "question": "If I were better at languages, I {a1} that email last week.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "could have translated",
+                    "options": [
+                        "could have translated",
+                        "could translate",
+                        "will translate",
+                        "translated"
+                    ],
+                    "verb_hint": "A present unreal ability explains a past result.",
+                    "gap_tags": [
+                        "present_unreal_state"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_unreal_state"
+            ],
+            "variants": [
+                "If I were better at languages, I {a1} that email last week."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 54,
+            "uuid": "mc-v3-c1-06",
+            "question": "If Tom were more organized, he {a1} the deadline.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have missed",
+                    "options": [
+                        "would not have missed",
+                        "would not miss",
+                        "will not miss",
+                        "did not miss"
+                    ],
+                    "verb_hint": "A present trait explains a past consequence.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Tom were more organized, he {a1} the deadline."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 55,
+            "uuid": "mc-v3-c1-07",
+            "question": "If I had slept better, I {a1} tired now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would not feel",
+                    "options": [
+                        "would not feel",
+                        "would not have felt",
+                        "will not feel",
+                        "do not feel"
+                    ],
+                    "verb_hint": "The past cause has a present result.",
+                    "gap_tags": [
+                        "time_relationship"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_relationship"
+            ],
+            "variants": [
+                "If I had slept better, I {a1} tired now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 56,
+            "uuid": "mc-v3-c1-08",
+            "question": "If she had taken the course, she {a1} more confident now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would feel",
+                    "options": [
+                        "would feel",
+                        "would have felt",
+                        "will feel",
+                        "felt"
+                    ],
+                    "verb_hint": "Do not use would have for a present result.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she had taken the course, she {a1} more confident now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 57,
+            "uuid": "mc-v3-c1-09",
+            "question": "If we had bought the tickets, we {a1} ready for the trip now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "Past condition, present result.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If we had bought the tickets, we {a1} ready for the trip now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 58,
+            "uuid": "mc-v3-c1-10",
+            "question": "If I were less nervous, I {a1} better in the interview.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have done",
+                    "options": [
+                        "would have done",
+                        "would do",
+                        "will do",
+                        "did"
+                    ],
+                    "verb_hint": "Present unreal state with past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If I were less nervous, I {a1} better in the interview."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 59,
+            "uuid": "mc-v3-c1-11",
+            "question": "If they had trained harder, they {a1} stronger now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "A past missed action affects the present.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If they had trained harder, they {a1} stronger now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 60,
+            "uuid": "mc-v3-c1-12",
+            "question": "If Marta knew the system better, she {a1} the file yesterday.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would not have deleted",
+                    "options": [
+                        "would not have deleted",
+                        "would not delete",
+                        "will not delete",
+                        "did not delete"
+                    ],
+                    "verb_hint": "Present knowledge explains a past mistake.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Marta knew the system better, she {a1} the file yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 61,
+            "uuid": "mc-v3-c2-01",
+            "question": "If I had studied medicine, I {a1} a doctor now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "am"
+                    ],
+                    "verb_hint": "Past condition with present result uses would + base verb.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If I had studied medicine, I {a1} a doctor now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 62,
+            "uuid": "mc-v3-c2-02",
+            "question": "If she were more careful, she {a1} that mistake yesterday.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have made",
+                    "options": [
+                        "would not have made",
+                        "would not make",
+                        "will not make",
+                        "did not make"
+                    ],
+                    "verb_hint": "Present unreal state can explain a past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If she were more careful, she {a1} that mistake yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 63,
+            "uuid": "mc-v3-c2-03",
+            "question": "If he had accepted the job, he {a1} in Berlin now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would live",
+                    "options": [
+                        "would live",
+                        "would have lived",
+                        "will live",
+                        "lived"
+                    ],
+                    "verb_hint": "The past choice affects the present situation.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If he had accepted the job, he {a1} in Berlin now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 64,
+            "uuid": "mc-v3-c2-04",
+            "question": "If we had left earlier, we {a1} at home now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "The result is present, so use would + base verb.",
+                    "gap_tags": [
+                        "present_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_consequence"
+            ],
+            "variants": [
+                "If we had left earlier, we {a1} at home now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 65,
+            "uuid": "mc-v3-c2-05",
+            "question": "If I were better at languages, I {a1} that email last week.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "could have translated",
+                    "options": [
+                        "could have translated",
+                        "could translate",
+                        "will translate",
+                        "translated"
+                    ],
+                    "verb_hint": "A present unreal ability explains a past result.",
+                    "gap_tags": [
+                        "present_unreal_state"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_unreal_state"
+            ],
+            "variants": [
+                "If I were better at languages, I {a1} that email last week."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 66,
+            "uuid": "mc-v3-c2-06",
+            "question": "If Tom were more organized, he {a1} the deadline.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have missed",
+                    "options": [
+                        "would not have missed",
+                        "would not miss",
+                        "will not miss",
+                        "did not miss"
+                    ],
+                    "verb_hint": "A present trait explains a past consequence.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Tom were more organized, he {a1} the deadline."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 67,
+            "uuid": "mc-v3-c2-07",
+            "question": "If I had slept better, I {a1} tired now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would not feel",
+                    "options": [
+                        "would not feel",
+                        "would not have felt",
+                        "will not feel",
+                        "do not feel"
+                    ],
+                    "verb_hint": "The past cause has a present result.",
+                    "gap_tags": [
+                        "time_relationship"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_relationship"
+            ],
+            "variants": [
+                "If I had slept better, I {a1} tired now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 68,
+            "uuid": "mc-v3-c2-08",
+            "question": "If she had taken the course, she {a1} more confident now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would feel",
+                    "options": [
+                        "would feel",
+                        "would have felt",
+                        "will feel",
+                        "felt"
+                    ],
+                    "verb_hint": "Do not use would have for a present result.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she had taken the course, she {a1} more confident now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 69,
+            "uuid": "mc-v3-c2-09",
+            "question": "If we had bought the tickets, we {a1} ready for the trip now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "Past condition, present result.",
+                    "gap_tags": [
+                        "past_condition_present_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_condition_present_result"
+            ],
+            "variants": [
+                "If we had bought the tickets, we {a1} ready for the trip now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 70,
+            "uuid": "mc-v3-c2-10",
+            "question": "If I were less nervous, I {a1} better in the interview.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have done",
+                    "options": [
+                        "would have done",
+                        "would do",
+                        "will do",
+                        "did"
+                    ],
+                    "verb_hint": "Present unreal state with past result.",
+                    "gap_tags": [
+                        "present_condition_past_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_condition_past_result"
+            ],
+            "variants": [
+                "If I were less nervous, I {a1} better in the interview."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 71,
+            "uuid": "mc-v3-c2-11",
+            "question": "If they had trained harder, they {a1} stronger now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "would have been",
+                        "will be",
+                        "are"
+                    ],
+                    "verb_hint": "A past missed action affects the present.",
+                    "gap_tags": [
+                        "unreal_past_cause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past_cause"
+            ],
+            "variants": [
+                "If they had trained harder, they {a1} stronger now."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        },
+        {
+            "id": 72,
+            "uuid": "mc-v3-c2-12",
+            "question": "If Marta knew the system better, she {a1} the file yesterday.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would not have deleted",
+                    "options": [
+                        "would not have deleted",
+                        "would not delete",
+                        "will not delete",
+                        "did not delete"
+                    ],
+                    "verb_hint": "Present knowledge explains a past mistake.",
+                    "gap_tags": [
+                        "past_consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_consequence"
+            ],
+            "variants": [
+                "If Marta knew the system better, she {a1} the file yesterday."
+            ],
+            "source": "theory_page_mixed_conditionals"
+        }
+    ],
+    "saved_test": {
+        "uuid": "conditionals-mixed-v3-all",
+        "slug": "mixed-conditionals-all-levels-v3",
+        "name": "Mixed Conditionals: V3 All Levels",
+        "description": "Page-local V3 package for Mixed Conditionals with A1-C2 coverage.",
+        "question_uuids": [
+            "mc-v3-a1-01",
+            "mc-v3-a1-02",
+            "mc-v3-a1-03",
+            "mc-v3-a1-04",
+            "mc-v3-a1-05",
+            "mc-v3-a1-06",
+            "mc-v3-a1-07",
+            "mc-v3-a1-08",
+            "mc-v3-a1-09",
+            "mc-v3-a1-10",
+            "mc-v3-a1-11",
+            "mc-v3-a1-12",
+            "mc-v3-a2-01",
+            "mc-v3-a2-02",
+            "mc-v3-a2-03",
+            "mc-v3-a2-04",
+            "mc-v3-a2-05",
+            "mc-v3-a2-06",
+            "mc-v3-a2-07",
+            "mc-v3-a2-08",
+            "mc-v3-a2-09",
+            "mc-v3-a2-10",
+            "mc-v3-a2-11",
+            "mc-v3-a2-12",
+            "mc-v3-b1-01",
+            "mc-v3-b1-02",
+            "mc-v3-b1-03",
+            "mc-v3-b1-04",
+            "mc-v3-b1-05",
+            "mc-v3-b1-06",
+            "mc-v3-b1-07",
+            "mc-v3-b1-08",
+            "mc-v3-b1-09",
+            "mc-v3-b1-10",
+            "mc-v3-b1-11",
+            "mc-v3-b1-12",
+            "mc-v3-b2-01",
+            "mc-v3-b2-02",
+            "mc-v3-b2-03",
+            "mc-v3-b2-04",
+            "mc-v3-b2-05",
+            "mc-v3-b2-06",
+            "mc-v3-b2-07",
+            "mc-v3-b2-08",
+            "mc-v3-b2-09",
+            "mc-v3-b2-10",
+            "mc-v3-b2-11",
+            "mc-v3-b2-12",
+            "mc-v3-c1-01",
+            "mc-v3-c1-02",
+            "mc-v3-c1-03",
+            "mc-v3-c1-04",
+            "mc-v3-c1-05",
+            "mc-v3-c1-06",
+            "mc-v3-c1-07",
+            "mc-v3-c1-08",
+            "mc-v3-c1-09",
+            "mc-v3-c1-10",
+            "mc-v3-c1-11",
+            "mc-v3-c1-12",
+            "mc-v3-c2-01",
+            "mc-v3-c2-02",
+            "mc-v3-c2-03",
+            "mc-v3-c2-04",
+            "mc-v3-c2-05",
+            "mc-v3-c2-06",
+            "mc-v3-c2-07",
+            "mc-v3-c2-08",
+            "mc-v3-c2-09",
+            "mc-v3-c2-10",
+            "mc-v3-c2-11",
+            "mc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\MixedConditionalsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "mixed-conditionals",
+                    "title": "Mixed Conditionals",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsMixedTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/mixed-conditionals"
+                }
+            }
+        }
+    }
+}
