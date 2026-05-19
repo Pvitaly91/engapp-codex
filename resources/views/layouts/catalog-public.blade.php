@@ -96,16 +96,12 @@
             overflow: hidden;
         }
 
+        /* The old engram-language-pattern.svg raster was replaced
+           with <x-public.fixed-background />, which renders fresh
+           icons on every request. Keeping the ::before rule empty
+           here so dark-mode overrides below still resolve. */
         .app-fixed-background::before {
-            content: "";
-            position: absolute;
-            inset: -6%;
-            background-image: url('{{ asset('engram-language-pattern.svg') }}');
-            background-position: center top;
-            background-repeat: repeat;
-            background-size: 720px 720px;
-            opacity: 0.22;
-            filter: saturate(1.05) contrast(1.08);
+            content: none;
         }
 
         .app-fixed-background::after {
@@ -361,7 +357,7 @@
 </head>
 <body class="min-h-full font-body antialiased @yield('body_class')">
     @include('components.admin-domain-switcher')
-    <div class="app-fixed-background" aria-hidden="true"></div>
+    <x-public.fixed-background />
     <div class="catalog-frame relative mx-auto max-w-[1440px] px-0 py-0 lg:px-8 lg:py-6">
         <div id="catalog-shell" class="catalog-shell rounded-none border-0 shadow-none lg:rounded-[30px] lg:border lg:shadow-panel">
             <div id="shell-random-shapes" class="pointer-events-none" aria-hidden="true"></div>
