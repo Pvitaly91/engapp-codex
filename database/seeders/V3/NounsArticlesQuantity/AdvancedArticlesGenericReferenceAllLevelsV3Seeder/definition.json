@@ -1,0 +1,2195 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\AdvancedArticlesGenericReferenceAllLevelsV3Seeder",
+        "uuid_namespace": "AdvancedArticlesGenericReferenceAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "theory_page_advanced_articles_generic_reference": {
+            "name": "Advanced Articles Generic Reference"
+        }
+    },
+    "tags": {
+        "advanced_articles_generic_reference": {
+            "name": "Advanced Articles Generic Reference",
+            "category": "nouns_articles_quantity"
+        },
+        "generic_plural": {
+            "name": "Generic Plural",
+            "category": "topic"
+        },
+        "generic_uncountable": {
+            "name": "Generic Uncountable",
+            "category": "topic"
+        },
+        "one_example_class": {
+            "name": "One Example Class",
+            "category": "topic"
+        },
+        "the_adjective_groups": {
+            "name": "The Adjective Groups",
+            "category": "topic"
+        },
+        "the_singular_species": {
+            "name": "The Singular Species",
+            "category": "topic"
+        },
+        "people_plural": {
+            "name": "People Plural",
+            "category": "topic"
+        },
+        "tiger_generic_contrast": {
+            "name": "Tiger Generic Contrast",
+            "category": "topic"
+        },
+        "generic_vs_specific": {
+            "name": "Generic Vs Specific",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "advanced_articles_generic_reference"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "agr-v3-a1-01",
+            "question": "{a1} Cats need space",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Cats need space"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 2,
+            "uuid": "agr-v3-a1-02",
+            "question": "{a1} Water changes lives",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Water changes lives"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 3,
+            "uuid": "agr-v3-a1-03",
+            "question": "{a1} tiger is one example of its class",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one example of a class.",
+                    "gap_tags": [
+                        "one_example_class"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_example_class"
+            ],
+            "variants": [
+                "{a1} tiger is one example of its class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 4,
+            "uuid": "agr-v3-a1-04",
+            "question": "{a1} rich have influence",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for a social group.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "{a1} rich have influence"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 5,
+            "uuid": "agr-v3-a1-05",
+            "question": "This policy supports {a1} elderly",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "This policy supports {a1} elderly"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 6,
+            "uuid": "agr-v3-a1-06",
+            "question": "{a1} tiger is a protected species in formal writing",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus singular noun for a whole species in formal style.",
+                    "gap_tags": [
+                        "the_singular_species"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_singular_species"
+            ],
+            "variants": [
+                "{a1} tiger is a protected species in formal writing"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 7,
+            "uuid": "agr-v3-a1-07",
+            "question": "{a1} People need clean water",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "People is already plural in this meaning.",
+                    "gap_tags": [
+                        "people_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_plural"
+            ],
+            "variants": [
+                "{a1} People need clean water"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 8,
+            "uuid": "agr-v3-a1-08",
+            "question": "{a1} tiger can represent a whole class",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one representative of a class.",
+                    "gap_tags": [
+                        "tiger_generic_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tiger_generic_contrast"
+            ],
+            "variants": [
+                "{a1} tiger can represent a whole class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 9,
+            "uuid": "agr-v3-a1-09",
+            "question": "{a1} tiger in the photo looked calm",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the for a specific noun.",
+                    "gap_tags": [
+                        "generic_vs_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_vs_specific"
+            ],
+            "variants": [
+                "{a1} tiger in the photo looked calm"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 10,
+            "uuid": "agr-v3-a1-10",
+            "question": "{a1} Technology shapes society",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with an abstract uncountable noun in general.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Technology shapes society"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 11,
+            "uuid": "agr-v3-a1-11",
+            "question": "{a1} poor need practical help",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} poor need practical help"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 12,
+            "uuid": "agr-v3-a1-12",
+            "question": "{a1} Smartphones change communication",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with generic plural nouns.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Smartphones change communication"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 13,
+            "uuid": "agr-v3-a2-01",
+            "question": "{a1} Birds need space",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Birds need space"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 14,
+            "uuid": "agr-v3-a2-02",
+            "question": "{a1} Music changes lives",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Music changes lives"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 15,
+            "uuid": "agr-v3-a2-03",
+            "question": "{a1} dolphin is one example of its class",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one example of a class.",
+                    "gap_tags": [
+                        "one_example_class"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_example_class"
+            ],
+            "variants": [
+                "{a1} dolphin is one example of its class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 16,
+            "uuid": "agr-v3-a2-04",
+            "question": "{a1} poor have influence",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for a social group.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "{a1} poor have influence"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 17,
+            "uuid": "agr-v3-a2-05",
+            "question": "This policy supports {a1} young",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "This policy supports {a1} young"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 18,
+            "uuid": "agr-v3-a2-06",
+            "question": "{a1} dolphin is a protected species in formal writing",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus singular noun for a whole species in formal style.",
+                    "gap_tags": [
+                        "the_singular_species"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_singular_species"
+            ],
+            "variants": [
+                "{a1} dolphin is a protected species in formal writing"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 19,
+            "uuid": "agr-v3-a2-07",
+            "question": "{a1} People need kindness",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "People is already plural in this meaning.",
+                    "gap_tags": [
+                        "people_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_plural"
+            ],
+            "variants": [
+                "{a1} People need kindness"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 20,
+            "uuid": "agr-v3-a2-08",
+            "question": "{a1} dolphin can represent a whole class",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one representative of a class.",
+                    "gap_tags": [
+                        "tiger_generic_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tiger_generic_contrast"
+            ],
+            "variants": [
+                "{a1} dolphin can represent a whole class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 21,
+            "uuid": "agr-v3-a2-09",
+            "question": "{a1} dolphin in the story looked calm",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the for a specific noun.",
+                    "gap_tags": [
+                        "generic_vs_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_vs_specific"
+            ],
+            "variants": [
+                "{a1} dolphin in the story looked calm"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 22,
+            "uuid": "agr-v3-a2-10",
+            "question": "{a1} Education shapes society",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with an abstract uncountable noun in general.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Education shapes society"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 23,
+            "uuid": "agr-v3-a2-11",
+            "question": "{a1} homeless need practical help",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} homeless need practical help"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 24,
+            "uuid": "agr-v3-a2-12",
+            "question": "{a1} Cars change communication",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with generic plural nouns.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Cars change communication"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 25,
+            "uuid": "agr-v3-b1-01",
+            "question": "{a1} Tigers need space",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Tigers need space"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 26,
+            "uuid": "agr-v3-b1-02",
+            "question": "{a1} Knowledge changes lives",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Knowledge changes lives"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 27,
+            "uuid": "agr-v3-b1-03",
+            "question": "{a1} eagle is one example of its class",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one example of a class.",
+                    "gap_tags": [
+                        "one_example_class"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_example_class"
+            ],
+            "variants": [
+                "{a1} eagle is one example of its class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 28,
+            "uuid": "agr-v3-b1-04",
+            "question": "{a1} powerful have influence",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for a social group.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "{a1} powerful have influence"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 29,
+            "uuid": "agr-v3-b1-05",
+            "question": "This policy supports {a1} disabled",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "This policy supports {a1} disabled"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 30,
+            "uuid": "agr-v3-b1-06",
+            "question": "{a1} eagle is a protected species in formal writing",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus singular noun for a whole species in formal style.",
+                    "gap_tags": [
+                        "the_singular_species"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_singular_species"
+            ],
+            "variants": [
+                "{a1} eagle is a protected species in formal writing"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 31,
+            "uuid": "agr-v3-b1-07",
+            "question": "{a1} People need honest news",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "People is already plural in this meaning.",
+                    "gap_tags": [
+                        "people_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_plural"
+            ],
+            "variants": [
+                "{a1} People need honest news"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 32,
+            "uuid": "agr-v3-b1-08",
+            "question": "{a1} eagle can represent a whole class",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one representative of a class.",
+                    "gap_tags": [
+                        "tiger_generic_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tiger_generic_contrast"
+            ],
+            "variants": [
+                "{a1} eagle can represent a whole class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 33,
+            "uuid": "agr-v3-b1-09",
+            "question": "{a1} eagle in the documentary looked calm",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the for a specific noun.",
+                    "gap_tags": [
+                        "generic_vs_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_vs_specific"
+            ],
+            "variants": [
+                "{a1} eagle in the documentary looked calm"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 34,
+            "uuid": "agr-v3-b1-10",
+            "question": "{a1} Science shapes society",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with an abstract uncountable noun in general.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Science shapes society"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 35,
+            "uuid": "agr-v3-b1-11",
+            "question": "{a1} unemployed need practical help",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} unemployed need practical help"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 36,
+            "uuid": "agr-v3-b1-12",
+            "question": "{a1} Robots change communication",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with generic plural nouns.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Robots change communication"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 37,
+            "uuid": "agr-v3-b2-01",
+            "question": "{a1} Bees need space",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Bees need space"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 38,
+            "uuid": "agr-v3-b2-02",
+            "question": "{a1} Research changes lives",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Research changes lives"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 39,
+            "uuid": "agr-v3-b2-03",
+            "question": "{a1} wolf is one example of its class",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one example of a class.",
+                    "gap_tags": [
+                        "one_example_class"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_example_class"
+            ],
+            "variants": [
+                "{a1} wolf is one example of its class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 40,
+            "uuid": "agr-v3-b2-04",
+            "question": "{a1} elderly have influence",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for a social group.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "{a1} elderly have influence"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 41,
+            "uuid": "agr-v3-b2-05",
+            "question": "This policy supports {a1} blind",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "This policy supports {a1} blind"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 42,
+            "uuid": "agr-v3-b2-06",
+            "question": "{a1} wolf is a protected species in formal writing",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus singular noun for a whole species in formal style.",
+                    "gap_tags": [
+                        "the_singular_species"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_singular_species"
+            ],
+            "variants": [
+                "{a1} wolf is a protected species in formal writing"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 43,
+            "uuid": "agr-v3-b2-07",
+            "question": "{a1} People need reliable information",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "People is already plural in this meaning.",
+                    "gap_tags": [
+                        "people_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_plural"
+            ],
+            "variants": [
+                "{a1} People need reliable information"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 44,
+            "uuid": "agr-v3-b2-08",
+            "question": "{a1} wolf can represent a whole class",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one representative of a class.",
+                    "gap_tags": [
+                        "tiger_generic_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tiger_generic_contrast"
+            ],
+            "variants": [
+                "{a1} wolf can represent a whole class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 45,
+            "uuid": "agr-v3-b2-09",
+            "question": "{a1} wolf in the reserve looked calm",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the for a specific noun.",
+                    "gap_tags": [
+                        "generic_vs_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_vs_specific"
+            ],
+            "variants": [
+                "{a1} wolf in the reserve looked calm"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 46,
+            "uuid": "agr-v3-b2-10",
+            "question": "{a1} Democracy shapes society",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with an abstract uncountable noun in general.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Democracy shapes society"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 47,
+            "uuid": "agr-v3-b2-11",
+            "question": "{a1} vulnerable need practical help",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} vulnerable need practical help"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 48,
+            "uuid": "agr-v3-b2-12",
+            "question": "{a1} Algorithms change communication",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with generic plural nouns.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Algorithms change communication"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 49,
+            "uuid": "agr-v3-c1-01",
+            "question": "{a1} Migrants need space",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Migrants need space"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 50,
+            "uuid": "agr-v3-c1-02",
+            "question": "{a1} Evidence changes lives",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Evidence changes lives"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 51,
+            "uuid": "agr-v3-c1-03",
+            "question": "{a1} whale is one example of its class",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one example of a class.",
+                    "gap_tags": [
+                        "one_example_class"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_example_class"
+            ],
+            "variants": [
+                "{a1} whale is one example of its class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 52,
+            "uuid": "agr-v3-c1-04",
+            "question": "{a1} wealthy have influence",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for a social group.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "{a1} wealthy have influence"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 53,
+            "uuid": "agr-v3-c1-05",
+            "question": "This policy supports {a1} marginalised",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "This policy supports {a1} marginalised"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 54,
+            "uuid": "agr-v3-c1-06",
+            "question": "{a1} whale is a protected species in formal writing",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus singular noun for a whole species in formal style.",
+                    "gap_tags": [
+                        "the_singular_species"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_singular_species"
+            ],
+            "variants": [
+                "{a1} whale is a protected species in formal writing"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 55,
+            "uuid": "agr-v3-c1-07",
+            "question": "{a1} People need legal protection",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "People is already plural in this meaning.",
+                    "gap_tags": [
+                        "people_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_plural"
+            ],
+            "variants": [
+                "{a1} People need legal protection"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 56,
+            "uuid": "agr-v3-c1-08",
+            "question": "{a1} whale can represent a whole class",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one representative of a class.",
+                    "gap_tags": [
+                        "tiger_generic_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tiger_generic_contrast"
+            ],
+            "variants": [
+                "{a1} whale can represent a whole class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 57,
+            "uuid": "agr-v3-c1-09",
+            "question": "{a1} whale in the case study looked calm",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the for a specific noun.",
+                    "gap_tags": [
+                        "generic_vs_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_vs_specific"
+            ],
+            "variants": [
+                "{a1} whale in the case study looked calm"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 58,
+            "uuid": "agr-v3-c1-10",
+            "question": "{a1} Innovation shapes society",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with an abstract uncountable noun in general.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Innovation shapes society"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 59,
+            "uuid": "agr-v3-c1-11",
+            "question": "{a1} displaced need practical help",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} displaced need practical help"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 60,
+            "uuid": "agr-v3-c1-12",
+            "question": "{a1} Vaccines change communication",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with generic plural nouns.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Vaccines change communication"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 61,
+            "uuid": "agr-v3-c2-01",
+            "question": "{a1} Consumers need space",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Consumers need space"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 62,
+            "uuid": "agr-v3-c2-02",
+            "question": "{a1} Language changes lives",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in generic meaning.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Language changes lives"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 63,
+            "uuid": "agr-v3-c2-03",
+            "question": "{a1} falcon is one example of its class",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one example of a class.",
+                    "gap_tags": [
+                        "one_example_class"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_example_class"
+            ],
+            "variants": [
+                "{a1} falcon is one example of its class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 64,
+            "uuid": "agr-v3-c2-04",
+            "question": "{a1} privileged have influence",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for a social group.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "{a1} privileged have influence"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 65,
+            "uuid": "agr-v3-c2-05",
+            "question": "This policy supports {a1} vulnerable",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "the_adjective_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_adjective_groups"
+            ],
+            "variants": [
+                "This policy supports {a1} vulnerable"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 66,
+            "uuid": "agr-v3-c2-06",
+            "question": "{a1} falcon is a protected species in formal writing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus singular noun for a whole species in formal style.",
+                    "gap_tags": [
+                        "the_singular_species"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_singular_species"
+            ],
+            "variants": [
+                "{a1} falcon is a protected species in formal writing"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 67,
+            "uuid": "agr-v3-c2-07",
+            "question": "{a1} People need institutional trust",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "People is already plural in this meaning.",
+                    "gap_tags": [
+                        "people_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_plural"
+            ],
+            "variants": [
+                "{a1} People need institutional trust"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 68,
+            "uuid": "agr-v3-c2-08",
+            "question": "{a1} falcon can represent a whole class",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use a or an for one representative of a class.",
+                    "gap_tags": [
+                        "tiger_generic_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tiger_generic_contrast"
+            ],
+            "variants": [
+                "{a1} falcon can represent a whole class"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 69,
+            "uuid": "agr-v3-c2-09",
+            "question": "{a1} falcon in the legal example looked calm",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the for a specific noun.",
+                    "gap_tags": [
+                        "generic_vs_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_vs_specific"
+            ],
+            "variants": [
+                "{a1} falcon in the legal example looked calm"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 70,
+            "uuid": "agr-v3-c2-10",
+            "question": "{a1} Memory shapes society",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with an abstract uncountable noun in general.",
+                    "gap_tags": [
+                        "generic_uncountable"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_uncountable"
+            ],
+            "variants": [
+                "{a1} Memory shapes society"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 71,
+            "uuid": "agr-v3-c2-11",
+            "question": "{a1} excluded need practical help",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the plus adjective for groups of people.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} excluded need practical help"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        },
+        {
+            "id": 72,
+            "uuid": "agr-v3-c2-12",
+            "question": "{a1} Networks change communication",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with generic plural nouns.",
+                    "gap_tags": [
+                        "generic_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "generic_plural"
+            ],
+            "variants": [
+                "{a1} Networks change communication"
+            ],
+            "source": "theory_page_advanced_articles_generic_reference"
+        }
+    ],
+    "saved_test": {
+        "uuid": "naq-agr-v3-all",
+        "slug": "advanced-articles-generic-reference-all-levels-v3",
+        "name": "Advanced Articles Generic Reference (All levels V3)",
+        "description": "Standard V3 package for Advanced Articles Generic Reference across A1-C2.",
+        "question_uuids": [
+            "agr-v3-a1-01",
+            "agr-v3-a1-02",
+            "agr-v3-a1-03",
+            "agr-v3-a1-04",
+            "agr-v3-a1-05",
+            "agr-v3-a1-06",
+            "agr-v3-a1-07",
+            "agr-v3-a1-08",
+            "agr-v3-a1-09",
+            "agr-v3-a1-10",
+            "agr-v3-a1-11",
+            "agr-v3-a1-12",
+            "agr-v3-a2-01",
+            "agr-v3-a2-02",
+            "agr-v3-a2-03",
+            "agr-v3-a2-04",
+            "agr-v3-a2-05",
+            "agr-v3-a2-06",
+            "agr-v3-a2-07",
+            "agr-v3-a2-08",
+            "agr-v3-a2-09",
+            "agr-v3-a2-10",
+            "agr-v3-a2-11",
+            "agr-v3-a2-12",
+            "agr-v3-b1-01",
+            "agr-v3-b1-02",
+            "agr-v3-b1-03",
+            "agr-v3-b1-04",
+            "agr-v3-b1-05",
+            "agr-v3-b1-06",
+            "agr-v3-b1-07",
+            "agr-v3-b1-08",
+            "agr-v3-b1-09",
+            "agr-v3-b1-10",
+            "agr-v3-b1-11",
+            "agr-v3-b1-12",
+            "agr-v3-b2-01",
+            "agr-v3-b2-02",
+            "agr-v3-b2-03",
+            "agr-v3-b2-04",
+            "agr-v3-b2-05",
+            "agr-v3-b2-06",
+            "agr-v3-b2-07",
+            "agr-v3-b2-08",
+            "agr-v3-b2-09",
+            "agr-v3-b2-10",
+            "agr-v3-b2-11",
+            "agr-v3-b2-12",
+            "agr-v3-c1-01",
+            "agr-v3-c1-02",
+            "agr-v3-c1-03",
+            "agr-v3-c1-04",
+            "agr-v3-c1-05",
+            "agr-v3-c1-06",
+            "agr-v3-c1-07",
+            "agr-v3-c1-08",
+            "agr-v3-c1-09",
+            "agr-v3-c1-10",
+            "agr-v3-c1-11",
+            "agr-v3-c1-12",
+            "agr-v3-c2-01",
+            "agr-v3-c2-02",
+            "agr-v3-c2-03",
+            "agr-v3-c2-04",
+            "agr-v3-c2-05",
+            "agr-v3-c2-06",
+            "agr-v3-c2-07",
+            "agr-v3-c2-08",
+            "agr-v3-c2-09",
+            "agr-v3-c2-10",
+            "agr-v3-c2-11",
+            "agr-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\NounsArticlesQuantity\\AdvancedArticlesGenericReferenceAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "advanced-articles-generic-reference-the-rich-a-tiger-people",
+                    "title": "Generic Reference — Узагальнення",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityAdvancedArticlesGenericReferenceTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/advanced-articles-generic-reference-the-rich-a-tiger-people"
+                }
+            }
+        }
+    }
+}

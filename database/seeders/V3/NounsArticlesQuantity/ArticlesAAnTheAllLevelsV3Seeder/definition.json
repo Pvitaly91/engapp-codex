@@ -1,0 +1,2195 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\ArticlesAAnTheAllLevelsV3Seeder",
+        "uuid_namespace": "ArticlesAAnTheAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "theory_page_articles_a_an_the": {
+            "name": "Articles A An The"
+        }
+    },
+    "tags": {
+        "articles_a_an_the": {
+            "name": "Articles A An The",
+            "category": "nouns_articles_quantity"
+        },
+        "a_consonant_sound": {
+            "name": "A Consonant Sound",
+            "category": "topic"
+        },
+        "an_vowel_sound": {
+            "name": "An Vowel Sound",
+            "category": "topic"
+        },
+        "the_specific": {
+            "name": "The Specific",
+            "category": "topic"
+        },
+        "first_mention": {
+            "name": "First Mention",
+            "category": "topic"
+        },
+        "second_mention": {
+            "name": "Second Mention",
+            "category": "topic"
+        },
+        "singular_countable_article": {
+            "name": "Singular Countable Article",
+            "category": "topic"
+        },
+        "unique_objects": {
+            "name": "Unique Objects",
+            "category": "topic"
+        },
+        "sound_not_spelling": {
+            "name": "Sound Not Spelling",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "articles_a_an_the"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aat-v3-a1-01",
+            "question": "Mia is {a1} doctor",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "Mia is {a1} doctor"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 2,
+            "uuid": "aat-v3-a1-02",
+            "question": "Mia is {a1} engineer",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "Mia is {a1} engineer"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 3,
+            "uuid": "aat-v3-a1-03",
+            "question": "We need {a1} new chair",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a singular countable noun with a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "We need {a1} new chair"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 4,
+            "uuid": "aat-v3-a1-04",
+            "question": "She found {a1} umbrella",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "She found {a1} umbrella"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 5,
+            "uuid": "aat-v3-a1-05",
+            "question": "I saw {a1} small animal",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a for first mention.",
+                    "gap_tags": [
+                        "first_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "first_mention"
+            ],
+            "variants": [
+                "I saw {a1} small animal"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 6,
+            "uuid": "aat-v3-a1-06",
+            "question": "The animal was friendly. I fed {a1} animal later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for second mention.",
+                    "gap_tags": [
+                        "second_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "second_mention"
+            ],
+            "variants": [
+                "The animal was friendly. I fed {a1} animal later"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 7,
+            "uuid": "aat-v3-a1-07",
+            "question": "Please close {a1} window in the kitchen",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for a specific known object.",
+                    "gap_tags": [
+                        "the_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_specific"
+            ],
+            "variants": [
+                "Please close {a1} window in the kitchen"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 8,
+            "uuid": "aat-v3-a1-08",
+            "question": "She bought {a1} chair yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Singular countable nouns usually need an article or determiner.",
+                    "gap_tags": [
+                        "singular_countable_article"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "singular_countable_article"
+            ],
+            "variants": [
+                "She bought {a1} chair yesterday"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 9,
+            "uuid": "aat-v3-a1-09",
+            "question": "{a1} sun looks bright today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the with unique objects.",
+                    "gap_tags": [
+                        "unique_objects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unique_objects"
+            ],
+            "variants": [
+                "{a1} sun looks bright today"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 10,
+            "uuid": "aat-v3-a1-10",
+            "question": "We waited for {a1} hour",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by sound, not only spelling.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "We waited for {a1} hour"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 11,
+            "uuid": "aat-v3-a1-11",
+            "question": "He talked about {a1} university",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by the first sound.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "He talked about {a1} university"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 12,
+            "uuid": "aat-v3-a1-12",
+            "question": "I have {a1} idea",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Avoid dropping the article before a singular countable noun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I have {a1} idea"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 13,
+            "uuid": "aat-v3-a2-01",
+            "question": "Oleh is {a1} teacher",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "Oleh is {a1} teacher"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 14,
+            "uuid": "aat-v3-a2-02",
+            "question": "Oleh is {a1} artist",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "Oleh is {a1} artist"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 15,
+            "uuid": "aat-v3-a2-03",
+            "question": "We need {a1} new ticket",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a singular countable noun with a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "We need {a1} new ticket"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 16,
+            "uuid": "aat-v3-a2-04",
+            "question": "She found {a1} apple",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "She found {a1} apple"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 17,
+            "uuid": "aat-v3-a2-05",
+            "question": "I saw {a1} small animal",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a for first mention.",
+                    "gap_tags": [
+                        "first_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "first_mention"
+            ],
+            "variants": [
+                "I saw {a1} small animal"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 18,
+            "uuid": "aat-v3-a2-06",
+            "question": "The animal was friendly. I fed {a1} animal later",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for second mention.",
+                    "gap_tags": [
+                        "second_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "second_mention"
+            ],
+            "variants": [
+                "The animal was friendly. I fed {a1} animal later"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 19,
+            "uuid": "aat-v3-a2-07",
+            "question": "Please close {a1} window in the office",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for a specific known object.",
+                    "gap_tags": [
+                        "the_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_specific"
+            ],
+            "variants": [
+                "Please close {a1} window in the office"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 20,
+            "uuid": "aat-v3-a2-08",
+            "question": "She bought {a1} ticket yesterday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Singular countable nouns usually need an article or determiner.",
+                    "gap_tags": [
+                        "singular_countable_article"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "singular_countable_article"
+            ],
+            "variants": [
+                "She bought {a1} ticket yesterday"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 21,
+            "uuid": "aat-v3-a2-09",
+            "question": "{a1} moon looks bright today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the with unique objects.",
+                    "gap_tags": [
+                        "unique_objects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unique_objects"
+            ],
+            "variants": [
+                "{a1} moon looks bright today"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 22,
+            "uuid": "aat-v3-a2-10",
+            "question": "We waited for {a1} honest answer",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by sound, not only spelling.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "We waited for {a1} honest answer"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 23,
+            "uuid": "aat-v3-a2-11",
+            "question": "He talked about {a1} European city",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by the first sound.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "He talked about {a1} European city"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 24,
+            "uuid": "aat-v3-a2-12",
+            "question": "I have {a1} offer",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Avoid dropping the article before a singular countable noun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I have {a1} offer"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 25,
+            "uuid": "aat-v3-b1-01",
+            "question": "Daria is {a1} lawyer",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "Daria is {a1} lawyer"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 26,
+            "uuid": "aat-v3-b1-02",
+            "question": "Daria is {a1} editor",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "Daria is {a1} editor"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 27,
+            "uuid": "aat-v3-b1-03",
+            "question": "We need {a1} new laptop",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a singular countable noun with a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "We need {a1} new laptop"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 28,
+            "uuid": "aat-v3-b1-04",
+            "question": "She found {a1} old map",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "She found {a1} old map"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 29,
+            "uuid": "aat-v3-b1-05",
+            "question": "I saw {a1} small animal",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a for first mention.",
+                    "gap_tags": [
+                        "first_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "first_mention"
+            ],
+            "variants": [
+                "I saw {a1} small animal"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 30,
+            "uuid": "aat-v3-b1-06",
+            "question": "The animal was friendly. I fed {a1} animal later",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for second mention.",
+                    "gap_tags": [
+                        "second_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "second_mention"
+            ],
+            "variants": [
+                "The animal was friendly. I fed {a1} animal later"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 31,
+            "uuid": "aat-v3-b1-07",
+            "question": "Please close {a1} window in the meeting room",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for a specific known object.",
+                    "gap_tags": [
+                        "the_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_specific"
+            ],
+            "variants": [
+                "Please close {a1} window in the meeting room"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 32,
+            "uuid": "aat-v3-b1-08",
+            "question": "She bought {a1} laptop yesterday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Singular countable nouns usually need an article or determiner.",
+                    "gap_tags": [
+                        "singular_countable_article"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "singular_countable_article"
+            ],
+            "variants": [
+                "She bought {a1} laptop yesterday"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 33,
+            "uuid": "aat-v3-b1-09",
+            "question": "{a1} internet looks bright today",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the with unique objects.",
+                    "gap_tags": [
+                        "unique_objects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unique_objects"
+            ],
+            "variants": [
+                "{a1} internet looks bright today"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 34,
+            "uuid": "aat-v3-b1-10",
+            "question": "We waited for {a1} urgent email",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by sound, not only spelling.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "We waited for {a1} urgent email"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 35,
+            "uuid": "aat-v3-b1-11",
+            "question": "He talked about {a1} useful report",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by the first sound.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "He talked about {a1} useful report"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 36,
+            "uuid": "aat-v3-b1-12",
+            "question": "I have {a1} opportunity",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Avoid dropping the article before a singular countable noun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I have {a1} opportunity"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 37,
+            "uuid": "aat-v3-b2-01",
+            "question": "Sofia is {a1} architect",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "Sofia is {a1} architect"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 38,
+            "uuid": "aat-v3-b2-02",
+            "question": "Sofia is {a1} analyst",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "Sofia is {a1} analyst"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 39,
+            "uuid": "aat-v3-b2-03",
+            "question": "We need {a1} new contract",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a singular countable noun with a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "We need {a1} new contract"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 40,
+            "uuid": "aat-v3-b2-04",
+            "question": "She found {a1} important update",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "She found {a1} important update"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 41,
+            "uuid": "aat-v3-b2-05",
+            "question": "I saw {a1} small animal",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a for first mention.",
+                    "gap_tags": [
+                        "first_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "first_mention"
+            ],
+            "variants": [
+                "I saw {a1} small animal"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 42,
+            "uuid": "aat-v3-b2-06",
+            "question": "The animal was friendly. I fed {a1} animal later",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for second mention.",
+                    "gap_tags": [
+                        "second_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "second_mention"
+            ],
+            "variants": [
+                "The animal was friendly. I fed {a1} animal later"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 43,
+            "uuid": "aat-v3-b2-07",
+            "question": "Please close {a1} window in the conference hall",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for a specific known object.",
+                    "gap_tags": [
+                        "the_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_specific"
+            ],
+            "variants": [
+                "Please close {a1} window in the conference hall"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 44,
+            "uuid": "aat-v3-b2-08",
+            "question": "She bought {a1} contract yesterday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Singular countable nouns usually need an article or determiner.",
+                    "gap_tags": [
+                        "singular_countable_article"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "singular_countable_article"
+            ],
+            "variants": [
+                "She bought {a1} contract yesterday"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 45,
+            "uuid": "aat-v3-b2-09",
+            "question": "{a1} president looks bright today",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the with unique objects.",
+                    "gap_tags": [
+                        "unique_objects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unique_objects"
+            ],
+            "variants": [
+                "{a1} president looks bright today"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 46,
+            "uuid": "aat-v3-b2-10",
+            "question": "We waited for {a1} unusual request",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by sound, not only spelling.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "We waited for {a1} unusual request"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 47,
+            "uuid": "aat-v3-b2-11",
+            "question": "He talked about {a1} one-way street",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by the first sound.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "He talked about {a1} one-way street"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 48,
+            "uuid": "aat-v3-b2-12",
+            "question": "I have {a1} argument",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Avoid dropping the article before a singular countable noun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I have {a1} argument"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 49,
+            "uuid": "aat-v3-c1-01",
+            "question": "Mark is {a1} consultant",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "Mark is {a1} consultant"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 50,
+            "uuid": "aat-v3-c1-02",
+            "question": "Mark is {a1} economist",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "Mark is {a1} economist"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 51,
+            "uuid": "aat-v3-c1-03",
+            "question": "We need {a1} new proposal",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a singular countable noun with a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "We need {a1} new proposal"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 52,
+            "uuid": "aat-v3-c1-04",
+            "question": "She found {a1} early warning",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "She found {a1} early warning"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 53,
+            "uuid": "aat-v3-c1-05",
+            "question": "I saw {a1} small animal",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a for first mention.",
+                    "gap_tags": [
+                        "first_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "first_mention"
+            ],
+            "variants": [
+                "I saw {a1} small animal"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 54,
+            "uuid": "aat-v3-c1-06",
+            "question": "The animal was friendly. I fed {a1} animal later",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for second mention.",
+                    "gap_tags": [
+                        "second_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "second_mention"
+            ],
+            "variants": [
+                "The animal was friendly. I fed {a1} animal later"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 55,
+            "uuid": "aat-v3-c1-07",
+            "question": "Please close {a1} window in the archive",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for a specific known object.",
+                    "gap_tags": [
+                        "the_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_specific"
+            ],
+            "variants": [
+                "Please close {a1} window in the archive"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 56,
+            "uuid": "aat-v3-c1-08",
+            "question": "She bought {a1} proposal yesterday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Singular countable nouns usually need an article or determiner.",
+                    "gap_tags": [
+                        "singular_countable_article"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "singular_countable_article"
+            ],
+            "variants": [
+                "She bought {a1} proposal yesterday"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 57,
+            "uuid": "aat-v3-c1-09",
+            "question": "{a1} prime minister looks bright today",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the with unique objects.",
+                    "gap_tags": [
+                        "unique_objects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unique_objects"
+            ],
+            "variants": [
+                "{a1} prime minister looks bright today"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 58,
+            "uuid": "aat-v3-c1-10",
+            "question": "We waited for {a1} honourable exception",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by sound, not only spelling.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "We waited for {a1} honourable exception"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 59,
+            "uuid": "aat-v3-c1-11",
+            "question": "He talked about {a1} uniform policy",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by the first sound.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "He talked about {a1} uniform policy"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 60,
+            "uuid": "aat-v3-c1-12",
+            "question": "I have {a1} alternative",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Avoid dropping the article before a singular countable noun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I have {a1} alternative"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 61,
+            "uuid": "aat-v3-c2-01",
+            "question": "Nina is {a1} mediator",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "Nina is {a1} mediator"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 62,
+            "uuid": "aat-v3-c2-02",
+            "question": "Nina is {a1} auditor",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "Nina is {a1} auditor"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 63,
+            "uuid": "aat-v3-c2-03",
+            "question": "We need {a1} new draft",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a before a singular countable noun with a consonant sound.",
+                    "gap_tags": [
+                        "a_consonant_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "a_consonant_sound"
+            ],
+            "variants": [
+                "We need {a1} new draft"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 64,
+            "uuid": "aat-v3-c2-04",
+            "question": "She found {a1} ambitious plan",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use an before a vowel sound.",
+                    "gap_tags": [
+                        "an_vowel_sound"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "an_vowel_sound"
+            ],
+            "variants": [
+                "She found {a1} ambitious plan"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 65,
+            "uuid": "aat-v3-c2-05",
+            "question": "I saw {a1} small animal",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use a for first mention.",
+                    "gap_tags": [
+                        "first_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "first_mention"
+            ],
+            "variants": [
+                "I saw {a1} small animal"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 66,
+            "uuid": "aat-v3-c2-06",
+            "question": "The animal was friendly. I fed {a1} animal later",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for second mention.",
+                    "gap_tags": [
+                        "second_mention"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "second_mention"
+            ],
+            "variants": [
+                "The animal was friendly. I fed {a1} animal later"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 67,
+            "uuid": "aat-v3-c2-07",
+            "question": "Please close {a1} window in the boardroom",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the for a specific known object.",
+                    "gap_tags": [
+                        "the_specific"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_specific"
+            ],
+            "variants": [
+                "Please close {a1} window in the boardroom"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 68,
+            "uuid": "aat-v3-c2-08",
+            "question": "She bought {a1} draft yesterday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Singular countable nouns usually need an article or determiner.",
+                    "gap_tags": [
+                        "singular_countable_article"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "singular_countable_article"
+            ],
+            "variants": [
+                "She bought {a1} draft yesterday"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 69,
+            "uuid": "aat-v3-c2-09",
+            "question": "{a1} earth looks bright today",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Use the with unique objects.",
+                    "gap_tags": [
+                        "unique_objects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unique_objects"
+            ],
+            "variants": [
+                "{a1} earth looks bright today"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 70,
+            "uuid": "aat-v3-c2-10",
+            "question": "We waited for {a1} hour-long delay",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by sound, not only spelling.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "We waited for {a1} hour-long delay"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 71,
+            "uuid": "aat-v3-c2-11",
+            "question": "He talked about {a1} eulogy",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Choose the article by the first sound.",
+                    "gap_tags": [
+                        "sound_not_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sound_not_spelling"
+            ],
+            "variants": [
+                "He talked about {a1} eulogy"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        },
+        {
+            "id": 72,
+            "uuid": "aat-v3-c2-12",
+            "question": "I have {a1} insight",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "verb_hint": "Avoid dropping the article before a singular countable noun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I have {a1} insight"
+            ],
+            "source": "theory_page_articles_a_an_the"
+        }
+    ],
+    "saved_test": {
+        "uuid": "naq-aat-v3-all",
+        "slug": "articles-a-an-the-all-levels-v3",
+        "name": "Articles A An The (All levels V3)",
+        "description": "Standard V3 package for Articles A An The across A1-C2.",
+        "question_uuids": [
+            "aat-v3-a1-01",
+            "aat-v3-a1-02",
+            "aat-v3-a1-03",
+            "aat-v3-a1-04",
+            "aat-v3-a1-05",
+            "aat-v3-a1-06",
+            "aat-v3-a1-07",
+            "aat-v3-a1-08",
+            "aat-v3-a1-09",
+            "aat-v3-a1-10",
+            "aat-v3-a1-11",
+            "aat-v3-a1-12",
+            "aat-v3-a2-01",
+            "aat-v3-a2-02",
+            "aat-v3-a2-03",
+            "aat-v3-a2-04",
+            "aat-v3-a2-05",
+            "aat-v3-a2-06",
+            "aat-v3-a2-07",
+            "aat-v3-a2-08",
+            "aat-v3-a2-09",
+            "aat-v3-a2-10",
+            "aat-v3-a2-11",
+            "aat-v3-a2-12",
+            "aat-v3-b1-01",
+            "aat-v3-b1-02",
+            "aat-v3-b1-03",
+            "aat-v3-b1-04",
+            "aat-v3-b1-05",
+            "aat-v3-b1-06",
+            "aat-v3-b1-07",
+            "aat-v3-b1-08",
+            "aat-v3-b1-09",
+            "aat-v3-b1-10",
+            "aat-v3-b1-11",
+            "aat-v3-b1-12",
+            "aat-v3-b2-01",
+            "aat-v3-b2-02",
+            "aat-v3-b2-03",
+            "aat-v3-b2-04",
+            "aat-v3-b2-05",
+            "aat-v3-b2-06",
+            "aat-v3-b2-07",
+            "aat-v3-b2-08",
+            "aat-v3-b2-09",
+            "aat-v3-b2-10",
+            "aat-v3-b2-11",
+            "aat-v3-b2-12",
+            "aat-v3-c1-01",
+            "aat-v3-c1-02",
+            "aat-v3-c1-03",
+            "aat-v3-c1-04",
+            "aat-v3-c1-05",
+            "aat-v3-c1-06",
+            "aat-v3-c1-07",
+            "aat-v3-c1-08",
+            "aat-v3-c1-09",
+            "aat-v3-c1-10",
+            "aat-v3-c1-11",
+            "aat-v3-c1-12",
+            "aat-v3-c2-01",
+            "aat-v3-c2-02",
+            "aat-v3-c2-03",
+            "aat-v3-c2-04",
+            "aat-v3-c2-05",
+            "aat-v3-c2-06",
+            "aat-v3-c2-07",
+            "aat-v3-c2-08",
+            "aat-v3-c2-09",
+            "aat-v3-c2-10",
+            "aat-v3-c2-11",
+            "aat-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\NounsArticlesQuantity\\ArticlesAAnTheAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "articles-a-an-the",
+                    "title": "Articles — A / An / The",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityArticlesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/articles-a-an-the"
+                }
+            }
+        }
+    }
+}

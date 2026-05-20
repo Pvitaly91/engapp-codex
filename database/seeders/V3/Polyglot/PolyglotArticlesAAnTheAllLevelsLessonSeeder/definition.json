@@ -1,0 +1,4412 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotArticlesAAnTheAllLevelsLessonSeeder",
+        "uuid_namespace": "PolyglotArticlesAAnTheAllLevelsLessonSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_articles_a_an_the": {
+            "name": "Articles A An The"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_articles_a_an_the": {
+            "name": "Articles A An The",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "a_consonant_sound": {
+            "name": "A Consonant Sound",
+            "category": "topic"
+        },
+        "an_vowel_sound": {
+            "name": "An Vowel Sound",
+            "category": "topic"
+        },
+        "the_specific": {
+            "name": "The Specific",
+            "category": "topic"
+        },
+        "first_mention": {
+            "name": "First Mention",
+            "category": "topic"
+        },
+        "second_mention": {
+            "name": "Second Mention",
+            "category": "topic"
+        },
+        "singular_countable_article": {
+            "name": "Singular Countable Article",
+            "category": "topic"
+        },
+        "unique_objects": {
+            "name": "Unique Objects",
+            "category": "topic"
+        },
+        "sound_not_spelling": {
+            "name": "Sound Not Spelling",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aat-poly-a1-01",
+            "question": "Мія лікарка",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Mia",
+                "a2": "is",
+                "a3": "a",
+                "a4": "doctor"
+            },
+            "options": [
+                "Mia",
+                "is",
+                "a",
+                "doctor",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Мія лікарка",
+            "target_text": "Mia is a doctor",
+            "tokens_correct": [
+                "Mia",
+                "is",
+                "a",
+                "doctor"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "aat-poly-a1-02",
+            "question": "Мія інженерка",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Mia",
+                "a2": "is",
+                "a3": "an",
+                "a4": "engineer"
+            },
+            "options": [
+                "Mia",
+                "is",
+                "an",
+                "engineer",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Мія інженерка",
+            "target_text": "Mia is an engineer",
+            "tokens_correct": [
+                "Mia",
+                "is",
+                "an",
+                "engineer"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "aat-poly-a1-03",
+            "question": "Нам потрібен новий стілець",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "a",
+                "a4": "new",
+                "a5": "chair"
+            },
+            "options": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "chair",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Нам потрібен новий стілець",
+            "target_text": "We need a new chair",
+            "tokens_correct": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "chair"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "aat-poly-a1-04",
+            "question": "Вона знайшла парасольку",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "found",
+                "a3": "an",
+                "a4": "umbrella"
+            },
+            "options": [
+                "She",
+                "found",
+                "an",
+                "umbrella",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона знайшла парасольку",
+            "target_text": "She found an umbrella",
+            "tokens_correct": [
+                "She",
+                "found",
+                "an",
+                "umbrella"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "aat-poly-a1-05",
+            "question": "Я побачив маленьку тварину",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "saw",
+                "a3": "a",
+                "a4": "small",
+                "a5": "animal"
+            },
+            "options": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Я побачив маленьку тварину",
+            "target_text": "I saw a small animal",
+            "tokens_correct": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "first-mention",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "first_mention",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "aat-poly-a1-06",
+            "question": "Ця тварина була дружньою, і я потім її погодував",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "fed",
+                "a3": "the",
+                "a4": "animal",
+                "a5": "later"
+            },
+            "options": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ця тварина була дружньою, і я потім її погодував",
+            "target_text": "I fed the animal later",
+            "tokens_correct": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "second-mention",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "second_mention",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid": "aat-poly-a1-07",
+            "question": "Будь ласка, зачини вікно в кухні",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "close",
+                "a3": "the",
+                "a4": "window",
+                "a5": "in",
+                "a6": "the",
+                "a7": "kitchen"
+            },
+            "options": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "kitchen",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Будь ласка, зачини вікно в кухні",
+            "target_text": "Please close the window in the kitchen",
+            "tokens_correct": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "the",
+                "kitchen"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "the-specific",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "the_specific",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "aat-poly-a1-08",
+            "question": "Вона вчора купила стілець",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "chair",
+                "a5": "yesterday"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "chair",
+                "yesterday",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона вчора купила стілець",
+            "target_text": "She bought a chair yesterday",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "chair",
+                "yesterday"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "singular-countable-article",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "singular_countable_article",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "aat-poly-a1-09",
+            "question": "Сонце сьогодні виглядає яскраво",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "sun",
+                "a3": "looks",
+                "a4": "bright",
+                "a5": "today"
+            },
+            "options": [
+                "The",
+                "sun",
+                "looks",
+                "bright",
+                "today",
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Сонце сьогодні виглядає яскраво",
+            "target_text": "The sun looks bright today",
+            "tokens_correct": [
+                "The",
+                "sun",
+                "looks",
+                "bright",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "unique-objects",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "unique_objects",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid": "aat-poly-a1-10",
+            "question": "Ми чекали годину",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "waited",
+                "a3": "for",
+                "a4": "an",
+                "a5": "hour"
+            },
+            "options": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "hour",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ми чекали годину",
+            "target_text": "We waited for an hour",
+            "tokens_correct": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "hour"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid": "aat-poly-a1-11",
+            "question": "Він говорив про університеті",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "talked",
+                "a3": "about",
+                "a4": "a",
+                "a5": "university"
+            },
+            "options": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "university",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Він говорив про університеті",
+            "target_text": "He talked about a university",
+            "tokens_correct": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "university"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid": "aat-poly-a1-12",
+            "question": "У мене є ідея",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "idea"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "idea",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "У мене є ідея",
+            "target_text": "I have an idea",
+            "tokens_correct": [
+                "I",
+                "have",
+                "an",
+                "idea"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "typical-mistakes",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "typical_mistakes",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "aat-poly-a2-01",
+            "question": "Олег вчитель",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Oleh",
+                "a2": "is",
+                "a3": "a",
+                "a4": "teacher"
+            },
+            "options": [
+                "Oleh",
+                "is",
+                "a",
+                "teacher",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Олег вчитель",
+            "target_text": "Oleh is a teacher",
+            "tokens_correct": [
+                "Oleh",
+                "is",
+                "a",
+                "teacher"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "aat-poly-a2-02",
+            "question": "Олег художник",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Oleh",
+                "a2": "is",
+                "a3": "an",
+                "a4": "artist"
+            },
+            "options": [
+                "Oleh",
+                "is",
+                "an",
+                "artist",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Олег художник",
+            "target_text": "Oleh is an artist",
+            "tokens_correct": [
+                "Oleh",
+                "is",
+                "an",
+                "artist"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "aat-poly-a2-03",
+            "question": "Нам потрібен новий квиток",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "a",
+                "a4": "new",
+                "a5": "ticket"
+            },
+            "options": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "ticket",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Нам потрібен новий квиток",
+            "target_text": "We need a new ticket",
+            "tokens_correct": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "ticket"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "aat-poly-a2-04",
+            "question": "Вона знайшла яблуко",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "found",
+                "a3": "an",
+                "a4": "apple"
+            },
+            "options": [
+                "She",
+                "found",
+                "an",
+                "apple",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона знайшла яблуко",
+            "target_text": "She found an apple",
+            "tokens_correct": [
+                "She",
+                "found",
+                "an",
+                "apple"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "aat-poly-a2-05",
+            "question": "Я побачив маленьку тварину",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "saw",
+                "a3": "a",
+                "a4": "small",
+                "a5": "animal"
+            },
+            "options": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Я побачив маленьку тварину",
+            "target_text": "I saw a small animal",
+            "tokens_correct": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "first-mention",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "first_mention",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "aat-poly-a2-06",
+            "question": "Ця тварина була дружньою, і я потім її погодував",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "fed",
+                "a3": "the",
+                "a4": "animal",
+                "a5": "later"
+            },
+            "options": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ця тварина була дружньою, і я потім її погодував",
+            "target_text": "I fed the animal later",
+            "tokens_correct": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "second-mention",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "second_mention",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid": "aat-poly-a2-07",
+            "question": "Будь ласка, зачини вікно в офісі",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "close",
+                "a3": "the",
+                "a4": "window",
+                "a5": "in",
+                "a6": "the",
+                "a7": "office"
+            },
+            "options": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "office",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Будь ласка, зачини вікно в офісі",
+            "target_text": "Please close the window in the office",
+            "tokens_correct": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "the",
+                "office"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "the-specific",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "the_specific",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid": "aat-poly-a2-08",
+            "question": "Вона вчора купила квиток",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "ticket",
+                "a5": "yesterday"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "ticket",
+                "yesterday",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона вчора купила квиток",
+            "target_text": "She bought a ticket yesterday",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "ticket",
+                "yesterday"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "singular-countable-article",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "singular_countable_article",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid": "aat-poly-a2-09",
+            "question": "Місяць сьогодні виглядає яскраво",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "moon",
+                "a3": "looks",
+                "a4": "bright",
+                "a5": "today"
+            },
+            "options": [
+                "The",
+                "moon",
+                "looks",
+                "bright",
+                "today",
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Місяць сьогодні виглядає яскраво",
+            "target_text": "The moon looks bright today",
+            "tokens_correct": [
+                "The",
+                "moon",
+                "looks",
+                "bright",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "unique-objects",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "unique_objects",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid": "aat-poly-a2-10",
+            "question": "Ми чекали чесну відповідь",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "waited",
+                "a3": "for",
+                "a4": "an",
+                "a5": "honest",
+                "a6": "answer"
+            },
+            "options": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "honest",
+                "answer",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ми чекали чесну відповідь",
+            "target_text": "We waited for an honest answer",
+            "tokens_correct": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "honest",
+                "answer"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid": "aat-poly-a2-11",
+            "question": "Він говорив про європейському місті",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "talked",
+                "a3": "about",
+                "a4": "a",
+                "a5": "European",
+                "a6": "city"
+            },
+            "options": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "European",
+                "city",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Він говорив про європейському місті",
+            "target_text": "He talked about a European city",
+            "tokens_correct": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "European",
+                "city"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid": "aat-poly-a2-12",
+            "question": "У мене є пропозиція",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "offer"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "offer",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "У мене є пропозиція",
+            "target_text": "I have an offer",
+            "tokens_correct": [
+                "I",
+                "have",
+                "an",
+                "offer"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "typical-mistakes",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "typical_mistakes",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 25,
+            "uuid": "aat-poly-b1-01",
+            "question": "Дарія юристка",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Daria",
+                "a2": "is",
+                "a3": "a",
+                "a4": "lawyer"
+            },
+            "options": [
+                "Daria",
+                "is",
+                "a",
+                "lawyer",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Дарія юристка",
+            "target_text": "Daria is a lawyer",
+            "tokens_correct": [
+                "Daria",
+                "is",
+                "a",
+                "lawyer"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 26,
+            "uuid": "aat-poly-b1-02",
+            "question": "Дарія редакторка",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Daria",
+                "a2": "is",
+                "a3": "an",
+                "a4": "editor"
+            },
+            "options": [
+                "Daria",
+                "is",
+                "an",
+                "editor",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Дарія редакторка",
+            "target_text": "Daria is an editor",
+            "tokens_correct": [
+                "Daria",
+                "is",
+                "an",
+                "editor"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 27,
+            "uuid": "aat-poly-b1-03",
+            "question": "Нам потрібен новий ноутбук",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "a",
+                "a4": "new",
+                "a5": "laptop"
+            },
+            "options": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "laptop",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Нам потрібен новий ноутбук",
+            "target_text": "We need a new laptop",
+            "tokens_correct": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "laptop"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 28,
+            "uuid": "aat-poly-b1-04",
+            "question": "Вона знайшла стару карту",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "found",
+                "a3": "an",
+                "a4": "old",
+                "a5": "map"
+            },
+            "options": [
+                "She",
+                "found",
+                "an",
+                "old",
+                "map",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона знайшла стару карту",
+            "target_text": "She found an old map",
+            "tokens_correct": [
+                "She",
+                "found",
+                "an",
+                "old",
+                "map"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 29,
+            "uuid": "aat-poly-b1-05",
+            "question": "Я побачив маленьку тварину",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "saw",
+                "a3": "a",
+                "a4": "small",
+                "a5": "animal"
+            },
+            "options": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Я побачив маленьку тварину",
+            "target_text": "I saw a small animal",
+            "tokens_correct": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "first-mention",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "first_mention",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 30,
+            "uuid": "aat-poly-b1-06",
+            "question": "Ця тварина була дружньою, і я потім її погодував",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "fed",
+                "a3": "the",
+                "a4": "animal",
+                "a5": "later"
+            },
+            "options": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ця тварина була дружньою, і я потім її погодував",
+            "target_text": "I fed the animal later",
+            "tokens_correct": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "second-mention",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "second_mention",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid": "aat-poly-b1-07",
+            "question": "Будь ласка, зачини вікно в переговорній кімнаті",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "close",
+                "a3": "the",
+                "a4": "window",
+                "a5": "in",
+                "a6": "the",
+                "a7": "meeting",
+                "a8": "room"
+            },
+            "options": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "meeting",
+                "room",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Будь ласка, зачини вікно в переговорній кімнаті",
+            "target_text": "Please close the window in the meeting room",
+            "tokens_correct": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "the",
+                "meeting",
+                "room"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "the-specific",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "the_specific",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 32,
+            "uuid": "aat-poly-b1-08",
+            "question": "Вона вчора купила ноутбук",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "laptop",
+                "a5": "yesterday"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "laptop",
+                "yesterday",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона вчора купила ноутбук",
+            "target_text": "She bought a laptop yesterday",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "laptop",
+                "yesterday"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "singular-countable-article",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "singular_countable_article",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid": "aat-poly-b1-09",
+            "question": "Інтернет сьогодні виглядає яскраво",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "internet",
+                "a3": "looks",
+                "a4": "bright",
+                "a5": "today"
+            },
+            "options": [
+                "The",
+                "internet",
+                "looks",
+                "bright",
+                "today",
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Інтернет сьогодні виглядає яскраво",
+            "target_text": "The internet looks bright today",
+            "tokens_correct": [
+                "The",
+                "internet",
+                "looks",
+                "bright",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "unique-objects",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "unique_objects",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 34,
+            "uuid": "aat-poly-b1-10",
+            "question": "Ми чекали терміновий лист",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "waited",
+                "a3": "for",
+                "a4": "an",
+                "a5": "urgent",
+                "a6": "email"
+            },
+            "options": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "urgent",
+                "email",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ми чекали терміновий лист",
+            "target_text": "We waited for an urgent email",
+            "tokens_correct": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "urgent",
+                "email"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid": "aat-poly-b1-11",
+            "question": "Він говорив про корисний звіт",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "talked",
+                "a3": "about",
+                "a4": "a",
+                "a5": "useful",
+                "a6": "report"
+            },
+            "options": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "useful",
+                "report",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Він говорив про корисний звіт",
+            "target_text": "He talked about a useful report",
+            "tokens_correct": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "useful",
+                "report"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 36,
+            "uuid": "aat-poly-b1-12",
+            "question": "У мене є можливість",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "opportunity"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "opportunity",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "У мене є можливість",
+            "target_text": "I have an opportunity",
+            "tokens_correct": [
+                "I",
+                "have",
+                "an",
+                "opportunity"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "typical-mistakes",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "typical_mistakes",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 37,
+            "uuid": "aat-poly-b2-01",
+            "question": "Софія архітекторка",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Sofia",
+                "a2": "is",
+                "a3": "a",
+                "a4": "architect"
+            },
+            "options": [
+                "Sofia",
+                "is",
+                "a",
+                "architect",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Софія архітекторка",
+            "target_text": "Sofia is a architect",
+            "tokens_correct": [
+                "Sofia",
+                "is",
+                "a",
+                "architect"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 38,
+            "uuid": "aat-poly-b2-02",
+            "question": "Софія аналітикиня",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Sofia",
+                "a2": "is",
+                "a3": "an",
+                "a4": "analyst"
+            },
+            "options": [
+                "Sofia",
+                "is",
+                "an",
+                "analyst",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Софія аналітикиня",
+            "target_text": "Sofia is an analyst",
+            "tokens_correct": [
+                "Sofia",
+                "is",
+                "an",
+                "analyst"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 39,
+            "uuid": "aat-poly-b2-03",
+            "question": "Нам потрібен новий контракт",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "a",
+                "a4": "new",
+                "a5": "contract"
+            },
+            "options": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "contract",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Нам потрібен новий контракт",
+            "target_text": "We need a new contract",
+            "tokens_correct": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "contract"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 40,
+            "uuid": "aat-poly-b2-04",
+            "question": "Вона знайшла важливе оновлення",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "found",
+                "a3": "an",
+                "a4": "important",
+                "a5": "update"
+            },
+            "options": [
+                "She",
+                "found",
+                "an",
+                "important",
+                "update",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона знайшла важливе оновлення",
+            "target_text": "She found an important update",
+            "tokens_correct": [
+                "She",
+                "found",
+                "an",
+                "important",
+                "update"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 41,
+            "uuid": "aat-poly-b2-05",
+            "question": "Я побачив маленьку тварину",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "saw",
+                "a3": "a",
+                "a4": "small",
+                "a5": "animal"
+            },
+            "options": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Я побачив маленьку тварину",
+            "target_text": "I saw a small animal",
+            "tokens_correct": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "first-mention",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "first_mention",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 42,
+            "uuid": "aat-poly-b2-06",
+            "question": "Ця тварина була дружньою, і я потім її погодував",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "fed",
+                "a3": "the",
+                "a4": "animal",
+                "a5": "later"
+            },
+            "options": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ця тварина була дружньою, і я потім її погодував",
+            "target_text": "I fed the animal later",
+            "tokens_correct": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "second-mention",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "second_mention",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 43,
+            "uuid": "aat-poly-b2-07",
+            "question": "Будь ласка, зачини вікно в конференц-залі",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "close",
+                "a3": "the",
+                "a4": "window",
+                "a5": "in",
+                "a6": "the",
+                "a7": "conference",
+                "a8": "hall"
+            },
+            "options": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "conference",
+                "hall",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Будь ласка, зачини вікно в конференц-залі",
+            "target_text": "Please close the window in the conference hall",
+            "tokens_correct": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "the",
+                "conference",
+                "hall"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "the-specific",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "the_specific",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 44,
+            "uuid": "aat-poly-b2-08",
+            "question": "Вона вчора купила контракт",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "contract",
+                "a5": "yesterday"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "contract",
+                "yesterday",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона вчора купила контракт",
+            "target_text": "She bought a contract yesterday",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "contract",
+                "yesterday"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "singular-countable-article",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "singular_countable_article",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 45,
+            "uuid": "aat-poly-b2-09",
+            "question": "Президент сьогодні виглядає яскраво",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "president",
+                "a3": "looks",
+                "a4": "bright",
+                "a5": "today"
+            },
+            "options": [
+                "The",
+                "president",
+                "looks",
+                "bright",
+                "today",
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Президент сьогодні виглядає яскраво",
+            "target_text": "The president looks bright today",
+            "tokens_correct": [
+                "The",
+                "president",
+                "looks",
+                "bright",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "unique-objects",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "unique_objects",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 46,
+            "uuid": "aat-poly-b2-10",
+            "question": "Ми чекали незвичне прохання",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "waited",
+                "a3": "for",
+                "a4": "an",
+                "a5": "unusual",
+                "a6": "request"
+            },
+            "options": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "unusual",
+                "request",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ми чекали незвичне прохання",
+            "target_text": "We waited for an unusual request",
+            "tokens_correct": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "unusual",
+                "request"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 47,
+            "uuid": "aat-poly-b2-11",
+            "question": "Він говорив про вулиці з одностороннім рухом",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "talked",
+                "a3": "about",
+                "a4": "a",
+                "a5": "one-way",
+                "a6": "street"
+            },
+            "options": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "one-way",
+                "street",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Він говорив про вулиці з одностороннім рухом",
+            "target_text": "He talked about a one-way street",
+            "tokens_correct": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "one-way",
+                "street"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 48,
+            "uuid": "aat-poly-b2-12",
+            "question": "У мене є аргумент",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "argument"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "argument",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "У мене є аргумент",
+            "target_text": "I have an argument",
+            "tokens_correct": [
+                "I",
+                "have",
+                "an",
+                "argument"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "typical-mistakes",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "typical_mistakes",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 49,
+            "uuid": "aat-poly-c1-01",
+            "question": "Марк консультант",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Mark",
+                "a2": "is",
+                "a3": "a",
+                "a4": "consultant"
+            },
+            "options": [
+                "Mark",
+                "is",
+                "a",
+                "consultant",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Марк консультант",
+            "target_text": "Mark is a consultant",
+            "tokens_correct": [
+                "Mark",
+                "is",
+                "a",
+                "consultant"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 50,
+            "uuid": "aat-poly-c1-02",
+            "question": "Марк економіст",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Mark",
+                "a2": "is",
+                "a3": "an",
+                "a4": "economist"
+            },
+            "options": [
+                "Mark",
+                "is",
+                "an",
+                "economist",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Марк економіст",
+            "target_text": "Mark is an economist",
+            "tokens_correct": [
+                "Mark",
+                "is",
+                "an",
+                "economist"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 51,
+            "uuid": "aat-poly-c1-03",
+            "question": "Нам потрібен новий пропозицію",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "a",
+                "a4": "new",
+                "a5": "proposal"
+            },
+            "options": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "proposal",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Нам потрібен новий пропозицію",
+            "target_text": "We need a new proposal",
+            "tokens_correct": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "proposal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 52,
+            "uuid": "aat-poly-c1-04",
+            "question": "Вона знайшла раннє попередження",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "found",
+                "a3": "an",
+                "a4": "early",
+                "a5": "warning"
+            },
+            "options": [
+                "She",
+                "found",
+                "an",
+                "early",
+                "warning",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона знайшла раннє попередження",
+            "target_text": "She found an early warning",
+            "tokens_correct": [
+                "She",
+                "found",
+                "an",
+                "early",
+                "warning"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 53,
+            "uuid": "aat-poly-c1-05",
+            "question": "Я побачив маленьку тварину",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "saw",
+                "a3": "a",
+                "a4": "small",
+                "a5": "animal"
+            },
+            "options": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Я побачив маленьку тварину",
+            "target_text": "I saw a small animal",
+            "tokens_correct": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "first-mention",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "first_mention",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 54,
+            "uuid": "aat-poly-c1-06",
+            "question": "Ця тварина була дружньою, і я потім її погодував",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "fed",
+                "a3": "the",
+                "a4": "animal",
+                "a5": "later"
+            },
+            "options": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ця тварина була дружньою, і я потім її погодував",
+            "target_text": "I fed the animal later",
+            "tokens_correct": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "second-mention",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "second_mention",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 55,
+            "uuid": "aat-poly-c1-07",
+            "question": "Будь ласка, зачини вікно в архіві",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "close",
+                "a3": "the",
+                "a4": "window",
+                "a5": "in",
+                "a6": "the",
+                "a7": "archive"
+            },
+            "options": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "archive",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Будь ласка, зачини вікно в архіві",
+            "target_text": "Please close the window in the archive",
+            "tokens_correct": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "the",
+                "archive"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "the-specific",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "the_specific",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 56,
+            "uuid": "aat-poly-c1-08",
+            "question": "Вона вчора купила пропозицію",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "proposal",
+                "a5": "yesterday"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "proposal",
+                "yesterday",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона вчора купила пропозицію",
+            "target_text": "She bought a proposal yesterday",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "proposal",
+                "yesterday"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "singular-countable-article",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "singular_countable_article",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 57,
+            "uuid": "aat-poly-c1-09",
+            "question": "Прем’єр-міністр сьогодні виглядає яскраво",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "prime",
+                "a3": "minister",
+                "a4": "looks",
+                "a5": "bright",
+                "a6": "today"
+            },
+            "options": [
+                "The",
+                "prime",
+                "minister",
+                "looks",
+                "bright",
+                "today",
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Прем’єр-міністр сьогодні виглядає яскраво",
+            "target_text": "The prime minister looks bright today",
+            "tokens_correct": [
+                "The",
+                "prime",
+                "minister",
+                "looks",
+                "bright",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "unique-objects",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "unique_objects",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 58,
+            "uuid": "aat-poly-c1-10",
+            "question": "Ми чекали почесний виняток",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "waited",
+                "a3": "for",
+                "a4": "an",
+                "a5": "honourable",
+                "a6": "exception"
+            },
+            "options": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "honourable",
+                "exception",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ми чекали почесний виняток",
+            "target_text": "We waited for an honourable exception",
+            "tokens_correct": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "honourable",
+                "exception"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 59,
+            "uuid": "aat-poly-c1-11",
+            "question": "Він говорив про єдиній політиці щодо форми",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "talked",
+                "a3": "about",
+                "a4": "a",
+                "a5": "uniform",
+                "a6": "policy"
+            },
+            "options": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "uniform",
+                "policy",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Він говорив про єдиній політиці щодо форми",
+            "target_text": "He talked about a uniform policy",
+            "tokens_correct": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "uniform",
+                "policy"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 60,
+            "uuid": "aat-poly-c1-12",
+            "question": "У мене є альтернатива",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "alternative"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "alternative",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "У мене є альтернатива",
+            "target_text": "I have an alternative",
+            "tokens_correct": [
+                "I",
+                "have",
+                "an",
+                "alternative"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "typical-mistakes",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "typical_mistakes",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 61,
+            "uuid": "aat-poly-c2-01",
+            "question": "Ніна медіаторка",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Nina",
+                "a2": "is",
+                "a3": "a",
+                "a4": "mediator"
+            },
+            "options": [
+                "Nina",
+                "is",
+                "a",
+                "mediator",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ніна медіаторка",
+            "target_text": "Nina is a mediator",
+            "tokens_correct": [
+                "Nina",
+                "is",
+                "a",
+                "mediator"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 62,
+            "uuid": "aat-poly-c2-02",
+            "question": "Ніна аудиторка",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Nina",
+                "a2": "is",
+                "a3": "an",
+                "a4": "auditor"
+            },
+            "options": [
+                "Nina",
+                "is",
+                "an",
+                "auditor",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ніна аудиторка",
+            "target_text": "Nina is an auditor",
+            "tokens_correct": [
+                "Nina",
+                "is",
+                "an",
+                "auditor"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 63,
+            "uuid": "aat-poly-c2-03",
+            "question": "Нам потрібен новий чернетку",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "a",
+                "a4": "new",
+                "a5": "draft"
+            },
+            "options": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "draft",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Нам потрібен новий чернетку",
+            "target_text": "We need a new draft",
+            "tokens_correct": [
+                "We",
+                "need",
+                "a",
+                "new",
+                "draft"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "a-consonant-sound",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "a_consonant_sound",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 64,
+            "uuid": "aat-poly-c2-04",
+            "question": "Вона знайшла амбітний план",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "found",
+                "a3": "an",
+                "a4": "ambitious",
+                "a5": "plan"
+            },
+            "options": [
+                "She",
+                "found",
+                "an",
+                "ambitious",
+                "plan",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона знайшла амбітний план",
+            "target_text": "She found an ambitious plan",
+            "tokens_correct": [
+                "She",
+                "found",
+                "an",
+                "ambitious",
+                "plan"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "an-vowel-sound",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "an_vowel_sound",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 65,
+            "uuid": "aat-poly-c2-05",
+            "question": "Я побачив маленьку тварину",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "saw",
+                "a3": "a",
+                "a4": "small",
+                "a5": "animal"
+            },
+            "options": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Я побачив маленьку тварину",
+            "target_text": "I saw a small animal",
+            "tokens_correct": [
+                "I",
+                "saw",
+                "a",
+                "small",
+                "animal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "first-mention",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "first_mention",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 66,
+            "uuid": "aat-poly-c2-06",
+            "question": "Ця тварина була дружньою, і я потім її погодував",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "fed",
+                "a3": "the",
+                "a4": "animal",
+                "a5": "later"
+            },
+            "options": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ця тварина була дружньою, і я потім її погодував",
+            "target_text": "I fed the animal later",
+            "tokens_correct": [
+                "I",
+                "fed",
+                "the",
+                "animal",
+                "later"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "second-mention",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "second_mention",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 67,
+            "uuid": "aat-poly-c2-07",
+            "question": "Будь ласка, зачини вікно в залі ради",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "close",
+                "a3": "the",
+                "a4": "window",
+                "a5": "in",
+                "a6": "the",
+                "a7": "boardroom"
+            },
+            "options": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "boardroom",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Будь ласка, зачини вікно в залі ради",
+            "target_text": "Please close the window in the boardroom",
+            "tokens_correct": [
+                "Please",
+                "close",
+                "the",
+                "window",
+                "in",
+                "the",
+                "boardroom"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "the-specific",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "the_specific",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 68,
+            "uuid": "aat-poly-c2-08",
+            "question": "Вона вчора купила чернетку",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "draft",
+                "a5": "yesterday"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "draft",
+                "yesterday",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Вона вчора купила чернетку",
+            "target_text": "She bought a draft yesterday",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "draft",
+                "yesterday"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "singular-countable-article",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "singular_countable_article",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 69,
+            "uuid": "aat-poly-c2-09",
+            "question": "Земля сьогодні виглядає яскраво",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "earth",
+                "a3": "looks",
+                "a4": "bright",
+                "a5": "today"
+            },
+            "options": [
+                "The",
+                "earth",
+                "looks",
+                "bright",
+                "today",
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Земля сьогодні виглядає яскраво",
+            "target_text": "The earth looks bright today",
+            "tokens_correct": [
+                "The",
+                "earth",
+                "looks",
+                "bright",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "unique-objects",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "unique_objects",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 70,
+            "uuid": "aat-poly-c2-10",
+            "question": "Ми чекали затримку на годину",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "waited",
+                "a3": "for",
+                "a4": "an",
+                "a5": "hour-long",
+                "a6": "delay"
+            },
+            "options": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "hour-long",
+                "delay",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Ми чекали затримку на годину",
+            "target_text": "We waited for an hour-long delay",
+            "tokens_correct": [
+                "We",
+                "waited",
+                "for",
+                "an",
+                "hour-long",
+                "delay"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 71,
+            "uuid": "aat-poly-c2-11",
+            "question": "Він говорив про промову пам’яті",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "He",
+                "a2": "talked",
+                "a3": "about",
+                "a4": "a",
+                "a5": "eulogy"
+            },
+            "options": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "eulogy",
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "Він говорив про промову пам’яті",
+            "target_text": "He talked about a eulogy",
+            "tokens_correct": [
+                "He",
+                "talked",
+                "about",
+                "a",
+                "eulogy"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "sound-not-spelling",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "sound_not_spelling",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 72,
+            "uuid": "aat-poly-c2-12",
+            "question": "У мене є усвідомлення",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "have",
+                "a3": "an",
+                "a4": "insight"
+            },
+            "options": [
+                "I",
+                "have",
+                "an",
+                "insight",
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "source_text_uk": "У мене є усвідомлення",
+            "target_text": "I have an insight",
+            "tokens_correct": [
+                "I",
+                "have",
+                "an",
+                "insight"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "no article",
+                "this",
+                "that",
+                "some",
+                "one"
+            ],
+            "variants": [],
+            "source": "theory_page_articles_a_an_the",
+            "grammar_tags": [
+                "articles-a-an-the",
+                "typical-mistakes",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_articles_a_an_the",
+                "typical_mistakes",
+                "level_c2"
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "naq-aat-poly-all",
+        "slug": "polyglot-articles-a-an-the-all-levels",
+        "name": "Sentence Builder: Articles A An The (All levels)",
+        "description": "Compose-token Sentence Builder package for Articles A An The across A1-C2.",
+        "question_uuids": [
+            "aat-poly-a1-01",
+            "aat-poly-a1-02",
+            "aat-poly-a1-03",
+            "aat-poly-a1-04",
+            "aat-poly-a1-05",
+            "aat-poly-a1-06",
+            "aat-poly-a1-07",
+            "aat-poly-a1-08",
+            "aat-poly-a1-09",
+            "aat-poly-a1-10",
+            "aat-poly-a1-11",
+            "aat-poly-a1-12",
+            "aat-poly-a2-01",
+            "aat-poly-a2-02",
+            "aat-poly-a2-03",
+            "aat-poly-a2-04",
+            "aat-poly-a2-05",
+            "aat-poly-a2-06",
+            "aat-poly-a2-07",
+            "aat-poly-a2-08",
+            "aat-poly-a2-09",
+            "aat-poly-a2-10",
+            "aat-poly-a2-11",
+            "aat-poly-a2-12",
+            "aat-poly-b1-01",
+            "aat-poly-b1-02",
+            "aat-poly-b1-03",
+            "aat-poly-b1-04",
+            "aat-poly-b1-05",
+            "aat-poly-b1-06",
+            "aat-poly-b1-07",
+            "aat-poly-b1-08",
+            "aat-poly-b1-09",
+            "aat-poly-b1-10",
+            "aat-poly-b1-11",
+            "aat-poly-b1-12",
+            "aat-poly-b2-01",
+            "aat-poly-b2-02",
+            "aat-poly-b2-03",
+            "aat-poly-b2-04",
+            "aat-poly-b2-05",
+            "aat-poly-b2-06",
+            "aat-poly-b2-07",
+            "aat-poly-b2-08",
+            "aat-poly-b2-09",
+            "aat-poly-b2-10",
+            "aat-poly-b2-11",
+            "aat-poly-b2-12",
+            "aat-poly-c1-01",
+            "aat-poly-c1-02",
+            "aat-poly-c1-03",
+            "aat-poly-c1-04",
+            "aat-poly-c1-05",
+            "aat-poly-c1-06",
+            "aat-poly-c1-07",
+            "aat-poly-c1-08",
+            "aat-poly-c1-09",
+            "aat-poly-c1-10",
+            "aat-poly-c1-11",
+            "aat-poly-c1-12",
+            "aat-poly-c2-01",
+            "aat-poly-c2-02",
+            "aat-poly-c2-03",
+            "aat-poly-c2-04",
+            "aat-poly-c2-05",
+            "aat-poly-c2-06",
+            "aat-poly-c2-07",
+            "aat-poly-c2-08",
+            "aat-poly-c2-09",
+            "aat-poly-c2-10",
+            "aat-poly-c2-11",
+            "aat-poly-c2-12"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "Articles A An The",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotArticlesAAnTheAllLevelsLessonSeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "articles-a-an-the",
+                    "title": "Articles — A / An / The",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityArticlesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/articles-a-an-the"
+                }
+            }
+        }
+    }
+}

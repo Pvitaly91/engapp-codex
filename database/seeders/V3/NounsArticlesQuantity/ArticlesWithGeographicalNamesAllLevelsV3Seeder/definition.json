@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\ArticlesWithGeographicalNamesAllLevelsV3Seeder",
+        "uuid_namespace": "ArticlesWithGeographicalNamesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "theory_page_articles_with_geographical_names": {
+            "name": "Articles With Geographical Names"
+        }
+    },
+    "tags": {
+        "articles_with_geographical_names": {
+            "name": "Articles With Geographical Names",
+            "category": "nouns_articles_quantity"
+        },
+        "no_article_countries_cities": {
+            "name": "No Article Countries Cities",
+            "category": "topic"
+        },
+        "the_water_bodies": {
+            "name": "The Water Bodies",
+            "category": "topic"
+        },
+        "the_mountain_ranges": {
+            "name": "The Mountain Ranges",
+            "category": "topic"
+        },
+        "the_island_groups": {
+            "name": "The Island Groups",
+            "category": "topic"
+        },
+        "the_deserts": {
+            "name": "The Deserts",
+            "category": "topic"
+        },
+        "the_country_descriptors": {
+            "name": "The Country Descriptors",
+            "category": "topic"
+        },
+        "zero_single_mountains_lakes": {
+            "name": "Zero Single Mountains Lakes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "articles_with_geographical_names"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "geo-v3-a1-01",
+            "question": "She lives in {a1} Canada",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most countries.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "She lives in {a1} Canada"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 2,
+            "uuid": "geo-v3-a1-02",
+            "question": "We visited {a1} Paris last summer",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with cities.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "We visited {a1} Paris last summer"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 3,
+            "uuid": "geo-v3-a1-03",
+            "question": "{a1} Dnipro is a famous river",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with rivers.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "{a1} Dnipro is a famous river"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 4,
+            "uuid": "geo-v3-a1-04",
+            "question": "They sailed across {a1} Black Sea",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with seas and oceans.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "They sailed across {a1} Black Sea"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 5,
+            "uuid": "geo-v3-a1-05",
+            "question": "We hiked in {a1} Alps",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with mountain ranges.",
+                    "gap_tags": [
+                        "the_mountain_ranges"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_mountain_ranges"
+            ],
+            "variants": [
+                "We hiked in {a1} Alps"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 6,
+            "uuid": "geo-v3-a1-06",
+            "question": "They spent a week in {a1} Bahamas",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with groups of islands.",
+                    "gap_tags": [
+                        "the_island_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_island_groups"
+            ],
+            "variants": [
+                "They spent a week in {a1} Bahamas"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 7,
+            "uuid": "geo-v3-a1-07",
+            "question": "{a1} Sahara is very dry",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with deserts.",
+                    "gap_tags": [
+                        "the_deserts"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_deserts"
+            ],
+            "variants": [
+                "{a1} Sahara is very dry"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 8,
+            "uuid": "geo-v3-a1-08",
+            "question": "He moved to {a1} United Kingdom",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with country names containing words like Kingdom, Republic, States, or Emirates.",
+                    "gap_tags": [
+                        "the_country_descriptors"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_country_descriptors"
+            ],
+            "variants": [
+                "He moved to {a1} United Kingdom"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 9,
+            "uuid": "geo-v3-a1-09",
+            "question": "They climbed {a1} Mount Fuji",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with single mountain names.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "They climbed {a1} Mount Fuji"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 10,
+            "uuid": "geo-v3-a1-10",
+            "question": "We swam in {a1} Lake Geneva",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with lake names beginning with Lake.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "We swam in {a1} Lake Geneva"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 11,
+            "uuid": "geo-v3-a1-11",
+            "question": "{a1} Europe has many landscapes",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with continents.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "{a1} Europe has many landscapes"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 12,
+            "uuid": "geo-v3-a1-12",
+            "question": "They visited {a1} Netherlands in April",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with this geographical name.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "They visited {a1} Netherlands in April"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 13,
+            "uuid": "geo-v3-a2-01",
+            "question": "She lives in {a1} Poland",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most countries.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "She lives in {a1} Poland"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 14,
+            "uuid": "geo-v3-a2-02",
+            "question": "We visited {a1} London last summer",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with cities.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "We visited {a1} London last summer"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 15,
+            "uuid": "geo-v3-a2-03",
+            "question": "{a1} Nile is a famous river",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with rivers.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "{a1} Nile is a famous river"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 16,
+            "uuid": "geo-v3-a2-04",
+            "question": "They sailed across {a1} Atlantic Ocean",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with seas and oceans.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "They sailed across {a1} Atlantic Ocean"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 17,
+            "uuid": "geo-v3-a2-05",
+            "question": "We hiked in {a1} Andes",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with mountain ranges.",
+                    "gap_tags": [
+                        "the_mountain_ranges"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_mountain_ranges"
+            ],
+            "variants": [
+                "We hiked in {a1} Andes"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 18,
+            "uuid": "geo-v3-a2-06",
+            "question": "They spent a week in {a1} Maldives",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with groups of islands.",
+                    "gap_tags": [
+                        "the_island_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_island_groups"
+            ],
+            "variants": [
+                "They spent a week in {a1} Maldives"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 19,
+            "uuid": "geo-v3-a2-07",
+            "question": "{a1} Gobi is very dry",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with deserts.",
+                    "gap_tags": [
+                        "the_deserts"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_deserts"
+            ],
+            "variants": [
+                "{a1} Gobi is very dry"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 20,
+            "uuid": "geo-v3-a2-08",
+            "question": "He moved to {a1} United States",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with country names containing words like Kingdom, Republic, States, or Emirates.",
+                    "gap_tags": [
+                        "the_country_descriptors"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_country_descriptors"
+            ],
+            "variants": [
+                "He moved to {a1} United States"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 21,
+            "uuid": "geo-v3-a2-09",
+            "question": "They climbed {a1} Mount Everest",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with single mountain names.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "They climbed {a1} Mount Everest"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 22,
+            "uuid": "geo-v3-a2-10",
+            "question": "We swam in {a1} Lake Como",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with lake names beginning with Lake.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "We swam in {a1} Lake Como"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 23,
+            "uuid": "geo-v3-a2-11",
+            "question": "{a1} Asia has many landscapes",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with continents.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "{a1} Asia has many landscapes"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 24,
+            "uuid": "geo-v3-a2-12",
+            "question": "They visited {a1} Czech Republic in April",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with this geographical name.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "They visited {a1} Czech Republic in April"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 25,
+            "uuid": "geo-v3-b1-01",
+            "question": "She lives in {a1} Japan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most countries.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "She lives in {a1} Japan"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 26,
+            "uuid": "geo-v3-b1-02",
+            "question": "We visited {a1} Tokyo last summer",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with cities.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "We visited {a1} Tokyo last summer"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 27,
+            "uuid": "geo-v3-b1-03",
+            "question": "{a1} Amazon is a famous river",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with rivers.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "{a1} Amazon is a famous river"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 28,
+            "uuid": "geo-v3-b1-04",
+            "question": "They sailed across {a1} Pacific Ocean",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with seas and oceans.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "They sailed across {a1} Pacific Ocean"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 29,
+            "uuid": "geo-v3-b1-05",
+            "question": "We hiked in {a1} Himalayas",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with mountain ranges.",
+                    "gap_tags": [
+                        "the_mountain_ranges"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_mountain_ranges"
+            ],
+            "variants": [
+                "We hiked in {a1} Himalayas"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 30,
+            "uuid": "geo-v3-b1-06",
+            "question": "They spent a week in {a1} Canary Islands",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with groups of islands.",
+                    "gap_tags": [
+                        "the_island_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_island_groups"
+            ],
+            "variants": [
+                "They spent a week in {a1} Canary Islands"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 31,
+            "uuid": "geo-v3-b1-07",
+            "question": "{a1} Kalahari is very dry",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with deserts.",
+                    "gap_tags": [
+                        "the_deserts"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_deserts"
+            ],
+            "variants": [
+                "{a1} Kalahari is very dry"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 32,
+            "uuid": "geo-v3-b1-08",
+            "question": "He moved to {a1} United Arab Emirates",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with country names containing words like Kingdom, Republic, States, or Emirates.",
+                    "gap_tags": [
+                        "the_country_descriptors"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_country_descriptors"
+            ],
+            "variants": [
+                "He moved to {a1} United Arab Emirates"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 33,
+            "uuid": "geo-v3-b1-09",
+            "question": "They climbed {a1} Mount Kilimanjaro",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with single mountain names.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "They climbed {a1} Mount Kilimanjaro"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 34,
+            "uuid": "geo-v3-b1-10",
+            "question": "We swam in {a1} Lake Victoria",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with lake names beginning with Lake.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "We swam in {a1} Lake Victoria"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 35,
+            "uuid": "geo-v3-b1-11",
+            "question": "{a1} Africa has many landscapes",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with continents.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "{a1} Africa has many landscapes"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 36,
+            "uuid": "geo-v3-b1-12",
+            "question": "They visited {a1} Philippines in April",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with this geographical name.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "They visited {a1} Philippines in April"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 37,
+            "uuid": "geo-v3-b2-01",
+            "question": "She lives in {a1} Brazil",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most countries.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "She lives in {a1} Brazil"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 38,
+            "uuid": "geo-v3-b2-02",
+            "question": "We visited {a1} Berlin last summer",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with cities.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "We visited {a1} Berlin last summer"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 39,
+            "uuid": "geo-v3-b2-03",
+            "question": "{a1} Thames is a famous river",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with rivers.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "{a1} Thames is a famous river"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 40,
+            "uuid": "geo-v3-b2-04",
+            "question": "They sailed across {a1} Mediterranean Sea",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with seas and oceans.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "They sailed across {a1} Mediterranean Sea"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 41,
+            "uuid": "geo-v3-b2-05",
+            "question": "We hiked in {a1} Carpathians",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with mountain ranges.",
+                    "gap_tags": [
+                        "the_mountain_ranges"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_mountain_ranges"
+            ],
+            "variants": [
+                "We hiked in {a1} Carpathians"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 42,
+            "uuid": "geo-v3-b2-06",
+            "question": "They spent a week in {a1} Seychelles",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with groups of islands.",
+                    "gap_tags": [
+                        "the_island_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_island_groups"
+            ],
+            "variants": [
+                "They spent a week in {a1} Seychelles"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 43,
+            "uuid": "geo-v3-b2-07",
+            "question": "{a1} Atacama is very dry",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with deserts.",
+                    "gap_tags": [
+                        "the_deserts"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_deserts"
+            ],
+            "variants": [
+                "{a1} Atacama is very dry"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 44,
+            "uuid": "geo-v3-b2-08",
+            "question": "He moved to {a1} Dominican Republic",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with country names containing words like Kingdom, Republic, States, or Emirates.",
+                    "gap_tags": [
+                        "the_country_descriptors"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_country_descriptors"
+            ],
+            "variants": [
+                "He moved to {a1} Dominican Republic"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 45,
+            "uuid": "geo-v3-b2-09",
+            "question": "They climbed {a1} Mount Elbrus",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with single mountain names.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "They climbed {a1} Mount Elbrus"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 46,
+            "uuid": "geo-v3-b2-10",
+            "question": "We swam in {a1} Lake Baikal",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with lake names beginning with Lake.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "We swam in {a1} Lake Baikal"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 47,
+            "uuid": "geo-v3-b2-11",
+            "question": "{a1} South America has many landscapes",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with continents.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "{a1} South America has many landscapes"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 48,
+            "uuid": "geo-v3-b2-12",
+            "question": "They visited {a1} United Kingdom in April",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with this geographical name.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "They visited {a1} United Kingdom in April"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 49,
+            "uuid": "geo-v3-c1-01",
+            "question": "She lives in {a1} Norway",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most countries.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "She lives in {a1} Norway"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 50,
+            "uuid": "geo-v3-c1-02",
+            "question": "We visited {a1} Rome last summer",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with cities.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "We visited {a1} Rome last summer"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 51,
+            "uuid": "geo-v3-c1-03",
+            "question": "{a1} Danube is a famous river",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with rivers.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "{a1} Danube is a famous river"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 52,
+            "uuid": "geo-v3-c1-04",
+            "question": "They sailed across {a1} Indian Ocean",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with seas and oceans.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "They sailed across {a1} Indian Ocean"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 53,
+            "uuid": "geo-v3-c1-05",
+            "question": "We hiked in {a1} Rockies",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with mountain ranges.",
+                    "gap_tags": [
+                        "the_mountain_ranges"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_mountain_ranges"
+            ],
+            "variants": [
+                "We hiked in {a1} Rockies"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 54,
+            "uuid": "geo-v3-c1-06",
+            "question": "They spent a week in {a1} Hebrides",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with groups of islands.",
+                    "gap_tags": [
+                        "the_island_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_island_groups"
+            ],
+            "variants": [
+                "They spent a week in {a1} Hebrides"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 55,
+            "uuid": "geo-v3-c1-07",
+            "question": "{a1} Mojave is very dry",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with deserts.",
+                    "gap_tags": [
+                        "the_deserts"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_deserts"
+            ],
+            "variants": [
+                "{a1} Mojave is very dry"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 56,
+            "uuid": "geo-v3-c1-08",
+            "question": "He moved to {a1} Republic of Korea",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with country names containing words like Kingdom, Republic, States, or Emirates.",
+                    "gap_tags": [
+                        "the_country_descriptors"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_country_descriptors"
+            ],
+            "variants": [
+                "He moved to {a1} Republic of Korea"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 57,
+            "uuid": "geo-v3-c1-09",
+            "question": "They climbed {a1} Mount Olympus",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with single mountain names.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "They climbed {a1} Mount Olympus"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 58,
+            "uuid": "geo-v3-c1-10",
+            "question": "We swam in {a1} Lake Ontario",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with lake names beginning with Lake.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "We swam in {a1} Lake Ontario"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 59,
+            "uuid": "geo-v3-c1-11",
+            "question": "{a1} Australia has many landscapes",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with continents.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "{a1} Australia has many landscapes"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 60,
+            "uuid": "geo-v3-c1-12",
+            "question": "They visited {a1} United States in April",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with this geographical name.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "They visited {a1} United States in April"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 61,
+            "uuid": "geo-v3-c2-01",
+            "question": "She lives in {a1} Egypt",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most countries.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "She lives in {a1} Egypt"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 62,
+            "uuid": "geo-v3-c2-02",
+            "question": "We visited {a1} Madrid last summer",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with cities.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "We visited {a1} Madrid last summer"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 63,
+            "uuid": "geo-v3-c2-03",
+            "question": "{a1} Mississippi is a famous river",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with rivers.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "{a1} Mississippi is a famous river"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 64,
+            "uuid": "geo-v3-c2-04",
+            "question": "They sailed across {a1} Red Sea",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with seas and oceans.",
+                    "gap_tags": [
+                        "the_water_bodies"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_water_bodies"
+            ],
+            "variants": [
+                "They sailed across {a1} Red Sea"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 65,
+            "uuid": "geo-v3-c2-05",
+            "question": "We hiked in {a1} Pyrenees",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with mountain ranges.",
+                    "gap_tags": [
+                        "the_mountain_ranges"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_mountain_ranges"
+            ],
+            "variants": [
+                "We hiked in {a1} Pyrenees"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 66,
+            "uuid": "geo-v3-c2-06",
+            "question": "They spent a week in {a1} Azores",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with groups of islands.",
+                    "gap_tags": [
+                        "the_island_groups"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_island_groups"
+            ],
+            "variants": [
+                "They spent a week in {a1} Azores"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 67,
+            "uuid": "geo-v3-c2-07",
+            "question": "{a1} Namib is very dry",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with deserts.",
+                    "gap_tags": [
+                        "the_deserts"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_deserts"
+            ],
+            "variants": [
+                "{a1} Namib is very dry"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 68,
+            "uuid": "geo-v3-c2-08",
+            "question": "He moved to {a1} Kingdom of Morocco",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with country names containing words like Kingdom, Republic, States, or Emirates.",
+                    "gap_tags": [
+                        "the_country_descriptors"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_country_descriptors"
+            ],
+            "variants": [
+                "He moved to {a1} Kingdom of Morocco"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 69,
+            "uuid": "geo-v3-c2-09",
+            "question": "They climbed {a1} Mount Kenya",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with single mountain names.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "They climbed {a1} Mount Kenya"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 70,
+            "uuid": "geo-v3-c2-10",
+            "question": "We swam in {a1} Lake Superior",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with lake names beginning with Lake.",
+                    "gap_tags": [
+                        "zero_single_mountains_lakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_single_mountains_lakes"
+            ],
+            "variants": [
+                "We swam in {a1} Lake Superior"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 71,
+            "uuid": "geo-v3-c2-11",
+            "question": "{a1} Antarctica has many landscapes",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with continents.",
+                    "gap_tags": [
+                        "no_article_countries_cities"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_article_countries_cities"
+            ],
+            "variants": [
+                "{a1} Antarctica has many landscapes"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        },
+        {
+            "id": 72,
+            "uuid": "geo-v3-c2-12",
+            "question": "They visited {a1} United Arab Emirates in April",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use the with this geographical name.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "They visited {a1} United Arab Emirates in April"
+            ],
+            "source": "theory_page_articles_with_geographical_names"
+        }
+    ],
+    "saved_test": {
+        "uuid": "naq-geo-v3-all",
+        "slug": "articles-with-geographical-names-all-levels-v3",
+        "name": "Articles With Geographical Names (All levels V3)",
+        "description": "Standard V3 package for Articles With Geographical Names across A1-C2.",
+        "question_uuids": [
+            "geo-v3-a1-01",
+            "geo-v3-a1-02",
+            "geo-v3-a1-03",
+            "geo-v3-a1-04",
+            "geo-v3-a1-05",
+            "geo-v3-a1-06",
+            "geo-v3-a1-07",
+            "geo-v3-a1-08",
+            "geo-v3-a1-09",
+            "geo-v3-a1-10",
+            "geo-v3-a1-11",
+            "geo-v3-a1-12",
+            "geo-v3-a2-01",
+            "geo-v3-a2-02",
+            "geo-v3-a2-03",
+            "geo-v3-a2-04",
+            "geo-v3-a2-05",
+            "geo-v3-a2-06",
+            "geo-v3-a2-07",
+            "geo-v3-a2-08",
+            "geo-v3-a2-09",
+            "geo-v3-a2-10",
+            "geo-v3-a2-11",
+            "geo-v3-a2-12",
+            "geo-v3-b1-01",
+            "geo-v3-b1-02",
+            "geo-v3-b1-03",
+            "geo-v3-b1-04",
+            "geo-v3-b1-05",
+            "geo-v3-b1-06",
+            "geo-v3-b1-07",
+            "geo-v3-b1-08",
+            "geo-v3-b1-09",
+            "geo-v3-b1-10",
+            "geo-v3-b1-11",
+            "geo-v3-b1-12",
+            "geo-v3-b2-01",
+            "geo-v3-b2-02",
+            "geo-v3-b2-03",
+            "geo-v3-b2-04",
+            "geo-v3-b2-05",
+            "geo-v3-b2-06",
+            "geo-v3-b2-07",
+            "geo-v3-b2-08",
+            "geo-v3-b2-09",
+            "geo-v3-b2-10",
+            "geo-v3-b2-11",
+            "geo-v3-b2-12",
+            "geo-v3-c1-01",
+            "geo-v3-c1-02",
+            "geo-v3-c1-03",
+            "geo-v3-c1-04",
+            "geo-v3-c1-05",
+            "geo-v3-c1-06",
+            "geo-v3-c1-07",
+            "geo-v3-c1-08",
+            "geo-v3-c1-09",
+            "geo-v3-c1-10",
+            "geo-v3-c1-11",
+            "geo-v3-c1-12",
+            "geo-v3-c2-01",
+            "geo-v3-c2-02",
+            "geo-v3-c2-03",
+            "geo-v3-c2-04",
+            "geo-v3-c2-05",
+            "geo-v3-c2-06",
+            "geo-v3-c2-07",
+            "geo-v3-c2-08",
+            "geo-v3-c2-09",
+            "geo-v3-c2-10",
+            "geo-v3-c2-11",
+            "geo-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\NounsArticlesQuantity\\ArticlesWithGeographicalNamesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "articles-with-geographical-names",
+                    "title": "Articles with Geographical Names — Географічні назви",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityArticlesWithGeographicalNamesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/articles-with-geographical-names"
+                }
+            }
+        }
+    }
+}
