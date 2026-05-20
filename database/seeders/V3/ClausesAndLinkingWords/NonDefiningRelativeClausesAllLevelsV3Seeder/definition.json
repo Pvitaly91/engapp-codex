@@ -1,0 +1,2203 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\NonDefiningRelativeClausesAllLevelsV3Seeder",
+        "uuid_namespace": "NonDefiningRelativeClausesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_non_defining_relative_clauses": {
+            "name": "Non-defining Relative Clauses"
+        }
+    },
+    "tags": {
+        "non_defining_relative_clauses": {
+            "name": "Non-defining Relative Clauses",
+            "category": "clauses_and_linking_words"
+        },
+        "extra_information": {
+            "name": "Extra information",
+            "category": "topic"
+        },
+        "commas": {
+            "name": "Commas",
+            "category": "topic"
+        },
+        "who_people": {
+            "name": "Who for people",
+            "category": "topic"
+        },
+        "which_things": {
+            "name": "Which for things",
+            "category": "topic"
+        },
+        "which_whole_clause": {
+            "name": "Which for whole clause",
+            "category": "topic"
+        },
+        "where_places": {
+            "name": "Where for places",
+            "category": "topic"
+        },
+        "whose_possession": {
+            "name": "Whose possession",
+            "category": "topic"
+        },
+        "no_that": {
+            "name": "No that",
+            "category": "topic"
+        },
+        "cannot_omit": {
+            "name": "Cannot omit pronoun",
+            "category": "topic"
+        },
+        "defining_vs_non_defining": {
+            "name": "Defining vs non-defining",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "non_defining_relative_clauses"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ndrc-v3-a1-01",
+            "question": "My sister, {a1} lives in Lviv, is a teacher",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for extra information about a person.",
+                    "gap_tags": [
+                        "extra_information"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "extra_information"
+            ],
+            "variants": [
+                "My sister, {a1} lives in Lviv, is a teacher"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 2,
+            "uuid": "ndrc-v3-a1-02",
+            "question": "Non-defining relative clauses are usually separated with {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "apostrophes",
+                        "question marks"
+                    ],
+                    "verb_hint": "Non-defining clauses need commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Non-defining relative clauses are usually separated with {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 3,
+            "uuid": "ndrc-v3-a1-03",
+            "question": "Anna, {a1} teaches at the college, called me",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for a person; do not use that in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "Anna, {a1} teaches at the college, called me"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 4,
+            "uuid": "ndrc-v3-a1-04",
+            "question": "The book, {a1} I bought last year, is still useful",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which for a thing in a non-defining clause.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "The book, {a1} I bought last year, is still useful"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 5,
+            "uuid": "ndrc-v3-a1-05",
+            "question": "He solved the problem, {a1} surprised everyone",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which to refer to the whole previous clause.",
+                    "gap_tags": [
+                        "which_whole_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_whole_clause"
+            ],
+            "variants": [
+                "He solved the problem, {a1} surprised everyone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 6,
+            "uuid": "ndrc-v3-a1-06",
+            "question": "Lviv, {a1} my cousins live, is beautiful in spring",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for extra information about a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "Lviv, {a1} my cousins live, is beautiful in spring"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 7,
+            "uuid": "ndrc-v3-a1-07",
+            "question": "Anna, {a1} laptop broke, joined by phone",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "Anna, {a1} laptop broke, joined by phone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 8,
+            "uuid": "ndrc-v3-a1-08",
+            "question": "In a non-defining relative clause, do not use {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "That is not used in non-defining relative clauses.",
+                    "gap_tags": [
+                        "no_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_that"
+            ],
+            "variants": [
+                "In a non-defining relative clause, do not use {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 9,
+            "uuid": "ndrc-v3-a1-09",
+            "question": "In a non-defining clause, the relative pronoun {a1} be omitted",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "can",
+                        "should",
+                        "may"
+                    ],
+                    "verb_hint": "The relative pronoun cannot be omitted.",
+                    "gap_tags": [
+                        "cannot_omit"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cannot_omit"
+            ],
+            "variants": [
+                "In a non-defining clause, the relative pronoun {a1} be omitted"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 10,
+            "uuid": "ndrc-v3-a1-10",
+            "question": "A clause between commas usually adds {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "extra information",
+                    "options": [
+                        "extra information",
+                        "essential identification",
+                        "a question",
+                        "a command"
+                    ],
+                    "verb_hint": "Non-defining clauses add extra information.",
+                    "gap_tags": [
+                        "defining_vs_non_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "defining_vs_non_defining"
+            ],
+            "variants": [
+                "A clause between commas usually adds {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 11,
+            "uuid": "ndrc-v3-a1-11",
+            "question": "My phone, {a1} I bought yesterday, is new",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "where",
+                        "who"
+                    ],
+                    "verb_hint": "Use which, not that, in a non-defining clause about a thing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My phone, {a1} I bought yesterday, is new"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 12,
+            "uuid": "ndrc-v3-a1-12",
+            "question": "Anna, who lives nearby, needs {a1} around the extra information",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "quotation marks",
+                        "hyphens"
+                    ],
+                    "verb_hint": "The extra information is set off by commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Anna, who lives nearby, needs {a1} around the extra information"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 13,
+            "uuid": "ndrc-v3-a2-01",
+            "question": "My sister, {a1} lives in Kyiv, is a doctor",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for extra information about a person.",
+                    "gap_tags": [
+                        "extra_information"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "extra_information"
+            ],
+            "variants": [
+                "My sister, {a1} lives in Kyiv, is a doctor"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 14,
+            "uuid": "ndrc-v3-a2-02",
+            "question": "Non-defining relative clauses are usually separated with {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "apostrophes",
+                        "question marks"
+                    ],
+                    "verb_hint": "Non-defining clauses need commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Non-defining relative clauses are usually separated with {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 15,
+            "uuid": "ndrc-v3-a2-03",
+            "question": "Olena, {a1} teaches at the college, called me",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for a person; do not use that in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "Olena, {a1} teaches at the college, called me"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 16,
+            "uuid": "ndrc-v3-a2-04",
+            "question": "The phone, {a1} I bought last year, is still useful",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which for a thing in a non-defining clause.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "The phone, {a1} I bought last year, is still useful"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 17,
+            "uuid": "ndrc-v3-a2-05",
+            "question": "He solved the problem, {a1} surprised everyone",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which to refer to the whole previous clause.",
+                    "gap_tags": [
+                        "which_whole_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_whole_clause"
+            ],
+            "variants": [
+                "He solved the problem, {a1} surprised everyone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 18,
+            "uuid": "ndrc-v3-a2-06",
+            "question": "Kyiv, {a1} my cousins live, is beautiful in spring",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for extra information about a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "Kyiv, {a1} my cousins live, is beautiful in spring"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 19,
+            "uuid": "ndrc-v3-a2-07",
+            "question": "Olena, {a1} laptop broke, joined by phone",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "Olena, {a1} laptop broke, joined by phone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 20,
+            "uuid": "ndrc-v3-a2-08",
+            "question": "In a non-defining relative clause, do not use {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "That is not used in non-defining relative clauses.",
+                    "gap_tags": [
+                        "no_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_that"
+            ],
+            "variants": [
+                "In a non-defining relative clause, do not use {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 21,
+            "uuid": "ndrc-v3-a2-09",
+            "question": "In a non-defining clause, the relative pronoun {a1} be omitted",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "can",
+                        "should",
+                        "may"
+                    ],
+                    "verb_hint": "The relative pronoun cannot be omitted.",
+                    "gap_tags": [
+                        "cannot_omit"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cannot_omit"
+            ],
+            "variants": [
+                "In a non-defining clause, the relative pronoun {a1} be omitted"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 22,
+            "uuid": "ndrc-v3-a2-10",
+            "question": "A clause between commas usually adds {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "extra information",
+                    "options": [
+                        "extra information",
+                        "essential identification",
+                        "a question",
+                        "a command"
+                    ],
+                    "verb_hint": "Non-defining clauses add extra information.",
+                    "gap_tags": [
+                        "defining_vs_non_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "defining_vs_non_defining"
+            ],
+            "variants": [
+                "A clause between commas usually adds {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 23,
+            "uuid": "ndrc-v3-a2-11",
+            "question": "My phone, {a1} I bought yesterday, is new",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "where",
+                        "who"
+                    ],
+                    "verb_hint": "Use which, not that, in a non-defining clause about a thing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My phone, {a1} I bought yesterday, is new"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 24,
+            "uuid": "ndrc-v3-a2-12",
+            "question": "Olena, who lives nearby, needs {a1} around the extra information",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "quotation marks",
+                        "hyphens"
+                    ],
+                    "verb_hint": "The extra information is set off by commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Olena, who lives nearby, needs {a1} around the extra information"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 25,
+            "uuid": "ndrc-v3-b1-01",
+            "question": "My sister, {a1} lives in Odesa, is a designer",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for extra information about a person.",
+                    "gap_tags": [
+                        "extra_information"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "extra_information"
+            ],
+            "variants": [
+                "My sister, {a1} lives in Odesa, is a designer"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 26,
+            "uuid": "ndrc-v3-b1-02",
+            "question": "Non-defining relative clauses are usually separated with {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "apostrophes",
+                        "question marks"
+                    ],
+                    "verb_hint": "Non-defining clauses need commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Non-defining relative clauses are usually separated with {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 27,
+            "uuid": "ndrc-v3-b1-03",
+            "question": "Marta, {a1} teaches at the college, called me",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for a person; do not use that in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "Marta, {a1} teaches at the college, called me"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 28,
+            "uuid": "ndrc-v3-b1-04",
+            "question": "The report, {a1} I bought last year, is still useful",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which for a thing in a non-defining clause.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "The report, {a1} I bought last year, is still useful"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 29,
+            "uuid": "ndrc-v3-b1-05",
+            "question": "He solved the problem, {a1} surprised everyone",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which to refer to the whole previous clause.",
+                    "gap_tags": [
+                        "which_whole_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_whole_clause"
+            ],
+            "variants": [
+                "He solved the problem, {a1} surprised everyone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 30,
+            "uuid": "ndrc-v3-b1-06",
+            "question": "Odesa, {a1} my cousins live, is beautiful in spring",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for extra information about a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "Odesa, {a1} my cousins live, is beautiful in spring"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 31,
+            "uuid": "ndrc-v3-b1-07",
+            "question": "Marta, {a1} laptop broke, joined by phone",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "Marta, {a1} laptop broke, joined by phone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 32,
+            "uuid": "ndrc-v3-b1-08",
+            "question": "In a non-defining relative clause, do not use {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "That is not used in non-defining relative clauses.",
+                    "gap_tags": [
+                        "no_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_that"
+            ],
+            "variants": [
+                "In a non-defining relative clause, do not use {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 33,
+            "uuid": "ndrc-v3-b1-09",
+            "question": "In a non-defining clause, the relative pronoun {a1} be omitted",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "can",
+                        "should",
+                        "may"
+                    ],
+                    "verb_hint": "The relative pronoun cannot be omitted.",
+                    "gap_tags": [
+                        "cannot_omit"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cannot_omit"
+            ],
+            "variants": [
+                "In a non-defining clause, the relative pronoun {a1} be omitted"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 34,
+            "uuid": "ndrc-v3-b1-10",
+            "question": "A clause between commas usually adds {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "extra information",
+                    "options": [
+                        "extra information",
+                        "essential identification",
+                        "a question",
+                        "a command"
+                    ],
+                    "verb_hint": "Non-defining clauses add extra information.",
+                    "gap_tags": [
+                        "defining_vs_non_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "defining_vs_non_defining"
+            ],
+            "variants": [
+                "A clause between commas usually adds {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 35,
+            "uuid": "ndrc-v3-b1-11",
+            "question": "My phone, {a1} I bought yesterday, is new",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "where",
+                        "who"
+                    ],
+                    "verb_hint": "Use which, not that, in a non-defining clause about a thing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My phone, {a1} I bought yesterday, is new"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 36,
+            "uuid": "ndrc-v3-b1-12",
+            "question": "Marta, who lives nearby, needs {a1} around the extra information",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "quotation marks",
+                        "hyphens"
+                    ],
+                    "verb_hint": "The extra information is set off by commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Marta, who lives nearby, needs {a1} around the extra information"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 37,
+            "uuid": "ndrc-v3-b2-01",
+            "question": "My sister, {a1} lives in Dnipro, is a researcher",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for extra information about a person.",
+                    "gap_tags": [
+                        "extra_information"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "extra_information"
+            ],
+            "variants": [
+                "My sister, {a1} lives in Dnipro, is a researcher"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 38,
+            "uuid": "ndrc-v3-b2-02",
+            "question": "Non-defining relative clauses are usually separated with {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "apostrophes",
+                        "question marks"
+                    ],
+                    "verb_hint": "Non-defining clauses need commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Non-defining relative clauses are usually separated with {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 39,
+            "uuid": "ndrc-v3-b2-03",
+            "question": "Iryna, {a1} teaches at the college, called me",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for a person; do not use that in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "Iryna, {a1} teaches at the college, called me"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 40,
+            "uuid": "ndrc-v3-b2-04",
+            "question": "The proposal, {a1} I bought last year, is still useful",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which for a thing in a non-defining clause.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "The proposal, {a1} I bought last year, is still useful"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 41,
+            "uuid": "ndrc-v3-b2-05",
+            "question": "He solved the problem, {a1} surprised everyone",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which to refer to the whole previous clause.",
+                    "gap_tags": [
+                        "which_whole_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_whole_clause"
+            ],
+            "variants": [
+                "He solved the problem, {a1} surprised everyone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 42,
+            "uuid": "ndrc-v3-b2-06",
+            "question": "Dnipro, {a1} my cousins live, is beautiful in spring",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for extra information about a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "Dnipro, {a1} my cousins live, is beautiful in spring"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 43,
+            "uuid": "ndrc-v3-b2-07",
+            "question": "Iryna, {a1} laptop broke, joined by phone",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "Iryna, {a1} laptop broke, joined by phone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 44,
+            "uuid": "ndrc-v3-b2-08",
+            "question": "In a non-defining relative clause, do not use {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "That is not used in non-defining relative clauses.",
+                    "gap_tags": [
+                        "no_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_that"
+            ],
+            "variants": [
+                "In a non-defining relative clause, do not use {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 45,
+            "uuid": "ndrc-v3-b2-09",
+            "question": "In a non-defining clause, the relative pronoun {a1} be omitted",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "can",
+                        "should",
+                        "may"
+                    ],
+                    "verb_hint": "The relative pronoun cannot be omitted.",
+                    "gap_tags": [
+                        "cannot_omit"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cannot_omit"
+            ],
+            "variants": [
+                "In a non-defining clause, the relative pronoun {a1} be omitted"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 46,
+            "uuid": "ndrc-v3-b2-10",
+            "question": "A clause between commas usually adds {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "extra information",
+                    "options": [
+                        "extra information",
+                        "essential identification",
+                        "a question",
+                        "a command"
+                    ],
+                    "verb_hint": "Non-defining clauses add extra information.",
+                    "gap_tags": [
+                        "defining_vs_non_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "defining_vs_non_defining"
+            ],
+            "variants": [
+                "A clause between commas usually adds {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 47,
+            "uuid": "ndrc-v3-b2-11",
+            "question": "My phone, {a1} I bought yesterday, is new",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "where",
+                        "who"
+                    ],
+                    "verb_hint": "Use which, not that, in a non-defining clause about a thing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My phone, {a1} I bought yesterday, is new"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 48,
+            "uuid": "ndrc-v3-b2-12",
+            "question": "Iryna, who lives nearby, needs {a1} around the extra information",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "quotation marks",
+                        "hyphens"
+                    ],
+                    "verb_hint": "The extra information is set off by commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Iryna, who lives nearby, needs {a1} around the extra information"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 49,
+            "uuid": "ndrc-v3-c1-01",
+            "question": "My sister, {a1} lives in Kharkiv, is a consultant",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for extra information about a person.",
+                    "gap_tags": [
+                        "extra_information"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "extra_information"
+            ],
+            "variants": [
+                "My sister, {a1} lives in Kharkiv, is a consultant"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 50,
+            "uuid": "ndrc-v3-c1-02",
+            "question": "Non-defining relative clauses are usually separated with {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "apostrophes",
+                        "question marks"
+                    ],
+                    "verb_hint": "Non-defining clauses need commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Non-defining relative clauses are usually separated with {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 51,
+            "uuid": "ndrc-v3-c1-03",
+            "question": "Natalia, {a1} teaches at the college, called me",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for a person; do not use that in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "Natalia, {a1} teaches at the college, called me"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 52,
+            "uuid": "ndrc-v3-c1-04",
+            "question": "The analysis, {a1} I bought last year, is still useful",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which for a thing in a non-defining clause.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "The analysis, {a1} I bought last year, is still useful"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 53,
+            "uuid": "ndrc-v3-c1-05",
+            "question": "He solved the problem, {a1} surprised everyone",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which to refer to the whole previous clause.",
+                    "gap_tags": [
+                        "which_whole_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_whole_clause"
+            ],
+            "variants": [
+                "He solved the problem, {a1} surprised everyone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 54,
+            "uuid": "ndrc-v3-c1-06",
+            "question": "Kharkiv, {a1} my cousins live, is beautiful in spring",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for extra information about a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "Kharkiv, {a1} my cousins live, is beautiful in spring"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 55,
+            "uuid": "ndrc-v3-c1-07",
+            "question": "Natalia, {a1} laptop broke, joined by phone",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "Natalia, {a1} laptop broke, joined by phone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 56,
+            "uuid": "ndrc-v3-c1-08",
+            "question": "In a non-defining relative clause, do not use {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "That is not used in non-defining relative clauses.",
+                    "gap_tags": [
+                        "no_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_that"
+            ],
+            "variants": [
+                "In a non-defining relative clause, do not use {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 57,
+            "uuid": "ndrc-v3-c1-09",
+            "question": "In a non-defining clause, the relative pronoun {a1} be omitted",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "can",
+                        "should",
+                        "may"
+                    ],
+                    "verb_hint": "The relative pronoun cannot be omitted.",
+                    "gap_tags": [
+                        "cannot_omit"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cannot_omit"
+            ],
+            "variants": [
+                "In a non-defining clause, the relative pronoun {a1} be omitted"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 58,
+            "uuid": "ndrc-v3-c1-10",
+            "question": "A clause between commas usually adds {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "extra information",
+                    "options": [
+                        "extra information",
+                        "essential identification",
+                        "a question",
+                        "a command"
+                    ],
+                    "verb_hint": "Non-defining clauses add extra information.",
+                    "gap_tags": [
+                        "defining_vs_non_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "defining_vs_non_defining"
+            ],
+            "variants": [
+                "A clause between commas usually adds {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 59,
+            "uuid": "ndrc-v3-c1-11",
+            "question": "My phone, {a1} I bought yesterday, is new",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "where",
+                        "who"
+                    ],
+                    "verb_hint": "Use which, not that, in a non-defining clause about a thing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My phone, {a1} I bought yesterday, is new"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 60,
+            "uuid": "ndrc-v3-c1-12",
+            "question": "Natalia, who lives nearby, needs {a1} around the extra information",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "quotation marks",
+                        "hyphens"
+                    ],
+                    "verb_hint": "The extra information is set off by commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Natalia, who lives nearby, needs {a1} around the extra information"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 61,
+            "uuid": "ndrc-v3-c2-01",
+            "question": "My sister, {a1} lives in Chernihiv, is a curator",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for extra information about a person.",
+                    "gap_tags": [
+                        "extra_information"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "extra_information"
+            ],
+            "variants": [
+                "My sister, {a1} lives in Chernihiv, is a curator"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 62,
+            "uuid": "ndrc-v3-c2-02",
+            "question": "Non-defining relative clauses are usually separated with {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "apostrophes",
+                        "question marks"
+                    ],
+                    "verb_hint": "Non-defining clauses need commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Non-defining relative clauses are usually separated with {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 63,
+            "uuid": "ndrc-v3-c2-03",
+            "question": "Sofiia, {a1} teaches at the college, called me",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "that",
+                        "where"
+                    ],
+                    "verb_hint": "Use who for a person; do not use that in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "Sofiia, {a1} teaches at the college, called me"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 64,
+            "uuid": "ndrc-v3-c2-04",
+            "question": "The documentary, {a1} I bought last year, is still useful",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which for a thing in a non-defining clause.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "The documentary, {a1} I bought last year, is still useful"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 65,
+            "uuid": "ndrc-v3-c2-05",
+            "question": "He solved the problem, {a1} surprised everyone",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Use which to refer to the whole previous clause.",
+                    "gap_tags": [
+                        "which_whole_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_whole_clause"
+            ],
+            "variants": [
+                "He solved the problem, {a1} surprised everyone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 66,
+            "uuid": "ndrc-v3-c2-06",
+            "question": "Chernihiv, {a1} my cousins live, is beautiful in spring",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for extra information about a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "Chernihiv, {a1} my cousins live, is beautiful in spring"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 67,
+            "uuid": "ndrc-v3-c2-07",
+            "question": "Sofiia, {a1} laptop broke, joined by phone",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "Sofiia, {a1} laptop broke, joined by phone"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 68,
+            "uuid": "ndrc-v3-c2-08",
+            "question": "In a non-defining relative clause, do not use {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "That is not used in non-defining relative clauses.",
+                    "gap_tags": [
+                        "no_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_that"
+            ],
+            "variants": [
+                "In a non-defining relative clause, do not use {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 69,
+            "uuid": "ndrc-v3-c2-09",
+            "question": "In a non-defining clause, the relative pronoun {a1} be omitted",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "can",
+                        "should",
+                        "may"
+                    ],
+                    "verb_hint": "The relative pronoun cannot be omitted.",
+                    "gap_tags": [
+                        "cannot_omit"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cannot_omit"
+            ],
+            "variants": [
+                "In a non-defining clause, the relative pronoun {a1} be omitted"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 70,
+            "uuid": "ndrc-v3-c2-10",
+            "question": "A clause between commas usually adds {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "extra information",
+                    "options": [
+                        "extra information",
+                        "essential identification",
+                        "a question",
+                        "a command"
+                    ],
+                    "verb_hint": "Non-defining clauses add extra information.",
+                    "gap_tags": [
+                        "defining_vs_non_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "defining_vs_non_defining"
+            ],
+            "variants": [
+                "A clause between commas usually adds {a1}"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 71,
+            "uuid": "ndrc-v3-c2-11",
+            "question": "My phone, {a1} I bought yesterday, is new",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "where",
+                        "who"
+                    ],
+                    "verb_hint": "Use which, not that, in a non-defining clause about a thing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My phone, {a1} I bought yesterday, is new"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        },
+        {
+            "id": 72,
+            "uuid": "ndrc-v3-c2-12",
+            "question": "Sofiia, who lives nearby, needs {a1} around the extra information",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "commas",
+                    "options": [
+                        "commas",
+                        "no commas",
+                        "quotation marks",
+                        "hyphens"
+                    ],
+                    "verb_hint": "The extra information is set off by commas.",
+                    "gap_tags": [
+                        "commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "commas"
+            ],
+            "variants": [
+                "Sofiia, who lives nearby, needs {a1} around the extra information"
+            ],
+            "source": "theory_page_non_defining_relative_clauses"
+        }
+    ],
+    "saved_test": {
+        "uuid": "rc-nd-v3-all",
+        "slug": "non-defining-relative-clauses-all-levels-v3",
+        "name": "Non-defining Relative Clauses: V3 All Levels",
+        "description": "Page-local V3 package for Non-defining Relative Clauses with A1-C2 coverage.",
+        "question_uuids": [
+            "ndrc-v3-a1-01",
+            "ndrc-v3-a1-02",
+            "ndrc-v3-a1-03",
+            "ndrc-v3-a1-04",
+            "ndrc-v3-a1-05",
+            "ndrc-v3-a1-06",
+            "ndrc-v3-a1-07",
+            "ndrc-v3-a1-08",
+            "ndrc-v3-a1-09",
+            "ndrc-v3-a1-10",
+            "ndrc-v3-a1-11",
+            "ndrc-v3-a1-12",
+            "ndrc-v3-a2-01",
+            "ndrc-v3-a2-02",
+            "ndrc-v3-a2-03",
+            "ndrc-v3-a2-04",
+            "ndrc-v3-a2-05",
+            "ndrc-v3-a2-06",
+            "ndrc-v3-a2-07",
+            "ndrc-v3-a2-08",
+            "ndrc-v3-a2-09",
+            "ndrc-v3-a2-10",
+            "ndrc-v3-a2-11",
+            "ndrc-v3-a2-12",
+            "ndrc-v3-b1-01",
+            "ndrc-v3-b1-02",
+            "ndrc-v3-b1-03",
+            "ndrc-v3-b1-04",
+            "ndrc-v3-b1-05",
+            "ndrc-v3-b1-06",
+            "ndrc-v3-b1-07",
+            "ndrc-v3-b1-08",
+            "ndrc-v3-b1-09",
+            "ndrc-v3-b1-10",
+            "ndrc-v3-b1-11",
+            "ndrc-v3-b1-12",
+            "ndrc-v3-b2-01",
+            "ndrc-v3-b2-02",
+            "ndrc-v3-b2-03",
+            "ndrc-v3-b2-04",
+            "ndrc-v3-b2-05",
+            "ndrc-v3-b2-06",
+            "ndrc-v3-b2-07",
+            "ndrc-v3-b2-08",
+            "ndrc-v3-b2-09",
+            "ndrc-v3-b2-10",
+            "ndrc-v3-b2-11",
+            "ndrc-v3-b2-12",
+            "ndrc-v3-c1-01",
+            "ndrc-v3-c1-02",
+            "ndrc-v3-c1-03",
+            "ndrc-v3-c1-04",
+            "ndrc-v3-c1-05",
+            "ndrc-v3-c1-06",
+            "ndrc-v3-c1-07",
+            "ndrc-v3-c1-08",
+            "ndrc-v3-c1-09",
+            "ndrc-v3-c1-10",
+            "ndrc-v3-c1-11",
+            "ndrc-v3-c1-12",
+            "ndrc-v3-c2-01",
+            "ndrc-v3-c2-02",
+            "ndrc-v3-c2-03",
+            "ndrc-v3-c2-04",
+            "ndrc-v3-c2-05",
+            "ndrc-v3-c2-06",
+            "ndrc-v3-c2-07",
+            "ndrc-v3-c2-08",
+            "ndrc-v3-c2-09",
+            "ndrc-v3-c2-10",
+            "ndrc-v3-c2-11",
+            "ndrc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\NonDefiningRelativeClausesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "non-defining-relative-clauses",
+                    "title": "Non-defining Relative Clauses",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/non-defining-relative-clauses"
+                }
+            }
+        }
+    }
+}
