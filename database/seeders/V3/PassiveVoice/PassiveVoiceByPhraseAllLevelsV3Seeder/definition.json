@@ -1,0 +1,1856 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceByPhraseAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveVoiceByPhraseAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_voice_by_phrase": {
+            "name": "Passive Voice By Phrase"
+        }
+    },
+    "tags": {
+        "passive_voice_by_phrase": {
+            "name": "Passive Voice By Phrase",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "include_by_phrase": {
+            "name": "Include By Phrase",
+            "category": "topic"
+        },
+        "omit_by_phrase": {
+            "name": "Omit By Phrase",
+            "category": "topic"
+        },
+        "agent_relevance": {
+            "name": "Agent Relevance",
+            "category": "topic"
+        },
+        "agent_types": {
+            "name": "Agent Types",
+            "category": "topic"
+        },
+        "instrument_vs_agent": {
+            "name": "Instrument Vs Agent",
+            "category": "topic"
+        },
+        "by_overuse": {
+            "name": "By Overuse",
+            "category": "topic"
+        },
+        "active_passive_agent": {
+            "name": "Active Passive Agent",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvbp-v3-a1-01",
+            "question": "Use “by” to name the agent: “The song was written {a1} Adele.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvbp-v3-a1-02",
+            "question": "Include a by-phrase when the agent is important: “The novel was written {a1} a Nobel Prize winner.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvbp-v3-a1-03",
+            "question": "Omit the by-phrase when the agent is obvious: “He {a1} yesterday.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was arrested",
+                    "options": [
+                        "was arrested",
+                        "was arrested by police",
+                        "arrested by someone",
+                        "was arresting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvbp-v3-a1-04",
+            "question": "In “My car was stolen,” the agent is unknown, so the by-phrase is {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "agent_relevance"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "omitted",
+                    "options": [
+                        "omitted",
+                        "required",
+                        "the subject",
+                        "with"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvbp-v3-a1-05",
+            "question": "An organization can be an agent: “The decision was made {a1} the committee.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "agent_types"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvbp-v3-a1-06",
+            "question": "Use “with” for an instrument: “The cake was cut {a1} a knife.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvbp-v3-a1-07",
+            "question": "Avoid weak agents: “English is spoken here,” not “English is spoken {a1} people here.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "by_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvbp-v3-a1-08",
+            "question": "If the agent is the focus, active may be clearer: “Shakespeare {a1} the play.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "active_passive_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "was written by",
+                        "was wrote",
+                        "got written"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvbp-v3-a1-09",
+            "question": "Correct the instrument: “The door was opened {a1} a key.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvbp-v3-a1-10",
+            "question": "Use by for a natural force: “The tree was struck {a1} lightning.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvbp-v3-a1-11",
+            "question": "Both can appear: “The picture was painted {a1} Monet with oil paints.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvbp-v3-a1-12",
+            "question": "“The rules must be followed” is better than “The rules must be followed {a1} everyone.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a1",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvbp-v3-a2-01",
+            "question": "Use “by” to name the agent: “The song was written {a1} Adele.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvbp-v3-a2-02",
+            "question": "Include a by-phrase when the agent is important: “The novel was written {a1} a Nobel Prize winner.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvbp-v3-a2-03",
+            "question": "Omit the by-phrase when the agent is obvious: “He {a1} yesterday.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was arrested",
+                    "options": [
+                        "was arrested",
+                        "was arrested by police",
+                        "arrested by someone",
+                        "was arresting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvbp-v3-a2-04",
+            "question": "In “My car was stolen,” the agent is unknown, so the by-phrase is {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "agent_relevance"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "omitted",
+                    "options": [
+                        "omitted",
+                        "required",
+                        "the subject",
+                        "with"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvbp-v3-a2-05",
+            "question": "An organization can be an agent: “The decision was made {a1} the committee.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "agent_types"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvbp-v3-a2-06",
+            "question": "Use “with” for an instrument: “The cake was cut {a1} a knife.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvbp-v3-a2-07",
+            "question": "Avoid weak agents: “English is spoken here,” not “English is spoken {a1} people here.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "by_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvbp-v3-a2-08",
+            "question": "If the agent is the focus, active may be clearer: “Shakespeare {a1} the play.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "active_passive_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "was written by",
+                        "was wrote",
+                        "got written"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvbp-v3-a2-09",
+            "question": "Correct the instrument: “The door was opened {a1} a key.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvbp-v3-a2-10",
+            "question": "Use by for a natural force: “The tree was struck {a1} lightning.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvbp-v3-a2-11",
+            "question": "Both can appear: “The picture was painted {a1} Monet with oil paints.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvbp-v3-a2-12",
+            "question": "“The rules must be followed” is better than “The rules must be followed {a1} everyone.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_a2",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvbp-v3-b1-01",
+            "question": "Use “by” to name the agent: “The song was written {a1} Adele.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvbp-v3-b1-02",
+            "question": "Include a by-phrase when the agent is important: “The novel was written {a1} a Nobel Prize winner.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvbp-v3-b1-03",
+            "question": "Omit the by-phrase when the agent is obvious: “He {a1} yesterday.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was arrested",
+                    "options": [
+                        "was arrested",
+                        "was arrested by police",
+                        "arrested by someone",
+                        "was arresting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvbp-v3-b1-04",
+            "question": "In “My car was stolen,” the agent is unknown, so the by-phrase is {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "agent_relevance"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "omitted",
+                    "options": [
+                        "omitted",
+                        "required",
+                        "the subject",
+                        "with"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvbp-v3-b1-05",
+            "question": "An organization can be an agent: “The decision was made {a1} the committee.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "agent_types"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvbp-v3-b1-06",
+            "question": "Use “with” for an instrument: “The cake was cut {a1} a knife.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvbp-v3-b1-07",
+            "question": "Avoid weak agents: “English is spoken here,” not “English is spoken {a1} people here.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "by_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvbp-v3-b1-08",
+            "question": "If the agent is the focus, active may be clearer: “Shakespeare {a1} the play.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "active_passive_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "was written by",
+                        "was wrote",
+                        "got written"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvbp-v3-b1-09",
+            "question": "Correct the instrument: “The door was opened {a1} a key.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvbp-v3-b1-10",
+            "question": "Use by for a natural force: “The tree was struck {a1} lightning.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvbp-v3-b1-11",
+            "question": "Both can appear: “The picture was painted {a1} Monet with oil paints.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvbp-v3-b1-12",
+            "question": "“The rules must be followed” is better than “The rules must be followed {a1} everyone.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b1",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvbp-v3-b2-01",
+            "question": "Use “by” to name the agent: “The song was written {a1} Adele.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvbp-v3-b2-02",
+            "question": "Include a by-phrase when the agent is important: “The novel was written {a1} a Nobel Prize winner.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvbp-v3-b2-03",
+            "question": "Omit the by-phrase when the agent is obvious: “He {a1} yesterday.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was arrested",
+                    "options": [
+                        "was arrested",
+                        "was arrested by police",
+                        "arrested by someone",
+                        "was arresting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvbp-v3-b2-04",
+            "question": "In “My car was stolen,” the agent is unknown, so the by-phrase is {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "agent_relevance"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "omitted",
+                    "options": [
+                        "omitted",
+                        "required",
+                        "the subject",
+                        "with"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvbp-v3-b2-05",
+            "question": "An organization can be an agent: “The decision was made {a1} the committee.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "agent_types"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvbp-v3-b2-06",
+            "question": "Use “with” for an instrument: “The cake was cut {a1} a knife.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvbp-v3-b2-07",
+            "question": "Avoid weak agents: “English is spoken here,” not “English is spoken {a1} people here.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "by_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvbp-v3-b2-08",
+            "question": "If the agent is the focus, active may be clearer: “Shakespeare {a1} the play.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "active_passive_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "was written by",
+                        "was wrote",
+                        "got written"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvbp-v3-b2-09",
+            "question": "Correct the instrument: “The door was opened {a1} a key.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvbp-v3-b2-10",
+            "question": "Use by for a natural force: “The tree was struck {a1} lightning.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvbp-v3-b2-11",
+            "question": "Both can appear: “The picture was painted {a1} Monet with oil paints.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvbp-v3-b2-12",
+            "question": "“The rules must be followed” is better than “The rules must be followed {a1} everyone.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_b2",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvbp-v3-c1-01",
+            "question": "Use “by” to name the agent: “The song was written {a1} Adele.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvbp-v3-c1-02",
+            "question": "Include a by-phrase when the agent is important: “The novel was written {a1} a Nobel Prize winner.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvbp-v3-c1-03",
+            "question": "Omit the by-phrase when the agent is obvious: “He {a1} yesterday.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was arrested",
+                    "options": [
+                        "was arrested",
+                        "was arrested by police",
+                        "arrested by someone",
+                        "was arresting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvbp-v3-c1-04",
+            "question": "In “My car was stolen,” the agent is unknown, so the by-phrase is {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "agent_relevance"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "omitted",
+                    "options": [
+                        "omitted",
+                        "required",
+                        "the subject",
+                        "with"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvbp-v3-c1-05",
+            "question": "An organization can be an agent: “The decision was made {a1} the committee.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "agent_types"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvbp-v3-c1-06",
+            "question": "Use “with” for an instrument: “The cake was cut {a1} a knife.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvbp-v3-c1-07",
+            "question": "Avoid weak agents: “English is spoken here,” not “English is spoken {a1} people here.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "by_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvbp-v3-c1-08",
+            "question": "If the agent is the focus, active may be clearer: “Shakespeare {a1} the play.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "active_passive_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "was written by",
+                        "was wrote",
+                        "got written"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvbp-v3-c1-09",
+            "question": "Correct the instrument: “The door was opened {a1} a key.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvbp-v3-c1-10",
+            "question": "Use by for a natural force: “The tree was struck {a1} lightning.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvbp-v3-c1-11",
+            "question": "Both can appear: “The picture was painted {a1} Monet with oil paints.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvbp-v3-c1-12",
+            "question": "“The rules must be followed” is better than “The rules must be followed {a1} everyone.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c1",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvbp-v3-c2-01",
+            "question": "Use “by” to name the agent: “The song was written {a1} Adele.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvbp-v3-c2-02",
+            "question": "Include a by-phrase when the agent is important: “The novel was written {a1} a Nobel Prize winner.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvbp-v3-c2-03",
+            "question": "Omit the by-phrase when the agent is obvious: “He {a1} yesterday.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was arrested",
+                    "options": [
+                        "was arrested",
+                        "was arrested by police",
+                        "arrested by someone",
+                        "was arresting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvbp-v3-c2-04",
+            "question": "In “My car was stolen,” the agent is unknown, so the by-phrase is {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "agent_relevance"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "omitted",
+                    "options": [
+                        "omitted",
+                        "required",
+                        "the subject",
+                        "with"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvbp-v3-c2-05",
+            "question": "An organization can be an agent: “The decision was made {a1} the committee.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "agent_types"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvbp-v3-c2-06",
+            "question": "Use “with” for an instrument: “The cake was cut {a1} a knife.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvbp-v3-c2-07",
+            "question": "Avoid weak agents: “English is spoken here,” not “English is spoken {a1} people here.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "by_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvbp-v3-c2-08",
+            "question": "If the agent is the focus, active may be clearer: “Shakespeare {a1} the play.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "active_passive_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "was written by",
+                        "was wrote",
+                        "got written"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvbp-v3-c2-09",
+            "question": "Correct the instrument: “The door was opened {a1} a key.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvbp-v3-c2-10",
+            "question": "Use by for a natural force: “The tree was struck {a1} lightning.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "include_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "for",
+                        "to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvbp-v3-c2-11",
+            "question": "Both can appear: “The picture was painted {a1} Monet with oil paints.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "instrument_vs_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "for"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvbp-v3-c2-12",
+            "question": "“The rules must be followed” is better than “The rules must be followed {a1} everyone.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_by_phrase",
+            "tag_keys": [
+                "passive_voice_by_phrase",
+                "level_c2",
+                "omit_by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "to",
+                        "from"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-bp-v3-all",
+        "slug": "passive-voice-by-phrase-all-levels-v3",
+        "name": "Passive Voice By Phrase (All levels V3)",
+        "description": "Standard V3 package for Passive Voice By Phrase across A1-C2.",
+        "question_uuids": [
+            "pvbp-v3-a1-01",
+            "pvbp-v3-a1-02",
+            "pvbp-v3-a1-03",
+            "pvbp-v3-a1-04",
+            "pvbp-v3-a1-05",
+            "pvbp-v3-a1-06",
+            "pvbp-v3-a1-07",
+            "pvbp-v3-a1-08",
+            "pvbp-v3-a1-09",
+            "pvbp-v3-a1-10",
+            "pvbp-v3-a1-11",
+            "pvbp-v3-a1-12",
+            "pvbp-v3-a2-01",
+            "pvbp-v3-a2-02",
+            "pvbp-v3-a2-03",
+            "pvbp-v3-a2-04",
+            "pvbp-v3-a2-05",
+            "pvbp-v3-a2-06",
+            "pvbp-v3-a2-07",
+            "pvbp-v3-a2-08",
+            "pvbp-v3-a2-09",
+            "pvbp-v3-a2-10",
+            "pvbp-v3-a2-11",
+            "pvbp-v3-a2-12",
+            "pvbp-v3-b1-01",
+            "pvbp-v3-b1-02",
+            "pvbp-v3-b1-03",
+            "pvbp-v3-b1-04",
+            "pvbp-v3-b1-05",
+            "pvbp-v3-b1-06",
+            "pvbp-v3-b1-07",
+            "pvbp-v3-b1-08",
+            "pvbp-v3-b1-09",
+            "pvbp-v3-b1-10",
+            "pvbp-v3-b1-11",
+            "pvbp-v3-b1-12",
+            "pvbp-v3-b2-01",
+            "pvbp-v3-b2-02",
+            "pvbp-v3-b2-03",
+            "pvbp-v3-b2-04",
+            "pvbp-v3-b2-05",
+            "pvbp-v3-b2-06",
+            "pvbp-v3-b2-07",
+            "pvbp-v3-b2-08",
+            "pvbp-v3-b2-09",
+            "pvbp-v3-b2-10",
+            "pvbp-v3-b2-11",
+            "pvbp-v3-b2-12",
+            "pvbp-v3-c1-01",
+            "pvbp-v3-c1-02",
+            "pvbp-v3-c1-03",
+            "pvbp-v3-c1-04",
+            "pvbp-v3-c1-05",
+            "pvbp-v3-c1-06",
+            "pvbp-v3-c1-07",
+            "pvbp-v3-c1-08",
+            "pvbp-v3-c1-09",
+            "pvbp-v3-c1-10",
+            "pvbp-v3-c1-11",
+            "pvbp-v3-c1-12",
+            "pvbp-v3-c2-01",
+            "pvbp-v3-c2-02",
+            "pvbp-v3-c2-03",
+            "pvbp-v3-c2-04",
+            "pvbp-v3-c2-05",
+            "pvbp-v3-c2-06",
+            "pvbp-v3-c2-07",
+            "pvbp-v3-c2-08",
+            "pvbp-v3-c2-09",
+            "pvbp-v3-c2-10",
+            "pvbp-v3-c2-11",
+            "pvbp-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceByPhraseAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-passive-voice-by-phrase",
+                    "title": "Passive Voice By Phrase",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/theory-passive-voice-by-phrase"
+                }
+            }
+        }
+    }
+}
