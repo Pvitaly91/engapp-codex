@@ -1,0 +1,1860 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceCommonMistakesAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveVoiceCommonMistakesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_voice_common_mistakes": {
+            "name": "Common Mistakes in Passive Voice"
+        }
+    },
+    "tags": {
+        "passive_voice_common_mistakes": {
+            "name": "Passive Voice Common Mistakes",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "missing_be": {
+            "name": "Missing Be",
+            "category": "topic"
+        },
+        "wrong_v3": {
+            "name": "Wrong V3",
+            "category": "topic"
+        },
+        "wrong_tense": {
+            "name": "Wrong Tense",
+            "category": "topic"
+        },
+        "active_instead_passive": {
+            "name": "Active Instead Passive",
+            "category": "topic"
+        },
+        "wrong_agreement": {
+            "name": "Wrong Agreement",
+            "category": "topic"
+        },
+        "by_agent_overuse": {
+            "name": "By Agent Overuse",
+            "category": "topic"
+        },
+        "intransitive_verbs": {
+            "name": "Intransitive Verbs",
+            "category": "topic"
+        },
+        "incorrect_modal_passive": {
+            "name": "Incorrect Modal Passive",
+            "category": "topic"
+        },
+        "style_register": {
+            "name": "Style Register",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvcm-v3-a1-01",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "missing_be"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvcm-v3-a1-02",
+            "question": "Correct the participle: English is {a1} here.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "wrong_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "spoken",
+                    "options": [
+                        "spoken",
+                        "speak",
+                        "spoke",
+                        "speaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvcm-v3-a1-03",
+            "question": "The work has {a1} done.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "wrong_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvcm-v3-a1-04",
+            "question": "Choose the passive form: The room {a1} every day.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "active_instead_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "cleaned",
+                        "is cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvcm-v3-a1-05",
+            "question": "Plural agreement: The letters {a1} every morning.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "wrong_agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are sent",
+                    "options": [
+                        "are sent",
+                        "is sent",
+                        "was sent",
+                        "sends"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvcm-v3-a1-06",
+            "question": "Avoid unnecessary by-agent: My bike {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "by_agent_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was stolen",
+                    "options": [
+                        "was stolen by someone",
+                        "was stolen",
+                        "stole",
+                        "was stealing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvcm-v3-a1-07",
+            "question": "Only transitive verbs normally form passive: The accident {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "is happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvcm-v3-a1-08",
+            "question": "Correct modal passive: The task {a1} today.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "incorrect_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be finished",
+                    "options": [
+                        "must be finished",
+                        "must finished",
+                        "must be finish",
+                        "is must finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvcm-v3-a1-09",
+            "question": "For a clear responsible person, active style can be {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "style_register"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "better",
+                    "options": [
+                        "better",
+                        "plural",
+                        "passive only",
+                        "wrong"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvcm-v3-a1-10",
+            "question": "Correct the mistake: Does the report checked? {a1} the report checked?",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvcm-v3-a1-11",
+            "question": "Correct the negative: The work {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is not finished",
+                    "options": [
+                        "is not finished",
+                        "does not finished",
+                        "is not finish",
+                        "not is finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvcm-v3-a1-12",
+            "question": "Correct with instrument: The note was written {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pen",
+                    "options": [
+                        "with a pen",
+                        "by a pen",
+                        "from a pen",
+                        "to a pen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvcm-v3-a2-01",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "missing_be"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvcm-v3-a2-02",
+            "question": "Correct the participle: English is {a1} here.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "wrong_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "spoken",
+                    "options": [
+                        "spoken",
+                        "speak",
+                        "spoke",
+                        "speaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvcm-v3-a2-03",
+            "question": "The work has {a1} done.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "wrong_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvcm-v3-a2-04",
+            "question": "Choose the passive form: The room {a1} every day.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "active_instead_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "cleaned",
+                        "is cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvcm-v3-a2-05",
+            "question": "Plural agreement: The letters {a1} every morning.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "wrong_agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are sent",
+                    "options": [
+                        "are sent",
+                        "is sent",
+                        "was sent",
+                        "sends"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvcm-v3-a2-06",
+            "question": "Avoid unnecessary by-agent: My bike {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "by_agent_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was stolen",
+                    "options": [
+                        "was stolen by someone",
+                        "was stolen",
+                        "stole",
+                        "was stealing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvcm-v3-a2-07",
+            "question": "Only transitive verbs normally form passive: The accident {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "is happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvcm-v3-a2-08",
+            "question": "Correct modal passive: The task {a1} today.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "incorrect_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be finished",
+                    "options": [
+                        "must be finished",
+                        "must finished",
+                        "must be finish",
+                        "is must finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvcm-v3-a2-09",
+            "question": "For a clear responsible person, active style can be {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "style_register"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "better",
+                    "options": [
+                        "better",
+                        "plural",
+                        "passive only",
+                        "wrong"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvcm-v3-a2-10",
+            "question": "Correct the mistake: Does the report checked? {a1} the report checked?",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvcm-v3-a2-11",
+            "question": "Correct the negative: The work {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is not finished",
+                    "options": [
+                        "is not finished",
+                        "does not finished",
+                        "is not finish",
+                        "not is finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvcm-v3-a2-12",
+            "question": "Correct with instrument: The note was written {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pen",
+                    "options": [
+                        "with a pen",
+                        "by a pen",
+                        "from a pen",
+                        "to a pen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvcm-v3-b1-01",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "missing_be"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvcm-v3-b1-02",
+            "question": "Correct the participle: English is {a1} here.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "wrong_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "spoken",
+                    "options": [
+                        "spoken",
+                        "speak",
+                        "spoke",
+                        "speaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvcm-v3-b1-03",
+            "question": "The work has {a1} done.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "wrong_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvcm-v3-b1-04",
+            "question": "Choose the passive form: The room {a1} every day.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "active_instead_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "cleaned",
+                        "is cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvcm-v3-b1-05",
+            "question": "Plural agreement: The letters {a1} every morning.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "wrong_agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are sent",
+                    "options": [
+                        "are sent",
+                        "is sent",
+                        "was sent",
+                        "sends"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvcm-v3-b1-06",
+            "question": "Avoid unnecessary by-agent: My bike {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "by_agent_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was stolen",
+                    "options": [
+                        "was stolen by someone",
+                        "was stolen",
+                        "stole",
+                        "was stealing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvcm-v3-b1-07",
+            "question": "Only transitive verbs normally form passive: The accident {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "is happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvcm-v3-b1-08",
+            "question": "Correct modal passive: The task {a1} today.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "incorrect_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be finished",
+                    "options": [
+                        "must be finished",
+                        "must finished",
+                        "must be finish",
+                        "is must finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvcm-v3-b1-09",
+            "question": "For a clear responsible person, active style can be {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "style_register"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "better",
+                    "options": [
+                        "better",
+                        "plural",
+                        "passive only",
+                        "wrong"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvcm-v3-b1-10",
+            "question": "Correct the mistake: Does the report checked? {a1} the report checked?",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvcm-v3-b1-11",
+            "question": "Correct the negative: The work {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is not finished",
+                    "options": [
+                        "is not finished",
+                        "does not finished",
+                        "is not finish",
+                        "not is finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvcm-v3-b1-12",
+            "question": "Correct with instrument: The note was written {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pen",
+                    "options": [
+                        "with a pen",
+                        "by a pen",
+                        "from a pen",
+                        "to a pen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvcm-v3-b2-01",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "missing_be"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvcm-v3-b2-02",
+            "question": "Correct the participle: English is {a1} here.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "wrong_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "spoken",
+                    "options": [
+                        "spoken",
+                        "speak",
+                        "spoke",
+                        "speaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvcm-v3-b2-03",
+            "question": "The work has {a1} done.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "wrong_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvcm-v3-b2-04",
+            "question": "Choose the passive form: The room {a1} every day.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "active_instead_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "cleaned",
+                        "is cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvcm-v3-b2-05",
+            "question": "Plural agreement: The letters {a1} every morning.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "wrong_agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are sent",
+                    "options": [
+                        "are sent",
+                        "is sent",
+                        "was sent",
+                        "sends"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvcm-v3-b2-06",
+            "question": "Avoid unnecessary by-agent: My bike {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "by_agent_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was stolen",
+                    "options": [
+                        "was stolen by someone",
+                        "was stolen",
+                        "stole",
+                        "was stealing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvcm-v3-b2-07",
+            "question": "Only transitive verbs normally form passive: The accident {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "is happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvcm-v3-b2-08",
+            "question": "Correct modal passive: The task {a1} today.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "incorrect_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be finished",
+                    "options": [
+                        "must be finished",
+                        "must finished",
+                        "must be finish",
+                        "is must finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvcm-v3-b2-09",
+            "question": "For a clear responsible person, active style can be {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "style_register"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "better",
+                    "options": [
+                        "better",
+                        "plural",
+                        "passive only",
+                        "wrong"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvcm-v3-b2-10",
+            "question": "Correct the mistake: Does the report checked? {a1} the report checked?",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvcm-v3-b2-11",
+            "question": "Correct the negative: The work {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is not finished",
+                    "options": [
+                        "is not finished",
+                        "does not finished",
+                        "is not finish",
+                        "not is finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvcm-v3-b2-12",
+            "question": "Correct with instrument: The note was written {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pen",
+                    "options": [
+                        "with a pen",
+                        "by a pen",
+                        "from a pen",
+                        "to a pen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvcm-v3-c1-01",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "missing_be"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvcm-v3-c1-02",
+            "question": "Correct the participle: English is {a1} here.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "wrong_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "spoken",
+                    "options": [
+                        "spoken",
+                        "speak",
+                        "spoke",
+                        "speaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvcm-v3-c1-03",
+            "question": "The work has {a1} done.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "wrong_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvcm-v3-c1-04",
+            "question": "Choose the passive form: The room {a1} every day.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "active_instead_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "cleaned",
+                        "is cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvcm-v3-c1-05",
+            "question": "Plural agreement: The letters {a1} every morning.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "wrong_agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are sent",
+                    "options": [
+                        "are sent",
+                        "is sent",
+                        "was sent",
+                        "sends"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvcm-v3-c1-06",
+            "question": "Avoid unnecessary by-agent: My bike {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "by_agent_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was stolen",
+                    "options": [
+                        "was stolen by someone",
+                        "was stolen",
+                        "stole",
+                        "was stealing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvcm-v3-c1-07",
+            "question": "Only transitive verbs normally form passive: The accident {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "is happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvcm-v3-c1-08",
+            "question": "Correct modal passive: The task {a1} today.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "incorrect_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be finished",
+                    "options": [
+                        "must be finished",
+                        "must finished",
+                        "must be finish",
+                        "is must finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvcm-v3-c1-09",
+            "question": "For a clear responsible person, active style can be {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "style_register"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "better",
+                    "options": [
+                        "better",
+                        "plural",
+                        "passive only",
+                        "wrong"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvcm-v3-c1-10",
+            "question": "Correct the mistake: Does the report checked? {a1} the report checked?",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvcm-v3-c1-11",
+            "question": "Correct the negative: The work {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is not finished",
+                    "options": [
+                        "is not finished",
+                        "does not finished",
+                        "is not finish",
+                        "not is finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvcm-v3-c1-12",
+            "question": "Correct with instrument: The note was written {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pen",
+                    "options": [
+                        "with a pen",
+                        "by a pen",
+                        "from a pen",
+                        "to a pen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvcm-v3-c2-01",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "missing_be"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvcm-v3-c2-02",
+            "question": "Correct the participle: English is {a1} here.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "wrong_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "spoken",
+                    "options": [
+                        "spoken",
+                        "speak",
+                        "spoke",
+                        "speaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvcm-v3-c2-03",
+            "question": "The work has {a1} done.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "wrong_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvcm-v3-c2-04",
+            "question": "Choose the passive form: The room {a1} every day.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "active_instead_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "cleaned",
+                        "is cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvcm-v3-c2-05",
+            "question": "Plural agreement: The letters {a1} every morning.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "wrong_agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are sent",
+                    "options": [
+                        "are sent",
+                        "is sent",
+                        "was sent",
+                        "sends"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvcm-v3-c2-06",
+            "question": "Avoid unnecessary by-agent: My bike {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "by_agent_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was stolen",
+                    "options": [
+                        "was stolen by someone",
+                        "was stolen",
+                        "stole",
+                        "was stealing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvcm-v3-c2-07",
+            "question": "Only transitive verbs normally form passive: The accident {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "is happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvcm-v3-c2-08",
+            "question": "Correct modal passive: The task {a1} today.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "incorrect_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be finished",
+                    "options": [
+                        "must be finished",
+                        "must finished",
+                        "must be finish",
+                        "is must finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvcm-v3-c2-09",
+            "question": "For a clear responsible person, active style can be {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "style_register"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "better",
+                    "options": [
+                        "better",
+                        "plural",
+                        "passive only",
+                        "wrong"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvcm-v3-c2-10",
+            "question": "Correct the mistake: Does the report checked? {a1} the report checked?",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvcm-v3-c2-11",
+            "question": "Correct the negative: The work {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is not finished",
+                    "options": [
+                        "is not finished",
+                        "does not finished",
+                        "is not finish",
+                        "not is finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvcm-v3-c2-12",
+            "question": "Correct with instrument: The note was written {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_common_mistakes",
+            "tag_keys": [
+                "passive_voice_common_mistakes",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pen",
+                    "options": [
+                        "with a pen",
+                        "by a pen",
+                        "from a pen",
+                        "to a pen"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-cm-v3-all",
+        "slug": "passive-voice-common-mistakes-all-levels-v3",
+        "name": "Common Mistakes in Passive Voice (All levels V3)",
+        "description": "Standard V3 package for Common Mistakes in Passive Voice across A1-C2.",
+        "question_uuids": [
+            "pvcm-v3-a1-01",
+            "pvcm-v3-a1-02",
+            "pvcm-v3-a1-03",
+            "pvcm-v3-a1-04",
+            "pvcm-v3-a1-05",
+            "pvcm-v3-a1-06",
+            "pvcm-v3-a1-07",
+            "pvcm-v3-a1-08",
+            "pvcm-v3-a1-09",
+            "pvcm-v3-a1-10",
+            "pvcm-v3-a1-11",
+            "pvcm-v3-a1-12",
+            "pvcm-v3-a2-01",
+            "pvcm-v3-a2-02",
+            "pvcm-v3-a2-03",
+            "pvcm-v3-a2-04",
+            "pvcm-v3-a2-05",
+            "pvcm-v3-a2-06",
+            "pvcm-v3-a2-07",
+            "pvcm-v3-a2-08",
+            "pvcm-v3-a2-09",
+            "pvcm-v3-a2-10",
+            "pvcm-v3-a2-11",
+            "pvcm-v3-a2-12",
+            "pvcm-v3-b1-01",
+            "pvcm-v3-b1-02",
+            "pvcm-v3-b1-03",
+            "pvcm-v3-b1-04",
+            "pvcm-v3-b1-05",
+            "pvcm-v3-b1-06",
+            "pvcm-v3-b1-07",
+            "pvcm-v3-b1-08",
+            "pvcm-v3-b1-09",
+            "pvcm-v3-b1-10",
+            "pvcm-v3-b1-11",
+            "pvcm-v3-b1-12",
+            "pvcm-v3-b2-01",
+            "pvcm-v3-b2-02",
+            "pvcm-v3-b2-03",
+            "pvcm-v3-b2-04",
+            "pvcm-v3-b2-05",
+            "pvcm-v3-b2-06",
+            "pvcm-v3-b2-07",
+            "pvcm-v3-b2-08",
+            "pvcm-v3-b2-09",
+            "pvcm-v3-b2-10",
+            "pvcm-v3-b2-11",
+            "pvcm-v3-b2-12",
+            "pvcm-v3-c1-01",
+            "pvcm-v3-c1-02",
+            "pvcm-v3-c1-03",
+            "pvcm-v3-c1-04",
+            "pvcm-v3-c1-05",
+            "pvcm-v3-c1-06",
+            "pvcm-v3-c1-07",
+            "pvcm-v3-c1-08",
+            "pvcm-v3-c1-09",
+            "pvcm-v3-c1-10",
+            "pvcm-v3-c1-11",
+            "pvcm-v3-c1-12",
+            "pvcm-v3-c2-01",
+            "pvcm-v3-c2-02",
+            "pvcm-v3-c2-03",
+            "pvcm-v3-c2-04",
+            "pvcm-v3-c2-05",
+            "pvcm-v3-c2-06",
+            "pvcm-v3-c2-07",
+            "pvcm-v3-c2-08",
+            "pvcm-v3-c2-09",
+            "pvcm-v3-c2-10",
+            "pvcm-v3-c2-11",
+            "pvcm-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceCommonMistakesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-passive-voice-common-mistakes",
+                    "title": "Common Mistakes in Passive Voice",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceCommonMistakesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/theory-passive-voice-common-mistakes"
+                }
+            }
+        }
+    }
+}

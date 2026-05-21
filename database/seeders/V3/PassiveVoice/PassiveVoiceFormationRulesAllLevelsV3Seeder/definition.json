@@ -1,0 +1,1856 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceFormationRulesAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveVoiceFormationRulesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_voice_formation_rules": {
+            "name": "Passive Voice Formation Rules"
+        }
+    },
+    "tags": {
+        "passive_voice_formation_rules": {
+            "name": "Passive Voice Formation Rules",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "be_v3": {
+            "name": "Be V3",
+            "category": "topic"
+        },
+        "active_to_passive": {
+            "name": "Active To Passive",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "subject_by_agent": {
+            "name": "Subject By Agent",
+            "category": "topic"
+        },
+        "by_phrase": {
+            "name": "By Phrase",
+            "category": "topic"
+        },
+        "be_by_tense": {
+            "name": "Be By Tense",
+            "category": "topic"
+        },
+        "participles": {
+            "name": "Participles",
+            "category": "topic"
+        },
+        "passive_use": {
+            "name": "Passive Use",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvfr-v3-a1-01",
+            "question": "A passive sentence uses {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "be_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "be + the past participle",
+                    "options": [
+                        "be + the past participle",
+                        "do + the base verb",
+                        "have + infinitive",
+                        "will + infinitive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvfr-v3-a1-02",
+            "question": "Active: People clean this room. Passive: This room {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "is clean",
+                        "cleaned"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvfr-v3-a1-03",
+            "question": "In the passive sentence, the object becomes the {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "adverb",
+                        "article",
+                        "preposition"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvfr-v3-a1-04",
+            "question": "Active: Maria wrote the report. Passive: The report was written {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "subject_by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by Maria",
+                    "options": [
+                        "by Maria",
+                        "with Maria",
+                        "to Maria",
+                        "for Maria"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvfr-v3-a1-05",
+            "question": "Use a by-phrase when the {a1} is important.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "agent",
+                    "options": [
+                        "agent",
+                        "time",
+                        "place",
+                        "object"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvfr-v3-a1-06",
+            "question": "The form of be changes according to the {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "be_by_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "tense",
+                    "options": [
+                        "tense",
+                        "article",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvfr-v3-a1-07",
+            "question": "The passive needs the past participle: The window was {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "participles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broken",
+                    "options": [
+                        "broken",
+                        "broke",
+                        "break",
+                        "breaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvfr-v3-a1-08",
+            "question": "Passive is useful when the doer is {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "unknown",
+                    "options": [
+                        "unknown",
+                        "plural",
+                        "countable",
+                        "near"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvfr-v3-a1-09",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvfr-v3-a1-10",
+            "question": "Active: They built the bridge. Passive: The bridge {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "built",
+                        "is build",
+                        "was build"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvfr-v3-a1-11",
+            "question": "The passive structure places the focus on the {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "action or result",
+                    "options": [
+                        "action or result",
+                        "question word",
+                        "active subject",
+                        "modal meaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvfr-v3-a1-12",
+            "question": "Use with for an instrument: The note was written {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a1",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pencil",
+                    "options": [
+                        "with a pencil",
+                        "by a pencil",
+                        "for a pencil",
+                        "to a pencil"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvfr-v3-a2-01",
+            "question": "A passive sentence uses {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "be_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "be + the past participle",
+                    "options": [
+                        "be + the past participle",
+                        "do + the base verb",
+                        "have + infinitive",
+                        "will + infinitive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvfr-v3-a2-02",
+            "question": "Active: People clean this room. Passive: This room {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "is clean",
+                        "cleaned"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvfr-v3-a2-03",
+            "question": "In the passive sentence, the object becomes the {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "adverb",
+                        "article",
+                        "preposition"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvfr-v3-a2-04",
+            "question": "Active: Maria wrote the report. Passive: The report was written {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "subject_by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by Maria",
+                    "options": [
+                        "by Maria",
+                        "with Maria",
+                        "to Maria",
+                        "for Maria"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvfr-v3-a2-05",
+            "question": "Use a by-phrase when the {a1} is important.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "agent",
+                    "options": [
+                        "agent",
+                        "time",
+                        "place",
+                        "object"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvfr-v3-a2-06",
+            "question": "The form of be changes according to the {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "be_by_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "tense",
+                    "options": [
+                        "tense",
+                        "article",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvfr-v3-a2-07",
+            "question": "The passive needs the past participle: The window was {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "participles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broken",
+                    "options": [
+                        "broken",
+                        "broke",
+                        "break",
+                        "breaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvfr-v3-a2-08",
+            "question": "Passive is useful when the doer is {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "unknown",
+                    "options": [
+                        "unknown",
+                        "plural",
+                        "countable",
+                        "near"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvfr-v3-a2-09",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvfr-v3-a2-10",
+            "question": "Active: They built the bridge. Passive: The bridge {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "built",
+                        "is build",
+                        "was build"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvfr-v3-a2-11",
+            "question": "The passive structure places the focus on the {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "action or result",
+                    "options": [
+                        "action or result",
+                        "question word",
+                        "active subject",
+                        "modal meaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvfr-v3-a2-12",
+            "question": "Use with for an instrument: The note was written {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_a2",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pencil",
+                    "options": [
+                        "with a pencil",
+                        "by a pencil",
+                        "for a pencil",
+                        "to a pencil"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvfr-v3-b1-01",
+            "question": "A passive sentence uses {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "be_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "be + the past participle",
+                    "options": [
+                        "be + the past participle",
+                        "do + the base verb",
+                        "have + infinitive",
+                        "will + infinitive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvfr-v3-b1-02",
+            "question": "Active: People clean this room. Passive: This room {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "is clean",
+                        "cleaned"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvfr-v3-b1-03",
+            "question": "In the passive sentence, the object becomes the {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "adverb",
+                        "article",
+                        "preposition"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvfr-v3-b1-04",
+            "question": "Active: Maria wrote the report. Passive: The report was written {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "subject_by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by Maria",
+                    "options": [
+                        "by Maria",
+                        "with Maria",
+                        "to Maria",
+                        "for Maria"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvfr-v3-b1-05",
+            "question": "Use a by-phrase when the {a1} is important.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "agent",
+                    "options": [
+                        "agent",
+                        "time",
+                        "place",
+                        "object"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvfr-v3-b1-06",
+            "question": "The form of be changes according to the {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "be_by_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "tense",
+                    "options": [
+                        "tense",
+                        "article",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvfr-v3-b1-07",
+            "question": "The passive needs the past participle: The window was {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "participles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broken",
+                    "options": [
+                        "broken",
+                        "broke",
+                        "break",
+                        "breaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvfr-v3-b1-08",
+            "question": "Passive is useful when the doer is {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "unknown",
+                    "options": [
+                        "unknown",
+                        "plural",
+                        "countable",
+                        "near"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvfr-v3-b1-09",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvfr-v3-b1-10",
+            "question": "Active: They built the bridge. Passive: The bridge {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "built",
+                        "is build",
+                        "was build"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvfr-v3-b1-11",
+            "question": "The passive structure places the focus on the {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "action or result",
+                    "options": [
+                        "action or result",
+                        "question word",
+                        "active subject",
+                        "modal meaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvfr-v3-b1-12",
+            "question": "Use with for an instrument: The note was written {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b1",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pencil",
+                    "options": [
+                        "with a pencil",
+                        "by a pencil",
+                        "for a pencil",
+                        "to a pencil"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvfr-v3-b2-01",
+            "question": "A passive sentence uses {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "be_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "be + the past participle",
+                    "options": [
+                        "be + the past participle",
+                        "do + the base verb",
+                        "have + infinitive",
+                        "will + infinitive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvfr-v3-b2-02",
+            "question": "Active: People clean this room. Passive: This room {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "is clean",
+                        "cleaned"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvfr-v3-b2-03",
+            "question": "In the passive sentence, the object becomes the {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "adverb",
+                        "article",
+                        "preposition"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvfr-v3-b2-04",
+            "question": "Active: Maria wrote the report. Passive: The report was written {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "subject_by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by Maria",
+                    "options": [
+                        "by Maria",
+                        "with Maria",
+                        "to Maria",
+                        "for Maria"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvfr-v3-b2-05",
+            "question": "Use a by-phrase when the {a1} is important.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "agent",
+                    "options": [
+                        "agent",
+                        "time",
+                        "place",
+                        "object"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvfr-v3-b2-06",
+            "question": "The form of be changes according to the {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "be_by_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "tense",
+                    "options": [
+                        "tense",
+                        "article",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvfr-v3-b2-07",
+            "question": "The passive needs the past participle: The window was {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "participles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broken",
+                    "options": [
+                        "broken",
+                        "broke",
+                        "break",
+                        "breaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvfr-v3-b2-08",
+            "question": "Passive is useful when the doer is {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "unknown",
+                    "options": [
+                        "unknown",
+                        "plural",
+                        "countable",
+                        "near"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvfr-v3-b2-09",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvfr-v3-b2-10",
+            "question": "Active: They built the bridge. Passive: The bridge {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "built",
+                        "is build",
+                        "was build"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvfr-v3-b2-11",
+            "question": "The passive structure places the focus on the {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "action or result",
+                    "options": [
+                        "action or result",
+                        "question word",
+                        "active subject",
+                        "modal meaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvfr-v3-b2-12",
+            "question": "Use with for an instrument: The note was written {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_b2",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pencil",
+                    "options": [
+                        "with a pencil",
+                        "by a pencil",
+                        "for a pencil",
+                        "to a pencil"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvfr-v3-c1-01",
+            "question": "A passive sentence uses {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "be_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "be + the past participle",
+                    "options": [
+                        "be + the past participle",
+                        "do + the base verb",
+                        "have + infinitive",
+                        "will + infinitive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvfr-v3-c1-02",
+            "question": "Active: People clean this room. Passive: This room {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "is clean",
+                        "cleaned"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvfr-v3-c1-03",
+            "question": "In the passive sentence, the object becomes the {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "adverb",
+                        "article",
+                        "preposition"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvfr-v3-c1-04",
+            "question": "Active: Maria wrote the report. Passive: The report was written {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "subject_by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by Maria",
+                    "options": [
+                        "by Maria",
+                        "with Maria",
+                        "to Maria",
+                        "for Maria"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvfr-v3-c1-05",
+            "question": "Use a by-phrase when the {a1} is important.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "agent",
+                    "options": [
+                        "agent",
+                        "time",
+                        "place",
+                        "object"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvfr-v3-c1-06",
+            "question": "The form of be changes according to the {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "be_by_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "tense",
+                    "options": [
+                        "tense",
+                        "article",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvfr-v3-c1-07",
+            "question": "The passive needs the past participle: The window was {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "participles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broken",
+                    "options": [
+                        "broken",
+                        "broke",
+                        "break",
+                        "breaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvfr-v3-c1-08",
+            "question": "Passive is useful when the doer is {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "unknown",
+                    "options": [
+                        "unknown",
+                        "plural",
+                        "countable",
+                        "near"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvfr-v3-c1-09",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvfr-v3-c1-10",
+            "question": "Active: They built the bridge. Passive: The bridge {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "built",
+                        "is build",
+                        "was build"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvfr-v3-c1-11",
+            "question": "The passive structure places the focus on the {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "action or result",
+                    "options": [
+                        "action or result",
+                        "question word",
+                        "active subject",
+                        "modal meaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvfr-v3-c1-12",
+            "question": "Use with for an instrument: The note was written {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c1",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pencil",
+                    "options": [
+                        "with a pencil",
+                        "by a pencil",
+                        "for a pencil",
+                        "to a pencil"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvfr-v3-c2-01",
+            "question": "A passive sentence uses {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "be_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "be + the past participle",
+                    "options": [
+                        "be + the past participle",
+                        "do + the base verb",
+                        "have + infinitive",
+                        "will + infinitive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvfr-v3-c2-02",
+            "question": "Active: People clean this room. Passive: This room {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is cleaned",
+                    "options": [
+                        "is cleaned",
+                        "cleans",
+                        "is clean",
+                        "cleaned"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvfr-v3-c2-03",
+            "question": "In the passive sentence, the object becomes the {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "adverb",
+                        "article",
+                        "preposition"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvfr-v3-c2-04",
+            "question": "Active: Maria wrote the report. Passive: The report was written {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "subject_by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "by Maria",
+                    "options": [
+                        "by Maria",
+                        "with Maria",
+                        "to Maria",
+                        "for Maria"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvfr-v3-c2-05",
+            "question": "Use a by-phrase when the {a1} is important.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "agent",
+                    "options": [
+                        "agent",
+                        "time",
+                        "place",
+                        "object"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvfr-v3-c2-06",
+            "question": "The form of be changes according to the {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "be_by_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "tense",
+                    "options": [
+                        "tense",
+                        "article",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvfr-v3-c2-07",
+            "question": "The passive needs the past participle: The window was {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "participles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broken",
+                    "options": [
+                        "broken",
+                        "broke",
+                        "break",
+                        "breaking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvfr-v3-c2-08",
+            "question": "Passive is useful when the doer is {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "unknown",
+                    "options": [
+                        "unknown",
+                        "plural",
+                        "countable",
+                        "near"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvfr-v3-c2-09",
+            "question": "Correct the mistake: The letter written yesterday. The letter {a1} yesterday.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "written",
+                        "did written",
+                        "was wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvfr-v3-c2-10",
+            "question": "Active: They built the bridge. Passive: The bridge {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "built",
+                        "is build",
+                        "was build"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvfr-v3-c2-11",
+            "question": "The passive structure places the focus on the {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "passive_use"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "action or result",
+                    "options": [
+                        "action or result",
+                        "question word",
+                        "active subject",
+                        "modal meaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvfr-v3-c2-12",
+            "question": "Use with for an instrument: The note was written {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_formation_rules",
+            "tag_keys": [
+                "passive_voice_formation_rules",
+                "level_c2",
+                "by_phrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "with a pencil",
+                    "options": [
+                        "with a pencil",
+                        "by a pencil",
+                        "for a pencil",
+                        "to a pencil"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-fr-v3-all",
+        "slug": "passive-voice-formation-rules-all-levels-v3",
+        "name": "Passive Voice Formation Rules (All levels V3)",
+        "description": "Standard V3 package for Passive Voice Formation Rules across A1-C2.",
+        "question_uuids": [
+            "pvfr-v3-a1-01",
+            "pvfr-v3-a1-02",
+            "pvfr-v3-a1-03",
+            "pvfr-v3-a1-04",
+            "pvfr-v3-a1-05",
+            "pvfr-v3-a1-06",
+            "pvfr-v3-a1-07",
+            "pvfr-v3-a1-08",
+            "pvfr-v3-a1-09",
+            "pvfr-v3-a1-10",
+            "pvfr-v3-a1-11",
+            "pvfr-v3-a1-12",
+            "pvfr-v3-a2-01",
+            "pvfr-v3-a2-02",
+            "pvfr-v3-a2-03",
+            "pvfr-v3-a2-04",
+            "pvfr-v3-a2-05",
+            "pvfr-v3-a2-06",
+            "pvfr-v3-a2-07",
+            "pvfr-v3-a2-08",
+            "pvfr-v3-a2-09",
+            "pvfr-v3-a2-10",
+            "pvfr-v3-a2-11",
+            "pvfr-v3-a2-12",
+            "pvfr-v3-b1-01",
+            "pvfr-v3-b1-02",
+            "pvfr-v3-b1-03",
+            "pvfr-v3-b1-04",
+            "pvfr-v3-b1-05",
+            "pvfr-v3-b1-06",
+            "pvfr-v3-b1-07",
+            "pvfr-v3-b1-08",
+            "pvfr-v3-b1-09",
+            "pvfr-v3-b1-10",
+            "pvfr-v3-b1-11",
+            "pvfr-v3-b1-12",
+            "pvfr-v3-b2-01",
+            "pvfr-v3-b2-02",
+            "pvfr-v3-b2-03",
+            "pvfr-v3-b2-04",
+            "pvfr-v3-b2-05",
+            "pvfr-v3-b2-06",
+            "pvfr-v3-b2-07",
+            "pvfr-v3-b2-08",
+            "pvfr-v3-b2-09",
+            "pvfr-v3-b2-10",
+            "pvfr-v3-b2-11",
+            "pvfr-v3-b2-12",
+            "pvfr-v3-c1-01",
+            "pvfr-v3-c1-02",
+            "pvfr-v3-c1-03",
+            "pvfr-v3-c1-04",
+            "pvfr-v3-c1-05",
+            "pvfr-v3-c1-06",
+            "pvfr-v3-c1-07",
+            "pvfr-v3-c1-08",
+            "pvfr-v3-c1-09",
+            "pvfr-v3-c1-10",
+            "pvfr-v3-c1-11",
+            "pvfr-v3-c1-12",
+            "pvfr-v3-c2-01",
+            "pvfr-v3-c2-02",
+            "pvfr-v3-c2-03",
+            "pvfr-v3-c2-04",
+            "pvfr-v3-c2-05",
+            "pvfr-v3-c2-06",
+            "pvfr-v3-c2-07",
+            "pvfr-v3-c2-08",
+            "pvfr-v3-c2-09",
+            "pvfr-v3-c2-10",
+            "pvfr-v3-c2-11",
+            "pvfr-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceFormationRulesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-passive-voice-formation-rules",
+                    "title": "Passive Voice Formation Rules",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceFormationRulesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/theory-passive-voice-formation-rules"
+                }
+            }
+        }
+    }
+}
