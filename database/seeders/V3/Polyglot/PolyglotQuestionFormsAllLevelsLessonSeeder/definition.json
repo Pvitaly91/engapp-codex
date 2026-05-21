@@ -1,0 +1,5406 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotQuestionFormsAllLevelsLessonSeeder",
+        "uuid_namespace": "PolyglotQuestionFormsAllLevelsLessonSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_question_forms": {
+            "name": "Question Forms"
+        }
+    },
+    "tags": {
+        "polyglot_question_forms": {
+            "name": "Question Forms",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "general_structure": {
+            "name": "General Structure",
+            "category": "topic"
+        },
+        "auxiliary_before_subject": {
+            "name": "Auxiliary Before Subject",
+            "category": "topic"
+        },
+        "yes_no_questions": {
+            "name": "Yes No Questions",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh Questions",
+            "category": "topic"
+        },
+        "do_does_did": {
+            "name": "Do Does Did",
+            "category": "topic"
+        },
+        "to_be_questions": {
+            "name": "To Be Questions",
+            "category": "topic"
+        },
+        "modal_questions": {
+            "name": "Modal Questions",
+            "category": "topic"
+        },
+        "perfect_auxiliary_questions": {
+            "name": "Perfect Auxiliary Questions",
+            "category": "topic"
+        },
+        "question_word_order": {
+            "name": "Question Word Order",
+            "category": "topic"
+        },
+        "subject_questions_overview": {
+            "name": "Subject Questions Overview",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_question_forms",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qf-poly-a1-01",
+            "question": "Ти готовий?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Are",
+                "a2": "you",
+                "a3": "ready?"
+            },
+            "options": [
+                "Are",
+                "you",
+                "ready?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти готовий?",
+            "target_text": "Are you ready?",
+            "tokens_correct": [
+                "Are",
+                "you",
+                "ready?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "qf-poly-a1-02",
+            "question": "Нам варто чекати тут?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "auxiliary_before_subject"
+            ],
+            "answers": {
+                "a1": "Should",
+                "a2": "we",
+                "a3": "wait",
+                "a4": "here?"
+            },
+            "options": [
+                "Should",
+                "we",
+                "wait",
+                "here?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Нам варто чекати тут?",
+            "target_text": "Should we wait here?",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "wait",
+                "here?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "qf-poly-a1-03",
+            "question": "Вона працює тут?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "yes_no_questions"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "work",
+                "a4": "here?"
+            },
+            "options": [
+                "Does",
+                "she",
+                "work",
+                "here?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона працює тут?",
+            "target_text": "Does she work here?",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "work",
+                "here?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "qf-poly-a1-04",
+            "question": "Де вони живуть?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "wh_questions"
+            ],
+            "answers": {
+                "a1": "Where",
+                "a2": "do",
+                "a3": "they",
+                "a4": "live?"
+            },
+            "options": [
+                "Where",
+                "do",
+                "they",
+                "live?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Де вони живуть?",
+            "target_text": "Where do they live?",
+            "tokens_correct": [
+                "Where",
+                "do",
+                "they",
+                "live?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "qf-poly-a1-05",
+            "question": "Ти говориш англійською?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "do_does_did"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "speak",
+                "a4": "English?"
+            },
+            "options": [
+                "Do",
+                "you",
+                "speak",
+                "English?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти говориш англійською?",
+            "target_text": "Do you speak English?",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "speak",
+                "English?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "qf-poly-a1-06",
+            "question": "Він удома?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "to_be_questions"
+            ],
+            "answers": {
+                "a1": "Is",
+                "a2": "he",
+                "a3": "at",
+                "a4": "home?"
+            },
+            "options": [
+                "Is",
+                "he",
+                "at",
+                "home?",
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Він удома?",
+            "target_text": "Is he at home?",
+            "tokens_correct": [
+                "Is",
+                "he",
+                "at",
+                "home?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "qf-poly-a1-07",
+            "question": "Ти можеш допомогти мені?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "modal_questions"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "you",
+                "a3": "help",
+                "a4": "me?"
+            },
+            "options": [
+                "Can",
+                "you",
+                "help",
+                "me?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти можеш допомогти мені?",
+            "target_text": "Can you help me?",
+            "tokens_correct": [
+                "Can",
+                "you",
+                "help",
+                "me?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "qf-poly-a1-08",
+            "question": "Вона закінчила звіт?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "perfect_auxiliary_questions"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "she",
+                "a3": "finished",
+                "a4": "the",
+                "a5": "report?"
+            },
+            "options": [
+                "Has",
+                "she",
+                "finished",
+                "the",
+                "report?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона закінчила звіт?",
+            "target_text": "Has she finished the report?",
+            "tokens_correct": [
+                "Has",
+                "she",
+                "finished",
+                "the",
+                "report?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "qf-poly-a1-09",
+            "question": "Чому вони пішли рано?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "question_word_order"
+            ],
+            "answers": {
+                "a1": "Why",
+                "a2": "did",
+                "a3": "they",
+                "a4": "leave",
+                "a5": "early?"
+            },
+            "options": [
+                "Why",
+                "did",
+                "they",
+                "leave",
+                "early?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "source_text_uk": "Чому вони пішли рано?",
+            "target_text": "Why did they leave early?",
+            "tokens_correct": [
+                "Why",
+                "did",
+                "they",
+                "leave",
+                "early?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "qf-poly-a1-10",
+            "question": "Хто зателефонував тобі?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "subject_questions_overview"
+            ],
+            "answers": {
+                "a1": "Who",
+                "a2": "called",
+                "a3": "you?"
+            },
+            "options": [
+                "Who",
+                "called",
+                "you?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Хто зателефонував тобі?",
+            "target_text": "Who called you?",
+            "tokens_correct": [
+                "Who",
+                "called",
+                "you?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "qf-poly-a1-11",
+            "question": "Коли починається урок?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "When",
+                "a2": "does",
+                "a3": "the",
+                "a4": "lesson",
+                "a5": "start?"
+            },
+            "options": [
+                "When",
+                "does",
+                "the",
+                "lesson",
+                "start?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Коли починається урок?",
+            "target_text": "When does the lesson start?",
+            "tokens_correct": [
+                "When",
+                "does",
+                "the",
+                "lesson",
+                "start?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "qf-poly-a1-12",
+            "question": "Чи буде команда готова завтра?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a1",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "the",
+                "a3": "team",
+                "a4": "be",
+                "a5": "ready",
+                "a6": "tomorrow?"
+            },
+            "options": [
+                "Will",
+                "the",
+                "team",
+                "be",
+                "ready",
+                "tomorrow?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи буде команда готова завтра?",
+            "target_text": "Will the team be ready tomorrow?",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "team",
+                "be",
+                "ready",
+                "tomorrow?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "qf-poly-a2-01",
+            "question": "Ти живеш тут?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "live",
+                "a4": "here?"
+            },
+            "options": [
+                "Do",
+                "you",
+                "live",
+                "here?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти живеш тут?",
+            "target_text": "Do you live here?",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "live",
+                "here?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "qf-poly-a2-02",
+            "question": "Вона може чекати?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "auxiliary_before_subject"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "she",
+                "a3": "wait?"
+            },
+            "options": [
+                "Can",
+                "she",
+                "wait?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона може чекати?",
+            "target_text": "Can she wait?",
+            "tokens_correct": [
+                "Can",
+                "she",
+                "wait?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "qf-poly-a2-03",
+            "question": "Вони вчора прийшли?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "yes_no_questions"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "they",
+                "a3": "come",
+                "a4": "yesterday?"
+            },
+            "options": [
+                "Did",
+                "they",
+                "come",
+                "yesterday?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони вчора прийшли?",
+            "target_text": "Did they come yesterday?",
+            "tokens_correct": [
+                "Did",
+                "they",
+                "come",
+                "yesterday?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "qf-poly-a2-04",
+            "question": "Коли починається фільм?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "wh_questions"
+            ],
+            "answers": {
+                "a1": "When",
+                "a2": "does",
+                "a3": "the",
+                "a4": "film",
+                "a5": "start?"
+            },
+            "options": [
+                "When",
+                "does",
+                "the",
+                "film",
+                "start?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Коли починається фільм?",
+            "target_text": "When does the film start?",
+            "tokens_correct": [
+                "When",
+                "does",
+                "the",
+                "film",
+                "start?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "qf-poly-a2-05",
+            "question": "Він любить каву?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "do_does_did"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "he",
+                "a3": "like",
+                "a4": "coffee?"
+            },
+            "options": [
+                "Does",
+                "he",
+                "like",
+                "coffee?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Він любить каву?",
+            "target_text": "Does he like coffee?",
+            "tokens_correct": [
+                "Does",
+                "he",
+                "like",
+                "coffee?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "qf-poly-a2-06",
+            "question": "Вони були щасливі?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "to_be_questions"
+            ],
+            "answers": {
+                "a1": "Were",
+                "a2": "they",
+                "a3": "happy?"
+            },
+            "options": [
+                "Were",
+                "they",
+                "happy?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони були щасливі?",
+            "target_text": "Were they happy?",
+            "tokens_correct": [
+                "Were",
+                "they",
+                "happy?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "qf-poly-a2-07",
+            "question": "Ми повинні залишитися?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "modal_questions"
+            ],
+            "answers": {
+                "a1": "Must",
+                "a2": "we",
+                "a3": "stay?"
+            },
+            "options": [
+                "Must",
+                "we",
+                "stay?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Ми повинні залишитися?",
+            "target_text": "Must we stay?",
+            "tokens_correct": [
+                "Must",
+                "we",
+                "stay?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "qf-poly-a2-08",
+            "question": "Ти бачив мій ключ?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "perfect_auxiliary_questions"
+            ],
+            "answers": {
+                "a1": "Have",
+                "a2": "you",
+                "a3": "seen",
+                "a4": "my",
+                "a5": "key?"
+            },
+            "options": [
+                "Have",
+                "you",
+                "seen",
+                "my",
+                "key?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти бачив мій ключ?",
+            "target_text": "Have you seen my key?",
+            "tokens_correct": [
+                "Have",
+                "you",
+                "seen",
+                "my",
+                "key?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "qf-poly-a2-09",
+            "question": "Куди вона пішла?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "question_word_order"
+            ],
+            "answers": {
+                "a1": "Where",
+                "a2": "did",
+                "a3": "she",
+                "a4": "go?"
+            },
+            "options": [
+                "Where",
+                "did",
+                "she",
+                "go?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Куди вона пішла?",
+            "target_text": "Where did she go?",
+            "tokens_correct": [
+                "Where",
+                "did",
+                "she",
+                "go?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "qf-poly-a2-10",
+            "question": "Що сталося?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "subject_questions_overview"
+            ],
+            "answers": {
+                "a1": "What",
+                "a2": "happened?"
+            },
+            "options": [
+                "What",
+                "happened?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Що сталося?",
+            "target_text": "What happened?",
+            "tokens_correct": [
+                "What",
+                "happened?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "qf-poly-a2-11",
+            "question": "Де працює твоя сестра?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Where",
+                "a2": "does",
+                "a3": "your",
+                "a4": "sister",
+                "a5": "work?"
+            },
+            "options": [
+                "Where",
+                "does",
+                "your",
+                "sister",
+                "work?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Де працює твоя сестра?",
+            "target_text": "Where does your sister work?",
+            "tokens_correct": [
+                "Where",
+                "does",
+                "your",
+                "sister",
+                "work?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "qf-poly-a2-12",
+            "question": "Чи може це спрацювати?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_a2",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "it",
+                "a3": "work?"
+            },
+            "options": [
+                "Can",
+                "it",
+                "work?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи може це спрацювати?",
+            "target_text": "Can it work?",
+            "tokens_correct": [
+                "Can",
+                "it",
+                "work?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "qf-poly-b1-01",
+            "question": "Ти зараз працюєш?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Are",
+                "a2": "you",
+                "a3": "working",
+                "a4": "now?"
+            },
+            "options": [
+                "Are",
+                "you",
+                "working",
+                "now?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти зараз працюєш?",
+            "target_text": "Are you working now?",
+            "tokens_correct": [
+                "Are",
+                "you",
+                "working",
+                "now?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "qf-poly-b1-02",
+            "question": "Чи слід нам запросити її?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "auxiliary_before_subject"
+            ],
+            "answers": {
+                "a1": "Should",
+                "a2": "we",
+                "a3": "invite",
+                "a4": "her?"
+            },
+            "options": [
+                "Should",
+                "we",
+                "invite",
+                "her?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи слід нам запросити її?",
+            "target_text": "Should we invite her?",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "invite",
+                "her?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "qf-poly-b1-03",
+            "question": "Він уже надіслав лист?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "yes_no_questions"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "he",
+                "a3": "sent",
+                "a4": "the",
+                "a5": "email?"
+            },
+            "options": [
+                "Has",
+                "he",
+                "sent",
+                "the",
+                "email?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Він уже надіслав лист?",
+            "target_text": "Has he sent the email?",
+            "tokens_correct": [
+                "Has",
+                "he",
+                "sent",
+                "the",
+                "email?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "qf-poly-b1-04",
+            "question": "Чому вони змінили план?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "wh_questions"
+            ],
+            "answers": {
+                "a1": "Why",
+                "a2": "did",
+                "a3": "they",
+                "a4": "change",
+                "a5": "the",
+                "a6": "plan?"
+            },
+            "options": [
+                "Why",
+                "did",
+                "they",
+                "change",
+                "the",
+                "plan?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "source_text_uk": "Чому вони змінили план?",
+            "target_text": "Why did they change the plan?",
+            "tokens_correct": [
+                "Why",
+                "did",
+                "they",
+                "change",
+                "the",
+                "plan?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "qf-poly-b1-05",
+            "question": "Вона зазвичай бере автобус?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "do_does_did"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "usually",
+                "a4": "take",
+                "a5": "the",
+                "a6": "bus?"
+            },
+            "options": [
+                "Does",
+                "she",
+                "usually",
+                "take",
+                "the",
+                "bus?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона зазвичай бере автобус?",
+            "target_text": "Does she usually take the bus?",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "usually",
+                "take",
+                "the",
+                "bus?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "qf-poly-b1-06",
+            "question": "Чи був звіт корисним?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "to_be_questions"
+            ],
+            "answers": {
+                "a1": "Was",
+                "a2": "the",
+                "a3": "report",
+                "a4": "useful?"
+            },
+            "options": [
+                "Was",
+                "the",
+                "report",
+                "useful?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи був звіт корисним?",
+            "target_text": "Was the report useful?",
+            "tokens_correct": [
+                "Was",
+                "the",
+                "report",
+                "useful?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "qf-poly-b1-07",
+            "question": "Чи могли б ви пояснити це?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "modal_questions"
+            ],
+            "answers": {
+                "a1": "Could",
+                "a2": "you",
+                "a3": "explain",
+                "a4": "this?"
+            },
+            "options": [
+                "Could",
+                "you",
+                "explain",
+                "this?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи могли б ви пояснити це?",
+            "target_text": "Could you explain this?",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "explain",
+                "this?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "qf-poly-b1-08",
+            "question": "Вони вже вирішили проблему?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "perfect_auxiliary_questions"
+            ],
+            "answers": {
+                "a1": "Have",
+                "a2": "they",
+                "a3": "solved",
+                "a4": "the",
+                "a5": "problem",
+                "a6": "yet?"
+            },
+            "options": [
+                "Have",
+                "they",
+                "solved",
+                "the",
+                "problem",
+                "yet?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони вже вирішили проблему?",
+            "target_text": "Have they solved the problem yet?",
+            "tokens_correct": [
+                "Have",
+                "they",
+                "solved",
+                "the",
+                "problem",
+                "yet?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "qf-poly-b1-09",
+            "question": "Скільки часу це займає?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "question_word_order"
+            ],
+            "answers": {
+                "a1": "How",
+                "a2": "long",
+                "a3": "does",
+                "a4": "it",
+                "a5": "take?"
+            },
+            "options": [
+                "How",
+                "long",
+                "does",
+                "it",
+                "take?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Скільки часу це займає?",
+            "target_text": "How long does it take?",
+            "tokens_correct": [
+                "How",
+                "long",
+                "does",
+                "it",
+                "take?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "qf-poly-b1-10",
+            "question": "Хто знає правильну відповідь?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "subject_questions_overview"
+            ],
+            "answers": {
+                "a1": "Who",
+                "a2": "knows",
+                "a3": "the",
+                "a4": "correct",
+                "a5": "answer?"
+            },
+            "options": [
+                "Who",
+                "knows",
+                "the",
+                "correct",
+                "answer?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Хто знає правильну відповідь?",
+            "target_text": "Who knows the correct answer?",
+            "tokens_correct": [
+                "Who",
+                "knows",
+                "the",
+                "correct",
+                "answer?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "qf-poly-b1-11",
+            "question": "Чи зробила вона помилку?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "she",
+                "a3": "make",
+                "a4": "a",
+                "a5": "mistake?"
+            },
+            "options": [
+                "Did",
+                "she",
+                "make",
+                "a",
+                "mistake?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи зробила вона помилку?",
+            "target_text": "Did she make a mistake?",
+            "tokens_correct": [
+                "Did",
+                "she",
+                "make",
+                "a",
+                "mistake?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "qf-poly-b1-12",
+            "question": "Чи буде він готовий вчасно?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b1",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "he",
+                "a3": "be",
+                "a4": "ready",
+                "a5": "on",
+                "a6": "time?"
+            },
+            "options": [
+                "Will",
+                "he",
+                "be",
+                "ready",
+                "on",
+                "time?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи буде він готовий вчасно?",
+            "target_text": "Will he be ready on time?",
+            "tokens_correct": [
+                "Will",
+                "he",
+                "be",
+                "ready",
+                "on",
+                "time?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "qf-poly-b2-01",
+            "question": "Ви коли-небудь працювали за кордоном?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Have",
+                "a2": "you",
+                "a3": "ever",
+                "a4": "worked",
+                "a5": "abroad?"
+            },
+            "options": [
+                "Have",
+                "you",
+                "ever",
+                "worked",
+                "abroad?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ви коли-небудь працювали за кордоном?",
+            "target_text": "Have you ever worked abroad?",
+            "tokens_correct": [
+                "Have",
+                "you",
+                "ever",
+                "worked",
+                "abroad?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "qf-poly-b2-02",
+            "question": "Чи повинні гості зареєструватися заздалегідь?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "auxiliary_before_subject"
+            ],
+            "answers": {
+                "a1": "Must",
+                "a2": "guests",
+                "a3": "register",
+                "a4": "in",
+                "a5": "advance?"
+            },
+            "options": [
+                "Must",
+                "guests",
+                "register",
+                "in",
+                "advance?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи повинні гості зареєструватися заздалегідь?",
+            "target_text": "Must guests register in advance?",
+            "tokens_correct": [
+                "Must",
+                "guests",
+                "register",
+                "in",
+                "advance?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "qf-poly-b2-03",
+            "question": "Чи команда переглядає дані щотижня?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "yes_no_questions"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "the",
+                "a3": "team",
+                "a4": "review",
+                "a5": "the",
+                "a6": "data",
+                "a7": "every",
+                "a8": "week?"
+            },
+            "options": [
+                "Does",
+                "the",
+                "team",
+                "review",
+                "data",
+                "every",
+                "week?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи команда переглядає дані щотижня?",
+            "target_text": "Does the team review the data every week?",
+            "tokens_correct": [
+                "Does",
+                "the",
+                "team",
+                "review",
+                "the",
+                "data",
+                "every",
+                "week?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "qf-poly-b2-04",
+            "question": "Де було збережено файл?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "wh_questions"
+            ],
+            "answers": {
+                "a1": "Where",
+                "a2": "has",
+                "a3": "the",
+                "a4": "file",
+                "a5": "been",
+                "a6": "saved?"
+            },
+            "options": [
+                "Where",
+                "has",
+                "the",
+                "file",
+                "been",
+                "saved?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Де було збережено файл?",
+            "target_text": "Where has the file been saved?",
+            "tokens_correct": [
+                "Where",
+                "has",
+                "the",
+                "file",
+                "been",
+                "saved?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "qf-poly-b2-05",
+            "question": "Чому менеджер скасував дзвінок?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "do_does_did"
+            ],
+            "answers": {
+                "a1": "Why",
+                "a2": "did",
+                "a3": "the",
+                "a4": "manager",
+                "a5": "cancel",
+                "a6": "the",
+                "a7": "call?"
+            },
+            "options": [
+                "Why",
+                "did",
+                "the",
+                "manager",
+                "cancel",
+                "call?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "source_text_uk": "Чому менеджер скасував дзвінок?",
+            "target_text": "Why did the manager cancel the call?",
+            "tokens_correct": [
+                "Why",
+                "did",
+                "the",
+                "manager",
+                "cancel",
+                "the",
+                "call?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "qf-poly-b2-06",
+            "question": "Чи доступні результати вже?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "to_be_questions"
+            ],
+            "answers": {
+                "a1": "Are",
+                "a2": "the",
+                "a3": "results",
+                "a4": "available",
+                "a5": "yet?"
+            },
+            "options": [
+                "Are",
+                "the",
+                "results",
+                "available",
+                "yet?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи доступні результати вже?",
+            "target_text": "Are the results available yet?",
+            "tokens_correct": [
+                "Are",
+                "the",
+                "results",
+                "available",
+                "yet?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "qf-poly-b2-07",
+            "question": "Чи могла система знову відмовити?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "modal_questions"
+            ],
+            "answers": {
+                "a1": "Could",
+                "a2": "the",
+                "a3": "system",
+                "a4": "fail",
+                "a5": "again?"
+            },
+            "options": [
+                "Could",
+                "the",
+                "system",
+                "fail",
+                "again?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи могла система знову відмовити?",
+            "target_text": "Could the system fail again?",
+            "tokens_correct": [
+                "Could",
+                "the",
+                "system",
+                "fail",
+                "again?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "qf-poly-b2-08",
+            "question": "Чи було рішення оголошено?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "perfect_auxiliary_questions"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "the",
+                "a3": "decision",
+                "a4": "been",
+                "a5": "announced?"
+            },
+            "options": [
+                "Has",
+                "the",
+                "decision",
+                "been",
+                "announced?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи було рішення оголошено?",
+            "target_text": "Has the decision been announced?",
+            "tokens_correct": [
+                "Has",
+                "the",
+                "decision",
+                "been",
+                "announced?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "qf-poly-b2-09",
+            "question": "Кого нам запросити на зустріч?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "question_word_order"
+            ],
+            "answers": {
+                "a1": "Who",
+                "a2": "should",
+                "a3": "we",
+                "a4": "invite",
+                "a5": "to",
+                "a6": "the",
+                "a7": "meeting?"
+            },
+            "options": [
+                "Who",
+                "should",
+                "we",
+                "invite",
+                "to",
+                "the",
+                "meeting?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Кого нам запросити на зустріч?",
+            "target_text": "Who should we invite to the meeting?",
+            "tokens_correct": [
+                "Who",
+                "should",
+                "we",
+                "invite",
+                "to",
+                "the",
+                "meeting?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "qf-poly-b2-10",
+            "question": "Що спричинило цю затримку?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "subject_questions_overview"
+            ],
+            "answers": {
+                "a1": "What",
+                "a2": "caused",
+                "a3": "this",
+                "a4": "delay?"
+            },
+            "options": [
+                "What",
+                "caused",
+                "this",
+                "delay?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Що спричинило цю затримку?",
+            "target_text": "What caused this delay?",
+            "tokens_correct": [
+                "What",
+                "caused",
+                "this",
+                "delay?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "qf-poly-b2-11",
+            "question": "Чи подала вона заявку вчасно?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "she",
+                "a3": "submit",
+                "a4": "the",
+                "a5": "application",
+                "a6": "on",
+                "a7": "time?"
+            },
+            "options": [
+                "Did",
+                "she",
+                "submit",
+                "the",
+                "application",
+                "on",
+                "time?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи подала вона заявку вчасно?",
+            "target_text": "Did she submit the application on time?",
+            "tokens_correct": [
+                "Did",
+                "she",
+                "submit",
+                "the",
+                "application",
+                "on",
+                "time?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "qf-poly-b2-12",
+            "question": "Чи було оновлення встановлено правильно?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_b2",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Was",
+                "a2": "the",
+                "a3": "update",
+                "a4": "installed",
+                "a5": "correctly?"
+            },
+            "options": [
+                "Was",
+                "the",
+                "update",
+                "installed",
+                "correctly?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи було оновлення встановлено правильно?",
+            "target_text": "Was the update installed correctly?",
+            "tokens_correct": [
+                "Was",
+                "the",
+                "update",
+                "installed",
+                "correctly?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "qf-poly-c1-01",
+            "question": "Чи затвердить комітет нову політику?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "the",
+                "a3": "committee",
+                "a4": "approve",
+                "a5": "the",
+                "a6": "new",
+                "a7": "policy?"
+            },
+            "options": [
+                "Will",
+                "the",
+                "committee",
+                "approve",
+                "new",
+                "policy?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи затвердить комітет нову політику?",
+            "target_text": "Will the committee approve the new policy?",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "committee",
+                "approve",
+                "the",
+                "new",
+                "policy?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "qf-poly-c1-02",
+            "question": "Чи може цей доказ змінити рішення?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "auxiliary_before_subject"
+            ],
+            "answers": {
+                "a1": "Could",
+                "a2": "this",
+                "a3": "evidence",
+                "a4": "change",
+                "a5": "the",
+                "a6": "decision?"
+            },
+            "options": [
+                "Could",
+                "this",
+                "evidence",
+                "change",
+                "the",
+                "decision?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи може цей доказ змінити рішення?",
+            "target_text": "Could this evidence change the decision?",
+            "tokens_correct": [
+                "Could",
+                "this",
+                "evidence",
+                "change",
+                "the",
+                "decision?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "qf-poly-c1-03",
+            "question": "Чи відповідає пропозиція всім вимогам?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "yes_no_questions"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "the",
+                "a3": "proposal",
+                "a4": "meet",
+                "a5": "all",
+                "a6": "requirements?"
+            },
+            "options": [
+                "Does",
+                "the",
+                "proposal",
+                "meet",
+                "all",
+                "requirements?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи відповідає пропозиція всім вимогам?",
+            "target_text": "Does the proposal meet all requirements?",
+            "tokens_correct": [
+                "Does",
+                "the",
+                "proposal",
+                "meet",
+                "all",
+                "requirements?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "qf-poly-c1-04",
+            "question": "Чому контракт ще не підписали?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "wh_questions"
+            ],
+            "answers": {
+                "a1": "Why",
+                "a2": "has",
+                "a3": "the",
+                "a4": "contract",
+                "a5": "not",
+                "a6": "been",
+                "a7": "signed",
+                "a8": "yet?"
+            },
+            "options": [
+                "Why",
+                "has",
+                "the",
+                "contract",
+                "not",
+                "been",
+                "signed",
+                "yet?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "source_text_uk": "Чому контракт ще не підписали?",
+            "target_text": "Why has the contract not been signed yet?",
+            "tokens_correct": [
+                "Why",
+                "has",
+                "the",
+                "contract",
+                "not",
+                "been",
+                "signed",
+                "yet?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "qf-poly-c1-05",
+            "question": "Коли аудитори переглянули журнали?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "do_does_did"
+            ],
+            "answers": {
+                "a1": "When",
+                "a2": "did",
+                "a3": "the",
+                "a4": "auditors",
+                "a5": "review",
+                "a6": "the",
+                "a7": "logs?"
+            },
+            "options": [
+                "When",
+                "did",
+                "the",
+                "auditors",
+                "review",
+                "logs?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Коли аудитори переглянули журнали?",
+            "target_text": "When did the auditors review the logs?",
+            "tokens_correct": [
+                "When",
+                "did",
+                "the",
+                "auditors",
+                "review",
+                "the",
+                "logs?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "qf-poly-c1-06",
+            "question": "Чи була зустріч перенесена без попередження?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "to_be_questions"
+            ],
+            "answers": {
+                "a1": "Was",
+                "a2": "the",
+                "a3": "meeting",
+                "a4": "postponed",
+                "a5": "without",
+                "a6": "notice?"
+            },
+            "options": [
+                "Was",
+                "the",
+                "meeting",
+                "postponed",
+                "without",
+                "notice?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи була зустріч перенесена без попередження?",
+            "target_text": "Was the meeting postponed without notice?",
+            "tokens_correct": [
+                "Was",
+                "the",
+                "meeting",
+                "postponed",
+                "without",
+                "notice?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "qf-poly-c1-07",
+            "question": "Чи варто нам переглянути цей пункт?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "modal_questions"
+            ],
+            "answers": {
+                "a1": "Should",
+                "a2": "we",
+                "a3": "reconsider",
+                "a4": "this",
+                "a5": "clause?"
+            },
+            "options": [
+                "Should",
+                "we",
+                "reconsider",
+                "this",
+                "clause?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи варто нам переглянути цей пункт?",
+            "target_text": "Should we reconsider this clause?",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "reconsider",
+                "this",
+                "clause?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "qf-poly-c1-08",
+            "question": "Чи були всі свідки опитані?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "perfect_auxiliary_questions"
+            ],
+            "answers": {
+                "a1": "Have",
+                "a2": "all",
+                "a3": "witnesses",
+                "a4": "been",
+                "a5": "interviewed?"
+            },
+            "options": [
+                "Have",
+                "all",
+                "witnesses",
+                "been",
+                "interviewed?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи були всі свідки опитані?",
+            "target_text": "Have all witnesses been interviewed?",
+            "tokens_correct": [
+                "Have",
+                "all",
+                "witnesses",
+                "been",
+                "interviewed?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "qf-poly-c1-09",
+            "question": "Коли рада оголосить рішення?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "question_word_order"
+            ],
+            "answers": {
+                "a1": "When",
+                "a2": "will",
+                "a3": "the",
+                "a4": "board",
+                "a5": "announce",
+                "a6": "the",
+                "a7": "decision?"
+            },
+            "options": [
+                "When",
+                "will",
+                "the",
+                "board",
+                "announce",
+                "decision?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Коли рада оголосить рішення?",
+            "target_text": "When will the board announce the decision?",
+            "tokens_correct": [
+                "When",
+                "will",
+                "the",
+                "board",
+                "announce",
+                "the",
+                "decision?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "qf-poly-c1-10",
+            "question": "Хто підготував остаточну версію?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "subject_questions_overview"
+            ],
+            "answers": {
+                "a1": "Who",
+                "a2": "prepared",
+                "a3": "the",
+                "a4": "final",
+                "a5": "version?"
+            },
+            "options": [
+                "Who",
+                "prepared",
+                "the",
+                "final",
+                "version?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Хто підготував остаточну версію?",
+            "target_text": "Who prepared the final version?",
+            "tokens_correct": [
+                "Who",
+                "prepared",
+                "the",
+                "final",
+                "version?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "qf-poly-c1-11",
+            "question": "Чи виправила команда помилку?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "team",
+                "a4": "correct",
+                "a5": "the",
+                "a6": "error?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "team",
+                "correct",
+                "error?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи виправила команда помилку?",
+            "target_text": "Did the team correct the error?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "team",
+                "correct",
+                "the",
+                "error?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "qf-poly-c1-12",
+            "question": "Чи може висновок бути оскаржений?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c1",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "the",
+                "a3": "conclusion",
+                "a4": "be",
+                "a5": "challenged?"
+            },
+            "options": [
+                "Can",
+                "the",
+                "conclusion",
+                "be",
+                "challenged?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи може висновок бути оскаржений?",
+            "target_text": "Can the conclusion be challenged?",
+            "tokens_correct": [
+                "Can",
+                "the",
+                "conclusion",
+                "be",
+                "challenged?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "qf-poly-c2-01",
+            "question": "Чи буде звіт завершено до полудня?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "the",
+                "a3": "report",
+                "a4": "have",
+                "a5": "been",
+                "a6": "completed",
+                "a7": "by",
+                "a8": "noon?"
+            },
+            "options": [
+                "Will",
+                "the",
+                "report",
+                "have",
+                "been",
+                "completed",
+                "by",
+                "noon?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи буде звіт завершено до полудня?",
+            "target_text": "Will the report have been completed by noon?",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "report",
+                "have",
+                "been",
+                "completed",
+                "by",
+                "noon?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "qf-poly-c2-02",
+            "question": "Чи мала рада повідомити учасників раніше?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "auxiliary_before_subject"
+            ],
+            "answers": {
+                "a1": "Should",
+                "a2": "the",
+                "a3": "board",
+                "a4": "have",
+                "a5": "informed",
+                "a6": "the",
+                "a7": "participants",
+                "a8": "earlier?"
+            },
+            "options": [
+                "Should",
+                "the",
+                "board",
+                "have",
+                "informed",
+                "participants",
+                "earlier?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи мала рада повідомити учасників раніше?",
+            "target_text": "Should the board have informed the participants earlier?",
+            "tokens_correct": [
+                "Should",
+                "the",
+                "board",
+                "have",
+                "informed",
+                "the",
+                "participants",
+                "earlier?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "qf-poly-c2-03",
+            "question": "Чи підтверджують ці дані початкову гіпотезу?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "yes_no_questions"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "these",
+                "a3": "data",
+                "a4": "support",
+                "a5": "the",
+                "a6": "original",
+                "a7": "hypothesis?"
+            },
+            "options": [
+                "Do",
+                "these",
+                "data",
+                "support",
+                "the",
+                "original",
+                "hypothesis?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи підтверджують ці дані початкову гіпотезу?",
+            "target_text": "Do these data support the original hypothesis?",
+            "tokens_correct": [
+                "Do",
+                "these",
+                "data",
+                "support",
+                "the",
+                "original",
+                "hypothesis?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "qf-poly-c2-04",
+            "question": "Як можна тлумачити цей виняток?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "wh_questions"
+            ],
+            "answers": {
+                "a1": "How",
+                "a2": "can",
+                "a3": "this",
+                "a4": "exception",
+                "a5": "be",
+                "a6": "interpreted?"
+            },
+            "options": [
+                "How",
+                "can",
+                "this",
+                "exception",
+                "be",
+                "interpreted?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Як можна тлумачити цей виняток?",
+            "target_text": "How can this exception be interpreted?",
+            "tokens_correct": [
+                "How",
+                "can",
+                "this",
+                "exception",
+                "be",
+                "interpreted?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "qf-poly-c2-05",
+            "question": "Чому суд відхилив цей аргумент?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "do_does_did"
+            ],
+            "answers": {
+                "a1": "Why",
+                "a2": "did",
+                "a3": "the",
+                "a4": "court",
+                "a5": "reject",
+                "a6": "this",
+                "a7": "argument?"
+            },
+            "options": [
+                "Why",
+                "did",
+                "the",
+                "court",
+                "reject",
+                "this",
+                "argument?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "source_text_uk": "Чому суд відхилив цей аргумент?",
+            "target_text": "Why did the court reject this argument?",
+            "tokens_correct": [
+                "Why",
+                "did",
+                "the",
+                "court",
+                "reject",
+                "this",
+                "argument?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "qf-poly-c2-06",
+            "question": "Чи були свідки присутні під час слухання?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "to_be_questions"
+            ],
+            "answers": {
+                "a1": "Were",
+                "a2": "the",
+                "a3": "witnesses",
+                "a4": "present",
+                "a5": "during",
+                "a6": "the",
+                "a7": "hearing?"
+            },
+            "options": [
+                "Were",
+                "the",
+                "witnesses",
+                "present",
+                "during",
+                "hearing?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи були свідки присутні під час слухання?",
+            "target_text": "Were the witnesses present during the hearing?",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "witnesses",
+                "present",
+                "during",
+                "the",
+                "hearing?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "qf-poly-c2-07",
+            "question": "Чи могла комісія ухвалити інше рішення?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "modal_questions"
+            ],
+            "answers": {
+                "a1": "Could",
+                "a2": "the",
+                "a3": "panel",
+                "a4": "have",
+                "a5": "reached",
+                "a6": "a",
+                "a7": "different",
+                "a8": "decision?"
+            },
+            "options": [
+                "Could",
+                "the",
+                "panel",
+                "have",
+                "reached",
+                "a",
+                "different",
+                "decision?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи могла комісія ухвалити інше рішення?",
+            "target_text": "Could the panel have reached a different decision?",
+            "tokens_correct": [
+                "Could",
+                "the",
+                "panel",
+                "have",
+                "reached",
+                "a",
+                "different",
+                "decision?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "qf-poly-c2-08",
+            "question": "Чи було доказ переглянуто до слухання?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "perfect_auxiliary_questions"
+            ],
+            "answers": {
+                "a1": "Had",
+                "a2": "the",
+                "a3": "evidence",
+                "a4": "been",
+                "a5": "reviewed",
+                "a6": "before",
+                "a7": "the",
+                "a8": "hearing?"
+            },
+            "options": [
+                "Had",
+                "the",
+                "evidence",
+                "been",
+                "reviewed",
+                "before",
+                "hearing?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи було доказ переглянуто до слухання?",
+            "target_text": "Had the evidence been reviewed before the hearing?",
+            "tokens_correct": [
+                "Had",
+                "the",
+                "evidence",
+                "been",
+                "reviewed",
+                "before",
+                "the",
+                "hearing?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "qf-poly-c2-09",
+            "question": "До якої дати команда завершить аудит?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "question_word_order"
+            ],
+            "answers": {
+                "a1": "By",
+                "a2": "what",
+                "a3": "date",
+                "a4": "will",
+                "a5": "the",
+                "a6": "team",
+                "a7": "have",
+                "a8": "completed",
+                "a9": "the",
+                "a10": "audit?"
+            },
+            "options": [
+                "By",
+                "what",
+                "date",
+                "will",
+                "the",
+                "team",
+                "have",
+                "completed",
+                "audit?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "До якої дати команда завершить аудит?",
+            "target_text": "By what date will the team have completed the audit?",
+            "tokens_correct": [
+                "By",
+                "what",
+                "date",
+                "will",
+                "the",
+                "team",
+                "have",
+                "completed",
+                "the",
+                "audit?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "qf-poly-c2-10",
+            "question": "Що змусило ринок так різко відреагувати?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "subject_questions_overview"
+            ],
+            "answers": {
+                "a1": "What",
+                "a2": "made",
+                "a3": "the",
+                "a4": "market",
+                "a5": "react",
+                "a6": "so",
+                "a7": "sharply?"
+            },
+            "options": [
+                "What",
+                "made",
+                "the",
+                "market",
+                "react",
+                "so",
+                "sharply?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Що змусило ринок так різко відреагувати?",
+            "target_text": "What made the market react so sharply?",
+            "tokens_correct": [
+                "What",
+                "made",
+                "the",
+                "market",
+                "react",
+                "so",
+                "sharply?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "qf-poly-c2-11",
+            "question": "Чи побачив аналітик суперечність?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "analyst",
+                "a4": "notice",
+                "a5": "the",
+                "a6": "contradiction?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "analyst",
+                "notice",
+                "contradiction?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи побачив аналітик суперечність?",
+            "target_text": "Did the analyst notice the contradiction?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "analyst",
+                "notice",
+                "the",
+                "contradiction?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "qf-poly-c2-12",
+            "question": "Чи можуть ці висновки бути перевірені незалежно?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_question_forms",
+                "level_c2",
+                "general_structure"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "these",
+                "a3": "findings",
+                "a4": "be",
+                "a5": "verified",
+                "a6": "independently?"
+            },
+            "options": [
+                "Can",
+                "these",
+                "findings",
+                "be",
+                "verified",
+                "independently?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи можуть ці висновки бути перевірені незалежно?",
+            "target_text": "Can these findings be verified independently?",
+            "tokens_correct": [
+                "Can",
+                "these",
+                "findings",
+                "be",
+                "verified",
+                "independently?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "question-forms",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn-qf-poly-all",
+        "slug": "polyglot-question-forms-all-levels",
+        "name": "Sentence Builder: Question Forms (All levels)",
+        "description": "Sentence Builder compose package for Question Forms across A1-C2.",
+        "question_uuids": [
+            "qf-poly-a1-01",
+            "qf-poly-a1-02",
+            "qf-poly-a1-03",
+            "qf-poly-a1-04",
+            "qf-poly-a1-05",
+            "qf-poly-a1-06",
+            "qf-poly-a1-07",
+            "qf-poly-a1-08",
+            "qf-poly-a1-09",
+            "qf-poly-a1-10",
+            "qf-poly-a1-11",
+            "qf-poly-a1-12",
+            "qf-poly-a2-01",
+            "qf-poly-a2-02",
+            "qf-poly-a2-03",
+            "qf-poly-a2-04",
+            "qf-poly-a2-05",
+            "qf-poly-a2-06",
+            "qf-poly-a2-07",
+            "qf-poly-a2-08",
+            "qf-poly-a2-09",
+            "qf-poly-a2-10",
+            "qf-poly-a2-11",
+            "qf-poly-a2-12",
+            "qf-poly-b1-01",
+            "qf-poly-b1-02",
+            "qf-poly-b1-03",
+            "qf-poly-b1-04",
+            "qf-poly-b1-05",
+            "qf-poly-b1-06",
+            "qf-poly-b1-07",
+            "qf-poly-b1-08",
+            "qf-poly-b1-09",
+            "qf-poly-b1-10",
+            "qf-poly-b1-11",
+            "qf-poly-b1-12",
+            "qf-poly-b2-01",
+            "qf-poly-b2-02",
+            "qf-poly-b2-03",
+            "qf-poly-b2-04",
+            "qf-poly-b2-05",
+            "qf-poly-b2-06",
+            "qf-poly-b2-07",
+            "qf-poly-b2-08",
+            "qf-poly-b2-09",
+            "qf-poly-b2-10",
+            "qf-poly-b2-11",
+            "qf-poly-b2-12",
+            "qf-poly-c1-01",
+            "qf-poly-c1-02",
+            "qf-poly-c1-03",
+            "qf-poly-c1-04",
+            "qf-poly-c1-05",
+            "qf-poly-c1-06",
+            "qf-poly-c1-07",
+            "qf-poly-c1-08",
+            "qf-poly-c1-09",
+            "qf-poly-c1-10",
+            "qf-poly-c1-11",
+            "qf-poly-c1-12",
+            "qf-poly-c2-01",
+            "qf-poly-c2-02",
+            "qf-poly-c2-03",
+            "qf-poly-c2-04",
+            "qf-poly-c2-05",
+            "qf-poly-c2-06",
+            "qf-poly-c2-07",
+            "qf-poly-c2-08",
+            "qf-poly-c2-09",
+            "qf-poly-c2-10",
+            "qf-poly-c2-11",
+            "qf-poly-c2-12"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "Question Forms",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotQuestionFormsAllLevelsLessonSeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "question-forms",
+                    "title": "Question Forms",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsQuestionFormsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+                }
+            }
+        }
+    }
+}

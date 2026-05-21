@@ -1,0 +1,1863 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\WhQuestionsSpecialQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "WhQuestionsSpecialQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_wh_questions": {
+            "name": "Wh-Questions"
+        }
+    },
+    "tags": {
+        "wh_questions": {
+            "name": "Wh-Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "wh_words": {
+            "name": "Wh Words",
+            "category": "topic"
+        },
+        "wh_aux_subject_verb": {
+            "name": "Wh Aux Subject Verb",
+            "category": "topic"
+        },
+        "what_questions": {
+            "name": "What Questions",
+            "category": "topic"
+        },
+        "where_questions": {
+            "name": "Where Questions",
+            "category": "topic"
+        },
+        "when_questions": {
+            "name": "When Questions",
+            "category": "topic"
+        },
+        "why_questions": {
+            "name": "Why Questions",
+            "category": "topic"
+        },
+        "who_object_questions": {
+            "name": "Who Object Questions",
+            "category": "topic"
+        },
+        "how_much_many": {
+            "name": "How Much Many",
+            "category": "topic"
+        },
+        "subject_object_contrast": {
+            "name": "Subject Object Contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "wh_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "whq-v3-a1-01",
+            "question": "{a1} is your name?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "whq-v3-a1-02",
+            "question": "What {a1} you want?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "you",
+                        "are",
+                        "does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "whq-v3-a1-03",
+            "question": "{a1} do you want?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "when_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "whq-v3-a1-04",
+            "question": "{a1} is the station?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "why_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "What",
+                        "When",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "whq-v3-a1-05",
+            "question": "{a1} is your birthday?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "who_object_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Where",
+                        "What",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "whq-v3-a1-06",
+            "question": "{a1} are you sad?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "Where",
+                        "What",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "whq-v3-a1-07",
+            "question": "{a1} do you know here?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Where",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "whq-v3-a1-08",
+            "question": "{a1} much is the ticket?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "wh_aux_subject_verb"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "What",
+                        "Where",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "whq-v3-a1-09",
+            "question": "Subject question: Who {a1} here?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lives",
+                    "options": [
+                        "lives",
+                        "does live",
+                        "do live",
+                        "live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "whq-v3-a1-10",
+            "question": "Correct form: What {a1} you want?",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "you",
+                        "are",
+                        "does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "whq-v3-a1-11",
+            "question": "Use {a1} to ask about a person.",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "subject_object_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "where",
+                        "when",
+                        "why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "whq-v3-a1-12",
+            "question": "In most wh-questions, the wh-word comes {a1}.",
+            "level": "A1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "first",
+                    "options": [
+                        "first",
+                        "last",
+                        "after the subject",
+                        "after the verb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "whq-v3-a2-01",
+            "question": "{a1} do you live?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "What",
+                        "When",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "whq-v3-a2-02",
+            "question": "Where {a1} she work?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "is",
+                        "do",
+                        "she"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "whq-v3-a2-03",
+            "question": "{a1} does she need?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "when_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Who",
+                        "Where",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "whq-v3-a2-04",
+            "question": "{a1} does she live?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "why_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "When",
+                        "Who",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "whq-v3-a2-05",
+            "question": "{a1} does the shop open?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "who_object_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Where",
+                        "Who",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "whq-v3-a2-06",
+            "question": "{a1} does he study English?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "When",
+                        "Where",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "whq-v3-a2-07",
+            "question": "{a1} does she visit on Sundays?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Where",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "whq-v3-a2-08",
+            "question": "How {a1} books do you need?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "wh_aux_subject_verb"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "long",
+                        "old"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "whq-v3-a2-09",
+            "question": "Object question: Who {a1} you see?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "saw",
+                        "does",
+                        "who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "whq-v3-a2-10",
+            "question": "Correct form: Where does she {a1}?",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "lives",
+                        "living",
+                        "lived"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "whq-v3-a2-11",
+            "question": "Use {a1} to ask about a place.",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "subject_object_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "who",
+                        "when",
+                        "why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "whq-v3-a2-12",
+            "question": "After a wh-word, many questions need an {a1}.",
+            "level": "A2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "auxiliary",
+                    "options": [
+                        "auxiliary",
+                        "article",
+                        "adjective",
+                        "object"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "whq-v3-b1-01",
+            "question": "{a1} does it start?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Where",
+                        "Who",
+                        "What"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "whq-v3-b1-02",
+            "question": "When {a1} they arrive?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were",
+                        "they"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "whq-v3-b1-03",
+            "question": "{a1} did he say?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "when_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "Why",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "whq-v3-b1-04",
+            "question": "{a1} did you put the keys?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "why_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Why",
+                        "What",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "whq-v3-b1-05",
+            "question": "{a1} did the train arrive?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "who_object_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Where",
+                        "Why",
+                        "What"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "whq-v3-b1-06",
+            "question": "{a1} did they leave early?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "Where",
+                        "What",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "whq-v3-b1-07",
+            "question": "{a1} did you meet yesterday?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "whq-v3-b1-08",
+            "question": "How {a1} water did you drink?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "wh_aux_subject_verb"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "many",
+                        "long",
+                        "far"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "whq-v3-b1-09",
+            "question": "Subject question: What {a1}?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "happen",
+                        "does happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "whq-v3-b1-10",
+            "question": "Correct form: What did you {a1}?",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "see",
+                    "options": [
+                        "see",
+                        "saw",
+                        "seen",
+                        "seeing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "whq-v3-b1-11",
+            "question": "Use {a1} to ask about time.",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "subject_object_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "where",
+                        "who",
+                        "what"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "whq-v3-b1-12",
+            "question": "The subject usually comes after the {a1}.",
+            "level": "B1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "auxiliary",
+                    "options": [
+                        "auxiliary",
+                        "object",
+                        "adjective",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "whq-v3-b2-01",
+            "question": "{a1} are you late?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "Where",
+                        "What",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "whq-v3-b2-02",
+            "question": "Why {a1} he waiting outside?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "did",
+                        "he"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "whq-v3-b2-03",
+            "question": "{a1} are they doing now?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "when_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "When",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "whq-v3-b2-04",
+            "question": "{a1} are they meeting us?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "why_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Who",
+                        "When",
+                        "What"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "whq-v3-b2-05",
+            "question": "{a1} are you leaving?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "who_object_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Where",
+                        "Who",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "whq-v3-b2-06",
+            "question": "{a1} is she waiting outside?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "Where",
+                        "When",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "whq-v3-b2-07",
+            "question": "{a1} are you talking to?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Where",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "whq-v3-b2-08",
+            "question": "How {a1} people are coming?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "wh_aux_subject_verb"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "old",
+                        "far"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "whq-v3-b2-09",
+            "question": "Object question: What {a1} she break?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "broke",
+                        "does",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "whq-v3-b2-10",
+            "question": "Correct form: Who {a1} here?",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lives",
+                    "options": [
+                        "lives",
+                        "does live",
+                        "live",
+                        "do live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "whq-v3-b2-11",
+            "question": "Use {a1} to ask about reason.",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "subject_object_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why",
+                    "options": [
+                        "why",
+                        "where",
+                        "when",
+                        "who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "whq-v3-b2-12",
+            "question": "With to be, the form of be comes before the {a1}.",
+            "level": "B2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "object",
+                        "preposition",
+                        "article"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "whq-v3-c1-01",
+            "question": "{a1} did the manager consult?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Where",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "whq-v3-c1-02",
+            "question": "How long {a1} you been studying?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "do",
+                        "are",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "whq-v3-c1-03",
+            "question": "{a1} has the team decided?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "when_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "Why",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "whq-v3-c1-04",
+            "question": "{a1} has the file been saved?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "why_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Why",
+                        "How",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "whq-v3-c1-05",
+            "question": "{a1} has the deadline been moved?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "who_object_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Why",
+                        "Where",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "whq-v3-c1-06",
+            "question": "{a1} has the price increased?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "Where",
+                        "When",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "whq-v3-c1-07",
+            "question": "{a1} has the lawyer contacted?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Where",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "whq-v3-c1-08",
+            "question": "How {a1} evidence do we have?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "wh_aux_subject_verb"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "many",
+                        "long",
+                        "old"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "whq-v3-c1-09",
+            "question": "Subject question: Who {a1} the decision?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "whq-v3-c1-10",
+            "question": "Correct form: How {a1} money do we need?",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "many",
+                        "long",
+                        "old"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "whq-v3-c1-11",
+            "question": "Use {a1} to ask about method.",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "subject_object_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how",
+                    "options": [
+                        "how",
+                        "who",
+                        "where",
+                        "when"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "whq-v3-c1-12",
+            "question": "With perfect tenses, have/has/had comes before the {a1}.",
+            "level": "C1",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "past participle",
+                        "object",
+                        "adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "whq-v3-c2-01",
+            "question": "{a1} can this be solved efficiently?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "Why",
+                        "When",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "whq-v3-c2-02",
+            "question": "Why {a1} the report been delayed?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "does",
+                        "is",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "whq-v3-c2-03",
+            "question": "{a1} might the clause mean legally?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "when_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "When",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "whq-v3-c2-04",
+            "question": "{a1} should the reference be placed?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "why_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Why",
+                        "Who",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "whq-v3-c2-05",
+            "question": "{a1} will the committee publish its findings?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "who_object_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Where",
+                        "Who",
+                        "What"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "whq-v3-c2-06",
+            "question": "{a1} would the board reject that option?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "Where",
+                        "When",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "whq-v3-c2-07",
+            "question": "{a1} should we invite to the review?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "how_much_many"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "What",
+                        "Where",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "whq-v3-c2-08",
+            "question": "How {a1} datasets were excluded from the model?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "wh_aux_subject_verb"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "long",
+                        "far"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "whq-v3-c2-09",
+            "question": "Object question: Who {a1} the panel nominate?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "what_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "nominated",
+                        "does",
+                        "has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "whq-v3-c2-10",
+            "question": "Correct form: Why {a1} the results changed?",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "where_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "do",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "whq-v3-c2-11",
+            "question": "Use {a1} to ask about an amount of uncountable money.",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "subject_object_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how much",
+                    "options": [
+                        "how much",
+                        "how many",
+                        "where",
+                        "when"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "whq-v3-c2-12",
+            "question": "Subject questions are the main exception to wh + {a1} + subject.",
+            "level": "C2",
+            "source": "theory_page_wh_questions",
+            "tag_keys": [
+                "wh_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "auxiliary",
+                    "options": [
+                        "auxiliary",
+                        "noun",
+                        "article",
+                        "object"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn-wh-v3-all",
+        "slug": "wh-questions-special-questions-all-levels-v3",
+        "name": "Wh-Questions (All levels V3)",
+        "description": "Standard V3 package for Wh-Questions across A1-C2.",
+        "question_uuids": [
+            "whq-v3-a1-01",
+            "whq-v3-a1-02",
+            "whq-v3-a1-03",
+            "whq-v3-a1-04",
+            "whq-v3-a1-05",
+            "whq-v3-a1-06",
+            "whq-v3-a1-07",
+            "whq-v3-a1-08",
+            "whq-v3-a1-09",
+            "whq-v3-a1-10",
+            "whq-v3-a1-11",
+            "whq-v3-a1-12",
+            "whq-v3-a2-01",
+            "whq-v3-a2-02",
+            "whq-v3-a2-03",
+            "whq-v3-a2-04",
+            "whq-v3-a2-05",
+            "whq-v3-a2-06",
+            "whq-v3-a2-07",
+            "whq-v3-a2-08",
+            "whq-v3-a2-09",
+            "whq-v3-a2-10",
+            "whq-v3-a2-11",
+            "whq-v3-a2-12",
+            "whq-v3-b1-01",
+            "whq-v3-b1-02",
+            "whq-v3-b1-03",
+            "whq-v3-b1-04",
+            "whq-v3-b1-05",
+            "whq-v3-b1-06",
+            "whq-v3-b1-07",
+            "whq-v3-b1-08",
+            "whq-v3-b1-09",
+            "whq-v3-b1-10",
+            "whq-v3-b1-11",
+            "whq-v3-b1-12",
+            "whq-v3-b2-01",
+            "whq-v3-b2-02",
+            "whq-v3-b2-03",
+            "whq-v3-b2-04",
+            "whq-v3-b2-05",
+            "whq-v3-b2-06",
+            "whq-v3-b2-07",
+            "whq-v3-b2-08",
+            "whq-v3-b2-09",
+            "whq-v3-b2-10",
+            "whq-v3-b2-11",
+            "whq-v3-b2-12",
+            "whq-v3-c1-01",
+            "whq-v3-c1-02",
+            "whq-v3-c1-03",
+            "whq-v3-c1-04",
+            "whq-v3-c1-05",
+            "whq-v3-c1-06",
+            "whq-v3-c1-07",
+            "whq-v3-c1-08",
+            "whq-v3-c1-09",
+            "whq-v3-c1-10",
+            "whq-v3-c1-11",
+            "whq-v3-c1-12",
+            "whq-v3-c2-01",
+            "whq-v3-c2-02",
+            "whq-v3-c2-03",
+            "whq-v3-c2-04",
+            "whq-v3-c2-05",
+            "whq-v3-c2-06",
+            "whq-v3-c2-07",
+            "whq-v3-c2-08",
+            "whq-v3-c2-09",
+            "whq-v3-c2-10",
+            "whq-v3-c2-11",
+            "whq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\WhQuestionsSpecialQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "wh-questions-special-questions-who-what-where-when-why-how",
+                    "title": "Wh-Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/wh-questions-special-questions-who-what-where-when-why-how"
+                }
+            }
+        }
+    }
+}

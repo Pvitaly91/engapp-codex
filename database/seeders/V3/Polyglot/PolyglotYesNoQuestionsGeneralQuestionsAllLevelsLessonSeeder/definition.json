@@ -1,0 +1,5386 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotYesNoQuestionsGeneralQuestionsAllLevelsLessonSeeder",
+        "uuid_namespace": "PolyglotYesNoQuestionsGeneralQuestionsAllLevelsLessonSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_yes_no_questions": {
+            "name": "Yes / No Questions"
+        }
+    },
+    "tags": {
+        "polyglot_yes_no_questions": {
+            "name": "Yes / No Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "yes_no_structure": {
+            "name": "Yes No Structure",
+            "category": "topic"
+        },
+        "auxiliary_subject": {
+            "name": "Auxiliary Subject",
+            "category": "topic"
+        },
+        "do_does_did_simple": {
+            "name": "Do Does Did Simple",
+            "category": "topic"
+        },
+        "to_be_inversion": {
+            "name": "To Be Inversion",
+            "category": "topic"
+        },
+        "modal_inversion": {
+            "name": "Modal Inversion",
+            "category": "topic"
+        },
+        "perfect_auxiliary_inversion": {
+            "name": "Perfect Auxiliary Inversion",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "no_wh_word": {
+            "name": "No Wh Word",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_yes_no_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ynq-poly-a1-01",
+            "question": "Ти любиш чай?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "like",
+                "a4": "tea?"
+            },
+            "options": [
+                "Do",
+                "you",
+                "like",
+                "tea?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти любиш чай?",
+            "target_text": "Do you like tea?",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "like",
+                "tea?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "ynq-poly-a1-02",
+            "question": "Вони живуть поблизу?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "auxiliary_subject"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "they",
+                "a3": "live",
+                "a4": "nearby?"
+            },
+            "options": [
+                "Do",
+                "they",
+                "live",
+                "nearby?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони живуть поблизу?",
+            "target_text": "Do they live nearby?",
+            "tokens_correct": [
+                "Do",
+                "they",
+                "live",
+                "nearby?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "ynq-poly-a1-03",
+            "question": "Він працює сьогодні?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "do_does_did_simple"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "he",
+                "a3": "work",
+                "a4": "today?"
+            },
+            "options": [
+                "Does",
+                "he",
+                "work",
+                "today?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Він працює сьогодні?",
+            "target_text": "Does he work today?",
+            "tokens_correct": [
+                "Does",
+                "he",
+                "work",
+                "today?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "ynq-poly-a1-04",
+            "question": "Вона вчителька?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Is",
+                "a2": "she",
+                "a3": "a",
+                "a4": "teacher?"
+            },
+            "options": [
+                "Is",
+                "she",
+                "a",
+                "teacher?",
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона вчителька?",
+            "target_text": "Is she a teacher?",
+            "tokens_correct": [
+                "Is",
+                "she",
+                "a",
+                "teacher?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "ynq-poly-a1-05",
+            "question": "Ти можеш плавати?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "you",
+                "a3": "swim?"
+            },
+            "options": [
+                "Can",
+                "you",
+                "swim?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти можеш плавати?",
+            "target_text": "Can you swim?",
+            "tokens_correct": [
+                "Can",
+                "you",
+                "swim?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "ynq-poly-a1-06",
+            "question": "Вони вже прибули?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Have",
+                "a2": "they",
+                "a3": "arrived",
+                "a4": "yet?"
+            },
+            "options": [
+                "Have",
+                "they",
+                "arrived",
+                "yet?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони вже прибули?",
+            "target_text": "Have they arrived yet?",
+            "tokens_correct": [
+                "Have",
+                "they",
+                "arrived",
+                "yet?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "ynq-poly-a1-07",
+            "question": "Вчора йшов дощ?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "it",
+                "a3": "rain",
+                "a4": "yesterday?"
+            },
+            "options": [
+                "Did",
+                "it",
+                "rain",
+                "yesterday?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вчора йшов дощ?",
+            "target_text": "Did it rain yesterday?",
+            "tokens_correct": [
+                "Did",
+                "it",
+                "rain",
+                "yesterday?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "ynq-poly-a1-08",
+            "question": "Ви були вдома вчора?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Were",
+                "a2": "you",
+                "a3": "at",
+                "a4": "home",
+                "a5": "yesterday?"
+            },
+            "options": [
+                "Were",
+                "you",
+                "at",
+                "home",
+                "yesterday?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ви були вдома вчора?",
+            "target_text": "Were you at home yesterday?",
+            "tokens_correct": [
+                "Were",
+                "you",
+                "at",
+                "home",
+                "yesterday?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "ynq-poly-a1-09",
+            "question": "Нам варто піти зараз?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Should",
+                "a2": "we",
+                "a3": "go",
+                "a4": "now?"
+            },
+            "options": [
+                "Should",
+                "we",
+                "go",
+                "now?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Нам варто піти зараз?",
+            "target_text": "Should we go now?",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "go",
+                "now?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "ynq-poly-a1-10",
+            "question": "Вона бачила це фото?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "she",
+                "a3": "seen",
+                "a4": "this",
+                "a5": "photo?"
+            },
+            "options": [
+                "Has",
+                "she",
+                "seen",
+                "this",
+                "photo?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона бачила це фото?",
+            "target_text": "Has she seen this photo?",
+            "tokens_correct": [
+                "Has",
+                "she",
+                "seen",
+                "this",
+                "photo?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "ynq-poly-a1-11",
+            "question": "Зустріч починається о девʼятій?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "no_wh_word"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "the",
+                "a3": "meeting",
+                "a4": "start",
+                "a5": "at",
+                "a6": "nine?"
+            },
+            "options": [
+                "Does",
+                "the",
+                "meeting",
+                "start",
+                "at",
+                "nine?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Зустріч починається о девʼятій?",
+            "target_text": "Does the meeting start at nine?",
+            "tokens_correct": [
+                "Does",
+                "the",
+                "meeting",
+                "start",
+                "at",
+                "nine?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "ynq-poly-a1-12",
+            "question": "Ти готовий до тесту?",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Are",
+                "a2": "you",
+                "a3": "ready",
+                "a4": "for",
+                "a5": "the",
+                "a6": "test?"
+            },
+            "options": [
+                "Are",
+                "you",
+                "ready",
+                "for",
+                "the",
+                "test?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти готовий до тесту?",
+            "target_text": "Are you ready for the test?",
+            "tokens_correct": [
+                "Are",
+                "you",
+                "ready",
+                "for",
+                "the",
+                "test?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "ynq-poly-a2-01",
+            "question": "Твій брат грає у футбол?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "your",
+                "a3": "brother",
+                "a4": "play",
+                "a5": "football?"
+            },
+            "options": [
+                "Does",
+                "your",
+                "brother",
+                "play",
+                "football?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Твій брат грає у футбол?",
+            "target_text": "Does your brother play football?",
+            "tokens_correct": [
+                "Does",
+                "your",
+                "brother",
+                "play",
+                "football?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "ynq-poly-a2-02",
+            "question": "Вони готові?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "auxiliary_subject"
+            ],
+            "answers": {
+                "a1": "Are",
+                "a2": "they",
+                "a3": "ready?"
+            },
+            "options": [
+                "Are",
+                "they",
+                "ready?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони готові?",
+            "target_text": "Are they ready?",
+            "tokens_correct": [
+                "Are",
+                "they",
+                "ready?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "ynq-poly-a2-03",
+            "question": "Ти бачив цей фільм?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "do_does_did_simple"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "you",
+                "a3": "see",
+                "a4": "this",
+                "a5": "film?"
+            },
+            "options": [
+                "Did",
+                "you",
+                "see",
+                "this",
+                "film?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти бачив цей фільм?",
+            "target_text": "Did you see this film?",
+            "tokens_correct": [
+                "Did",
+                "you",
+                "see",
+                "this",
+                "film?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "ynq-poly-a2-04",
+            "question": "Це дорого?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Is",
+                "a2": "it",
+                "a3": "expensive?"
+            },
+            "options": [
+                "Is",
+                "it",
+                "expensive?",
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Це дорого?",
+            "target_text": "Is it expensive?",
+            "tokens_correct": [
+                "Is",
+                "it",
+                "expensive?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "ynq-poly-a2-05",
+            "question": "Вона може водити авто?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "she",
+                "a3": "drive",
+                "a4": "a",
+                "a5": "car?"
+            },
+            "options": [
+                "Can",
+                "she",
+                "drive",
+                "a",
+                "car?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона може водити авто?",
+            "target_text": "Can she drive a car?",
+            "tokens_correct": [
+                "Can",
+                "she",
+                "drive",
+                "a",
+                "car?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "ynq-poly-a2-06",
+            "question": "Ти закінчив домашнє завдання?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Have",
+                "a2": "you",
+                "a3": "finished",
+                "a4": "your",
+                "a5": "homework?"
+            },
+            "options": [
+                "Have",
+                "you",
+                "finished",
+                "your",
+                "homework?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти закінчив домашнє завдання?",
+            "target_text": "Have you finished your homework?",
+            "tokens_correct": [
+                "Have",
+                "you",
+                "finished",
+                "your",
+                "homework?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "ynq-poly-a2-07",
+            "question": "Вони прийдуть завтра?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "they",
+                "a3": "come",
+                "a4": "tomorrow?"
+            },
+            "options": [
+                "Will",
+                "they",
+                "come",
+                "tomorrow?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони прийдуть завтра?",
+            "target_text": "Will they come tomorrow?",
+            "tokens_correct": [
+                "Will",
+                "they",
+                "come",
+                "tomorrow?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "ynq-poly-a2-08",
+            "question": "Він був на роботі?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Was",
+                "a2": "he",
+                "a3": "at",
+                "a4": "work?"
+            },
+            "options": [
+                "Was",
+                "he",
+                "at",
+                "work?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Він був на роботі?",
+            "target_text": "Was he at work?",
+            "tokens_correct": [
+                "Was",
+                "he",
+                "at",
+                "work?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "ynq-poly-a2-09",
+            "question": "Можна запитати?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "May",
+                "a2": "I",
+                "a3": "ask",
+                "a4": "a",
+                "a5": "question?"
+            },
+            "options": [
+                "May",
+                "I",
+                "ask",
+                "a",
+                "question?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Можна запитати?",
+            "target_text": "May I ask a question?",
+            "tokens_correct": [
+                "May",
+                "I",
+                "ask",
+                "a",
+                "question?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "ynq-poly-a2-10",
+            "question": "Він уже пішов?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "he",
+                "a3": "already",
+                "a4": "left?"
+            },
+            "options": [
+                "Has",
+                "he",
+                "already",
+                "left?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Він уже пішов?",
+            "target_text": "Has he already left?",
+            "tokens_correct": [
+                "Has",
+                "he",
+                "already",
+                "left?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "ynq-poly-a2-11",
+            "question": "У тебе є час?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "no_wh_word"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "have",
+                "a4": "time?"
+            },
+            "options": [
+                "Do",
+                "you",
+                "have",
+                "time?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "У тебе є час?",
+            "target_text": "Do you have time?",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "have",
+                "time?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "ynq-poly-a2-12",
+            "question": "Вона готова зараз?",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Is",
+                "a2": "she",
+                "a3": "ready",
+                "a4": "now?"
+            },
+            "options": [
+                "Is",
+                "she",
+                "ready",
+                "now?",
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона готова зараз?",
+            "target_text": "Is she ready now?",
+            "tokens_correct": [
+                "Is",
+                "she",
+                "ready",
+                "now?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "ynq-poly-b1-01",
+            "question": "Ти працюєш зараз?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Are",
+                "a2": "you",
+                "a3": "working",
+                "a4": "now?"
+            },
+            "options": [
+                "Are",
+                "you",
+                "working",
+                "now?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти працюєш зараз?",
+            "target_text": "Are you working now?",
+            "tokens_correct": [
+                "Are",
+                "you",
+                "working",
+                "now?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "ynq-poly-b1-02",
+            "question": "Вони підтримують цю ідею?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "auxiliary_subject"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "they",
+                "a3": "support",
+                "a4": "this",
+                "a5": "idea?"
+            },
+            "options": [
+                "Do",
+                "they",
+                "support",
+                "this",
+                "idea?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони підтримують цю ідею?",
+            "target_text": "Do they support this idea?",
+            "tokens_correct": [
+                "Do",
+                "they",
+                "support",
+                "this",
+                "idea?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "ynq-poly-b1-03",
+            "question": "Команда завершила завдання вчора?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "do_does_did_simple"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "team",
+                "a4": "finish",
+                "a5": "the",
+                "a6": "task",
+                "a7": "yesterday?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "team",
+                "finish",
+                "task",
+                "yesterday?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Команда завершила завдання вчора?",
+            "target_text": "Did the team finish the task yesterday?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "team",
+                "finish",
+                "the",
+                "task",
+                "yesterday?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "ynq-poly-b1-04",
+            "question": "Кімнату прибирають зараз?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Is",
+                "a2": "the",
+                "a3": "room",
+                "a4": "being",
+                "a5": "cleaned",
+                "a6": "now?"
+            },
+            "options": [
+                "Is",
+                "the",
+                "room",
+                "being",
+                "cleaned",
+                "now?",
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Кімнату прибирають зараз?",
+            "target_text": "Is the room being cleaned now?",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "room",
+                "being",
+                "cleaned",
+                "now?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "ynq-poly-b1-05",
+            "question": "Чи могли б ви повторити питання?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Could",
+                "a2": "you",
+                "a3": "repeat",
+                "a4": "the",
+                "a5": "question?"
+            },
+            "options": [
+                "Could",
+                "you",
+                "repeat",
+                "the",
+                "question?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи могли б ви повторити питання?",
+            "target_text": "Could you repeat the question?",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "repeat",
+                "the",
+                "question?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "ynq-poly-b1-06",
+            "question": "Вона вже відповіла?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "she",
+                "a3": "replied",
+                "a4": "yet?"
+            },
+            "options": [
+                "Has",
+                "she",
+                "replied",
+                "yet?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вона вже відповіла?",
+            "target_text": "Has she replied yet?",
+            "tokens_correct": [
+                "Has",
+                "she",
+                "replied",
+                "yet?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "ynq-poly-b1-07",
+            "question": "Чи буде тест складним?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "the",
+                "a3": "test",
+                "a4": "be",
+                "a5": "difficult?"
+            },
+            "options": [
+                "Will",
+                "the",
+                "test",
+                "be",
+                "difficult?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи буде тест складним?",
+            "target_text": "Will the test be difficult?",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "test",
+                "be",
+                "difficult?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "ynq-poly-b1-08",
+            "question": "Вони були втомлені після поїздки?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Were",
+                "a2": "they",
+                "a3": "tired",
+                "a4": "after",
+                "a5": "the",
+                "a6": "trip?"
+            },
+            "options": [
+                "Were",
+                "they",
+                "tired",
+                "after",
+                "the",
+                "trip?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони були втомлені після поїздки?",
+            "target_text": "Were they tired after the trip?",
+            "tokens_correct": [
+                "Were",
+                "they",
+                "tired",
+                "after",
+                "the",
+                "trip?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "ynq-poly-b1-09",
+            "question": "Чи треба нам чекати зовні?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Should",
+                "a2": "we",
+                "a3": "wait",
+                "a4": "outside?"
+            },
+            "options": [
+                "Should",
+                "we",
+                "wait",
+                "outside?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи треба нам чекати зовні?",
+            "target_text": "Should we wait outside?",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "wait",
+                "outside?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "ynq-poly-b1-10",
+            "question": "Ти чекаєш довго?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Have",
+                "a2": "you",
+                "a3": "been",
+                "a4": "waiting",
+                "a5": "long?"
+            },
+            "options": [
+                "Have",
+                "you",
+                "been",
+                "waiting",
+                "long?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ти чекаєш довго?",
+            "target_text": "Have you been waiting long?",
+            "tokens_correct": [
+                "Have",
+                "you",
+                "been",
+                "waiting",
+                "long?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "ynq-poly-b1-11",
+            "question": "Твоя сестра знає відповідь?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "no_wh_word"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "your",
+                "a3": "sister",
+                "a4": "know",
+                "a5": "the",
+                "a6": "answer?"
+            },
+            "options": [
+                "Does",
+                "your",
+                "sister",
+                "know",
+                "the",
+                "answer?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Твоя сестра знає відповідь?",
+            "target_text": "Does your sister know the answer?",
+            "tokens_correct": [
+                "Does",
+                "your",
+                "sister",
+                "know",
+                "the",
+                "answer?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "ynq-poly-b1-12",
+            "question": "Вони пішли додому?",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "they",
+                "a3": "go",
+                "a4": "home?"
+            },
+            "options": [
+                "Did",
+                "they",
+                "go",
+                "home?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Вони пішли додому?",
+            "target_text": "Did they go home?",
+            "tokens_correct": [
+                "Did",
+                "they",
+                "go",
+                "home?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "ynq-poly-b2-01",
+            "question": "Чи перевірив юрист контракт?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "the",
+                "a3": "lawyer",
+                "a4": "checked",
+                "a5": "the",
+                "a6": "contract?"
+            },
+            "options": [
+                "Has",
+                "the",
+                "lawyer",
+                "checked",
+                "contract?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи перевірив юрист контракт?",
+            "target_text": "Has the lawyer checked the contract?",
+            "tokens_correct": [
+                "Has",
+                "the",
+                "lawyer",
+                "checked",
+                "the",
+                "contract?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "ynq-poly-b2-02",
+            "question": "Чи ця політика стосується всіх працівників?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "auxiliary_subject"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "this",
+                "a3": "policy",
+                "a4": "apply",
+                "a5": "to",
+                "a6": "all",
+                "a7": "employees?"
+            },
+            "options": [
+                "Does",
+                "this",
+                "policy",
+                "apply",
+                "to",
+                "all",
+                "employees?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи ця політика стосується всіх працівників?",
+            "target_text": "Does this policy apply to all employees?",
+            "tokens_correct": [
+                "Does",
+                "this",
+                "policy",
+                "apply",
+                "to",
+                "all",
+                "employees?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "ynq-poly-b2-03",
+            "question": "Клієнти прийняли пропозицію минулого тижня?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "do_does_did_simple"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "clients",
+                "a4": "accept",
+                "a5": "the",
+                "a6": "offer",
+                "a7": "last",
+                "a8": "week?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "clients",
+                "accept",
+                "offer",
+                "last",
+                "week?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Клієнти прийняли пропозицію минулого тижня?",
+            "target_text": "Did the clients accept the offer last week?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "clients",
+                "accept",
+                "the",
+                "offer",
+                "last",
+                "week?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "ynq-poly-b2-04",
+            "question": "Чи доступна нова версія вже?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Is",
+                "a2": "the",
+                "a3": "new",
+                "a4": "version",
+                "a5": "available",
+                "a6": "yet?"
+            },
+            "options": [
+                "Is",
+                "the",
+                "new",
+                "version",
+                "available",
+                "yet?",
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи доступна нова версія вже?",
+            "target_text": "Is the new version available yet?",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "new",
+                "version",
+                "available",
+                "yet?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "ynq-poly-b2-05",
+            "question": "Чи може команда відкласти запуск?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "the",
+                "a3": "team",
+                "a4": "delay",
+                "a5": "the",
+                "a6": "launch?"
+            },
+            "options": [
+                "Can",
+                "the",
+                "team",
+                "delay",
+                "launch?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи може команда відкласти запуск?",
+            "target_text": "Can the team delay the launch?",
+            "tokens_correct": [
+                "Can",
+                "the",
+                "team",
+                "delay",
+                "the",
+                "launch?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "ynq-poly-b2-06",
+            "question": "Чи протестували систему ретельно?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "the",
+                "a3": "system",
+                "a4": "been",
+                "a5": "tested",
+                "a6": "thoroughly?"
+            },
+            "options": [
+                "Has",
+                "the",
+                "system",
+                "been",
+                "tested",
+                "thoroughly?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи протестували систему ретельно?",
+            "target_text": "Has the system been tested thoroughly?",
+            "tokens_correct": [
+                "Has",
+                "the",
+                "system",
+                "been",
+                "tested",
+                "thoroughly?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "ynq-poly-b2-07",
+            "question": "Чи буде засідання записано?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "the",
+                "a3": "session",
+                "a4": "be",
+                "a5": "recorded?"
+            },
+            "options": [
+                "Will",
+                "the",
+                "session",
+                "be",
+                "recorded?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи буде засідання записано?",
+            "target_text": "Will the session be recorded?",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "session",
+                "be",
+                "recorded?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "ynq-poly-b2-08",
+            "question": "Чи були документи подані вчасно?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Were",
+                "a2": "the",
+                "a3": "documents",
+                "a4": "submitted",
+                "a5": "on",
+                "a6": "time?"
+            },
+            "options": [
+                "Were",
+                "the",
+                "documents",
+                "submitted",
+                "on",
+                "time?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи були документи подані вчасно?",
+            "target_text": "Were the documents submitted on time?",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "documents",
+                "submitted",
+                "on",
+                "time?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "ynq-poly-b2-09",
+            "question": "Чи мусить заявник надати додаткові докази?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Must",
+                "a2": "the",
+                "a3": "applicant",
+                "a4": "submit",
+                "a5": "extra",
+                "a6": "evidence?"
+            },
+            "options": [
+                "Must",
+                "the",
+                "applicant",
+                "submit",
+                "extra",
+                "evidence?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи мусить заявник надати додаткові докази?",
+            "target_text": "Must the applicant submit extra evidence?",
+            "tokens_correct": [
+                "Must",
+                "the",
+                "applicant",
+                "submit",
+                "extra",
+                "evidence?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "ynq-poly-b2-10",
+            "question": "Чи підписали угоду до дедлайну?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Had",
+                "a2": "they",
+                "a3": "signed",
+                "a4": "the",
+                "a5": "agreement",
+                "a6": "before",
+                "a7": "the",
+                "a8": "deadline?"
+            },
+            "options": [
+                "Had",
+                "they",
+                "signed",
+                "the",
+                "agreement",
+                "before",
+                "deadline?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи підписали угоду до дедлайну?",
+            "target_text": "Had they signed the agreement before the deadline?",
+            "tokens_correct": [
+                "Had",
+                "they",
+                "signed",
+                "the",
+                "agreement",
+                "before",
+                "the",
+                "deadline?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "ynq-poly-b2-11",
+            "question": "Ці цифри збігаються з рахунком?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "no_wh_word"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "these",
+                "a3": "figures",
+                "a4": "match",
+                "a5": "the",
+                "a6": "invoice?"
+            },
+            "options": [
+                "Do",
+                "these",
+                "figures",
+                "match",
+                "the",
+                "invoice?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Ці цифри збігаються з рахунком?",
+            "target_text": "Do these figures match the invoice?",
+            "tokens_correct": [
+                "Do",
+                "these",
+                "figures",
+                "match",
+                "the",
+                "invoice?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "ynq-poly-b2-12",
+            "question": "Чи схвалила рада план?",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "board",
+                "a4": "approve",
+                "a5": "the",
+                "a6": "plan?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "board",
+                "approve",
+                "plan?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи схвалила рада план?",
+            "target_text": "Did the board approve the plan?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "board",
+                "approve",
+                "the",
+                "plan?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "ynq-poly-c1-01",
+            "question": "Чи було повідомлення надіслане всім учасникам?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Was",
+                "a2": "the",
+                "a3": "notice",
+                "a4": "sent",
+                "a5": "to",
+                "a6": "all",
+                "a7": "participants?"
+            },
+            "options": [
+                "Was",
+                "the",
+                "notice",
+                "sent",
+                "to",
+                "all",
+                "participants?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи було повідомлення надіслане всім учасникам?",
+            "target_text": "Was the notice sent to all participants?",
+            "tokens_correct": [
+                "Was",
+                "the",
+                "notice",
+                "sent",
+                "to",
+                "all",
+                "participants?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "ynq-poly-c1-02",
+            "question": "Чи має пропозиція юридичну силу?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "auxiliary_subject"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "the",
+                "a3": "proposal",
+                "a4": "have",
+                "a5": "legal",
+                "a6": "effect?"
+            },
+            "options": [
+                "Does",
+                "the",
+                "proposal",
+                "have",
+                "legal",
+                "effect?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи має пропозиція юридичну силу?",
+            "target_text": "Does the proposal have legal effect?",
+            "tokens_correct": [
+                "Does",
+                "the",
+                "proposal",
+                "have",
+                "legal",
+                "effect?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "ynq-poly-c1-03",
+            "question": "Аудитори виявили невідповідність?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "do_does_did_simple"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "auditors",
+                "a4": "identify",
+                "a5": "the",
+                "a6": "discrepancy?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "auditors",
+                "identify",
+                "discrepancy?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Аудитори виявили невідповідність?",
+            "target_text": "Did the auditors identify the discrepancy?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "auditors",
+                "identify",
+                "the",
+                "discrepancy?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "ynq-poly-c1-04",
+            "question": "Чи є результати достатньо надійними?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Are",
+                "a2": "the",
+                "a3": "results",
+                "a4": "sufficiently",
+                "a5": "reliable?"
+            },
+            "options": [
+                "Are",
+                "the",
+                "results",
+                "sufficiently",
+                "reliable?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи є результати достатньо надійними?",
+            "target_text": "Are the results sufficiently reliable?",
+            "tokens_correct": [
+                "Are",
+                "the",
+                "results",
+                "sufficiently",
+                "reliable?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "ynq-poly-c1-05",
+            "question": "Чи може заявник оскаржити рішення?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "the",
+                "a3": "applicant",
+                "a4": "appeal",
+                "a5": "the",
+                "a6": "decision?"
+            },
+            "options": [
+                "Can",
+                "the",
+                "applicant",
+                "appeal",
+                "decision?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи може заявник оскаржити рішення?",
+            "target_text": "Can the applicant appeal the decision?",
+            "tokens_correct": [
+                "Can",
+                "the",
+                "applicant",
+                "appeal",
+                "the",
+                "decision?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "ynq-poly-c1-06",
+            "question": "Чи було питання вже розглянуто?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "the",
+                "a3": "issue",
+                "a4": "already",
+                "a5": "been",
+                "a6": "considered?"
+            },
+            "options": [
+                "Has",
+                "the",
+                "issue",
+                "already",
+                "been",
+                "considered?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи було питання вже розглянуто?",
+            "target_text": "Has the issue already been considered?",
+            "tokens_correct": [
+                "Has",
+                "the",
+                "issue",
+                "already",
+                "been",
+                "considered?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "ynq-poly-c1-07",
+            "question": "Чи продовжать контракт наступного року?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "they",
+                "a3": "renew",
+                "a4": "the",
+                "a5": "contract",
+                "a6": "next",
+                "a7": "year?"
+            },
+            "options": [
+                "Will",
+                "they",
+                "renew",
+                "the",
+                "contract",
+                "next",
+                "year?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи продовжать контракт наступного року?",
+            "target_text": "Will they renew the contract next year?",
+            "tokens_correct": [
+                "Will",
+                "they",
+                "renew",
+                "the",
+                "contract",
+                "next",
+                "year?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "ynq-poly-c1-08",
+            "question": "Чи була умова чітко сформульована?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Was",
+                "a2": "the",
+                "a3": "condition",
+                "a4": "clearly",
+                "a5": "stated?"
+            },
+            "options": [
+                "Was",
+                "the",
+                "condition",
+                "clearly",
+                "stated?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи була умова чітко сформульована?",
+            "target_text": "Was the condition clearly stated?",
+            "tokens_correct": [
+                "Was",
+                "the",
+                "condition",
+                "clearly",
+                "stated?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "ynq-poly-c1-09",
+            "question": "Чи слід нам розкрити цю інформацію?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Should",
+                "a2": "we",
+                "a3": "disclose",
+                "a4": "this",
+                "a5": "information?"
+            },
+            "options": [
+                "Should",
+                "we",
+                "disclose",
+                "this",
+                "information?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи слід нам розкрити цю інформацію?",
+            "target_text": "Should we disclose this information?",
+            "tokens_correct": [
+                "Should",
+                "we",
+                "disclose",
+                "this",
+                "information?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "ynq-poly-c1-10",
+            "question": "Чи були ризики оцінені до запуску?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Had",
+                "a2": "the",
+                "a3": "risks",
+                "a4": "been",
+                "a5": "assessed",
+                "a6": "before",
+                "a7": "launch?"
+            },
+            "options": [
+                "Had",
+                "the",
+                "risks",
+                "been",
+                "assessed",
+                "before",
+                "launch?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи були ризики оцінені до запуску?",
+            "target_text": "Had the risks been assessed before launch?",
+            "tokens_correct": [
+                "Had",
+                "the",
+                "risks",
+                "been",
+                "assessed",
+                "before",
+                "launch?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "ynq-poly-c1-11",
+            "question": "Чи відповідає рішення попередній практиці?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "no_wh_word"
+            ],
+            "answers": {
+                "a1": "Does",
+                "a2": "the",
+                "a3": "decision",
+                "a4": "follow",
+                "a5": "previous",
+                "a6": "practice?"
+            },
+            "options": [
+                "Does",
+                "the",
+                "decision",
+                "follow",
+                "previous",
+                "practice?",
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи відповідає рішення попередній практиці?",
+            "target_text": "Does the decision follow previous practice?",
+            "tokens_correct": [
+                "Does",
+                "the",
+                "decision",
+                "follow",
+                "previous",
+                "practice?"
+            ],
+            "distractors": [
+                "Do",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "ynq-poly-c1-12",
+            "question": "Чи змінила команда графік?",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "team",
+                "a4": "change",
+                "a5": "the",
+                "a6": "schedule?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "team",
+                "change",
+                "schedule?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи змінила команда графік?",
+            "target_text": "Did the team change the schedule?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "team",
+                "change",
+                "the",
+                "schedule?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "ynq-poly-c2-01",
+            "question": "Чи може це положення бути застосоване ретроспективно?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Can",
+                "a2": "this",
+                "a3": "provision",
+                "a4": "be",
+                "a5": "applied",
+                "a6": "retrospectively?"
+            },
+            "options": [
+                "Can",
+                "this",
+                "provision",
+                "be",
+                "applied",
+                "retrospectively?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи може це положення бути застосоване ретроспективно?",
+            "target_text": "Can this provision be applied retrospectively?",
+            "tokens_correct": [
+                "Can",
+                "this",
+                "provision",
+                "be",
+                "applied",
+                "retrospectively?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "ynq-poly-c2-02",
+            "question": "Чи підтверджують докази причинний звʼязок?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "auxiliary_subject"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "the",
+                "a3": "findings",
+                "a4": "establish",
+                "a5": "causation?"
+            },
+            "options": [
+                "Do",
+                "the",
+                "findings",
+                "establish",
+                "causation?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи підтверджують докази причинний звʼязок?",
+            "target_text": "Do the findings establish causation?",
+            "tokens_correct": [
+                "Do",
+                "the",
+                "findings",
+                "establish",
+                "causation?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "ynq-poly-c2-03",
+            "question": "Суд врахував помʼякшувальні обставини?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "do_does_did_simple"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "court",
+                "a4": "consider",
+                "a5": "the",
+                "a6": "mitigating",
+                "a7": "factors?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "court",
+                "consider",
+                "mitigating",
+                "factors?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Суд врахував помʼякшувальні обставини?",
+            "target_text": "Did the court consider the mitigating factors?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "court",
+                "consider",
+                "the",
+                "mitigating",
+                "factors?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "ynq-poly-c2-04",
+            "question": "Чи були свідки належно повідомлені?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Were",
+                "a2": "the",
+                "a3": "witnesses",
+                "a4": "properly",
+                "a5": "notified?"
+            },
+            "options": [
+                "Were",
+                "the",
+                "witnesses",
+                "properly",
+                "notified?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи були свідки належно повідомлені?",
+            "target_text": "Were the witnesses properly notified?",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "witnesses",
+                "properly",
+                "notified?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "ynq-poly-c2-05",
+            "question": "Чи могла комісія вимагати додаткового аналізу?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Could",
+                "a2": "the",
+                "a3": "commission",
+                "a4": "require",
+                "a5": "further",
+                "a6": "analysis?"
+            },
+            "options": [
+                "Could",
+                "the",
+                "commission",
+                "require",
+                "further",
+                "analysis?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи могла комісія вимагати додаткового аналізу?",
+            "target_text": "Could the commission require further analysis?",
+            "tokens_correct": [
+                "Could",
+                "the",
+                "commission",
+                "require",
+                "further",
+                "analysis?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "ynq-poly-c2-06",
+            "question": "Чи було всі альтернативи вичерпано?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Had",
+                "a2": "all",
+                "a3": "alternatives",
+                "a4": "been",
+                "a5": "exhausted?"
+            },
+            "options": [
+                "Had",
+                "all",
+                "alternatives",
+                "been",
+                "exhausted?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи було всі альтернативи вичерпано?",
+            "target_text": "Had all alternatives been exhausted?",
+            "tokens_correct": [
+                "Had",
+                "all",
+                "alternatives",
+                "been",
+                "exhausted?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "ynq-poly-c2-07",
+            "question": "Чи буде рішення переглянуто незалежно?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "yes_no_structure"
+            ],
+            "answers": {
+                "a1": "Will",
+                "a2": "the",
+                "a3": "decision",
+                "a4": "be",
+                "a5": "reviewed",
+                "a6": "independently?"
+            },
+            "options": [
+                "Will",
+                "the",
+                "decision",
+                "be",
+                "reviewed",
+                "independently?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи буде рішення переглянуто незалежно?",
+            "target_text": "Will the decision be reviewed independently?",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "decision",
+                "be",
+                "reviewed",
+                "independently?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "ynq-poly-c2-08",
+            "question": "Чи є формулювання достатньо точним?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "to_be_inversion"
+            ],
+            "answers": {
+                "a1": "Is",
+                "a2": "the",
+                "a3": "wording",
+                "a4": "sufficiently",
+                "a5": "precise?"
+            },
+            "options": [
+                "Is",
+                "the",
+                "wording",
+                "sufficiently",
+                "precise?",
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи є формулювання достатньо точним?",
+            "target_text": "Is the wording sufficiently precise?",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "wording",
+                "sufficiently",
+                "precise?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "ynq-poly-c2-09",
+            "question": "Чи має орган опублікувати мотиви?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "modal_inversion"
+            ],
+            "answers": {
+                "a1": "Must",
+                "a2": "the",
+                "a3": "authority",
+                "a4": "publish",
+                "a5": "its",
+                "a6": "reasons?"
+            },
+            "options": [
+                "Must",
+                "the",
+                "authority",
+                "publish",
+                "its",
+                "reasons?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "source_text_uk": "Чи має орган опублікувати мотиви?",
+            "target_text": "Must the authority publish its reasons?",
+            "tokens_correct": [
+                "Must",
+                "the",
+                "authority",
+                "publish",
+                "its",
+                "reasons?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "ynq-poly-c2-10",
+            "question": "Чи було гіпотезу перевірено раніше?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "perfect_auxiliary_inversion"
+            ],
+            "answers": {
+                "a1": "Has",
+                "a2": "the",
+                "a3": "hypothesis",
+                "a4": "been",
+                "a5": "tested",
+                "a6": "before?"
+            },
+            "options": [
+                "Has",
+                "the",
+                "hypothesis",
+                "been",
+                "tested",
+                "before?",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи було гіпотезу перевірено раніше?",
+            "target_text": "Has the hypothesis been tested before?",
+            "tokens_correct": [
+                "Has",
+                "the",
+                "hypothesis",
+                "been",
+                "tested",
+                "before?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "ynq-poly-c2-11",
+            "question": "Чи ці обмеження поширюються на підрядників?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "no_wh_word"
+            ],
+            "answers": {
+                "a1": "Do",
+                "a2": "these",
+                "a3": "restrictions",
+                "a4": "apply",
+                "a5": "to",
+                "a6": "contractors?"
+            },
+            "options": [
+                "Do",
+                "these",
+                "restrictions",
+                "apply",
+                "to",
+                "contractors?",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи ці обмеження поширюються на підрядників?",
+            "target_text": "Do these restrictions apply to contractors?",
+            "tokens_correct": [
+                "Do",
+                "these",
+                "restrictions",
+                "apply",
+                "to",
+                "contractors?"
+            ],
+            "distractors": [
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "ynq-poly-c2-12",
+            "question": "Чи відхилила комісія апеляцію?",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_yes_no_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "the",
+                "a3": "panel",
+                "a4": "dismiss",
+                "a5": "the",
+                "a6": "appeal?"
+            },
+            "options": [
+                "Did",
+                "the",
+                "panel",
+                "dismiss",
+                "appeal?",
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "source_text_uk": "Чи відхилила комісія апеляцію?",
+            "target_text": "Did the panel dismiss the appeal?",
+            "tokens_correct": [
+                "Did",
+                "the",
+                "panel",
+                "dismiss",
+                "the",
+                "appeal?"
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "yesno-questions-general-questions",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn-yn-poly-all",
+        "slug": "polyglot-yes-no-questions-general-questions-all-levels",
+        "name": "Sentence Builder: Yes / No Questions (All levels)",
+        "description": "Sentence Builder compose package for Yes / No Questions across A1-C2.",
+        "question_uuids": [
+            "ynq-poly-a1-01",
+            "ynq-poly-a1-02",
+            "ynq-poly-a1-03",
+            "ynq-poly-a1-04",
+            "ynq-poly-a1-05",
+            "ynq-poly-a1-06",
+            "ynq-poly-a1-07",
+            "ynq-poly-a1-08",
+            "ynq-poly-a1-09",
+            "ynq-poly-a1-10",
+            "ynq-poly-a1-11",
+            "ynq-poly-a1-12",
+            "ynq-poly-a2-01",
+            "ynq-poly-a2-02",
+            "ynq-poly-a2-03",
+            "ynq-poly-a2-04",
+            "ynq-poly-a2-05",
+            "ynq-poly-a2-06",
+            "ynq-poly-a2-07",
+            "ynq-poly-a2-08",
+            "ynq-poly-a2-09",
+            "ynq-poly-a2-10",
+            "ynq-poly-a2-11",
+            "ynq-poly-a2-12",
+            "ynq-poly-b1-01",
+            "ynq-poly-b1-02",
+            "ynq-poly-b1-03",
+            "ynq-poly-b1-04",
+            "ynq-poly-b1-05",
+            "ynq-poly-b1-06",
+            "ynq-poly-b1-07",
+            "ynq-poly-b1-08",
+            "ynq-poly-b1-09",
+            "ynq-poly-b1-10",
+            "ynq-poly-b1-11",
+            "ynq-poly-b1-12",
+            "ynq-poly-b2-01",
+            "ynq-poly-b2-02",
+            "ynq-poly-b2-03",
+            "ynq-poly-b2-04",
+            "ynq-poly-b2-05",
+            "ynq-poly-b2-06",
+            "ynq-poly-b2-07",
+            "ynq-poly-b2-08",
+            "ynq-poly-b2-09",
+            "ynq-poly-b2-10",
+            "ynq-poly-b2-11",
+            "ynq-poly-b2-12",
+            "ynq-poly-c1-01",
+            "ynq-poly-c1-02",
+            "ynq-poly-c1-03",
+            "ynq-poly-c1-04",
+            "ynq-poly-c1-05",
+            "ynq-poly-c1-06",
+            "ynq-poly-c1-07",
+            "ynq-poly-c1-08",
+            "ynq-poly-c1-09",
+            "ynq-poly-c1-10",
+            "ynq-poly-c1-11",
+            "ynq-poly-c1-12",
+            "ynq-poly-c2-01",
+            "ynq-poly-c2-02",
+            "ynq-poly-c2-03",
+            "ynq-poly-c2-04",
+            "ynq-poly-c2-05",
+            "ynq-poly-c2-06",
+            "ynq-poly-c2-07",
+            "ynq-poly-c2-08",
+            "ynq-poly-c2-09",
+            "ynq-poly-c2-10",
+            "ynq-poly-c2-11",
+            "ynq-poly-c2-12"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "Yes / No Questions",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotYesNoQuestionsGeneralQuestionsAllLevelsLessonSeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "yesno-questions-general-questions",
+                    "title": "Yes / No Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+                }
+            }
+        }
+    }
+}
