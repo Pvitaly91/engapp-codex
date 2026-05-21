@@ -1,0 +1,1935 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\AnswersToQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "AnswersToQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_answers_to_questions": {
+            "name": "Answers to Questions"
+        }
+    },
+    "tags": {
+        "answers_to_questions": {
+            "name": "Answers to Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "yes_no_short_answers": {
+            "name": "Yes No Short Answers",
+            "category": "topic"
+        },
+        "to_be_answers": {
+            "name": "To Be Answers",
+            "category": "topic"
+        },
+        "do_does_did_answers": {
+            "name": "Do Does Did Answers",
+            "category": "topic"
+        },
+        "modal_answers": {
+            "name": "Modal Answers",
+            "category": "topic"
+        },
+        "perfect_auxiliary_answers": {
+            "name": "Perfect Auxiliary Answers",
+            "category": "topic"
+        },
+        "full_answers": {
+            "name": "Full Answers",
+            "category": "topic"
+        },
+        "avoid_repetition": {
+            "name": "Avoid Repetition",
+            "category": "topic"
+        },
+        "wh_question_answers": {
+            "name": "Wh Question Answers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "answers_to_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "atq-v3-a1-01",
+            "question": "Do you like tea? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, I do.",
+                    "options": [
+                        "Yes, I do.",
+                        "Yes.",
+                        "No.",
+                        "No, I don't.",
+                        "Yes, she is."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "atq-v3-a1-02",
+            "question": "Do they live here? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "yes_no_short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they don't.",
+                    "options": [
+                        "No, they don't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "atq-v3-a1-03",
+            "question": "Is she ready? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she is.",
+                    "options": [
+                        "Yes, she is.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "atq-v3-a1-04",
+            "question": "Does Tom work here? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "do_does_did_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, he doesn't.",
+                    "options": [
+                        "No, he doesn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "atq-v3-a1-05",
+            "question": "Can you swim? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "modal_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, I can.",
+                    "options": [
+                        "Yes, I can.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "atq-v3-a1-06",
+            "question": "Have they finished? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "perfect_auxiliary_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they haven't.",
+                    "options": [
+                        "No, they haven't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "atq-v3-a1-07",
+            "question": "Did Anna call? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "full_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she called.",
+                    "options": [
+                        "Yes, she called.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "atq-v3-a1-08",
+            "question": "Do you need help? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "avoid_repetition"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, I do.",
+                    "options": [
+                        "Yes, I do.",
+                        "Yes.",
+                        "No.",
+                        "No, I don't.",
+                        "Yes, she is."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "atq-v3-a1-09",
+            "question": "Where do you live? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "In Kyiv.",
+                    "options": [
+                        "In Kyiv.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "atq-v3-a1-10",
+            "question": "Can he drive? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, he can.",
+                    "options": [
+                        "Yes, he can.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "atq-v3-a1-11",
+            "question": "Were they late? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they weren't.",
+                    "options": [
+                        "No, they weren't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "atq-v3-a1-12",
+            "question": "Why are you tired? — {a1}",
+            "level": "A1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a1",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Because I worked late.",
+                    "options": [
+                        "Because I worked late.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "atq-v3-a2-01",
+            "question": "Will you join us? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, I will.",
+                    "options": [
+                        "Yes, I will.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "atq-v3-a2-02",
+            "question": "Did Maria see the message? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "yes_no_short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, she didn't.",
+                    "options": [
+                        "No, she didn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "atq-v3-a2-03",
+            "question": "Are the tickets ready? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, they are.",
+                    "options": [
+                        "Yes, they are.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "atq-v3-a2-04",
+            "question": "Does the shop open early? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "do_does_did_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it does.",
+                    "options": [
+                        "Yes, it does.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "atq-v3-a2-05",
+            "question": "Should we wait outside? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "modal_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, we shouldn't.",
+                    "options": [
+                        "No, we shouldn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "atq-v3-a2-06",
+            "question": "Has he sent the file? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "perfect_auxiliary_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, he has.",
+                    "options": [
+                        "Yes, he has.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "atq-v3-a2-07",
+            "question": "Did the train arrive on time? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "full_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it arrived late.",
+                    "options": [
+                        "No, it arrived late.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "atq-v3-a2-08",
+            "question": "Does she speak French? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "avoid_repetition"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she does.",
+                    "options": [
+                        "Yes, she does.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "atq-v3-a2-09",
+            "question": "When did they leave? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "At six o'clock.",
+                    "options": [
+                        "At six o'clock.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "atq-v3-a2-10",
+            "question": "Will they help us? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, they will.",
+                    "options": [
+                        "Yes, they will.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "atq-v3-a2-11",
+            "question": "Was the room clean? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it wasn't.",
+                    "options": [
+                        "No, it wasn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "atq-v3-a2-12",
+            "question": "Why did you call? — {a1}",
+            "level": "A2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_a2",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Because I needed advice.",
+                    "options": [
+                        "Because I needed advice.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "atq-v3-b1-01",
+            "question": "Have you read the report? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, I have.",
+                    "options": [
+                        "Yes, I have.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "atq-v3-b1-02",
+            "question": "Were the students listening? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "yes_no_short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they weren't.",
+                    "options": [
+                        "No, they weren't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "atq-v3-b1-03",
+            "question": "Is the manager available? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, she isn't.",
+                    "options": [
+                        "No, she isn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "atq-v3-b1-04",
+            "question": "Did the client approve it? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "do_does_did_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, he did.",
+                    "options": [
+                        "Yes, he did.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "atq-v3-b1-05",
+            "question": "Could you explain the rule? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "modal_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, I could.",
+                    "options": [
+                        "Yes, I could.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "atq-v3-b1-06",
+            "question": "Had they checked the address? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "perfect_auxiliary_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they hadn't.",
+                    "options": [
+                        "No, they hadn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "atq-v3-b1-07",
+            "question": "Did Marta finish the task? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "full_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she finished it.",
+                    "options": [
+                        "Yes, she finished it.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "atq-v3-b1-08",
+            "question": "Have we missed the deadline? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "avoid_repetition"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, we haven't.",
+                    "options": [
+                        "No, we haven't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "atq-v3-b1-09",
+            "question": "Who called you? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "My brother did.",
+                    "options": [
+                        "My brother did.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "atq-v3-b1-10",
+            "question": "Could they solve it? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they couldn't.",
+                    "options": [
+                        "No, they couldn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "atq-v3-b1-11",
+            "question": "Were you working then? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, I was.",
+                    "options": [
+                        "Yes, I was.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "atq-v3-b1-12",
+            "question": "Why has she left early? — {a1}",
+            "level": "B1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b1",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Because she felt ill.",
+                    "options": [
+                        "Because she felt ill.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "atq-v3-b2-01",
+            "question": "Had the team prepared the slides? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, they had.",
+                    "options": [
+                        "Yes, they had.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "atq-v3-b2-02",
+            "question": "Will the update be released today? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "yes_no_short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it won't.",
+                    "options": [
+                        "No, it won't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "atq-v3-b2-03",
+            "question": "Was the proposal convincing? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it was.",
+                    "options": [
+                        "Yes, it was.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "atq-v3-b2-04",
+            "question": "Did the committee reject the plan? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "do_does_did_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it didn't.",
+                    "options": [
+                        "No, it didn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "atq-v3-b2-05",
+            "question": "Might the price change later? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "modal_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it might.",
+                    "options": [
+                        "Yes, it might.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "atq-v3-b2-06",
+            "question": "Has the contract been signed? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "perfect_auxiliary_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it hasn't.",
+                    "options": [
+                        "No, it hasn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "atq-v3-b2-07",
+            "question": "Did Olivia explain the delay? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "full_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she explained it clearly.",
+                    "options": [
+                        "Yes, she explained it clearly.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "atq-v3-b2-08",
+            "question": "Should we repeat the whole answer? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "avoid_repetition"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, we shouldn't.",
+                    "options": [
+                        "No, we shouldn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "atq-v3-b2-09",
+            "question": "How did they solve the problem? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "By simplifying the process.",
+                    "options": [
+                        "By simplifying the process.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "atq-v3-b2-10",
+            "question": "Has he submitted the form? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, he has.",
+                    "options": [
+                        "Yes, he has.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "atq-v3-b2-11",
+            "question": "Were the results reliable? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they weren't.",
+                    "options": [
+                        "No, they weren't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "atq-v3-b2-12",
+            "question": "Why was the meeting postponed? — {a1}",
+            "level": "B2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_b2",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Because the director was absent.",
+                    "options": [
+                        "Because the director was absent.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "atq-v3-c1-01",
+            "question": "Could the witness identify the driver? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she could.",
+                    "options": [
+                        "Yes, she could.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "atq-v3-c1-02",
+            "question": "Had the figures been verified? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "yes_no_short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they hadn't.",
+                    "options": [
+                        "No, they hadn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "atq-v3-c1-03",
+            "question": "Is the evidence admissible? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it is.",
+                    "options": [
+                        "Yes, it is.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "atq-v3-c1-04",
+            "question": "Did the editor notice the inconsistency? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "do_does_did_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she did.",
+                    "options": [
+                        "Yes, she did.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "atq-v3-c1-05",
+            "question": "Would the board reconsider the decision? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "modal_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it wouldn't.",
+                    "options": [
+                        "No, it wouldn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "atq-v3-c1-06",
+            "question": "Has the issue been resolved? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "perfect_auxiliary_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it has.",
+                    "options": [
+                        "Yes, it has.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "atq-v3-c1-07",
+            "question": "Did the spokesperson deny the claim? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "full_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, he denied only one detail.",
+                    "options": [
+                        "No, he denied only one detail.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "atq-v3-c1-08",
+            "question": "Will the panel discuss the evidence again? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "avoid_repetition"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it will.",
+                    "options": [
+                        "Yes, it will.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "atq-v3-c1-09",
+            "question": "Why did the negotiations collapse? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Because both sides refused to compromise.",
+                    "options": [
+                        "Because both sides refused to compromise.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "atq-v3-c1-10",
+            "question": "Could the report be misunderstood? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it could.",
+                    "options": [
+                        "Yes, it could.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "atq-v3-c1-11",
+            "question": "Were the assumptions realistic? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they weren't.",
+                    "options": [
+                        "No, they weren't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "atq-v3-c1-12",
+            "question": "What did the audit reveal? — {a1}",
+            "level": "C1",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c1",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Several accounting errors.",
+                    "options": [
+                        "Several accounting errors.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "atq-v3-c2-01",
+            "question": "Might the ruling affect future cases? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it might.",
+                    "options": [
+                        "Yes, it might.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "atq-v3-c2-02",
+            "question": "Had the risks been disclosed earlier? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "yes_no_short_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they hadn't.",
+                    "options": [
+                        "No, they hadn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "atq-v3-c2-03",
+            "question": "Was the wording deliberately vague? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, it was.",
+                    "options": [
+                        "Yes, it was.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "atq-v3-c2-04",
+            "question": "Did the analyst challenge the assumption? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "do_does_did_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, she didn't.",
+                    "options": [
+                        "No, she didn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "atq-v3-c2-05",
+            "question": "Could the findings be replicated? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "modal_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, they could.",
+                    "options": [
+                        "Yes, they could.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "atq-v3-c2-06",
+            "question": "Has the recommendation been implemented? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "perfect_auxiliary_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it hasn't.",
+                    "options": [
+                        "No, it hasn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "atq-v3-c2-07",
+            "question": "Did the mediator clarify the terms? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "full_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, she clarified them in writing.",
+                    "options": [
+                        "Yes, she clarified them in writing.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "atq-v3-c2-08",
+            "question": "Should the answer repeat the whole predicate? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "avoid_repetition"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, it shouldn't.",
+                    "options": [
+                        "No, it shouldn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "atq-v3-c2-09",
+            "question": "How did the discrepancy arise? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Through a data-entry error.",
+                    "options": [
+                        "Through a data-entry error.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "atq-v3-c2-10",
+            "question": "Would the shareholders accept that explanation? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "No, they wouldn't.",
+                    "options": [
+                        "No, they wouldn't.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "atq-v3-c2-11",
+            "question": "Were the objections addressed? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "to_be_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Yes, they were.",
+                    "options": [
+                        "Yes, they were.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "atq-v3-c2-12",
+            "question": "Why has the deadline been extended? — {a1}",
+            "level": "C2",
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "answers_to_questions",
+                "level_c2",
+                "wh_question_answers"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Because the review is still incomplete.",
+                    "options": [
+                        "Because the review is still incomplete.",
+                        "Yes.",
+                        "No.",
+                        "Yes, I do.",
+                        "No, I don't."
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn2-atq-v3-all",
+        "slug": "answers-to-questions-all-levels-v3",
+        "name": "Answers to Questions (All levels V3)",
+        "description": "Standard V3 package for Answers to Questions across A1-C2.",
+        "question_uuids": [
+            "atq-v3-a1-01",
+            "atq-v3-a1-02",
+            "atq-v3-a1-03",
+            "atq-v3-a1-04",
+            "atq-v3-a1-05",
+            "atq-v3-a1-06",
+            "atq-v3-a1-07",
+            "atq-v3-a1-08",
+            "atq-v3-a1-09",
+            "atq-v3-a1-10",
+            "atq-v3-a1-11",
+            "atq-v3-a1-12",
+            "atq-v3-a2-01",
+            "atq-v3-a2-02",
+            "atq-v3-a2-03",
+            "atq-v3-a2-04",
+            "atq-v3-a2-05",
+            "atq-v3-a2-06",
+            "atq-v3-a2-07",
+            "atq-v3-a2-08",
+            "atq-v3-a2-09",
+            "atq-v3-a2-10",
+            "atq-v3-a2-11",
+            "atq-v3-a2-12",
+            "atq-v3-b1-01",
+            "atq-v3-b1-02",
+            "atq-v3-b1-03",
+            "atq-v3-b1-04",
+            "atq-v3-b1-05",
+            "atq-v3-b1-06",
+            "atq-v3-b1-07",
+            "atq-v3-b1-08",
+            "atq-v3-b1-09",
+            "atq-v3-b1-10",
+            "atq-v3-b1-11",
+            "atq-v3-b1-12",
+            "atq-v3-b2-01",
+            "atq-v3-b2-02",
+            "atq-v3-b2-03",
+            "atq-v3-b2-04",
+            "atq-v3-b2-05",
+            "atq-v3-b2-06",
+            "atq-v3-b2-07",
+            "atq-v3-b2-08",
+            "atq-v3-b2-09",
+            "atq-v3-b2-10",
+            "atq-v3-b2-11",
+            "atq-v3-b2-12",
+            "atq-v3-c1-01",
+            "atq-v3-c1-02",
+            "atq-v3-c1-03",
+            "atq-v3-c1-04",
+            "atq-v3-c1-05",
+            "atq-v3-c1-06",
+            "atq-v3-c1-07",
+            "atq-v3-c1-08",
+            "atq-v3-c1-09",
+            "atq-v3-c1-10",
+            "atq-v3-c1-11",
+            "atq-v3-c1-12",
+            "atq-v3-c2-01",
+            "atq-v3-c2-02",
+            "atq-v3-c2-03",
+            "atq-v3-c2-04",
+            "atq-v3-c2-05",
+            "atq-v3-c2-06",
+            "atq-v3-c2-07",
+            "atq-v3-c2-08",
+            "atq-v3-c2-09",
+            "atq-v3-c2-10",
+            "atq-v3-c2-11",
+            "atq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\AnswersToQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "answers-to-questions-yes-i-do-no-i-dont",
+                    "title": "Answers to Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAnswersToQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+                }
+            }
+        }
+    }
+}

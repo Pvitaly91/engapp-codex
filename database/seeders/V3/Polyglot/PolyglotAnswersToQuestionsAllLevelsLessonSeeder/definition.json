@@ -1,0 +1,5401 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotAnswersToQuestionsAllLevelsLessonSeeder",
+        "uuid_namespace": "PolyglotAnswersToQuestionsAllLevelsLessonSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_answers_to_questions": {
+            "name": "Answers to Questions"
+        }
+    },
+    "tags": {
+        "polyglot_answers_to_questions": {
+            "name": "Answers to Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "yes_no_short_answers": {
+            "name": "Yes No Short Answers",
+            "category": "topic"
+        },
+        "to_be_answers": {
+            "name": "To Be Answers",
+            "category": "topic"
+        },
+        "do_does_did_answers": {
+            "name": "Do Does Did Answers",
+            "category": "topic"
+        },
+        "modal_answers": {
+            "name": "Modal Answers",
+            "category": "topic"
+        },
+        "perfect_auxiliary_answers": {
+            "name": "Perfect Auxiliary Answers",
+            "category": "topic"
+        },
+        "full_answers": {
+            "name": "Full Answers",
+            "category": "topic"
+        },
+        "avoid_repetition": {
+            "name": "Avoid Repetition",
+            "category": "topic"
+        },
+        "wh_question_answers": {
+            "name": "Wh Question Answers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_answers_to_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "atq-poly-a1-01",
+            "question": "Коротко відповідай ствердно: ти любиш чай.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "short_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "I",
+                "a3": "do."
+            },
+            "options": [
+                "Yes,",
+                "I",
+                "do.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: ти любиш чай.",
+            "target_text": "Yes, I do.",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "do."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "atq-poly-a1-02",
+            "question": "Коротко відповідай заперечно: вони живуть тут.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "yes_no_short_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "don't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "don't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: вони живуть тут.",
+            "target_text": "No, they don't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "don't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "atq-poly-a1-03",
+            "question": "Коротко відповідай ствердно: вона готова.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "is."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "is.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: вона готова.",
+            "target_text": "Yes, she is.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "is."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "atq-poly-a1-04",
+            "question": "Коротко відповідай заперечно: Том працює тут.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "do_does_did_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "he",
+                "a3": "doesn't."
+            },
+            "options": [
+                "No,",
+                "he",
+                "doesn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: Том працює тут.",
+            "target_text": "No, he doesn't.",
+            "tokens_correct": [
+                "No,",
+                "he",
+                "doesn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "atq-poly-a1-05",
+            "question": "Коротко відповідай ствердно: ти вмієш плавати.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "modal_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "I",
+                "a3": "can."
+            },
+            "options": [
+                "Yes,",
+                "I",
+                "can.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: ти вмієш плавати.",
+            "target_text": "Yes, I can.",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "can."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "atq-poly-a1-06",
+            "question": "Коротко відповідай заперечно: вони вже закінчили.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "perfect_auxiliary_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "haven't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "haven't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: вони вже закінчили.",
+            "target_text": "No, they haven't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "haven't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "atq-poly-a1-07",
+            "question": "Дай повну ствердну відповідь: Анна телефонувала.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "full_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "called."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "called.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай повну ствердну відповідь: Анна телефонувала.",
+            "target_text": "Yes, she called.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "called."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "atq-poly-a1-08",
+            "question": "Відповідай коротко без повторення головного дієслова: тобі потрібна допомога.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "avoid_repetition"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "I",
+                "a3": "do."
+            },
+            "options": [
+                "Yes,",
+                "I",
+                "do.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Відповідай коротко без повторення головного дієслова: тобі потрібна допомога.",
+            "target_text": "Yes, I do.",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "do."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "atq-poly-a1-09",
+            "question": "Коротко відповідай на питання про місце проживання.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "In",
+                "a2": "Kyiv."
+            },
+            "options": [
+                "In",
+                "Kyiv.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай на питання про місце проживання.",
+            "target_text": "In Kyiv.",
+            "tokens_correct": [
+                "In",
+                "Kyiv."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "atq-poly-a1-10",
+            "question": "Виправ типову помилку й дай коротку ствердну відповідь: він уміє водити.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "he",
+                "a3": "can."
+            },
+            "options": [
+                "Yes,",
+                "he",
+                "can.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Виправ типову помилку й дай коротку ствердну відповідь: він уміє водити.",
+            "target_text": "Yes, he can.",
+            "tokens_correct": [
+                "Yes,",
+                "he",
+                "can."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "atq-poly-a1-11",
+            "question": "Коротко відповідай заперечно: вони запізнилися.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "weren't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "weren't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: вони запізнилися.",
+            "target_text": "No, they weren't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "weren't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "atq-poly-a1-12",
+            "question": "Дай відповідь на питання про причину втоми.",
+            "level": "A1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a1",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Because",
+                "a2": "I",
+                "a3": "worked",
+                "a4": "late."
+            },
+            "options": [
+                "Because",
+                "I",
+                "worked",
+                "late.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай відповідь на питання про причину втоми.",
+            "target_text": "Because I worked late.",
+            "tokens_correct": [
+                "Because",
+                "I",
+                "worked",
+                "late."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "atq-poly-a2-01",
+            "question": "Коротко відповідай ствердно: ти приєднаєшся до нас.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "short_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "I",
+                "a3": "will."
+            },
+            "options": [
+                "Yes,",
+                "I",
+                "will.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: ти приєднаєшся до нас.",
+            "target_text": "Yes, I will.",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "will."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "atq-poly-a2-02",
+            "question": "Коротко відповідай заперечно: Марія бачила повідомлення.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "yes_no_short_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "she",
+                "a3": "didn't."
+            },
+            "options": [
+                "No,",
+                "she",
+                "didn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: Марія бачила повідомлення.",
+            "target_text": "No, she didn't.",
+            "tokens_correct": [
+                "No,",
+                "she",
+                "didn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "atq-poly-a2-03",
+            "question": "Коротко відповідай ствердно: квитки готові.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "they",
+                "a3": "are."
+            },
+            "options": [
+                "Yes,",
+                "they",
+                "are.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: квитки готові.",
+            "target_text": "Yes, they are.",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "are."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "atq-poly-a2-04",
+            "question": "Коротко відповідай ствердно: магазин відкривається рано.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "do_does_did_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "does."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "does.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: магазин відкривається рано.",
+            "target_text": "Yes, it does.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "does."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "atq-poly-a2-05",
+            "question": "Коротко відповідай заперечно: нам варто чекати надворі.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "modal_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "we",
+                "a3": "shouldn't."
+            },
+            "options": [
+                "No,",
+                "we",
+                "shouldn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: нам варто чекати надворі.",
+            "target_text": "No, we shouldn't.",
+            "tokens_correct": [
+                "No,",
+                "we",
+                "shouldn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "atq-poly-a2-06",
+            "question": "Коротко відповідай ствердно: він надіслав файл.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "perfect_auxiliary_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "he",
+                "a3": "has."
+            },
+            "options": [
+                "Yes,",
+                "he",
+                "has.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: він надіслав файл.",
+            "target_text": "Yes, he has.",
+            "tokens_correct": [
+                "Yes,",
+                "he",
+                "has."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "atq-poly-a2-07",
+            "question": "Дай повну заперечну відповідь: потяг прибув вчасно.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "full_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "arrived",
+                "a4": "late."
+            },
+            "options": [
+                "No,",
+                "it",
+                "arrived",
+                "late.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай повну заперечну відповідь: потяг прибув вчасно.",
+            "target_text": "No, it arrived late.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "arrived",
+                "late."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "atq-poly-a2-08",
+            "question": "Відповідай коротко без повторення головного дієслова: вона говорить французькою.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "avoid_repetition"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "does."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "does.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Відповідай коротко без повторення головного дієслова: вона говорить французькою.",
+            "target_text": "Yes, she does.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "does."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "atq-poly-a2-09",
+            "question": "Коротко відповідай на питання про час відходу.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "At",
+                "a2": "six",
+                "a3": "o'clock."
+            },
+            "options": [
+                "At",
+                "six",
+                "o'clock.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай на питання про час відходу.",
+            "target_text": "At six o'clock.",
+            "tokens_correct": [
+                "At",
+                "six",
+                "o'clock."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "atq-poly-a2-10",
+            "question": "Виправ типову помилку й дай коротку ствердну відповідь: вони нам допоможуть.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "they",
+                "a3": "will."
+            },
+            "options": [
+                "Yes,",
+                "they",
+                "will.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Виправ типову помилку й дай коротку ствердну відповідь: вони нам допоможуть.",
+            "target_text": "Yes, they will.",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "will."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "atq-poly-a2-11",
+            "question": "Коротко відповідай заперечно: кімната була чистою.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "wasn't."
+            },
+            "options": [
+                "No,",
+                "it",
+                "wasn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: кімната була чистою.",
+            "target_text": "No, it wasn't.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "wasn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "atq-poly-a2-12",
+            "question": "Дай відповідь на питання про причину дзвінка.",
+            "level": "A2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_a2",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Because",
+                "a2": "I",
+                "a3": "needed",
+                "a4": "advice."
+            },
+            "options": [
+                "Because",
+                "I",
+                "needed",
+                "advice.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай відповідь на питання про причину дзвінка.",
+            "target_text": "Because I needed advice.",
+            "tokens_correct": [
+                "Because",
+                "I",
+                "needed",
+                "advice."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "atq-poly-b1-01",
+            "question": "Коротко відповідай ствердно: ти прочитав звіт.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "short_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "I",
+                "a3": "have."
+            },
+            "options": [
+                "Yes,",
+                "I",
+                "have.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: ти прочитав звіт.",
+            "target_text": "Yes, I have.",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "have."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "atq-poly-b1-02",
+            "question": "Коротко відповідай заперечно: студенти слухали.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "yes_no_short_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "weren't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "weren't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: студенти слухали.",
+            "target_text": "No, they weren't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "weren't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "atq-poly-b1-03",
+            "question": "Коротко відповідай заперечно: керівниця доступна.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "she",
+                "a3": "isn't."
+            },
+            "options": [
+                "No,",
+                "she",
+                "isn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: керівниця доступна.",
+            "target_text": "No, she isn't.",
+            "tokens_correct": [
+                "No,",
+                "she",
+                "isn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "atq-poly-b1-04",
+            "question": "Коротко відповідай ствердно: клієнт це схвалив.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "do_does_did_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "he",
+                "a3": "did."
+            },
+            "options": [
+                "Yes,",
+                "he",
+                "did.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: клієнт це схвалив.",
+            "target_text": "Yes, he did.",
+            "tokens_correct": [
+                "Yes,",
+                "he",
+                "did."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "atq-poly-b1-05",
+            "question": "Коротко відповідай ствердно: ти міг пояснити правило.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "modal_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "I",
+                "a3": "could."
+            },
+            "options": [
+                "Yes,",
+                "I",
+                "could.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: ти міг пояснити правило.",
+            "target_text": "Yes, I could.",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "could."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "atq-poly-b1-06",
+            "question": "Коротко відповідай заперечно: вони перевірили адресу.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "perfect_auxiliary_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "hadn't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "hadn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: вони перевірили адресу.",
+            "target_text": "No, they hadn't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "hadn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "atq-poly-b1-07",
+            "question": "Дай повну ствердну відповідь: Марта завершила завдання.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "full_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "finished",
+                "a4": "it."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "finished",
+                "it.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай повну ствердну відповідь: Марта завершила завдання.",
+            "target_text": "Yes, she finished it.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "finished",
+                "it."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "atq-poly-b1-08",
+            "question": "Відповідай коротко без повторення головного дієслова: ми пропустили термін.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "avoid_repetition"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "we",
+                "a3": "haven't."
+            },
+            "options": [
+                "No,",
+                "we",
+                "haven't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Відповідай коротко без повторення головного дієслова: ми пропустили термін.",
+            "target_text": "No, we haven't.",
+            "tokens_correct": [
+                "No,",
+                "we",
+                "haven't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "atq-poly-b1-09",
+            "question": "Дай коротку відповідь на питання про особу, яка телефонувала.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "My",
+                "a2": "brother",
+                "a3": "did."
+            },
+            "options": [
+                "My",
+                "brother",
+                "did.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай коротку відповідь на питання про особу, яка телефонувала.",
+            "target_text": "My brother did.",
+            "tokens_correct": [
+                "My",
+                "brother",
+                "did."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "atq-poly-b1-10",
+            "question": "Виправ типову помилку й дай коротку заперечну відповідь: вони могли це розв’язати.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "couldn't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "couldn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Виправ типову помилку й дай коротку заперечну відповідь: вони могли це розв’язати.",
+            "target_text": "No, they couldn't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "couldn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "atq-poly-b1-11",
+            "question": "Коротко відповідай ствердно: ти тоді працював.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "I",
+                "a3": "was."
+            },
+            "options": [
+                "Yes,",
+                "I",
+                "was.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: ти тоді працював.",
+            "target_text": "Yes, I was.",
+            "tokens_correct": [
+                "Yes,",
+                "I",
+                "was."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "atq-poly-b1-12",
+            "question": "Дай відповідь на питання про причину раннього відходу.",
+            "level": "B1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b1",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Because",
+                "a2": "she",
+                "a3": "felt",
+                "a4": "ill."
+            },
+            "options": [
+                "Because",
+                "she",
+                "felt",
+                "ill.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай відповідь на питання про причину раннього відходу.",
+            "target_text": "Because she felt ill.",
+            "tokens_correct": [
+                "Because",
+                "she",
+                "felt",
+                "ill."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "atq-poly-b2-01",
+            "question": "Коротко відповідай ствердно: команда підготувала слайди.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "short_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "they",
+                "a3": "had."
+            },
+            "options": [
+                "Yes,",
+                "they",
+                "had.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: команда підготувала слайди.",
+            "target_text": "Yes, they had.",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "had."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "atq-poly-b2-02",
+            "question": "Коротко відповідай заперечно: оновлення випустять сьогодні.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "yes_no_short_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "won't."
+            },
+            "options": [
+                "No,",
+                "it",
+                "won't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: оновлення випустять сьогодні.",
+            "target_text": "No, it won't.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "won't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "atq-poly-b2-03",
+            "question": "Коротко відповідай ствердно: пропозиція була переконливою.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "was."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "was.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: пропозиція була переконливою.",
+            "target_text": "Yes, it was.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "was."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "atq-poly-b2-04",
+            "question": "Коротко відповідай заперечно: комітет відхилив план.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "do_does_did_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "didn't."
+            },
+            "options": [
+                "No,",
+                "it",
+                "didn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: комітет відхилив план.",
+            "target_text": "No, it didn't.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "didn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "atq-poly-b2-05",
+            "question": "Коротко відповідай ствердно: ціна може змінитися пізніше.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "modal_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "might."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "might.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: ціна може змінитися пізніше.",
+            "target_text": "Yes, it might.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "might."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "atq-poly-b2-06",
+            "question": "Коротко відповідай заперечно: контракт підписано.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "perfect_auxiliary_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "hasn't."
+            },
+            "options": [
+                "No,",
+                "it",
+                "hasn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: контракт підписано.",
+            "target_text": "No, it hasn't.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "hasn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "atq-poly-b2-07",
+            "question": "Дай повну ствердну відповідь: Олівія пояснила затримку.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "full_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "explained",
+                "a4": "it",
+                "a5": "clearly."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "explained",
+                "it",
+                "clearly.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай повну ствердну відповідь: Олівія пояснила затримку.",
+            "target_text": "Yes, she explained it clearly.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "explained",
+                "it",
+                "clearly."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "atq-poly-b2-08",
+            "question": "Відповідай коротко без зайвого повторення: нам треба повторювати всю відповідь.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "avoid_repetition"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "we",
+                "a3": "shouldn't."
+            },
+            "options": [
+                "No,",
+                "we",
+                "shouldn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Відповідай коротко без зайвого повторення: нам треба повторювати всю відповідь.",
+            "target_text": "No, we shouldn't.",
+            "tokens_correct": [
+                "No,",
+                "we",
+                "shouldn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "atq-poly-b2-09",
+            "question": "Дай коротку відповідь на питання про спосіб розв’язання.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "By",
+                "a2": "simplifying",
+                "a3": "the",
+                "a4": "process."
+            },
+            "options": [
+                "By",
+                "simplifying",
+                "the",
+                "process.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай коротку відповідь на питання про спосіб розв’язання.",
+            "target_text": "By simplifying the process.",
+            "tokens_correct": [
+                "By",
+                "simplifying",
+                "the",
+                "process."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "atq-poly-b2-10",
+            "question": "Виправ типову помилку й дай коротку ствердну відповідь: він подав форму.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "he",
+                "a3": "has."
+            },
+            "options": [
+                "Yes,",
+                "he",
+                "has.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Виправ типову помилку й дай коротку ствердну відповідь: він подав форму.",
+            "target_text": "Yes, he has.",
+            "tokens_correct": [
+                "Yes,",
+                "he",
+                "has."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "atq-poly-b2-11",
+            "question": "Коротко відповідай заперечно: результати були надійними.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "weren't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "weren't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: результати були надійними.",
+            "target_text": "No, they weren't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "weren't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "atq-poly-b2-12",
+            "question": "Дай відповідь на питання про причину перенесення зустрічі.",
+            "level": "B2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_b2",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Because",
+                "a2": "the",
+                "a3": "director",
+                "a4": "was",
+                "a5": "absent."
+            },
+            "options": [
+                "Because",
+                "the",
+                "director",
+                "was",
+                "absent.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай відповідь на питання про причину перенесення зустрічі.",
+            "target_text": "Because the director was absent.",
+            "tokens_correct": [
+                "Because",
+                "the",
+                "director",
+                "was",
+                "absent."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "atq-poly-c1-01",
+            "question": "Коротко відповідай ствердно: свідкиня могла впізнати водія.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "short_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "could."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "could.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: свідкиня могла впізнати водія.",
+            "target_text": "Yes, she could.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "could."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "atq-poly-c1-02",
+            "question": "Коротко відповідай заперечно: цифри перевірили.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "yes_no_short_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "hadn't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "hadn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: цифри перевірили.",
+            "target_text": "No, they hadn't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "hadn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "atq-poly-c1-03",
+            "question": "Коротко відповідай ствердно: доказ допустимий.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "is."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "is.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: доказ допустимий.",
+            "target_text": "Yes, it is.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "is."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "atq-poly-c1-04",
+            "question": "Коротко відповідай ствердно: редакторка помітила невідповідність.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "do_does_did_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "did."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "did.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: редакторка помітила невідповідність.",
+            "target_text": "Yes, she did.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "did."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "atq-poly-c1-05",
+            "question": "Коротко відповідай заперечно: рада переглянула б рішення.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "modal_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "wouldn't."
+            },
+            "options": [
+                "No,",
+                "it",
+                "wouldn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: рада переглянула б рішення.",
+            "target_text": "No, it wouldn't.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "wouldn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "atq-poly-c1-06",
+            "question": "Коротко відповідай ствердно: питання розв’язано.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "perfect_auxiliary_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "has."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "has.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: питання розв’язано.",
+            "target_text": "Yes, it has.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "has."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "atq-poly-c1-07",
+            "question": "Дай повну заперечну відповідь: речник заперечив усю заяву.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "full_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "he",
+                "a3": "denied",
+                "a4": "only",
+                "a5": "one",
+                "a6": "detail."
+            },
+            "options": [
+                "No,",
+                "he",
+                "denied",
+                "only",
+                "one",
+                "detail.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай повну заперечну відповідь: речник заперечив усю заяву.",
+            "target_text": "No, he denied only one detail.",
+            "tokens_correct": [
+                "No,",
+                "he",
+                "denied",
+                "only",
+                "one",
+                "detail."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "atq-poly-c1-08",
+            "question": "Відповідай коротко без повторення головного дієслова: комісія знову обговорить докази.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "avoid_repetition"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "will."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "will.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Відповідай коротко без повторення головного дієслова: комісія знову обговорить докази.",
+            "target_text": "Yes, it will.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "will."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "atq-poly-c1-09",
+            "question": "Дай відповідь на питання про причину зриву переговорів.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Because",
+                "a2": "both",
+                "a3": "sides",
+                "a4": "refused",
+                "a5": "to",
+                "a6": "compromise."
+            },
+            "options": [
+                "Because",
+                "both",
+                "sides",
+                "refused",
+                "to",
+                "compromise.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай відповідь на питання про причину зриву переговорів.",
+            "target_text": "Because both sides refused to compromise.",
+            "tokens_correct": [
+                "Because",
+                "both",
+                "sides",
+                "refused",
+                "to",
+                "compromise."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "atq-poly-c1-10",
+            "question": "Виправ типову помилку й дай коротку ствердну відповідь: звіт можна було неправильно зрозуміти.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "could."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "could.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Виправ типову помилку й дай коротку ствердну відповідь: звіт можна було неправильно зрозуміти.",
+            "target_text": "Yes, it could.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "could."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "atq-poly-c1-11",
+            "question": "Коротко відповідай заперечно: припущення були реалістичними.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "weren't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "weren't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: припущення були реалістичними.",
+            "target_text": "No, they weren't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "weren't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "atq-poly-c1-12",
+            "question": "Дай коротку відповідь на питання про результат аудиту.",
+            "level": "C1",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c1",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Several",
+                "a2": "accounting",
+                "a3": "errors."
+            },
+            "options": [
+                "Several",
+                "accounting",
+                "errors.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай коротку відповідь на питання про результат аудиту.",
+            "target_text": "Several accounting errors.",
+            "tokens_correct": [
+                "Several",
+                "accounting",
+                "errors."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "atq-poly-c2-01",
+            "question": "Коротко відповідай ствердно: рішення може вплинути на майбутні справи.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "short_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "might."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "might.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: рішення може вплинути на майбутні справи.",
+            "target_text": "Yes, it might.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "might."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "atq-poly-c2-02",
+            "question": "Коротко відповідай заперечно: ризики розкрили раніше.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "yes_no_short_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "hadn't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "hadn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: ризики розкрили раніше.",
+            "target_text": "No, they hadn't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "hadn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "atq-poly-c2-03",
+            "question": "Коротко відповідай ствердно: формулювання було навмисно нечітким.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "it",
+                "a3": "was."
+            },
+            "options": [
+                "Yes,",
+                "it",
+                "was.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: формулювання було навмисно нечітким.",
+            "target_text": "Yes, it was.",
+            "tokens_correct": [
+                "Yes,",
+                "it",
+                "was."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "atq-poly-c2-04",
+            "question": "Коротко відповідай заперечно: аналітикиня поставила під сумнів припущення.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "do_does_did_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "she",
+                "a3": "didn't."
+            },
+            "options": [
+                "No,",
+                "she",
+                "didn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: аналітикиня поставила під сумнів припущення.",
+            "target_text": "No, she didn't.",
+            "tokens_correct": [
+                "No,",
+                "she",
+                "didn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "atq-poly-c2-05",
+            "question": "Коротко відповідай ствердно: висновки можна відтворити.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "modal_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "they",
+                "a3": "could."
+            },
+            "options": [
+                "Yes,",
+                "they",
+                "could.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: висновки можна відтворити.",
+            "target_text": "Yes, they could.",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "could."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "atq-poly-c2-06",
+            "question": "Коротко відповідай заперечно: рекомендацію впроваджено.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "perfect_auxiliary_answers"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "hasn't."
+            },
+            "options": [
+                "No,",
+                "it",
+                "hasn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай заперечно: рекомендацію впроваджено.",
+            "target_text": "No, it hasn't.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "hasn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "atq-poly-c2-07",
+            "question": "Дай повну ствердну відповідь: посередниця письмово уточнила умови.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "full_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "she",
+                "a3": "clarified",
+                "a4": "them",
+                "a5": "in",
+                "a6": "writing."
+            },
+            "options": [
+                "Yes,",
+                "she",
+                "clarified",
+                "them",
+                "in",
+                "writing.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай повну ствердну відповідь: посередниця письмово уточнила умови.",
+            "target_text": "Yes, she clarified them in writing.",
+            "tokens_correct": [
+                "Yes,",
+                "she",
+                "clarified",
+                "them",
+                "in",
+                "writing."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "atq-poly-c2-08",
+            "question": "Відповідай коротко без повторення всього присудка.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "avoid_repetition"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "it",
+                "a3": "shouldn't."
+            },
+            "options": [
+                "No,",
+                "it",
+                "shouldn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Відповідай коротко без повторення всього присудка.",
+            "target_text": "No, it shouldn't.",
+            "tokens_correct": [
+                "No,",
+                "it",
+                "shouldn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "atq-poly-c2-09",
+            "question": "Дай коротку відповідь на питання про спосіб виникнення розбіжності.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Through",
+                "a2": "a",
+                "a3": "data-entry",
+                "a4": "error."
+            },
+            "options": [
+                "Through",
+                "a",
+                "data-entry",
+                "error.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай коротку відповідь на питання про спосіб виникнення розбіжності.",
+            "target_text": "Through a data-entry error.",
+            "tokens_correct": [
+                "Through",
+                "a",
+                "data-entry",
+                "error."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "atq-poly-c2-10",
+            "question": "Виправ типову помилку й дай коротку заперечну відповідь: акціонери прийняли б це пояснення.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "answers": {
+                "a1": "No,",
+                "a2": "they",
+                "a3": "wouldn't."
+            },
+            "options": [
+                "No,",
+                "they",
+                "wouldn't.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Виправ типову помилку й дай коротку заперечну відповідь: акціонери прийняли б це пояснення.",
+            "target_text": "No, they wouldn't.",
+            "tokens_correct": [
+                "No,",
+                "they",
+                "wouldn't."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "atq-poly-c2-11",
+            "question": "Коротко відповідай ствердно: заперечення розглянули.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "to_be_answers"
+            ],
+            "answers": {
+                "a1": "Yes,",
+                "a2": "they",
+                "a3": "were."
+            },
+            "options": [
+                "Yes,",
+                "they",
+                "were.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Коротко відповідай ствердно: заперечення розглянули.",
+            "target_text": "Yes, they were.",
+            "tokens_correct": [
+                "Yes,",
+                "they",
+                "were."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "atq-poly-c2-12",
+            "question": "Дай відповідь на питання про причину продовження терміну.",
+            "level": "C2",
+            "type": 4,
+            "source": "theory_page_answers_to_questions",
+            "tag_keys": [
+                "polyglot_compose_tokens",
+                "polyglot_answers_to_questions",
+                "level_c2",
+                "wh_question_answers"
+            ],
+            "answers": {
+                "a1": "Because",
+                "a2": "the",
+                "a3": "review",
+                "a4": "is",
+                "a5": "still",
+                "a6": "incomplete."
+            },
+            "options": [
+                "Because",
+                "the",
+                "review",
+                "is",
+                "still",
+                "incomplete.",
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "source_text_uk": "Дай відповідь на питання про причину продовження терміну.",
+            "target_text": "Because the review is still incomplete.",
+            "tokens_correct": [
+                "Because",
+                "the",
+                "review",
+                "is",
+                "still",
+                "incomplete."
+            ],
+            "distractors": [
+                "Do",
+                "Does",
+                "Did",
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "Can",
+                "Will",
+                "Have",
+                "Has",
+                "Why",
+                "Where",
+                "or",
+                "not"
+            ],
+            "meta": {
+                "mode": "compose_tokens",
+                "source_locale": "uk",
+                "target_locale": "en",
+                "lesson_type": "polyglot",
+                "page_slug": "answers-to-questions-yes-i-do-no-i-dont",
+                "page_route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn2-atq-poly-all",
+        "slug": "polyglot-answers-to-questions-all-levels",
+        "name": "Sentence Builder: Answers to Questions (All levels)",
+        "description": "Sentence Builder compose package for Answers to Questions across A1-C2.",
+        "question_uuids": [
+            "atq-poly-a1-01",
+            "atq-poly-a1-02",
+            "atq-poly-a1-03",
+            "atq-poly-a1-04",
+            "atq-poly-a1-05",
+            "atq-poly-a1-06",
+            "atq-poly-a1-07",
+            "atq-poly-a1-08",
+            "atq-poly-a1-09",
+            "atq-poly-a1-10",
+            "atq-poly-a1-11",
+            "atq-poly-a1-12",
+            "atq-poly-a2-01",
+            "atq-poly-a2-02",
+            "atq-poly-a2-03",
+            "atq-poly-a2-04",
+            "atq-poly-a2-05",
+            "atq-poly-a2-06",
+            "atq-poly-a2-07",
+            "atq-poly-a2-08",
+            "atq-poly-a2-09",
+            "atq-poly-a2-10",
+            "atq-poly-a2-11",
+            "atq-poly-a2-12",
+            "atq-poly-b1-01",
+            "atq-poly-b1-02",
+            "atq-poly-b1-03",
+            "atq-poly-b1-04",
+            "atq-poly-b1-05",
+            "atq-poly-b1-06",
+            "atq-poly-b1-07",
+            "atq-poly-b1-08",
+            "atq-poly-b1-09",
+            "atq-poly-b1-10",
+            "atq-poly-b1-11",
+            "atq-poly-b1-12",
+            "atq-poly-b2-01",
+            "atq-poly-b2-02",
+            "atq-poly-b2-03",
+            "atq-poly-b2-04",
+            "atq-poly-b2-05",
+            "atq-poly-b2-06",
+            "atq-poly-b2-07",
+            "atq-poly-b2-08",
+            "atq-poly-b2-09",
+            "atq-poly-b2-10",
+            "atq-poly-b2-11",
+            "atq-poly-b2-12",
+            "atq-poly-c1-01",
+            "atq-poly-c1-02",
+            "atq-poly-c1-03",
+            "atq-poly-c1-04",
+            "atq-poly-c1-05",
+            "atq-poly-c1-06",
+            "atq-poly-c1-07",
+            "atq-poly-c1-08",
+            "atq-poly-c1-09",
+            "atq-poly-c1-10",
+            "atq-poly-c1-11",
+            "atq-poly-c1-12",
+            "atq-poly-c2-01",
+            "atq-poly-c2-02",
+            "atq-poly-c2-03",
+            "atq-poly-c2-04",
+            "atq-poly-c2-05",
+            "atq-poly-c2-06",
+            "atq-poly-c2-07",
+            "atq-poly-c2-08",
+            "atq-poly-c2-09",
+            "atq-poly-c2-10",
+            "atq-poly-c2-11",
+            "atq-poly-c2-12"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "Answers to Questions",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotAnswersToQuestionsAllLevelsLessonSeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "answers-to-questions-yes-i-do-no-i-dont",
+                    "title": "Answers to Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAnswersToQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont"
+                }
+            }
+        }
+    }
+}
