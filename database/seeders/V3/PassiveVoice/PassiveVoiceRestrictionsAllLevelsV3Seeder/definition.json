@@ -1,0 +1,1856 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceRestrictionsAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveVoiceRestrictionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_voice_restrictions": {
+            "name": "Restrictions"
+        }
+    },
+    "tags": {
+        "passive_voice_restrictions": {
+            "name": "Restrictions",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "transitive_only": {
+            "name": "Transitive Only",
+            "category": "topic"
+        },
+        "intransitive_verbs": {
+            "name": "Intransitive Verbs",
+            "category": "topic"
+        },
+        "common_intransitives": {
+            "name": "Common Intransitives",
+            "category": "topic"
+        },
+        "stative_restrictions": {
+            "name": "Stative Restrictions",
+            "category": "topic"
+        },
+        "reflexive_restrictions": {
+            "name": "Reflexive Restrictions",
+            "category": "topic"
+        },
+        "no_object_no_passive": {
+            "name": "No Object No Passive",
+            "category": "topic"
+        },
+        "unnatural_passive": {
+            "name": "Unnatural Passive",
+            "category": "topic"
+        },
+        "active_alternative": {
+            "name": "Active Alternative",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvr-v3-a1-01",
+            "question": "Only verbs with an object can normally form the {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "passive voice",
+                    "options": [
+                        "passive voice",
+                        "subject question",
+                        "comparative form",
+                        "future adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvr-v3-a1-02",
+            "question": "The verb “arrive” is intransitive, so “The station was arrived” is {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "incorrect",
+                    "options": [
+                        "incorrect",
+                        "preferred",
+                        "formal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvr-v3-a1-03",
+            "question": "Use active voice: “The accident {a1} yesterday.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "was happening by",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvr-v3-a1-04",
+            "question": "The verb “belong” is usually stative, so “This bag {a1} me” is natural.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "stative_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "belongs to",
+                    "options": [
+                        "belongs to",
+                        "is belonged to",
+                        "was belonged by",
+                        "is belonging by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvr-v3-a1-05",
+            "question": "With reflexive meaning, say “She {a1} herself,” not a passive form.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "reflexive_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "introduced",
+                    "options": [
+                        "introduced",
+                        "was introduced",
+                        "was introducing by",
+                        "is introduced by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvr-v3-a1-06",
+            "question": "“Sleep” has no object in “The baby slept,” so the passive form is {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "no_object_no_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not possible",
+                    "options": [
+                        "not possible",
+                        "required",
+                        "more formal",
+                        "the only correct choice"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvr-v3-a1-07",
+            "question": "Choose the natural active sentence: “The box {a1} ten kilos.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "unnatural_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weighs",
+                    "options": [
+                        "weighs",
+                        "is weighed",
+                        "was weighed by",
+                        "is weighing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvr-v3-a1-08",
+            "question": "Instead of an impossible passive, use: “The train {a1} late.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "was arrived",
+                        "was arrived by",
+                        "is arrived"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvr-v3-a1-09",
+            "question": "Do not write “What was happened?”; write “What {a1}?”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "did happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvr-v3-a1-10",
+            "question": "“Build” is transitive in “They built a bridge,” so “A bridge was built” is {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "possible",
+                    "options": [
+                        "possible",
+                        "impossible",
+                        "intransitive",
+                        "reflexive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvr-v3-a1-11",
+            "question": "The verb “exist” normally stays active: “This problem still {a1}.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "exists",
+                    "options": [
+                        "exists",
+                        "is existed",
+                        "was existed",
+                        "is existing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvr-v3-a1-12",
+            "question": "For “die,” use active voice: “The old tree {a1} last winter.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a1",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "died",
+                    "options": [
+                        "died",
+                        "was died",
+                        "was died by",
+                        "was dying by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvr-v3-a2-01",
+            "question": "Only verbs with an object can normally form the {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "passive voice",
+                    "options": [
+                        "passive voice",
+                        "subject question",
+                        "comparative form",
+                        "future adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvr-v3-a2-02",
+            "question": "The verb “arrive” is intransitive, so “The station was arrived” is {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "incorrect",
+                    "options": [
+                        "incorrect",
+                        "preferred",
+                        "formal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvr-v3-a2-03",
+            "question": "Use active voice: “The accident {a1} yesterday.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "was happening by",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvr-v3-a2-04",
+            "question": "The verb “belong” is usually stative, so “This bag {a1} me” is natural.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "stative_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "belongs to",
+                    "options": [
+                        "belongs to",
+                        "is belonged to",
+                        "was belonged by",
+                        "is belonging by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvr-v3-a2-05",
+            "question": "With reflexive meaning, say “She {a1} herself,” not a passive form.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "reflexive_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "introduced",
+                    "options": [
+                        "introduced",
+                        "was introduced",
+                        "was introducing by",
+                        "is introduced by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvr-v3-a2-06",
+            "question": "“Sleep” has no object in “The baby slept,” so the passive form is {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "no_object_no_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not possible",
+                    "options": [
+                        "not possible",
+                        "required",
+                        "more formal",
+                        "the only correct choice"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvr-v3-a2-07",
+            "question": "Choose the natural active sentence: “The box {a1} ten kilos.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "unnatural_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weighs",
+                    "options": [
+                        "weighs",
+                        "is weighed",
+                        "was weighed by",
+                        "is weighing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvr-v3-a2-08",
+            "question": "Instead of an impossible passive, use: “The train {a1} late.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "was arrived",
+                        "was arrived by",
+                        "is arrived"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvr-v3-a2-09",
+            "question": "Do not write “What was happened?”; write “What {a1}?”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "did happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvr-v3-a2-10",
+            "question": "“Build” is transitive in “They built a bridge,” so “A bridge was built” is {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "possible",
+                    "options": [
+                        "possible",
+                        "impossible",
+                        "intransitive",
+                        "reflexive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvr-v3-a2-11",
+            "question": "The verb “exist” normally stays active: “This problem still {a1}.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "exists",
+                    "options": [
+                        "exists",
+                        "is existed",
+                        "was existed",
+                        "is existing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvr-v3-a2-12",
+            "question": "For “die,” use active voice: “The old tree {a1} last winter.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_a2",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "died",
+                    "options": [
+                        "died",
+                        "was died",
+                        "was died by",
+                        "was dying by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvr-v3-b1-01",
+            "question": "Only verbs with an object can normally form the {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "passive voice",
+                    "options": [
+                        "passive voice",
+                        "subject question",
+                        "comparative form",
+                        "future adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvr-v3-b1-02",
+            "question": "The verb “arrive” is intransitive, so “The station was arrived” is {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "incorrect",
+                    "options": [
+                        "incorrect",
+                        "preferred",
+                        "formal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvr-v3-b1-03",
+            "question": "Use active voice: “The accident {a1} yesterday.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "was happening by",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvr-v3-b1-04",
+            "question": "The verb “belong” is usually stative, so “This bag {a1} me” is natural.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "stative_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "belongs to",
+                    "options": [
+                        "belongs to",
+                        "is belonged to",
+                        "was belonged by",
+                        "is belonging by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvr-v3-b1-05",
+            "question": "With reflexive meaning, say “She {a1} herself,” not a passive form.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "reflexive_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "introduced",
+                    "options": [
+                        "introduced",
+                        "was introduced",
+                        "was introducing by",
+                        "is introduced by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvr-v3-b1-06",
+            "question": "“Sleep” has no object in “The baby slept,” so the passive form is {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "no_object_no_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not possible",
+                    "options": [
+                        "not possible",
+                        "required",
+                        "more formal",
+                        "the only correct choice"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvr-v3-b1-07",
+            "question": "Choose the natural active sentence: “The box {a1} ten kilos.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "unnatural_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weighs",
+                    "options": [
+                        "weighs",
+                        "is weighed",
+                        "was weighed by",
+                        "is weighing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvr-v3-b1-08",
+            "question": "Instead of an impossible passive, use: “The train {a1} late.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "was arrived",
+                        "was arrived by",
+                        "is arrived"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvr-v3-b1-09",
+            "question": "Do not write “What was happened?”; write “What {a1}?”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "did happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvr-v3-b1-10",
+            "question": "“Build” is transitive in “They built a bridge,” so “A bridge was built” is {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "possible",
+                    "options": [
+                        "possible",
+                        "impossible",
+                        "intransitive",
+                        "reflexive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvr-v3-b1-11",
+            "question": "The verb “exist” normally stays active: “This problem still {a1}.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "exists",
+                    "options": [
+                        "exists",
+                        "is existed",
+                        "was existed",
+                        "is existing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvr-v3-b1-12",
+            "question": "For “die,” use active voice: “The old tree {a1} last winter.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b1",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "died",
+                    "options": [
+                        "died",
+                        "was died",
+                        "was died by",
+                        "was dying by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvr-v3-b2-01",
+            "question": "Only verbs with an object can normally form the {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "passive voice",
+                    "options": [
+                        "passive voice",
+                        "subject question",
+                        "comparative form",
+                        "future adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvr-v3-b2-02",
+            "question": "The verb “arrive” is intransitive, so “The station was arrived” is {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "incorrect",
+                    "options": [
+                        "incorrect",
+                        "preferred",
+                        "formal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvr-v3-b2-03",
+            "question": "Use active voice: “The accident {a1} yesterday.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "was happening by",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvr-v3-b2-04",
+            "question": "The verb “belong” is usually stative, so “This bag {a1} me” is natural.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "stative_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "belongs to",
+                    "options": [
+                        "belongs to",
+                        "is belonged to",
+                        "was belonged by",
+                        "is belonging by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvr-v3-b2-05",
+            "question": "With reflexive meaning, say “She {a1} herself,” not a passive form.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "reflexive_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "introduced",
+                    "options": [
+                        "introduced",
+                        "was introduced",
+                        "was introducing by",
+                        "is introduced by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvr-v3-b2-06",
+            "question": "“Sleep” has no object in “The baby slept,” so the passive form is {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "no_object_no_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not possible",
+                    "options": [
+                        "not possible",
+                        "required",
+                        "more formal",
+                        "the only correct choice"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvr-v3-b2-07",
+            "question": "Choose the natural active sentence: “The box {a1} ten kilos.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "unnatural_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weighs",
+                    "options": [
+                        "weighs",
+                        "is weighed",
+                        "was weighed by",
+                        "is weighing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvr-v3-b2-08",
+            "question": "Instead of an impossible passive, use: “The train {a1} late.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "was arrived",
+                        "was arrived by",
+                        "is arrived"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvr-v3-b2-09",
+            "question": "Do not write “What was happened?”; write “What {a1}?”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "did happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvr-v3-b2-10",
+            "question": "“Build” is transitive in “They built a bridge,” so “A bridge was built” is {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "possible",
+                    "options": [
+                        "possible",
+                        "impossible",
+                        "intransitive",
+                        "reflexive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvr-v3-b2-11",
+            "question": "The verb “exist” normally stays active: “This problem still {a1}.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "exists",
+                    "options": [
+                        "exists",
+                        "is existed",
+                        "was existed",
+                        "is existing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvr-v3-b2-12",
+            "question": "For “die,” use active voice: “The old tree {a1} last winter.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_b2",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "died",
+                    "options": [
+                        "died",
+                        "was died",
+                        "was died by",
+                        "was dying by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvr-v3-c1-01",
+            "question": "Only verbs with an object can normally form the {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "passive voice",
+                    "options": [
+                        "passive voice",
+                        "subject question",
+                        "comparative form",
+                        "future adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvr-v3-c1-02",
+            "question": "The verb “arrive” is intransitive, so “The station was arrived” is {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "incorrect",
+                    "options": [
+                        "incorrect",
+                        "preferred",
+                        "formal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvr-v3-c1-03",
+            "question": "Use active voice: “The accident {a1} yesterday.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "was happening by",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvr-v3-c1-04",
+            "question": "The verb “belong” is usually stative, so “This bag {a1} me” is natural.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "stative_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "belongs to",
+                    "options": [
+                        "belongs to",
+                        "is belonged to",
+                        "was belonged by",
+                        "is belonging by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvr-v3-c1-05",
+            "question": "With reflexive meaning, say “She {a1} herself,” not a passive form.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "reflexive_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "introduced",
+                    "options": [
+                        "introduced",
+                        "was introduced",
+                        "was introducing by",
+                        "is introduced by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvr-v3-c1-06",
+            "question": "“Sleep” has no object in “The baby slept,” so the passive form is {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "no_object_no_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not possible",
+                    "options": [
+                        "not possible",
+                        "required",
+                        "more formal",
+                        "the only correct choice"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvr-v3-c1-07",
+            "question": "Choose the natural active sentence: “The box {a1} ten kilos.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "unnatural_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weighs",
+                    "options": [
+                        "weighs",
+                        "is weighed",
+                        "was weighed by",
+                        "is weighing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvr-v3-c1-08",
+            "question": "Instead of an impossible passive, use: “The train {a1} late.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "was arrived",
+                        "was arrived by",
+                        "is arrived"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvr-v3-c1-09",
+            "question": "Do not write “What was happened?”; write “What {a1}?”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "did happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvr-v3-c1-10",
+            "question": "“Build” is transitive in “They built a bridge,” so “A bridge was built” is {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "possible",
+                    "options": [
+                        "possible",
+                        "impossible",
+                        "intransitive",
+                        "reflexive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvr-v3-c1-11",
+            "question": "The verb “exist” normally stays active: “This problem still {a1}.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "exists",
+                    "options": [
+                        "exists",
+                        "is existed",
+                        "was existed",
+                        "is existing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvr-v3-c1-12",
+            "question": "For “die,” use active voice: “The old tree {a1} last winter.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c1",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "died",
+                    "options": [
+                        "died",
+                        "was died",
+                        "was died by",
+                        "was dying by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvr-v3-c2-01",
+            "question": "Only verbs with an object can normally form the {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "passive voice",
+                    "options": [
+                        "passive voice",
+                        "subject question",
+                        "comparative form",
+                        "future adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvr-v3-c2-02",
+            "question": "The verb “arrive” is intransitive, so “The station was arrived” is {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "intransitive_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "incorrect",
+                    "options": [
+                        "incorrect",
+                        "preferred",
+                        "formal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvr-v3-c2-03",
+            "question": "Use active voice: “The accident {a1} yesterday.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "was happening by",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvr-v3-c2-04",
+            "question": "The verb “belong” is usually stative, so “This bag {a1} me” is natural.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "stative_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "belongs to",
+                    "options": [
+                        "belongs to",
+                        "is belonged to",
+                        "was belonged by",
+                        "is belonging by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvr-v3-c2-05",
+            "question": "With reflexive meaning, say “She {a1} herself,” not a passive form.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "reflexive_restrictions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "introduced",
+                    "options": [
+                        "introduced",
+                        "was introduced",
+                        "was introducing by",
+                        "is introduced by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvr-v3-c2-06",
+            "question": "“Sleep” has no object in “The baby slept,” so the passive form is {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "no_object_no_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not possible",
+                    "options": [
+                        "not possible",
+                        "required",
+                        "more formal",
+                        "the only correct choice"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvr-v3-c2-07",
+            "question": "Choose the natural active sentence: “The box {a1} ten kilos.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "unnatural_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weighs",
+                    "options": [
+                        "weighs",
+                        "is weighed",
+                        "was weighed by",
+                        "is weighing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvr-v3-c2-08",
+            "question": "Instead of an impossible passive, use: “The train {a1} late.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "was arrived",
+                        "was arrived by",
+                        "is arrived"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvr-v3-c2-09",
+            "question": "Do not write “What was happened?”; write “What {a1}?”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "was happened",
+                        "did happened",
+                        "was happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvr-v3-c2-10",
+            "question": "“Build” is transitive in “They built a bridge,” so “A bridge was built” is {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "transitive_only"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "possible",
+                    "options": [
+                        "possible",
+                        "impossible",
+                        "intransitive",
+                        "reflexive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvr-v3-c2-11",
+            "question": "The verb “exist” normally stays active: “This problem still {a1}.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "common_intransitives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "exists",
+                    "options": [
+                        "exists",
+                        "is existed",
+                        "was existed",
+                        "is existing by"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvr-v3-c2-12",
+            "question": "For “die,” use active voice: “The old tree {a1} last winter.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_restrictions",
+            "tag_keys": [
+                "passive_voice_restrictions",
+                "level_c2",
+                "active_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "died",
+                    "options": [
+                        "died",
+                        "was died",
+                        "was died by",
+                        "was dying by"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-r-v3-all",
+        "slug": "passive-voice-restrictions-all-levels-v3",
+        "name": "Restrictions (All levels V3)",
+        "description": "Standard V3 package for Restrictions across A1-C2.",
+        "question_uuids": [
+            "pvr-v3-a1-01",
+            "pvr-v3-a1-02",
+            "pvr-v3-a1-03",
+            "pvr-v3-a1-04",
+            "pvr-v3-a1-05",
+            "pvr-v3-a1-06",
+            "pvr-v3-a1-07",
+            "pvr-v3-a1-08",
+            "pvr-v3-a1-09",
+            "pvr-v3-a1-10",
+            "pvr-v3-a1-11",
+            "pvr-v3-a1-12",
+            "pvr-v3-a2-01",
+            "pvr-v3-a2-02",
+            "pvr-v3-a2-03",
+            "pvr-v3-a2-04",
+            "pvr-v3-a2-05",
+            "pvr-v3-a2-06",
+            "pvr-v3-a2-07",
+            "pvr-v3-a2-08",
+            "pvr-v3-a2-09",
+            "pvr-v3-a2-10",
+            "pvr-v3-a2-11",
+            "pvr-v3-a2-12",
+            "pvr-v3-b1-01",
+            "pvr-v3-b1-02",
+            "pvr-v3-b1-03",
+            "pvr-v3-b1-04",
+            "pvr-v3-b1-05",
+            "pvr-v3-b1-06",
+            "pvr-v3-b1-07",
+            "pvr-v3-b1-08",
+            "pvr-v3-b1-09",
+            "pvr-v3-b1-10",
+            "pvr-v3-b1-11",
+            "pvr-v3-b1-12",
+            "pvr-v3-b2-01",
+            "pvr-v3-b2-02",
+            "pvr-v3-b2-03",
+            "pvr-v3-b2-04",
+            "pvr-v3-b2-05",
+            "pvr-v3-b2-06",
+            "pvr-v3-b2-07",
+            "pvr-v3-b2-08",
+            "pvr-v3-b2-09",
+            "pvr-v3-b2-10",
+            "pvr-v3-b2-11",
+            "pvr-v3-b2-12",
+            "pvr-v3-c1-01",
+            "pvr-v3-c1-02",
+            "pvr-v3-c1-03",
+            "pvr-v3-c1-04",
+            "pvr-v3-c1-05",
+            "pvr-v3-c1-06",
+            "pvr-v3-c1-07",
+            "pvr-v3-c1-08",
+            "pvr-v3-c1-09",
+            "pvr-v3-c1-10",
+            "pvr-v3-c1-11",
+            "pvr-v3-c1-12",
+            "pvr-v3-c2-01",
+            "pvr-v3-c2-02",
+            "pvr-v3-c2-03",
+            "pvr-v3-c2-04",
+            "pvr-v3-c2-05",
+            "pvr-v3-c2-06",
+            "pvr-v3-c2-07",
+            "pvr-v3-c2-08",
+            "pvr-v3-c2-09",
+            "pvr-v3-c2-10",
+            "pvr-v3-c2-11",
+            "pvr-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceRestrictionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-passive-voice-restrictions",
+                    "title": "Restrictions",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceRestrictionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/theory-passive-voice-restrictions"
+                }
+            }
+        }
+    }
+}
