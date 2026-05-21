@@ -1,0 +1,1859 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\DoubleNegativesAllLevelsV3Seeder",
+        "uuid_namespace": "DoubleNegativesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_double_negatives": {
+            "name": "Double Negatives"
+        }
+    },
+    "tags": {
+        "double_negatives": {
+            "name": "Double Negatives",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "avoid_double_negatives": {
+            "name": "Avoid Double Negatives",
+            "category": "topic"
+        },
+        "not_any": {
+            "name": "Not Any",
+            "category": "topic"
+        },
+        "no_affirmative": {
+            "name": "No Affirmative",
+            "category": "topic"
+        },
+        "no_pronoun_affirmative": {
+            "name": "No Pronoun Affirmative",
+            "category": "topic"
+        },
+        "never_affirmative": {
+            "name": "Never Affirmative",
+            "category": "topic"
+        },
+        "neither_no_second_negative": {
+            "name": "Neither No Second Negative",
+            "category": "topic"
+        },
+        "dont_know_anything": {
+            "name": "Dont Know Anything",
+            "category": "topic"
+        },
+        "know_nothing": {
+            "name": "Know Nothing",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "double_negatives"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "dbln-v3-a1-01",
+            "question": "Choose the standard form: {a1}.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "avoid_double_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I do not know anything",
+                    "options": [
+                        "I do not know anything",
+                        "I do not know nothing",
+                        "I know not nothing",
+                        "I do not know no thing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "dbln-v3-a1-02",
+            "question": "I do not have {a1} cash.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "dbln-v3-a1-03",
+            "question": "He does not know {a1} about it.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "dont_know_anything"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "no thing",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "dbln-v3-a1-04",
+            "question": "There is {a1} reason to worry.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not any",
+                        "not no",
+                        "never any"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "dbln-v3-a1-05",
+            "question": "{a1} called after midnight.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody did not",
+                        "Nobody did not",
+                        "Not anybody did not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "dbln-v3-a1-06",
+            "question": "She said {a1} about the plan.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "anything not",
+                        "nothing did not",
+                        "not nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "dbln-v3-a1-07",
+            "question": "We {a1} saw that mistake again.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "never_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "did not never",
+                        "never did not",
+                        "not never"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "dbln-v3-a1-08",
+            "question": "Neither answer {a1} correct.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "neither_no_second_negative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is not",
+                        "does not be",
+                        "not is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "dbln-v3-a1-09",
+            "question": "The standard single negative is {a1}.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "know_nothing"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I know nothing",
+                    "options": [
+                        "I know nothing",
+                        "I do not know nothing",
+                        "I do not know no thing",
+                        "I do not know none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "dbln-v3-a1-10",
+            "question": "They did not invite {a1}.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no one",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "dbln-v3-a1-11",
+            "question": "No student {a1} late today.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "was not",
+                        "did not be",
+                        "were not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "dbln-v3-a1-12",
+            "question": "The correct standard sentence is {a1}.",
+            "level": "A1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "She did not tell anyone",
+                    "options": [
+                        "She did not tell anyone",
+                        "She did not tell nobody",
+                        "She told not nobody",
+                        "She did not tell no one"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "dbln-v3-a2-01",
+            "question": "Choose the standard form: {a1}.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "avoid_double_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I do not know anything",
+                    "options": [
+                        "I do not know anything",
+                        "I do not know nothing",
+                        "I know not nothing",
+                        "I do not know no thing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "dbln-v3-a2-02",
+            "question": "I do not have {a1} cash.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "dbln-v3-a2-03",
+            "question": "He does not know {a1} about it.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "dont_know_anything"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "no thing",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "dbln-v3-a2-04",
+            "question": "There is {a1} reason to worry.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not any",
+                        "not no",
+                        "never any"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "dbln-v3-a2-05",
+            "question": "{a1} called after midnight.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody did not",
+                        "Nobody did not",
+                        "Not anybody did not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "dbln-v3-a2-06",
+            "question": "She said {a1} about the plan.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "anything not",
+                        "nothing did not",
+                        "not nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "dbln-v3-a2-07",
+            "question": "We {a1} saw that mistake again.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "never_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "did not never",
+                        "never did not",
+                        "not never"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "dbln-v3-a2-08",
+            "question": "Neither answer {a1} correct.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "neither_no_second_negative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is not",
+                        "does not be",
+                        "not is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "dbln-v3-a2-09",
+            "question": "The standard single negative is {a1}.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "know_nothing"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I know nothing",
+                    "options": [
+                        "I know nothing",
+                        "I do not know nothing",
+                        "I do not know no thing",
+                        "I do not know none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "dbln-v3-a2-10",
+            "question": "They did not invite {a1}.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no one",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "dbln-v3-a2-11",
+            "question": "No student {a1} late today.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "was not",
+                        "did not be",
+                        "were not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "dbln-v3-a2-12",
+            "question": "The correct standard sentence is {a1}.",
+            "level": "A2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "She did not tell anyone",
+                    "options": [
+                        "She did not tell anyone",
+                        "She did not tell nobody",
+                        "She told not nobody",
+                        "She did not tell no one"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "dbln-v3-b1-01",
+            "question": "Choose the standard form: {a1} today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "avoid_double_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I do not know anything",
+                    "options": [
+                        "I do not know anything",
+                        "I do not know nothing",
+                        "I know not nothing",
+                        "I do not know no thing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "dbln-v3-b1-02",
+            "question": "I do not have {a1} cash today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "dbln-v3-b1-03",
+            "question": "He does not know {a1} about it today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "dont_know_anything"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "no thing",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "dbln-v3-b1-04",
+            "question": "There is {a1} reason to worry today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not any",
+                        "not no",
+                        "never any"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "dbln-v3-b1-05",
+            "question": "{a1} called after midnight today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody did not",
+                        "Nobody did not",
+                        "Not anybody did not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "dbln-v3-b1-06",
+            "question": "She said {a1} about the plan today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "anything not",
+                        "nothing did not",
+                        "not nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "dbln-v3-b1-07",
+            "question": "We {a1} saw that mistake again today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "never_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "did not never",
+                        "never did not",
+                        "not never"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "dbln-v3-b1-08",
+            "question": "Neither answer {a1} correct today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "neither_no_second_negative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is not",
+                        "does not be",
+                        "not is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "dbln-v3-b1-09",
+            "question": "The standard single negative is {a1} today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "know_nothing"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I know nothing",
+                    "options": [
+                        "I know nothing",
+                        "I do not know nothing",
+                        "I do not know no thing",
+                        "I do not know none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "dbln-v3-b1-10",
+            "question": "They did not invite {a1} today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no one",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "dbln-v3-b1-11",
+            "question": "No student {a1} late today today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "was not",
+                        "did not be",
+                        "were not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "dbln-v3-b1-12",
+            "question": "The correct standard sentence is {a1} today.",
+            "level": "B1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "She did not tell anyone",
+                    "options": [
+                        "She did not tell anyone",
+                        "She did not tell nobody",
+                        "She told not nobody",
+                        "She did not tell no one"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "dbln-v3-b2-01",
+            "question": "Choose the standard form: {a1}.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "avoid_double_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I do not know anything",
+                    "options": [
+                        "I do not know anything",
+                        "I do not know nothing",
+                        "I know not nothing",
+                        "I do not know no thing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "dbln-v3-b2-02",
+            "question": "At this point, I do not have {a1} cash.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "dbln-v3-b2-03",
+            "question": "He does not know {a1} about it.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "dont_know_anything"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "no thing",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "dbln-v3-b2-04",
+            "question": "There is {a1} reason to worry.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not any",
+                        "not no",
+                        "never any"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "dbln-v3-b2-05",
+            "question": "{a1} called after midnight.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody did not",
+                        "Nobody did not",
+                        "Not anybody did not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "dbln-v3-b2-06",
+            "question": "At this point, she said {a1} about the plan.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "anything not",
+                        "nothing did not",
+                        "not nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "dbln-v3-b2-07",
+            "question": "We {a1} saw that mistake again.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "never_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "did not never",
+                        "never did not",
+                        "not never"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "dbln-v3-b2-08",
+            "question": "Neither answer {a1} correct.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "neither_no_second_negative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is not",
+                        "does not be",
+                        "not is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "dbln-v3-b2-09",
+            "question": "The standard single negative is {a1}.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "know_nothing"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I know nothing",
+                    "options": [
+                        "I know nothing",
+                        "I do not know nothing",
+                        "I do not know no thing",
+                        "I do not know none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "dbln-v3-b2-10",
+            "question": "They did not invite {a1}.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no one",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "dbln-v3-b2-11",
+            "question": "No student {a1} late today.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "was not",
+                        "did not be",
+                        "were not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "dbln-v3-b2-12",
+            "question": "The correct standard sentence is {a1}.",
+            "level": "B2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "She did not tell anyone",
+                    "options": [
+                        "She did not tell anyone",
+                        "She did not tell nobody",
+                        "She told not nobody",
+                        "She did not tell no one"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "dbln-v3-c1-01",
+            "question": "Choose the standard form: {a1}.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "avoid_double_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I do not know anything",
+                    "options": [
+                        "I do not know anything",
+                        "I do not know nothing",
+                        "I know not nothing",
+                        "I do not know no thing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "dbln-v3-c1-02",
+            "question": "I do not have {a1} cash.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "dbln-v3-c1-03",
+            "question": "He does not know {a1} about it.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "dont_know_anything"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "no thing",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "dbln-v3-c1-04",
+            "question": "There is {a1} reason to worry.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not any",
+                        "not no",
+                        "never any"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "dbln-v3-c1-05",
+            "question": "{a1} called after midnight.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody did not",
+                        "Nobody did not",
+                        "Not anybody did not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "dbln-v3-c1-06",
+            "question": "She said {a1} about the plan.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "anything not",
+                        "nothing did not",
+                        "not nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "dbln-v3-c1-07",
+            "question": "We {a1} saw that mistake again.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "never_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "did not never",
+                        "never did not",
+                        "not never"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "dbln-v3-c1-08",
+            "question": "Neither answer {a1} correct.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "neither_no_second_negative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is not",
+                        "does not be",
+                        "not is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "dbln-v3-c1-09",
+            "question": "The standard single negative is {a1}.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "know_nothing"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I know nothing",
+                    "options": [
+                        "I know nothing",
+                        "I do not know nothing",
+                        "I do not know no thing",
+                        "I do not know none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "dbln-v3-c1-10",
+            "question": "They did not invite {a1}.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no one",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "dbln-v3-c1-11",
+            "question": "No student {a1} late today.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "was not",
+                        "did not be",
+                        "were not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "dbln-v3-c1-12",
+            "question": "In formal English, the correct standard sentence is {a1}.",
+            "level": "C1",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "She did not tell anyone",
+                    "options": [
+                        "She did not tell anyone",
+                        "She did not tell nobody",
+                        "She told not nobody",
+                        "She did not tell no one"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "dbln-v3-c2-01",
+            "question": "For standard edited English, choose: {a1}.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "avoid_double_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I do not know anything",
+                    "options": [
+                        "I do not know anything",
+                        "I do not know nothing",
+                        "I know not nothing",
+                        "I do not know no thing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "dbln-v3-c2-02",
+            "question": "I do not have {a1} cash.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "dbln-v3-c2-03",
+            "question": "He does not know {a1} about it.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "dont_know_anything"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "no thing",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "dbln-v3-c2-04",
+            "question": "There is {a1} reason to worry.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not any",
+                        "not no",
+                        "never any"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "dbln-v3-c2-05",
+            "question": "{a1} called after midnight.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody did not",
+                        "Nobody did not",
+                        "Not anybody did not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "dbln-v3-c2-06",
+            "question": "She said {a1} about the plan.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "no_pronoun_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "anything not",
+                        "nothing did not",
+                        "not nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "dbln-v3-c2-07",
+            "question": "We {a1} saw that mistake again.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "never_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "did not never",
+                        "never did not",
+                        "not never"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "dbln-v3-c2-08",
+            "question": "Neither answer {a1} correct.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "neither_no_second_negative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is not",
+                        "does not be",
+                        "not is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "dbln-v3-c2-09",
+            "question": "The standard single negative is {a1}.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "know_nothing"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I know nothing",
+                    "options": [
+                        "I know nothing",
+                        "I do not know nothing",
+                        "I do not know no thing",
+                        "I do not know none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "dbln-v3-c2-10",
+            "question": "They did not invite {a1}.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "not_any"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no one",
+                        "none"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "dbln-v3-c2-11",
+            "question": "No student {a1} late today.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "no_affirmative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "was not",
+                        "did not be",
+                        "were not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "dbln-v3-c2-12",
+            "question": "The correct standard sentence is {a1}.",
+            "level": "C2",
+            "source": "theory_page_double_negatives",
+            "tag_keys": [
+                "double_negatives",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "She did not tell anyone",
+                    "options": [
+                        "She did not tell anyone",
+                        "She did not tell nobody",
+                        "She told not nobody",
+                        "She did not tell no one"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn3-dbln-v3-all",
+        "slug": "double-negatives-all-levels-v3",
+        "name": "Double Negatives (All levels V3)",
+        "description": "Standard V3 package for Double Negatives across A1-C2.",
+        "question_uuids": [
+            "dbln-v3-a1-01",
+            "dbln-v3-a1-02",
+            "dbln-v3-a1-03",
+            "dbln-v3-a1-04",
+            "dbln-v3-a1-05",
+            "dbln-v3-a1-06",
+            "dbln-v3-a1-07",
+            "dbln-v3-a1-08",
+            "dbln-v3-a1-09",
+            "dbln-v3-a1-10",
+            "dbln-v3-a1-11",
+            "dbln-v3-a1-12",
+            "dbln-v3-a2-01",
+            "dbln-v3-a2-02",
+            "dbln-v3-a2-03",
+            "dbln-v3-a2-04",
+            "dbln-v3-a2-05",
+            "dbln-v3-a2-06",
+            "dbln-v3-a2-07",
+            "dbln-v3-a2-08",
+            "dbln-v3-a2-09",
+            "dbln-v3-a2-10",
+            "dbln-v3-a2-11",
+            "dbln-v3-a2-12",
+            "dbln-v3-b1-01",
+            "dbln-v3-b1-02",
+            "dbln-v3-b1-03",
+            "dbln-v3-b1-04",
+            "dbln-v3-b1-05",
+            "dbln-v3-b1-06",
+            "dbln-v3-b1-07",
+            "dbln-v3-b1-08",
+            "dbln-v3-b1-09",
+            "dbln-v3-b1-10",
+            "dbln-v3-b1-11",
+            "dbln-v3-b1-12",
+            "dbln-v3-b2-01",
+            "dbln-v3-b2-02",
+            "dbln-v3-b2-03",
+            "dbln-v3-b2-04",
+            "dbln-v3-b2-05",
+            "dbln-v3-b2-06",
+            "dbln-v3-b2-07",
+            "dbln-v3-b2-08",
+            "dbln-v3-b2-09",
+            "dbln-v3-b2-10",
+            "dbln-v3-b2-11",
+            "dbln-v3-b2-12",
+            "dbln-v3-c1-01",
+            "dbln-v3-c1-02",
+            "dbln-v3-c1-03",
+            "dbln-v3-c1-04",
+            "dbln-v3-c1-05",
+            "dbln-v3-c1-06",
+            "dbln-v3-c1-07",
+            "dbln-v3-c1-08",
+            "dbln-v3-c1-09",
+            "dbln-v3-c1-10",
+            "dbln-v3-c1-11",
+            "dbln-v3-c1-12",
+            "dbln-v3-c2-01",
+            "dbln-v3-c2-02",
+            "dbln-v3-c2-03",
+            "dbln-v3-c2-04",
+            "dbln-v3-c2-05",
+            "dbln-v3-c2-06",
+            "dbln-v3-c2-07",
+            "dbln-v3-c2-08",
+            "dbln-v3-c2-09",
+            "dbln-v3-c2-10",
+            "dbln-v3-c2-11",
+            "dbln-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\DoubleNegativesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "double-negatives",
+                    "title": "Double Negatives",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsDoubleNegativesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/double-negatives"
+                }
+            }
+        }
+    }
+}
