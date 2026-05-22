@@ -1,0 +1,1868 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechTimePlaceChangesAllLevelsV3Seeder",
+        "uuid_namespace": "ReportedSpeechTimePlaceChangesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "theory_page_reported_speech_time_place_changes": {
+            "name": "Time and Place Changes"
+        }
+    },
+    "tags": {
+        "reported_speech_time_place_changes_all_levels": {
+            "name": "reported speech time place changes all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "now_then": {
+            "name": "Now Then",
+            "category": "topic"
+        },
+        "today_that_day": {
+            "name": "Today That Day",
+            "category": "topic"
+        },
+        "yesterday_previous_day": {
+            "name": "Yesterday Previous Day",
+            "category": "topic"
+        },
+        "tomorrow_next_day": {
+            "name": "Tomorrow Next Day",
+            "category": "topic"
+        },
+        "this_that": {
+            "name": "This That",
+            "category": "topic"
+        },
+        "these_those": {
+            "name": "These Those",
+            "category": "topic"
+        },
+        "here_there": {
+            "name": "Here There",
+            "category": "topic"
+        },
+        "ago_before": {
+            "name": "Ago Before",
+            "category": "topic"
+        },
+        "last_week_before": {
+            "name": "Last Week Before",
+            "category": "topic"
+        },
+        "next_week_following": {
+            "name": "Next Week Following",
+            "category": "topic"
+        },
+        "context_dependent": {
+            "name": "Context Dependent",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rstpc-v3-a1-01",
+            "question": "In a past report, change “I am busy now”: She said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "now_then"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she was busy then",
+                    "options": [
+                        "that she was busy then",
+                        "that she is busy now",
+                        "that was she busy then",
+                        "if she was busy now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "rstpc-v3-a1-02",
+            "question": "Report “I have a meeting today” later the same evening: He said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "today_that_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had a meeting that day",
+                    "options": [
+                        "that he had a meeting that day",
+                        "that he has a meeting today",
+                        "to have a meeting that day",
+                        "if he had a meeting today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "rstpc-v3-a1-03",
+            "question": "Report “I saw Anna yesterday” two days later: Mark said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "yesterday_previous_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had seen Anna the day before",
+                    "options": [
+                        "that he had seen Anna the day before",
+                        "that he saw Anna yesterday",
+                        "that he had seen Anna tomorrow",
+                        "if he had seen Anna"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "rstpc-v3-a1-04",
+            "question": "Report “We will leave tomorrow” after the trip: They said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "tomorrow_next_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that they would leave the next day",
+                    "options": [
+                        "that they would leave the next day",
+                        "that they will leave tomorrow",
+                        "to leave tomorrow",
+                        "that would they leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "rstpc-v3-a1-05",
+            "question": "Report “This book is useful” when the book is no longer near you: Tom said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "this_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that that book was useful",
+                    "options": [
+                        "that that book was useful",
+                        "that this book is useful",
+                        "if that book was useful",
+                        "that book useful was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "rstpc-v3-a1-06",
+            "question": "Report “These keys are mine” after leaving the room: Maria said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "these_those"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that those keys were hers",
+                    "options": [
+                        "that those keys were hers",
+                        "that these keys are mine",
+                        "that those keys are mine",
+                        "if those keys were hers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "rstpc-v3-a1-07",
+            "question": "Report “It is cold here” from another place: He said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "here_there"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that it was cold there",
+                    "options": [
+                        "that it was cold there",
+                        "that it is cold here",
+                        "that was it cold there",
+                        "if it was cold there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "rstpc-v3-a1-08",
+            "question": "Report “I moved here two years ago” later: She said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "ago_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she had moved there two years before",
+                    "options": [
+                        "that she had moved there two years before",
+                        "that she moved here two years ago",
+                        "to move there two years before",
+                        "that she had moved here ago"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "rstpc-v3-a1-09",
+            "question": "Report “I finished it last week” a month later: He said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "last_week_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had finished it the week before",
+                    "options": [
+                        "that he had finished it the week before",
+                        "that he finished it last week",
+                        "that he had finished it next week",
+                        "if he had finished it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "rstpc-v3-a1-10",
+            "question": "Report “The course starts next week” later: She said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "next_week_following"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the course started the following week",
+                    "options": [
+                        "that the course started the following week",
+                        "that the course starts next week",
+                        "that started the course next week",
+                        "if the course started"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "rstpc-v3-a1-11",
+            "question": "The report is still on the same day. Choose the natural clause: He says {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "context_dependent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the meeting is today",
+                    "options": [
+                        "that the meeting is today",
+                        "that the meeting was that day",
+                        "that meeting today",
+                        "if the meeting is today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "rstpc-v3-a1-12",
+            "question": "Avoid the mechanical mistake in past reporting: She said {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she would call the next day",
+                    "options": [
+                        "that she would call the next day",
+                        "that she will call tomorrow",
+                        "that would she call tomorrow",
+                        "to call next day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "rstpc-v3-a2-01",
+            "question": "In a past report, change “I am busy now”: She said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "now_then"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she was busy then",
+                    "options": [
+                        "that she was busy then",
+                        "that she is busy now",
+                        "that was she busy then",
+                        "if she was busy now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "rstpc-v3-a2-02",
+            "question": "Report “I have a meeting today” later the same evening: He said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "today_that_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had a meeting that day",
+                    "options": [
+                        "that he had a meeting that day",
+                        "that he has a meeting today",
+                        "to have a meeting that day",
+                        "if he had a meeting today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "rstpc-v3-a2-03",
+            "question": "Report “I saw Anna yesterday” two days later: Mark said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "yesterday_previous_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had seen Anna the day before",
+                    "options": [
+                        "that he had seen Anna the day before",
+                        "that he saw Anna yesterday",
+                        "that he had seen Anna tomorrow",
+                        "if he had seen Anna"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "rstpc-v3-a2-04",
+            "question": "Report “We will leave tomorrow” after the trip: They said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "tomorrow_next_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that they would leave the next day",
+                    "options": [
+                        "that they would leave the next day",
+                        "that they will leave tomorrow",
+                        "to leave tomorrow",
+                        "that would they leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "rstpc-v3-a2-05",
+            "question": "Report “This book is useful” when the book is no longer near you: Tom said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "this_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that that book was useful",
+                    "options": [
+                        "that that book was useful",
+                        "that this book is useful",
+                        "if that book was useful",
+                        "that book useful was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "rstpc-v3-a2-06",
+            "question": "Report “These keys are mine” after leaving the room: Maria said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "these_those"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that those keys were hers",
+                    "options": [
+                        "that those keys were hers",
+                        "that these keys are mine",
+                        "that those keys are mine",
+                        "if those keys were hers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "rstpc-v3-a2-07",
+            "question": "Report “It is cold here” from another place: He said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "here_there"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that it was cold there",
+                    "options": [
+                        "that it was cold there",
+                        "that it is cold here",
+                        "that was it cold there",
+                        "if it was cold there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "rstpc-v3-a2-08",
+            "question": "Report “I moved here two years ago” later: She said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "ago_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she had moved there two years before",
+                    "options": [
+                        "that she had moved there two years before",
+                        "that she moved here two years ago",
+                        "to move there two years before",
+                        "that she had moved here ago"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "rstpc-v3-a2-09",
+            "question": "Report “I finished it last week” a month later: He said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "last_week_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had finished it the week before",
+                    "options": [
+                        "that he had finished it the week before",
+                        "that he finished it last week",
+                        "that he had finished it next week",
+                        "if he had finished it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "rstpc-v3-a2-10",
+            "question": "Report “The course starts next week” later: She said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "next_week_following"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the course started the following week",
+                    "options": [
+                        "that the course started the following week",
+                        "that the course starts next week",
+                        "that started the course next week",
+                        "if the course started"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "rstpc-v3-a2-11",
+            "question": "The report is still on the same day. Choose the natural clause: He says {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "context_dependent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the meeting is today",
+                    "options": [
+                        "that the meeting is today",
+                        "that the meeting was that day",
+                        "that meeting today",
+                        "if the meeting is today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "rstpc-v3-a2-12",
+            "question": "Avoid the mechanical mistake in past reporting: She said {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she would call the next day",
+                    "options": [
+                        "that she would call the next day",
+                        "that she will call tomorrow",
+                        "that would she call tomorrow",
+                        "to call next day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "rstpc-v3-b1-01",
+            "question": "In a past report, change “I am busy now”: She said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "now_then"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she was busy then",
+                    "options": [
+                        "that she was busy then",
+                        "that she is busy now",
+                        "that was she busy then",
+                        "if she was busy now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "rstpc-v3-b1-02",
+            "question": "Report “I have a meeting today” later the same evening: He said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "today_that_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had a meeting that day",
+                    "options": [
+                        "that he had a meeting that day",
+                        "that he has a meeting today",
+                        "to have a meeting that day",
+                        "if he had a meeting today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "rstpc-v3-b1-03",
+            "question": "Report “I saw Anna yesterday” two days later: Mark said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "yesterday_previous_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had seen Anna the day before",
+                    "options": [
+                        "that he had seen Anna the day before",
+                        "that he saw Anna yesterday",
+                        "that he had seen Anna tomorrow",
+                        "if he had seen Anna"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "rstpc-v3-b1-04",
+            "question": "Report “We will leave tomorrow” after the trip: They said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "tomorrow_next_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that they would leave the next day",
+                    "options": [
+                        "that they would leave the next day",
+                        "that they will leave tomorrow",
+                        "to leave tomorrow",
+                        "that would they leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "rstpc-v3-b1-05",
+            "question": "Report “This book is useful” when the book is no longer near you: Tom said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "this_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that that book was useful",
+                    "options": [
+                        "that that book was useful",
+                        "that this book is useful",
+                        "if that book was useful",
+                        "that book useful was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "rstpc-v3-b1-06",
+            "question": "Report “These keys are mine” after leaving the room: Maria said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "these_those"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that those keys were hers",
+                    "options": [
+                        "that those keys were hers",
+                        "that these keys are mine",
+                        "that those keys are mine",
+                        "if those keys were hers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "rstpc-v3-b1-07",
+            "question": "Report “It is cold here” from another place: He said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "here_there"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that it was cold there",
+                    "options": [
+                        "that it was cold there",
+                        "that it is cold here",
+                        "that was it cold there",
+                        "if it was cold there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "rstpc-v3-b1-08",
+            "question": "Report “I moved here two years ago” later: She said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "ago_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she had moved there two years before",
+                    "options": [
+                        "that she had moved there two years before",
+                        "that she moved here two years ago",
+                        "to move there two years before",
+                        "that she had moved here ago"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "rstpc-v3-b1-09",
+            "question": "Report “I finished it last week” a month later: He said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "last_week_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had finished it the week before",
+                    "options": [
+                        "that he had finished it the week before",
+                        "that he finished it last week",
+                        "that he had finished it next week",
+                        "if he had finished it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "rstpc-v3-b1-10",
+            "question": "Report “The course starts next week” later: She said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "next_week_following"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the course started the following week",
+                    "options": [
+                        "that the course started the following week",
+                        "that the course starts next week",
+                        "that started the course next week",
+                        "if the course started"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "rstpc-v3-b1-11",
+            "question": "The report is still on the same day. Choose the natural clause: He says {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "context_dependent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the meeting is today",
+                    "options": [
+                        "that the meeting is today",
+                        "that the meeting was that day",
+                        "that meeting today",
+                        "if the meeting is today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "rstpc-v3-b1-12",
+            "question": "Avoid the mechanical mistake in past reporting: She said {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she would call the next day",
+                    "options": [
+                        "that she would call the next day",
+                        "that she will call tomorrow",
+                        "that would she call tomorrow",
+                        "to call next day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "rstpc-v3-b2-01",
+            "question": "In a past report, change “I am busy now”: She said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "now_then"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she was busy then",
+                    "options": [
+                        "that she was busy then",
+                        "that she is busy now",
+                        "that was she busy then",
+                        "if she was busy now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "rstpc-v3-b2-02",
+            "question": "Report “I have a meeting today” later the same evening: He said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "today_that_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had a meeting that day",
+                    "options": [
+                        "that he had a meeting that day",
+                        "that he has a meeting today",
+                        "to have a meeting that day",
+                        "if he had a meeting today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "rstpc-v3-b2-03",
+            "question": "Report “I saw Anna yesterday” two days later: Mark said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "yesterday_previous_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had seen Anna the day before",
+                    "options": [
+                        "that he had seen Anna the day before",
+                        "that he saw Anna yesterday",
+                        "that he had seen Anna tomorrow",
+                        "if he had seen Anna"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "rstpc-v3-b2-04",
+            "question": "Report “We will leave tomorrow” after the trip: They said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "tomorrow_next_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that they would leave the next day",
+                    "options": [
+                        "that they would leave the next day",
+                        "that they will leave tomorrow",
+                        "to leave tomorrow",
+                        "that would they leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "rstpc-v3-b2-05",
+            "question": "Report “This book is useful” when the book is no longer near you: Tom said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "this_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that that book was useful",
+                    "options": [
+                        "that that book was useful",
+                        "that this book is useful",
+                        "if that book was useful",
+                        "that book useful was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "rstpc-v3-b2-06",
+            "question": "Report “These keys are mine” after leaving the room: Maria said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "these_those"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that those keys were hers",
+                    "options": [
+                        "that those keys were hers",
+                        "that these keys are mine",
+                        "that those keys are mine",
+                        "if those keys were hers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "rstpc-v3-b2-07",
+            "question": "Report “It is cold here” from another place: He said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "here_there"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that it was cold there",
+                    "options": [
+                        "that it was cold there",
+                        "that it is cold here",
+                        "that was it cold there",
+                        "if it was cold there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "rstpc-v3-b2-08",
+            "question": "Report “I moved here two years ago” later: She said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "ago_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she had moved there two years before",
+                    "options": [
+                        "that she had moved there two years before",
+                        "that she moved here two years ago",
+                        "to move there two years before",
+                        "that she had moved here ago"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "rstpc-v3-b2-09",
+            "question": "Report “I finished it last week” a month later: He said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "last_week_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had finished it the week before",
+                    "options": [
+                        "that he had finished it the week before",
+                        "that he finished it last week",
+                        "that he had finished it next week",
+                        "if he had finished it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "rstpc-v3-b2-10",
+            "question": "Report “The course starts next week” later: She said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "next_week_following"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the course started the following week",
+                    "options": [
+                        "that the course started the following week",
+                        "that the course starts next week",
+                        "that started the course next week",
+                        "if the course started"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "rstpc-v3-b2-11",
+            "question": "The report is still on the same day. Choose the natural clause: He says {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "context_dependent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the meeting is today",
+                    "options": [
+                        "that the meeting is today",
+                        "that the meeting was that day",
+                        "that meeting today",
+                        "if the meeting is today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "rstpc-v3-b2-12",
+            "question": "Avoid the mechanical mistake in past reporting: She said {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she would call the next day",
+                    "options": [
+                        "that she would call the next day",
+                        "that she will call tomorrow",
+                        "that would she call tomorrow",
+                        "to call next day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "rstpc-v3-c1-01",
+            "question": "In a past report, change “I am busy now”: She said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "now_then"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she was busy then",
+                    "options": [
+                        "that she was busy then",
+                        "that she is busy now",
+                        "that was she busy then",
+                        "if she was busy now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "rstpc-v3-c1-02",
+            "question": "Report “I have a meeting today” later the same evening: He said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "today_that_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had a meeting that day",
+                    "options": [
+                        "that he had a meeting that day",
+                        "that he has a meeting today",
+                        "to have a meeting that day",
+                        "if he had a meeting today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "rstpc-v3-c1-03",
+            "question": "Report “I saw Anna yesterday” two days later: Mark said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "yesterday_previous_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had seen Anna the day before",
+                    "options": [
+                        "that he had seen Anna the day before",
+                        "that he saw Anna yesterday",
+                        "that he had seen Anna tomorrow",
+                        "if he had seen Anna"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "rstpc-v3-c1-04",
+            "question": "Report “We will leave tomorrow” after the trip: They said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "tomorrow_next_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that they would leave the next day",
+                    "options": [
+                        "that they would leave the next day",
+                        "that they will leave tomorrow",
+                        "to leave tomorrow",
+                        "that would they leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "rstpc-v3-c1-05",
+            "question": "Report “This book is useful” when the book is no longer near you: Tom said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "this_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that that book was useful",
+                    "options": [
+                        "that that book was useful",
+                        "that this book is useful",
+                        "if that book was useful",
+                        "that book useful was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "rstpc-v3-c1-06",
+            "question": "Report “These keys are mine” after leaving the room: Maria said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "these_those"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that those keys were hers",
+                    "options": [
+                        "that those keys were hers",
+                        "that these keys are mine",
+                        "that those keys are mine",
+                        "if those keys were hers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "rstpc-v3-c1-07",
+            "question": "Report “It is cold here” from another place: He said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "here_there"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that it was cold there",
+                    "options": [
+                        "that it was cold there",
+                        "that it is cold here",
+                        "that was it cold there",
+                        "if it was cold there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "rstpc-v3-c1-08",
+            "question": "Report “I moved here two years ago” later: She said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "ago_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she had moved there two years before",
+                    "options": [
+                        "that she had moved there two years before",
+                        "that she moved here two years ago",
+                        "to move there two years before",
+                        "that she had moved here ago"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "rstpc-v3-c1-09",
+            "question": "Report “I finished it last week” a month later: He said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "last_week_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had finished it the week before",
+                    "options": [
+                        "that he had finished it the week before",
+                        "that he finished it last week",
+                        "that he had finished it next week",
+                        "if he had finished it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "rstpc-v3-c1-10",
+            "question": "Report “The course starts next week” later: She said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "next_week_following"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the course started the following week",
+                    "options": [
+                        "that the course started the following week",
+                        "that the course starts next week",
+                        "that started the course next week",
+                        "if the course started"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "rstpc-v3-c1-11",
+            "question": "The report is still on the same day. Choose the natural clause: He says {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "context_dependent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the meeting is today",
+                    "options": [
+                        "that the meeting is today",
+                        "that the meeting was that day",
+                        "that meeting today",
+                        "if the meeting is today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "rstpc-v3-c1-12",
+            "question": "Avoid the mechanical mistake in past reporting: She said {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she would call the next day",
+                    "options": [
+                        "that she would call the next day",
+                        "that she will call tomorrow",
+                        "that would she call tomorrow",
+                        "to call next day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "rstpc-v3-c2-01",
+            "question": "In a past report, change “I am busy now”: She said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "now_then"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she was busy then",
+                    "options": [
+                        "that she was busy then",
+                        "that she is busy now",
+                        "that was she busy then",
+                        "if she was busy now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "rstpc-v3-c2-02",
+            "question": "Report “I have a meeting today” later the same evening: He said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "today_that_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had a meeting that day",
+                    "options": [
+                        "that he had a meeting that day",
+                        "that he has a meeting today",
+                        "to have a meeting that day",
+                        "if he had a meeting today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "rstpc-v3-c2-03",
+            "question": "Report “I saw Anna yesterday” two days later: Mark said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "yesterday_previous_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had seen Anna the day before",
+                    "options": [
+                        "that he had seen Anna the day before",
+                        "that he saw Anna yesterday",
+                        "that he had seen Anna tomorrow",
+                        "if he had seen Anna"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "rstpc-v3-c2-04",
+            "question": "Report “We will leave tomorrow” after the trip: They said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "tomorrow_next_day"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that they would leave the next day",
+                    "options": [
+                        "that they would leave the next day",
+                        "that they will leave tomorrow",
+                        "to leave tomorrow",
+                        "that would they leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "rstpc-v3-c2-05",
+            "question": "Report “This book is useful” when the book is no longer near you: Tom said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "this_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that that book was useful",
+                    "options": [
+                        "that that book was useful",
+                        "that this book is useful",
+                        "if that book was useful",
+                        "that book useful was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "rstpc-v3-c2-06",
+            "question": "Report “These keys are mine” after leaving the room: Maria said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "these_those"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that those keys were hers",
+                    "options": [
+                        "that those keys were hers",
+                        "that these keys are mine",
+                        "that those keys are mine",
+                        "if those keys were hers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "rstpc-v3-c2-07",
+            "question": "Report “It is cold here” from another place: He said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "here_there"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that it was cold there",
+                    "options": [
+                        "that it was cold there",
+                        "that it is cold here",
+                        "that was it cold there",
+                        "if it was cold there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "rstpc-v3-c2-08",
+            "question": "Report “I moved here two years ago” later: She said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "ago_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she had moved there two years before",
+                    "options": [
+                        "that she had moved there two years before",
+                        "that she moved here two years ago",
+                        "to move there two years before",
+                        "that she had moved here ago"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "rstpc-v3-c2-09",
+            "question": "Report “I finished it last week” a month later: He said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "last_week_before"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that he had finished it the week before",
+                    "options": [
+                        "that he had finished it the week before",
+                        "that he finished it last week",
+                        "that he had finished it next week",
+                        "if he had finished it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "rstpc-v3-c2-10",
+            "question": "Report “The course starts next week” later: She said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "next_week_following"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the course started the following week",
+                    "options": [
+                        "that the course started the following week",
+                        "that the course starts next week",
+                        "that started the course next week",
+                        "if the course started"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "rstpc-v3-c2-11",
+            "question": "The report is still on the same day. Choose the natural clause: He says {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "context_dependent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that the meeting is today",
+                    "options": [
+                        "that the meeting is today",
+                        "that the meeting was that day",
+                        "that meeting today",
+                        "if the meeting is today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "rstpc-v3-c2-12",
+            "question": "Avoid the mechanical mistake in past reporting: She said {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_time_place_changes",
+            "tag_keys": [
+                "reported_speech_time_place_changes_all_levels",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that she would call the next day",
+                    "options": [
+                        "that she would call the next day",
+                        "that she will call tomorrow",
+                        "that would she call tomorrow",
+                        "to call next day"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "rstpc-v3-all",
+        "slug": "reported-speech-time-place-changes-all-levels-v3",
+        "name": "Time and Place Changes (All levels V3)",
+        "description": "Standard V3 package for Time and Place Changes across A1-C2.",
+        "question_uuids": [
+            "rstpc-v3-a1-01",
+            "rstpc-v3-a1-02",
+            "rstpc-v3-a1-03",
+            "rstpc-v3-a1-04",
+            "rstpc-v3-a1-05",
+            "rstpc-v3-a1-06",
+            "rstpc-v3-a1-07",
+            "rstpc-v3-a1-08",
+            "rstpc-v3-a1-09",
+            "rstpc-v3-a1-10",
+            "rstpc-v3-a1-11",
+            "rstpc-v3-a1-12",
+            "rstpc-v3-a2-01",
+            "rstpc-v3-a2-02",
+            "rstpc-v3-a2-03",
+            "rstpc-v3-a2-04",
+            "rstpc-v3-a2-05",
+            "rstpc-v3-a2-06",
+            "rstpc-v3-a2-07",
+            "rstpc-v3-a2-08",
+            "rstpc-v3-a2-09",
+            "rstpc-v3-a2-10",
+            "rstpc-v3-a2-11",
+            "rstpc-v3-a2-12",
+            "rstpc-v3-b1-01",
+            "rstpc-v3-b1-02",
+            "rstpc-v3-b1-03",
+            "rstpc-v3-b1-04",
+            "rstpc-v3-b1-05",
+            "rstpc-v3-b1-06",
+            "rstpc-v3-b1-07",
+            "rstpc-v3-b1-08",
+            "rstpc-v3-b1-09",
+            "rstpc-v3-b1-10",
+            "rstpc-v3-b1-11",
+            "rstpc-v3-b1-12",
+            "rstpc-v3-b2-01",
+            "rstpc-v3-b2-02",
+            "rstpc-v3-b2-03",
+            "rstpc-v3-b2-04",
+            "rstpc-v3-b2-05",
+            "rstpc-v3-b2-06",
+            "rstpc-v3-b2-07",
+            "rstpc-v3-b2-08",
+            "rstpc-v3-b2-09",
+            "rstpc-v3-b2-10",
+            "rstpc-v3-b2-11",
+            "rstpc-v3-b2-12",
+            "rstpc-v3-c1-01",
+            "rstpc-v3-c1-02",
+            "rstpc-v3-c1-03",
+            "rstpc-v3-c1-04",
+            "rstpc-v3-c1-05",
+            "rstpc-v3-c1-06",
+            "rstpc-v3-c1-07",
+            "rstpc-v3-c1-08",
+            "rstpc-v3-c1-09",
+            "rstpc-v3-c1-10",
+            "rstpc-v3-c1-11",
+            "rstpc-v3-c1-12",
+            "rstpc-v3-c2-01",
+            "rstpc-v3-c2-02",
+            "rstpc-v3-c2-03",
+            "rstpc-v3-c2-04",
+            "rstpc-v3-c2-05",
+            "rstpc-v3-c2-06",
+            "rstpc-v3-c2-07",
+            "rstpc-v3-c2-08",
+            "rstpc-v3-c2-09",
+            "rstpc-v3-c2-10",
+            "rstpc-v3-c2-11",
+            "rstpc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechTimePlaceChangesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "time-and-place-changes",
+                    "title": "Time and Place Changes",
+                    "category_slug_path": "reported-speech",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechTimePlaceChangesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/reported-speech/time-and-place-changes"
+                }
+            }
+        }
+    }
+}
