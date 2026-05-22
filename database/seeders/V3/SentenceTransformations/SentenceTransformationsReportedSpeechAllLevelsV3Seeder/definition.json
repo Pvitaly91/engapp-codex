@@ -1,0 +1,1866 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechAllLevelsV3Seeder",
+        "uuid_namespace": "SentenceTransformationsReportedSpeechAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "theory_page_sentence_transformations_reported_speech": {
+            "name": "Sentence Transformations — Reported Speech"
+        }
+    },
+    "tags": {
+        "sentence_transformations_reported_speech_all_levels": {
+            "name": "sentence transformations reported speech all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "direct_statement_reported": {
+            "name": "Direct Statement Reported",
+            "category": "topic"
+        },
+        "direct_question_reported": {
+            "name": "Direct Question Reported",
+            "category": "topic"
+        },
+        "command_request_reported": {
+            "name": "Command Request Reported",
+            "category": "topic"
+        },
+        "backshift": {
+            "name": "Backshift",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "time_place_changes": {
+            "name": "Time Place Changes",
+            "category": "topic"
+        },
+        "said_told_asked": {
+            "name": "Said Told Asked",
+            "category": "topic"
+        },
+        "no_direct_question_order": {
+            "name": "No Direct Question Order",
+            "category": "topic"
+        },
+        "object_infinitive": {
+            "name": "Object Infinitive",
+            "category": "topic"
+        },
+        "preserve_meaning": {
+            "name": "Preserve Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "strsp-v3-a1-01",
+            "question": "Rewrite as reported speech: Tom said, “I am tired.” Tom said that he {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was tired",
+                    "options": [
+                        "was tired",
+                        "is tired",
+                        "tired was",
+                        "be tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "strsp-v3-a1-02",
+            "question": "Rewrite as a reported yes/no question: “Are you ready?” He asked if I {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "direct_question_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was ready",
+                    "options": [
+                        "was ready",
+                        "am ready",
+                        "was I ready",
+                        "ready was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "strsp-v3-a1-03",
+            "question": "Rewrite the request: “Open the door, please.” She asked me {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "command_request_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open the door",
+                    "options": [
+                        "to open the door",
+                        "open the door",
+                        "that I opened the door",
+                        "to opened the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "strsp-v3-a1-04",
+            "question": "Choose the backshift: “I live here,” she said yesterday. She said that she {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived there",
+                    "options": [
+                        "lived there",
+                        "lives here",
+                        "has lived here",
+                        "living there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "strsp-v3-a1-05",
+            "question": "Rewrite with the correct pronoun: “My bag is here,” Anna said. Anna said that {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "her bag was there",
+                    "options": [
+                        "her bag was there",
+                        "my bag was there",
+                        "her bag is here",
+                        "his bag was there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "strsp-v3-a1-06",
+            "question": "Rewrite with the time change: “I will call tomorrow,” he said. He said that he would call {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "time_place_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the next day",
+                    "options": [
+                        "the next day",
+                        "tomorrow",
+                        "yesterday",
+                        "that day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "strsp-v3-a1-07",
+            "question": "Choose the reporting verb: He {a1} me that the train was late.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "said_told_asked"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked",
+                        "spoke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "strsp-v3-a1-08",
+            "question": "Rewrite without question inversion: “Where do you live?” She asked where I {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "no_direct_question_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "did live",
+                        "do live",
+                        "live did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "strsp-v3-a1-09",
+            "question": "Rewrite the command: “Do not wait outside.” Dad told us {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "object_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to wait outside",
+                    "options": [
+                        "not to wait outside",
+                        "to not waited outside",
+                        "do not wait outside",
+                        "not wait outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "strsp-v3-a1-10",
+            "question": "Preserve the meaning: “I can help,” she said. She said that she {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "preserve_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "could help",
+                    "options": [
+                        "could help",
+                        "can helped",
+                        "could helped",
+                        "helped can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "strsp-v3-a1-11",
+            "question": "Avoid the common mistake: He asked me where {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I was going",
+                    "options": [
+                        "I was going",
+                        "was I going",
+                        "I going was",
+                        "did I go"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "strsp-v3-a1-12",
+            "question": "Rewrite as reported speech: “We are busy,” they said. They said that they {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a1",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were busy",
+                    "options": [
+                        "were busy",
+                        "are busy",
+                        "busy were",
+                        "were being busy"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "strsp-v3-a2-01",
+            "question": "Rewrite as reported speech: Tom said, “I am tired.” Tom said that he {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was tired",
+                    "options": [
+                        "was tired",
+                        "is tired",
+                        "tired was",
+                        "be tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "strsp-v3-a2-02",
+            "question": "Rewrite as a reported yes/no question: “Are you ready?” He asked if I {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "direct_question_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was ready",
+                    "options": [
+                        "was ready",
+                        "am ready",
+                        "was I ready",
+                        "ready was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "strsp-v3-a2-03",
+            "question": "Rewrite the request: “Open the door, please.” She asked me {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "command_request_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open the door",
+                    "options": [
+                        "to open the door",
+                        "open the door",
+                        "that I opened the door",
+                        "to opened the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "strsp-v3-a2-04",
+            "question": "Choose the backshift: “I live here,” she said yesterday. She said that she {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived there",
+                    "options": [
+                        "lived there",
+                        "lives here",
+                        "has lived here",
+                        "living there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "strsp-v3-a2-05",
+            "question": "Rewrite with the correct pronoun: “My bag is here,” Anna said. Anna said that {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "her bag was there",
+                    "options": [
+                        "her bag was there",
+                        "my bag was there",
+                        "her bag is here",
+                        "his bag was there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "strsp-v3-a2-06",
+            "question": "Rewrite with the time change: “I will call tomorrow,” he said. He said that he would call {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "time_place_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the next day",
+                    "options": [
+                        "the next day",
+                        "tomorrow",
+                        "yesterday",
+                        "that day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "strsp-v3-a2-07",
+            "question": "Choose the reporting verb: He {a1} me that the train was late.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "said_told_asked"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked",
+                        "spoke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "strsp-v3-a2-08",
+            "question": "Rewrite without question inversion: “Where do you live?” She asked where I {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "no_direct_question_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "did live",
+                        "do live",
+                        "live did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "strsp-v3-a2-09",
+            "question": "Rewrite the command: “Do not wait outside.” Dad told us {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "object_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to wait outside",
+                    "options": [
+                        "not to wait outside",
+                        "to not waited outside",
+                        "do not wait outside",
+                        "not wait outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "strsp-v3-a2-10",
+            "question": "Preserve the meaning: “I can help,” she said. She said that she {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "preserve_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "could help",
+                    "options": [
+                        "could help",
+                        "can helped",
+                        "could helped",
+                        "helped can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "strsp-v3-a2-11",
+            "question": "Avoid the common mistake: He asked me where {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I was going",
+                    "options": [
+                        "I was going",
+                        "was I going",
+                        "I going was",
+                        "did I go"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "strsp-v3-a2-12",
+            "question": "Rewrite as reported speech: “We are busy,” they said. They said that they {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_a2",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were busy",
+                    "options": [
+                        "were busy",
+                        "are busy",
+                        "busy were",
+                        "were being busy"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "strsp-v3-b1-01",
+            "question": "Rewrite as reported speech: Tom said, “I am tired.” Tom said that he {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was tired",
+                    "options": [
+                        "was tired",
+                        "is tired",
+                        "tired was",
+                        "be tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "strsp-v3-b1-02",
+            "question": "Rewrite as a reported yes/no question: “Are you ready?” He asked if I {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "direct_question_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was ready",
+                    "options": [
+                        "was ready",
+                        "am ready",
+                        "was I ready",
+                        "ready was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "strsp-v3-b1-03",
+            "question": "Rewrite the request: “Open the door, please.” She asked me {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "command_request_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open the door",
+                    "options": [
+                        "to open the door",
+                        "open the door",
+                        "that I opened the door",
+                        "to opened the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "strsp-v3-b1-04",
+            "question": "Choose the backshift: “I live here,” she said yesterday. She said that she {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived there",
+                    "options": [
+                        "lived there",
+                        "lives here",
+                        "has lived here",
+                        "living there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "strsp-v3-b1-05",
+            "question": "Rewrite with the correct pronoun: “My bag is here,” Anna said. Anna said that {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "her bag was there",
+                    "options": [
+                        "her bag was there",
+                        "my bag was there",
+                        "her bag is here",
+                        "his bag was there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "strsp-v3-b1-06",
+            "question": "Rewrite with the time change: “I will call tomorrow,” he said. He said that he would call {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "time_place_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the next day",
+                    "options": [
+                        "the next day",
+                        "tomorrow",
+                        "yesterday",
+                        "that day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "strsp-v3-b1-07",
+            "question": "Choose the reporting verb: He {a1} me that the train was late.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "said_told_asked"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked",
+                        "spoke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "strsp-v3-b1-08",
+            "question": "Rewrite without question inversion: “Where do you live?” She asked where I {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "no_direct_question_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "did live",
+                        "do live",
+                        "live did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "strsp-v3-b1-09",
+            "question": "Rewrite the command: “Do not wait outside.” Dad told us {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "object_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to wait outside",
+                    "options": [
+                        "not to wait outside",
+                        "to not waited outside",
+                        "do not wait outside",
+                        "not wait outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "strsp-v3-b1-10",
+            "question": "Preserve the meaning: “I can help,” she said. She said that she {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "preserve_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "could help",
+                    "options": [
+                        "could help",
+                        "can helped",
+                        "could helped",
+                        "helped can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "strsp-v3-b1-11",
+            "question": "Avoid the common mistake: He asked me where {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I was going",
+                    "options": [
+                        "I was going",
+                        "was I going",
+                        "I going was",
+                        "did I go"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "strsp-v3-b1-12",
+            "question": "Rewrite as reported speech: “We are busy,” they said. They said that they {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b1",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were busy",
+                    "options": [
+                        "were busy",
+                        "are busy",
+                        "busy were",
+                        "were being busy"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "strsp-v3-b2-01",
+            "question": "Rewrite as reported speech: Tom said, “I am tired.” Tom said that he {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was tired",
+                    "options": [
+                        "was tired",
+                        "is tired",
+                        "tired was",
+                        "be tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "strsp-v3-b2-02",
+            "question": "Rewrite as a reported yes/no question: “Are you ready?” He asked if I {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "direct_question_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was ready",
+                    "options": [
+                        "was ready",
+                        "am ready",
+                        "was I ready",
+                        "ready was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "strsp-v3-b2-03",
+            "question": "Rewrite the request: “Open the door, please.” She asked me {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "command_request_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open the door",
+                    "options": [
+                        "to open the door",
+                        "open the door",
+                        "that I opened the door",
+                        "to opened the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "strsp-v3-b2-04",
+            "question": "Choose the backshift: “I live here,” she said yesterday. She said that she {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived there",
+                    "options": [
+                        "lived there",
+                        "lives here",
+                        "has lived here",
+                        "living there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "strsp-v3-b2-05",
+            "question": "Rewrite with the correct pronoun: “My bag is here,” Anna said. Anna said that {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "her bag was there",
+                    "options": [
+                        "her bag was there",
+                        "my bag was there",
+                        "her bag is here",
+                        "his bag was there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "strsp-v3-b2-06",
+            "question": "Rewrite with the time change: “I will call tomorrow,” he said. He said that he would call {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "time_place_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the next day",
+                    "options": [
+                        "the next day",
+                        "tomorrow",
+                        "yesterday",
+                        "that day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "strsp-v3-b2-07",
+            "question": "Choose the reporting verb: He {a1} me that the train was late.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "said_told_asked"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked",
+                        "spoke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "strsp-v3-b2-08",
+            "question": "Rewrite without question inversion: “Where do you live?” She asked where I {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "no_direct_question_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "did live",
+                        "do live",
+                        "live did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "strsp-v3-b2-09",
+            "question": "Rewrite the command: “Do not wait outside.” Dad told us {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "object_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to wait outside",
+                    "options": [
+                        "not to wait outside",
+                        "to not waited outside",
+                        "do not wait outside",
+                        "not wait outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "strsp-v3-b2-10",
+            "question": "Preserve the meaning: “I can help,” she said. She said that she {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "preserve_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "could help",
+                    "options": [
+                        "could help",
+                        "can helped",
+                        "could helped",
+                        "helped can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "strsp-v3-b2-11",
+            "question": "Avoid the common mistake: He asked me where {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I was going",
+                    "options": [
+                        "I was going",
+                        "was I going",
+                        "I going was",
+                        "did I go"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "strsp-v3-b2-12",
+            "question": "Rewrite as reported speech: “We are busy,” they said. They said that they {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_b2",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were busy",
+                    "options": [
+                        "were busy",
+                        "are busy",
+                        "busy were",
+                        "were being busy"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "strsp-v3-c1-01",
+            "question": "Rewrite as reported speech: Tom said, “I am tired.” Tom said that he {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was tired",
+                    "options": [
+                        "was tired",
+                        "is tired",
+                        "tired was",
+                        "be tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "strsp-v3-c1-02",
+            "question": "Rewrite as a reported yes/no question: “Are you ready?” He asked if I {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "direct_question_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was ready",
+                    "options": [
+                        "was ready",
+                        "am ready",
+                        "was I ready",
+                        "ready was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "strsp-v3-c1-03",
+            "question": "Rewrite the request: “Open the door, please.” She asked me {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "command_request_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open the door",
+                    "options": [
+                        "to open the door",
+                        "open the door",
+                        "that I opened the door",
+                        "to opened the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "strsp-v3-c1-04",
+            "question": "Choose the backshift: “I live here,” she said yesterday. She said that she {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived there",
+                    "options": [
+                        "lived there",
+                        "lives here",
+                        "has lived here",
+                        "living there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "strsp-v3-c1-05",
+            "question": "Rewrite with the correct pronoun: “My bag is here,” Anna said. Anna said that {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "her bag was there",
+                    "options": [
+                        "her bag was there",
+                        "my bag was there",
+                        "her bag is here",
+                        "his bag was there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "strsp-v3-c1-06",
+            "question": "Rewrite with the time change: “I will call tomorrow,” he said. He said that he would call {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "time_place_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the next day",
+                    "options": [
+                        "the next day",
+                        "tomorrow",
+                        "yesterday",
+                        "that day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "strsp-v3-c1-07",
+            "question": "Choose the reporting verb: He {a1} me that the train was late.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "said_told_asked"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked",
+                        "spoke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "strsp-v3-c1-08",
+            "question": "Rewrite without question inversion: “Where do you live?” She asked where I {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "no_direct_question_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "did live",
+                        "do live",
+                        "live did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "strsp-v3-c1-09",
+            "question": "Rewrite the command: “Do not wait outside.” Dad told us {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "object_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to wait outside",
+                    "options": [
+                        "not to wait outside",
+                        "to not waited outside",
+                        "do not wait outside",
+                        "not wait outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "strsp-v3-c1-10",
+            "question": "Preserve the meaning: “I can help,” she said. She said that she {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "preserve_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "could help",
+                    "options": [
+                        "could help",
+                        "can helped",
+                        "could helped",
+                        "helped can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "strsp-v3-c1-11",
+            "question": "Avoid the common mistake: He asked me where {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I was going",
+                    "options": [
+                        "I was going",
+                        "was I going",
+                        "I going was",
+                        "did I go"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "strsp-v3-c1-12",
+            "question": "Rewrite as reported speech: “We are busy,” they said. They said that they {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c1",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were busy",
+                    "options": [
+                        "were busy",
+                        "are busy",
+                        "busy were",
+                        "were being busy"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "strsp-v3-c2-01",
+            "question": "Rewrite as reported speech: Tom said, “I am tired.” Tom said that he {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was tired",
+                    "options": [
+                        "was tired",
+                        "is tired",
+                        "tired was",
+                        "be tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "strsp-v3-c2-02",
+            "question": "Rewrite as a reported yes/no question: “Are you ready?” He asked if I {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "direct_question_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was ready",
+                    "options": [
+                        "was ready",
+                        "am ready",
+                        "was I ready",
+                        "ready was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "strsp-v3-c2-03",
+            "question": "Rewrite the request: “Open the door, please.” She asked me {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "command_request_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open the door",
+                    "options": [
+                        "to open the door",
+                        "open the door",
+                        "that I opened the door",
+                        "to opened the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "strsp-v3-c2-04",
+            "question": "Choose the backshift: “I live here,” she said yesterday. She said that she {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived there",
+                    "options": [
+                        "lived there",
+                        "lives here",
+                        "has lived here",
+                        "living there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "strsp-v3-c2-05",
+            "question": "Rewrite with the correct pronoun: “My bag is here,” Anna said. Anna said that {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "her bag was there",
+                    "options": [
+                        "her bag was there",
+                        "my bag was there",
+                        "her bag is here",
+                        "his bag was there"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "strsp-v3-c2-06",
+            "question": "Rewrite with the time change: “I will call tomorrow,” he said. He said that he would call {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "time_place_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the next day",
+                    "options": [
+                        "the next day",
+                        "tomorrow",
+                        "yesterday",
+                        "that day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "strsp-v3-c2-07",
+            "question": "Choose the reporting verb: He {a1} me that the train was late.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "said_told_asked"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "said",
+                        "asked",
+                        "spoke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "strsp-v3-c2-08",
+            "question": "Rewrite without question inversion: “Where do you live?” She asked where I {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "no_direct_question_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "did live",
+                        "do live",
+                        "live did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "strsp-v3-c2-09",
+            "question": "Rewrite the command: “Do not wait outside.” Dad told us {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "object_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to wait outside",
+                    "options": [
+                        "not to wait outside",
+                        "to not waited outside",
+                        "do not wait outside",
+                        "not wait outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "strsp-v3-c2-10",
+            "question": "Preserve the meaning: “I can help,” she said. She said that she {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "preserve_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "could help",
+                    "options": [
+                        "could help",
+                        "can helped",
+                        "could helped",
+                        "helped can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "strsp-v3-c2-11",
+            "question": "Avoid the common mistake: He asked me where {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I was going",
+                    "options": [
+                        "I was going",
+                        "was I going",
+                        "I going was",
+                        "did I go"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "strsp-v3-c2-12",
+            "question": "Rewrite as reported speech: “We are busy,” they said. They said that they {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_reported_speech",
+            "tag_keys": [
+                "sentence_transformations_reported_speech_all_levels",
+                "level_c2",
+                "direct_statement_reported"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were busy",
+                    "options": [
+                        "were busy",
+                        "are busy",
+                        "busy were",
+                        "were being busy"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "strsp-v3-all",
+        "slug": "sentence-transformations-reported-speech-all-levels-v3",
+        "name": "Sentence Transformations — Reported Speech (All levels V3)",
+        "description": "Standard V3 package for Sentence Transformations — Reported Speech across A1-C2.",
+        "question_uuids": [
+            "strsp-v3-a1-01",
+            "strsp-v3-a1-02",
+            "strsp-v3-a1-03",
+            "strsp-v3-a1-04",
+            "strsp-v3-a1-05",
+            "strsp-v3-a1-06",
+            "strsp-v3-a1-07",
+            "strsp-v3-a1-08",
+            "strsp-v3-a1-09",
+            "strsp-v3-a1-10",
+            "strsp-v3-a1-11",
+            "strsp-v3-a1-12",
+            "strsp-v3-a2-01",
+            "strsp-v3-a2-02",
+            "strsp-v3-a2-03",
+            "strsp-v3-a2-04",
+            "strsp-v3-a2-05",
+            "strsp-v3-a2-06",
+            "strsp-v3-a2-07",
+            "strsp-v3-a2-08",
+            "strsp-v3-a2-09",
+            "strsp-v3-a2-10",
+            "strsp-v3-a2-11",
+            "strsp-v3-a2-12",
+            "strsp-v3-b1-01",
+            "strsp-v3-b1-02",
+            "strsp-v3-b1-03",
+            "strsp-v3-b1-04",
+            "strsp-v3-b1-05",
+            "strsp-v3-b1-06",
+            "strsp-v3-b1-07",
+            "strsp-v3-b1-08",
+            "strsp-v3-b1-09",
+            "strsp-v3-b1-10",
+            "strsp-v3-b1-11",
+            "strsp-v3-b1-12",
+            "strsp-v3-b2-01",
+            "strsp-v3-b2-02",
+            "strsp-v3-b2-03",
+            "strsp-v3-b2-04",
+            "strsp-v3-b2-05",
+            "strsp-v3-b2-06",
+            "strsp-v3-b2-07",
+            "strsp-v3-b2-08",
+            "strsp-v3-b2-09",
+            "strsp-v3-b2-10",
+            "strsp-v3-b2-11",
+            "strsp-v3-b2-12",
+            "strsp-v3-c1-01",
+            "strsp-v3-c1-02",
+            "strsp-v3-c1-03",
+            "strsp-v3-c1-04",
+            "strsp-v3-c1-05",
+            "strsp-v3-c1-06",
+            "strsp-v3-c1-07",
+            "strsp-v3-c1-08",
+            "strsp-v3-c1-09",
+            "strsp-v3-c1-10",
+            "strsp-v3-c1-11",
+            "strsp-v3-c1-12",
+            "strsp-v3-c2-01",
+            "strsp-v3-c2-02",
+            "strsp-v3-c2-03",
+            "strsp-v3-c2-04",
+            "strsp-v3-c2-05",
+            "strsp-v3-c2-06",
+            "strsp-v3-c2-07",
+            "strsp-v3-c2-08",
+            "strsp-v3-c2-09",
+            "strsp-v3-c2-10",
+            "strsp-v3-c2-11",
+            "strsp-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "page_slug": "reported-speech",
+                "page_route": "/theory/sentence-transformations/reported-speech",
+                "theory_page": {
+                    "slug": "reported-speech",
+                    "title": "Sentence Transformations — Reported Speech",
+                    "category_slug_path": "sentence-transformations",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechTheorySeeder",
+                    "url": "https://gramlyze.com/theory/sentence-transformations/reported-speech"
+                }
+            }
+        }
+    }
+}
