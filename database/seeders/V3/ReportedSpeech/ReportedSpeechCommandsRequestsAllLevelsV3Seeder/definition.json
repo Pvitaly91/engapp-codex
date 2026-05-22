@@ -1,0 +1,1862 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechCommandsRequestsAllLevelsV3Seeder",
+        "uuid_namespace": "ReportedSpeechCommandsRequestsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "theory_page_reported_commands_requests": {
+            "name": "Reported Commands and Requests"
+        }
+    },
+    "tags": {
+        "reported_speech_commands_requests_all_levels": {
+            "name": "reported speech commands requests all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "object_to_infinitive": {
+            "name": "Object To Infinitive",
+            "category": "topic"
+        },
+        "not_to_do": {
+            "name": "Not To Do",
+            "category": "topic"
+        },
+        "asked_someone_to": {
+            "name": "Asked Someone To",
+            "category": "topic"
+        },
+        "told_ordered_someone_to": {
+            "name": "Told Ordered Someone To",
+            "category": "topic"
+        },
+        "advised_someone_to": {
+            "name": "Advised Someone To",
+            "category": "topic"
+        },
+        "object_infinitive_pattern": {
+            "name": "Object Infinitive Pattern",
+            "category": "topic"
+        },
+        "no_quotation_marks": {
+            "name": "No Quotation Marks",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsc-v3-a1-01",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "rsc-v3-a1-02",
+            "question": "Negative command: She told me {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "rsc-v3-a1-03",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "rsc-v3-a1-04",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "told_ordered_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "rsc-v3-a1-05",
+            "question": "Advice: The doctor advised me {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "advised_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to rest for a week",
+                    "options": [
+                        "to rest for a week",
+                        "resting for a week",
+                        "that rest for a week",
+                        "rested for a week"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "rsc-v3-a1-06",
+            "question": "Choose object + infinitive: My manager asked me {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "object_infinitive_pattern"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to send the file",
+                    "options": [
+                        "to send the file",
+                        "send the file",
+                        "that I send the file",
+                        "sending the file"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "rsc-v3-a1-07",
+            "question": "Reported request should avoid quotation marks: She asked him {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "no_quotation_marks"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her",
+                    "options": [
+                        "to help her",
+                        "“please help me”",
+                        "that help her",
+                        "helping her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "rsc-v3-a1-08",
+            "question": "“Help me with my bag.” She asked him {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her with her bag",
+                    "options": [
+                        "to help her with her bag",
+                        "to help me with my bag",
+                        "that he helped my bag",
+                        "help her with her bag"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "rsc-v3-a1-09",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "rsc-v3-a1-10",
+            "question": "Negative command: She told me {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "rsc-v3-a1-11",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "rsc-v3-a1-12",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a1",
+                "told_ordered_someone_to",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "rsc-v3-a2-01",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "rsc-v3-a2-02",
+            "question": "Negative command: She told me {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "rsc-v3-a2-03",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "rsc-v3-a2-04",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "told_ordered_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "rsc-v3-a2-05",
+            "question": "Advice: The doctor advised me {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "advised_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to rest for a week",
+                    "options": [
+                        "to rest for a week",
+                        "resting for a week",
+                        "that rest for a week",
+                        "rested for a week"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "rsc-v3-a2-06",
+            "question": "Choose object + infinitive: My manager asked me {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "object_infinitive_pattern"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to send the file",
+                    "options": [
+                        "to send the file",
+                        "send the file",
+                        "that I send the file",
+                        "sending the file"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "rsc-v3-a2-07",
+            "question": "Reported request should avoid quotation marks: She asked him {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "no_quotation_marks"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her",
+                    "options": [
+                        "to help her",
+                        "“please help me”",
+                        "that help her",
+                        "helping her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "rsc-v3-a2-08",
+            "question": "“Help me with my bag.” She asked him {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her with her bag",
+                    "options": [
+                        "to help her with her bag",
+                        "to help me with my bag",
+                        "that he helped my bag",
+                        "help her with her bag"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "rsc-v3-a2-09",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "rsc-v3-a2-10",
+            "question": "Negative command: She told me {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "rsc-v3-a2-11",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "rsc-v3-a2-12",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_a2",
+                "told_ordered_someone_to",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "rsc-v3-b1-01",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "rsc-v3-b1-02",
+            "question": "Negative command: She told me {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "rsc-v3-b1-03",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "rsc-v3-b1-04",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "told_ordered_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "rsc-v3-b1-05",
+            "question": "Advice: The doctor advised me {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "advised_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to rest for a week",
+                    "options": [
+                        "to rest for a week",
+                        "resting for a week",
+                        "that rest for a week",
+                        "rested for a week"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "rsc-v3-b1-06",
+            "question": "Choose object + infinitive: My manager asked me {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "object_infinitive_pattern"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to send the file",
+                    "options": [
+                        "to send the file",
+                        "send the file",
+                        "that I send the file",
+                        "sending the file"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "rsc-v3-b1-07",
+            "question": "Reported request should avoid quotation marks: She asked him {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "no_quotation_marks"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her",
+                    "options": [
+                        "to help her",
+                        "“please help me”",
+                        "that help her",
+                        "helping her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "rsc-v3-b1-08",
+            "question": "“Help me with my bag.” She asked him {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her with her bag",
+                    "options": [
+                        "to help her with her bag",
+                        "to help me with my bag",
+                        "that he helped my bag",
+                        "help her with her bag"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "rsc-v3-b1-09",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "rsc-v3-b1-10",
+            "question": "Negative command: She told me {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "rsc-v3-b1-11",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "rsc-v3-b1-12",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b1",
+                "told_ordered_someone_to",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "rsc-v3-b2-01",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "rsc-v3-b2-02",
+            "question": "Negative command: She told me {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "rsc-v3-b2-03",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "rsc-v3-b2-04",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "told_ordered_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "rsc-v3-b2-05",
+            "question": "Advice: The doctor advised me {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "advised_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to rest for a week",
+                    "options": [
+                        "to rest for a week",
+                        "resting for a week",
+                        "that rest for a week",
+                        "rested for a week"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "rsc-v3-b2-06",
+            "question": "Choose object + infinitive: My manager asked me {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "object_infinitive_pattern"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to send the file",
+                    "options": [
+                        "to send the file",
+                        "send the file",
+                        "that I send the file",
+                        "sending the file"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "rsc-v3-b2-07",
+            "question": "Reported request should avoid quotation marks: She asked him {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "no_quotation_marks"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her",
+                    "options": [
+                        "to help her",
+                        "“please help me”",
+                        "that help her",
+                        "helping her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "rsc-v3-b2-08",
+            "question": "“Help me with my bag.” She asked him {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her with her bag",
+                    "options": [
+                        "to help her with her bag",
+                        "to help me with my bag",
+                        "that he helped my bag",
+                        "help her with her bag"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "rsc-v3-b2-09",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "rsc-v3-b2-10",
+            "question": "Negative command: She told me {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "rsc-v3-b2-11",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "rsc-v3-b2-12",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_b2",
+                "told_ordered_someone_to",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "rsc-v3-c1-01",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "rsc-v3-c1-02",
+            "question": "Negative command: She told me {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "rsc-v3-c1-03",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "rsc-v3-c1-04",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "told_ordered_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "rsc-v3-c1-05",
+            "question": "Advice: The doctor advised me {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "advised_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to rest for a week",
+                    "options": [
+                        "to rest for a week",
+                        "resting for a week",
+                        "that rest for a week",
+                        "rested for a week"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "rsc-v3-c1-06",
+            "question": "Choose object + infinitive: My manager asked me {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "object_infinitive_pattern"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to send the file",
+                    "options": [
+                        "to send the file",
+                        "send the file",
+                        "that I send the file",
+                        "sending the file"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "rsc-v3-c1-07",
+            "question": "Reported request should avoid quotation marks: She asked him {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "no_quotation_marks"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her",
+                    "options": [
+                        "to help her",
+                        "“please help me”",
+                        "that help her",
+                        "helping her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "rsc-v3-c1-08",
+            "question": "“Help me with my bag.” She asked him {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her with her bag",
+                    "options": [
+                        "to help her with her bag",
+                        "to help me with my bag",
+                        "that he helped my bag",
+                        "help her with her bag"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "rsc-v3-c1-09",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "rsc-v3-c1-10",
+            "question": "Negative command: She told me {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "rsc-v3-c1-11",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "rsc-v3-c1-12",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c1",
+                "told_ordered_someone_to",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "rsc-v3-c2-01",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "rsc-v3-c2-02",
+            "question": "Negative command: She told me {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "rsc-v3-c2-03",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "rsc-v3-c2-04",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "told_ordered_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "rsc-v3-c2-05",
+            "question": "Advice: The doctor advised me {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "advised_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to rest for a week",
+                    "options": [
+                        "to rest for a week",
+                        "resting for a week",
+                        "that rest for a week",
+                        "rested for a week"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "rsc-v3-c2-06",
+            "question": "Choose object + infinitive: My manager asked me {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "object_infinitive_pattern"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to send the file",
+                    "options": [
+                        "to send the file",
+                        "send the file",
+                        "that I send the file",
+                        "sending the file"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "rsc-v3-c2-07",
+            "question": "Reported request should avoid quotation marks: She asked him {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "no_quotation_marks"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her",
+                    "options": [
+                        "to help her",
+                        "“please help me”",
+                        "that help her",
+                        "helping her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "rsc-v3-c2-08",
+            "question": "“Help me with my bag.” She asked him {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to help her with her bag",
+                    "options": [
+                        "to help her with her bag",
+                        "to help me with my bag",
+                        "that he helped my bag",
+                        "help her with her bag"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "rsc-v3-c2-09",
+            "question": "Choose the command/request pattern: The teacher told us {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "object_to_infinitive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to open our books",
+                    "options": [
+                        "to open our books",
+                        "open our books",
+                        "that open our books",
+                        "opened our books"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "rsc-v3-c2-10",
+            "question": "Negative command: She told me {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "not_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "not to worry",
+                    "options": [
+                        "not to worry",
+                        "to not worrying",
+                        "do not worry",
+                        "not worry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "rsc-v3-c2-11",
+            "question": "Request: He asked Sarah {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "asked_someone_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to wait outside",
+                    "options": [
+                        "to wait outside",
+                        "wait outside",
+                        "that she waited outside",
+                        "waiting outside"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "rsc-v3-c2-12",
+            "question": "Strong command: The officer ordered them {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_commands_requests",
+            "tag_keys": [
+                "reported_speech_commands_requests_all_levels",
+                "level_c2",
+                "told_ordered_someone_to",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to stop immediately",
+                    "options": [
+                        "to stop immediately",
+                        "stop immediately",
+                        "that they stop immediately",
+                        "stopping immediately"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "rsc-v3-all",
+        "slug": "reported-commands-and-requests-all-levels-v3",
+        "name": "Reported Commands and Requests (All levels V3)",
+        "description": "Standard V3 package for Reported Commands and Requests across A1-C2.",
+        "question_uuids": [
+            "rsc-v3-a1-01",
+            "rsc-v3-a1-02",
+            "rsc-v3-a1-03",
+            "rsc-v3-a1-04",
+            "rsc-v3-a1-05",
+            "rsc-v3-a1-06",
+            "rsc-v3-a1-07",
+            "rsc-v3-a1-08",
+            "rsc-v3-a1-09",
+            "rsc-v3-a1-10",
+            "rsc-v3-a1-11",
+            "rsc-v3-a1-12",
+            "rsc-v3-a2-01",
+            "rsc-v3-a2-02",
+            "rsc-v3-a2-03",
+            "rsc-v3-a2-04",
+            "rsc-v3-a2-05",
+            "rsc-v3-a2-06",
+            "rsc-v3-a2-07",
+            "rsc-v3-a2-08",
+            "rsc-v3-a2-09",
+            "rsc-v3-a2-10",
+            "rsc-v3-a2-11",
+            "rsc-v3-a2-12",
+            "rsc-v3-b1-01",
+            "rsc-v3-b1-02",
+            "rsc-v3-b1-03",
+            "rsc-v3-b1-04",
+            "rsc-v3-b1-05",
+            "rsc-v3-b1-06",
+            "rsc-v3-b1-07",
+            "rsc-v3-b1-08",
+            "rsc-v3-b1-09",
+            "rsc-v3-b1-10",
+            "rsc-v3-b1-11",
+            "rsc-v3-b1-12",
+            "rsc-v3-b2-01",
+            "rsc-v3-b2-02",
+            "rsc-v3-b2-03",
+            "rsc-v3-b2-04",
+            "rsc-v3-b2-05",
+            "rsc-v3-b2-06",
+            "rsc-v3-b2-07",
+            "rsc-v3-b2-08",
+            "rsc-v3-b2-09",
+            "rsc-v3-b2-10",
+            "rsc-v3-b2-11",
+            "rsc-v3-b2-12",
+            "rsc-v3-c1-01",
+            "rsc-v3-c1-02",
+            "rsc-v3-c1-03",
+            "rsc-v3-c1-04",
+            "rsc-v3-c1-05",
+            "rsc-v3-c1-06",
+            "rsc-v3-c1-07",
+            "rsc-v3-c1-08",
+            "rsc-v3-c1-09",
+            "rsc-v3-c1-10",
+            "rsc-v3-c1-11",
+            "rsc-v3-c1-12",
+            "rsc-v3-c2-01",
+            "rsc-v3-c2-02",
+            "rsc-v3-c2-03",
+            "rsc-v3-c2-04",
+            "rsc-v3-c2-05",
+            "rsc-v3-c2-06",
+            "rsc-v3-c2-07",
+            "rsc-v3-c2-08",
+            "rsc-v3-c2-09",
+            "rsc-v3-c2-10",
+            "rsc-v3-c2-11",
+            "rsc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechCommandsRequestsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "reported-commands-and-requests",
+                    "title": "Reported Commands and Requests",
+                    "category_slug_path": "reported-speech",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechCommandsRequestsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/reported-speech/reported-commands-and-requests"
+                }
+            }
+        }
+    }
+}
