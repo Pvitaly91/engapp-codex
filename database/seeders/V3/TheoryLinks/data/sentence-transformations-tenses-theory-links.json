@@ -1,0 +1,383 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Sentence Transformations — Tenses theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/sentence-transformations/tenses",
+        "category_slug": "sentence-transformations",
+        "slug": "tenses",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+        "title": "Sentence Transformations — Tenses"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "forms": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+            "sort_order": 2,
+            "title": "Recognition"
+        },
+        "examples": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+            "sort_order": 3,
+            "title": "Patterns"
+        },
+        "mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+            "sort_order": 4,
+            "title": "Mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+            "sort_order": 5,
+            "title": "Summary"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "preserve_meaning": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "present_simple_continuous": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "past_simple_present_perfect": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "past_simple_continuous": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "future_forms": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "perfect_time_markers": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "time_markers": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "equivalent_time_expressions": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "keep_core_meaning": [
+            "forms",
+            "examples",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "mistakes",
+            "summary"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsTensesAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTransformationsTensesAllLevelsLessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-sentence-transformations-tenses-all-levels",
+            "saved_test_name": "Sentence Builder: Sentence Transformations — Tenses (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTransformationsTensesAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "stten-poly-a1-01": [
+                    "preserve_meaning"
+                ],
+                "stten-poly-a1-02": [
+                    "present_simple_continuous"
+                ],
+                "stten-poly-a1-03": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-a1-04": [
+                    "past_simple_continuous"
+                ],
+                "stten-poly-a1-05": [
+                    "future_forms"
+                ],
+                "stten-poly-a1-06": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-a1-07": [
+                    "time_markers"
+                ],
+                "stten-poly-a1-08": [
+                    "equivalent_time_expressions"
+                ],
+                "stten-poly-a1-09": [
+                    "keep_core_meaning"
+                ],
+                "stten-poly-a1-10": [
+                    "typical_mistakes"
+                ],
+                "stten-poly-a1-11": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-a1-12": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-a2-01": [
+                    "preserve_meaning"
+                ],
+                "stten-poly-a2-02": [
+                    "present_simple_continuous"
+                ],
+                "stten-poly-a2-03": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-a2-04": [
+                    "past_simple_continuous"
+                ],
+                "stten-poly-a2-05": [
+                    "future_forms"
+                ],
+                "stten-poly-a2-06": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-a2-07": [
+                    "time_markers"
+                ],
+                "stten-poly-a2-08": [
+                    "equivalent_time_expressions"
+                ],
+                "stten-poly-a2-09": [
+                    "keep_core_meaning"
+                ],
+                "stten-poly-a2-10": [
+                    "typical_mistakes"
+                ],
+                "stten-poly-a2-11": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-a2-12": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-b1-01": [
+                    "preserve_meaning"
+                ],
+                "stten-poly-b1-02": [
+                    "present_simple_continuous"
+                ],
+                "stten-poly-b1-03": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-b1-04": [
+                    "past_simple_continuous"
+                ],
+                "stten-poly-b1-05": [
+                    "future_forms"
+                ],
+                "stten-poly-b1-06": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-b1-07": [
+                    "time_markers"
+                ],
+                "stten-poly-b1-08": [
+                    "equivalent_time_expressions"
+                ],
+                "stten-poly-b1-09": [
+                    "keep_core_meaning"
+                ],
+                "stten-poly-b1-10": [
+                    "typical_mistakes"
+                ],
+                "stten-poly-b1-11": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-b1-12": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-b2-01": [
+                    "preserve_meaning"
+                ],
+                "stten-poly-b2-02": [
+                    "present_simple_continuous"
+                ],
+                "stten-poly-b2-03": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-b2-04": [
+                    "past_simple_continuous"
+                ],
+                "stten-poly-b2-05": [
+                    "future_forms"
+                ],
+                "stten-poly-b2-06": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-b2-07": [
+                    "time_markers"
+                ],
+                "stten-poly-b2-08": [
+                    "equivalent_time_expressions"
+                ],
+                "stten-poly-b2-09": [
+                    "keep_core_meaning"
+                ],
+                "stten-poly-b2-10": [
+                    "typical_mistakes"
+                ],
+                "stten-poly-b2-11": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-b2-12": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-c1-01": [
+                    "preserve_meaning"
+                ],
+                "stten-poly-c1-02": [
+                    "present_simple_continuous"
+                ],
+                "stten-poly-c1-03": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-c1-04": [
+                    "past_simple_continuous"
+                ],
+                "stten-poly-c1-05": [
+                    "future_forms"
+                ],
+                "stten-poly-c1-06": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-c1-07": [
+                    "time_markers"
+                ],
+                "stten-poly-c1-08": [
+                    "equivalent_time_expressions"
+                ],
+                "stten-poly-c1-09": [
+                    "keep_core_meaning"
+                ],
+                "stten-poly-c1-10": [
+                    "typical_mistakes"
+                ],
+                "stten-poly-c1-11": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-c1-12": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-c2-01": [
+                    "preserve_meaning"
+                ],
+                "stten-poly-c2-02": [
+                    "present_simple_continuous"
+                ],
+                "stten-poly-c2-03": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-c2-04": [
+                    "past_simple_continuous"
+                ],
+                "stten-poly-c2-05": [
+                    "future_forms"
+                ],
+                "stten-poly-c2-06": [
+                    "perfect_time_markers"
+                ],
+                "stten-poly-c2-07": [
+                    "time_markers"
+                ],
+                "stten-poly-c2-08": [
+                    "equivalent_time_expressions"
+                ],
+                "stten-poly-c2-09": [
+                    "keep_core_meaning"
+                ],
+                "stten-poly-c2-10": [
+                    "typical_mistakes"
+                ],
+                "stten-poly-c2-11": [
+                    "past_simple_present_perfect"
+                ],
+                "stten-poly-c2-12": [
+                    "perfect_time_markers"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_a1_c2",
+            "saved_test_slug": "theory-page-{page_id}-mixed-a1-c2",
+            "saved_test_name": "Sentence Transformations — Tenses: Mixed A1-C2",
+            "strategy": "tag_key_to_bundle",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsTensesAllLevelsV3Seeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTransformationsTensesAllLevelsLessonSeeder"
+            ],
+            "tag_key_to_bundle": {
+                "preserve_meaning": "preserve_meaning",
+                "present_simple_continuous": "present_simple_continuous",
+                "past_simple_present_perfect": "past_simple_present_perfect",
+                "past_simple_continuous": "past_simple_continuous",
+                "future_forms": "future_forms",
+                "perfect_time_markers": "perfect_time_markers",
+                "time_markers": "time_markers",
+                "equivalent_time_expressions": "equivalent_time_expressions",
+                "keep_core_meaning": "keep_core_meaning",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {},
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "standard_v3_questions": 72,
+        "polyglot_compose_questions": 72,
+        "levels": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "source_of_truth": "json_manifest",
+        "php_seeder": "SentenceTransformationsTensesTheoryLinksSeeder"
+    },
+    "qa": {
+        "explicit_polyglot_question_uuid_map": true,
+        "standard_v3_fallback_allowed": true,
+        "do_not_use_question_marker_tag": true
+    }
+}

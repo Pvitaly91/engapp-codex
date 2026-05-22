@@ -1,0 +1,1864 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsPassiveAllLevelsV3Seeder",
+        "uuid_namespace": "SentenceTransformationsPassiveAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "theory_page_sentence_transformations_passive": {
+            "name": "Sentence Transformations — Passive"
+        }
+    },
+    "tags": {
+        "sentence_transformations_passive_all_levels": {
+            "name": "sentence transformations passive all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "active_to_passive": {
+            "name": "Active To Passive",
+            "category": "topic"
+        },
+        "passive_to_active": {
+            "name": "Passive To Active",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "preserve_tense": {
+            "name": "Preserve Tense",
+            "category": "topic"
+        },
+        "present_simple_passive": {
+            "name": "Present Simple Passive",
+            "category": "topic"
+        },
+        "past_simple_passive": {
+            "name": "Past Simple Passive",
+            "category": "topic"
+        },
+        "present_perfect_passive": {
+            "name": "Present Perfect Passive",
+            "category": "topic"
+        },
+        "future_modal_passive": {
+            "name": "Future Modal Passive",
+            "category": "topic"
+        },
+        "by_agent_omission": {
+            "name": "By Agent Omission",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stpas-v3-a1-01",
+            "question": "Rewrite in the passive: “They clean the rooms every day.” The rooms {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are cleaned every day",
+                    "options": [
+                        "are cleaned every day",
+                        "clean every day",
+                        "were cleaned now",
+                        "are cleaning every day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "stpas-v3-a1-02",
+            "question": "Rewrite naturally in active voice: “The letter was written by Anna.” Anna {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "passive_to_active"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote the letter",
+                    "options": [
+                        "wrote the letter",
+                        "was written the letter",
+                        "has written yesterday",
+                        "writes by the letter"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "stpas-v3-a1-03",
+            "question": "Choose the passive subject from the object: Someone broke the window. {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The window was broken",
+                    "options": [
+                        "The window was broken",
+                        "Someone was broken",
+                        "The window broke someone",
+                        "Was broken someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "stpas-v3-a1-04",
+            "question": "Keep the important agent: Shakespeare wrote the play. The play {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written by Shakespeare",
+                    "options": [
+                        "was written by Shakespeare",
+                        "was written Shakespeare",
+                        "wrote by Shakespeare",
+                        "is written by someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "stpas-v3-a1-05",
+            "question": "Preserve the tense: They are repairing the road. The road {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "preserve_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is being repaired",
+                    "options": [
+                        "is being repaired",
+                        "is repaired every day",
+                        "was being repaired now",
+                        "has repaired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "stpas-v3-a1-06",
+            "question": "Choose the present simple passive: English {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "present_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is spoken in many countries",
+                    "options": [
+                        "is spoken in many countries",
+                        "was spoken now",
+                        "is speaking in many countries",
+                        "has spoken in many countries"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "stpas-v3-a1-07",
+            "question": "Choose the past simple passive: The bridge {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "past_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built in 1990",
+                    "options": [
+                        "was built in 1990",
+                        "is built yesterday",
+                        "has built in 1990",
+                        "was building in 1990"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "stpas-v3-a1-08",
+            "question": "Choose the present perfect passive: The report {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "present_perfect_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has already been checked",
+                    "options": [
+                        "has already been checked",
+                        "was already checked tomorrow",
+                        "has already checked",
+                        "is already checking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "stpas-v3-a1-09",
+            "question": "Choose the future passive: The tickets {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will be sent tomorrow",
+                    "options": [
+                        "will be sent tomorrow",
+                        "will send tomorrow",
+                        "are sent yesterday",
+                        "will be sending tomorrow"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "stpas-v3-a1-10",
+            "question": "Omit the unimportant agent: Someone has closed the shop. The shop {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "by_agent_omission"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been closed",
+                    "options": [
+                        "has been closed",
+                        "has been closed by someone",
+                        "has closed someone",
+                        "is close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "stpas-v3-a1-11",
+            "question": "Correct the passive form: The report {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written yesterday",
+                    "options": [
+                        "was written yesterday",
+                        "was wrote yesterday",
+                        "written yesterday",
+                        "was writing yesterday"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "stpas-v3-a1-12",
+            "question": "Choose the modal passive: This form {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a1",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be signed today",
+                    "options": [
+                        "must be signed today",
+                        "must signed today",
+                        "must be sign today",
+                        "must signing today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "stpas-v3-a2-01",
+            "question": "Rewrite in the passive: “They clean the rooms every day.” The rooms {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are cleaned every day",
+                    "options": [
+                        "are cleaned every day",
+                        "clean every day",
+                        "were cleaned now",
+                        "are cleaning every day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "stpas-v3-a2-02",
+            "question": "Rewrite naturally in active voice: “The letter was written by Anna.” Anna {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "passive_to_active"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote the letter",
+                    "options": [
+                        "wrote the letter",
+                        "was written the letter",
+                        "has written yesterday",
+                        "writes by the letter"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "stpas-v3-a2-03",
+            "question": "Choose the passive subject from the object: Someone broke the window. {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The window was broken",
+                    "options": [
+                        "The window was broken",
+                        "Someone was broken",
+                        "The window broke someone",
+                        "Was broken someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "stpas-v3-a2-04",
+            "question": "Keep the important agent: Shakespeare wrote the play. The play {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written by Shakespeare",
+                    "options": [
+                        "was written by Shakespeare",
+                        "was written Shakespeare",
+                        "wrote by Shakespeare",
+                        "is written by someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "stpas-v3-a2-05",
+            "question": "Preserve the tense: They are repairing the road. The road {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "preserve_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is being repaired",
+                    "options": [
+                        "is being repaired",
+                        "is repaired every day",
+                        "was being repaired now",
+                        "has repaired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "stpas-v3-a2-06",
+            "question": "Choose the present simple passive: English {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "present_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is spoken in many countries",
+                    "options": [
+                        "is spoken in many countries",
+                        "was spoken now",
+                        "is speaking in many countries",
+                        "has spoken in many countries"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "stpas-v3-a2-07",
+            "question": "Choose the past simple passive: The bridge {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "past_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built in 1990",
+                    "options": [
+                        "was built in 1990",
+                        "is built yesterday",
+                        "has built in 1990",
+                        "was building in 1990"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "stpas-v3-a2-08",
+            "question": "Choose the present perfect passive: The report {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "present_perfect_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has already been checked",
+                    "options": [
+                        "has already been checked",
+                        "was already checked tomorrow",
+                        "has already checked",
+                        "is already checking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "stpas-v3-a2-09",
+            "question": "Choose the future passive: The tickets {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will be sent tomorrow",
+                    "options": [
+                        "will be sent tomorrow",
+                        "will send tomorrow",
+                        "are sent yesterday",
+                        "will be sending tomorrow"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "stpas-v3-a2-10",
+            "question": "Omit the unimportant agent: Someone has closed the shop. The shop {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "by_agent_omission"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been closed",
+                    "options": [
+                        "has been closed",
+                        "has been closed by someone",
+                        "has closed someone",
+                        "is close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "stpas-v3-a2-11",
+            "question": "Correct the passive form: The report {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written yesterday",
+                    "options": [
+                        "was written yesterday",
+                        "was wrote yesterday",
+                        "written yesterday",
+                        "was writing yesterday"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "stpas-v3-a2-12",
+            "question": "Choose the modal passive: This form {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_a2",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be signed today",
+                    "options": [
+                        "must be signed today",
+                        "must signed today",
+                        "must be sign today",
+                        "must signing today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "stpas-v3-b1-01",
+            "question": "Rewrite in the passive: “They clean the rooms every day.” The rooms {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are cleaned every day",
+                    "options": [
+                        "are cleaned every day",
+                        "clean every day",
+                        "were cleaned now",
+                        "are cleaning every day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "stpas-v3-b1-02",
+            "question": "Rewrite naturally in active voice: “The letter was written by Anna.” Anna {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "passive_to_active"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote the letter",
+                    "options": [
+                        "wrote the letter",
+                        "was written the letter",
+                        "has written yesterday",
+                        "writes by the letter"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "stpas-v3-b1-03",
+            "question": "Choose the passive subject from the object: Someone broke the window. {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The window was broken",
+                    "options": [
+                        "The window was broken",
+                        "Someone was broken",
+                        "The window broke someone",
+                        "Was broken someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "stpas-v3-b1-04",
+            "question": "Keep the important agent: Shakespeare wrote the play. The play {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written by Shakespeare",
+                    "options": [
+                        "was written by Shakespeare",
+                        "was written Shakespeare",
+                        "wrote by Shakespeare",
+                        "is written by someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "stpas-v3-b1-05",
+            "question": "Preserve the tense: They are repairing the road. The road {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "preserve_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is being repaired",
+                    "options": [
+                        "is being repaired",
+                        "is repaired every day",
+                        "was being repaired now",
+                        "has repaired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "stpas-v3-b1-06",
+            "question": "Choose the present simple passive: English {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "present_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is spoken in many countries",
+                    "options": [
+                        "is spoken in many countries",
+                        "was spoken now",
+                        "is speaking in many countries",
+                        "has spoken in many countries"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "stpas-v3-b1-07",
+            "question": "Choose the past simple passive: The bridge {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "past_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built in 1990",
+                    "options": [
+                        "was built in 1990",
+                        "is built yesterday",
+                        "has built in 1990",
+                        "was building in 1990"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "stpas-v3-b1-08",
+            "question": "Choose the present perfect passive: The report {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "present_perfect_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has already been checked",
+                    "options": [
+                        "has already been checked",
+                        "was already checked tomorrow",
+                        "has already checked",
+                        "is already checking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "stpas-v3-b1-09",
+            "question": "Choose the future passive: The tickets {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will be sent tomorrow",
+                    "options": [
+                        "will be sent tomorrow",
+                        "will send tomorrow",
+                        "are sent yesterday",
+                        "will be sending tomorrow"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "stpas-v3-b1-10",
+            "question": "Omit the unimportant agent: Someone has closed the shop. The shop {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "by_agent_omission"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been closed",
+                    "options": [
+                        "has been closed",
+                        "has been closed by someone",
+                        "has closed someone",
+                        "is close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "stpas-v3-b1-11",
+            "question": "Correct the passive form: The report {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written yesterday",
+                    "options": [
+                        "was written yesterday",
+                        "was wrote yesterday",
+                        "written yesterday",
+                        "was writing yesterday"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "stpas-v3-b1-12",
+            "question": "Choose the modal passive: This form {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b1",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be signed today",
+                    "options": [
+                        "must be signed today",
+                        "must signed today",
+                        "must be sign today",
+                        "must signing today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "stpas-v3-b2-01",
+            "question": "Rewrite in the passive: “They clean the rooms every day.” The rooms {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are cleaned every day",
+                    "options": [
+                        "are cleaned every day",
+                        "clean every day",
+                        "were cleaned now",
+                        "are cleaning every day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "stpas-v3-b2-02",
+            "question": "Rewrite naturally in active voice: “The letter was written by Anna.” Anna {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "passive_to_active"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote the letter",
+                    "options": [
+                        "wrote the letter",
+                        "was written the letter",
+                        "has written yesterday",
+                        "writes by the letter"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "stpas-v3-b2-03",
+            "question": "Choose the passive subject from the object: Someone broke the window. {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The window was broken",
+                    "options": [
+                        "The window was broken",
+                        "Someone was broken",
+                        "The window broke someone",
+                        "Was broken someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "stpas-v3-b2-04",
+            "question": "Keep the important agent: Shakespeare wrote the play. The play {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written by Shakespeare",
+                    "options": [
+                        "was written by Shakespeare",
+                        "was written Shakespeare",
+                        "wrote by Shakespeare",
+                        "is written by someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "stpas-v3-b2-05",
+            "question": "Preserve the tense: They are repairing the road. The road {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "preserve_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is being repaired",
+                    "options": [
+                        "is being repaired",
+                        "is repaired every day",
+                        "was being repaired now",
+                        "has repaired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "stpas-v3-b2-06",
+            "question": "Choose the present simple passive: English {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "present_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is spoken in many countries",
+                    "options": [
+                        "is spoken in many countries",
+                        "was spoken now",
+                        "is speaking in many countries",
+                        "has spoken in many countries"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "stpas-v3-b2-07",
+            "question": "Choose the past simple passive: The bridge {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "past_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built in 1990",
+                    "options": [
+                        "was built in 1990",
+                        "is built yesterday",
+                        "has built in 1990",
+                        "was building in 1990"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "stpas-v3-b2-08",
+            "question": "Choose the present perfect passive: The report {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "present_perfect_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has already been checked",
+                    "options": [
+                        "has already been checked",
+                        "was already checked tomorrow",
+                        "has already checked",
+                        "is already checking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "stpas-v3-b2-09",
+            "question": "Choose the future passive: The tickets {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will be sent tomorrow",
+                    "options": [
+                        "will be sent tomorrow",
+                        "will send tomorrow",
+                        "are sent yesterday",
+                        "will be sending tomorrow"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "stpas-v3-b2-10",
+            "question": "Omit the unimportant agent: Someone has closed the shop. The shop {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "by_agent_omission"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been closed",
+                    "options": [
+                        "has been closed",
+                        "has been closed by someone",
+                        "has closed someone",
+                        "is close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "stpas-v3-b2-11",
+            "question": "Correct the passive form: The report {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written yesterday",
+                    "options": [
+                        "was written yesterday",
+                        "was wrote yesterday",
+                        "written yesterday",
+                        "was writing yesterday"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "stpas-v3-b2-12",
+            "question": "Choose the modal passive: This form {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_b2",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be signed today",
+                    "options": [
+                        "must be signed today",
+                        "must signed today",
+                        "must be sign today",
+                        "must signing today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "stpas-v3-c1-01",
+            "question": "Rewrite in the passive: “They clean the rooms every day.” The rooms {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are cleaned every day",
+                    "options": [
+                        "are cleaned every day",
+                        "clean every day",
+                        "were cleaned now",
+                        "are cleaning every day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "stpas-v3-c1-02",
+            "question": "Rewrite naturally in active voice: “The letter was written by Anna.” Anna {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "passive_to_active"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote the letter",
+                    "options": [
+                        "wrote the letter",
+                        "was written the letter",
+                        "has written yesterday",
+                        "writes by the letter"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "stpas-v3-c1-03",
+            "question": "Choose the passive subject from the object: Someone broke the window. {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The window was broken",
+                    "options": [
+                        "The window was broken",
+                        "Someone was broken",
+                        "The window broke someone",
+                        "Was broken someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "stpas-v3-c1-04",
+            "question": "Keep the important agent: Shakespeare wrote the play. The play {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written by Shakespeare",
+                    "options": [
+                        "was written by Shakespeare",
+                        "was written Shakespeare",
+                        "wrote by Shakespeare",
+                        "is written by someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "stpas-v3-c1-05",
+            "question": "Preserve the tense: They are repairing the road. The road {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "preserve_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is being repaired",
+                    "options": [
+                        "is being repaired",
+                        "is repaired every day",
+                        "was being repaired now",
+                        "has repaired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "stpas-v3-c1-06",
+            "question": "Choose the present simple passive: English {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "present_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is spoken in many countries",
+                    "options": [
+                        "is spoken in many countries",
+                        "was spoken now",
+                        "is speaking in many countries",
+                        "has spoken in many countries"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "stpas-v3-c1-07",
+            "question": "Choose the past simple passive: The bridge {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "past_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built in 1990",
+                    "options": [
+                        "was built in 1990",
+                        "is built yesterday",
+                        "has built in 1990",
+                        "was building in 1990"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "stpas-v3-c1-08",
+            "question": "Choose the present perfect passive: The report {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "present_perfect_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has already been checked",
+                    "options": [
+                        "has already been checked",
+                        "was already checked tomorrow",
+                        "has already checked",
+                        "is already checking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "stpas-v3-c1-09",
+            "question": "Choose the future passive: The tickets {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will be sent tomorrow",
+                    "options": [
+                        "will be sent tomorrow",
+                        "will send tomorrow",
+                        "are sent yesterday",
+                        "will be sending tomorrow"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "stpas-v3-c1-10",
+            "question": "Omit the unimportant agent: Someone has closed the shop. The shop {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "by_agent_omission"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been closed",
+                    "options": [
+                        "has been closed",
+                        "has been closed by someone",
+                        "has closed someone",
+                        "is close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "stpas-v3-c1-11",
+            "question": "Correct the passive form: The report {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written yesterday",
+                    "options": [
+                        "was written yesterday",
+                        "was wrote yesterday",
+                        "written yesterday",
+                        "was writing yesterday"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "stpas-v3-c1-12",
+            "question": "Choose the modal passive: This form {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c1",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be signed today",
+                    "options": [
+                        "must be signed today",
+                        "must signed today",
+                        "must be sign today",
+                        "must signing today"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "stpas-v3-c2-01",
+            "question": "Rewrite in the passive: “They clean the rooms every day.” The rooms {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "active_to_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are cleaned every day",
+                    "options": [
+                        "are cleaned every day",
+                        "clean every day",
+                        "were cleaned now",
+                        "are cleaning every day"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "stpas-v3-c2-02",
+            "question": "Rewrite naturally in active voice: “The letter was written by Anna.” Anna {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "passive_to_active"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wrote the letter",
+                    "options": [
+                        "wrote the letter",
+                        "was written the letter",
+                        "has written yesterday",
+                        "writes by the letter"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "stpas-v3-c2-03",
+            "question": "Choose the passive subject from the object: Someone broke the window. {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The window was broken",
+                    "options": [
+                        "The window was broken",
+                        "Someone was broken",
+                        "The window broke someone",
+                        "Was broken someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "stpas-v3-c2-04",
+            "question": "Keep the important agent: Shakespeare wrote the play. The play {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written by Shakespeare",
+                    "options": [
+                        "was written by Shakespeare",
+                        "was written Shakespeare",
+                        "wrote by Shakespeare",
+                        "is written by someone"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "stpas-v3-c2-05",
+            "question": "Preserve the tense: They are repairing the road. The road {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "preserve_tense"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is being repaired",
+                    "options": [
+                        "is being repaired",
+                        "is repaired every day",
+                        "was being repaired now",
+                        "has repaired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "stpas-v3-c2-06",
+            "question": "Choose the present simple passive: English {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "present_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is spoken in many countries",
+                    "options": [
+                        "is spoken in many countries",
+                        "was spoken now",
+                        "is speaking in many countries",
+                        "has spoken in many countries"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "stpas-v3-c2-07",
+            "question": "Choose the past simple passive: The bridge {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "past_simple_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built in 1990",
+                    "options": [
+                        "was built in 1990",
+                        "is built yesterday",
+                        "has built in 1990",
+                        "was building in 1990"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "stpas-v3-c2-08",
+            "question": "Choose the present perfect passive: The report {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "present_perfect_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has already been checked",
+                    "options": [
+                        "has already been checked",
+                        "was already checked tomorrow",
+                        "has already checked",
+                        "is already checking"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "stpas-v3-c2-09",
+            "question": "Choose the future passive: The tickets {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will be sent tomorrow",
+                    "options": [
+                        "will be sent tomorrow",
+                        "will send tomorrow",
+                        "are sent yesterday",
+                        "will be sending tomorrow"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "stpas-v3-c2-10",
+            "question": "Omit the unimportant agent: Someone has closed the shop. The shop {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "by_agent_omission"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been closed",
+                    "options": [
+                        "has been closed",
+                        "has been closed by someone",
+                        "has closed someone",
+                        "is close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "stpas-v3-c2-11",
+            "question": "Correct the passive form: The report {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written yesterday",
+                    "options": [
+                        "was written yesterday",
+                        "was wrote yesterday",
+                        "written yesterday",
+                        "was writing yesterday"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "stpas-v3-c2-12",
+            "question": "Choose the modal passive: This form {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_passive",
+            "tag_keys": [
+                "sentence_transformations_passive_all_levels",
+                "level_c2",
+                "future_modal_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must be signed today",
+                    "options": [
+                        "must be signed today",
+                        "must signed today",
+                        "must be sign today",
+                        "must signing today"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "stpas-v3-all",
+        "slug": "sentence-transformations-passive-all-levels-v3",
+        "name": "Sentence Transformations — Passive (All levels V3)",
+        "description": "Standard V3 package for Sentence Transformations — Passive across A1-C2.",
+        "question_uuids": [
+            "stpas-v3-a1-01",
+            "stpas-v3-a1-02",
+            "stpas-v3-a1-03",
+            "stpas-v3-a1-04",
+            "stpas-v3-a1-05",
+            "stpas-v3-a1-06",
+            "stpas-v3-a1-07",
+            "stpas-v3-a1-08",
+            "stpas-v3-a1-09",
+            "stpas-v3-a1-10",
+            "stpas-v3-a1-11",
+            "stpas-v3-a1-12",
+            "stpas-v3-a2-01",
+            "stpas-v3-a2-02",
+            "stpas-v3-a2-03",
+            "stpas-v3-a2-04",
+            "stpas-v3-a2-05",
+            "stpas-v3-a2-06",
+            "stpas-v3-a2-07",
+            "stpas-v3-a2-08",
+            "stpas-v3-a2-09",
+            "stpas-v3-a2-10",
+            "stpas-v3-a2-11",
+            "stpas-v3-a2-12",
+            "stpas-v3-b1-01",
+            "stpas-v3-b1-02",
+            "stpas-v3-b1-03",
+            "stpas-v3-b1-04",
+            "stpas-v3-b1-05",
+            "stpas-v3-b1-06",
+            "stpas-v3-b1-07",
+            "stpas-v3-b1-08",
+            "stpas-v3-b1-09",
+            "stpas-v3-b1-10",
+            "stpas-v3-b1-11",
+            "stpas-v3-b1-12",
+            "stpas-v3-b2-01",
+            "stpas-v3-b2-02",
+            "stpas-v3-b2-03",
+            "stpas-v3-b2-04",
+            "stpas-v3-b2-05",
+            "stpas-v3-b2-06",
+            "stpas-v3-b2-07",
+            "stpas-v3-b2-08",
+            "stpas-v3-b2-09",
+            "stpas-v3-b2-10",
+            "stpas-v3-b2-11",
+            "stpas-v3-b2-12",
+            "stpas-v3-c1-01",
+            "stpas-v3-c1-02",
+            "stpas-v3-c1-03",
+            "stpas-v3-c1-04",
+            "stpas-v3-c1-05",
+            "stpas-v3-c1-06",
+            "stpas-v3-c1-07",
+            "stpas-v3-c1-08",
+            "stpas-v3-c1-09",
+            "stpas-v3-c1-10",
+            "stpas-v3-c1-11",
+            "stpas-v3-c1-12",
+            "stpas-v3-c2-01",
+            "stpas-v3-c2-02",
+            "stpas-v3-c2-03",
+            "stpas-v3-c2-04",
+            "stpas-v3-c2-05",
+            "stpas-v3-c2-06",
+            "stpas-v3-c2-07",
+            "stpas-v3-c2-08",
+            "stpas-v3-c2-09",
+            "stpas-v3-c2-10",
+            "stpas-v3-c2-11",
+            "stpas-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsPassiveAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "passive",
+                    "title": "Sentence Transformations — Passive",
+                    "category_slug_path": "sentence-transformations",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsPassiveTheorySeeder",
+                    "url": "https://gramlyze.com/theory/sentence-transformations/passive"
+                }
+            }
+        }
+    }
+}
