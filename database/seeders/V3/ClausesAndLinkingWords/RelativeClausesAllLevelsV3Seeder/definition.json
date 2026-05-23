@@ -1,0 +1,2137 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\RelativeClausesAllLevelsV3Seeder",
+        "uuid_namespace": "RelativeClausesAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "clw-rc-v3-all",
+        "slug": "relative-clauses-all-levels-v3",
+        "name": "Relative Clauses: V3 All Levels",
+        "description": "Page-local V3 package for Relative Clauses with A1-C2 coverage.",
+        "question_uuids": [
+            "clw-rc-v3-a1-01",
+            "clw-rc-v3-a1-02",
+            "clw-rc-v3-a1-03",
+            "clw-rc-v3-a1-04",
+            "clw-rc-v3-a1-05",
+            "clw-rc-v3-a1-06",
+            "clw-rc-v3-a1-07",
+            "clw-rc-v3-a1-08",
+            "clw-rc-v3-a1-09",
+            "clw-rc-v3-a1-10",
+            "clw-rc-v3-a1-11",
+            "clw-rc-v3-a1-12",
+            "clw-rc-v3-a2-01",
+            "clw-rc-v3-a2-02",
+            "clw-rc-v3-a2-03",
+            "clw-rc-v3-a2-04",
+            "clw-rc-v3-a2-05",
+            "clw-rc-v3-a2-06",
+            "clw-rc-v3-a2-07",
+            "clw-rc-v3-a2-08",
+            "clw-rc-v3-a2-09",
+            "clw-rc-v3-a2-10",
+            "clw-rc-v3-a2-11",
+            "clw-rc-v3-a2-12",
+            "clw-rc-v3-b1-01",
+            "clw-rc-v3-b1-02",
+            "clw-rc-v3-b1-03",
+            "clw-rc-v3-b1-04",
+            "clw-rc-v3-b1-05",
+            "clw-rc-v3-b1-06",
+            "clw-rc-v3-b1-07",
+            "clw-rc-v3-b1-08",
+            "clw-rc-v3-b1-09",
+            "clw-rc-v3-b1-10",
+            "clw-rc-v3-b1-11",
+            "clw-rc-v3-b1-12",
+            "clw-rc-v3-b2-01",
+            "clw-rc-v3-b2-02",
+            "clw-rc-v3-b2-03",
+            "clw-rc-v3-b2-04",
+            "clw-rc-v3-b2-05",
+            "clw-rc-v3-b2-06",
+            "clw-rc-v3-b2-07",
+            "clw-rc-v3-b2-08",
+            "clw-rc-v3-b2-09",
+            "clw-rc-v3-b2-10",
+            "clw-rc-v3-b2-11",
+            "clw-rc-v3-b2-12",
+            "clw-rc-v3-c1-01",
+            "clw-rc-v3-c1-02",
+            "clw-rc-v3-c1-03",
+            "clw-rc-v3-c1-04",
+            "clw-rc-v3-c1-05",
+            "clw-rc-v3-c1-06",
+            "clw-rc-v3-c1-07",
+            "clw-rc-v3-c1-08",
+            "clw-rc-v3-c1-09",
+            "clw-rc-v3-c1-10",
+            "clw-rc-v3-c1-11",
+            "clw-rc-v3-c1-12",
+            "clw-rc-v3-c2-01",
+            "clw-rc-v3-c2-02",
+            "clw-rc-v3-c2-03",
+            "clw-rc-v3-c2-04",
+            "clw-rc-v3-c2-05",
+            "clw-rc-v3-c2-06",
+            "clw-rc-v3-c2-07",
+            "clw-rc-v3-c2-08",
+            "clw-rc-v3-c2-09",
+            "clw-rc-v3-c2-10",
+            "clw-rc-v3-c2-11",
+            "clw-rc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\RelativeClausesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "relative-clauses",
+                    "title": "Relative Clauses",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsRelativeClausesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/relative-clauses"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clw-rc-v3-a1-01",
+            "question": "This is the teacher {a1} helped me after class",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose a relative pronoun for a person.",
+                    "gap_tags": [
+                        "relative_clause_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clause_basics"
+            ],
+            "variants": [
+                "This is the teacher {a1} helped me after class"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 2,
+            "uuid": "clw-rc-v3-a1-02",
+            "question": "The woman {a1} called you is my aunt",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "The woman {a1} called you is my aunt"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 3,
+            "uuid": "clw-rc-v3-a1-03",
+            "question": "I found the key {a1} opens this door",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "I found the key {a1} opens this door"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 4,
+            "uuid": "clw-rc-v3-a1-04",
+            "question": "This is the book {a1} I told you about",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that in a defining clause about a thing.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 5,
+            "uuid": "clw-rc-v3-a1-05",
+            "question": "This is the cafe {a1} we met",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place relation.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the cafe {a1} we met"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 6,
+            "uuid": "clw-rc-v3-a1-06",
+            "question": "I remember the day {a1} we first spoke",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "where",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use when for a time relation.",
+                    "gap_tags": [
+                        "when_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_time"
+            ],
+            "variants": [
+                "I remember the day {a1} we first spoke"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 7,
+            "uuid": "clw-rc-v3-a1-07",
+            "question": "That is the boy {a1} sister won the prize",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_intro"
+            ],
+            "variants": [
+                "That is the boy {a1} sister won the prize"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 8,
+            "uuid": "clw-rc-v3-a1-08",
+            "question": "The nurse {a1} works here is kind",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The nurse {a1} works here is kind"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 9,
+            "uuid": "clw-rc-v3-a1-09",
+            "question": "The film {a1} we watched was funny",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "when",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the object of the clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The film {a1} we watched was funny"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 10,
+            "uuid": "clw-rc-v3-a1-10",
+            "question": "This is the camera {a1} I bought yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "it",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Do not repeat the object with it.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "This is the camera {a1} I bought yesterday"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 11,
+            "uuid": "clw-rc-v3-a1-11",
+            "question": "My bike, {a1} is very old, still works",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "After a comma, use which for extra information about a thing.",
+                    "gap_tags": [
+                        "punctuation_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_basics"
+            ],
+            "variants": [
+                "My bike, {a1} is very old, still works"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 12,
+            "uuid": "clw-rc-v3-a1-12",
+            "question": "The man {a1} lives next door is a doctor",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "he",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Avoid adding a repeated subject after who.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The man {a1} lives next door is a doctor"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 13,
+            "uuid": "clw-rc-v3-a2-01",
+            "question": "This is the teacher {a1} helped me after class",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose a relative pronoun for a person.",
+                    "gap_tags": [
+                        "relative_clause_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clause_basics"
+            ],
+            "variants": [
+                "This is the teacher {a1} helped me after class"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 14,
+            "uuid": "clw-rc-v3-a2-02",
+            "question": "The woman {a1} called you is my aunt",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "The woman {a1} called you is my aunt"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 15,
+            "uuid": "clw-rc-v3-a2-03",
+            "question": "I found the key {a1} opens this door",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "I found the key {a1} opens this door"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 16,
+            "uuid": "clw-rc-v3-a2-04",
+            "question": "This is the book {a1} I told you about",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that in a defining clause about a thing.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 17,
+            "uuid": "clw-rc-v3-a2-05",
+            "question": "This is the cafe {a1} we met",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place relation.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the cafe {a1} we met"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 18,
+            "uuid": "clw-rc-v3-a2-06",
+            "question": "I remember the day {a1} we first spoke",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "where",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use when for a time relation.",
+                    "gap_tags": [
+                        "when_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_time"
+            ],
+            "variants": [
+                "I remember the day {a1} we first spoke"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 19,
+            "uuid": "clw-rc-v3-a2-07",
+            "question": "That is the boy {a1} sister won the prize",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_intro"
+            ],
+            "variants": [
+                "That is the boy {a1} sister won the prize"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 20,
+            "uuid": "clw-rc-v3-a2-08",
+            "question": "The nurse {a1} works here is kind",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The nurse {a1} works here is kind"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 21,
+            "uuid": "clw-rc-v3-a2-09",
+            "question": "The film {a1} we watched was funny",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "when",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the object of the clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The film {a1} we watched was funny"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 22,
+            "uuid": "clw-rc-v3-a2-10",
+            "question": "This is the camera {a1} I bought yesterday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "it",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Do not repeat the object with it.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "This is the camera {a1} I bought yesterday"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 23,
+            "uuid": "clw-rc-v3-a2-11",
+            "question": "My bike, {a1} is very old, still works",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "After a comma, use which for extra information about a thing.",
+                    "gap_tags": [
+                        "punctuation_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_basics"
+            ],
+            "variants": [
+                "My bike, {a1} is very old, still works"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 24,
+            "uuid": "clw-rc-v3-a2-12",
+            "question": "The man {a1} lives next door is a doctor",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "he",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Avoid adding a repeated subject after who.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The man {a1} lives next door is a doctor"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 25,
+            "uuid": "clw-rc-v3-b1-01",
+            "question": "This is the teacher {a1} helped me after class",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose a relative pronoun for a person.",
+                    "gap_tags": [
+                        "relative_clause_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clause_basics"
+            ],
+            "variants": [
+                "This is the teacher {a1} helped me after class"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 26,
+            "uuid": "clw-rc-v3-b1-02",
+            "question": "The woman {a1} called you is my aunt",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "The woman {a1} called you is my aunt"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 27,
+            "uuid": "clw-rc-v3-b1-03",
+            "question": "I found the key {a1} opens this door",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "I found the key {a1} opens this door"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 28,
+            "uuid": "clw-rc-v3-b1-04",
+            "question": "This is the book {a1} I told you about",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that in a defining clause about a thing.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 29,
+            "uuid": "clw-rc-v3-b1-05",
+            "question": "This is the cafe {a1} we met",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place relation.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the cafe {a1} we met"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 30,
+            "uuid": "clw-rc-v3-b1-06",
+            "question": "I remember the day {a1} we first spoke",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "where",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use when for a time relation.",
+                    "gap_tags": [
+                        "when_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_time"
+            ],
+            "variants": [
+                "I remember the day {a1} we first spoke"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 31,
+            "uuid": "clw-rc-v3-b1-07",
+            "question": "That is the boy {a1} sister won the prize",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_intro"
+            ],
+            "variants": [
+                "That is the boy {a1} sister won the prize"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 32,
+            "uuid": "clw-rc-v3-b1-08",
+            "question": "The nurse {a1} works here is kind",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The nurse {a1} works here is kind"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 33,
+            "uuid": "clw-rc-v3-b1-09",
+            "question": "The film {a1} we watched was funny",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "when",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the object of the clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The film {a1} we watched was funny"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 34,
+            "uuid": "clw-rc-v3-b1-10",
+            "question": "This is the camera {a1} I bought yesterday",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "it",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Do not repeat the object with it.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "This is the camera {a1} I bought yesterday"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 35,
+            "uuid": "clw-rc-v3-b1-11",
+            "question": "My bike, {a1} is very old, still works",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "After a comma, use which for extra information about a thing.",
+                    "gap_tags": [
+                        "punctuation_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_basics"
+            ],
+            "variants": [
+                "My bike, {a1} is very old, still works"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 36,
+            "uuid": "clw-rc-v3-b1-12",
+            "question": "The man {a1} lives next door is a doctor",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "he",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Avoid adding a repeated subject after who.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The man {a1} lives next door is a doctor"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 37,
+            "uuid": "clw-rc-v3-b2-01",
+            "question": "This is the teacher {a1} helped me after class",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose a relative pronoun for a person.",
+                    "gap_tags": [
+                        "relative_clause_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clause_basics"
+            ],
+            "variants": [
+                "This is the teacher {a1} helped me after class"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 38,
+            "uuid": "clw-rc-v3-b2-02",
+            "question": "The woman {a1} called you is my aunt",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "The woman {a1} called you is my aunt"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 39,
+            "uuid": "clw-rc-v3-b2-03",
+            "question": "I found the key {a1} opens this door",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "I found the key {a1} opens this door"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 40,
+            "uuid": "clw-rc-v3-b2-04",
+            "question": "This is the book {a1} I told you about",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that in a defining clause about a thing.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 41,
+            "uuid": "clw-rc-v3-b2-05",
+            "question": "This is the cafe {a1} we met",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place relation.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the cafe {a1} we met"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 42,
+            "uuid": "clw-rc-v3-b2-06",
+            "question": "I remember the day {a1} we first spoke",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "where",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use when for a time relation.",
+                    "gap_tags": [
+                        "when_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_time"
+            ],
+            "variants": [
+                "I remember the day {a1} we first spoke"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 43,
+            "uuid": "clw-rc-v3-b2-07",
+            "question": "That is the boy {a1} sister won the prize",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_intro"
+            ],
+            "variants": [
+                "That is the boy {a1} sister won the prize"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 44,
+            "uuid": "clw-rc-v3-b2-08",
+            "question": "The nurse {a1} works here is kind",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The nurse {a1} works here is kind"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 45,
+            "uuid": "clw-rc-v3-b2-09",
+            "question": "The film {a1} we watched was funny",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "when",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the object of the clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The film {a1} we watched was funny"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 46,
+            "uuid": "clw-rc-v3-b2-10",
+            "question": "This is the camera {a1} I bought yesterday",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "it",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Do not repeat the object with it.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "This is the camera {a1} I bought yesterday"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 47,
+            "uuid": "clw-rc-v3-b2-11",
+            "question": "My bike, {a1} is very old, still works",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "After a comma, use which for extra information about a thing.",
+                    "gap_tags": [
+                        "punctuation_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_basics"
+            ],
+            "variants": [
+                "My bike, {a1} is very old, still works"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 48,
+            "uuid": "clw-rc-v3-b2-12",
+            "question": "The man {a1} lives next door is a doctor",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "he",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Avoid adding a repeated subject after who.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The man {a1} lives next door is a doctor"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 49,
+            "uuid": "clw-rc-v3-c1-01",
+            "question": "This is the teacher {a1} helped me after class",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose a relative pronoun for a person.",
+                    "gap_tags": [
+                        "relative_clause_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clause_basics"
+            ],
+            "variants": [
+                "This is the teacher {a1} helped me after class"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 50,
+            "uuid": "clw-rc-v3-c1-02",
+            "question": "The woman {a1} called you is my aunt",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "The woman {a1} called you is my aunt"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 51,
+            "uuid": "clw-rc-v3-c1-03",
+            "question": "I found the key {a1} opens this door",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "I found the key {a1} opens this door"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 52,
+            "uuid": "clw-rc-v3-c1-04",
+            "question": "This is the book {a1} I told you about",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that in a defining clause about a thing.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 53,
+            "uuid": "clw-rc-v3-c1-05",
+            "question": "This is the cafe {a1} we met",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place relation.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the cafe {a1} we met"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 54,
+            "uuid": "clw-rc-v3-c1-06",
+            "question": "I remember the day {a1} we first spoke",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "where",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use when for a time relation.",
+                    "gap_tags": [
+                        "when_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_time"
+            ],
+            "variants": [
+                "I remember the day {a1} we first spoke"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 55,
+            "uuid": "clw-rc-v3-c1-07",
+            "question": "That is the boy {a1} sister won the prize",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_intro"
+            ],
+            "variants": [
+                "That is the boy {a1} sister won the prize"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 56,
+            "uuid": "clw-rc-v3-c1-08",
+            "question": "The nurse {a1} works here is kind",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The nurse {a1} works here is kind"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 57,
+            "uuid": "clw-rc-v3-c1-09",
+            "question": "The film {a1} we watched was funny",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "when",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the object of the clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The film {a1} we watched was funny"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 58,
+            "uuid": "clw-rc-v3-c1-10",
+            "question": "This is the camera {a1} I bought yesterday",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "it",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Do not repeat the object with it.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "This is the camera {a1} I bought yesterday"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 59,
+            "uuid": "clw-rc-v3-c1-11",
+            "question": "My bike, {a1} is very old, still works",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "After a comma, use which for extra information about a thing.",
+                    "gap_tags": [
+                        "punctuation_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_basics"
+            ],
+            "variants": [
+                "My bike, {a1} is very old, still works"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 60,
+            "uuid": "clw-rc-v3-c1-12",
+            "question": "The man {a1} lives next door is a doctor",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "he",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Avoid adding a repeated subject after who.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The man {a1} lives next door is a doctor"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 61,
+            "uuid": "clw-rc-v3-c2-01",
+            "question": "This is the teacher {a1} helped me after class",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose a relative pronoun for a person.",
+                    "gap_tags": [
+                        "relative_clause_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clause_basics"
+            ],
+            "variants": [
+                "This is the teacher {a1} helped me after class"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 62,
+            "uuid": "clw-rc-v3-c2-02",
+            "question": "The woman {a1} called you is my aunt",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "The woman {a1} called you is my aunt"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 63,
+            "uuid": "clw-rc-v3-c2-03",
+            "question": "I found the key {a1} opens this door",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "I found the key {a1} opens this door"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 64,
+            "uuid": "clw-rc-v3-c2-04",
+            "question": "This is the book {a1} I told you about",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that in a defining clause about a thing.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 65,
+            "uuid": "clw-rc-v3-c2-05",
+            "question": "This is the cafe {a1} we met",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place relation.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the cafe {a1} we met"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 66,
+            "uuid": "clw-rc-v3-c2-06",
+            "question": "I remember the day {a1} we first spoke",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "when",
+                    "options": [
+                        "when",
+                        "where",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use when for a time relation.",
+                    "gap_tags": [
+                        "when_time"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_time"
+            ],
+            "variants": [
+                "I remember the day {a1} we first spoke"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 67,
+            "uuid": "clw-rc-v3-c2-07",
+            "question": "That is the boy {a1} sister won the prize",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_intro"
+            ],
+            "variants": [
+                "That is the boy {a1} sister won the prize"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 68,
+            "uuid": "clw-rc-v3-c2-08",
+            "question": "The nurse {a1} works here is kind",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The nurse {a1} works here is kind"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 69,
+            "uuid": "clw-rc-v3-c2-09",
+            "question": "The film {a1} we watched was funny",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "when",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the object of the clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The film {a1} we watched was funny"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 70,
+            "uuid": "clw-rc-v3-c2-10",
+            "question": "This is the camera {a1} I bought yesterday",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "it",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Do not repeat the object with it.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "This is the camera {a1} I bought yesterday"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 71,
+            "uuid": "clw-rc-v3-c2-11",
+            "question": "My bike, {a1} is very old, still works",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "After a comma, use which for extra information about a thing.",
+                    "gap_tags": [
+                        "punctuation_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_basics"
+            ],
+            "variants": [
+                "My bike, {a1} is very old, still works"
+            ],
+            "source": "theory_page_relative_clauses"
+        },
+        {
+            "id": 72,
+            "uuid": "clw-rc-v3-c2-12",
+            "question": "The man {a1} lives next door is a doctor",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "he",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Avoid adding a repeated subject after who.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The man {a1} lives next door is a doctor"
+            ],
+            "source": "theory_page_relative_clauses"
+        }
+    ],
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_relative_clauses": {
+            "name": "Relative Clauses"
+        }
+    }
+}
