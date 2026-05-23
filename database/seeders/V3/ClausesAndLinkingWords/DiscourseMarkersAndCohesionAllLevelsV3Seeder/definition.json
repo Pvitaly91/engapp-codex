@@ -1,0 +1,2137 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\DiscourseMarkersAndCohesionAllLevelsV3Seeder",
+        "uuid_namespace": "DiscourseMarkersAndCohesionAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "clw-dmc-v3-all",
+        "slug": "discourse-markers-and-cohesion-all-levels-v3",
+        "name": "Discourse Markers And Cohesion: V3 All Levels",
+        "description": "Page-local V3 package for Discourse Markers And Cohesion with A1-C2 coverage.",
+        "question_uuids": [
+            "clw-dmc-v3-a1-01",
+            "clw-dmc-v3-a1-02",
+            "clw-dmc-v3-a1-03",
+            "clw-dmc-v3-a1-04",
+            "clw-dmc-v3-a1-05",
+            "clw-dmc-v3-a1-06",
+            "clw-dmc-v3-a1-07",
+            "clw-dmc-v3-a1-08",
+            "clw-dmc-v3-a1-09",
+            "clw-dmc-v3-a1-10",
+            "clw-dmc-v3-a1-11",
+            "clw-dmc-v3-a1-12",
+            "clw-dmc-v3-a2-01",
+            "clw-dmc-v3-a2-02",
+            "clw-dmc-v3-a2-03",
+            "clw-dmc-v3-a2-04",
+            "clw-dmc-v3-a2-05",
+            "clw-dmc-v3-a2-06",
+            "clw-dmc-v3-a2-07",
+            "clw-dmc-v3-a2-08",
+            "clw-dmc-v3-a2-09",
+            "clw-dmc-v3-a2-10",
+            "clw-dmc-v3-a2-11",
+            "clw-dmc-v3-a2-12",
+            "clw-dmc-v3-b1-01",
+            "clw-dmc-v3-b1-02",
+            "clw-dmc-v3-b1-03",
+            "clw-dmc-v3-b1-04",
+            "clw-dmc-v3-b1-05",
+            "clw-dmc-v3-b1-06",
+            "clw-dmc-v3-b1-07",
+            "clw-dmc-v3-b1-08",
+            "clw-dmc-v3-b1-09",
+            "clw-dmc-v3-b1-10",
+            "clw-dmc-v3-b1-11",
+            "clw-dmc-v3-b1-12",
+            "clw-dmc-v3-b2-01",
+            "clw-dmc-v3-b2-02",
+            "clw-dmc-v3-b2-03",
+            "clw-dmc-v3-b2-04",
+            "clw-dmc-v3-b2-05",
+            "clw-dmc-v3-b2-06",
+            "clw-dmc-v3-b2-07",
+            "clw-dmc-v3-b2-08",
+            "clw-dmc-v3-b2-09",
+            "clw-dmc-v3-b2-10",
+            "clw-dmc-v3-b2-11",
+            "clw-dmc-v3-b2-12",
+            "clw-dmc-v3-c1-01",
+            "clw-dmc-v3-c1-02",
+            "clw-dmc-v3-c1-03",
+            "clw-dmc-v3-c1-04",
+            "clw-dmc-v3-c1-05",
+            "clw-dmc-v3-c1-06",
+            "clw-dmc-v3-c1-07",
+            "clw-dmc-v3-c1-08",
+            "clw-dmc-v3-c1-09",
+            "clw-dmc-v3-c1-10",
+            "clw-dmc-v3-c1-11",
+            "clw-dmc-v3-c1-12",
+            "clw-dmc-v3-c2-01",
+            "clw-dmc-v3-c2-02",
+            "clw-dmc-v3-c2-03",
+            "clw-dmc-v3-c2-04",
+            "clw-dmc-v3-c2-05",
+            "clw-dmc-v3-c2-06",
+            "clw-dmc-v3-c2-07",
+            "clw-dmc-v3-c2-08",
+            "clw-dmc-v3-c2-09",
+            "clw-dmc-v3-c2-10",
+            "clw-dmc-v3-c2-11",
+            "clw-dmc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\DiscourseMarkersAndCohesionAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "discourse-markers-and-cohesion",
+                    "title": "Discourse Markers And Cohesion",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\DiscourseMarkersAndCohesionTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/discourse-markers-and-cohesion"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clw-dmc-v3-a1-01",
+            "question": "The data are limited; {a1}, the trend is clear",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "therefore",
+                        "moreover",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "contrast_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_markers"
+            ],
+            "variants": [
+                "The data are limited; {a1}, the trend is clear"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 2,
+            "uuid": "clw-dmc-v3-a1-02",
+            "question": "The method is reliable; {a1}, it is easy to apply",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "moreover",
+                    "options": [
+                        "moreover",
+                        "however",
+                        "therefore",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "addition_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition_markers"
+            ],
+            "variants": [
+                "The method is reliable; {a1}, it is easy to apply"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 3,
+            "uuid": "clw-dmc-v3-a1-03",
+            "question": "The figures were inconsistent; {a1}, the report was delayed",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "consequently",
+                    "options": [
+                        "consequently",
+                        "nevertheless",
+                        "moreover",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "consequence_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence_markers"
+            ],
+            "variants": [
+                "The figures were inconsistent; {a1}, the report was delayed"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 4,
+            "uuid": "clw-dmc-v3-a1-04",
+            "question": "{a1}, we reviewed the evidence; then we made a decision",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "However",
+                        "Therefore",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "sequencing_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequencing_markers"
+            ],
+            "variants": [
+                "{a1}, we reviewed the evidence; then we made a decision"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 5,
+            "uuid": "clw-dmc-v3-a1-05",
+            "question": "{a1}, the proposal needs more detail",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Frankly",
+                    "options": [
+                        "Frankly",
+                        "Therefore",
+                        "Meanwhile",
+                        "For instance"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the proposal needs more detail"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 6,
+            "uuid": "clw-dmc-v3-a1-06",
+            "question": "{a1} the budget, we need a separate meeting",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Regarding",
+                    "options": [
+                        "Regarding",
+                        "Therefore",
+                        "Although",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "topic_shift"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "topic_shift"
+            ],
+            "variants": [
+                "{a1} the budget, we need a separate meeting"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 7,
+            "uuid": "clw-dmc-v3-a1-07",
+            "question": "{a1}, the project met its main goals",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Overall",
+                    "options": [
+                        "Overall",
+                        "However",
+                        "Because",
+                        "Meanwhile"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "summarizing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "summarizing"
+            ],
+            "variants": [
+                "{a1}, the project met its main goals"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 8,
+            "uuid": "clw-dmc-v3-a1-08",
+            "question": "The first result was positive; {a1}, the second confirmed it",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in turn",
+                    "options": [
+                        "in turn",
+                        "however",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "cohesion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cohesion"
+            ],
+            "variants": [
+                "The first result was positive; {a1}, the second confirmed it"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 9,
+            "uuid": "clw-dmc-v3-a1-09",
+            "question": "The argument is strong; {a1}, one example is enough here",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "moreover furthermore",
+                        "although despite",
+                        "because although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "The argument is strong; {a1}, one example is enough here"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 10,
+            "uuid": "clw-dmc-v3-a1-10",
+            "question": "{a1}, the recommendation remains cautious",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "In light of this",
+                    "options": [
+                        "In light of this",
+                        "Anyway",
+                        "So",
+                        "But"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "formal_written_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_written_style"
+            ],
+            "variants": [
+                "{a1}, the recommendation remains cautious"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 11,
+            "uuid": "clw-dmc-v3-a1-11",
+            "question": "The claim sounds attractive; {a1}, it lacks evidence",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The claim sounds attractive; {a1}, it lacks evidence"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 12,
+            "uuid": "clw-dmc-v3-a1-12",
+            "question": "{a1}, the results suggest a different explanation",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Arguably",
+                    "options": [
+                        "Arguably",
+                        "Therefore",
+                        "Meanwhile",
+                        "For example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the results suggest a different explanation"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 13,
+            "uuid": "clw-dmc-v3-a2-01",
+            "question": "The data are limited; {a1}, the trend is clear",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "therefore",
+                        "moreover",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "contrast_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_markers"
+            ],
+            "variants": [
+                "The data are limited; {a1}, the trend is clear"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 14,
+            "uuid": "clw-dmc-v3-a2-02",
+            "question": "The method is reliable; {a1}, it is easy to apply",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "moreover",
+                    "options": [
+                        "moreover",
+                        "however",
+                        "therefore",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "addition_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition_markers"
+            ],
+            "variants": [
+                "The method is reliable; {a1}, it is easy to apply"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 15,
+            "uuid": "clw-dmc-v3-a2-03",
+            "question": "The figures were inconsistent; {a1}, the report was delayed",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "consequently",
+                    "options": [
+                        "consequently",
+                        "nevertheless",
+                        "moreover",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "consequence_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence_markers"
+            ],
+            "variants": [
+                "The figures were inconsistent; {a1}, the report was delayed"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 16,
+            "uuid": "clw-dmc-v3-a2-04",
+            "question": "{a1}, we reviewed the evidence; then we made a decision",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "However",
+                        "Therefore",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "sequencing_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequencing_markers"
+            ],
+            "variants": [
+                "{a1}, we reviewed the evidence; then we made a decision"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 17,
+            "uuid": "clw-dmc-v3-a2-05",
+            "question": "{a1}, the proposal needs more detail",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Frankly",
+                    "options": [
+                        "Frankly",
+                        "Therefore",
+                        "Meanwhile",
+                        "For instance"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the proposal needs more detail"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 18,
+            "uuid": "clw-dmc-v3-a2-06",
+            "question": "{a1} the budget, we need a separate meeting",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Regarding",
+                    "options": [
+                        "Regarding",
+                        "Therefore",
+                        "Although",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "topic_shift"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "topic_shift"
+            ],
+            "variants": [
+                "{a1} the budget, we need a separate meeting"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 19,
+            "uuid": "clw-dmc-v3-a2-07",
+            "question": "{a1}, the project met its main goals",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Overall",
+                    "options": [
+                        "Overall",
+                        "However",
+                        "Because",
+                        "Meanwhile"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "summarizing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "summarizing"
+            ],
+            "variants": [
+                "{a1}, the project met its main goals"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 20,
+            "uuid": "clw-dmc-v3-a2-08",
+            "question": "The first result was positive; {a1}, the second confirmed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in turn",
+                    "options": [
+                        "in turn",
+                        "however",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "cohesion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cohesion"
+            ],
+            "variants": [
+                "The first result was positive; {a1}, the second confirmed it"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 21,
+            "uuid": "clw-dmc-v3-a2-09",
+            "question": "The argument is strong; {a1}, one example is enough here",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "moreover furthermore",
+                        "although despite",
+                        "because although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "The argument is strong; {a1}, one example is enough here"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 22,
+            "uuid": "clw-dmc-v3-a2-10",
+            "question": "{a1}, the recommendation remains cautious",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "In light of this",
+                    "options": [
+                        "In light of this",
+                        "Anyway",
+                        "So",
+                        "But"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "formal_written_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_written_style"
+            ],
+            "variants": [
+                "{a1}, the recommendation remains cautious"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 23,
+            "uuid": "clw-dmc-v3-a2-11",
+            "question": "The claim sounds attractive; {a1}, it lacks evidence",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The claim sounds attractive; {a1}, it lacks evidence"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 24,
+            "uuid": "clw-dmc-v3-a2-12",
+            "question": "{a1}, the results suggest a different explanation",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Arguably",
+                    "options": [
+                        "Arguably",
+                        "Therefore",
+                        "Meanwhile",
+                        "For example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the results suggest a different explanation"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 25,
+            "uuid": "clw-dmc-v3-b1-01",
+            "question": "The data are limited; {a1}, the trend is clear",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "therefore",
+                        "moreover",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "contrast_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_markers"
+            ],
+            "variants": [
+                "The data are limited; {a1}, the trend is clear"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 26,
+            "uuid": "clw-dmc-v3-b1-02",
+            "question": "The method is reliable; {a1}, it is easy to apply",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "moreover",
+                    "options": [
+                        "moreover",
+                        "however",
+                        "therefore",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "addition_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition_markers"
+            ],
+            "variants": [
+                "The method is reliable; {a1}, it is easy to apply"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 27,
+            "uuid": "clw-dmc-v3-b1-03",
+            "question": "The figures were inconsistent; {a1}, the report was delayed",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "consequently",
+                    "options": [
+                        "consequently",
+                        "nevertheless",
+                        "moreover",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "consequence_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence_markers"
+            ],
+            "variants": [
+                "The figures were inconsistent; {a1}, the report was delayed"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 28,
+            "uuid": "clw-dmc-v3-b1-04",
+            "question": "{a1}, we reviewed the evidence; then we made a decision",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "However",
+                        "Therefore",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "sequencing_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequencing_markers"
+            ],
+            "variants": [
+                "{a1}, we reviewed the evidence; then we made a decision"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 29,
+            "uuid": "clw-dmc-v3-b1-05",
+            "question": "{a1}, the proposal needs more detail",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Frankly",
+                    "options": [
+                        "Frankly",
+                        "Therefore",
+                        "Meanwhile",
+                        "For instance"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the proposal needs more detail"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 30,
+            "uuid": "clw-dmc-v3-b1-06",
+            "question": "{a1} the budget, we need a separate meeting",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Regarding",
+                    "options": [
+                        "Regarding",
+                        "Therefore",
+                        "Although",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "topic_shift"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "topic_shift"
+            ],
+            "variants": [
+                "{a1} the budget, we need a separate meeting"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 31,
+            "uuid": "clw-dmc-v3-b1-07",
+            "question": "{a1}, the project met its main goals",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Overall",
+                    "options": [
+                        "Overall",
+                        "However",
+                        "Because",
+                        "Meanwhile"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "summarizing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "summarizing"
+            ],
+            "variants": [
+                "{a1}, the project met its main goals"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 32,
+            "uuid": "clw-dmc-v3-b1-08",
+            "question": "The first result was positive; {a1}, the second confirmed it",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in turn",
+                    "options": [
+                        "in turn",
+                        "however",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "cohesion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cohesion"
+            ],
+            "variants": [
+                "The first result was positive; {a1}, the second confirmed it"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 33,
+            "uuid": "clw-dmc-v3-b1-09",
+            "question": "The argument is strong; {a1}, one example is enough here",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "moreover furthermore",
+                        "although despite",
+                        "because although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "The argument is strong; {a1}, one example is enough here"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 34,
+            "uuid": "clw-dmc-v3-b1-10",
+            "question": "{a1}, the recommendation remains cautious",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "In light of this",
+                    "options": [
+                        "In light of this",
+                        "Anyway",
+                        "So",
+                        "But"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "formal_written_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_written_style"
+            ],
+            "variants": [
+                "{a1}, the recommendation remains cautious"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 35,
+            "uuid": "clw-dmc-v3-b1-11",
+            "question": "The claim sounds attractive; {a1}, it lacks evidence",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The claim sounds attractive; {a1}, it lacks evidence"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 36,
+            "uuid": "clw-dmc-v3-b1-12",
+            "question": "{a1}, the results suggest a different explanation",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Arguably",
+                    "options": [
+                        "Arguably",
+                        "Therefore",
+                        "Meanwhile",
+                        "For example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the results suggest a different explanation"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 37,
+            "uuid": "clw-dmc-v3-b2-01",
+            "question": "The data are limited; {a1}, the trend is clear",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "therefore",
+                        "moreover",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "contrast_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_markers"
+            ],
+            "variants": [
+                "The data are limited; {a1}, the trend is clear"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 38,
+            "uuid": "clw-dmc-v3-b2-02",
+            "question": "The method is reliable; {a1}, it is easy to apply",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "moreover",
+                    "options": [
+                        "moreover",
+                        "however",
+                        "therefore",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "addition_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition_markers"
+            ],
+            "variants": [
+                "The method is reliable; {a1}, it is easy to apply"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 39,
+            "uuid": "clw-dmc-v3-b2-03",
+            "question": "The figures were inconsistent; {a1}, the report was delayed",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "consequently",
+                    "options": [
+                        "consequently",
+                        "nevertheless",
+                        "moreover",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "consequence_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence_markers"
+            ],
+            "variants": [
+                "The figures were inconsistent; {a1}, the report was delayed"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 40,
+            "uuid": "clw-dmc-v3-b2-04",
+            "question": "{a1}, we reviewed the evidence; then we made a decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "However",
+                        "Therefore",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "sequencing_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequencing_markers"
+            ],
+            "variants": [
+                "{a1}, we reviewed the evidence; then we made a decision"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 41,
+            "uuid": "clw-dmc-v3-b2-05",
+            "question": "{a1}, the proposal needs more detail",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Frankly",
+                    "options": [
+                        "Frankly",
+                        "Therefore",
+                        "Meanwhile",
+                        "For instance"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the proposal needs more detail"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 42,
+            "uuid": "clw-dmc-v3-b2-06",
+            "question": "{a1} the budget, we need a separate meeting",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Regarding",
+                    "options": [
+                        "Regarding",
+                        "Therefore",
+                        "Although",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "topic_shift"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "topic_shift"
+            ],
+            "variants": [
+                "{a1} the budget, we need a separate meeting"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 43,
+            "uuid": "clw-dmc-v3-b2-07",
+            "question": "{a1}, the project met its main goals",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Overall",
+                    "options": [
+                        "Overall",
+                        "However",
+                        "Because",
+                        "Meanwhile"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "summarizing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "summarizing"
+            ],
+            "variants": [
+                "{a1}, the project met its main goals"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 44,
+            "uuid": "clw-dmc-v3-b2-08",
+            "question": "The first result was positive; {a1}, the second confirmed it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in turn",
+                    "options": [
+                        "in turn",
+                        "however",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "cohesion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cohesion"
+            ],
+            "variants": [
+                "The first result was positive; {a1}, the second confirmed it"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 45,
+            "uuid": "clw-dmc-v3-b2-09",
+            "question": "The argument is strong; {a1}, one example is enough here",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "moreover furthermore",
+                        "although despite",
+                        "because although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "The argument is strong; {a1}, one example is enough here"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 46,
+            "uuid": "clw-dmc-v3-b2-10",
+            "question": "{a1}, the recommendation remains cautious",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "In light of this",
+                    "options": [
+                        "In light of this",
+                        "Anyway",
+                        "So",
+                        "But"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "formal_written_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_written_style"
+            ],
+            "variants": [
+                "{a1}, the recommendation remains cautious"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 47,
+            "uuid": "clw-dmc-v3-b2-11",
+            "question": "The claim sounds attractive; {a1}, it lacks evidence",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The claim sounds attractive; {a1}, it lacks evidence"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 48,
+            "uuid": "clw-dmc-v3-b2-12",
+            "question": "{a1}, the results suggest a different explanation",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Arguably",
+                    "options": [
+                        "Arguably",
+                        "Therefore",
+                        "Meanwhile",
+                        "For example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the results suggest a different explanation"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 49,
+            "uuid": "clw-dmc-v3-c1-01",
+            "question": "The data are limited; {a1}, the trend is clear",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "therefore",
+                        "moreover",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "contrast_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_markers"
+            ],
+            "variants": [
+                "The data are limited; {a1}, the trend is clear"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 50,
+            "uuid": "clw-dmc-v3-c1-02",
+            "question": "The method is reliable; {a1}, it is easy to apply",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "moreover",
+                    "options": [
+                        "moreover",
+                        "however",
+                        "therefore",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "addition_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition_markers"
+            ],
+            "variants": [
+                "The method is reliable; {a1}, it is easy to apply"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 51,
+            "uuid": "clw-dmc-v3-c1-03",
+            "question": "The figures were inconsistent; {a1}, the report was delayed",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "consequently",
+                    "options": [
+                        "consequently",
+                        "nevertheless",
+                        "moreover",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "consequence_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence_markers"
+            ],
+            "variants": [
+                "The figures were inconsistent; {a1}, the report was delayed"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 52,
+            "uuid": "clw-dmc-v3-c1-04",
+            "question": "{a1}, we reviewed the evidence; then we made a decision",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "However",
+                        "Therefore",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "sequencing_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequencing_markers"
+            ],
+            "variants": [
+                "{a1}, we reviewed the evidence; then we made a decision"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 53,
+            "uuid": "clw-dmc-v3-c1-05",
+            "question": "{a1}, the proposal needs more detail",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Frankly",
+                    "options": [
+                        "Frankly",
+                        "Therefore",
+                        "Meanwhile",
+                        "For instance"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the proposal needs more detail"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 54,
+            "uuid": "clw-dmc-v3-c1-06",
+            "question": "{a1} the budget, we need a separate meeting",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Regarding",
+                    "options": [
+                        "Regarding",
+                        "Therefore",
+                        "Although",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "topic_shift"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "topic_shift"
+            ],
+            "variants": [
+                "{a1} the budget, we need a separate meeting"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 55,
+            "uuid": "clw-dmc-v3-c1-07",
+            "question": "{a1}, the project met its main goals",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Overall",
+                    "options": [
+                        "Overall",
+                        "However",
+                        "Because",
+                        "Meanwhile"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "summarizing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "summarizing"
+            ],
+            "variants": [
+                "{a1}, the project met its main goals"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 56,
+            "uuid": "clw-dmc-v3-c1-08",
+            "question": "The first result was positive; {a1}, the second confirmed it",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in turn",
+                    "options": [
+                        "in turn",
+                        "however",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "cohesion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cohesion"
+            ],
+            "variants": [
+                "The first result was positive; {a1}, the second confirmed it"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 57,
+            "uuid": "clw-dmc-v3-c1-09",
+            "question": "The argument is strong; {a1}, one example is enough here",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "moreover furthermore",
+                        "although despite",
+                        "because although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "The argument is strong; {a1}, one example is enough here"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 58,
+            "uuid": "clw-dmc-v3-c1-10",
+            "question": "{a1}, the recommendation remains cautious",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "In light of this",
+                    "options": [
+                        "In light of this",
+                        "Anyway",
+                        "So",
+                        "But"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "formal_written_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_written_style"
+            ],
+            "variants": [
+                "{a1}, the recommendation remains cautious"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 59,
+            "uuid": "clw-dmc-v3-c1-11",
+            "question": "The claim sounds attractive; {a1}, it lacks evidence",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The claim sounds attractive; {a1}, it lacks evidence"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 60,
+            "uuid": "clw-dmc-v3-c1-12",
+            "question": "{a1}, the results suggest a different explanation",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Arguably",
+                    "options": [
+                        "Arguably",
+                        "Therefore",
+                        "Meanwhile",
+                        "For example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the results suggest a different explanation"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 61,
+            "uuid": "clw-dmc-v3-c2-01",
+            "question": "The data are limited; {a1}, the trend is clear",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "therefore",
+                        "moreover",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "contrast_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_markers"
+            ],
+            "variants": [
+                "The data are limited; {a1}, the trend is clear"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 62,
+            "uuid": "clw-dmc-v3-c2-02",
+            "question": "The method is reliable; {a1}, it is easy to apply",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "moreover",
+                    "options": [
+                        "moreover",
+                        "however",
+                        "therefore",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "addition_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition_markers"
+            ],
+            "variants": [
+                "The method is reliable; {a1}, it is easy to apply"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 63,
+            "uuid": "clw-dmc-v3-c2-03",
+            "question": "The figures were inconsistent; {a1}, the report was delayed",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "consequently",
+                    "options": [
+                        "consequently",
+                        "nevertheless",
+                        "moreover",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "consequence_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence_markers"
+            ],
+            "variants": [
+                "The figures were inconsistent; {a1}, the report was delayed"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 64,
+            "uuid": "clw-dmc-v3-c2-04",
+            "question": "{a1}, we reviewed the evidence; then we made a decision",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "However",
+                        "Therefore",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "sequencing_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequencing_markers"
+            ],
+            "variants": [
+                "{a1}, we reviewed the evidence; then we made a decision"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 65,
+            "uuid": "clw-dmc-v3-c2-05",
+            "question": "{a1}, the proposal needs more detail",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Frankly",
+                    "options": [
+                        "Frankly",
+                        "Therefore",
+                        "Meanwhile",
+                        "For instance"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the proposal needs more detail"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 66,
+            "uuid": "clw-dmc-v3-c2-06",
+            "question": "{a1} the budget, we need a separate meeting",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Regarding",
+                    "options": [
+                        "Regarding",
+                        "Therefore",
+                        "Although",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "topic_shift"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "topic_shift"
+            ],
+            "variants": [
+                "{a1} the budget, we need a separate meeting"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 67,
+            "uuid": "clw-dmc-v3-c2-07",
+            "question": "{a1}, the project met its main goals",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Overall",
+                    "options": [
+                        "Overall",
+                        "However",
+                        "Because",
+                        "Meanwhile"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "summarizing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "summarizing"
+            ],
+            "variants": [
+                "{a1}, the project met its main goals"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 68,
+            "uuid": "clw-dmc-v3-c2-08",
+            "question": "The first result was positive; {a1}, the second confirmed it",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in turn",
+                    "options": [
+                        "in turn",
+                        "however",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "cohesion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cohesion"
+            ],
+            "variants": [
+                "The first result was positive; {a1}, the second confirmed it"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 69,
+            "uuid": "clw-dmc-v3-c2-09",
+            "question": "The argument is strong; {a1}, one example is enough here",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "moreover furthermore",
+                        "although despite",
+                        "because although"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "The argument is strong; {a1}, one example is enough here"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 70,
+            "uuid": "clw-dmc-v3-c2-10",
+            "question": "{a1}, the recommendation remains cautious",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "In light of this",
+                    "options": [
+                        "In light of this",
+                        "Anyway",
+                        "So",
+                        "But"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "formal_written_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_written_style"
+            ],
+            "variants": [
+                "{a1}, the recommendation remains cautious"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 71,
+            "uuid": "clw-dmc-v3-c2-11",
+            "question": "The claim sounds attractive; {a1}, it lacks evidence",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The claim sounds attractive; {a1}, it lacks evidence"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        },
+        {
+            "id": 72,
+            "uuid": "clw-dmc-v3-c2-12",
+            "question": "{a1}, the results suggest a different explanation",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Arguably",
+                    "options": [
+                        "Arguably",
+                        "Therefore",
+                        "Meanwhile",
+                        "For example"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "stance_markers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "stance_markers"
+            ],
+            "variants": [
+                "{a1}, the results suggest a different explanation"
+            ],
+            "source": "theory_page_discourse_markers_and_cohesion"
+        }
+    ],
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_discourse_markers_and_cohesion": {
+            "name": "Discourse Markers And Cohesion"
+        }
+    }
+}

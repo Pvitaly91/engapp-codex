@@ -1,0 +1,2137 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\ConcessiveAndContrastiveStructuresAllLevelsV3Seeder",
+        "uuid_namespace": "ConcessiveAndContrastiveStructuresAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "clw-ccs-v3-all",
+        "slug": "concessive-and-contrastive-structures-all-levels-v3",
+        "name": "Concessive And Contrastive Structures: V3 All Levels",
+        "description": "Page-local V3 package for Concessive And Contrastive Structures with A1-C2 coverage.",
+        "question_uuids": [
+            "clw-ccs-v3-a1-01",
+            "clw-ccs-v3-a1-02",
+            "clw-ccs-v3-a1-03",
+            "clw-ccs-v3-a1-04",
+            "clw-ccs-v3-a1-05",
+            "clw-ccs-v3-a1-06",
+            "clw-ccs-v3-a1-07",
+            "clw-ccs-v3-a1-08",
+            "clw-ccs-v3-a1-09",
+            "clw-ccs-v3-a1-10",
+            "clw-ccs-v3-a1-11",
+            "clw-ccs-v3-a1-12",
+            "clw-ccs-v3-a2-01",
+            "clw-ccs-v3-a2-02",
+            "clw-ccs-v3-a2-03",
+            "clw-ccs-v3-a2-04",
+            "clw-ccs-v3-a2-05",
+            "clw-ccs-v3-a2-06",
+            "clw-ccs-v3-a2-07",
+            "clw-ccs-v3-a2-08",
+            "clw-ccs-v3-a2-09",
+            "clw-ccs-v3-a2-10",
+            "clw-ccs-v3-a2-11",
+            "clw-ccs-v3-a2-12",
+            "clw-ccs-v3-b1-01",
+            "clw-ccs-v3-b1-02",
+            "clw-ccs-v3-b1-03",
+            "clw-ccs-v3-b1-04",
+            "clw-ccs-v3-b1-05",
+            "clw-ccs-v3-b1-06",
+            "clw-ccs-v3-b1-07",
+            "clw-ccs-v3-b1-08",
+            "clw-ccs-v3-b1-09",
+            "clw-ccs-v3-b1-10",
+            "clw-ccs-v3-b1-11",
+            "clw-ccs-v3-b1-12",
+            "clw-ccs-v3-b2-01",
+            "clw-ccs-v3-b2-02",
+            "clw-ccs-v3-b2-03",
+            "clw-ccs-v3-b2-04",
+            "clw-ccs-v3-b2-05",
+            "clw-ccs-v3-b2-06",
+            "clw-ccs-v3-b2-07",
+            "clw-ccs-v3-b2-08",
+            "clw-ccs-v3-b2-09",
+            "clw-ccs-v3-b2-10",
+            "clw-ccs-v3-b2-11",
+            "clw-ccs-v3-b2-12",
+            "clw-ccs-v3-c1-01",
+            "clw-ccs-v3-c1-02",
+            "clw-ccs-v3-c1-03",
+            "clw-ccs-v3-c1-04",
+            "clw-ccs-v3-c1-05",
+            "clw-ccs-v3-c1-06",
+            "clw-ccs-v3-c1-07",
+            "clw-ccs-v3-c1-08",
+            "clw-ccs-v3-c1-09",
+            "clw-ccs-v3-c1-10",
+            "clw-ccs-v3-c1-11",
+            "clw-ccs-v3-c1-12",
+            "clw-ccs-v3-c2-01",
+            "clw-ccs-v3-c2-02",
+            "clw-ccs-v3-c2-03",
+            "clw-ccs-v3-c2-04",
+            "clw-ccs-v3-c2-05",
+            "clw-ccs-v3-c2-06",
+            "clw-ccs-v3-c2-07",
+            "clw-ccs-v3-c2-08",
+            "clw-ccs-v3-c2-09",
+            "clw-ccs-v3-c2-10",
+            "clw-ccs-v3-c2-11",
+            "clw-ccs-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\ConcessiveAndContrastiveStructuresAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "concessive-and-contrastive-structures",
+                    "title": "Concessive And Contrastive Structures",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ConcessiveAndContrastiveStructuresTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/concessive-and-contrastive-structures"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clw-ccs-v3-a1-01",
+            "question": "{a1} the evidence was limited, the conclusion was convincing",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "concession_vs_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "concession_vs_contrast"
+            ],
+            "variants": [
+                "{a1} the evidence was limited, the conclusion was convincing"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 2,
+            "uuid": "clw-ccs-v3-a1-02",
+            "question": "{a1} it was risky, they approved the plan",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Despite",
+                        "Therefore",
+                        "Because of"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "although_even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_even_though"
+            ],
+            "variants": [
+                "{a1} it was risky, they approved the plan"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 3,
+            "uuid": "clw-ccs-v3-a1-03",
+            "question": "{a1} the delay, the project was completed successfully",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the delay, the project was completed successfully"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 4,
+            "uuid": "clw-ccs-v3-a1-04",
+            "question": "{a1} the team was small, it delivered excellent work",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite the fact that",
+                    "options": [
+                        "Despite the fact that",
+                        "Despite",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_the_fact_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_the_fact_that"
+            ],
+            "variants": [
+                "{a1} the team was small, it delivered excellent work"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 5,
+            "uuid": "clw-ccs-v3-a1-05",
+            "question": "{a1} some experts are optimistic, others remain cautious",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "{a1} some experts are optimistic, others remain cautious"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 6,
+            "uuid": "clw-ccs-v3-a1-06",
+            "question": "The policy is ambitious; {a1}, implementation remains uncertain",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "however_nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however_nevertheless"
+            ],
+            "variants": [
+                "The policy is ambitious; {a1}, implementation remains uncertain"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 7,
+            "uuid": "clw-ccs-v3-a1-07",
+            "question": "{a1} difficult the task is, we must finish it",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "No matter how",
+                    "options": [
+                        "No matter how",
+                        "Despite",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "no_matter_whatever"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_matter_whatever"
+            ],
+            "variants": [
+                "{a1} difficult the task is, we must finish it"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 8,
+            "uuid": "clw-ccs-v3-a1-08",
+            "question": "{a1} it may seem, the rule is useful",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Strange though",
+                    "options": [
+                        "Strange though",
+                        "Although strange",
+                        "Despite strange",
+                        "However strange"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "though_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_inversion"
+            ],
+            "variants": [
+                "{a1} it may seem, the rule is useful"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 9,
+            "uuid": "clw-ccs-v3-a1-09",
+            "question": "The method is demanding, {a1} it produces reliable results",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "therefore",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "balance_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "balance_contrast"
+            ],
+            "variants": [
+                "The method is demanding, {a1} it produces reliable results"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 10,
+            "uuid": "clw-ccs-v3-a1-10",
+            "question": "The results were promising; {a1}, further testing is needed",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "punctuation_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_register"
+            ],
+            "variants": [
+                "The results were promising; {a1}, further testing is needed"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 11,
+            "uuid": "clw-ccs-v3-a1-11",
+            "question": "{a1} being tired, she answered every question",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} being tired, she answered every question"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 12,
+            "uuid": "clw-ccs-v3-a1-12",
+            "question": "This approach saves time, {a1} the old one requires several steps",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "therefore",
+                        "because",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "This approach saves time, {a1} the old one requires several steps"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 13,
+            "uuid": "clw-ccs-v3-a2-01",
+            "question": "{a1} the evidence was limited, the conclusion was convincing",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "concession_vs_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "concession_vs_contrast"
+            ],
+            "variants": [
+                "{a1} the evidence was limited, the conclusion was convincing"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 14,
+            "uuid": "clw-ccs-v3-a2-02",
+            "question": "{a1} it was risky, they approved the plan",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Despite",
+                        "Therefore",
+                        "Because of"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "although_even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_even_though"
+            ],
+            "variants": [
+                "{a1} it was risky, they approved the plan"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 15,
+            "uuid": "clw-ccs-v3-a2-03",
+            "question": "{a1} the delay, the project was completed successfully",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the delay, the project was completed successfully"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 16,
+            "uuid": "clw-ccs-v3-a2-04",
+            "question": "{a1} the team was small, it delivered excellent work",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite the fact that",
+                    "options": [
+                        "Despite the fact that",
+                        "Despite",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_the_fact_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_the_fact_that"
+            ],
+            "variants": [
+                "{a1} the team was small, it delivered excellent work"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 17,
+            "uuid": "clw-ccs-v3-a2-05",
+            "question": "{a1} some experts are optimistic, others remain cautious",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "{a1} some experts are optimistic, others remain cautious"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 18,
+            "uuid": "clw-ccs-v3-a2-06",
+            "question": "The policy is ambitious; {a1}, implementation remains uncertain",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "however_nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however_nevertheless"
+            ],
+            "variants": [
+                "The policy is ambitious; {a1}, implementation remains uncertain"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 19,
+            "uuid": "clw-ccs-v3-a2-07",
+            "question": "{a1} difficult the task is, we must finish it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "No matter how",
+                    "options": [
+                        "No matter how",
+                        "Despite",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "no_matter_whatever"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_matter_whatever"
+            ],
+            "variants": [
+                "{a1} difficult the task is, we must finish it"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 20,
+            "uuid": "clw-ccs-v3-a2-08",
+            "question": "{a1} it may seem, the rule is useful",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Strange though",
+                    "options": [
+                        "Strange though",
+                        "Although strange",
+                        "Despite strange",
+                        "However strange"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "though_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_inversion"
+            ],
+            "variants": [
+                "{a1} it may seem, the rule is useful"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 21,
+            "uuid": "clw-ccs-v3-a2-09",
+            "question": "The method is demanding, {a1} it produces reliable results",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "therefore",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "balance_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "balance_contrast"
+            ],
+            "variants": [
+                "The method is demanding, {a1} it produces reliable results"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 22,
+            "uuid": "clw-ccs-v3-a2-10",
+            "question": "The results were promising; {a1}, further testing is needed",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "punctuation_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_register"
+            ],
+            "variants": [
+                "The results were promising; {a1}, further testing is needed"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 23,
+            "uuid": "clw-ccs-v3-a2-11",
+            "question": "{a1} being tired, she answered every question",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} being tired, she answered every question"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 24,
+            "uuid": "clw-ccs-v3-a2-12",
+            "question": "This approach saves time, {a1} the old one requires several steps",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "therefore",
+                        "because",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "This approach saves time, {a1} the old one requires several steps"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 25,
+            "uuid": "clw-ccs-v3-b1-01",
+            "question": "{a1} the evidence was limited, the conclusion was convincing",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "concession_vs_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "concession_vs_contrast"
+            ],
+            "variants": [
+                "{a1} the evidence was limited, the conclusion was convincing"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 26,
+            "uuid": "clw-ccs-v3-b1-02",
+            "question": "{a1} it was risky, they approved the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Despite",
+                        "Therefore",
+                        "Because of"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "although_even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_even_though"
+            ],
+            "variants": [
+                "{a1} it was risky, they approved the plan"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 27,
+            "uuid": "clw-ccs-v3-b1-03",
+            "question": "{a1} the delay, the project was completed successfully",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the delay, the project was completed successfully"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 28,
+            "uuid": "clw-ccs-v3-b1-04",
+            "question": "{a1} the team was small, it delivered excellent work",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite the fact that",
+                    "options": [
+                        "Despite the fact that",
+                        "Despite",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_the_fact_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_the_fact_that"
+            ],
+            "variants": [
+                "{a1} the team was small, it delivered excellent work"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 29,
+            "uuid": "clw-ccs-v3-b1-05",
+            "question": "{a1} some experts are optimistic, others remain cautious",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "{a1} some experts are optimistic, others remain cautious"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 30,
+            "uuid": "clw-ccs-v3-b1-06",
+            "question": "The policy is ambitious; {a1}, implementation remains uncertain",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "however_nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however_nevertheless"
+            ],
+            "variants": [
+                "The policy is ambitious; {a1}, implementation remains uncertain"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 31,
+            "uuid": "clw-ccs-v3-b1-07",
+            "question": "{a1} difficult the task is, we must finish it",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "No matter how",
+                    "options": [
+                        "No matter how",
+                        "Despite",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "no_matter_whatever"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_matter_whatever"
+            ],
+            "variants": [
+                "{a1} difficult the task is, we must finish it"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 32,
+            "uuid": "clw-ccs-v3-b1-08",
+            "question": "{a1} it may seem, the rule is useful",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Strange though",
+                    "options": [
+                        "Strange though",
+                        "Although strange",
+                        "Despite strange",
+                        "However strange"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "though_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_inversion"
+            ],
+            "variants": [
+                "{a1} it may seem, the rule is useful"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 33,
+            "uuid": "clw-ccs-v3-b1-09",
+            "question": "The method is demanding, {a1} it produces reliable results",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "therefore",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "balance_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "balance_contrast"
+            ],
+            "variants": [
+                "The method is demanding, {a1} it produces reliable results"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 34,
+            "uuid": "clw-ccs-v3-b1-10",
+            "question": "The results were promising; {a1}, further testing is needed",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "punctuation_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_register"
+            ],
+            "variants": [
+                "The results were promising; {a1}, further testing is needed"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 35,
+            "uuid": "clw-ccs-v3-b1-11",
+            "question": "{a1} being tired, she answered every question",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} being tired, she answered every question"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 36,
+            "uuid": "clw-ccs-v3-b1-12",
+            "question": "This approach saves time, {a1} the old one requires several steps",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "therefore",
+                        "because",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "This approach saves time, {a1} the old one requires several steps"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 37,
+            "uuid": "clw-ccs-v3-b2-01",
+            "question": "{a1} the evidence was limited, the conclusion was convincing",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "concession_vs_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "concession_vs_contrast"
+            ],
+            "variants": [
+                "{a1} the evidence was limited, the conclusion was convincing"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 38,
+            "uuid": "clw-ccs-v3-b2-02",
+            "question": "{a1} it was risky, they approved the plan",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Despite",
+                        "Therefore",
+                        "Because of"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "although_even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_even_though"
+            ],
+            "variants": [
+                "{a1} it was risky, they approved the plan"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 39,
+            "uuid": "clw-ccs-v3-b2-03",
+            "question": "{a1} the delay, the project was completed successfully",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the delay, the project was completed successfully"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 40,
+            "uuid": "clw-ccs-v3-b2-04",
+            "question": "{a1} the team was small, it delivered excellent work",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite the fact that",
+                    "options": [
+                        "Despite the fact that",
+                        "Despite",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_the_fact_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_the_fact_that"
+            ],
+            "variants": [
+                "{a1} the team was small, it delivered excellent work"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 41,
+            "uuid": "clw-ccs-v3-b2-05",
+            "question": "{a1} some experts are optimistic, others remain cautious",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "{a1} some experts are optimistic, others remain cautious"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 42,
+            "uuid": "clw-ccs-v3-b2-06",
+            "question": "The policy is ambitious; {a1}, implementation remains uncertain",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "however_nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however_nevertheless"
+            ],
+            "variants": [
+                "The policy is ambitious; {a1}, implementation remains uncertain"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 43,
+            "uuid": "clw-ccs-v3-b2-07",
+            "question": "{a1} difficult the task is, we must finish it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "No matter how",
+                    "options": [
+                        "No matter how",
+                        "Despite",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "no_matter_whatever"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_matter_whatever"
+            ],
+            "variants": [
+                "{a1} difficult the task is, we must finish it"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 44,
+            "uuid": "clw-ccs-v3-b2-08",
+            "question": "{a1} it may seem, the rule is useful",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Strange though",
+                    "options": [
+                        "Strange though",
+                        "Although strange",
+                        "Despite strange",
+                        "However strange"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "though_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_inversion"
+            ],
+            "variants": [
+                "{a1} it may seem, the rule is useful"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 45,
+            "uuid": "clw-ccs-v3-b2-09",
+            "question": "The method is demanding, {a1} it produces reliable results",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "therefore",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "balance_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "balance_contrast"
+            ],
+            "variants": [
+                "The method is demanding, {a1} it produces reliable results"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 46,
+            "uuid": "clw-ccs-v3-b2-10",
+            "question": "The results were promising; {a1}, further testing is needed",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "punctuation_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_register"
+            ],
+            "variants": [
+                "The results were promising; {a1}, further testing is needed"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 47,
+            "uuid": "clw-ccs-v3-b2-11",
+            "question": "{a1} being tired, she answered every question",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} being tired, she answered every question"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 48,
+            "uuid": "clw-ccs-v3-b2-12",
+            "question": "This approach saves time, {a1} the old one requires several steps",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "therefore",
+                        "because",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "This approach saves time, {a1} the old one requires several steps"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 49,
+            "uuid": "clw-ccs-v3-c1-01",
+            "question": "{a1} the evidence was limited, the conclusion was convincing",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "concession_vs_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "concession_vs_contrast"
+            ],
+            "variants": [
+                "{a1} the evidence was limited, the conclusion was convincing"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 50,
+            "uuid": "clw-ccs-v3-c1-02",
+            "question": "{a1} it was risky, they approved the plan",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Despite",
+                        "Therefore",
+                        "Because of"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "although_even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_even_though"
+            ],
+            "variants": [
+                "{a1} it was risky, they approved the plan"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 51,
+            "uuid": "clw-ccs-v3-c1-03",
+            "question": "{a1} the delay, the project was completed successfully",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the delay, the project was completed successfully"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 52,
+            "uuid": "clw-ccs-v3-c1-04",
+            "question": "{a1} the team was small, it delivered excellent work",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite the fact that",
+                    "options": [
+                        "Despite the fact that",
+                        "Despite",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_the_fact_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_the_fact_that"
+            ],
+            "variants": [
+                "{a1} the team was small, it delivered excellent work"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 53,
+            "uuid": "clw-ccs-v3-c1-05",
+            "question": "{a1} some experts are optimistic, others remain cautious",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "{a1} some experts are optimistic, others remain cautious"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 54,
+            "uuid": "clw-ccs-v3-c1-06",
+            "question": "The policy is ambitious; {a1}, implementation remains uncertain",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "however_nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however_nevertheless"
+            ],
+            "variants": [
+                "The policy is ambitious; {a1}, implementation remains uncertain"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 55,
+            "uuid": "clw-ccs-v3-c1-07",
+            "question": "{a1} difficult the task is, we must finish it",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "No matter how",
+                    "options": [
+                        "No matter how",
+                        "Despite",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "no_matter_whatever"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_matter_whatever"
+            ],
+            "variants": [
+                "{a1} difficult the task is, we must finish it"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 56,
+            "uuid": "clw-ccs-v3-c1-08",
+            "question": "{a1} it may seem, the rule is useful",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Strange though",
+                    "options": [
+                        "Strange though",
+                        "Although strange",
+                        "Despite strange",
+                        "However strange"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "though_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_inversion"
+            ],
+            "variants": [
+                "{a1} it may seem, the rule is useful"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 57,
+            "uuid": "clw-ccs-v3-c1-09",
+            "question": "The method is demanding, {a1} it produces reliable results",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "therefore",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "balance_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "balance_contrast"
+            ],
+            "variants": [
+                "The method is demanding, {a1} it produces reliable results"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 58,
+            "uuid": "clw-ccs-v3-c1-10",
+            "question": "The results were promising; {a1}, further testing is needed",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "punctuation_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_register"
+            ],
+            "variants": [
+                "The results were promising; {a1}, further testing is needed"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 59,
+            "uuid": "clw-ccs-v3-c1-11",
+            "question": "{a1} being tired, she answered every question",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} being tired, she answered every question"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 60,
+            "uuid": "clw-ccs-v3-c1-12",
+            "question": "This approach saves time, {a1} the old one requires several steps",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "therefore",
+                        "because",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "This approach saves time, {a1} the old one requires several steps"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 61,
+            "uuid": "clw-ccs-v3-c2-01",
+            "question": "{a1} the evidence was limited, the conclusion was convincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "concession_vs_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "concession_vs_contrast"
+            ],
+            "variants": [
+                "{a1} the evidence was limited, the conclusion was convincing"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 62,
+            "uuid": "clw-ccs-v3-c2-02",
+            "question": "{a1} it was risky, they approved the plan",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Despite",
+                        "Therefore",
+                        "Because of"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "although_even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_even_though"
+            ],
+            "variants": [
+                "{a1} it was risky, they approved the plan"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 63,
+            "uuid": "clw-ccs-v3-c2-03",
+            "question": "{a1} the delay, the project was completed successfully",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the delay, the project was completed successfully"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 64,
+            "uuid": "clw-ccs-v3-c2-04",
+            "question": "{a1} the team was small, it delivered excellent work",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite the fact that",
+                    "options": [
+                        "Despite the fact that",
+                        "Despite",
+                        "However",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "despite_the_fact_that"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_the_fact_that"
+            ],
+            "variants": [
+                "{a1} the team was small, it delivered excellent work"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 65,
+            "uuid": "clw-ccs-v3-c2-05",
+            "question": "{a1} some experts are optimistic, others remain cautious",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "Therefore",
+                        "Because of",
+                        "Moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "{a1} some experts are optimistic, others remain cautious"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 66,
+            "uuid": "clw-ccs-v3-c2-06",
+            "question": "The policy is ambitious; {a1}, implementation remains uncertain",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "although",
+                        "because",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "however_nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however_nevertheless"
+            ],
+            "variants": [
+                "The policy is ambitious; {a1}, implementation remains uncertain"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 67,
+            "uuid": "clw-ccs-v3-c2-07",
+            "question": "{a1} difficult the task is, we must finish it",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "No matter how",
+                    "options": [
+                        "No matter how",
+                        "Despite",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "no_matter_whatever"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_matter_whatever"
+            ],
+            "variants": [
+                "{a1} difficult the task is, we must finish it"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 68,
+            "uuid": "clw-ccs-v3-c2-08",
+            "question": "{a1} it may seem, the rule is useful",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Strange though",
+                    "options": [
+                        "Strange though",
+                        "Although strange",
+                        "Despite strange",
+                        "However strange"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "though_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_inversion"
+            ],
+            "variants": [
+                "{a1} it may seem, the rule is useful"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 69,
+            "uuid": "clw-ccs-v3-c2-09",
+            "question": "The method is demanding, {a1} it produces reliable results",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "therefore",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "balance_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "balance_contrast"
+            ],
+            "variants": [
+                "The method is demanding, {a1} it produces reliable results"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 70,
+            "uuid": "clw-ccs-v3-c2-10",
+            "question": "The results were promising; {a1}, further testing is needed",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "punctuation_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation_register"
+            ],
+            "variants": [
+                "The results were promising; {a1}, further testing is needed"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 71,
+            "uuid": "clw-ccs-v3-c2-11",
+            "question": "{a1} being tired, she answered every question",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} being tired, she answered every question"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        },
+        {
+            "id": 72,
+            "uuid": "clw-ccs-v3-c2-12",
+            "question": "This approach saves time, {a1} the old one requires several steps",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "therefore",
+                        "because",
+                        "moreover"
+                    ],
+                    "verb_hint": "Choose the connector that preserves the logical relation.",
+                    "gap_tags": [
+                        "while_whereas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "while_whereas"
+            ],
+            "variants": [
+                "This approach saves time, {a1} the old one requires several steps"
+            ],
+            "source": "theory_page_concessive_and_contrastive_structures"
+        }
+    ],
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_concessive_and_contrastive_structures": {
+            "name": "Concessive And Contrastive Structures"
+        }
+    }
+}
