@@ -1,0 +1,2140 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\MixedRevision\\C1MixedRevisionAllLevelsV3Seeder",
+        "uuid_namespace": "C1MixedRevisionAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "mr-c1-v3-all",
+        "slug": "c1-mixed-revision-all-levels-v3",
+        "name": "C1 Mixed Revision: V3 All Levels",
+        "description": "Page-local V3 package for C1 Mixed Revision with A1-C2 coverage.",
+        "question_uuids": [
+            "mr-c1-v3-a1-01",
+            "mr-c1-v3-a1-02",
+            "mr-c1-v3-a1-03",
+            "mr-c1-v3-a1-04",
+            "mr-c1-v3-a1-05",
+            "mr-c1-v3-a1-06",
+            "mr-c1-v3-a1-07",
+            "mr-c1-v3-a1-08",
+            "mr-c1-v3-a1-09",
+            "mr-c1-v3-a1-10",
+            "mr-c1-v3-a1-11",
+            "mr-c1-v3-a1-12",
+            "mr-c1-v3-a2-01",
+            "mr-c1-v3-a2-02",
+            "mr-c1-v3-a2-03",
+            "mr-c1-v3-a2-04",
+            "mr-c1-v3-a2-05",
+            "mr-c1-v3-a2-06",
+            "mr-c1-v3-a2-07",
+            "mr-c1-v3-a2-08",
+            "mr-c1-v3-a2-09",
+            "mr-c1-v3-a2-10",
+            "mr-c1-v3-a2-11",
+            "mr-c1-v3-a2-12",
+            "mr-c1-v3-b1-01",
+            "mr-c1-v3-b1-02",
+            "mr-c1-v3-b1-03",
+            "mr-c1-v3-b1-04",
+            "mr-c1-v3-b1-05",
+            "mr-c1-v3-b1-06",
+            "mr-c1-v3-b1-07",
+            "mr-c1-v3-b1-08",
+            "mr-c1-v3-b1-09",
+            "mr-c1-v3-b1-10",
+            "mr-c1-v3-b1-11",
+            "mr-c1-v3-b1-12",
+            "mr-c1-v3-b2-01",
+            "mr-c1-v3-b2-02",
+            "mr-c1-v3-b2-03",
+            "mr-c1-v3-b2-04",
+            "mr-c1-v3-b2-05",
+            "mr-c1-v3-b2-06",
+            "mr-c1-v3-b2-07",
+            "mr-c1-v3-b2-08",
+            "mr-c1-v3-b2-09",
+            "mr-c1-v3-b2-10",
+            "mr-c1-v3-b2-11",
+            "mr-c1-v3-b2-12",
+            "mr-c1-v3-c1-01",
+            "mr-c1-v3-c1-02",
+            "mr-c1-v3-c1-03",
+            "mr-c1-v3-c1-04",
+            "mr-c1-v3-c1-05",
+            "mr-c1-v3-c1-06",
+            "mr-c1-v3-c1-07",
+            "mr-c1-v3-c1-08",
+            "mr-c1-v3-c1-09",
+            "mr-c1-v3-c1-10",
+            "mr-c1-v3-c1-11",
+            "mr-c1-v3-c1-12",
+            "mr-c1-v3-c2-01",
+            "mr-c1-v3-c2-02",
+            "mr-c1-v3-c2-03",
+            "mr-c1-v3-c2-04",
+            "mr-c1-v3-c2-05",
+            "mr-c1-v3-c2-06",
+            "mr-c1-v3-c2-07",
+            "mr-c1-v3-c2-08",
+            "mr-c1-v3-c2-09",
+            "mr-c1-v3-c2-10",
+            "mr-c1-v3-c2-11",
+            "mr-c1-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\MixedRevision\\C1MixedRevisionAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "mixed-revision",
+                "page_slug": "c1-mixed-revision",
+                "page_route": "/theory/mixed-revision/c1-mixed-revision",
+                "theory_page": {
+                    "slug": "c1-mixed-revision",
+                    "title": "C1 Mixed Revision",
+                    "category_slug_path": "mixed-revision",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\C1MixedRevisionTheorySeeder",
+                    "url": "https://gramlyze.com/theory/mixed-revision/c1-mixed-revision"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mr-c1-v3-a1-01",
+            "question": "Had I known, I {a1} earlier.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have replied",
+                    "options": [
+                        "would have replied",
+                        "will reply",
+                        "would reply",
+                        "had replied"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_conditionals"
+            ],
+            "variants": [
+                "Had I known, I {a1} earlier."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 2,
+            "uuid": "mr-c1-v3-a1-02",
+            "question": "He denied {a1} the figures.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "changing",
+                    "options": [
+                        "changing",
+                        "to change",
+                        "change",
+                        "changed"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_reported_speech"
+            ],
+            "variants": [
+                "He denied {a1} the figures."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 3,
+            "uuid": "mr-c1-v3-a1-03",
+            "question": "The minister {a1} to have resigned.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "says",
+                        "is saying",
+                        "has said"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "passive_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_reporting"
+            ],
+            "variants": [
+                "The minister {a1} to have resigned."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 4,
+            "uuid": "mr-c1-v3-a1-04",
+            "question": "We had the contract {a1} by a lawyer.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "review",
+                        "to review",
+                        "reviewing"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "causative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "causative"
+            ],
+            "variants": [
+                "We had the contract {a1} by a lawyer."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 5,
+            "uuid": "mr-c1-v3-a1-05",
+            "question": "The evidence was weak; {a1}, the claim was accepted.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "because",
+                        "so",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_linking"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_linking"
+            ],
+            "variants": [
+                "The evidence was weak; {a1}, the claim was accepted."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 6,
+            "uuid": "mr-c1-v3-a1-06",
+            "question": "Having {a1} the report, she left.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "finished",
+                    "options": [
+                        "finished",
+                        "finishing",
+                        "finish",
+                        "been finish"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "participle_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "participle_clauses"
+            ],
+            "variants": [
+                "Having {a1} the report, she left."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 7,
+            "uuid": "mr-c1-v3-a1-07",
+            "question": "This is the researcher {a1} work changed the field.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "complex_relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "complex_relative_clauses"
+            ],
+            "variants": [
+                "This is the researcher {a1} work changed the field."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 8,
+            "uuid": "mr-c1-v3-a1-08",
+            "question": "He {a1} forgotten about the meeting.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "can",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "modal_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_deduction"
+            ],
+            "variants": [
+                "He {a1} forgotten about the meeting."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 9,
+            "uuid": "mr-c1-v3-a1-09",
+            "question": "The proposal was rejected due to {a1} evidence.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "insufficient",
+                    "options": [
+                        "insufficient",
+                        "not enough of",
+                        "littlely",
+                        "smallly"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register"
+            ],
+            "variants": [
+                "The proposal was rejected due to {a1} evidence."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 10,
+            "uuid": "mr-c1-v3-a1-10",
+            "question": "She objected to {a1} treated unfairly.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "being",
+                    "options": [
+                        "being",
+                        "be",
+                        "to be",
+                        "been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_gerund_infinitive"
+            ],
+            "variants": [
+                "She objected to {a1} treated unfairly."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 11,
+            "uuid": "mr-c1-v3-a1-11",
+            "question": "Not only {a1} the policy change, but its effects were immediate.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "has",
+                        "had been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "inversion_emphasis"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion_emphasis"
+            ],
+            "variants": [
+                "Not only {a1} the policy change, but its effects were immediate."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 12,
+            "uuid": "mr-c1-v3-a1-12",
+            "question": "The study {a1} a clear distinction between risk and uncertainty.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "draws",
+                    "options": [
+                        "draws",
+                        "does",
+                        "takes",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "academic_patterns"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "academic_patterns"
+            ],
+            "variants": [
+                "The study {a1} a clear distinction between risk and uncertainty."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 13,
+            "uuid": "mr-c1-v3-a2-01",
+            "question": "He denied {a1} the figures.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "changing",
+                    "options": [
+                        "changing",
+                        "to change",
+                        "change",
+                        "changed"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_reported_speech"
+            ],
+            "variants": [
+                "He denied {a1} the figures."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 14,
+            "uuid": "mr-c1-v3-a2-02",
+            "question": "The minister {a1} to have resigned.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "says",
+                        "is saying",
+                        "has said"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "passive_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_reporting"
+            ],
+            "variants": [
+                "The minister {a1} to have resigned."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 15,
+            "uuid": "mr-c1-v3-a2-03",
+            "question": "We had the contract {a1} by a lawyer.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "review",
+                        "to review",
+                        "reviewing"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "causative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "causative"
+            ],
+            "variants": [
+                "We had the contract {a1} by a lawyer."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 16,
+            "uuid": "mr-c1-v3-a2-04",
+            "question": "The evidence was weak; {a1}, the claim was accepted.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "because",
+                        "so",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_linking"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_linking"
+            ],
+            "variants": [
+                "The evidence was weak; {a1}, the claim was accepted."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 17,
+            "uuid": "mr-c1-v3-a2-05",
+            "question": "Having {a1} the report, she left.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "finished",
+                    "options": [
+                        "finished",
+                        "finishing",
+                        "finish",
+                        "been finish"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "participle_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "participle_clauses"
+            ],
+            "variants": [
+                "Having {a1} the report, she left."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 18,
+            "uuid": "mr-c1-v3-a2-06",
+            "question": "This is the researcher {a1} work changed the field.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "complex_relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "complex_relative_clauses"
+            ],
+            "variants": [
+                "This is the researcher {a1} work changed the field."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 19,
+            "uuid": "mr-c1-v3-a2-07",
+            "question": "He {a1} forgotten about the meeting.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "can",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "modal_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_deduction"
+            ],
+            "variants": [
+                "He {a1} forgotten about the meeting."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 20,
+            "uuid": "mr-c1-v3-a2-08",
+            "question": "The proposal was rejected due to {a1} evidence.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "insufficient",
+                    "options": [
+                        "insufficient",
+                        "not enough of",
+                        "littlely",
+                        "smallly"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register"
+            ],
+            "variants": [
+                "The proposal was rejected due to {a1} evidence."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 21,
+            "uuid": "mr-c1-v3-a2-09",
+            "question": "She objected to {a1} treated unfairly.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "being",
+                    "options": [
+                        "being",
+                        "be",
+                        "to be",
+                        "been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_gerund_infinitive"
+            ],
+            "variants": [
+                "She objected to {a1} treated unfairly."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 22,
+            "uuid": "mr-c1-v3-a2-10",
+            "question": "Not only {a1} the policy change, but its effects were immediate.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "has",
+                        "had been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "inversion_emphasis"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion_emphasis"
+            ],
+            "variants": [
+                "Not only {a1} the policy change, but its effects were immediate."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 23,
+            "uuid": "mr-c1-v3-a2-11",
+            "question": "The study {a1} a clear distinction between risk and uncertainty.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "draws",
+                    "options": [
+                        "draws",
+                        "does",
+                        "takes",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "academic_patterns"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "academic_patterns"
+            ],
+            "variants": [
+                "The study {a1} a clear distinction between risk and uncertainty."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 24,
+            "uuid": "mr-c1-v3-a2-12",
+            "question": "Had I known, I {a1} earlier.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have replied",
+                    "options": [
+                        "would have replied",
+                        "will reply",
+                        "would reply",
+                        "had replied"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_conditionals"
+            ],
+            "variants": [
+                "Had I known, I {a1} earlier."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 25,
+            "uuid": "mr-c1-v3-b1-01",
+            "question": "The minister {a1} to have resigned.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "says",
+                        "is saying",
+                        "has said"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "passive_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_reporting"
+            ],
+            "variants": [
+                "The minister {a1} to have resigned."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 26,
+            "uuid": "mr-c1-v3-b1-02",
+            "question": "We had the contract {a1} by a lawyer.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "review",
+                        "to review",
+                        "reviewing"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "causative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "causative"
+            ],
+            "variants": [
+                "We had the contract {a1} by a lawyer."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 27,
+            "uuid": "mr-c1-v3-b1-03",
+            "question": "The evidence was weak; {a1}, the claim was accepted.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "because",
+                        "so",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_linking"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_linking"
+            ],
+            "variants": [
+                "The evidence was weak; {a1}, the claim was accepted."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 28,
+            "uuid": "mr-c1-v3-b1-04",
+            "question": "Having {a1} the report, she left.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "finished",
+                    "options": [
+                        "finished",
+                        "finishing",
+                        "finish",
+                        "been finish"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "participle_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "participle_clauses"
+            ],
+            "variants": [
+                "Having {a1} the report, she left."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 29,
+            "uuid": "mr-c1-v3-b1-05",
+            "question": "This is the researcher {a1} work changed the field.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "complex_relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "complex_relative_clauses"
+            ],
+            "variants": [
+                "This is the researcher {a1} work changed the field."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 30,
+            "uuid": "mr-c1-v3-b1-06",
+            "question": "He {a1} forgotten about the meeting.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "can",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "modal_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_deduction"
+            ],
+            "variants": [
+                "He {a1} forgotten about the meeting."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 31,
+            "uuid": "mr-c1-v3-b1-07",
+            "question": "The proposal was rejected due to {a1} evidence.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "insufficient",
+                    "options": [
+                        "insufficient",
+                        "not enough of",
+                        "littlely",
+                        "smallly"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register"
+            ],
+            "variants": [
+                "The proposal was rejected due to {a1} evidence."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 32,
+            "uuid": "mr-c1-v3-b1-08",
+            "question": "She objected to {a1} treated unfairly.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "being",
+                    "options": [
+                        "being",
+                        "be",
+                        "to be",
+                        "been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_gerund_infinitive"
+            ],
+            "variants": [
+                "She objected to {a1} treated unfairly."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 33,
+            "uuid": "mr-c1-v3-b1-09",
+            "question": "Not only {a1} the policy change, but its effects were immediate.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "has",
+                        "had been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "inversion_emphasis"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion_emphasis"
+            ],
+            "variants": [
+                "Not only {a1} the policy change, but its effects were immediate."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 34,
+            "uuid": "mr-c1-v3-b1-10",
+            "question": "The study {a1} a clear distinction between risk and uncertainty.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "draws",
+                    "options": [
+                        "draws",
+                        "does",
+                        "takes",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "academic_patterns"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "academic_patterns"
+            ],
+            "variants": [
+                "The study {a1} a clear distinction between risk and uncertainty."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 35,
+            "uuid": "mr-c1-v3-b1-11",
+            "question": "Had I known, I {a1} earlier.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have replied",
+                    "options": [
+                        "would have replied",
+                        "will reply",
+                        "would reply",
+                        "had replied"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_conditionals"
+            ],
+            "variants": [
+                "Had I known, I {a1} earlier."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 36,
+            "uuid": "mr-c1-v3-b1-12",
+            "question": "He denied {a1} the figures.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "changing",
+                    "options": [
+                        "changing",
+                        "to change",
+                        "change",
+                        "changed"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_reported_speech"
+            ],
+            "variants": [
+                "He denied {a1} the figures."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 37,
+            "uuid": "mr-c1-v3-b2-01",
+            "question": "We had the contract {a1} by a lawyer.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "review",
+                        "to review",
+                        "reviewing"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "causative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "causative"
+            ],
+            "variants": [
+                "We had the contract {a1} by a lawyer."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 38,
+            "uuid": "mr-c1-v3-b2-02",
+            "question": "The evidence was weak; {a1}, the claim was accepted.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "because",
+                        "so",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_linking"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_linking"
+            ],
+            "variants": [
+                "The evidence was weak; {a1}, the claim was accepted."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 39,
+            "uuid": "mr-c1-v3-b2-03",
+            "question": "Having {a1} the report, she left.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "finished",
+                    "options": [
+                        "finished",
+                        "finishing",
+                        "finish",
+                        "been finish"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "participle_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "participle_clauses"
+            ],
+            "variants": [
+                "Having {a1} the report, she left."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 40,
+            "uuid": "mr-c1-v3-b2-04",
+            "question": "This is the researcher {a1} work changed the field.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "complex_relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "complex_relative_clauses"
+            ],
+            "variants": [
+                "This is the researcher {a1} work changed the field."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 41,
+            "uuid": "mr-c1-v3-b2-05",
+            "question": "He {a1} forgotten about the meeting.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "can",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "modal_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_deduction"
+            ],
+            "variants": [
+                "He {a1} forgotten about the meeting."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 42,
+            "uuid": "mr-c1-v3-b2-06",
+            "question": "The proposal was rejected due to {a1} evidence.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "insufficient",
+                    "options": [
+                        "insufficient",
+                        "not enough of",
+                        "littlely",
+                        "smallly"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register"
+            ],
+            "variants": [
+                "The proposal was rejected due to {a1} evidence."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 43,
+            "uuid": "mr-c1-v3-b2-07",
+            "question": "She objected to {a1} treated unfairly.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "being",
+                    "options": [
+                        "being",
+                        "be",
+                        "to be",
+                        "been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_gerund_infinitive"
+            ],
+            "variants": [
+                "She objected to {a1} treated unfairly."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 44,
+            "uuid": "mr-c1-v3-b2-08",
+            "question": "Not only {a1} the policy change, but its effects were immediate.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "has",
+                        "had been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "inversion_emphasis"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion_emphasis"
+            ],
+            "variants": [
+                "Not only {a1} the policy change, but its effects were immediate."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 45,
+            "uuid": "mr-c1-v3-b2-09",
+            "question": "The study {a1} a clear distinction between risk and uncertainty.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "draws",
+                    "options": [
+                        "draws",
+                        "does",
+                        "takes",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "academic_patterns"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "academic_patterns"
+            ],
+            "variants": [
+                "The study {a1} a clear distinction between risk and uncertainty."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 46,
+            "uuid": "mr-c1-v3-b2-10",
+            "question": "Had I known, I {a1} earlier.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have replied",
+                    "options": [
+                        "would have replied",
+                        "will reply",
+                        "would reply",
+                        "had replied"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_conditionals"
+            ],
+            "variants": [
+                "Had I known, I {a1} earlier."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 47,
+            "uuid": "mr-c1-v3-b2-11",
+            "question": "He denied {a1} the figures.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "changing",
+                    "options": [
+                        "changing",
+                        "to change",
+                        "change",
+                        "changed"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_reported_speech"
+            ],
+            "variants": [
+                "He denied {a1} the figures."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 48,
+            "uuid": "mr-c1-v3-b2-12",
+            "question": "The minister {a1} to have resigned.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "says",
+                        "is saying",
+                        "has said"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "passive_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_reporting"
+            ],
+            "variants": [
+                "The minister {a1} to have resigned."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 49,
+            "uuid": "mr-c1-v3-c1-01",
+            "question": "The evidence was weak; {a1}, the claim was accepted.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "because",
+                        "so",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_linking"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_linking"
+            ],
+            "variants": [
+                "The evidence was weak; {a1}, the claim was accepted."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 50,
+            "uuid": "mr-c1-v3-c1-02",
+            "question": "Having {a1} the report, she left.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "finished",
+                    "options": [
+                        "finished",
+                        "finishing",
+                        "finish",
+                        "been finish"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "participle_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "participle_clauses"
+            ],
+            "variants": [
+                "Having {a1} the report, she left."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 51,
+            "uuid": "mr-c1-v3-c1-03",
+            "question": "This is the researcher {a1} work changed the field.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "complex_relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "complex_relative_clauses"
+            ],
+            "variants": [
+                "This is the researcher {a1} work changed the field."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 52,
+            "uuid": "mr-c1-v3-c1-04",
+            "question": "He {a1} forgotten about the meeting.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "can",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "modal_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_deduction"
+            ],
+            "variants": [
+                "He {a1} forgotten about the meeting."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 53,
+            "uuid": "mr-c1-v3-c1-05",
+            "question": "The proposal was rejected due to {a1} evidence.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "insufficient",
+                    "options": [
+                        "insufficient",
+                        "not enough of",
+                        "littlely",
+                        "smallly"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register"
+            ],
+            "variants": [
+                "The proposal was rejected due to {a1} evidence."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 54,
+            "uuid": "mr-c1-v3-c1-06",
+            "question": "She objected to {a1} treated unfairly.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "being",
+                    "options": [
+                        "being",
+                        "be",
+                        "to be",
+                        "been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_gerund_infinitive"
+            ],
+            "variants": [
+                "She objected to {a1} treated unfairly."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 55,
+            "uuid": "mr-c1-v3-c1-07",
+            "question": "Not only {a1} the policy change, but its effects were immediate.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "has",
+                        "had been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "inversion_emphasis"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion_emphasis"
+            ],
+            "variants": [
+                "Not only {a1} the policy change, but its effects were immediate."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 56,
+            "uuid": "mr-c1-v3-c1-08",
+            "question": "The study {a1} a clear distinction between risk and uncertainty.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "draws",
+                    "options": [
+                        "draws",
+                        "does",
+                        "takes",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "academic_patterns"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "academic_patterns"
+            ],
+            "variants": [
+                "The study {a1} a clear distinction between risk and uncertainty."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 57,
+            "uuid": "mr-c1-v3-c1-09",
+            "question": "Had I known, I {a1} earlier.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have replied",
+                    "options": [
+                        "would have replied",
+                        "will reply",
+                        "would reply",
+                        "had replied"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_conditionals"
+            ],
+            "variants": [
+                "Had I known, I {a1} earlier."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 58,
+            "uuid": "mr-c1-v3-c1-10",
+            "question": "He denied {a1} the figures.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "changing",
+                    "options": [
+                        "changing",
+                        "to change",
+                        "change",
+                        "changed"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_reported_speech"
+            ],
+            "variants": [
+                "He denied {a1} the figures."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 59,
+            "uuid": "mr-c1-v3-c1-11",
+            "question": "The minister {a1} to have resigned.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "says",
+                        "is saying",
+                        "has said"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "passive_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_reporting"
+            ],
+            "variants": [
+                "The minister {a1} to have resigned."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 60,
+            "uuid": "mr-c1-v3-c1-12",
+            "question": "We had the contract {a1} by a lawyer.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "review",
+                        "to review",
+                        "reviewing"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "causative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "causative"
+            ],
+            "variants": [
+                "We had the contract {a1} by a lawyer."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 61,
+            "uuid": "mr-c1-v3-c2-01",
+            "question": "Having {a1} the report, she left.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "finished",
+                    "options": [
+                        "finished",
+                        "finishing",
+                        "finish",
+                        "been finish"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "participle_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "participle_clauses"
+            ],
+            "variants": [
+                "Having {a1} the report, she left."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 62,
+            "uuid": "mr-c1-v3-c2-02",
+            "question": "This is the researcher {a1} work changed the field.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "who",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "complex_relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "complex_relative_clauses"
+            ],
+            "variants": [
+                "This is the researcher {a1} work changed the field."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 63,
+            "uuid": "mr-c1-v3-c2-03",
+            "question": "He {a1} forgotten about the meeting.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "can",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "modal_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_deduction"
+            ],
+            "variants": [
+                "He {a1} forgotten about the meeting."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 64,
+            "uuid": "mr-c1-v3-c2-04",
+            "question": "The proposal was rejected due to {a1} evidence.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "insufficient",
+                    "options": [
+                        "insufficient",
+                        "not enough of",
+                        "littlely",
+                        "smallly"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register"
+            ],
+            "variants": [
+                "The proposal was rejected due to {a1} evidence."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 65,
+            "uuid": "mr-c1-v3-c2-05",
+            "question": "She objected to {a1} treated unfairly.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "being",
+                    "options": [
+                        "being",
+                        "be",
+                        "to be",
+                        "been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_gerund_infinitive"
+            ],
+            "variants": [
+                "She objected to {a1} treated unfairly."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 66,
+            "uuid": "mr-c1-v3-c2-06",
+            "question": "Not only {a1} the policy change, but its effects were immediate.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "has",
+                        "had been"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "inversion_emphasis"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "inversion_emphasis"
+            ],
+            "variants": [
+                "Not only {a1} the policy change, but its effects were immediate."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 67,
+            "uuid": "mr-c1-v3-c2-07",
+            "question": "The study {a1} a clear distinction between risk and uncertainty.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "draws",
+                    "options": [
+                        "draws",
+                        "does",
+                        "takes",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "academic_patterns"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "academic_patterns"
+            ],
+            "variants": [
+                "The study {a1} a clear distinction between risk and uncertainty."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 68,
+            "uuid": "mr-c1-v3-c2-08",
+            "question": "Had I known, I {a1} earlier.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have replied",
+                    "options": [
+                        "would have replied",
+                        "will reply",
+                        "would reply",
+                        "had replied"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_conditionals"
+            ],
+            "variants": [
+                "Had I known, I {a1} earlier."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 69,
+            "uuid": "mr-c1-v3-c2-09",
+            "question": "He denied {a1} the figures.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "changing",
+                    "options": [
+                        "changing",
+                        "to change",
+                        "change",
+                        "changed"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_reported_speech"
+            ],
+            "variants": [
+                "He denied {a1} the figures."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 70,
+            "uuid": "mr-c1-v3-c2-10",
+            "question": "The minister {a1} to have resigned.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "says",
+                        "is saying",
+                        "has said"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "passive_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_reporting"
+            ],
+            "variants": [
+                "The minister {a1} to have resigned."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 71,
+            "uuid": "mr-c1-v3-c2-11",
+            "question": "We had the contract {a1} by a lawyer.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "reviewed",
+                    "options": [
+                        "reviewed",
+                        "review",
+                        "to review",
+                        "reviewing"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "causative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "causative"
+            ],
+            "variants": [
+                "We had the contract {a1} by a lawyer."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        },
+        {
+            "id": 72,
+            "uuid": "mr-c1-v3-c2-12",
+            "question": "The evidence was weak; {a1}, the claim was accepted.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "because",
+                        "so",
+                        "for example"
+                    ],
+                    "verb_hint": "Choose the answer that preserves the grammar and meaning in this mixed revision context.",
+                    "gap_tags": [
+                        "advanced_linking"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "advanced_linking"
+            ],
+            "variants": [
+                "The evidence was weak; {a1}, the claim was accepted."
+            ],
+            "source": "theory_page_c1_mixed_revision"
+        }
+    ],
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "theory_page_c1_mixed_revision": {
+            "name": "C1 Mixed Revision"
+        }
+    }
+}
