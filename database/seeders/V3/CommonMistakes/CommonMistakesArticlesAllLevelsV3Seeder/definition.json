@@ -1,0 +1,1874 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\CommonMistakes\\CommonMistakesArticlesAllLevelsV3Seeder",
+        "uuid_namespace": "CommonMistakesArticlesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Common Mistakes"
+    },
+    "sources": {
+        "theory_page_common_mistakes_articles_common_mistakes": {
+            "name": "Articles: Common Mistakes"
+        }
+    },
+    "tags": {
+        "common_mistakes_articles_common_mistakes_all_levels": {
+            "name": "common mistakes articles common mistakes all levels",
+            "category": "common_mistakes"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "a_an": {
+            "name": "A An",
+            "category": "topic"
+        },
+        "an_vowel_sound": {
+            "name": "An Vowel Sound",
+            "category": "topic"
+        },
+        "the_specific": {
+            "name": "The Specific",
+            "category": "topic"
+        },
+        "zero_general_plural": {
+            "name": "Zero General Plural",
+            "category": "topic"
+        },
+        "zero_uncountable": {
+            "name": "Zero Uncountable",
+            "category": "topic"
+        },
+        "first_second_mention": {
+            "name": "First Second Mention",
+            "category": "topic"
+        },
+        "generic_reference": {
+            "name": "Generic Reference",
+            "category": "topic"
+        },
+        "jobs_roles": {
+            "name": "Jobs Roles",
+            "category": "topic"
+        },
+        "geographical_names": {
+            "name": "Geographical Names",
+            "category": "topic"
+        },
+        "fixed_expressions": {
+            "name": "Fixed Expressions",
+            "category": "topic"
+        },
+        "overusing_the": {
+            "name": "Overusing The",
+            "category": "topic"
+        },
+        "missing_article": {
+            "name": "Missing Article",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cma-v3-a1-01",
+            "question": "Choose the article for a singular countable noun: I bought {a1} new notebook.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "a_an"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "cma-v3-a1-02",
+            "question": "Choose the article before a vowel sound: She has {a1} old umbrella.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "an_vowel_sound"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "cma-v3-a1-03",
+            "question": "Choose the article for a known item: Please close {a1} window in this room.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "the_specific"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "cma-v3-a1-04",
+            "question": "Choose zero article for a general plural noun: {a1} Dogs need regular exercise.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "zero_general_plural"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "cma-v3-a1-05",
+            "question": "Choose zero article for general uncountable meaning: {a1} Water is important for health.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "zero_uncountable"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "cma-v3-a1-06",
+            "question": "Choose the article for second mention: I saw a cat. {a1} cat was black.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "first_second_mention"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "cma-v3-a1-07",
+            "question": "Choose the general plural form: {a1} are dangerous wild animals.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "generic_reference"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Tigers",
+                    "options": [
+                        "Tigers",
+                        "The tigers",
+                        "A tigers",
+                        "An tigers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "cma-v3-a1-08",
+            "question": "Choose the article for a job: He is {a1} doctor.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "jobs_roles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "cma-v3-a1-09",
+            "question": "Choose the article for a river name: We crossed {a1} Thames yesterday.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "geographical_names"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "cma-v3-a1-10",
+            "question": "Choose the fixed expression: She goes to {a1} school by bus.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "fixed_expressions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "cma-v3-a1-11",
+            "question": "Avoid overusing the article: {a1} Life can be difficult.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "overusing_the"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "cma-v3-a1-12",
+            "question": "Avoid a missing article: This is {a1} useful tool.",
+            "level": "A1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a1",
+                "missing_article"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "cma-v3-a2-01",
+            "question": "Choose the article for a singular countable noun: I bought {a1} new notebook.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "a_an"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "cma-v3-a2-02",
+            "question": "Choose the article before a vowel sound: She has {a1} old umbrella.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "an_vowel_sound"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "cma-v3-a2-03",
+            "question": "Choose the article for a known item: Please close {a1} window in this room.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "the_specific"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "cma-v3-a2-04",
+            "question": "Choose zero article for a general plural noun: {a1} Dogs need regular exercise.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "zero_general_plural"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "cma-v3-a2-05",
+            "question": "Choose zero article for general uncountable meaning: {a1} Water is important for health.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "zero_uncountable"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "cma-v3-a2-06",
+            "question": "Choose the article for second mention: I saw a cat. {a1} cat was black.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "first_second_mention"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "cma-v3-a2-07",
+            "question": "Choose the general plural form: {a1} are dangerous wild animals.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "generic_reference"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Tigers",
+                    "options": [
+                        "Tigers",
+                        "The tigers",
+                        "A tigers",
+                        "An tigers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "cma-v3-a2-08",
+            "question": "Choose the article for a job: He is {a1} doctor.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "jobs_roles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "cma-v3-a2-09",
+            "question": "Choose the article for a river name: We crossed {a1} Thames yesterday.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "geographical_names"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "cma-v3-a2-10",
+            "question": "Choose the fixed expression: She goes to {a1} school by bus.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "fixed_expressions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "cma-v3-a2-11",
+            "question": "Avoid overusing the article: {a1} Life can be difficult.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "overusing_the"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "cma-v3-a2-12",
+            "question": "Avoid a missing article: This is {a1} useful tool.",
+            "level": "A2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_a2",
+                "missing_article"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "cma-v3-b1-01",
+            "question": "In this context, choose the article for a singular countable noun: I bought {a1} new notebook.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "a_an"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "cma-v3-b1-02",
+            "question": "In this context, choose the article before a vowel sound: She has {a1} old umbrella.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "an_vowel_sound"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "cma-v3-b1-03",
+            "question": "In this context, choose the article for a known item: Please close {a1} window in this room.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "the_specific"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "cma-v3-b1-04",
+            "question": "In this context, choose zero article for a general plural noun: {a1} Dogs need regular exercise.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "zero_general_plural"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "cma-v3-b1-05",
+            "question": "In this context, choose zero article for general uncountable meaning: {a1} Water is important for health.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "zero_uncountable"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "cma-v3-b1-06",
+            "question": "In this context, choose the article for second mention: I saw a cat. {a1} cat was black.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "first_second_mention"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "cma-v3-b1-07",
+            "question": "In this context, choose the general plural form: {a1} are dangerous wild animals.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "generic_reference"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Tigers",
+                    "options": [
+                        "Tigers",
+                        "The tigers",
+                        "A tigers",
+                        "An tigers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "cma-v3-b1-08",
+            "question": "In this context, choose the article for a job: He is {a1} doctor.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "jobs_roles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "cma-v3-b1-09",
+            "question": "In this context, choose the article for a river name: We crossed {a1} Thames yesterday.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "geographical_names"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "cma-v3-b1-10",
+            "question": "In this context, choose the fixed expression: She goes to {a1} school by bus.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "fixed_expressions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "cma-v3-b1-11",
+            "question": "In this context, avoid overusing the article: {a1} Life can be difficult.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "overusing_the"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "cma-v3-b1-12",
+            "question": "In this context, avoid a missing article: This is {a1} useful tool.",
+            "level": "B1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b1",
+                "missing_article"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "cma-v3-b2-01",
+            "question": "To correct the common mistake, choose the article for a singular countable noun: I bought {a1} new notebook.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "a_an"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "cma-v3-b2-02",
+            "question": "To correct the common mistake, choose the article before a vowel sound: She has {a1} old umbrella.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "an_vowel_sound"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "cma-v3-b2-03",
+            "question": "To correct the common mistake, choose the article for a known item: Please close {a1} window in this room.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "the_specific"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "cma-v3-b2-04",
+            "question": "To correct the common mistake, choose zero article for a general plural noun: {a1} Dogs need regular exercise.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "zero_general_plural"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "cma-v3-b2-05",
+            "question": "To correct the common mistake, choose zero article for general uncountable meaning: {a1} Water is important for health.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "zero_uncountable"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "cma-v3-b2-06",
+            "question": "To correct the common mistake, choose the article for second mention: I saw a cat. {a1} cat was black.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "first_second_mention"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "cma-v3-b2-07",
+            "question": "To correct the common mistake, choose the general plural form: {a1} are dangerous wild animals.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "generic_reference"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Tigers",
+                    "options": [
+                        "Tigers",
+                        "The tigers",
+                        "A tigers",
+                        "An tigers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "cma-v3-b2-08",
+            "question": "To correct the common mistake, choose the article for a job: He is {a1} doctor.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "jobs_roles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "cma-v3-b2-09",
+            "question": "To correct the common mistake, choose the article for a river name: We crossed {a1} Thames yesterday.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "geographical_names"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "cma-v3-b2-10",
+            "question": "To correct the common mistake, choose the fixed expression: She goes to {a1} school by bus.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "fixed_expressions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "cma-v3-b2-11",
+            "question": "To correct the common mistake, avoid overusing the article: {a1} Life can be difficult.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "overusing_the"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "cma-v3-b2-12",
+            "question": "To correct the common mistake, avoid a missing article: This is {a1} useful tool.",
+            "level": "B2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_b2",
+                "missing_article"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "cma-v3-c1-01",
+            "question": "In this more precise context, choose the article for a singular countable noun: I bought {a1} new notebook.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "a_an"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "cma-v3-c1-02",
+            "question": "In this more precise context, choose the article before a vowel sound: She has {a1} old umbrella.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "an_vowel_sound"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "cma-v3-c1-03",
+            "question": "In this more precise context, choose the article for a known item: Please close {a1} window in this room.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "the_specific"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "cma-v3-c1-04",
+            "question": "In this more precise context, choose zero article for a general plural noun: {a1} Dogs need regular exercise.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "zero_general_plural"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "cma-v3-c1-05",
+            "question": "In this more precise context, choose zero article for general uncountable meaning: {a1} Water is important for health.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "zero_uncountable"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "cma-v3-c1-06",
+            "question": "In this more precise context, choose the article for second mention: I saw a cat. {a1} cat was black.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "first_second_mention"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "cma-v3-c1-07",
+            "question": "In this more precise context, choose the general plural form: {a1} are dangerous wild animals.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "generic_reference"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Tigers",
+                    "options": [
+                        "Tigers",
+                        "The tigers",
+                        "A tigers",
+                        "An tigers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "cma-v3-c1-08",
+            "question": "In this more precise context, choose the article for a job: He is {a1} doctor.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "jobs_roles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "cma-v3-c1-09",
+            "question": "In this more precise context, choose the article for a river name: We crossed {a1} Thames yesterday.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "geographical_names"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "cma-v3-c1-10",
+            "question": "In this more precise context, choose the fixed expression: She goes to {a1} school by bus.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "fixed_expressions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "cma-v3-c1-11",
+            "question": "In this more precise context, avoid overusing the article: {a1} Life can be difficult.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "overusing_the"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "cma-v3-c1-12",
+            "question": "In this more precise context, avoid a missing article: This is {a1} useful tool.",
+            "level": "C1",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c1",
+                "missing_article"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "cma-v3-c2-01",
+            "question": "To avoid an advanced common mistake, choose the article for a singular countable noun: I bought {a1} new notebook.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "a_an"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "cma-v3-c2-02",
+            "question": "To avoid an advanced common mistake, choose the article before a vowel sound: She has {a1} old umbrella.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "an_vowel_sound"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "cma-v3-c2-03",
+            "question": "To avoid an advanced common mistake, choose the article for a known item: Please close {a1} window in this room.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "the_specific"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "cma-v3-c2-04",
+            "question": "To avoid an advanced common mistake, choose zero article for a general plural noun: {a1} Dogs need regular exercise.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "zero_general_plural"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "cma-v3-c2-05",
+            "question": "To avoid an advanced common mistake, choose zero article for general uncountable meaning: {a1} Water is important for health.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "zero_uncountable"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "cma-v3-c2-06",
+            "question": "To avoid an advanced common mistake, choose the article for second mention: I saw a cat. {a1} cat was black.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "first_second_mention"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "cma-v3-c2-07",
+            "question": "To avoid an advanced common mistake, choose the general plural form: {a1} are dangerous wild animals.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "generic_reference"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Tigers",
+                    "options": [
+                        "Tigers",
+                        "The tigers",
+                        "A tigers",
+                        "An tigers"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "cma-v3-c2-08",
+            "question": "To avoid an advanced common mistake, choose the article for a job: He is {a1} doctor.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "jobs_roles"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "cma-v3-c2-09",
+            "question": "To avoid an advanced common mistake, choose the article for a river name: We crossed {a1} Thames yesterday.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "geographical_names"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "the",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "-"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "cma-v3-c2-10",
+            "question": "To avoid an advanced common mistake, choose the fixed expression: She goes to {a1} school by bus.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "fixed_expressions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "cma-v3-c2-11",
+            "question": "To avoid an advanced common mistake, avoid overusing the article: {a1} Life can be difficult.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "overusing_the"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "-",
+                    "options": [
+                        "-",
+                        "the",
+                        "a",
+                        "an"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "cma-v3-c2-12",
+            "question": "To avoid an advanced common mistake, avoid a missing article: This is {a1} useful tool.",
+            "level": "C2",
+            "source": "theory_page_common_mistakes_articles_common_mistakes",
+            "tag_keys": [
+                "common_mistakes_articles_common_mistakes_all_levels",
+                "level_c2",
+                "missing_article"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "-"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "cma-v3-all",
+        "slug": "common-mistakes-articles-all-levels-v3",
+        "name": "Articles: Common Mistakes (All levels V3)",
+        "description": "Standard V3 package for Articles: Common Mistakes across A1-C2.",
+        "question_uuids": [
+            "cma-v3-a1-01",
+            "cma-v3-a1-02",
+            "cma-v3-a1-03",
+            "cma-v3-a1-04",
+            "cma-v3-a1-05",
+            "cma-v3-a1-06",
+            "cma-v3-a1-07",
+            "cma-v3-a1-08",
+            "cma-v3-a1-09",
+            "cma-v3-a1-10",
+            "cma-v3-a1-11",
+            "cma-v3-a1-12",
+            "cma-v3-a2-01",
+            "cma-v3-a2-02",
+            "cma-v3-a2-03",
+            "cma-v3-a2-04",
+            "cma-v3-a2-05",
+            "cma-v3-a2-06",
+            "cma-v3-a2-07",
+            "cma-v3-a2-08",
+            "cma-v3-a2-09",
+            "cma-v3-a2-10",
+            "cma-v3-a2-11",
+            "cma-v3-a2-12",
+            "cma-v3-b1-01",
+            "cma-v3-b1-02",
+            "cma-v3-b1-03",
+            "cma-v3-b1-04",
+            "cma-v3-b1-05",
+            "cma-v3-b1-06",
+            "cma-v3-b1-07",
+            "cma-v3-b1-08",
+            "cma-v3-b1-09",
+            "cma-v3-b1-10",
+            "cma-v3-b1-11",
+            "cma-v3-b1-12",
+            "cma-v3-b2-01",
+            "cma-v3-b2-02",
+            "cma-v3-b2-03",
+            "cma-v3-b2-04",
+            "cma-v3-b2-05",
+            "cma-v3-b2-06",
+            "cma-v3-b2-07",
+            "cma-v3-b2-08",
+            "cma-v3-b2-09",
+            "cma-v3-b2-10",
+            "cma-v3-b2-11",
+            "cma-v3-b2-12",
+            "cma-v3-c1-01",
+            "cma-v3-c1-02",
+            "cma-v3-c1-03",
+            "cma-v3-c1-04",
+            "cma-v3-c1-05",
+            "cma-v3-c1-06",
+            "cma-v3-c1-07",
+            "cma-v3-c1-08",
+            "cma-v3-c1-09",
+            "cma-v3-c1-10",
+            "cma-v3-c1-11",
+            "cma-v3-c1-12",
+            "cma-v3-c2-01",
+            "cma-v3-c2-02",
+            "cma-v3-c2-03",
+            "cma-v3-c2-04",
+            "cma-v3-c2-05",
+            "cma-v3-c2-06",
+            "cma-v3-c2-07",
+            "cma-v3-c2-08",
+            "cma-v3-c2-09",
+            "cma-v3-c2-10",
+            "cma-v3-c2-11",
+            "cma-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\CommonMistakes\\CommonMistakesArticlesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "page_slug": "articles-common-mistakes",
+                "page_route": "/theory/common-mistakes/articles-common-mistakes",
+                "theory_page": {
+                    "slug": "articles-common-mistakes",
+                    "title": "Articles: Common Mistakes",
+                    "category_slug_path": "common-mistakes",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesArticlesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/common-mistakes/articles-common-mistakes"
+                }
+            }
+        }
+    }
+}
