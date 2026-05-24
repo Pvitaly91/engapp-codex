@@ -17,7 +17,7 @@
             "name": "Polyglot Compose Tokens",
             "category": "topic"
         },
-        "polyglot_sentence_types": {
+        "sentence_types": {
             "name": "Sentence Types",
             "category": "topic"
         },
@@ -61,133 +61,365 @@
     },
     "default_tag_keys": [
         "polyglot_compose_tokens",
-        "polyglot_sentence_types"
+        "sentence_types"
     ],
+    "saved_test": {
+        "uuid": "bg-st-poly-all",
+        "slug": "polyglot-sentence-types-all-levels",
+        "name": "Sentence Builder: Sentence Types (All levels)",
+        "description": "Compose-token Sentence Builder package for Sentence Types across A1-C2.",
+        "question_uuids": [
+            "poly-stype-a1-01",
+            "poly-stype-a1-02",
+            "poly-stype-a1-03",
+            "poly-stype-a1-04",
+            "poly-stype-a1-05",
+            "poly-stype-a1-06",
+            "poly-stype-a1-07",
+            "poly-stype-a1-08",
+            "poly-stype-a1-09",
+            "poly-stype-a1-10",
+            "poly-stype-a1-11",
+            "poly-stype-a1-12",
+            "poly-stype-a2-01",
+            "poly-stype-a2-02",
+            "poly-stype-a2-03",
+            "poly-stype-a2-04",
+            "poly-stype-a2-05",
+            "poly-stype-a2-06",
+            "poly-stype-a2-07",
+            "poly-stype-a2-08",
+            "poly-stype-a2-09",
+            "poly-stype-a2-10",
+            "poly-stype-a2-11",
+            "poly-stype-a2-12",
+            "poly-stype-b1-01",
+            "poly-stype-b1-02",
+            "poly-stype-b1-03",
+            "poly-stype-b1-04",
+            "poly-stype-b1-05",
+            "poly-stype-b1-06",
+            "poly-stype-b1-07",
+            "poly-stype-b1-08",
+            "poly-stype-b1-09",
+            "poly-stype-b1-10",
+            "poly-stype-b1-11",
+            "poly-stype-b1-12",
+            "poly-stype-b2-01",
+            "poly-stype-b2-02",
+            "poly-stype-b2-03",
+            "poly-stype-b2-04",
+            "poly-stype-b2-05",
+            "poly-stype-b2-06",
+            "poly-stype-b2-07",
+            "poly-stype-b2-08",
+            "poly-stype-b2-09",
+            "poly-stype-b2-10",
+            "poly-stype-b2-11",
+            "poly-stype-b2-12",
+            "poly-stype-c1-01",
+            "poly-stype-c1-02",
+            "poly-stype-c1-03",
+            "poly-stype-c1-04",
+            "poly-stype-c1-05",
+            "poly-stype-c1-06",
+            "poly-stype-c1-07",
+            "poly-stype-c1-08",
+            "poly-stype-c1-09",
+            "poly-stype-c1-10",
+            "poly-stype-c1-11",
+            "poly-stype-c1-12",
+            "poly-stype-c2-01",
+            "poly-stype-c2-02",
+            "poly-stype-c2-03",
+            "poly-stype-c2-04",
+            "poly-stype-c2-05",
+            "poly-stype-c2-06",
+            "poly-stype-c2-07",
+            "poly-stype-c2-08",
+            "poly-stype-c2-09",
+            "poly-stype-c2-10",
+            "poly-stype-c2-11",
+            "poly-stype-c2-12"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "Sentence Types",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "basic-grammar",
+                "page_slug": "sentence-types",
+                "page_route": "/theory/basic-grammar/sentence-types",
+                "theory_page": {
+                    "slug": "sentence-types",
+                    "title": "Sentence Types",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceTypesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-types"
+                }
+            }
+        }
+    },
     "questions": [
         {
             "id": 1,
             "uuid": "poly-stype-a1-01",
-            "question": "Склади стверджувальне речення: Я вивчаю англійську.",
+            "question": "Вона живе тут.",
             "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "I",
-                "a2": "study",
-                "a3": "English"
+                "a1": "She",
+                "a2": "lives",
+                "a3": "here"
             },
             "options": [
-                "I",
-                "study",
-                "English",
-                "do",
-                "not"
+                "She",
+                "lives",
+                "here",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Вона живе тут.",
+            "target_text": "She lives here",
+            "tokens_correct": [
+                "She",
+                "lives",
+                "here"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "affirmative_statements",
+                "a1"
+            ],
             "tag_keys": [
+                "theory_page_sentence_types",
+                "affirmative_statements",
                 "level_a1"
             ]
         },
         {
             "id": 2,
             "uuid": "poly-stype-a1-02",
-            "question": "Склади питальне речення: Ти готовий?",
+            "question": "Вона тут не живе.",
             "level": "A1",
-            "answers": {
-                "a1": "Are",
-                "a2": "you",
-                "a3": "ready"
-            },
-            "options": [
-                "Are",
-                "you",
-                "ready",
-                "do",
-                "not"
-            ],
-            "variants": [],
-            "source": "theory_page_sentence_types",
-            "tag_keys": [
-                "level_a1"
-            ]
-        },
-        {
-            "id": 3,
-            "uuid": "poly-stype-a2-01",
-            "question": "Склади заперечне речення: Вона не працює сьогодні.",
-            "level": "A2",
+            "type": 4,
             "answers": {
                 "a1": "She",
                 "a2": "does",
                 "a3": "not",
-                "a4": "work",
-                "a5": "today"
+                "a4": "live",
+                "a5": "here"
             },
             "options": [
                 "She",
                 "does",
                 "not",
-                "work",
-                "today",
-                "works"
+                "live",
+                "here",
+                "lives",
+                "do",
+                "where"
+            ],
+            "source_text_uk": "Вона тут не живе.",
+            "target_text": "She does not live here",
+            "tokens_correct": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here"
+            ],
+            "distractors": [
+                "lives",
+                "do",
+                "where"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_sentences",
+                "a1"
+            ],
             "tag_keys": [
-                "level_a2"
+                "theory_page_sentence_types",
+                "negative_sentences",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "poly-stype-a1-03",
+            "question": "Тобі подобається чай?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "like",
+                "a4": "tea"
+            },
+            "options": [
+                "Do",
+                "you",
+                "like",
+                "tea",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Тобі подобається чай?",
+            "target_text": "Do you like tea",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "like",
+                "tea"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "yes_no_questions",
+                "a1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "yes_no_questions",
+                "level_a1"
             ]
         },
         {
             "id": 4,
-            "uuid": "poly-stype-a2-02",
-            "question": "Склади наказове речення: Відкрий вікно.",
-            "level": "A2",
-            "answers": {
-                "a1": "Open",
-                "a2": "the",
-                "a3": "window"
-            },
-            "options": [
-                "Open",
-                "the",
-                "window",
-                "You",
-                "opens"
-            ],
-            "variants": [],
-            "source": "theory_page_sentence_types",
-            "tag_keys": [
-                "level_a2"
-            ]
-        },
-        {
-            "id": 5,
-            "uuid": "poly-stype-b1-01",
-            "question": "Склади англійське речення: Де вони живуть?",
-            "level": "B1",
+            "uuid": "poly-stype-a1-04",
+            "question": "Де ти живеш?",
+            "level": "A1",
+            "type": 4,
             "answers": {
                 "a1": "Where",
                 "a2": "do",
-                "a3": "they",
+                "a3": "you",
                 "a4": "live"
             },
             "options": [
                 "Where",
                 "do",
-                "they",
+                "you",
                 "live",
-                "are"
+                "Does",
+                "not",
+                "here"
+            ],
+            "source_text_uk": "Де ти живеш?",
+            "target_text": "Where do you live",
+            "tokens_correct": [
+                "Where",
+                "do",
+                "you",
+                "live"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "here"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "wh_questions",
+                "a1"
+            ],
             "tag_keys": [
-                "level_b1"
+                "theory_page_sentence_types",
+                "wh_questions",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "poly-stype-a1-05",
+            "question": "Відкрий двері.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Open",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Open",
+                "the",
+                "door",
+                "You",
+                "opens",
+                "not"
+            ],
+            "source_text_uk": "Відкрий двері.",
+            "target_text": "Open the door",
+            "tokens_correct": [
+                "Open",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "opens",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "imperative_sentences",
+                "a1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "imperative_sentences",
+                "level_a1"
             ]
         },
         {
             "id": 6,
-            "uuid": "poly-stype-b1-02",
-            "question": "Склади окличне речення: Який гарний день!",
-            "level": "B1",
+            "uuid": "poly-stype-a1-06",
+            "question": "Який чудовий день!",
+            "level": "A1",
+            "type": 4,
             "answers": {
                 "a1": "What",
                 "a2": "a",
@@ -199,237 +431,3176 @@
                 "a",
                 "beautiful",
                 "day",
-                "How"
+                "How",
+                "does",
+                "not"
+            ],
+            "source_text_uk": "Який чудовий день!",
+            "target_text": "What a beautiful day",
+            "tokens_correct": [
+                "What",
+                "a",
+                "beautiful",
+                "day"
+            ],
+            "distractors": [
+                "How",
+                "does",
+                "not"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "exclamations",
+                "a1"
+            ],
             "tag_keys": [
-                "level_b1"
+                "theory_page_sentence_types",
+                "exclamations",
+                "level_a1"
             ]
         },
         {
             "id": 7,
-            "uuid": "poly-stype-b2-01",
-            "question": "Склади непряме питання: Я не знаю, де вона працює.",
-            "level": "B2",
+            "uuid": "poly-stype-a1-07",
+            "question": "Мій брат грає у футбол.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "My",
+                "a2": "brother",
+                "a3": "plays",
+                "a4": "football"
+            },
+            "options": [
+                "My",
+                "brother",
+                "plays",
+                "football",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Мій брат грає у футбол.",
+            "target_text": "My brother plays football",
+            "tokens_correct": [
+                "My",
+                "brother",
+                "plays",
+                "football"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "statement_word_order",
+                "a1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "statement_word_order",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "poly-stype-a1-08",
+            "question": "Вона працює тут?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "work",
+                "a4": "here"
+            },
+            "options": [
+                "Does",
+                "she",
+                "work",
+                "here",
+                "Do",
+                "works",
+                "not"
+            ],
+            "source_text_uk": "Вона працює тут?",
+            "target_text": "Does she work here",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "work",
+                "here"
+            ],
+            "distractors": [
+                "Do",
+                "works",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "question_word_order",
+                "a1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "question_word_order",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "poly-stype-a1-09",
+            "question": "Я не розумію цю відповідь.",
+            "level": "A1",
+            "type": 4,
             "answers": {
                 "a1": "I",
                 "a2": "do",
                 "a3": "not",
-                "a4": "know",
-                "a5": "where",
-                "a6": "she",
-                "a7": "works"
+                "a4": "understand",
+                "a5": "this",
+                "a6": "answer"
             },
             "options": [
                 "I",
                 "do",
                 "not",
-                "know",
-                "where",
-                "she",
-                "works",
-                "does"
+                "understand",
+                "this",
+                "answer",
+                "does",
+                "understands",
+                "where"
             ],
-            "variants": [],
-            "source": "theory_page_sentence_types",
-            "tag_keys": [
-                "level_b2"
-            ]
-        },
-        {
-            "id": 8,
-            "uuid": "poly-stype-b2-02",
-            "question": "Склади заперечне питання: Хіба ти не бачив повідомлення?",
-            "level": "B2",
-            "answers": {
-                "a1": "Did",
-                "a2": "you",
-                "a3": "not",
-                "a4": "see",
-                "a5": "the",
-                "a6": "message"
-            },
-            "options": [
-                "Did",
-                "you",
+            "source_text_uk": "Я не розумію цю відповідь.",
+            "target_text": "I do not understand this answer",
+            "tokens_correct": [
+                "I",
+                "do",
                 "not",
-                "see",
-                "the",
-                "message",
-                "saw"
+                "understand",
+                "this",
+                "answer"
+            ],
+            "distractors": [
+                "does",
+                "understands",
+                "where"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
-            "tag_keys": [
-                "level_b2"
-            ]
-        },
-        {
-            "id": 9,
-            "uuid": "poly-stype-c1-01",
-            "question": "Склади англійське речення: Вона справді завершила звіт.",
-            "level": "C1",
-            "answers": {
-                "a1": "She",
-                "a2": "did",
-                "a3": "finish",
-                "a4": "the",
-                "a5": "report"
-            },
-            "options": [
-                "She",
-                "did",
-                "finish",
-                "the",
-                "report",
-                "finished"
+            "grammar_tags": [
+                "sentence-types",
+                "negative_word_order",
+                "a1"
             ],
-            "variants": [],
-            "source": "theory_page_sentence_types",
             "tag_keys": [
-                "level_c1"
+                "theory_page_sentence_types",
+                "negative_word_order",
+                "level_a1"
             ]
         },
         {
             "id": 10,
-            "uuid": "poly-stype-c1-02",
-            "question": "Склади розділове питання: Ти йдеш, чи не так?",
-            "level": "C1",
+            "uuid": "poly-stype-a1-10",
+            "question": "Це просте питання.",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "You",
-                "a2": "are",
-                "a3": "coming",
-                "a4": "aren't",
-                "a5": "you"
+                "a1": "This",
+                "a2": "is",
+                "a3": "a",
+                "a4": "simple",
+                "a5": "question"
             },
             "options": [
-                "You",
-                "are",
-                "coming",
-                "aren't",
-                "you",
-                "do"
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Це просте питання.",
+            "target_text": "This is a simple question",
+            "tokens_correct": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "punctuation",
+                "a1"
+            ],
             "tag_keys": [
-                "level_c1"
+                "theory_page_sentence_types",
+                "punctuation",
+                "level_a1"
             ]
         },
         {
             "id": 11,
-            "uuid": "poly-stype-c2-01",
-            "question": "Склади інверсійне речення: Лише після аудиту вони помітили помилку.",
-            "level": "C2",
+            "uuid": "poly-stype-a1-11",
+            "question": "Попроси інформацію ввічливо.",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "Only",
-                "a2": "after",
-                "a3": "the",
-                "a4": "audit",
-                "a5": "did",
-                "a6": "they",
-                "a7": "notice",
-                "a8": "the",
-                "a9": "error"
+                "a1": "Ask",
+                "a2": "for",
+                "a3": "information",
+                "a4": "politely"
             },
             "options": [
-                "Only",
-                "after",
-                "the",
-                "audit",
-                "did",
-                "they",
-                "notice",
-                "error",
-                "noticed"
+                "Ask",
+                "for",
+                "information",
+                "politely",
+                "asks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Попроси інформацію ввічливо.",
+            "target_text": "Ask for information politely",
+            "tokens_correct": [
+                "Ask",
+                "for",
+                "information",
+                "politely"
+            ],
+            "distractors": [
+                "asks",
+                "You",
+                "not"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "sentence_purpose",
+                "a1"
+            ],
             "tag_keys": [
-                "level_c2"
+                "theory_page_sentence_types",
+                "sentence_purpose",
+                "level_a1"
             ]
         },
         {
             "id": 12,
-            "uuid": "poly-stype-c2-02",
-            "question": "Склади англійське речення: Хто міг би заперечити такі докази?",
-            "level": "C2",
+            "uuid": "poly-stype-a1-12",
+            "question": "Вона любить музику?",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "Who",
-                "a2": "could",
-                "a3": "deny",
-                "a4": "such",
-                "a5": "evidence"
+                "a1": "Does",
+                "a2": "she",
+                "a3": "like",
+                "a4": "music"
             },
             "options": [
-                "Who",
-                "could",
-                "deny",
-                "such",
-                "evidence",
-                "denied"
+                "Does",
+                "she",
+                "like",
+                "music",
+                "Do",
+                "likes",
+                "not"
+            ],
+            "source_text_uk": "Вона любить музику?",
+            "target_text": "Does she like music",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "like",
+                "music"
+            ],
+            "distractors": [
+                "Do",
+                "likes",
+                "not"
             ],
             "variants": [],
             "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "typical_mistakes",
+                "a1"
+            ],
             "tag_keys": [
+                "theory_page_sentence_types",
+                "typical_mistakes",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "poly-stype-a2-01",
+            "question": "Вона живе тут.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "lives",
+                "a3": "here"
+            },
+            "options": [
+                "She",
+                "lives",
+                "here",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Вона живе тут.",
+            "target_text": "She lives here",
+            "tokens_correct": [
+                "She",
+                "lives",
+                "here"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "affirmative_statements",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "affirmative_statements",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "poly-stype-a2-02",
+            "question": "Вона тут не живе.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "does",
+                "a3": "not",
+                "a4": "live",
+                "a5": "here"
+            },
+            "options": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here",
+                "lives",
+                "do",
+                "where"
+            ],
+            "source_text_uk": "Вона тут не живе.",
+            "target_text": "She does not live here",
+            "tokens_correct": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here"
+            ],
+            "distractors": [
+                "lives",
+                "do",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_sentences",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_sentences",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "poly-stype-a2-03",
+            "question": "Тобі подобається чай?",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "like",
+                "a4": "tea"
+            },
+            "options": [
+                "Do",
+                "you",
+                "like",
+                "tea",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Тобі подобається чай?",
+            "target_text": "Do you like tea",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "like",
+                "tea"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "yes_no_questions",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "yes_no_questions",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "poly-stype-a2-04",
+            "question": "Де ти живеш?",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "do",
+                "a3": "you",
+                "a4": "live"
+            },
+            "options": [
+                "Where",
+                "do",
+                "you",
+                "live",
+                "Does",
+                "not",
+                "here"
+            ],
+            "source_text_uk": "Де ти живеш?",
+            "target_text": "Where do you live",
+            "tokens_correct": [
+                "Where",
+                "do",
+                "you",
+                "live"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "here"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "wh_questions",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "wh_questions",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "poly-stype-a2-05",
+            "question": "Відкрий двері.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Open",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Open",
+                "the",
+                "door",
+                "You",
+                "opens",
+                "not"
+            ],
+            "source_text_uk": "Відкрий двері.",
+            "target_text": "Open the door",
+            "tokens_correct": [
+                "Open",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "opens",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "imperative_sentences",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "imperative_sentences",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "poly-stype-a2-06",
+            "question": "Який чудовий день!",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "What",
+                "a2": "a",
+                "a3": "beautiful",
+                "a4": "day"
+            },
+            "options": [
+                "What",
+                "a",
+                "beautiful",
+                "day",
+                "How",
+                "does",
+                "not"
+            ],
+            "source_text_uk": "Який чудовий день!",
+            "target_text": "What a beautiful day",
+            "tokens_correct": [
+                "What",
+                "a",
+                "beautiful",
+                "day"
+            ],
+            "distractors": [
+                "How",
+                "does",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "exclamations",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "exclamations",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid": "poly-stype-a2-07",
+            "question": "Мій брат грає у футбол.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "My",
+                "a2": "brother",
+                "a3": "plays",
+                "a4": "football"
+            },
+            "options": [
+                "My",
+                "brother",
+                "plays",
+                "football",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Мій брат грає у футбол.",
+            "target_text": "My brother plays football",
+            "tokens_correct": [
+                "My",
+                "brother",
+                "plays",
+                "football"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "statement_word_order",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "statement_word_order",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid": "poly-stype-a2-08",
+            "question": "Вона працює тут?",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "work",
+                "a4": "here"
+            },
+            "options": [
+                "Does",
+                "she",
+                "work",
+                "here",
+                "Do",
+                "works",
+                "not"
+            ],
+            "source_text_uk": "Вона працює тут?",
+            "target_text": "Does she work here",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "work",
+                "here"
+            ],
+            "distractors": [
+                "Do",
+                "works",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "question_word_order",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "question_word_order",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid": "poly-stype-a2-09",
+            "question": "Я не розумію цю відповідь.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "do",
+                "a3": "not",
+                "a4": "understand",
+                "a5": "this",
+                "a6": "answer"
+            },
+            "options": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer",
+                "does",
+                "understands",
+                "where"
+            ],
+            "source_text_uk": "Я не розумію цю відповідь.",
+            "target_text": "I do not understand this answer",
+            "tokens_correct": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer"
+            ],
+            "distractors": [
+                "does",
+                "understands",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_word_order",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_word_order",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid": "poly-stype-a2-10",
+            "question": "Це просте питання.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "is",
+                "a3": "a",
+                "a4": "simple",
+                "a5": "question"
+            },
+            "options": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Це просте питання.",
+            "target_text": "This is a simple question",
+            "tokens_correct": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "punctuation",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "punctuation",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid": "poly-stype-a2-11",
+            "question": "Попроси інформацію ввічливо.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Ask",
+                "a2": "for",
+                "a3": "information",
+                "a4": "politely"
+            },
+            "options": [
+                "Ask",
+                "for",
+                "information",
+                "politely",
+                "asks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Попроси інформацію ввічливо.",
+            "target_text": "Ask for information politely",
+            "tokens_correct": [
+                "Ask",
+                "for",
+                "information",
+                "politely"
+            ],
+            "distractors": [
+                "asks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "sentence_purpose",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "sentence_purpose",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid": "poly-stype-a2-12",
+            "question": "Вона любить музику?",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "like",
+                "a4": "music"
+            },
+            "options": [
+                "Does",
+                "she",
+                "like",
+                "music",
+                "Do",
+                "likes",
+                "not"
+            ],
+            "source_text_uk": "Вона любить музику?",
+            "target_text": "Does she like music",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "like",
+                "music"
+            ],
+            "distractors": [
+                "Do",
+                "likes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "typical_mistakes",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "typical_mistakes",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 25,
+            "uuid": "poly-stype-b1-01",
+            "question": "Вона живе тут.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "lives",
+                "a3": "here"
+            },
+            "options": [
+                "She",
+                "lives",
+                "here",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Вона живе тут.",
+            "target_text": "She lives here",
+            "tokens_correct": [
+                "She",
+                "lives",
+                "here"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "affirmative_statements",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "affirmative_statements",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 26,
+            "uuid": "poly-stype-b1-02",
+            "question": "Вона тут не живе.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "does",
+                "a3": "not",
+                "a4": "live",
+                "a5": "here"
+            },
+            "options": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here",
+                "lives",
+                "do",
+                "where"
+            ],
+            "source_text_uk": "Вона тут не живе.",
+            "target_text": "She does not live here",
+            "tokens_correct": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here"
+            ],
+            "distractors": [
+                "lives",
+                "do",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_sentences",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_sentences",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 27,
+            "uuid": "poly-stype-b1-03",
+            "question": "Тобі подобається чай?",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "like",
+                "a4": "tea"
+            },
+            "options": [
+                "Do",
+                "you",
+                "like",
+                "tea",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Тобі подобається чай?",
+            "target_text": "Do you like tea",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "like",
+                "tea"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "yes_no_questions",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "yes_no_questions",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 28,
+            "uuid": "poly-stype-b1-04",
+            "question": "Де ти живеш?",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "do",
+                "a3": "you",
+                "a4": "live"
+            },
+            "options": [
+                "Where",
+                "do",
+                "you",
+                "live",
+                "Does",
+                "not",
+                "here"
+            ],
+            "source_text_uk": "Де ти живеш?",
+            "target_text": "Where do you live",
+            "tokens_correct": [
+                "Where",
+                "do",
+                "you",
+                "live"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "here"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "wh_questions",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "wh_questions",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 29,
+            "uuid": "poly-stype-b1-05",
+            "question": "Відкрий двері.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Open",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Open",
+                "the",
+                "door",
+                "You",
+                "opens",
+                "not"
+            ],
+            "source_text_uk": "Відкрий двері.",
+            "target_text": "Open the door",
+            "tokens_correct": [
+                "Open",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "opens",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "imperative_sentences",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "imperative_sentences",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 30,
+            "uuid": "poly-stype-b1-06",
+            "question": "Який чудовий день!",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "What",
+                "a2": "a",
+                "a3": "beautiful",
+                "a4": "day"
+            },
+            "options": [
+                "What",
+                "a",
+                "beautiful",
+                "day",
+                "How",
+                "does",
+                "not"
+            ],
+            "source_text_uk": "Який чудовий день!",
+            "target_text": "What a beautiful day",
+            "tokens_correct": [
+                "What",
+                "a",
+                "beautiful",
+                "day"
+            ],
+            "distractors": [
+                "How",
+                "does",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "exclamations",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "exclamations",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid": "poly-stype-b1-07",
+            "question": "Мій брат грає у футбол.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "My",
+                "a2": "brother",
+                "a3": "plays",
+                "a4": "football"
+            },
+            "options": [
+                "My",
+                "brother",
+                "plays",
+                "football",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Мій брат грає у футбол.",
+            "target_text": "My brother plays football",
+            "tokens_correct": [
+                "My",
+                "brother",
+                "plays",
+                "football"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "statement_word_order",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "statement_word_order",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 32,
+            "uuid": "poly-stype-b1-08",
+            "question": "Вона працює тут?",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "work",
+                "a4": "here"
+            },
+            "options": [
+                "Does",
+                "she",
+                "work",
+                "here",
+                "Do",
+                "works",
+                "not"
+            ],
+            "source_text_uk": "Вона працює тут?",
+            "target_text": "Does she work here",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "work",
+                "here"
+            ],
+            "distractors": [
+                "Do",
+                "works",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "question_word_order",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "question_word_order",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid": "poly-stype-b1-09",
+            "question": "Я не розумію цю відповідь.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "do",
+                "a3": "not",
+                "a4": "understand",
+                "a5": "this",
+                "a6": "answer"
+            },
+            "options": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer",
+                "does",
+                "understands",
+                "where"
+            ],
+            "source_text_uk": "Я не розумію цю відповідь.",
+            "target_text": "I do not understand this answer",
+            "tokens_correct": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer"
+            ],
+            "distractors": [
+                "does",
+                "understands",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_word_order",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_word_order",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 34,
+            "uuid": "poly-stype-b1-10",
+            "question": "Це просте питання.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "is",
+                "a3": "a",
+                "a4": "simple",
+                "a5": "question"
+            },
+            "options": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Це просте питання.",
+            "target_text": "This is a simple question",
+            "tokens_correct": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "punctuation",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "punctuation",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid": "poly-stype-b1-11",
+            "question": "Попроси інформацію ввічливо.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Ask",
+                "a2": "for",
+                "a3": "information",
+                "a4": "politely"
+            },
+            "options": [
+                "Ask",
+                "for",
+                "information",
+                "politely",
+                "asks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Попроси інформацію ввічливо.",
+            "target_text": "Ask for information politely",
+            "tokens_correct": [
+                "Ask",
+                "for",
+                "information",
+                "politely"
+            ],
+            "distractors": [
+                "asks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "sentence_purpose",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "sentence_purpose",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 36,
+            "uuid": "poly-stype-b1-12",
+            "question": "Вона любить музику?",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "like",
+                "a4": "music"
+            },
+            "options": [
+                "Does",
+                "she",
+                "like",
+                "music",
+                "Do",
+                "likes",
+                "not"
+            ],
+            "source_text_uk": "Вона любить музику?",
+            "target_text": "Does she like music",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "like",
+                "music"
+            ],
+            "distractors": [
+                "Do",
+                "likes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "typical_mistakes",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "typical_mistakes",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 37,
+            "uuid": "poly-stype-b2-01",
+            "question": "Вона живе тут.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "lives",
+                "a3": "here"
+            },
+            "options": [
+                "She",
+                "lives",
+                "here",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Вона живе тут.",
+            "target_text": "She lives here",
+            "tokens_correct": [
+                "She",
+                "lives",
+                "here"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "affirmative_statements",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "affirmative_statements",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 38,
+            "uuid": "poly-stype-b2-02",
+            "question": "Вона тут не живе.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "does",
+                "a3": "not",
+                "a4": "live",
+                "a5": "here"
+            },
+            "options": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here",
+                "lives",
+                "do",
+                "where"
+            ],
+            "source_text_uk": "Вона тут не живе.",
+            "target_text": "She does not live here",
+            "tokens_correct": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here"
+            ],
+            "distractors": [
+                "lives",
+                "do",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_sentences",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_sentences",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 39,
+            "uuid": "poly-stype-b2-03",
+            "question": "Тобі подобається чай?",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "like",
+                "a4": "tea"
+            },
+            "options": [
+                "Do",
+                "you",
+                "like",
+                "tea",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Тобі подобається чай?",
+            "target_text": "Do you like tea",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "like",
+                "tea"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "yes_no_questions",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "yes_no_questions",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 40,
+            "uuid": "poly-stype-b2-04",
+            "question": "Де ти живеш?",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "do",
+                "a3": "you",
+                "a4": "live"
+            },
+            "options": [
+                "Where",
+                "do",
+                "you",
+                "live",
+                "Does",
+                "not",
+                "here"
+            ],
+            "source_text_uk": "Де ти живеш?",
+            "target_text": "Where do you live",
+            "tokens_correct": [
+                "Where",
+                "do",
+                "you",
+                "live"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "here"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "wh_questions",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "wh_questions",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 41,
+            "uuid": "poly-stype-b2-05",
+            "question": "Відкрий двері.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Open",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Open",
+                "the",
+                "door",
+                "You",
+                "opens",
+                "not"
+            ],
+            "source_text_uk": "Відкрий двері.",
+            "target_text": "Open the door",
+            "tokens_correct": [
+                "Open",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "opens",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "imperative_sentences",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "imperative_sentences",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 42,
+            "uuid": "poly-stype-b2-06",
+            "question": "Який чудовий день!",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "What",
+                "a2": "a",
+                "a3": "beautiful",
+                "a4": "day"
+            },
+            "options": [
+                "What",
+                "a",
+                "beautiful",
+                "day",
+                "How",
+                "does",
+                "not"
+            ],
+            "source_text_uk": "Який чудовий день!",
+            "target_text": "What a beautiful day",
+            "tokens_correct": [
+                "What",
+                "a",
+                "beautiful",
+                "day"
+            ],
+            "distractors": [
+                "How",
+                "does",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "exclamations",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "exclamations",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 43,
+            "uuid": "poly-stype-b2-07",
+            "question": "Мій брат грає у футбол.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "My",
+                "a2": "brother",
+                "a3": "plays",
+                "a4": "football"
+            },
+            "options": [
+                "My",
+                "brother",
+                "plays",
+                "football",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Мій брат грає у футбол.",
+            "target_text": "My brother plays football",
+            "tokens_correct": [
+                "My",
+                "brother",
+                "plays",
+                "football"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "statement_word_order",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "statement_word_order",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 44,
+            "uuid": "poly-stype-b2-08",
+            "question": "Вона працює тут?",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "work",
+                "a4": "here"
+            },
+            "options": [
+                "Does",
+                "she",
+                "work",
+                "here",
+                "Do",
+                "works",
+                "not"
+            ],
+            "source_text_uk": "Вона працює тут?",
+            "target_text": "Does she work here",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "work",
+                "here"
+            ],
+            "distractors": [
+                "Do",
+                "works",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "question_word_order",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "question_word_order",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 45,
+            "uuid": "poly-stype-b2-09",
+            "question": "Я не розумію цю відповідь.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "do",
+                "a3": "not",
+                "a4": "understand",
+                "a5": "this",
+                "a6": "answer"
+            },
+            "options": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer",
+                "does",
+                "understands",
+                "where"
+            ],
+            "source_text_uk": "Я не розумію цю відповідь.",
+            "target_text": "I do not understand this answer",
+            "tokens_correct": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer"
+            ],
+            "distractors": [
+                "does",
+                "understands",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_word_order",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_word_order",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 46,
+            "uuid": "poly-stype-b2-10",
+            "question": "Це просте питання.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "is",
+                "a3": "a",
+                "a4": "simple",
+                "a5": "question"
+            },
+            "options": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Це просте питання.",
+            "target_text": "This is a simple question",
+            "tokens_correct": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "punctuation",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "punctuation",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 47,
+            "uuid": "poly-stype-b2-11",
+            "question": "Попроси інформацію ввічливо.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Ask",
+                "a2": "for",
+                "a3": "information",
+                "a4": "politely"
+            },
+            "options": [
+                "Ask",
+                "for",
+                "information",
+                "politely",
+                "asks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Попроси інформацію ввічливо.",
+            "target_text": "Ask for information politely",
+            "tokens_correct": [
+                "Ask",
+                "for",
+                "information",
+                "politely"
+            ],
+            "distractors": [
+                "asks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "sentence_purpose",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "sentence_purpose",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 48,
+            "uuid": "poly-stype-b2-12",
+            "question": "Вона любить музику?",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "like",
+                "a4": "music"
+            },
+            "options": [
+                "Does",
+                "she",
+                "like",
+                "music",
+                "Do",
+                "likes",
+                "not"
+            ],
+            "source_text_uk": "Вона любить музику?",
+            "target_text": "Does she like music",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "like",
+                "music"
+            ],
+            "distractors": [
+                "Do",
+                "likes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "typical_mistakes",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "typical_mistakes",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 49,
+            "uuid": "poly-stype-c1-01",
+            "question": "Вона живе тут.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "lives",
+                "a3": "here"
+            },
+            "options": [
+                "She",
+                "lives",
+                "here",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Вона живе тут.",
+            "target_text": "She lives here",
+            "tokens_correct": [
+                "She",
+                "lives",
+                "here"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "affirmative_statements",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "affirmative_statements",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 50,
+            "uuid": "poly-stype-c1-02",
+            "question": "Вона тут не живе.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "does",
+                "a3": "not",
+                "a4": "live",
+                "a5": "here"
+            },
+            "options": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here",
+                "lives",
+                "do",
+                "where"
+            ],
+            "source_text_uk": "Вона тут не живе.",
+            "target_text": "She does not live here",
+            "tokens_correct": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here"
+            ],
+            "distractors": [
+                "lives",
+                "do",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_sentences",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_sentences",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 51,
+            "uuid": "poly-stype-c1-03",
+            "question": "Тобі подобається чай?",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "like",
+                "a4": "tea"
+            },
+            "options": [
+                "Do",
+                "you",
+                "like",
+                "tea",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Тобі подобається чай?",
+            "target_text": "Do you like tea",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "like",
+                "tea"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "yes_no_questions",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "yes_no_questions",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 52,
+            "uuid": "poly-stype-c1-04",
+            "question": "Де ти живеш?",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "do",
+                "a3": "you",
+                "a4": "live"
+            },
+            "options": [
+                "Where",
+                "do",
+                "you",
+                "live",
+                "Does",
+                "not",
+                "here"
+            ],
+            "source_text_uk": "Де ти живеш?",
+            "target_text": "Where do you live",
+            "tokens_correct": [
+                "Where",
+                "do",
+                "you",
+                "live"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "here"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "wh_questions",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "wh_questions",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 53,
+            "uuid": "poly-stype-c1-05",
+            "question": "Відкрий двері.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Open",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Open",
+                "the",
+                "door",
+                "You",
+                "opens",
+                "not"
+            ],
+            "source_text_uk": "Відкрий двері.",
+            "target_text": "Open the door",
+            "tokens_correct": [
+                "Open",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "opens",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "imperative_sentences",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "imperative_sentences",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 54,
+            "uuid": "poly-stype-c1-06",
+            "question": "Який чудовий день!",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "What",
+                "a2": "a",
+                "a3": "beautiful",
+                "a4": "day"
+            },
+            "options": [
+                "What",
+                "a",
+                "beautiful",
+                "day",
+                "How",
+                "does",
+                "not"
+            ],
+            "source_text_uk": "Який чудовий день!",
+            "target_text": "What a beautiful day",
+            "tokens_correct": [
+                "What",
+                "a",
+                "beautiful",
+                "day"
+            ],
+            "distractors": [
+                "How",
+                "does",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "exclamations",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "exclamations",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 55,
+            "uuid": "poly-stype-c1-07",
+            "question": "Мій брат грає у футбол.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "My",
+                "a2": "brother",
+                "a3": "plays",
+                "a4": "football"
+            },
+            "options": [
+                "My",
+                "brother",
+                "plays",
+                "football",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Мій брат грає у футбол.",
+            "target_text": "My brother plays football",
+            "tokens_correct": [
+                "My",
+                "brother",
+                "plays",
+                "football"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "statement_word_order",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "statement_word_order",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 56,
+            "uuid": "poly-stype-c1-08",
+            "question": "Вона працює тут?",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "work",
+                "a4": "here"
+            },
+            "options": [
+                "Does",
+                "she",
+                "work",
+                "here",
+                "Do",
+                "works",
+                "not"
+            ],
+            "source_text_uk": "Вона працює тут?",
+            "target_text": "Does she work here",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "work",
+                "here"
+            ],
+            "distractors": [
+                "Do",
+                "works",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "question_word_order",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "question_word_order",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 57,
+            "uuid": "poly-stype-c1-09",
+            "question": "Я не розумію цю відповідь.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "do",
+                "a3": "not",
+                "a4": "understand",
+                "a5": "this",
+                "a6": "answer"
+            },
+            "options": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer",
+                "does",
+                "understands",
+                "where"
+            ],
+            "source_text_uk": "Я не розумію цю відповідь.",
+            "target_text": "I do not understand this answer",
+            "tokens_correct": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer"
+            ],
+            "distractors": [
+                "does",
+                "understands",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_word_order",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_word_order",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 58,
+            "uuid": "poly-stype-c1-10",
+            "question": "Це просте питання.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "is",
+                "a3": "a",
+                "a4": "simple",
+                "a5": "question"
+            },
+            "options": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Це просте питання.",
+            "target_text": "This is a simple question",
+            "tokens_correct": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "punctuation",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "punctuation",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 59,
+            "uuid": "poly-stype-c1-11",
+            "question": "Попроси інформацію ввічливо.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Ask",
+                "a2": "for",
+                "a3": "information",
+                "a4": "politely"
+            },
+            "options": [
+                "Ask",
+                "for",
+                "information",
+                "politely",
+                "asks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Попроси інформацію ввічливо.",
+            "target_text": "Ask for information politely",
+            "tokens_correct": [
+                "Ask",
+                "for",
+                "information",
+                "politely"
+            ],
+            "distractors": [
+                "asks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "sentence_purpose",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "sentence_purpose",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 60,
+            "uuid": "poly-stype-c1-12",
+            "question": "Вона любить музику?",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "like",
+                "a4": "music"
+            },
+            "options": [
+                "Does",
+                "she",
+                "like",
+                "music",
+                "Do",
+                "likes",
+                "not"
+            ],
+            "source_text_uk": "Вона любить музику?",
+            "target_text": "Does she like music",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "like",
+                "music"
+            ],
+            "distractors": [
+                "Do",
+                "likes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "typical_mistakes",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "typical_mistakes",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 61,
+            "uuid": "poly-stype-c2-01",
+            "question": "Вона живе тут.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "lives",
+                "a3": "here"
+            },
+            "options": [
+                "She",
+                "lives",
+                "here",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Вона живе тут.",
+            "target_text": "She lives here",
+            "tokens_correct": [
+                "She",
+                "lives",
+                "here"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "affirmative_statements",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "affirmative_statements",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 62,
+            "uuid": "poly-stype-c2-02",
+            "question": "Вона тут не живе.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "does",
+                "a3": "not",
+                "a4": "live",
+                "a5": "here"
+            },
+            "options": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here",
+                "lives",
+                "do",
+                "where"
+            ],
+            "source_text_uk": "Вона тут не живе.",
+            "target_text": "She does not live here",
+            "tokens_correct": [
+                "She",
+                "does",
+                "not",
+                "live",
+                "here"
+            ],
+            "distractors": [
+                "lives",
+                "do",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_sentences",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_sentences",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 63,
+            "uuid": "poly-stype-c2-03",
+            "question": "Тобі подобається чай?",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "you",
+                "a3": "like",
+                "a4": "tea"
+            },
+            "options": [
+                "Do",
+                "you",
+                "like",
+                "tea",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Тобі подобається чай?",
+            "target_text": "Do you like tea",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "like",
+                "tea"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "yes_no_questions",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "yes_no_questions",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 64,
+            "uuid": "poly-stype-c2-04",
+            "question": "Де ти живеш?",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Where",
+                "a2": "do",
+                "a3": "you",
+                "a4": "live"
+            },
+            "options": [
+                "Where",
+                "do",
+                "you",
+                "live",
+                "Does",
+                "not",
+                "here"
+            ],
+            "source_text_uk": "Де ти живеш?",
+            "target_text": "Where do you live",
+            "tokens_correct": [
+                "Where",
+                "do",
+                "you",
+                "live"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "here"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "wh_questions",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "wh_questions",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 65,
+            "uuid": "poly-stype-c2-05",
+            "question": "Відкрий двері.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Open",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Open",
+                "the",
+                "door",
+                "You",
+                "opens",
+                "not"
+            ],
+            "source_text_uk": "Відкрий двері.",
+            "target_text": "Open the door",
+            "tokens_correct": [
+                "Open",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "opens",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "imperative_sentences",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "imperative_sentences",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 66,
+            "uuid": "poly-stype-c2-06",
+            "question": "Який чудовий день!",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "What",
+                "a2": "a",
+                "a3": "beautiful",
+                "a4": "day"
+            },
+            "options": [
+                "What",
+                "a",
+                "beautiful",
+                "day",
+                "How",
+                "does",
+                "not"
+            ],
+            "source_text_uk": "Який чудовий день!",
+            "target_text": "What a beautiful day",
+            "tokens_correct": [
+                "What",
+                "a",
+                "beautiful",
+                "day"
+            ],
+            "distractors": [
+                "How",
+                "does",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "exclamations",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "exclamations",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 67,
+            "uuid": "poly-stype-c2-07",
+            "question": "Мій брат грає у футбол.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "My",
+                "a2": "brother",
+                "a3": "plays",
+                "a4": "football"
+            },
+            "options": [
+                "My",
+                "brother",
+                "plays",
+                "football",
+                "does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Мій брат грає у футбол.",
+            "target_text": "My brother plays football",
+            "tokens_correct": [
+                "My",
+                "brother",
+                "plays",
+                "football"
+            ],
+            "distractors": [
+                "does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "statement_word_order",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "statement_word_order",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 68,
+            "uuid": "poly-stype-c2-08",
+            "question": "Вона працює тут?",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "work",
+                "a4": "here"
+            },
+            "options": [
+                "Does",
+                "she",
+                "work",
+                "here",
+                "Do",
+                "works",
+                "not"
+            ],
+            "source_text_uk": "Вона працює тут?",
+            "target_text": "Does she work here",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "work",
+                "here"
+            ],
+            "distractors": [
+                "Do",
+                "works",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "question_word_order",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "question_word_order",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 69,
+            "uuid": "poly-stype-c2-09",
+            "question": "Я не розумію цю відповідь.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "do",
+                "a3": "not",
+                "a4": "understand",
+                "a5": "this",
+                "a6": "answer"
+            },
+            "options": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer",
+                "does",
+                "understands",
+                "where"
+            ],
+            "source_text_uk": "Я не розумію цю відповідь.",
+            "target_text": "I do not understand this answer",
+            "tokens_correct": [
+                "I",
+                "do",
+                "not",
+                "understand",
+                "this",
+                "answer"
+            ],
+            "distractors": [
+                "does",
+                "understands",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "negative_word_order",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "negative_word_order",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 70,
+            "uuid": "poly-stype-c2-10",
+            "question": "Це просте питання.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "is",
+                "a3": "a",
+                "a4": "simple",
+                "a5": "question"
+            },
+            "options": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question",
+                "Does",
+                "not",
+                "where"
+            ],
+            "source_text_uk": "Це просте питання.",
+            "target_text": "This is a simple question",
+            "tokens_correct": [
+                "This",
+                "is",
+                "a",
+                "simple",
+                "question"
+            ],
+            "distractors": [
+                "Does",
+                "not",
+                "where"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "punctuation",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "punctuation",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 71,
+            "uuid": "poly-stype-c2-11",
+            "question": "Попроси інформацію ввічливо.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Ask",
+                "a2": "for",
+                "a3": "information",
+                "a4": "politely"
+            },
+            "options": [
+                "Ask",
+                "for",
+                "information",
+                "politely",
+                "asks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Попроси інформацію ввічливо.",
+            "target_text": "Ask for information politely",
+            "tokens_correct": [
+                "Ask",
+                "for",
+                "information",
+                "politely"
+            ],
+            "distractors": [
+                "asks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "sentence_purpose",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "sentence_purpose",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 72,
+            "uuid": "poly-stype-c2-12",
+            "question": "Вона любить музику?",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Does",
+                "a2": "she",
+                "a3": "like",
+                "a4": "music"
+            },
+            "options": [
+                "Does",
+                "she",
+                "like",
+                "music",
+                "Do",
+                "likes",
+                "not"
+            ],
+            "source_text_uk": "Вона любить музику?",
+            "target_text": "Does she like music",
+            "tokens_correct": [
+                "Does",
+                "she",
+                "like",
+                "music"
+            ],
+            "distractors": [
+                "Do",
+                "likes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_sentence_types",
+            "grammar_tags": [
+                "sentence-types",
+                "typical_mistakes",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_sentence_types",
+                "typical_mistakes",
                 "level_c2"
             ]
         }
-    ],
-    "saved_test": {
-        "uuid": "poly-stypes-all-levels",
-        "slug": "polyglot-sentence-types-all-levels",
-        "name": "Sentence Builder: Sentence Types (All levels)",
-        "description": "Page-local compose_tokens package for Sentence Types with A1-C2 coverage.",
-        "filters": {
-            "mode": "compose_tokens",
-            "question_type": 4,
-            "lesson_type": "polyglot",
-            "payload_version": 2,
-            "import_format": "gramlyze_v3_polyglot",
-            "supports_duplicate_tokens": true,
-            "course_slug": "polyglot-theory-pages",
-            "lesson_order": 0,
-            "previous_lesson_slug": null,
-            "next_lesson_slug": null,
-            "completion": {
-                "rolling_window": 100,
-                "min_rating": 4.5
-            },
-            "interface_locale": "uk",
-            "study_locale": "uk",
-            "target_locale": "en",
-            "topic": "sentence types",
-            "levels": [
-                "A1",
-                "A2",
-                "B1",
-                "B2",
-                "C1",
-                "C2"
-            ],
-            "tags": [
-                "Sentence Builder",
-                "Compose Tokens",
-                "Sentence Types",
-                "All levels"
-            ],
-            "seeder_classes": [
-                "Database\\Seeders\\V3\\Polyglot\\PolyglotSentenceTypesAllLevelsLessonSeeder"
-            ],
-            "num_questions": 12,
-            "randomize_filtered": false,
-            "prompt_generator": {
-                "source_type": "theory_page",
-                "theory_page": {
-                    "slug": "sentence-types",
-                    "title": "Sentence Types — Види речень",
-                    "category_slug_path": "basic-grammar",
-                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceTypesTheorySeeder",
-                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-types"
-                }
-            }
-        }
-    }
+    ]
 }

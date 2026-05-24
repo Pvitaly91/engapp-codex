@@ -8,7 +8,7 @@
         "name": "English Sentence Builder"
     },
     "sources": {
-        "theory_page_imperatives": {
+        "theory_page_imperatives_sit_down_dont_open_it": {
             "name": "Imperatives"
         }
     },
@@ -17,7 +17,7 @@
             "name": "Polyglot Compose Tokens",
             "category": "topic"
         },
-        "polyglot_imperatives": {
+        "imperatives_sit_down_dont_open_it": {
             "name": "Imperatives",
             "category": "topic"
         },
@@ -61,61 +61,359 @@
     },
     "default_tag_keys": [
         "polyglot_compose_tokens",
-        "polyglot_imperatives"
+        "imperatives_sit_down_dont_open_it"
     ],
+    "saved_test": {
+        "uuid": "bg-imp-poly-all",
+        "slug": "polyglot-imperatives-all-levels",
+        "name": "Sentence Builder: Imperatives (All levels)",
+        "description": "Compose-token Sentence Builder package for Imperatives across A1-C2.",
+        "question_uuids": [
+            "poly-imp-a1-01",
+            "poly-imp-a1-02",
+            "poly-imp-a1-03",
+            "poly-imp-a1-04",
+            "poly-imp-a1-05",
+            "poly-imp-a1-06",
+            "poly-imp-a1-07",
+            "poly-imp-a1-08",
+            "poly-imp-a1-09",
+            "poly-imp-a1-10",
+            "poly-imp-a1-11",
+            "poly-imp-a1-12",
+            "poly-imp-a2-01",
+            "poly-imp-a2-02",
+            "poly-imp-a2-03",
+            "poly-imp-a2-04",
+            "poly-imp-a2-05",
+            "poly-imp-a2-06",
+            "poly-imp-a2-07",
+            "poly-imp-a2-08",
+            "poly-imp-a2-09",
+            "poly-imp-a2-10",
+            "poly-imp-a2-11",
+            "poly-imp-a2-12",
+            "poly-imp-b1-01",
+            "poly-imp-b1-02",
+            "poly-imp-b1-03",
+            "poly-imp-b1-04",
+            "poly-imp-b1-05",
+            "poly-imp-b1-06",
+            "poly-imp-b1-07",
+            "poly-imp-b1-08",
+            "poly-imp-b1-09",
+            "poly-imp-b1-10",
+            "poly-imp-b1-11",
+            "poly-imp-b1-12",
+            "poly-imp-b2-01",
+            "poly-imp-b2-02",
+            "poly-imp-b2-03",
+            "poly-imp-b2-04",
+            "poly-imp-b2-05",
+            "poly-imp-b2-06",
+            "poly-imp-b2-07",
+            "poly-imp-b2-08",
+            "poly-imp-b2-09",
+            "poly-imp-b2-10",
+            "poly-imp-b2-11",
+            "poly-imp-b2-12",
+            "poly-imp-c1-01",
+            "poly-imp-c1-02",
+            "poly-imp-c1-03",
+            "poly-imp-c1-04",
+            "poly-imp-c1-05",
+            "poly-imp-c1-06",
+            "poly-imp-c1-07",
+            "poly-imp-c1-08",
+            "poly-imp-c1-09",
+            "poly-imp-c1-10",
+            "poly-imp-c1-11",
+            "poly-imp-c1-12",
+            "poly-imp-c2-01",
+            "poly-imp-c2-02",
+            "poly-imp-c2-03",
+            "poly-imp-c2-04",
+            "poly-imp-c2-05",
+            "poly-imp-c2-06",
+            "poly-imp-c2-07",
+            "poly-imp-c2-08",
+            "poly-imp-c2-09",
+            "poly-imp-c2-10",
+            "poly-imp-c2-11",
+            "poly-imp-c2-12"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "Imperatives",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "basic-grammar",
+                "page_slug": "imperatives-sit-down-dont-open-it",
+                "page_route": "/theory/basic-grammar/imperatives-sit-down-dont-open-it",
+                "theory_page": {
+                    "slug": "imperatives-sit-down-dont-open-it",
+                    "title": "Imperatives",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarImperativesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/imperatives-sit-down-dont-open-it"
+                }
+            }
+        }
+    },
     "questions": [
         {
             "id": 1,
             "uuid": "poly-imp-a1-01",
-            "question": "Склади наказове речення: Сядь.",
+            "question": "Сідай, будь ласка.",
             "level": "A1",
+            "type": 4,
             "answers": {
                 "a1": "Sit",
-                "a2": "down"
+                "a2": "down",
+                "a3": "please"
             },
             "options": [
                 "Sit",
                 "down",
+                "please",
                 "You",
-                "sits"
+                "sits",
+                "not"
+            ],
+            "source_text_uk": "Сідай, будь ласка.",
+            "target_text": "Sit down please",
+            "tokens_correct": [
+                "Sit",
+                "down",
+                "please"
+            ],
+            "distractors": [
+                "You",
+                "sits",
+                "not"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "affirmative_imperative",
+                "a1"
+            ],
             "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "affirmative_imperative",
                 "level_a1"
             ]
         },
         {
             "id": 2,
             "uuid": "poly-imp-a1-02",
-            "question": "Склади заборону: Не відкривай двері.",
+            "question": "Не відкривай коробку.",
             "level": "A1",
+            "type": 4,
             "answers": {
                 "a1": "Do",
                 "a2": "not",
                 "a3": "open",
                 "a4": "the",
-                "a5": "door"
+                "a5": "box"
             },
             "options": [
                 "Do",
                 "not",
                 "open",
                 "the",
-                "door",
-                "opens"
+                "box",
+                "opens",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не відкривай коробку.",
+            "target_text": "Do not open the box",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box"
+            ],
+            "distractors": [
+                "opens",
+                "You",
+                "please"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "negative_imperative",
+                "a1"
+            ],
             "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "negative_imperative",
                 "level_a1"
             ]
         },
         {
             "id": 3,
-            "uuid": "poly-imp-a2-01",
-            "question": "Склади ввічливе прохання: Будь ласка, зачекай тут.",
-            "level": "A2",
+            "uuid": "poly-imp-a1-03",
+            "question": "Слухай уважно.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Listen",
+                "a2": "carefully"
+            },
+            "options": [
+                "Listen",
+                "carefully",
+                "listens",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Слухай уважно.",
+            "target_text": "Listen carefully",
+            "tokens_correct": [
+                "Listen",
+                "carefully"
+            ],
+            "distractors": [
+                "listens",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "base_verb",
+                "a1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "base_verb",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "poly-imp-a1-04",
+            "question": "Закрий двері.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Close",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Close",
+                "the",
+                "door",
+                "You",
+                "closes",
+                "not"
+            ],
+            "source_text_uk": "Закрий двері.",
+            "target_text": "Close the door",
+            "tokens_correct": [
+                "Close",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "closes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "no_subject_you",
+                "a1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "no_subject_you",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "poly-imp-a1-05",
+            "question": "Напиши своє імʼя тут.",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Write",
+                "a2": "your",
+                "a3": "name",
+                "a4": "here"
+            },
+            "options": [
+                "Write",
+                "your",
+                "name",
+                "here",
+                "writes",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Напиши своє імʼя тут.",
+            "target_text": "Write your name here",
+            "tokens_correct": [
+                "Write",
+                "your",
+                "name",
+                "here"
+            ],
+            "distractors": [
+                "writes",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "classroom_instructions",
+                "a1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "classroom_instructions",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "poly-imp-a1-06",
+            "question": "Будь ласка, зачекай тут.",
+            "level": "A1",
+            "type": 4,
             "answers": {
                 "a1": "Please",
                 "a2": "wait",
@@ -125,292 +423,3184 @@
                 "Please",
                 "wait",
                 "here",
-                "you",
-                "waits"
+                "You",
+                "waits",
+                "not"
+            ],
+            "source_text_uk": "Будь ласка, зачекай тут.",
+            "target_text": "Please wait here",
+            "tokens_correct": [
+                "Please",
+                "wait",
+                "here"
+            ],
+            "distractors": [
+                "You",
+                "waits",
+                "not"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
-            "tag_keys": [
-                "level_a2"
-            ]
-        },
-        {
-            "id": 4,
-            "uuid": "poly-imp-a2-02",
-            "question": "Склади пораду: Будь обережний.",
-            "level": "A2",
-            "answers": {
-                "a1": "Be",
-                "a2": "careful"
-            },
-            "options": [
-                "Be",
-                "careful",
-                "carefully",
-                "are"
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "polite_requests",
+                "a1"
             ],
-            "variants": [],
-            "source": "theory_page_imperatives",
             "tag_keys": [
-                "level_a2"
-            ]
-        },
-        {
-            "id": 5,
-            "uuid": "poly-imp-b1-01",
-            "question": "Склади англійське речення: Давай почнемо зараз.",
-            "level": "B1",
-            "answers": {
-                "a1": "Let's",
-                "a2": "start",
-                "a3": "now"
-            },
-            "options": [
-                "Let's",
-                "start",
-                "now",
-                "starts",
-                "we"
-            ],
-            "variants": [],
-            "source": "theory_page_imperatives",
-            "tag_keys": [
-                "level_b1"
-            ]
-        },
-        {
-            "id": 6,
-            "uuid": "poly-imp-b1-02",
-            "question": "Склади негативну пропозицію: Давай не будемо сперечатися.",
-            "level": "B1",
-            "answers": {
-                "a1": "Let's",
-                "a2": "not",
-                "a3": "argue"
-            },
-            "options": [
-                "Let's",
-                "not",
-                "argue",
-                "argues",
-                "do"
-            ],
-            "variants": [],
-            "source": "theory_page_imperatives",
-            "tag_keys": [
-                "level_b1"
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "polite_requests",
+                "level_a1"
             ]
         },
         {
             "id": 7,
-            "uuid": "poly-imp-b2-01",
-            "question": "Склади англійське речення: Обов'язково перевір деталі.",
-            "level": "B2",
+            "uuid": "poly-imp-a1-07",
+            "question": "Будь обережним біля дороги.",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "Do",
-                "a2": "check",
-                "a3": "the",
-                "a4": "details"
+                "a1": "Be",
+                "a2": "careful",
+                "a3": "near",
+                "a4": "the",
+                "a5": "road"
             },
             "options": [
-                "Do",
-                "check",
+                "Be",
+                "careful",
+                "near",
                 "the",
-                "details",
-                "checks"
+                "road",
+                "Are",
+                "being",
+                "not"
+            ],
+            "source_text_uk": "Будь обережним біля дороги.",
+            "target_text": "Be careful near the road",
+            "tokens_correct": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road"
+            ],
+            "distractors": [
+                "Are",
+                "being",
+                "not"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "a1"
+            ],
             "tag_keys": [
-                "level_b2"
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_a1"
             ]
         },
         {
             "id": 8,
-            "uuid": "poly-imp-b2-02",
-            "question": "Склади інструкцію: Ніколи не залишай пароль видимим.",
-            "level": "B2",
+            "uuid": "poly-imp-a1-08",
+            "question": "Не торкайся цього.",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "Never",
-                "a2": "leave",
-                "a3": "the",
-                "a4": "password",
-                "a5": "visible"
+                "a1": "Do",
+                "a2": "not",
+                "a3": "touch",
+                "a4": "it"
             },
             "options": [
-                "Never",
-                "leave",
-                "the",
-                "password",
-                "visible",
-                "leaves"
+                "Do",
+                "not",
+                "touch",
+                "it",
+                "touches",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не торкайся цього.",
+            "target_text": "Do not touch it",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "touch",
+                "it"
+            ],
+            "distractors": [
+                "touches",
+                "You",
+                "please"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "a1"
+            ],
             "tag_keys": [
-                "level_b2"
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_a1"
             ]
         },
         {
             "id": 9,
-            "uuid": "poly-imp-c1-01",
-            "question": "Склади формальну інструкцію: Перегляньте документ перед підписанням.",
-            "level": "C1",
+            "uuid": "poly-imp-a1-09",
+            "question": "Випий води перед пробіжкою.",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "Review",
-                "a2": "the",
-                "a3": "document",
+                "a1": "Drink",
+                "a2": "some",
+                "a3": "water",
                 "a4": "before",
-                "a5": "signing"
+                "a5": "the",
+                "a6": "run"
             },
             "options": [
-                "Review",
-                "the",
-                "document",
+                "Drink",
+                "some",
+                "water",
                 "before",
-                "signing",
-                "reviews"
+                "the",
+                "run",
+                "drinks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Випий води перед пробіжкою.",
+            "target_text": "Drink some water before the run",
+            "tokens_correct": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run"
+            ],
+            "distractors": [
+                "drinks",
+                "You",
+                "not"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "advice_imperative",
+                "a1"
+            ],
             "tag_keys": [
-                "level_c1"
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "advice_imperative",
+                "level_a1"
             ]
         },
         {
             "id": 10,
-            "uuid": "poly-imp-c1-02",
-            "question": "Склади англійське речення: Закрий вікно, гаразд?",
-            "level": "C1",
+            "uuid": "poly-imp-a1-10",
+            "question": "Поклади це на стіл.",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "Close",
-                "a2": "the",
-                "a3": "window",
-                "a4": "will",
-                "a5": "you"
+                "a1": "Put",
+                "a2": "it",
+                "a3": "on",
+                "a4": "the",
+                "a5": "table"
             },
             "options": [
-                "Close",
+                "Put",
+                "it",
+                "on",
                 "the",
-                "window",
-                "will",
-                "you",
-                "do"
+                "table",
+                "puts",
+                "them",
+                "not"
+            ],
+            "source_text_uk": "Поклади це на стіл.",
+            "target_text": "Put it on the table",
+            "tokens_correct": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "puts",
+                "them",
+                "not"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "a1"
+            ],
             "tag_keys": [
-                "level_c1"
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_a1"
             ]
         },
         {
             "id": 11,
-            "uuid": "poly-imp-c2-01",
-            "question": "Склади англійське речення: Нехай документ буде перевірено незалежно.",
-            "level": "C2",
+            "uuid": "poly-imp-a1-11",
+            "question": "Не викидай це.",
+            "level": "A1",
+            "type": 4,
             "answers": {
-                "a1": "Have",
-                "a2": "the",
-                "a3": "document",
-                "a4": "reviewed",
-                "a5": "independently"
+                "a1": "Do",
+                "a2": "not",
+                "a3": "throw",
+                "a4": "it",
+                "a5": "away"
             },
             "options": [
-                "Have",
-                "the",
-                "document",
-                "reviewed",
-                "independently",
-                "review"
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away",
+                "throws",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не викидай це.",
+            "target_text": "Do not throw it away",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away"
+            ],
+            "distractors": [
+                "throws",
+                "You",
+                "please"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "a1"
+            ],
             "tag_keys": [
-                "level_c2"
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_a1"
             ]
         },
         {
             "id": 12,
-            "uuid": "poly-imp-c2-02",
-            "question": "Склади англійське речення: Нехай це буде відомо всім учасникам.",
-            "level": "C2",
+            "uuid": "poly-imp-a1-12",
+            "question": "Будь тихо під час тесту.",
+            "level": "A1",
+            "type": 4,
             "answers": {
                 "a1": "Be",
-                "a2": "it",
-                "a3": "known",
-                "a4": "to",
-                "a5": "all",
-                "a6": "participants"
+                "a2": "quiet",
+                "a3": "during",
+                "a4": "the",
+                "a5": "test"
             },
             "options": [
                 "Be",
-                "it",
-                "known",
-                "to",
-                "all",
-                "participants",
-                "is"
+                "quiet",
+                "during",
+                "the",
+                "test",
+                "You",
+                "are",
+                "not"
+            ],
+            "source_text_uk": "Будь тихо під час тесту.",
+            "target_text": "Be quiet during the test",
+            "tokens_correct": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test"
+            ],
+            "distractors": [
+                "You",
+                "are",
+                "not"
             ],
             "variants": [],
-            "source": "theory_page_imperatives",
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "typical_mistakes",
+                "a1"
+            ],
             "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "typical_mistakes",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "poly-imp-a2-01",
+            "question": "Сідай, будь ласка.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Sit",
+                "a2": "down",
+                "a3": "please"
+            },
+            "options": [
+                "Sit",
+                "down",
+                "please",
+                "You",
+                "sits",
+                "not"
+            ],
+            "source_text_uk": "Сідай, будь ласка.",
+            "target_text": "Sit down please",
+            "tokens_correct": [
+                "Sit",
+                "down",
+                "please"
+            ],
+            "distractors": [
+                "You",
+                "sits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "affirmative_imperative",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "affirmative_imperative",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "poly-imp-a2-02",
+            "question": "Не відкривай коробку.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "open",
+                "a4": "the",
+                "a5": "box"
+            },
+            "options": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box",
+                "opens",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не відкривай коробку.",
+            "target_text": "Do not open the box",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box"
+            ],
+            "distractors": [
+                "opens",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "negative_imperative",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "negative_imperative",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "poly-imp-a2-03",
+            "question": "Слухай уважно.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Listen",
+                "a2": "carefully"
+            },
+            "options": [
+                "Listen",
+                "carefully",
+                "listens",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Слухай уважно.",
+            "target_text": "Listen carefully",
+            "tokens_correct": [
+                "Listen",
+                "carefully"
+            ],
+            "distractors": [
+                "listens",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "base_verb",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "base_verb",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "poly-imp-a2-04",
+            "question": "Закрий двері.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Close",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Close",
+                "the",
+                "door",
+                "You",
+                "closes",
+                "not"
+            ],
+            "source_text_uk": "Закрий двері.",
+            "target_text": "Close the door",
+            "tokens_correct": [
+                "Close",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "closes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "no_subject_you",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "no_subject_you",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "poly-imp-a2-05",
+            "question": "Напиши своє імʼя тут.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Write",
+                "a2": "your",
+                "a3": "name",
+                "a4": "here"
+            },
+            "options": [
+                "Write",
+                "your",
+                "name",
+                "here",
+                "writes",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Напиши своє імʼя тут.",
+            "target_text": "Write your name here",
+            "tokens_correct": [
+                "Write",
+                "your",
+                "name",
+                "here"
+            ],
+            "distractors": [
+                "writes",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "classroom_instructions",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "classroom_instructions",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "poly-imp-a2-06",
+            "question": "Будь ласка, зачекай тут.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "wait",
+                "a3": "here"
+            },
+            "options": [
+                "Please",
+                "wait",
+                "here",
+                "You",
+                "waits",
+                "not"
+            ],
+            "source_text_uk": "Будь ласка, зачекай тут.",
+            "target_text": "Please wait here",
+            "tokens_correct": [
+                "Please",
+                "wait",
+                "here"
+            ],
+            "distractors": [
+                "You",
+                "waits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "polite_requests",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "polite_requests",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid": "poly-imp-a2-07",
+            "question": "Будь обережним біля дороги.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "careful",
+                "a3": "near",
+                "a4": "the",
+                "a5": "road"
+            },
+            "options": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road",
+                "Are",
+                "being",
+                "not"
+            ],
+            "source_text_uk": "Будь обережним біля дороги.",
+            "target_text": "Be careful near the road",
+            "tokens_correct": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road"
+            ],
+            "distractors": [
+                "Are",
+                "being",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid": "poly-imp-a2-08",
+            "question": "Не торкайся цього.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "touch",
+                "a4": "it"
+            },
+            "options": [
+                "Do",
+                "not",
+                "touch",
+                "it",
+                "touches",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не торкайся цього.",
+            "target_text": "Do not touch it",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "touch",
+                "it"
+            ],
+            "distractors": [
+                "touches",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid": "poly-imp-a2-09",
+            "question": "Випий води перед пробіжкою.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Drink",
+                "a2": "some",
+                "a3": "water",
+                "a4": "before",
+                "a5": "the",
+                "a6": "run"
+            },
+            "options": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run",
+                "drinks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Випий води перед пробіжкою.",
+            "target_text": "Drink some water before the run",
+            "tokens_correct": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run"
+            ],
+            "distractors": [
+                "drinks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "advice_imperative",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "advice_imperative",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid": "poly-imp-a2-10",
+            "question": "Поклади це на стіл.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Put",
+                "a2": "it",
+                "a3": "on",
+                "a4": "the",
+                "a5": "table"
+            },
+            "options": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table",
+                "puts",
+                "them",
+                "not"
+            ],
+            "source_text_uk": "Поклади це на стіл.",
+            "target_text": "Put it on the table",
+            "tokens_correct": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "puts",
+                "them",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid": "poly-imp-a2-11",
+            "question": "Не викидай це.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "throw",
+                "a4": "it",
+                "a5": "away"
+            },
+            "options": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away",
+                "throws",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не викидай це.",
+            "target_text": "Do not throw it away",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away"
+            ],
+            "distractors": [
+                "throws",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid": "poly-imp-a2-12",
+            "question": "Будь тихо під час тесту.",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "quiet",
+                "a3": "during",
+                "a4": "the",
+                "a5": "test"
+            },
+            "options": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test",
+                "You",
+                "are",
+                "not"
+            ],
+            "source_text_uk": "Будь тихо під час тесту.",
+            "target_text": "Be quiet during the test",
+            "tokens_correct": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test"
+            ],
+            "distractors": [
+                "You",
+                "are",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "typical_mistakes",
+                "a2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "typical_mistakes",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 25,
+            "uuid": "poly-imp-b1-01",
+            "question": "Сідай, будь ласка.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Sit",
+                "a2": "down",
+                "a3": "please"
+            },
+            "options": [
+                "Sit",
+                "down",
+                "please",
+                "You",
+                "sits",
+                "not"
+            ],
+            "source_text_uk": "Сідай, будь ласка.",
+            "target_text": "Sit down please",
+            "tokens_correct": [
+                "Sit",
+                "down",
+                "please"
+            ],
+            "distractors": [
+                "You",
+                "sits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "affirmative_imperative",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "affirmative_imperative",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 26,
+            "uuid": "poly-imp-b1-02",
+            "question": "Не відкривай коробку.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "open",
+                "a4": "the",
+                "a5": "box"
+            },
+            "options": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box",
+                "opens",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не відкривай коробку.",
+            "target_text": "Do not open the box",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box"
+            ],
+            "distractors": [
+                "opens",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "negative_imperative",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "negative_imperative",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 27,
+            "uuid": "poly-imp-b1-03",
+            "question": "Слухай уважно.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Listen",
+                "a2": "carefully"
+            },
+            "options": [
+                "Listen",
+                "carefully",
+                "listens",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Слухай уважно.",
+            "target_text": "Listen carefully",
+            "tokens_correct": [
+                "Listen",
+                "carefully"
+            ],
+            "distractors": [
+                "listens",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "base_verb",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "base_verb",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 28,
+            "uuid": "poly-imp-b1-04",
+            "question": "Закрий двері.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Close",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Close",
+                "the",
+                "door",
+                "You",
+                "closes",
+                "not"
+            ],
+            "source_text_uk": "Закрий двері.",
+            "target_text": "Close the door",
+            "tokens_correct": [
+                "Close",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "closes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "no_subject_you",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "no_subject_you",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 29,
+            "uuid": "poly-imp-b1-05",
+            "question": "Напиши своє імʼя тут.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Write",
+                "a2": "your",
+                "a3": "name",
+                "a4": "here"
+            },
+            "options": [
+                "Write",
+                "your",
+                "name",
+                "here",
+                "writes",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Напиши своє імʼя тут.",
+            "target_text": "Write your name here",
+            "tokens_correct": [
+                "Write",
+                "your",
+                "name",
+                "here"
+            ],
+            "distractors": [
+                "writes",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "classroom_instructions",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "classroom_instructions",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 30,
+            "uuid": "poly-imp-b1-06",
+            "question": "Будь ласка, зачекай тут.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "wait",
+                "a3": "here"
+            },
+            "options": [
+                "Please",
+                "wait",
+                "here",
+                "You",
+                "waits",
+                "not"
+            ],
+            "source_text_uk": "Будь ласка, зачекай тут.",
+            "target_text": "Please wait here",
+            "tokens_correct": [
+                "Please",
+                "wait",
+                "here"
+            ],
+            "distractors": [
+                "You",
+                "waits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "polite_requests",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "polite_requests",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid": "poly-imp-b1-07",
+            "question": "Будь обережним біля дороги.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "careful",
+                "a3": "near",
+                "a4": "the",
+                "a5": "road"
+            },
+            "options": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road",
+                "Are",
+                "being",
+                "not"
+            ],
+            "source_text_uk": "Будь обережним біля дороги.",
+            "target_text": "Be careful near the road",
+            "tokens_correct": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road"
+            ],
+            "distractors": [
+                "Are",
+                "being",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 32,
+            "uuid": "poly-imp-b1-08",
+            "question": "Не торкайся цього.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "touch",
+                "a4": "it"
+            },
+            "options": [
+                "Do",
+                "not",
+                "touch",
+                "it",
+                "touches",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не торкайся цього.",
+            "target_text": "Do not touch it",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "touch",
+                "it"
+            ],
+            "distractors": [
+                "touches",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid": "poly-imp-b1-09",
+            "question": "Випий води перед пробіжкою.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Drink",
+                "a2": "some",
+                "a3": "water",
+                "a4": "before",
+                "a5": "the",
+                "a6": "run"
+            },
+            "options": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run",
+                "drinks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Випий води перед пробіжкою.",
+            "target_text": "Drink some water before the run",
+            "tokens_correct": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run"
+            ],
+            "distractors": [
+                "drinks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "advice_imperative",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "advice_imperative",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 34,
+            "uuid": "poly-imp-b1-10",
+            "question": "Поклади це на стіл.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Put",
+                "a2": "it",
+                "a3": "on",
+                "a4": "the",
+                "a5": "table"
+            },
+            "options": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table",
+                "puts",
+                "them",
+                "not"
+            ],
+            "source_text_uk": "Поклади це на стіл.",
+            "target_text": "Put it on the table",
+            "tokens_correct": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "puts",
+                "them",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid": "poly-imp-b1-11",
+            "question": "Не викидай це.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "throw",
+                "a4": "it",
+                "a5": "away"
+            },
+            "options": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away",
+                "throws",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не викидай це.",
+            "target_text": "Do not throw it away",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away"
+            ],
+            "distractors": [
+                "throws",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 36,
+            "uuid": "poly-imp-b1-12",
+            "question": "Будь тихо під час тесту.",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "quiet",
+                "a3": "during",
+                "a4": "the",
+                "a5": "test"
+            },
+            "options": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test",
+                "You",
+                "are",
+                "not"
+            ],
+            "source_text_uk": "Будь тихо під час тесту.",
+            "target_text": "Be quiet during the test",
+            "tokens_correct": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test"
+            ],
+            "distractors": [
+                "You",
+                "are",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "typical_mistakes",
+                "b1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "typical_mistakes",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 37,
+            "uuid": "poly-imp-b2-01",
+            "question": "Сідай, будь ласка.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Sit",
+                "a2": "down",
+                "a3": "please"
+            },
+            "options": [
+                "Sit",
+                "down",
+                "please",
+                "You",
+                "sits",
+                "not"
+            ],
+            "source_text_uk": "Сідай, будь ласка.",
+            "target_text": "Sit down please",
+            "tokens_correct": [
+                "Sit",
+                "down",
+                "please"
+            ],
+            "distractors": [
+                "You",
+                "sits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "affirmative_imperative",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "affirmative_imperative",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 38,
+            "uuid": "poly-imp-b2-02",
+            "question": "Не відкривай коробку.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "open",
+                "a4": "the",
+                "a5": "box"
+            },
+            "options": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box",
+                "opens",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не відкривай коробку.",
+            "target_text": "Do not open the box",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box"
+            ],
+            "distractors": [
+                "opens",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "negative_imperative",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "negative_imperative",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 39,
+            "uuid": "poly-imp-b2-03",
+            "question": "Слухай уважно.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Listen",
+                "a2": "carefully"
+            },
+            "options": [
+                "Listen",
+                "carefully",
+                "listens",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Слухай уважно.",
+            "target_text": "Listen carefully",
+            "tokens_correct": [
+                "Listen",
+                "carefully"
+            ],
+            "distractors": [
+                "listens",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "base_verb",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "base_verb",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 40,
+            "uuid": "poly-imp-b2-04",
+            "question": "Закрий двері.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Close",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Close",
+                "the",
+                "door",
+                "You",
+                "closes",
+                "not"
+            ],
+            "source_text_uk": "Закрий двері.",
+            "target_text": "Close the door",
+            "tokens_correct": [
+                "Close",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "closes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "no_subject_you",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "no_subject_you",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 41,
+            "uuid": "poly-imp-b2-05",
+            "question": "Напиши своє імʼя тут.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Write",
+                "a2": "your",
+                "a3": "name",
+                "a4": "here"
+            },
+            "options": [
+                "Write",
+                "your",
+                "name",
+                "here",
+                "writes",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Напиши своє імʼя тут.",
+            "target_text": "Write your name here",
+            "tokens_correct": [
+                "Write",
+                "your",
+                "name",
+                "here"
+            ],
+            "distractors": [
+                "writes",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "classroom_instructions",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "classroom_instructions",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 42,
+            "uuid": "poly-imp-b2-06",
+            "question": "Будь ласка, зачекай тут.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "wait",
+                "a3": "here"
+            },
+            "options": [
+                "Please",
+                "wait",
+                "here",
+                "You",
+                "waits",
+                "not"
+            ],
+            "source_text_uk": "Будь ласка, зачекай тут.",
+            "target_text": "Please wait here",
+            "tokens_correct": [
+                "Please",
+                "wait",
+                "here"
+            ],
+            "distractors": [
+                "You",
+                "waits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "polite_requests",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "polite_requests",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 43,
+            "uuid": "poly-imp-b2-07",
+            "question": "Будь обережним біля дороги.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "careful",
+                "a3": "near",
+                "a4": "the",
+                "a5": "road"
+            },
+            "options": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road",
+                "Are",
+                "being",
+                "not"
+            ],
+            "source_text_uk": "Будь обережним біля дороги.",
+            "target_text": "Be careful near the road",
+            "tokens_correct": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road"
+            ],
+            "distractors": [
+                "Are",
+                "being",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 44,
+            "uuid": "poly-imp-b2-08",
+            "question": "Не торкайся цього.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "touch",
+                "a4": "it"
+            },
+            "options": [
+                "Do",
+                "not",
+                "touch",
+                "it",
+                "touches",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не торкайся цього.",
+            "target_text": "Do not touch it",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "touch",
+                "it"
+            ],
+            "distractors": [
+                "touches",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 45,
+            "uuid": "poly-imp-b2-09",
+            "question": "Випий води перед пробіжкою.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Drink",
+                "a2": "some",
+                "a3": "water",
+                "a4": "before",
+                "a5": "the",
+                "a6": "run"
+            },
+            "options": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run",
+                "drinks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Випий води перед пробіжкою.",
+            "target_text": "Drink some water before the run",
+            "tokens_correct": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run"
+            ],
+            "distractors": [
+                "drinks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "advice_imperative",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "advice_imperative",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 46,
+            "uuid": "poly-imp-b2-10",
+            "question": "Поклади це на стіл.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Put",
+                "a2": "it",
+                "a3": "on",
+                "a4": "the",
+                "a5": "table"
+            },
+            "options": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table",
+                "puts",
+                "them",
+                "not"
+            ],
+            "source_text_uk": "Поклади це на стіл.",
+            "target_text": "Put it on the table",
+            "tokens_correct": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "puts",
+                "them",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 47,
+            "uuid": "poly-imp-b2-11",
+            "question": "Не викидай це.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "throw",
+                "a4": "it",
+                "a5": "away"
+            },
+            "options": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away",
+                "throws",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не викидай це.",
+            "target_text": "Do not throw it away",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away"
+            ],
+            "distractors": [
+                "throws",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 48,
+            "uuid": "poly-imp-b2-12",
+            "question": "Будь тихо під час тесту.",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "quiet",
+                "a3": "during",
+                "a4": "the",
+                "a5": "test"
+            },
+            "options": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test",
+                "You",
+                "are",
+                "not"
+            ],
+            "source_text_uk": "Будь тихо під час тесту.",
+            "target_text": "Be quiet during the test",
+            "tokens_correct": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test"
+            ],
+            "distractors": [
+                "You",
+                "are",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "typical_mistakes",
+                "b2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "typical_mistakes",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 49,
+            "uuid": "poly-imp-c1-01",
+            "question": "Сідай, будь ласка.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Sit",
+                "a2": "down",
+                "a3": "please"
+            },
+            "options": [
+                "Sit",
+                "down",
+                "please",
+                "You",
+                "sits",
+                "not"
+            ],
+            "source_text_uk": "Сідай, будь ласка.",
+            "target_text": "Sit down please",
+            "tokens_correct": [
+                "Sit",
+                "down",
+                "please"
+            ],
+            "distractors": [
+                "You",
+                "sits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "affirmative_imperative",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "affirmative_imperative",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 50,
+            "uuid": "poly-imp-c1-02",
+            "question": "Не відкривай коробку.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "open",
+                "a4": "the",
+                "a5": "box"
+            },
+            "options": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box",
+                "opens",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не відкривай коробку.",
+            "target_text": "Do not open the box",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box"
+            ],
+            "distractors": [
+                "opens",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "negative_imperative",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "negative_imperative",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 51,
+            "uuid": "poly-imp-c1-03",
+            "question": "Слухай уважно.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Listen",
+                "a2": "carefully"
+            },
+            "options": [
+                "Listen",
+                "carefully",
+                "listens",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Слухай уважно.",
+            "target_text": "Listen carefully",
+            "tokens_correct": [
+                "Listen",
+                "carefully"
+            ],
+            "distractors": [
+                "listens",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "base_verb",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "base_verb",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 52,
+            "uuid": "poly-imp-c1-04",
+            "question": "Закрий двері.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Close",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Close",
+                "the",
+                "door",
+                "You",
+                "closes",
+                "not"
+            ],
+            "source_text_uk": "Закрий двері.",
+            "target_text": "Close the door",
+            "tokens_correct": [
+                "Close",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "closes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "no_subject_you",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "no_subject_you",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 53,
+            "uuid": "poly-imp-c1-05",
+            "question": "Напиши своє імʼя тут.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Write",
+                "a2": "your",
+                "a3": "name",
+                "a4": "here"
+            },
+            "options": [
+                "Write",
+                "your",
+                "name",
+                "here",
+                "writes",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Напиши своє імʼя тут.",
+            "target_text": "Write your name here",
+            "tokens_correct": [
+                "Write",
+                "your",
+                "name",
+                "here"
+            ],
+            "distractors": [
+                "writes",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "classroom_instructions",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "classroom_instructions",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 54,
+            "uuid": "poly-imp-c1-06",
+            "question": "Будь ласка, зачекай тут.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "wait",
+                "a3": "here"
+            },
+            "options": [
+                "Please",
+                "wait",
+                "here",
+                "You",
+                "waits",
+                "not"
+            ],
+            "source_text_uk": "Будь ласка, зачекай тут.",
+            "target_text": "Please wait here",
+            "tokens_correct": [
+                "Please",
+                "wait",
+                "here"
+            ],
+            "distractors": [
+                "You",
+                "waits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "polite_requests",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "polite_requests",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 55,
+            "uuid": "poly-imp-c1-07",
+            "question": "Будь обережним біля дороги.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "careful",
+                "a3": "near",
+                "a4": "the",
+                "a5": "road"
+            },
+            "options": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road",
+                "Are",
+                "being",
+                "not"
+            ],
+            "source_text_uk": "Будь обережним біля дороги.",
+            "target_text": "Be careful near the road",
+            "tokens_correct": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road"
+            ],
+            "distractors": [
+                "Are",
+                "being",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 56,
+            "uuid": "poly-imp-c1-08",
+            "question": "Не торкайся цього.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "touch",
+                "a4": "it"
+            },
+            "options": [
+                "Do",
+                "not",
+                "touch",
+                "it",
+                "touches",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не торкайся цього.",
+            "target_text": "Do not touch it",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "touch",
+                "it"
+            ],
+            "distractors": [
+                "touches",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 57,
+            "uuid": "poly-imp-c1-09",
+            "question": "Випий води перед пробіжкою.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Drink",
+                "a2": "some",
+                "a3": "water",
+                "a4": "before",
+                "a5": "the",
+                "a6": "run"
+            },
+            "options": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run",
+                "drinks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Випий води перед пробіжкою.",
+            "target_text": "Drink some water before the run",
+            "tokens_correct": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run"
+            ],
+            "distractors": [
+                "drinks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "advice_imperative",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "advice_imperative",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 58,
+            "uuid": "poly-imp-c1-10",
+            "question": "Поклади це на стіл.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Put",
+                "a2": "it",
+                "a3": "on",
+                "a4": "the",
+                "a5": "table"
+            },
+            "options": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table",
+                "puts",
+                "them",
+                "not"
+            ],
+            "source_text_uk": "Поклади це на стіл.",
+            "target_text": "Put it on the table",
+            "tokens_correct": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "puts",
+                "them",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 59,
+            "uuid": "poly-imp-c1-11",
+            "question": "Не викидай це.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "throw",
+                "a4": "it",
+                "a5": "away"
+            },
+            "options": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away",
+                "throws",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не викидай це.",
+            "target_text": "Do not throw it away",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away"
+            ],
+            "distractors": [
+                "throws",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 60,
+            "uuid": "poly-imp-c1-12",
+            "question": "Будь тихо під час тесту.",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "quiet",
+                "a3": "during",
+                "a4": "the",
+                "a5": "test"
+            },
+            "options": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test",
+                "You",
+                "are",
+                "not"
+            ],
+            "source_text_uk": "Будь тихо під час тесту.",
+            "target_text": "Be quiet during the test",
+            "tokens_correct": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test"
+            ],
+            "distractors": [
+                "You",
+                "are",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "typical_mistakes",
+                "c1"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "typical_mistakes",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 61,
+            "uuid": "poly-imp-c2-01",
+            "question": "Сідай, будь ласка.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Sit",
+                "a2": "down",
+                "a3": "please"
+            },
+            "options": [
+                "Sit",
+                "down",
+                "please",
+                "You",
+                "sits",
+                "not"
+            ],
+            "source_text_uk": "Сідай, будь ласка.",
+            "target_text": "Sit down please",
+            "tokens_correct": [
+                "Sit",
+                "down",
+                "please"
+            ],
+            "distractors": [
+                "You",
+                "sits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "affirmative_imperative",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "affirmative_imperative",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 62,
+            "uuid": "poly-imp-c2-02",
+            "question": "Не відкривай коробку.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "open",
+                "a4": "the",
+                "a5": "box"
+            },
+            "options": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box",
+                "opens",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не відкривай коробку.",
+            "target_text": "Do not open the box",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "open",
+                "the",
+                "box"
+            ],
+            "distractors": [
+                "opens",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "negative_imperative",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "negative_imperative",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 63,
+            "uuid": "poly-imp-c2-03",
+            "question": "Слухай уважно.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Listen",
+                "a2": "carefully"
+            },
+            "options": [
+                "Listen",
+                "carefully",
+                "listens",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Слухай уважно.",
+            "target_text": "Listen carefully",
+            "tokens_correct": [
+                "Listen",
+                "carefully"
+            ],
+            "distractors": [
+                "listens",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "base_verb",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "base_verb",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 64,
+            "uuid": "poly-imp-c2-04",
+            "question": "Закрий двері.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Close",
+                "a2": "the",
+                "a3": "door"
+            },
+            "options": [
+                "Close",
+                "the",
+                "door",
+                "You",
+                "closes",
+                "not"
+            ],
+            "source_text_uk": "Закрий двері.",
+            "target_text": "Close the door",
+            "tokens_correct": [
+                "Close",
+                "the",
+                "door"
+            ],
+            "distractors": [
+                "You",
+                "closes",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "no_subject_you",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "no_subject_you",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 65,
+            "uuid": "poly-imp-c2-05",
+            "question": "Напиши своє імʼя тут.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Write",
+                "a2": "your",
+                "a3": "name",
+                "a4": "here"
+            },
+            "options": [
+                "Write",
+                "your",
+                "name",
+                "here",
+                "writes",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Напиши своє імʼя тут.",
+            "target_text": "Write your name here",
+            "tokens_correct": [
+                "Write",
+                "your",
+                "name",
+                "here"
+            ],
+            "distractors": [
+                "writes",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "classroom_instructions",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "classroom_instructions",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 66,
+            "uuid": "poly-imp-c2-06",
+            "question": "Будь ласка, зачекай тут.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Please",
+                "a2": "wait",
+                "a3": "here"
+            },
+            "options": [
+                "Please",
+                "wait",
+                "here",
+                "You",
+                "waits",
+                "not"
+            ],
+            "source_text_uk": "Будь ласка, зачекай тут.",
+            "target_text": "Please wait here",
+            "tokens_correct": [
+                "Please",
+                "wait",
+                "here"
+            ],
+            "distractors": [
+                "You",
+                "waits",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "polite_requests",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "polite_requests",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 67,
+            "uuid": "poly-imp-c2-07",
+            "question": "Будь обережним біля дороги.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "careful",
+                "a3": "near",
+                "a4": "the",
+                "a5": "road"
+            },
+            "options": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road",
+                "Are",
+                "being",
+                "not"
+            ],
+            "source_text_uk": "Будь обережним біля дороги.",
+            "target_text": "Be careful near the road",
+            "tokens_correct": [
+                "Be",
+                "careful",
+                "near",
+                "the",
+                "road"
+            ],
+            "distractors": [
+                "Are",
+                "being",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 68,
+            "uuid": "poly-imp-c2-08",
+            "question": "Не торкайся цього.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "touch",
+                "a4": "it"
+            },
+            "options": [
+                "Do",
+                "not",
+                "touch",
+                "it",
+                "touches",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не торкайся цього.",
+            "target_text": "Do not touch it",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "touch",
+                "it"
+            ],
+            "distractors": [
+                "touches",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "warnings",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "warnings",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 69,
+            "uuid": "poly-imp-c2-09",
+            "question": "Випий води перед пробіжкою.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Drink",
+                "a2": "some",
+                "a3": "water",
+                "a4": "before",
+                "a5": "the",
+                "a6": "run"
+            },
+            "options": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run",
+                "drinks",
+                "You",
+                "not"
+            ],
+            "source_text_uk": "Випий води перед пробіжкою.",
+            "target_text": "Drink some water before the run",
+            "tokens_correct": [
+                "Drink",
+                "some",
+                "water",
+                "before",
+                "the",
+                "run"
+            ],
+            "distractors": [
+                "drinks",
+                "You",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "advice_imperative",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "advice_imperative",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 70,
+            "uuid": "poly-imp-c2-10",
+            "question": "Поклади це на стіл.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Put",
+                "a2": "it",
+                "a3": "on",
+                "a4": "the",
+                "a5": "table"
+            },
+            "options": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table",
+                "puts",
+                "them",
+                "not"
+            ],
+            "source_text_uk": "Поклади це на стіл.",
+            "target_text": "Put it on the table",
+            "tokens_correct": [
+                "Put",
+                "it",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "puts",
+                "them",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 71,
+            "uuid": "poly-imp-c2-11",
+            "question": "Не викидай це.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Do",
+                "a2": "not",
+                "a3": "throw",
+                "a4": "it",
+                "a5": "away"
+            },
+            "options": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away",
+                "throws",
+                "You",
+                "please"
+            ],
+            "source_text_uk": "Не викидай це.",
+            "target_text": "Do not throw it away",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "throw",
+                "it",
+                "away"
+            ],
+            "distractors": [
+                "throws",
+                "You",
+                "please"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "object_pronoun",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "object_pronoun",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 72,
+            "uuid": "poly-imp-c2-12",
+            "question": "Будь тихо під час тесту.",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Be",
+                "a2": "quiet",
+                "a3": "during",
+                "a4": "the",
+                "a5": "test"
+            },
+            "options": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test",
+                "You",
+                "are",
+                "not"
+            ],
+            "source_text_uk": "Будь тихо під час тесту.",
+            "target_text": "Be quiet during the test",
+            "tokens_correct": [
+                "Be",
+                "quiet",
+                "during",
+                "the",
+                "test"
+            ],
+            "distractors": [
+                "You",
+                "are",
+                "not"
+            ],
+            "variants": [],
+            "source": "theory_page_imperatives_sit_down_dont_open_it",
+            "grammar_tags": [
+                "imperatives-sit-down-dont-open-it",
+                "typical_mistakes",
+                "c2"
+            ],
+            "tag_keys": [
+                "theory_page_imperatives_sit_down_dont_open_it",
+                "typical_mistakes",
                 "level_c2"
             ]
         }
-    ],
-    "saved_test": {
-        "uuid": "poly-imps-all-levels",
-        "slug": "polyglot-imperatives-all-levels",
-        "name": "Sentence Builder: Imperatives (All levels)",
-        "description": "Page-local compose_tokens package for Imperatives with A1-C2 coverage.",
-        "filters": {
-            "mode": "compose_tokens",
-            "question_type": 4,
-            "lesson_type": "polyglot",
-            "payload_version": 2,
-            "import_format": "gramlyze_v3_polyglot",
-            "supports_duplicate_tokens": true,
-            "course_slug": "polyglot-theory-pages",
-            "lesson_order": 0,
-            "previous_lesson_slug": null,
-            "next_lesson_slug": null,
-            "completion": {
-                "rolling_window": 100,
-                "min_rating": 4.5
-            },
-            "interface_locale": "uk",
-            "study_locale": "uk",
-            "target_locale": "en",
-            "topic": "imperatives",
-            "levels": [
-                "A1",
-                "A2",
-                "B1",
-                "B2",
-                "C1",
-                "C2"
-            ],
-            "tags": [
-                "Sentence Builder",
-                "Compose Tokens",
-                "Imperatives",
-                "All levels"
-            ],
-            "seeder_classes": [
-                "Database\\Seeders\\V3\\Polyglot\\PolyglotImperativesAllLevelsLessonSeeder"
-            ],
-            "num_questions": 12,
-            "randomize_filtered": false,
-            "prompt_generator": {
-                "source_type": "theory_page",
-                "theory_page": {
-                    "slug": "imperatives-sit-down-dont-open-it",
-                    "title": "Imperatives — Наказові речення",
-                    "category_slug_path": "basic-grammar",
-                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarImperativesTheorySeeder",
-                    "url": "https://gramlyze.com/theory/basic-grammar/imperatives-sit-down-dont-open-it"
-                }
-            }
-        }
-    }
+    ]
 }

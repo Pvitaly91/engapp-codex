@@ -1,0 +1,2236 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammar\\HaveGotHasGotAllLevelsV3Seeder",
+        "uuid_namespace": "HaveGotHasGotAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "bg-hg-v3-all",
+        "slug": "have-got-has-got-all-levels-v3",
+        "name": "Have Got / Has Got: V3 All Levels",
+        "description": "Page-local V3 package for Have Got / Has Got with A1-C2 coverage.",
+        "question_uuids": [
+            "bg-hg-v3-a1-01",
+            "bg-hg-v3-a1-02",
+            "bg-hg-v3-a1-03",
+            "bg-hg-v3-a1-04",
+            "bg-hg-v3-a1-05",
+            "bg-hg-v3-a1-06",
+            "bg-hg-v3-a1-07",
+            "bg-hg-v3-a1-08",
+            "bg-hg-v3-a1-09",
+            "bg-hg-v3-a1-10",
+            "bg-hg-v3-a1-11",
+            "bg-hg-v3-a1-12",
+            "bg-hg-v3-a2-01",
+            "bg-hg-v3-a2-02",
+            "bg-hg-v3-a2-03",
+            "bg-hg-v3-a2-04",
+            "bg-hg-v3-a2-05",
+            "bg-hg-v3-a2-06",
+            "bg-hg-v3-a2-07",
+            "bg-hg-v3-a2-08",
+            "bg-hg-v3-a2-09",
+            "bg-hg-v3-a2-10",
+            "bg-hg-v3-a2-11",
+            "bg-hg-v3-a2-12",
+            "bg-hg-v3-b1-01",
+            "bg-hg-v3-b1-02",
+            "bg-hg-v3-b1-03",
+            "bg-hg-v3-b1-04",
+            "bg-hg-v3-b1-05",
+            "bg-hg-v3-b1-06",
+            "bg-hg-v3-b1-07",
+            "bg-hg-v3-b1-08",
+            "bg-hg-v3-b1-09",
+            "bg-hg-v3-b1-10",
+            "bg-hg-v3-b1-11",
+            "bg-hg-v3-b1-12",
+            "bg-hg-v3-b2-01",
+            "bg-hg-v3-b2-02",
+            "bg-hg-v3-b2-03",
+            "bg-hg-v3-b2-04",
+            "bg-hg-v3-b2-05",
+            "bg-hg-v3-b2-06",
+            "bg-hg-v3-b2-07",
+            "bg-hg-v3-b2-08",
+            "bg-hg-v3-b2-09",
+            "bg-hg-v3-b2-10",
+            "bg-hg-v3-b2-11",
+            "bg-hg-v3-b2-12",
+            "bg-hg-v3-c1-01",
+            "bg-hg-v3-c1-02",
+            "bg-hg-v3-c1-03",
+            "bg-hg-v3-c1-04",
+            "bg-hg-v3-c1-05",
+            "bg-hg-v3-c1-06",
+            "bg-hg-v3-c1-07",
+            "bg-hg-v3-c1-08",
+            "bg-hg-v3-c1-09",
+            "bg-hg-v3-c1-10",
+            "bg-hg-v3-c1-11",
+            "bg-hg-v3-c1-12",
+            "bg-hg-v3-c2-01",
+            "bg-hg-v3-c2-02",
+            "bg-hg-v3-c2-03",
+            "bg-hg-v3-c2-04",
+            "bg-hg-v3-c2-05",
+            "bg-hg-v3-c2-06",
+            "bg-hg-v3-c2-07",
+            "bg-hg-v3-c2-08",
+            "bg-hg-v3-c2-09",
+            "bg-hg-v3-c2-10",
+            "bg-hg-v3-c2-11",
+            "bg-hg-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\BasicGrammar\\HaveGotHasGotAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "basic-grammar",
+                "page_slug": "have-got-has-got",
+                "page_route": "/theory/basic-grammar/have-got-has-got",
+                "theory_page": {
+                    "slug": "have-got-has-got",
+                    "title": "Have Got / Has Got",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarHaveGotHasGotTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/have-got-has-got"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bg-hg-v3-a1-01",
+            "question": "I {a1} got a red pen.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession"
+            ],
+            "variants": [
+                "I {a1} got a red pen."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 2,
+            "uuid": "bg-hg-v3-a1-02",
+            "question": "They {a1} got two bikes.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_plural_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_plural_subjects"
+            ],
+            "variants": [
+                "They {a1} got two bikes."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 3,
+            "uuid": "bg-hg-v3-a1-03",
+            "question": "She {a1} got a new phone.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "has_got_third_person"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "has_got_third_person"
+            ],
+            "variants": [
+                "She {a1} got a new phone."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 4,
+            "uuid": "bg-hg-v3-a1-04",
+            "question": "We {a1} not got a car.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "We {a1} not got a car."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 5,
+            "uuid": "bg-hg-v3-a1-05",
+            "question": "He {a1} not got a sister.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "He {a1} not got a sister."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 6,
+            "uuid": "bg-hg-v3-a1-06",
+            "question": "{a1} you got a ticket?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Has",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} you got a ticket?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 7,
+            "uuid": "bg-hg-v3-a1-07",
+            "question": "{a1} Tom got a dog?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Have",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} Tom got a dog?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 8,
+            "uuid": "bg-hg-v3-a1-08",
+            "question": "Have they got maps? Yes, they {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have they got maps? Yes, they {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 9,
+            "uuid": "bg-hg-v3-a1-09",
+            "question": "My cousin has {a1} a small cat.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "gets",
+                        "getting"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "everyday_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "everyday_possession"
+            ],
+            "variants": [
+                "My cousin has {a1} a small cat."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 10,
+            "uuid": "bg-hg-v3-a1-10",
+            "question": "The room has got two big {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "windows",
+                    "options": [
+                        "windows",
+                        "window",
+                        "door",
+                        "chair"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "features_characteristics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "features_characteristics"
+            ],
+            "variants": [
+                "The room has got two big {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 11,
+            "uuid": "bg-hg-v3-a1-11",
+            "question": "In British English, \"I have {a1} a bike\" shows possession.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "been",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_vs_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_vs_have"
+            ],
+            "variants": [
+                "In British English, \"I have {a1} a bike\" shows possession."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 12,
+            "uuid": "bg-hg-v3-a1-12",
+            "question": "Use \"have\" for breakfast, not \"have {a1}\".",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "breakfast",
+                    "options": [
+                        "breakfast",
+                        "got breakfast",
+                        "got",
+                        "has got"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "not_for_actions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_for_actions"
+            ],
+            "variants": [
+                "Use \"have\" for breakfast, not \"have {a1}\"."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 13,
+            "uuid": "bg-hg-v3-a2-01",
+            "question": "I {a1} got a red pen.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession"
+            ],
+            "variants": [
+                "I {a1} got a red pen."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 14,
+            "uuid": "bg-hg-v3-a2-02",
+            "question": "They {a1} got two bikes.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_plural_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_plural_subjects"
+            ],
+            "variants": [
+                "They {a1} got two bikes."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 15,
+            "uuid": "bg-hg-v3-a2-03",
+            "question": "She {a1} got a new phone.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "has_got_third_person"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "has_got_third_person"
+            ],
+            "variants": [
+                "She {a1} got a new phone."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 16,
+            "uuid": "bg-hg-v3-a2-04",
+            "question": "We {a1} not got a car.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "We {a1} not got a car."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 17,
+            "uuid": "bg-hg-v3-a2-05",
+            "question": "He {a1} not got a sister.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "He {a1} not got a sister."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 18,
+            "uuid": "bg-hg-v3-a2-06",
+            "question": "{a1} you got a ticket?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Has",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} you got a ticket?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 19,
+            "uuid": "bg-hg-v3-a2-07",
+            "question": "{a1} Tom got a dog?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Have",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} Tom got a dog?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 20,
+            "uuid": "bg-hg-v3-a2-08",
+            "question": "Have they got maps? Yes, they {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have they got maps? Yes, they {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 21,
+            "uuid": "bg-hg-v3-a2-09",
+            "question": "My cousin has {a1} a small cat.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "gets",
+                        "getting"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "everyday_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "everyday_possession"
+            ],
+            "variants": [
+                "My cousin has {a1} a small cat."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 22,
+            "uuid": "bg-hg-v3-a2-10",
+            "question": "The room has got two big {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "windows",
+                    "options": [
+                        "windows",
+                        "window",
+                        "door",
+                        "chair"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "features_characteristics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "features_characteristics"
+            ],
+            "variants": [
+                "The room has got two big {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 23,
+            "uuid": "bg-hg-v3-a2-11",
+            "question": "In British English, \"I have {a1} a bike\" shows possession.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "been",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_vs_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_vs_have"
+            ],
+            "variants": [
+                "In British English, \"I have {a1} a bike\" shows possession."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 24,
+            "uuid": "bg-hg-v3-a2-12",
+            "question": "Use \"have\" for breakfast, not \"have {a1}\".",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "breakfast",
+                    "options": [
+                        "breakfast",
+                        "got breakfast",
+                        "got",
+                        "has got"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "not_for_actions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_for_actions"
+            ],
+            "variants": [
+                "Use \"have\" for breakfast, not \"have {a1}\"."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 25,
+            "uuid": "bg-hg-v3-b1-01",
+            "question": "I {a1} got a red pen.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession"
+            ],
+            "variants": [
+                "I {a1} got a red pen."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 26,
+            "uuid": "bg-hg-v3-b1-02",
+            "question": "They {a1} got two bikes.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_plural_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_plural_subjects"
+            ],
+            "variants": [
+                "They {a1} got two bikes."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 27,
+            "uuid": "bg-hg-v3-b1-03",
+            "question": "She {a1} got a new phone.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "has_got_third_person"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "has_got_third_person"
+            ],
+            "variants": [
+                "She {a1} got a new phone."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 28,
+            "uuid": "bg-hg-v3-b1-04",
+            "question": "We {a1} not got a car.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "We {a1} not got a car."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 29,
+            "uuid": "bg-hg-v3-b1-05",
+            "question": "He {a1} not got a sister.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "He {a1} not got a sister."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 30,
+            "uuid": "bg-hg-v3-b1-06",
+            "question": "{a1} you got a ticket?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Has",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} you got a ticket?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 31,
+            "uuid": "bg-hg-v3-b1-07",
+            "question": "{a1} Tom got a dog?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Have",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} Tom got a dog?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 32,
+            "uuid": "bg-hg-v3-b1-08",
+            "question": "Have they got maps? Yes, they {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have they got maps? Yes, they {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 33,
+            "uuid": "bg-hg-v3-b1-09",
+            "question": "My cousin has {a1} a small cat.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "gets",
+                        "getting"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "everyday_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "everyday_possession"
+            ],
+            "variants": [
+                "My cousin has {a1} a small cat."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 34,
+            "uuid": "bg-hg-v3-b1-10",
+            "question": "The room has got two big {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "windows",
+                    "options": [
+                        "windows",
+                        "window",
+                        "door",
+                        "chair"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "features_characteristics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "features_characteristics"
+            ],
+            "variants": [
+                "The room has got two big {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 35,
+            "uuid": "bg-hg-v3-b1-11",
+            "question": "In British English, \"I have {a1} a bike\" shows possession.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "been",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_vs_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_vs_have"
+            ],
+            "variants": [
+                "In British English, \"I have {a1} a bike\" shows possession."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 36,
+            "uuid": "bg-hg-v3-b1-12",
+            "question": "Use \"have\" for breakfast, not \"have {a1}\".",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "breakfast",
+                    "options": [
+                        "breakfast",
+                        "got breakfast",
+                        "got",
+                        "has got"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "not_for_actions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_for_actions"
+            ],
+            "variants": [
+                "Use \"have\" for breakfast, not \"have {a1}\"."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 37,
+            "uuid": "bg-hg-v3-b2-01",
+            "question": "I {a1} got a red pen.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession"
+            ],
+            "variants": [
+                "I {a1} got a red pen."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 38,
+            "uuid": "bg-hg-v3-b2-02",
+            "question": "They {a1} got two bikes.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_plural_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_plural_subjects"
+            ],
+            "variants": [
+                "They {a1} got two bikes."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 39,
+            "uuid": "bg-hg-v3-b2-03",
+            "question": "She {a1} got a new phone.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "has_got_third_person"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "has_got_third_person"
+            ],
+            "variants": [
+                "She {a1} got a new phone."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 40,
+            "uuid": "bg-hg-v3-b2-04",
+            "question": "We {a1} not got a car.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "We {a1} not got a car."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 41,
+            "uuid": "bg-hg-v3-b2-05",
+            "question": "He {a1} not got a sister.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "He {a1} not got a sister."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 42,
+            "uuid": "bg-hg-v3-b2-06",
+            "question": "{a1} you got a ticket?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Has",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} you got a ticket?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 43,
+            "uuid": "bg-hg-v3-b2-07",
+            "question": "{a1} Tom got a dog?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Have",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} Tom got a dog?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 44,
+            "uuid": "bg-hg-v3-b2-08",
+            "question": "Have they got maps? Yes, they {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have they got maps? Yes, they {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 45,
+            "uuid": "bg-hg-v3-b2-09",
+            "question": "My cousin has {a1} a small cat.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "gets",
+                        "getting"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "everyday_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "everyday_possession"
+            ],
+            "variants": [
+                "My cousin has {a1} a small cat."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 46,
+            "uuid": "bg-hg-v3-b2-10",
+            "question": "The room has got two big {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "windows",
+                    "options": [
+                        "windows",
+                        "window",
+                        "door",
+                        "chair"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "features_characteristics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "features_characteristics"
+            ],
+            "variants": [
+                "The room has got two big {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 47,
+            "uuid": "bg-hg-v3-b2-11",
+            "question": "In British English, \"I have {a1} a bike\" shows possession.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "been",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_vs_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_vs_have"
+            ],
+            "variants": [
+                "In British English, \"I have {a1} a bike\" shows possession."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 48,
+            "uuid": "bg-hg-v3-b2-12",
+            "question": "Use \"have\" for breakfast, not \"have {a1}\".",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "breakfast",
+                    "options": [
+                        "breakfast",
+                        "got breakfast",
+                        "got",
+                        "has got"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "not_for_actions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_for_actions"
+            ],
+            "variants": [
+                "Use \"have\" for breakfast, not \"have {a1}\"."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 49,
+            "uuid": "bg-hg-v3-c1-01",
+            "question": "I {a1} got a red pen.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession"
+            ],
+            "variants": [
+                "I {a1} got a red pen."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 50,
+            "uuid": "bg-hg-v3-c1-02",
+            "question": "They {a1} got two bikes.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_plural_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_plural_subjects"
+            ],
+            "variants": [
+                "They {a1} got two bikes."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 51,
+            "uuid": "bg-hg-v3-c1-03",
+            "question": "She {a1} got a new phone.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "has_got_third_person"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "has_got_third_person"
+            ],
+            "variants": [
+                "She {a1} got a new phone."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 52,
+            "uuid": "bg-hg-v3-c1-04",
+            "question": "We {a1} not got a car.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "We {a1} not got a car."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 53,
+            "uuid": "bg-hg-v3-c1-05",
+            "question": "He {a1} not got a sister.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "He {a1} not got a sister."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 54,
+            "uuid": "bg-hg-v3-c1-06",
+            "question": "{a1} you got a ticket?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Has",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} you got a ticket?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 55,
+            "uuid": "bg-hg-v3-c1-07",
+            "question": "{a1} Tom got a dog?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Have",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} Tom got a dog?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 56,
+            "uuid": "bg-hg-v3-c1-08",
+            "question": "Have they got maps? Yes, they {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have they got maps? Yes, they {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 57,
+            "uuid": "bg-hg-v3-c1-09",
+            "question": "My cousin has {a1} a small cat.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "gets",
+                        "getting"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "everyday_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "everyday_possession"
+            ],
+            "variants": [
+                "My cousin has {a1} a small cat."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 58,
+            "uuid": "bg-hg-v3-c1-10",
+            "question": "The room has got two big {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "windows",
+                    "options": [
+                        "windows",
+                        "window",
+                        "door",
+                        "chair"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "features_characteristics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "features_characteristics"
+            ],
+            "variants": [
+                "The room has got two big {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 59,
+            "uuid": "bg-hg-v3-c1-11",
+            "question": "In British English, \"I have {a1} a bike\" shows possession.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "been",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_vs_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_vs_have"
+            ],
+            "variants": [
+                "In British English, \"I have {a1} a bike\" shows possession."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 60,
+            "uuid": "bg-hg-v3-c1-12",
+            "question": "Use \"have\" for breakfast, not \"have {a1}\".",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "breakfast",
+                    "options": [
+                        "breakfast",
+                        "got breakfast",
+                        "got",
+                        "has got"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "not_for_actions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_for_actions"
+            ],
+            "variants": [
+                "Use \"have\" for breakfast, not \"have {a1}\"."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 61,
+            "uuid": "bg-hg-v3-c2-01",
+            "question": "I {a1} got a red pen.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession"
+            ],
+            "variants": [
+                "I {a1} got a red pen."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 62,
+            "uuid": "bg-hg-v3-c2-02",
+            "question": "They {a1} got two bikes.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_plural_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_plural_subjects"
+            ],
+            "variants": [
+                "They {a1} got two bikes."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 63,
+            "uuid": "bg-hg-v3-c2-03",
+            "question": "She {a1} got a new phone.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "has_got_third_person"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "has_got_third_person"
+            ],
+            "variants": [
+                "She {a1} got a new phone."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 64,
+            "uuid": "bg-hg-v3-c2-04",
+            "question": "We {a1} not got a car.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "We {a1} not got a car."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 65,
+            "uuid": "bg-hg-v3-c2-05",
+            "question": "He {a1} not got a sister.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negatives"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negatives"
+            ],
+            "variants": [
+                "He {a1} not got a sister."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 66,
+            "uuid": "bg-hg-v3-c2-06",
+            "question": "{a1} you got a ticket?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Has",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} you got a ticket?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 67,
+            "uuid": "bg-hg-v3-c2-07",
+            "question": "{a1} Tom got a dog?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Have",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "questions"
+            ],
+            "variants": [
+                "{a1} Tom got a dog?"
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 68,
+            "uuid": "bg-hg-v3-c2-08",
+            "question": "Have they got maps? Yes, they {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have they got maps? Yes, they {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 69,
+            "uuid": "bg-hg-v3-c2-09",
+            "question": "My cousin has {a1} a small cat.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "gets",
+                        "getting"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "everyday_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "everyday_possession"
+            ],
+            "variants": [
+                "My cousin has {a1} a small cat."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 70,
+            "uuid": "bg-hg-v3-c2-10",
+            "question": "The room has got two big {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "windows",
+                    "options": [
+                        "windows",
+                        "window",
+                        "door",
+                        "chair"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "features_characteristics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "features_characteristics"
+            ],
+            "variants": [
+                "The room has got two big {a1}."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 71,
+            "uuid": "bg-hg-v3-c2-11",
+            "question": "In British English, \"I have {a1} a bike\" shows possession.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "got",
+                    "options": [
+                        "got",
+                        "get",
+                        "been",
+                        "do"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "have_got_vs_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_got_vs_have"
+            ],
+            "variants": [
+                "In British English, \"I have {a1} a bike\" shows possession."
+            ],
+            "source": "theory_page_have_got_has_got"
+        },
+        {
+            "id": 72,
+            "uuid": "bg-hg-v3-c2-12",
+            "question": "Use \"have\" for breakfast, not \"have {a1}\".",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "breakfast",
+                    "options": [
+                        "breakfast",
+                        "got breakfast",
+                        "got",
+                        "has got"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "not_for_actions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_for_actions"
+            ],
+            "variants": [
+                "Use \"have\" for breakfast, not \"have {a1}\"."
+            ],
+            "source": "theory_page_have_got_has_got"
+        }
+    ],
+    "category": {
+        "name": "English Grammar"
+    },
+    "sources": {
+        "theory_page_have_got_has_got": {
+            "name": "Have Got / Has Got"
+        }
+    },
+    "tags": {
+        "possession": {
+            "name": "Possession meaning",
+            "category": "topic"
+        },
+        "have_got_plural_subjects": {
+            "name": "Have got with I you we they",
+            "category": "topic"
+        },
+        "has_got_third_person": {
+            "name": "Has got with he she it",
+            "category": "topic"
+        },
+        "negatives": {
+            "name": "Negative have got",
+            "category": "topic"
+        },
+        "questions": {
+            "name": "Have got questions",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short answers",
+            "category": "topic"
+        },
+        "everyday_possession": {
+            "name": "Everyday possession",
+            "category": "topic"
+        },
+        "features_characteristics": {
+            "name": "Features and characteristics",
+            "category": "topic"
+        },
+        "have_got_vs_have": {
+            "name": "Have got versus have",
+            "category": "topic"
+        },
+        "not_for_actions": {
+            "name": "Not for actions",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "possession",
+        "have_got_plural_subjects",
+        "has_got_third_person",
+        "negatives",
+        "questions",
+        "short_answers",
+        "everyday_possession",
+        "features_characteristics",
+        "have_got_vs_have",
+        "not_for_actions",
+        "typical_mistakes"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 1,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}
