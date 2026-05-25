@@ -64,3 +64,23 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Sentence Structure Theory Page Tests 062
+
+Batch `GLZ-CODEX-SENTENCE-STRUCTURE-THEORY-PAGE-TESTS-062` closes these Sentence Structure theory pages with JSON-based V3 standard questions, Sentence Builder compose questions, and JSON theory-link manifests:
+
+- `/theory/sentence-structure/cleft-sentences-basics`
+- `/theory/sentence-structure/cleft-sentences-emphasis`
+- `/theory/sentence-structure/ellipsis-substitution-and-reference`
+- `/theory/sentence-structure/complex-noun-phrases`
+
+The repository has no separate Page_V3 `SentenceStructure` category seeder; the real page seeders define/use the `sentence-structure` category directly. Each page now has 72 V3 questions and 72 Sentence Builder compose questions across A1-C2, plus `question_theory_text_blocks` / `questions.theory_text_block_uuid` links from `database/seeders/V3/TheoryLinks/data/*sentence-structure*theory-links.json`.
+
+Main scoped verification:
+
+```bash
+php artisan test tests/Feature/SentenceStructureTheoryPageTestsSeedersTest.php
+php artisan theory-pages:audit-tests-unification
+```
+
+See `docs/sentence_structure_theory_pages_062.md` for the file map and QA checklist.
