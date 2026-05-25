@@ -1,0 +1,591 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Hedging and Cautious Language Basics theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/academic-english/hedging-and-cautious-language-basics",
+        "category_slug": "academic-english",
+        "slug": "hedging-and-cautious-language-basics",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+        "title": "Hedging and Cautious Language Basics"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 1,
+            "title": "Hero theory block"
+        },
+        "focus": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "Practice focus block"
+        },
+        "basic_hedging": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "basic hedging"
+        },
+        "cautious_claims": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "cautious claims"
+        },
+        "modal_hedging": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "may might could for cautious possibility"
+        },
+        "appear_seem": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "appear and seem"
+        },
+        "tend_to": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "tend to"
+        },
+        "likely_unlikely": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "likely and unlikely"
+        },
+        "suggest_indicate": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "suggest and indicate"
+        },
+        "limiting_claims": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "limiting claims"
+        },
+        "avoid_overstatement": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "avoiding overstatement"
+        },
+        "academic_tone": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "cautious academic tone"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder",
+            "sort_order": 2,
+            "title": "typical mistakes"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "focus"
+        ],
+        "basic_hedging": [
+            "basic_hedging",
+            "overview"
+        ],
+        "cautious_claims": [
+            "cautious_claims",
+            "overview"
+        ],
+        "modal_hedging": [
+            "modal_hedging",
+            "overview"
+        ],
+        "appear_seem": [
+            "appear_seem",
+            "overview"
+        ],
+        "tend_to": [
+            "tend_to",
+            "overview"
+        ],
+        "likely_unlikely": [
+            "likely_unlikely",
+            "overview"
+        ],
+        "suggest_indicate": [
+            "suggest_indicate",
+            "overview"
+        ],
+        "limiting_claims": [
+            "limiting_claims",
+            "overview"
+        ],
+        "avoid_overstatement": [
+            "avoid_overstatement",
+            "overview"
+        ],
+        "academic_tone": [
+            "academic_tone",
+            "overview"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsB2LessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-hedging-and-cautious-language-basics-all-levels",
+            "saved_test_name": "Sentence Builder: Hedging and Cautious Language Basics (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "ae-hclb-poly-a1-01": [
+                    "basic_hedging"
+                ],
+                "ae-hclb-poly-a1-02": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-a1-03": [
+                    "modal_hedging"
+                ],
+                "ae-hclb-poly-a1-04": [
+                    "appear_seem"
+                ],
+                "ae-hclb-poly-a1-05": [
+                    "tend_to"
+                ],
+                "ae-hclb-poly-a1-06": [
+                    "likely_unlikely"
+                ],
+                "ae-hclb-poly-a1-07": [
+                    "suggest_indicate"
+                ],
+                "ae-hclb-poly-a1-08": [
+                    "limiting_claims"
+                ],
+                "ae-hclb-poly-a1-09": [
+                    "avoid_overstatement"
+                ],
+                "ae-hclb-poly-a1-10": [
+                    "academic_tone"
+                ],
+                "ae-hclb-poly-a1-11": [
+                    "typical_mistakes"
+                ],
+                "ae-hclb-poly-a1-12": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-a2-01": [
+                    "basic_hedging"
+                ],
+                "ae-hclb-poly-a2-02": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-a2-03": [
+                    "modal_hedging"
+                ],
+                "ae-hclb-poly-a2-04": [
+                    "appear_seem"
+                ],
+                "ae-hclb-poly-a2-05": [
+                    "tend_to"
+                ],
+                "ae-hclb-poly-a2-06": [
+                    "likely_unlikely"
+                ],
+                "ae-hclb-poly-a2-07": [
+                    "suggest_indicate"
+                ],
+                "ae-hclb-poly-a2-08": [
+                    "limiting_claims"
+                ],
+                "ae-hclb-poly-a2-09": [
+                    "avoid_overstatement"
+                ],
+                "ae-hclb-poly-a2-10": [
+                    "academic_tone"
+                ],
+                "ae-hclb-poly-a2-11": [
+                    "typical_mistakes"
+                ],
+                "ae-hclb-poly-a2-12": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-b1-01": [
+                    "basic_hedging"
+                ],
+                "ae-hclb-poly-b1-02": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-b1-03": [
+                    "modal_hedging"
+                ],
+                "ae-hclb-poly-b1-04": [
+                    "appear_seem"
+                ],
+                "ae-hclb-poly-b1-05": [
+                    "tend_to"
+                ],
+                "ae-hclb-poly-b1-06": [
+                    "likely_unlikely"
+                ],
+                "ae-hclb-poly-b1-07": [
+                    "suggest_indicate"
+                ],
+                "ae-hclb-poly-b1-08": [
+                    "limiting_claims"
+                ],
+                "ae-hclb-poly-b1-09": [
+                    "avoid_overstatement"
+                ],
+                "ae-hclb-poly-b1-10": [
+                    "academic_tone"
+                ],
+                "ae-hclb-poly-b1-11": [
+                    "typical_mistakes"
+                ],
+                "ae-hclb-poly-b1-12": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-b2-01": [
+                    "basic_hedging"
+                ],
+                "ae-hclb-poly-b2-02": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-b2-03": [
+                    "modal_hedging"
+                ],
+                "ae-hclb-poly-b2-04": [
+                    "appear_seem"
+                ],
+                "ae-hclb-poly-b2-05": [
+                    "tend_to"
+                ],
+                "ae-hclb-poly-b2-06": [
+                    "likely_unlikely"
+                ],
+                "ae-hclb-poly-b2-07": [
+                    "suggest_indicate"
+                ],
+                "ae-hclb-poly-b2-08": [
+                    "limiting_claims"
+                ],
+                "ae-hclb-poly-b2-09": [
+                    "avoid_overstatement"
+                ],
+                "ae-hclb-poly-b2-10": [
+                    "academic_tone"
+                ],
+                "ae-hclb-poly-b2-11": [
+                    "typical_mistakes"
+                ],
+                "ae-hclb-poly-b2-12": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-c1-01": [
+                    "basic_hedging"
+                ],
+                "ae-hclb-poly-c1-02": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-c1-03": [
+                    "modal_hedging"
+                ],
+                "ae-hclb-poly-c1-04": [
+                    "appear_seem"
+                ],
+                "ae-hclb-poly-c1-05": [
+                    "tend_to"
+                ],
+                "ae-hclb-poly-c1-06": [
+                    "likely_unlikely"
+                ],
+                "ae-hclb-poly-c1-07": [
+                    "suggest_indicate"
+                ],
+                "ae-hclb-poly-c1-08": [
+                    "limiting_claims"
+                ],
+                "ae-hclb-poly-c1-09": [
+                    "avoid_overstatement"
+                ],
+                "ae-hclb-poly-c1-10": [
+                    "academic_tone"
+                ],
+                "ae-hclb-poly-c1-11": [
+                    "typical_mistakes"
+                ],
+                "ae-hclb-poly-c1-12": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-c2-01": [
+                    "basic_hedging"
+                ],
+                "ae-hclb-poly-c2-02": [
+                    "cautious_claims"
+                ],
+                "ae-hclb-poly-c2-03": [
+                    "modal_hedging"
+                ],
+                "ae-hclb-poly-c2-04": [
+                    "appear_seem"
+                ],
+                "ae-hclb-poly-c2-05": [
+                    "tend_to"
+                ],
+                "ae-hclb-poly-c2-06": [
+                    "likely_unlikely"
+                ],
+                "ae-hclb-poly-c2-07": [
+                    "suggest_indicate"
+                ],
+                "ae-hclb-poly-c2-08": [
+                    "limiting_claims"
+                ],
+                "ae-hclb-poly-c2-09": [
+                    "avoid_overstatement"
+                ],
+                "ae-hclb-poly-c2-10": [
+                    "academic_tone"
+                ],
+                "ae-hclb-poly-c2-11": [
+                    "typical_mistakes"
+                ],
+                "ae-hclb-poly-c2-12": [
+                    "cautious_claims"
+                ]
+            }
+        },
+        {
+            "kind": "standard_v3",
+            "saved_test_slug": "hedging-and-cautious-language-basics-all-levels-v3",
+            "saved_test_name": "Hedging and Cautious Language Basics: V3 All Levels",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsAllLevelsV3Seeder"
+            ],
+            "strategy": "tag_key_map",
+            "tag_key_to_bundle": {
+                "basic_hedging": "basic_hedging",
+                "cautious_claims": "cautious_claims",
+                "modal_hedging": "modal_hedging",
+                "appear_seem": "appear_seem",
+                "tend_to": "tend_to",
+                "likely_unlikely": "likely_unlikely",
+                "suggest_indicate": "suggest_indicate",
+                "limiting_claims": "limiting_claims",
+                "avoid_overstatement": "avoid_overstatement",
+                "academic_tone": "academic_tone",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {},
+            "question_text_to_bundle_fallback": {
+                "basic_hedging": "basic_hedging",
+                "cautious_claims": "cautious_claims",
+                "modal_hedging": "modal_hedging",
+                "appear_seem": "appear_seem",
+                "tend_to": "tend_to",
+                "likely_unlikely": "likely_unlikely",
+                "suggest_indicate": "suggest_indicate",
+                "limiting_claims": "limiting_claims",
+                "avoid_overstatement": "avoid_overstatement",
+                "academic_tone": "academic_tone",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "default_bundle": "general_overview"
+        },
+        {
+            "kind": "legacy_sentence_builder",
+            "saved_test_slug": "legacy:PolyglotHedgingAndCautiousLanguageBasicsB2LessonSeeder",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsB2LessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "polyglot-hedging-and-cautious-language-basics-b2-q01": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q02": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q03": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q04": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q05": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q06": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q07": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q08": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q09": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q10": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q11": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q12": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q13": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q14": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q15": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q16": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q17": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q18": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q19": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q20": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q21": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q22": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q23": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q24": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q25": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q26": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q27": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q28": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q29": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q30": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q31": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q32": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q33": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q34": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q35": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q36": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q37": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q38": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q39": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q40": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q41": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q42": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q43": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q44": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q45": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q46": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q47": [
+                    "general_overview"
+                ],
+                "polyglot-hedging-and-cautious-language-basics-b2-q48": [
+                    "general_overview"
+                ]
+            }
+        }
+    ],
+    "seeder_requirements": {
+        "category_seeder": "none; AcademicEnglish pages define category directly in their Page_V3 seeders.",
+        "page_seeders": [
+            "Database\\Seeders\\Page_V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsTheorySeeder"
+        ],
+        "question_seeders": [
+            "Database\\Seeders\\V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsAllLevelsLessonSeeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsB2LessonSeeder"
+        ]
+    },
+    "qa": {
+        "expected_question_counts": {
+            "Database\\Seeders\\V3\\AcademicEnglish\\HedgingAndCautiousLanguageBasicsAllLevelsV3Seeder": 72,
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsAllLevelsLessonSeeder": 72,
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotHedgingAndCautiousLanguageBasicsB2LessonSeeder": 48
+        },
+        "expected_levels": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "expected_route_status": "OK"
+    }
+}
