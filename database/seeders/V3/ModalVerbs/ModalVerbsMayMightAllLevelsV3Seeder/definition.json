@@ -1,0 +1,2226 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsMayMightAllLevelsV3Seeder",
+        "uuid_namespace": "ModalVerbsMayMightAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "mv-mm-v3-all",
+        "slug": "may-might-all-levels-v3",
+        "name": "May / Might: V3 All Levels",
+        "description": "Page-local V3 package for May / Might with A1-C2 coverage.",
+        "question_uuids": [
+            "mv-mm-v3-a1-01",
+            "mv-mm-v3-a1-02",
+            "mv-mm-v3-a1-03",
+            "mv-mm-v3-a1-04",
+            "mv-mm-v3-a1-05",
+            "mv-mm-v3-a1-06",
+            "mv-mm-v3-a1-07",
+            "mv-mm-v3-a1-08",
+            "mv-mm-v3-a1-09",
+            "mv-mm-v3-a1-10",
+            "mv-mm-v3-a1-11",
+            "mv-mm-v3-a1-12",
+            "mv-mm-v3-a2-01",
+            "mv-mm-v3-a2-02",
+            "mv-mm-v3-a2-03",
+            "mv-mm-v3-a2-04",
+            "mv-mm-v3-a2-05",
+            "mv-mm-v3-a2-06",
+            "mv-mm-v3-a2-07",
+            "mv-mm-v3-a2-08",
+            "mv-mm-v3-a2-09",
+            "mv-mm-v3-a2-10",
+            "mv-mm-v3-a2-11",
+            "mv-mm-v3-a2-12",
+            "mv-mm-v3-b1-01",
+            "mv-mm-v3-b1-02",
+            "mv-mm-v3-b1-03",
+            "mv-mm-v3-b1-04",
+            "mv-mm-v3-b1-05",
+            "mv-mm-v3-b1-06",
+            "mv-mm-v3-b1-07",
+            "mv-mm-v3-b1-08",
+            "mv-mm-v3-b1-09",
+            "mv-mm-v3-b1-10",
+            "mv-mm-v3-b1-11",
+            "mv-mm-v3-b1-12",
+            "mv-mm-v3-b2-01",
+            "mv-mm-v3-b2-02",
+            "mv-mm-v3-b2-03",
+            "mv-mm-v3-b2-04",
+            "mv-mm-v3-b2-05",
+            "mv-mm-v3-b2-06",
+            "mv-mm-v3-b2-07",
+            "mv-mm-v3-b2-08",
+            "mv-mm-v3-b2-09",
+            "mv-mm-v3-b2-10",
+            "mv-mm-v3-b2-11",
+            "mv-mm-v3-b2-12",
+            "mv-mm-v3-c1-01",
+            "mv-mm-v3-c1-02",
+            "mv-mm-v3-c1-03",
+            "mv-mm-v3-c1-04",
+            "mv-mm-v3-c1-05",
+            "mv-mm-v3-c1-06",
+            "mv-mm-v3-c1-07",
+            "mv-mm-v3-c1-08",
+            "mv-mm-v3-c1-09",
+            "mv-mm-v3-c1-10",
+            "mv-mm-v3-c1-11",
+            "mv-mm-v3-c1-12",
+            "mv-mm-v3-c2-01",
+            "mv-mm-v3-c2-02",
+            "mv-mm-v3-c2-03",
+            "mv-mm-v3-c2-04",
+            "mv-mm-v3-c2-05",
+            "mv-mm-v3-c2-06",
+            "mv-mm-v3-c2-07",
+            "mv-mm-v3-c2-08",
+            "mv-mm-v3-c2-09",
+            "mv-mm-v3-c2-10",
+            "mv-mm-v3-c2-11",
+            "mv-mm-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsMayMightAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "modal-verbs",
+                "page_slug": "may-might",
+                "page_route": "/theory/modal-verbs/may-might",
+                "theory_page": {
+                    "slug": "may-might",
+                    "title": "May / Might",
+                    "category_slug_path": "modal-verbs",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsMayMightTheorySeeder",
+                    "url": "https://gramlyze.com/theory/modal-verbs/may-might"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mv-mm-v3-a1-01",
+            "question": "She {a1} come later; she is not sure yet.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "weaker_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "weaker_possibility"
+            ],
+            "variants": [
+                "She {a1} come later; she is not sure yet."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 2,
+            "uuid": "mv-mm-v3-a1-02",
+            "question": "You {a1} leave early if the manager agrees.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_permission"
+            ],
+            "variants": [
+                "You {a1} leave early if the manager agrees."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 3,
+            "uuid": "mv-mm-v3-a1-03",
+            "question": "It {a1} rain this evening, so take an umbrella.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "It {a1} rain this evening, so take an umbrella."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 4,
+            "uuid": "mv-mm-v3-a1-04",
+            "question": "He {a1} be busy now; his phone is off.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_be"
+            ],
+            "variants": [
+                "He {a1} be busy now; his phone is off."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 5,
+            "uuid": "mv-mm-v3-a1-05",
+            "question": "They {a1} not know the answer.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "negative_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_possibility"
+            ],
+            "variants": [
+                "They {a1} not know the answer."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 6,
+            "uuid": "mv-mm-v3-a1-06",
+            "question": "After may or might, use the {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "to-infinitive",
+                        "past simple",
+                        "third-person form"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "base_verb_pattern"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb_pattern"
+            ],
+            "variants": [
+                "After may or might, use the {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 7,
+            "uuid": "mv-mm-v3-a1-07",
+            "question": "She {a1} have missed the message.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_have"
+            ],
+            "variants": [
+                "She {a1} have missed the message."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 8,
+            "uuid": "mv-mm-v3-a1-08",
+            "question": "For formal permission, use {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_everyday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_everyday"
+            ],
+            "variants": [
+                "For formal permission, use {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 9,
+            "uuid": "mv-mm-v3-a1-09",
+            "question": "In everyday permission, can is common, but {a1} is more formal.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_vs_can"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_vs_can"
+            ],
+            "variants": [
+                "In everyday permission, can is common, but {a1} is more formal."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 10,
+            "uuid": "mv-mm-v3-a1-10",
+            "question": "\"It is possible that she is late\" can be \"She {a1} be late.\"",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "paraphrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "paraphrases"
+            ],
+            "variants": [
+                "\"It is possible that she is late\" can be \"She {a1} be late.\""
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 11,
+            "uuid": "mv-mm-v3-a1-11",
+            "question": "\"She might to come\" is a {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "formal request",
+                        "past modal",
+                        "deduction"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She might to come\" is a {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 12,
+            "uuid": "mv-mm-v3-a1-12",
+            "question": "This plan {a1} work, but we need more evidence.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "has to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This plan {a1} work, but we need more evidence."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 13,
+            "uuid": "mv-mm-v3-a2-01",
+            "question": "She {a1} come later; she is not sure yet.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "weaker_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "weaker_possibility"
+            ],
+            "variants": [
+                "She {a1} come later; she is not sure yet."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 14,
+            "uuid": "mv-mm-v3-a2-02",
+            "question": "You {a1} leave early if the manager agrees.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_permission"
+            ],
+            "variants": [
+                "You {a1} leave early if the manager agrees."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 15,
+            "uuid": "mv-mm-v3-a2-03",
+            "question": "It {a1} rain this evening, so take an umbrella.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "It {a1} rain this evening, so take an umbrella."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 16,
+            "uuid": "mv-mm-v3-a2-04",
+            "question": "He {a1} be busy now; his phone is off.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_be"
+            ],
+            "variants": [
+                "He {a1} be busy now; his phone is off."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 17,
+            "uuid": "mv-mm-v3-a2-05",
+            "question": "They {a1} not know the answer.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "negative_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_possibility"
+            ],
+            "variants": [
+                "They {a1} not know the answer."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 18,
+            "uuid": "mv-mm-v3-a2-06",
+            "question": "After may or might, use the {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "to-infinitive",
+                        "past simple",
+                        "third-person form"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "base_verb_pattern"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb_pattern"
+            ],
+            "variants": [
+                "After may or might, use the {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 19,
+            "uuid": "mv-mm-v3-a2-07",
+            "question": "She {a1} have missed the message.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_have"
+            ],
+            "variants": [
+                "She {a1} have missed the message."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 20,
+            "uuid": "mv-mm-v3-a2-08",
+            "question": "For formal permission, use {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_everyday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_everyday"
+            ],
+            "variants": [
+                "For formal permission, use {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 21,
+            "uuid": "mv-mm-v3-a2-09",
+            "question": "In everyday permission, can is common, but {a1} is more formal.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_vs_can"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_vs_can"
+            ],
+            "variants": [
+                "In everyday permission, can is common, but {a1} is more formal."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 22,
+            "uuid": "mv-mm-v3-a2-10",
+            "question": "\"It is possible that she is late\" can be \"She {a1} be late.\"",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "paraphrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "paraphrases"
+            ],
+            "variants": [
+                "\"It is possible that she is late\" can be \"She {a1} be late.\""
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 23,
+            "uuid": "mv-mm-v3-a2-11",
+            "question": "\"She might to come\" is a {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "formal request",
+                        "past modal",
+                        "deduction"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She might to come\" is a {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 24,
+            "uuid": "mv-mm-v3-a2-12",
+            "question": "This plan {a1} work, but we need more evidence.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "has to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This plan {a1} work, but we need more evidence."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 25,
+            "uuid": "mv-mm-v3-b1-01",
+            "question": "She {a1} come later; she is not sure yet.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "weaker_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "weaker_possibility"
+            ],
+            "variants": [
+                "She {a1} come later; she is not sure yet."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 26,
+            "uuid": "mv-mm-v3-b1-02",
+            "question": "You {a1} leave early if the manager agrees.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_permission"
+            ],
+            "variants": [
+                "You {a1} leave early if the manager agrees."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 27,
+            "uuid": "mv-mm-v3-b1-03",
+            "question": "It {a1} rain this evening, so take an umbrella.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "It {a1} rain this evening, so take an umbrella."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 28,
+            "uuid": "mv-mm-v3-b1-04",
+            "question": "He {a1} be busy now; his phone is off.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_be"
+            ],
+            "variants": [
+                "He {a1} be busy now; his phone is off."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 29,
+            "uuid": "mv-mm-v3-b1-05",
+            "question": "They {a1} not know the answer.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "negative_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_possibility"
+            ],
+            "variants": [
+                "They {a1} not know the answer."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 30,
+            "uuid": "mv-mm-v3-b1-06",
+            "question": "After may or might, use the {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "to-infinitive",
+                        "past simple",
+                        "third-person form"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "base_verb_pattern"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb_pattern"
+            ],
+            "variants": [
+                "After may or might, use the {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 31,
+            "uuid": "mv-mm-v3-b1-07",
+            "question": "She {a1} have missed the message.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_have"
+            ],
+            "variants": [
+                "She {a1} have missed the message."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 32,
+            "uuid": "mv-mm-v3-b1-08",
+            "question": "For formal permission, use {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_everyday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_everyday"
+            ],
+            "variants": [
+                "For formal permission, use {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 33,
+            "uuid": "mv-mm-v3-b1-09",
+            "question": "In everyday permission, can is common, but {a1} is more formal.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_vs_can"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_vs_can"
+            ],
+            "variants": [
+                "In everyday permission, can is common, but {a1} is more formal."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 34,
+            "uuid": "mv-mm-v3-b1-10",
+            "question": "\"It is possible that she is late\" can be \"She {a1} be late.\"",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "paraphrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "paraphrases"
+            ],
+            "variants": [
+                "\"It is possible that she is late\" can be \"She {a1} be late.\""
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 35,
+            "uuid": "mv-mm-v3-b1-11",
+            "question": "\"She might to come\" is a {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "formal request",
+                        "past modal",
+                        "deduction"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She might to come\" is a {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 36,
+            "uuid": "mv-mm-v3-b1-12",
+            "question": "This plan {a1} work, but we need more evidence.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "has to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This plan {a1} work, but we need more evidence."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 37,
+            "uuid": "mv-mm-v3-b2-01",
+            "question": "She {a1} come later; she is not sure yet.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "weaker_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "weaker_possibility"
+            ],
+            "variants": [
+                "She {a1} come later; she is not sure yet."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 38,
+            "uuid": "mv-mm-v3-b2-02",
+            "question": "You {a1} leave early if the manager agrees.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_permission"
+            ],
+            "variants": [
+                "You {a1} leave early if the manager agrees."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 39,
+            "uuid": "mv-mm-v3-b2-03",
+            "question": "It {a1} rain this evening, so take an umbrella.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "It {a1} rain this evening, so take an umbrella."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 40,
+            "uuid": "mv-mm-v3-b2-04",
+            "question": "He {a1} be busy now; his phone is off.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_be"
+            ],
+            "variants": [
+                "He {a1} be busy now; his phone is off."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 41,
+            "uuid": "mv-mm-v3-b2-05",
+            "question": "They {a1} not know the answer.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "negative_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_possibility"
+            ],
+            "variants": [
+                "They {a1} not know the answer."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 42,
+            "uuid": "mv-mm-v3-b2-06",
+            "question": "After may or might, use the {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "to-infinitive",
+                        "past simple",
+                        "third-person form"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "base_verb_pattern"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb_pattern"
+            ],
+            "variants": [
+                "After may or might, use the {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 43,
+            "uuid": "mv-mm-v3-b2-07",
+            "question": "She {a1} have missed the message.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_have"
+            ],
+            "variants": [
+                "She {a1} have missed the message."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 44,
+            "uuid": "mv-mm-v3-b2-08",
+            "question": "For formal permission, use {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_everyday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_everyday"
+            ],
+            "variants": [
+                "For formal permission, use {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 45,
+            "uuid": "mv-mm-v3-b2-09",
+            "question": "In everyday permission, can is common, but {a1} is more formal.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_vs_can"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_vs_can"
+            ],
+            "variants": [
+                "In everyday permission, can is common, but {a1} is more formal."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 46,
+            "uuid": "mv-mm-v3-b2-10",
+            "question": "\"It is possible that she is late\" can be \"She {a1} be late.\"",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "paraphrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "paraphrases"
+            ],
+            "variants": [
+                "\"It is possible that she is late\" can be \"She {a1} be late.\""
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 47,
+            "uuid": "mv-mm-v3-b2-11",
+            "question": "\"She might to come\" is a {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "formal request",
+                        "past modal",
+                        "deduction"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She might to come\" is a {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 48,
+            "uuid": "mv-mm-v3-b2-12",
+            "question": "This plan {a1} work, but we need more evidence.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "has to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This plan {a1} work, but we need more evidence."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 49,
+            "uuid": "mv-mm-v3-c1-01",
+            "question": "She {a1} come later; she is not sure yet.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "weaker_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "weaker_possibility"
+            ],
+            "variants": [
+                "She {a1} come later; she is not sure yet."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 50,
+            "uuid": "mv-mm-v3-c1-02",
+            "question": "You {a1} leave early if the manager agrees.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_permission"
+            ],
+            "variants": [
+                "You {a1} leave early if the manager agrees."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 51,
+            "uuid": "mv-mm-v3-c1-03",
+            "question": "It {a1} rain this evening, so take an umbrella.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "It {a1} rain this evening, so take an umbrella."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 52,
+            "uuid": "mv-mm-v3-c1-04",
+            "question": "He {a1} be busy now; his phone is off.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_be"
+            ],
+            "variants": [
+                "He {a1} be busy now; his phone is off."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 53,
+            "uuid": "mv-mm-v3-c1-05",
+            "question": "They {a1} not know the answer.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "negative_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_possibility"
+            ],
+            "variants": [
+                "They {a1} not know the answer."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 54,
+            "uuid": "mv-mm-v3-c1-06",
+            "question": "After may or might, use the {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "to-infinitive",
+                        "past simple",
+                        "third-person form"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "base_verb_pattern"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb_pattern"
+            ],
+            "variants": [
+                "After may or might, use the {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 55,
+            "uuid": "mv-mm-v3-c1-07",
+            "question": "She {a1} have missed the message.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_have"
+            ],
+            "variants": [
+                "She {a1} have missed the message."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 56,
+            "uuid": "mv-mm-v3-c1-08",
+            "question": "For formal permission, use {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_everyday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_everyday"
+            ],
+            "variants": [
+                "For formal permission, use {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 57,
+            "uuid": "mv-mm-v3-c1-09",
+            "question": "In everyday permission, can is common, but {a1} is more formal.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_vs_can"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_vs_can"
+            ],
+            "variants": [
+                "In everyday permission, can is common, but {a1} is more formal."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 58,
+            "uuid": "mv-mm-v3-c1-10",
+            "question": "\"It is possible that she is late\" can be \"She {a1} be late.\"",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "paraphrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "paraphrases"
+            ],
+            "variants": [
+                "\"It is possible that she is late\" can be \"She {a1} be late.\""
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 59,
+            "uuid": "mv-mm-v3-c1-11",
+            "question": "\"She might to come\" is a {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "formal request",
+                        "past modal",
+                        "deduction"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She might to come\" is a {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 60,
+            "uuid": "mv-mm-v3-c1-12",
+            "question": "This plan {a1} work, but we need more evidence.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "has to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This plan {a1} work, but we need more evidence."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 61,
+            "uuid": "mv-mm-v3-c2-01",
+            "question": "She {a1} come later; she is not sure yet.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "weaker_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "weaker_possibility"
+            ],
+            "variants": [
+                "She {a1} come later; she is not sure yet."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 62,
+            "uuid": "mv-mm-v3-c2-02",
+            "question": "You {a1} leave early if the manager agrees.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_permission"
+            ],
+            "variants": [
+                "You {a1} leave early if the manager agrees."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 63,
+            "uuid": "mv-mm-v3-c2-03",
+            "question": "It {a1} rain this evening, so take an umbrella.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "It {a1} rain this evening, so take an umbrella."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 64,
+            "uuid": "mv-mm-v3-c2-04",
+            "question": "He {a1} be busy now; his phone is off.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_be"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_be"
+            ],
+            "variants": [
+                "He {a1} be busy now; his phone is off."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 65,
+            "uuid": "mv-mm-v3-c2-05",
+            "question": "They {a1} not know the answer.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "negative_possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_possibility"
+            ],
+            "variants": [
+                "They {a1} not know the answer."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 66,
+            "uuid": "mv-mm-v3-c2-06",
+            "question": "After may or might, use the {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "to-infinitive",
+                        "past simple",
+                        "third-person form"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "base_verb_pattern"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "base_verb_pattern"
+            ],
+            "variants": [
+                "After may or might, use the {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 67,
+            "uuid": "mv-mm-v3-c2-07",
+            "question": "She {a1} have missed the message.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must to",
+                        "should to",
+                        "can to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_might_have"
+            ],
+            "variants": [
+                "She {a1} have missed the message."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 68,
+            "uuid": "mv-mm-v3-c2-08",
+            "question": "For formal permission, use {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "formal_everyday"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_everyday"
+            ],
+            "variants": [
+                "For formal permission, use {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 69,
+            "uuid": "mv-mm-v3-c2-09",
+            "question": "In everyday permission, can is common, but {a1} is more formal.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "might",
+                        "must",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "may_vs_can"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "may_vs_can"
+            ],
+            "variants": [
+                "In everyday permission, can is common, but {a1} is more formal."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 70,
+            "uuid": "mv-mm-v3-c2-10",
+            "question": "\"It is possible that she is late\" can be \"She {a1} be late.\"",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "must",
+                        "should",
+                        "has to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "paraphrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "paraphrases"
+            ],
+            "variants": [
+                "\"It is possible that she is late\" can be \"She {a1} be late.\""
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 71,
+            "uuid": "mv-mm-v3-c2-11",
+            "question": "\"She might to come\" is a {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "formal request",
+                        "past modal",
+                        "deduction"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She might to come\" is a {a1}."
+            ],
+            "source": "theory_page_may_might"
+        },
+        {
+            "id": 72,
+            "uuid": "mv-mm-v3-c2-12",
+            "question": "This plan {a1} work, but we need more evidence.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must",
+                        "has to",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This plan {a1} work, but we need more evidence."
+            ],
+            "source": "theory_page_may_might"
+        }
+    ],
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "theory_page_may_might": {
+            "name": "May / Might"
+        }
+    },
+    "tags": {
+        "possibility": {
+            "name": "possibility",
+            "category": "topic"
+        },
+        "weaker_possibility": {
+            "name": "weaker possibility",
+            "category": "topic"
+        },
+        "formal_permission": {
+            "name": "formal permission",
+            "category": "topic"
+        },
+        "negative_possibility": {
+            "name": "negative possibility",
+            "category": "topic"
+        },
+        "base_verb_pattern": {
+            "name": "base verb pattern",
+            "category": "topic"
+        },
+        "may_might_be": {
+            "name": "may might be",
+            "category": "topic"
+        },
+        "may_might_have": {
+            "name": "may might have",
+            "category": "topic"
+        },
+        "formal_everyday": {
+            "name": "formal everyday",
+            "category": "topic"
+        },
+        "may_vs_can": {
+            "name": "may vs can",
+            "category": "topic"
+        },
+        "paraphrases": {
+            "name": "paraphrases",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "theory_page_may_might"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}
