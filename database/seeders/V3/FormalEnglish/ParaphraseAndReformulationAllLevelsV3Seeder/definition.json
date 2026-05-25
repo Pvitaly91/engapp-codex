@@ -1,0 +1,1946 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FormalEnglish\\ParaphraseAndReformulationAllLevelsV3Seeder",
+        "uuid_namespace": "ParaphraseAndReformulationAllLevelsV3Seeder"
+    },
+    "category": {
+        "name": "Formal English"
+    },
+    "sources": {
+        "theory_page_paraphrase_and_reformulation": {
+            "name": "Paraphrase and Reformulation"
+        }
+    },
+    "tags": {
+        "paraphrase_and_reformulation": {
+            "name": "paraphrase and reformulation",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "preserve_meaning": {
+            "name": "paraphrase meaning preservation",
+            "category": "formal-english"
+        },
+        "reformulation_clarity": {
+            "name": "reformulation for clarity",
+            "category": "formal-english"
+        },
+        "formal_restatement": {
+            "name": "formal restatement",
+            "category": "formal-english"
+        },
+        "sentence_transformation": {
+            "name": "sentence transformation",
+            "category": "formal-english"
+        },
+        "precise_verbs": {
+            "name": "precise verbs",
+            "category": "formal-english"
+        },
+        "replace_vague_wording": {
+            "name": "replacing vague wording",
+            "category": "formal-english"
+        },
+        "clarify_logical_relation": {
+            "name": "clarifying logical relation",
+            "category": "formal-english"
+        },
+        "reduce_informal_tone": {
+            "name": "reducing informal tone",
+            "category": "formal-english"
+        },
+        "preserve_nuance": {
+            "name": "preserving nuance",
+            "category": "formal-english"
+        },
+        "avoid_over_formality": {
+            "name": "avoiding over formality",
+            "category": "formal-english"
+        },
+        "avoid_meaning_drift": {
+            "name": "avoiding meaning drift",
+            "category": "formal-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "formal-english"
+        }
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 6
+        }
+    },
+    "saved_test": {
+        "uuid": "fe-pr-v3-all",
+        "slug": "paraphrase-and-reformulation-all-levels-v3",
+        "name": "Paraphrase and Reformulation: V3 All Levels",
+        "description": "Page-local V3 package for Paraphrase and Reformulation with A1-C2 coverage.",
+        "question_uuids": [
+            "fe-pr-v3-a1-01",
+            "fe-pr-v3-a1-02",
+            "fe-pr-v3-a1-03",
+            "fe-pr-v3-a1-04",
+            "fe-pr-v3-a1-05",
+            "fe-pr-v3-a1-06",
+            "fe-pr-v3-a1-07",
+            "fe-pr-v3-a1-08",
+            "fe-pr-v3-a1-09",
+            "fe-pr-v3-a1-10",
+            "fe-pr-v3-a1-11",
+            "fe-pr-v3-a1-12",
+            "fe-pr-v3-a2-01",
+            "fe-pr-v3-a2-02",
+            "fe-pr-v3-a2-03",
+            "fe-pr-v3-a2-04",
+            "fe-pr-v3-a2-05",
+            "fe-pr-v3-a2-06",
+            "fe-pr-v3-a2-07",
+            "fe-pr-v3-a2-08",
+            "fe-pr-v3-a2-09",
+            "fe-pr-v3-a2-10",
+            "fe-pr-v3-a2-11",
+            "fe-pr-v3-a2-12",
+            "fe-pr-v3-b1-01",
+            "fe-pr-v3-b1-02",
+            "fe-pr-v3-b1-03",
+            "fe-pr-v3-b1-04",
+            "fe-pr-v3-b1-05",
+            "fe-pr-v3-b1-06",
+            "fe-pr-v3-b1-07",
+            "fe-pr-v3-b1-08",
+            "fe-pr-v3-b1-09",
+            "fe-pr-v3-b1-10",
+            "fe-pr-v3-b1-11",
+            "fe-pr-v3-b1-12",
+            "fe-pr-v3-b2-01",
+            "fe-pr-v3-b2-02",
+            "fe-pr-v3-b2-03",
+            "fe-pr-v3-b2-04",
+            "fe-pr-v3-b2-05",
+            "fe-pr-v3-b2-06",
+            "fe-pr-v3-b2-07",
+            "fe-pr-v3-b2-08",
+            "fe-pr-v3-b2-09",
+            "fe-pr-v3-b2-10",
+            "fe-pr-v3-b2-11",
+            "fe-pr-v3-b2-12",
+            "fe-pr-v3-c1-01",
+            "fe-pr-v3-c1-02",
+            "fe-pr-v3-c1-03",
+            "fe-pr-v3-c1-04",
+            "fe-pr-v3-c1-05",
+            "fe-pr-v3-c1-06",
+            "fe-pr-v3-c1-07",
+            "fe-pr-v3-c1-08",
+            "fe-pr-v3-c1-09",
+            "fe-pr-v3-c1-10",
+            "fe-pr-v3-c1-11",
+            "fe-pr-v3-c1-12",
+            "fe-pr-v3-c2-01",
+            "fe-pr-v3-c2-02",
+            "fe-pr-v3-c2-03",
+            "fe-pr-v3-c2-04",
+            "fe-pr-v3-c2-05",
+            "fe-pr-v3-c2-06",
+            "fe-pr-v3-c2-07",
+            "fe-pr-v3-c2-08",
+            "fe-pr-v3-c2-09",
+            "fe-pr-v3-c2-10",
+            "fe-pr-v3-c2-11",
+            "fe-pr-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\FormalEnglish\\ParaphraseAndReformulationAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "formal-english",
+                "page_slug": "paraphrase-and-reformulation",
+                "page_route": "/theory/formal-english/paraphrase-and-reformulation",
+                "theory_page": {
+                    "slug": "paraphrase-and-reformulation",
+                    "title": "Paraphrase and Reformulation",
+                    "category_slug_path": "formal-english",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\ParaphraseAndReformulationTheorySeeder",
+                    "url": "https://gramlyze.com/theory/formal-english/paraphrase-and-reformulation"
+                }
+            }
+        }
+    },
+    "default_tag_keys": [
+        "paraphrase_and_reformulation"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "fe-pr-v3-a1-01",
+            "question": "Choose the natural formal-English option for paraphrase meaning preservation: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "This does not necessarily mean that the results are incorrect",
+                    "options": [
+                        "This does not necessarily mean that the results are incorrect",
+                        "This proves that the results are incorrect",
+                        "This means necessarily the results incorrect are",
+                        "This says the results are totally wrong"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_meaning",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "fe-pr-v3-a1-02",
+            "question": "Choose the natural formal-English option for reformulation for clarity: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "In other words the method reduces the risk of error",
+                    "options": [
+                        "In other words the method reduces the risk of error",
+                        "In other words the method causes more errors",
+                        "In words other the method reduces risk the",
+                        "The method is kind of good for errors"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reformulation_clarity",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "fe-pr-v3-a1-03",
+            "question": "Choose the natural formal-English option for formal restatement: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The author restates the argument in formal terms",
+                    "options": [
+                        "The author restates the argument in formal terms",
+                        "The author says the argument again in a fancy way",
+                        "The author restates argument the in terms formal",
+                        "The author changes the argument completely"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "formal_restatement",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "fe-pr-v3-a1-04",
+            "question": "Choose the natural formal-English option for sentence transformation: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The sentence can be reformulated without changing meaning",
+                    "options": [
+                        "The sentence can be reformulated without changing meaning",
+                        "The sentence can be reformulated by changing meaning",
+                        "The sentence reformulate can without meaning changing",
+                        "The sentence can become different in meaning"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "sentence_transformation",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "fe-pr-v3-a1-05",
+            "question": "Choose the natural formal-English option for precise verbs: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The author clarifies this idea in the following section",
+                    "options": [
+                        "The author clarifies this idea in the following section",
+                        "The author talks about this idea in the next bit",
+                        "The author makes clear this idea following section",
+                        "The author unclear this idea in next section"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "precise_verbs",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "fe-pr-v3-a1-06",
+            "question": "Choose the natural formal-English option for replacing vague wording: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The proposal addresses several important issues",
+                    "options": [
+                        "The proposal addresses several important issues",
+                        "The proposal deals with some big things",
+                        "The proposal does several important issues",
+                        "The proposal addresses issues several important"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "replace_vague_wording",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid": "fe-pr-v3-a1-07",
+            "question": "Choose the natural formal-English option for clarifying logical relation: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "As a result the procedure became more reliable",
+                    "options": [
+                        "As a result the procedure became more reliable",
+                        "Although the procedure became more reliable",
+                        "As a contrast the procedure became more reliable",
+                        "The procedure reliable became as result"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "clarify_logical_relation",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "fe-pr-v3-a1-08",
+            "question": "Choose the natural formal-English option for reducing informal tone: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "We are unable to confirm this claim",
+                    "options": [
+                        "We are unable to confirm this claim",
+                        "We cannot say this thing is true",
+                        "We are not able confirm this claim",
+                        "We unable are to confirm this claim"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reduce_informal_tone",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "fe-pr-v3-a1-09",
+            "question": "Choose the natural formal-English option for preserving nuance: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The results suggest a possible improvement",
+                    "options": [
+                        "The results suggest a possible improvement",
+                        "The results prove a definite improvement",
+                        "The results suggest improvement possible a",
+                        "The results say it is totally better"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_nuance",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid": "fe-pr-v3-a1-10",
+            "question": "Choose the natural formal-English option for avoiding over formality: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The explanation is clear and appropriate",
+                    "options": [
+                        "The explanation is clear and appropriate",
+                        "The elucidation is maximally perspicacious and ceremonious",
+                        "The explanation clear and appropriate is",
+                        "The explanation is casual and vague"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_over_formality",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid": "fe-pr-v3-a1-11",
+            "question": "Choose the natural formal-English option for avoiding meaning drift: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The revised sentence keeps the original meaning",
+                    "options": [
+                        "The revised sentence keeps the original meaning",
+                        "The revised sentence changes the original meaning",
+                        "The sentence revised keeps meaning original the",
+                        "The revised sentence loses the key idea"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_meaning_drift",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid": "fe-pr-v3-a1-12",
+            "question": "Choose the natural formal-English option for typical mistakes: {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "The paraphrase changes the level of certainty",
+                    "options": [
+                        "The paraphrase changes the level of certainty",
+                        "The paraphrase keeps exactly the same certainty",
+                        "The paraphrase changes certainty level the",
+                        "The paraphrase is always correct if formal"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "typical_mistakes",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "fe-pr-v3-a2-01",
+            "question": "Choose the natural formal-English option for paraphrase meaning preservation: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "This does not necessarily mean that the results are incorrect",
+                    "options": [
+                        "This does not necessarily mean that the results are incorrect",
+                        "This proves that the results are incorrect",
+                        "This means necessarily the results incorrect are",
+                        "This says the results are totally wrong"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_meaning",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "fe-pr-v3-a2-02",
+            "question": "Choose the natural formal-English option for reformulation for clarity: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "In other words the method reduces the risk of error",
+                    "options": [
+                        "In other words the method reduces the risk of error",
+                        "In other words the method causes more errors",
+                        "In words other the method reduces risk the",
+                        "The method is kind of good for errors"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reformulation_clarity",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "fe-pr-v3-a2-03",
+            "question": "Choose the natural formal-English option for formal restatement: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The author restates the argument in formal terms",
+                    "options": [
+                        "The author restates the argument in formal terms",
+                        "The author says the argument again in a fancy way",
+                        "The author restates argument the in terms formal",
+                        "The author changes the argument completely"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "formal_restatement",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "fe-pr-v3-a2-04",
+            "question": "Choose the natural formal-English option for sentence transformation: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The sentence can be reformulated without changing meaning",
+                    "options": [
+                        "The sentence can be reformulated without changing meaning",
+                        "The sentence can be reformulated by changing meaning",
+                        "The sentence reformulate can without meaning changing",
+                        "The sentence can become different in meaning"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "sentence_transformation",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "fe-pr-v3-a2-05",
+            "question": "Choose the natural formal-English option for precise verbs: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The author clarifies this idea in the following section",
+                    "options": [
+                        "The author clarifies this idea in the following section",
+                        "The author talks about this idea in the next bit",
+                        "The author makes clear this idea following section",
+                        "The author unclear this idea in next section"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "precise_verbs",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "fe-pr-v3-a2-06",
+            "question": "Choose the natural formal-English option for replacing vague wording: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The proposal addresses several important issues",
+                    "options": [
+                        "The proposal addresses several important issues",
+                        "The proposal deals with some big things",
+                        "The proposal does several important issues",
+                        "The proposal addresses issues several important"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "replace_vague_wording",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid": "fe-pr-v3-a2-07",
+            "question": "Choose the natural formal-English option for clarifying logical relation: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "As a result the procedure became more reliable",
+                    "options": [
+                        "As a result the procedure became more reliable",
+                        "Although the procedure became more reliable",
+                        "As a contrast the procedure became more reliable",
+                        "The procedure reliable became as result"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "clarify_logical_relation",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid": "fe-pr-v3-a2-08",
+            "question": "Choose the natural formal-English option for reducing informal tone: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "We are unable to confirm this claim",
+                    "options": [
+                        "We are unable to confirm this claim",
+                        "We cannot say this thing is true",
+                        "We are not able confirm this claim",
+                        "We unable are to confirm this claim"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reduce_informal_tone",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid": "fe-pr-v3-a2-09",
+            "question": "Choose the natural formal-English option for preserving nuance: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The results suggest a possible improvement",
+                    "options": [
+                        "The results suggest a possible improvement",
+                        "The results prove a definite improvement",
+                        "The results suggest improvement possible a",
+                        "The results say it is totally better"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_nuance",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid": "fe-pr-v3-a2-10",
+            "question": "Choose the natural formal-English option for avoiding over formality: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The explanation is clear and appropriate",
+                    "options": [
+                        "The explanation is clear and appropriate",
+                        "The elucidation is maximally perspicacious and ceremonious",
+                        "The explanation clear and appropriate is",
+                        "The explanation is casual and vague"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_over_formality",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid": "fe-pr-v3-a2-11",
+            "question": "Choose the natural formal-English option for avoiding meaning drift: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The revised sentence keeps the original meaning",
+                    "options": [
+                        "The revised sentence keeps the original meaning",
+                        "The revised sentence changes the original meaning",
+                        "The sentence revised keeps meaning original the",
+                        "The revised sentence loses the key idea"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_meaning_drift",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid": "fe-pr-v3-a2-12",
+            "question": "Choose the natural formal-English option for typical mistakes: {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "The paraphrase changes the level of certainty",
+                    "options": [
+                        "The paraphrase changes the level of certainty",
+                        "The paraphrase keeps exactly the same certainty",
+                        "The paraphrase changes certainty level the",
+                        "The paraphrase is always correct if formal"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "typical_mistakes",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 25,
+            "uuid": "fe-pr-v3-b1-01",
+            "question": "Choose the natural formal-English option for paraphrase meaning preservation: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "This does not necessarily mean that the results are incorrect",
+                    "options": [
+                        "This does not necessarily mean that the results are incorrect",
+                        "This proves that the results are incorrect",
+                        "This means necessarily the results incorrect are",
+                        "This says the results are totally wrong"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_meaning",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 26,
+            "uuid": "fe-pr-v3-b1-02",
+            "question": "Choose the natural formal-English option for reformulation for clarity: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "In other words the method reduces the risk of error",
+                    "options": [
+                        "In other words the method reduces the risk of error",
+                        "In other words the method causes more errors",
+                        "In words other the method reduces risk the",
+                        "The method is kind of good for errors"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reformulation_clarity",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 27,
+            "uuid": "fe-pr-v3-b1-03",
+            "question": "Choose the natural formal-English option for formal restatement: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The author restates the argument in formal terms",
+                    "options": [
+                        "The author restates the argument in formal terms",
+                        "The author says the argument again in a fancy way",
+                        "The author restates argument the in terms formal",
+                        "The author changes the argument completely"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "formal_restatement",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 28,
+            "uuid": "fe-pr-v3-b1-04",
+            "question": "Choose the natural formal-English option for sentence transformation: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The sentence can be reformulated without changing meaning",
+                    "options": [
+                        "The sentence can be reformulated without changing meaning",
+                        "The sentence can be reformulated by changing meaning",
+                        "The sentence reformulate can without meaning changing",
+                        "The sentence can become different in meaning"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "sentence_transformation",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 29,
+            "uuid": "fe-pr-v3-b1-05",
+            "question": "Choose the natural formal-English option for precise verbs: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The author clarifies this idea in the following section",
+                    "options": [
+                        "The author clarifies this idea in the following section",
+                        "The author talks about this idea in the next bit",
+                        "The author makes clear this idea following section",
+                        "The author unclear this idea in next section"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "precise_verbs",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 30,
+            "uuid": "fe-pr-v3-b1-06",
+            "question": "Choose the natural formal-English option for replacing vague wording: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The proposal addresses several important issues",
+                    "options": [
+                        "The proposal addresses several important issues",
+                        "The proposal deals with some big things",
+                        "The proposal does several important issues",
+                        "The proposal addresses issues several important"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "replace_vague_wording",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid": "fe-pr-v3-b1-07",
+            "question": "Choose the natural formal-English option for clarifying logical relation: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "As a result the procedure became more reliable",
+                    "options": [
+                        "As a result the procedure became more reliable",
+                        "Although the procedure became more reliable",
+                        "As a contrast the procedure became more reliable",
+                        "The procedure reliable became as result"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "clarify_logical_relation",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 32,
+            "uuid": "fe-pr-v3-b1-08",
+            "question": "Choose the natural formal-English option for reducing informal tone: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "We are unable to confirm this claim",
+                    "options": [
+                        "We are unable to confirm this claim",
+                        "We cannot say this thing is true",
+                        "We are not able confirm this claim",
+                        "We unable are to confirm this claim"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reduce_informal_tone",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid": "fe-pr-v3-b1-09",
+            "question": "Choose the natural formal-English option for preserving nuance: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The results suggest a possible improvement",
+                    "options": [
+                        "The results suggest a possible improvement",
+                        "The results prove a definite improvement",
+                        "The results suggest improvement possible a",
+                        "The results say it is totally better"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_nuance",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 34,
+            "uuid": "fe-pr-v3-b1-10",
+            "question": "Choose the natural formal-English option for avoiding over formality: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The explanation is clear and appropriate",
+                    "options": [
+                        "The explanation is clear and appropriate",
+                        "The elucidation is maximally perspicacious and ceremonious",
+                        "The explanation clear and appropriate is",
+                        "The explanation is casual and vague"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_over_formality",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid": "fe-pr-v3-b1-11",
+            "question": "Choose the natural formal-English option for avoiding meaning drift: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The revised sentence keeps the original meaning",
+                    "options": [
+                        "The revised sentence keeps the original meaning",
+                        "The revised sentence changes the original meaning",
+                        "The sentence revised keeps meaning original the",
+                        "The revised sentence loses the key idea"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_meaning_drift",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 36,
+            "uuid": "fe-pr-v3-b1-12",
+            "question": "Choose the natural formal-English option for typical mistakes: {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "The paraphrase changes the level of certainty",
+                    "options": [
+                        "The paraphrase changes the level of certainty",
+                        "The paraphrase keeps exactly the same certainty",
+                        "The paraphrase changes certainty level the",
+                        "The paraphrase is always correct if formal"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "typical_mistakes",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 37,
+            "uuid": "fe-pr-v3-b2-01",
+            "question": "Choose the natural formal-English option for paraphrase meaning preservation: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "This does not necessarily mean that the results are incorrect",
+                    "options": [
+                        "This does not necessarily mean that the results are incorrect",
+                        "This proves that the results are incorrect",
+                        "This means necessarily the results incorrect are",
+                        "This says the results are totally wrong"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_meaning",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 38,
+            "uuid": "fe-pr-v3-b2-02",
+            "question": "Choose the natural formal-English option for reformulation for clarity: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "In other words the method reduces the risk of error",
+                    "options": [
+                        "In other words the method reduces the risk of error",
+                        "In other words the method causes more errors",
+                        "In words other the method reduces risk the",
+                        "The method is kind of good for errors"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reformulation_clarity",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 39,
+            "uuid": "fe-pr-v3-b2-03",
+            "question": "Choose the natural formal-English option for formal restatement: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The author restates the argument in formal terms",
+                    "options": [
+                        "The author restates the argument in formal terms",
+                        "The author says the argument again in a fancy way",
+                        "The author restates argument the in terms formal",
+                        "The author changes the argument completely"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "formal_restatement",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 40,
+            "uuid": "fe-pr-v3-b2-04",
+            "question": "Choose the natural formal-English option for sentence transformation: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The sentence can be reformulated without changing meaning",
+                    "options": [
+                        "The sentence can be reformulated without changing meaning",
+                        "The sentence can be reformulated by changing meaning",
+                        "The sentence reformulate can without meaning changing",
+                        "The sentence can become different in meaning"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "sentence_transformation",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 41,
+            "uuid": "fe-pr-v3-b2-05",
+            "question": "Choose the natural formal-English option for precise verbs: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The author clarifies this idea in the following section",
+                    "options": [
+                        "The author clarifies this idea in the following section",
+                        "The author talks about this idea in the next bit",
+                        "The author makes clear this idea following section",
+                        "The author unclear this idea in next section"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "precise_verbs",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 42,
+            "uuid": "fe-pr-v3-b2-06",
+            "question": "Choose the natural formal-English option for replacing vague wording: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The proposal addresses several important issues",
+                    "options": [
+                        "The proposal addresses several important issues",
+                        "The proposal deals with some big things",
+                        "The proposal does several important issues",
+                        "The proposal addresses issues several important"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "replace_vague_wording",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 43,
+            "uuid": "fe-pr-v3-b2-07",
+            "question": "Choose the natural formal-English option for clarifying logical relation: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "As a result the procedure became more reliable",
+                    "options": [
+                        "As a result the procedure became more reliable",
+                        "Although the procedure became more reliable",
+                        "As a contrast the procedure became more reliable",
+                        "The procedure reliable became as result"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "clarify_logical_relation",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 44,
+            "uuid": "fe-pr-v3-b2-08",
+            "question": "Choose the natural formal-English option for reducing informal tone: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "We are unable to confirm this claim",
+                    "options": [
+                        "We are unable to confirm this claim",
+                        "We cannot say this thing is true",
+                        "We are not able confirm this claim",
+                        "We unable are to confirm this claim"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reduce_informal_tone",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 45,
+            "uuid": "fe-pr-v3-b2-09",
+            "question": "Choose the natural formal-English option for preserving nuance: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The results suggest a possible improvement",
+                    "options": [
+                        "The results suggest a possible improvement",
+                        "The results prove a definite improvement",
+                        "The results suggest improvement possible a",
+                        "The results say it is totally better"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_nuance",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 46,
+            "uuid": "fe-pr-v3-b2-10",
+            "question": "Choose the natural formal-English option for avoiding over formality: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The explanation is clear and appropriate",
+                    "options": [
+                        "The explanation is clear and appropriate",
+                        "The elucidation is maximally perspicacious and ceremonious",
+                        "The explanation clear and appropriate is",
+                        "The explanation is casual and vague"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_over_formality",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 47,
+            "uuid": "fe-pr-v3-b2-11",
+            "question": "Choose the natural formal-English option for avoiding meaning drift: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The revised sentence keeps the original meaning",
+                    "options": [
+                        "The revised sentence keeps the original meaning",
+                        "The revised sentence changes the original meaning",
+                        "The sentence revised keeps meaning original the",
+                        "The revised sentence loses the key idea"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_meaning_drift",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 48,
+            "uuid": "fe-pr-v3-b2-12",
+            "question": "Choose the natural formal-English option for typical mistakes: {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "The paraphrase changes the level of certainty",
+                    "options": [
+                        "The paraphrase changes the level of certainty",
+                        "The paraphrase keeps exactly the same certainty",
+                        "The paraphrase changes certainty level the",
+                        "The paraphrase is always correct if formal"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "typical_mistakes",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 49,
+            "uuid": "fe-pr-v3-c1-01",
+            "question": "Choose the natural formal-English option for paraphrase meaning preservation: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "This does not necessarily mean that the results are incorrect",
+                    "options": [
+                        "This does not necessarily mean that the results are incorrect",
+                        "This proves that the results are incorrect",
+                        "This means necessarily the results incorrect are",
+                        "This says the results are totally wrong"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_meaning",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 50,
+            "uuid": "fe-pr-v3-c1-02",
+            "question": "Choose the natural formal-English option for reformulation for clarity: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "In other words the method reduces the risk of error",
+                    "options": [
+                        "In other words the method reduces the risk of error",
+                        "In other words the method causes more errors",
+                        "In words other the method reduces risk the",
+                        "The method is kind of good for errors"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reformulation_clarity",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 51,
+            "uuid": "fe-pr-v3-c1-03",
+            "question": "Choose the natural formal-English option for formal restatement: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The author restates the argument in formal terms",
+                    "options": [
+                        "The author restates the argument in formal terms",
+                        "The author says the argument again in a fancy way",
+                        "The author restates argument the in terms formal",
+                        "The author changes the argument completely"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "formal_restatement",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 52,
+            "uuid": "fe-pr-v3-c1-04",
+            "question": "Choose the natural formal-English option for sentence transformation: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The sentence can be reformulated without changing meaning",
+                    "options": [
+                        "The sentence can be reformulated without changing meaning",
+                        "The sentence can be reformulated by changing meaning",
+                        "The sentence reformulate can without meaning changing",
+                        "The sentence can become different in meaning"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "sentence_transformation",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 53,
+            "uuid": "fe-pr-v3-c1-05",
+            "question": "Choose the natural formal-English option for precise verbs: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The author clarifies this idea in the following section",
+                    "options": [
+                        "The author clarifies this idea in the following section",
+                        "The author talks about this idea in the next bit",
+                        "The author makes clear this idea following section",
+                        "The author unclear this idea in next section"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "precise_verbs",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 54,
+            "uuid": "fe-pr-v3-c1-06",
+            "question": "Choose the natural formal-English option for replacing vague wording: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The proposal addresses several important issues",
+                    "options": [
+                        "The proposal addresses several important issues",
+                        "The proposal deals with some big things",
+                        "The proposal does several important issues",
+                        "The proposal addresses issues several important"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "replace_vague_wording",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 55,
+            "uuid": "fe-pr-v3-c1-07",
+            "question": "Choose the natural formal-English option for clarifying logical relation: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "As a result the procedure became more reliable",
+                    "options": [
+                        "As a result the procedure became more reliable",
+                        "Although the procedure became more reliable",
+                        "As a contrast the procedure became more reliable",
+                        "The procedure reliable became as result"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "clarify_logical_relation",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 56,
+            "uuid": "fe-pr-v3-c1-08",
+            "question": "Choose the natural formal-English option for reducing informal tone: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "We are unable to confirm this claim",
+                    "options": [
+                        "We are unable to confirm this claim",
+                        "We cannot say this thing is true",
+                        "We are not able confirm this claim",
+                        "We unable are to confirm this claim"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reduce_informal_tone",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 57,
+            "uuid": "fe-pr-v3-c1-09",
+            "question": "Choose the natural formal-English option for preserving nuance: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The results suggest a possible improvement",
+                    "options": [
+                        "The results suggest a possible improvement",
+                        "The results prove a definite improvement",
+                        "The results suggest improvement possible a",
+                        "The results say it is totally better"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_nuance",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 58,
+            "uuid": "fe-pr-v3-c1-10",
+            "question": "Choose the natural formal-English option for avoiding over formality: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The explanation is clear and appropriate",
+                    "options": [
+                        "The explanation is clear and appropriate",
+                        "The elucidation is maximally perspicacious and ceremonious",
+                        "The explanation clear and appropriate is",
+                        "The explanation is casual and vague"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_over_formality",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 59,
+            "uuid": "fe-pr-v3-c1-11",
+            "question": "Choose the natural formal-English option for avoiding meaning drift: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The revised sentence keeps the original meaning",
+                    "options": [
+                        "The revised sentence keeps the original meaning",
+                        "The revised sentence changes the original meaning",
+                        "The sentence revised keeps meaning original the",
+                        "The revised sentence loses the key idea"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_meaning_drift",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 60,
+            "uuid": "fe-pr-v3-c1-12",
+            "question": "Choose the natural formal-English option for typical mistakes: {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "The paraphrase changes the level of certainty",
+                    "options": [
+                        "The paraphrase changes the level of certainty",
+                        "The paraphrase keeps exactly the same certainty",
+                        "The paraphrase changes certainty level the",
+                        "The paraphrase is always correct if formal"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "typical_mistakes",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 61,
+            "uuid": "fe-pr-v3-c2-01",
+            "question": "Choose the natural formal-English option for paraphrase meaning preservation: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "This does not necessarily mean that the results are incorrect",
+                    "options": [
+                        "This does not necessarily mean that the results are incorrect",
+                        "This proves that the results are incorrect",
+                        "This means necessarily the results incorrect are",
+                        "This says the results are totally wrong"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_meaning",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 62,
+            "uuid": "fe-pr-v3-c2-02",
+            "question": "Choose the natural formal-English option for reformulation for clarity: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "In other words the method reduces the risk of error",
+                    "options": [
+                        "In other words the method reduces the risk of error",
+                        "In other words the method causes more errors",
+                        "In words other the method reduces risk the",
+                        "The method is kind of good for errors"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reformulation_clarity",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 63,
+            "uuid": "fe-pr-v3-c2-03",
+            "question": "Choose the natural formal-English option for formal restatement: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The author restates the argument in formal terms",
+                    "options": [
+                        "The author restates the argument in formal terms",
+                        "The author says the argument again in a fancy way",
+                        "The author restates argument the in terms formal",
+                        "The author changes the argument completely"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "formal_restatement",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 64,
+            "uuid": "fe-pr-v3-c2-04",
+            "question": "Choose the natural formal-English option for sentence transformation: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The sentence can be reformulated without changing meaning",
+                    "options": [
+                        "The sentence can be reformulated without changing meaning",
+                        "The sentence can be reformulated by changing meaning",
+                        "The sentence reformulate can without meaning changing",
+                        "The sentence can become different in meaning"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "sentence_transformation",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 65,
+            "uuid": "fe-pr-v3-c2-05",
+            "question": "Choose the natural formal-English option for precise verbs: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The author clarifies this idea in the following section",
+                    "options": [
+                        "The author clarifies this idea in the following section",
+                        "The author talks about this idea in the next bit",
+                        "The author makes clear this idea following section",
+                        "The author unclear this idea in next section"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "precise_verbs",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 66,
+            "uuid": "fe-pr-v3-c2-06",
+            "question": "Choose the natural formal-English option for replacing vague wording: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The proposal addresses several important issues",
+                    "options": [
+                        "The proposal addresses several important issues",
+                        "The proposal deals with some big things",
+                        "The proposal does several important issues",
+                        "The proposal addresses issues several important"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "replace_vague_wording",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 67,
+            "uuid": "fe-pr-v3-c2-07",
+            "question": "Choose the natural formal-English option for clarifying logical relation: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "As a result the procedure became more reliable",
+                    "options": [
+                        "As a result the procedure became more reliable",
+                        "Although the procedure became more reliable",
+                        "As a contrast the procedure became more reliable",
+                        "The procedure reliable became as result"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "clarify_logical_relation",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 68,
+            "uuid": "fe-pr-v3-c2-08",
+            "question": "Choose the natural formal-English option for reducing informal tone: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "We are unable to confirm this claim",
+                    "options": [
+                        "We are unable to confirm this claim",
+                        "We cannot say this thing is true",
+                        "We are not able confirm this claim",
+                        "We unable are to confirm this claim"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "reduce_informal_tone",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 69,
+            "uuid": "fe-pr-v3-c2-09",
+            "question": "Choose the natural formal-English option for preserving nuance: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The results suggest a possible improvement",
+                    "options": [
+                        "The results suggest a possible improvement",
+                        "The results prove a definite improvement",
+                        "The results suggest improvement possible a",
+                        "The results say it is totally better"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "preserve_nuance",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 70,
+            "uuid": "fe-pr-v3-c2-10",
+            "question": "Choose the natural formal-English option for avoiding over formality: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The explanation is clear and appropriate",
+                    "options": [
+                        "The explanation is clear and appropriate",
+                        "The elucidation is maximally perspicacious and ceremonious",
+                        "The explanation clear and appropriate is",
+                        "The explanation is casual and vague"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_over_formality",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 71,
+            "uuid": "fe-pr-v3-c2-11",
+            "question": "Choose the natural formal-English option for avoiding meaning drift: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The revised sentence keeps the original meaning",
+                    "options": [
+                        "The revised sentence keeps the original meaning",
+                        "The revised sentence changes the original meaning",
+                        "The sentence revised keeps meaning original the",
+                        "The revised sentence loses the key idea"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "avoid_meaning_drift",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 72,
+            "uuid": "fe-pr-v3-c2-12",
+            "question": "Choose the natural formal-English option for typical mistakes: {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "The paraphrase changes the level of certainty",
+                    "options": [
+                        "The paraphrase changes the level of certainty",
+                        "The paraphrase keeps exactly the same certainty",
+                        "The paraphrase changes certainty level the",
+                        "The paraphrase is always correct if formal"
+                    ],
+                    "verb_hint": "Choose the option that preserves meaning and formal register."
+                }
+            },
+            "source": "theory_page_paraphrase_and_reformulation",
+            "tag_keys": [
+                "paraphrase_and_reformulation",
+                "typical_mistakes",
+                "level_c2"
+            ]
+        }
+    ]
+}
