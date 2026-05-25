@@ -1,0 +1,562 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Register Tone and Paraphrase theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/formal-english/register-tone-and-paraphrase",
+        "category_slug": "formal-english",
+        "slug": "register-tone-and-paraphrase",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+        "title": "Register Tone and Paraphrase"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "focus": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "Practice focus"
+        },
+        "formal_tone": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "formal tone"
+        },
+        "neutral_paraphrase": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "neutral paraphrase"
+        },
+        "avoid_slang": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "avoid slang"
+        },
+        "softening_claims": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "softening claims"
+        },
+        "precise_academic_verbs": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "precise academic verbs"
+        },
+        "preserve_meaning": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "preserve meaning"
+        },
+        "register_transformation": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "register transformation"
+        },
+        "concise_reformulation": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "concise reformulation"
+        },
+        "avoid_over_formality": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "avoid over formality"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+            "sort_order": 2,
+            "title": "typical mistakes"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "focus"
+        ],
+        "formal_tone": [
+            "formal_tone",
+            "overview"
+        ],
+        "neutral_paraphrase": [
+            "neutral_paraphrase",
+            "overview"
+        ],
+        "avoid_slang": [
+            "avoid_slang",
+            "overview"
+        ],
+        "softening_claims": [
+            "softening_claims",
+            "overview"
+        ],
+        "precise_academic_verbs": [
+            "precise_academic_verbs",
+            "overview"
+        ],
+        "preserve_meaning": [
+            "preserve_meaning",
+            "overview"
+        ],
+        "register_transformation": [
+            "register_transformation",
+            "overview"
+        ],
+        "concise_reformulation": [
+            "concise_reformulation",
+            "overview"
+        ],
+        "avoid_over_formality": [
+            "avoid_over_formality",
+            "overview"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\FormalEnglish\\RegisterToneAndParaphraseAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseC1LessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-register-tone-and-paraphrase-all-levels",
+            "saved_test_name": "Sentence Builder: Register Tone and Paraphrase (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "fe-rtp-poly-a1-01": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-a1-02": [
+                    "neutral_paraphrase"
+                ],
+                "fe-rtp-poly-a1-03": [
+                    "avoid_slang"
+                ],
+                "fe-rtp-poly-a1-04": [
+                    "softening_claims"
+                ],
+                "fe-rtp-poly-a1-05": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-a1-06": [
+                    "preserve_meaning"
+                ],
+                "fe-rtp-poly-a1-07": [
+                    "register_transformation"
+                ],
+                "fe-rtp-poly-a1-08": [
+                    "concise_reformulation"
+                ],
+                "fe-rtp-poly-a1-09": [
+                    "avoid_over_formality"
+                ],
+                "fe-rtp-poly-a1-10": [
+                    "typical_mistakes"
+                ],
+                "fe-rtp-poly-a1-11": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-a1-12": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-a2-01": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-a2-02": [
+                    "neutral_paraphrase"
+                ],
+                "fe-rtp-poly-a2-03": [
+                    "avoid_slang"
+                ],
+                "fe-rtp-poly-a2-04": [
+                    "softening_claims"
+                ],
+                "fe-rtp-poly-a2-05": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-a2-06": [
+                    "preserve_meaning"
+                ],
+                "fe-rtp-poly-a2-07": [
+                    "register_transformation"
+                ],
+                "fe-rtp-poly-a2-08": [
+                    "concise_reformulation"
+                ],
+                "fe-rtp-poly-a2-09": [
+                    "avoid_over_formality"
+                ],
+                "fe-rtp-poly-a2-10": [
+                    "typical_mistakes"
+                ],
+                "fe-rtp-poly-a2-11": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-a2-12": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-b1-01": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-b1-02": [
+                    "neutral_paraphrase"
+                ],
+                "fe-rtp-poly-b1-03": [
+                    "avoid_slang"
+                ],
+                "fe-rtp-poly-b1-04": [
+                    "softening_claims"
+                ],
+                "fe-rtp-poly-b1-05": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-b1-06": [
+                    "preserve_meaning"
+                ],
+                "fe-rtp-poly-b1-07": [
+                    "register_transformation"
+                ],
+                "fe-rtp-poly-b1-08": [
+                    "concise_reformulation"
+                ],
+                "fe-rtp-poly-b1-09": [
+                    "avoid_over_formality"
+                ],
+                "fe-rtp-poly-b1-10": [
+                    "typical_mistakes"
+                ],
+                "fe-rtp-poly-b1-11": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-b1-12": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-b2-01": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-b2-02": [
+                    "neutral_paraphrase"
+                ],
+                "fe-rtp-poly-b2-03": [
+                    "avoid_slang"
+                ],
+                "fe-rtp-poly-b2-04": [
+                    "softening_claims"
+                ],
+                "fe-rtp-poly-b2-05": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-b2-06": [
+                    "preserve_meaning"
+                ],
+                "fe-rtp-poly-b2-07": [
+                    "register_transformation"
+                ],
+                "fe-rtp-poly-b2-08": [
+                    "concise_reformulation"
+                ],
+                "fe-rtp-poly-b2-09": [
+                    "avoid_over_formality"
+                ],
+                "fe-rtp-poly-b2-10": [
+                    "typical_mistakes"
+                ],
+                "fe-rtp-poly-b2-11": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-b2-12": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-c1-01": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-c1-02": [
+                    "neutral_paraphrase"
+                ],
+                "fe-rtp-poly-c1-03": [
+                    "avoid_slang"
+                ],
+                "fe-rtp-poly-c1-04": [
+                    "softening_claims"
+                ],
+                "fe-rtp-poly-c1-05": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-c1-06": [
+                    "preserve_meaning"
+                ],
+                "fe-rtp-poly-c1-07": [
+                    "register_transformation"
+                ],
+                "fe-rtp-poly-c1-08": [
+                    "concise_reformulation"
+                ],
+                "fe-rtp-poly-c1-09": [
+                    "avoid_over_formality"
+                ],
+                "fe-rtp-poly-c1-10": [
+                    "typical_mistakes"
+                ],
+                "fe-rtp-poly-c1-11": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-c1-12": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-c2-01": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-c2-02": [
+                    "neutral_paraphrase"
+                ],
+                "fe-rtp-poly-c2-03": [
+                    "avoid_slang"
+                ],
+                "fe-rtp-poly-c2-04": [
+                    "softening_claims"
+                ],
+                "fe-rtp-poly-c2-05": [
+                    "precise_academic_verbs"
+                ],
+                "fe-rtp-poly-c2-06": [
+                    "preserve_meaning"
+                ],
+                "fe-rtp-poly-c2-07": [
+                    "register_transformation"
+                ],
+                "fe-rtp-poly-c2-08": [
+                    "concise_reformulation"
+                ],
+                "fe-rtp-poly-c2-09": [
+                    "avoid_over_formality"
+                ],
+                "fe-rtp-poly-c2-10": [
+                    "typical_mistakes"
+                ],
+                "fe-rtp-poly-c2-11": [
+                    "formal_tone"
+                ],
+                "fe-rtp-poly-c2-12": [
+                    "precise_academic_verbs"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_a1_c2_standard_v3",
+            "saved_test_slug": "theory-page:{page_id}:mixed-a1-c2",
+            "seeder_class": "Database\\Seeders\\V3\\FormalEnglish\\RegisterToneAndParaphraseAllLevelsV3Seeder",
+            "strategy": "tag_key_to_bundle_fallback",
+            "tag_key_to_bundle": {
+                "formal_tone": "formal_tone",
+                "neutral_paraphrase": "neutral_paraphrase",
+                "avoid_slang": "avoid_slang",
+                "softening_claims": "softening_claims",
+                "precise_academic_verbs": "precise_academic_verbs",
+                "preserve_meaning": "preserve_meaning",
+                "register_transformation": "register_transformation",
+                "concise_reformulation": "concise_reformulation",
+                "avoid_over_formality": "avoid_over_formality",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "default_bundle": "general_overview",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\FormalEnglish\\RegisterToneAndParaphraseAllLevelsV3Seeder"
+            ]
+        },
+        {
+            "kind": "legacy_sentence_builder",
+            "saved_test_slug": "polyglot-register-tone-and-paraphrase-c1",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseC1LessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "polyglot-register-tone-and-paraphrase-c1-q01": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q02": [
+                    "neutral_paraphrase"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q03": [
+                    "avoid_slang"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q04": [
+                    "softening_claims"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q05": [
+                    "precise_academic_verbs"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q06": [
+                    "preserve_meaning"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q07": [
+                    "register_transformation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q08": [
+                    "concise_reformulation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q09": [
+                    "avoid_over_formality"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q10": [
+                    "typical_mistakes"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q11": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q12": [
+                    "precise_academic_verbs"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q13": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q14": [
+                    "neutral_paraphrase"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q15": [
+                    "avoid_slang"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q16": [
+                    "softening_claims"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q17": [
+                    "precise_academic_verbs"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q18": [
+                    "preserve_meaning"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q19": [
+                    "register_transformation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q20": [
+                    "concise_reformulation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q21": [
+                    "avoid_over_formality"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q22": [
+                    "typical_mistakes"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q23": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q24": [
+                    "precise_academic_verbs"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q25": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q26": [
+                    "neutral_paraphrase"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q27": [
+                    "avoid_slang"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q28": [
+                    "softening_claims"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q29": [
+                    "precise_academic_verbs"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q30": [
+                    "preserve_meaning"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q31": [
+                    "register_transformation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q32": [
+                    "concise_reformulation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q33": [
+                    "avoid_over_formality"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q34": [
+                    "typical_mistakes"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q35": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q36": [
+                    "precise_academic_verbs"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q37": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q38": [
+                    "neutral_paraphrase"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q39": [
+                    "avoid_slang"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q40": [
+                    "softening_claims"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q41": [
+                    "precise_academic_verbs"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q42": [
+                    "preserve_meaning"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q43": [
+                    "register_transformation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q44": [
+                    "concise_reformulation"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q45": [
+                    "avoid_over_formality"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q46": [
+                    "typical_mistakes"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q47": [
+                    "formal_tone"
+                ],
+                "polyglot-register-tone-and-paraphrase-c1-q48": [
+                    "precise_academic_verbs"
+                ]
+            }
+        }
+    ],
+    "seeder_requirements": {
+        "category_seeder": "none; FormalEnglish pages define category directly in their Page_V3 seeders.",
+        "page_seeders": [
+            "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder"
+        ],
+        "question_seeders": [
+            "Database\\Seeders\\V3\\FormalEnglish\\RegisterToneAndParaphraseAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseAllLevelsLessonSeeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseC1LessonSeeder"
+        ]
+    },
+    "qa": {
+        "expected_question_counts": {
+            "Database\\Seeders\\V3\\FormalEnglish\\RegisterToneAndParaphraseAllLevelsV3Seeder": 72,
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseAllLevelsLessonSeeder": 72,
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseC1LessonSeeder": 48
+        },
+        "expected_category_slug": "formal-english",
+        "expected_direct_sentence_builder_slug": "polyglot-register-tone-and-paraphrase-all-levels",
+        "requires_question_theory_text_blocks": true,
+        "requires_questions_theory_text_block_uuid": true
+    }
+}
