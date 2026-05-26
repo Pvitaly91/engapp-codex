@@ -1,0 +1,595 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Advanced Conditionals theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/conditionals/advanced-conditionals",
+        "category_slug": "conditionals",
+        "slug": "advanced-conditionals",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+        "title": "Advanced Conditionals"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 2,
+            "title": "Summary"
+        },
+        "mixed_conditionals": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "Mixed Conditionals"
+        },
+        "third_conditional": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "Third Conditional"
+        },
+        "second_conditional": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "Second Conditional"
+        },
+        "if_it_were_not_for": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "If It Were Not For"
+        },
+        "if_it_had_not_been_for": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "If It Had Not Been For"
+        },
+        "but_for": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 2,
+            "title": "But For"
+        },
+        "were_it_not_for": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "Were It Not For"
+        },
+        "had_it_not_been_for": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "Had It Not Been For"
+        },
+        "should_you_need": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 2,
+            "title": "Should You Need"
+        },
+        "conditional_inversion": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 1,
+            "title": "Conditional Inversion"
+        },
+        "implied_condition": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 2,
+            "title": "Implied Condition"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+            "sort_order": 2,
+            "title": "Typical Mistakes"
+        }
+    },
+    "bundles": {
+        "mixed_conditionals": [
+            "mixed_conditionals",
+            "overview",
+            "summary"
+        ],
+        "third_conditional": [
+            "third_conditional",
+            "overview",
+            "summary"
+        ],
+        "second_conditional": [
+            "second_conditional",
+            "overview",
+            "summary"
+        ],
+        "if_it_were_not_for": [
+            "if_it_were_not_for",
+            "overview",
+            "summary"
+        ],
+        "if_it_had_not_been_for": [
+            "if_it_had_not_been_for",
+            "overview",
+            "summary"
+        ],
+        "but_for": [
+            "but_for",
+            "overview",
+            "summary"
+        ],
+        "were_it_not_for": [
+            "were_it_not_for",
+            "overview",
+            "summary"
+        ],
+        "had_it_not_been_for": [
+            "had_it_not_been_for",
+            "overview",
+            "summary"
+        ],
+        "should_you_need": [
+            "should_you_need",
+            "overview",
+            "summary"
+        ],
+        "conditional_inversion": [
+            "conditional_inversion",
+            "overview",
+            "summary"
+        ],
+        "implied_condition": [
+            "implied_condition",
+            "overview",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview",
+            "summary"
+        ],
+        "general_overview": [
+            "overview",
+            "summary"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\Conditionals\\AdvancedConditionalsAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedConditionalsAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedConditionalsC1LessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-advanced-conditionals-all-levels",
+            "saved_test_name": "Sentence Builder: Advanced Conditionals (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedConditionalsAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "adv-cond-poly-a1-01": [
+                    "mixed_conditionals"
+                ],
+                "adv-cond-poly-a1-02": [
+                    "third_conditional"
+                ],
+                "adv-cond-poly-a1-03": [
+                    "second_conditional"
+                ],
+                "adv-cond-poly-a1-04": [
+                    "if_it_were_not_for"
+                ],
+                "adv-cond-poly-a1-05": [
+                    "if_it_had_not_been_for"
+                ],
+                "adv-cond-poly-a1-06": [
+                    "but_for"
+                ],
+                "adv-cond-poly-a1-07": [
+                    "were_it_not_for"
+                ],
+                "adv-cond-poly-a1-08": [
+                    "had_it_not_been_for"
+                ],
+                "adv-cond-poly-a1-09": [
+                    "should_you_need"
+                ],
+                "adv-cond-poly-a1-10": [
+                    "conditional_inversion"
+                ],
+                "adv-cond-poly-a1-11": [
+                    "implied_condition"
+                ],
+                "adv-cond-poly-a1-12": [
+                    "typical_mistakes"
+                ],
+                "adv-cond-poly-a2-01": [
+                    "mixed_conditionals"
+                ],
+                "adv-cond-poly-a2-02": [
+                    "third_conditional"
+                ],
+                "adv-cond-poly-a2-03": [
+                    "second_conditional"
+                ],
+                "adv-cond-poly-a2-04": [
+                    "if_it_were_not_for"
+                ],
+                "adv-cond-poly-a2-05": [
+                    "if_it_had_not_been_for"
+                ],
+                "adv-cond-poly-a2-06": [
+                    "but_for"
+                ],
+                "adv-cond-poly-a2-07": [
+                    "were_it_not_for"
+                ],
+                "adv-cond-poly-a2-08": [
+                    "had_it_not_been_for"
+                ],
+                "adv-cond-poly-a2-09": [
+                    "should_you_need"
+                ],
+                "adv-cond-poly-a2-10": [
+                    "conditional_inversion"
+                ],
+                "adv-cond-poly-a2-11": [
+                    "implied_condition"
+                ],
+                "adv-cond-poly-a2-12": [
+                    "typical_mistakes"
+                ],
+                "adv-cond-poly-b1-01": [
+                    "mixed_conditionals"
+                ],
+                "adv-cond-poly-b1-02": [
+                    "third_conditional"
+                ],
+                "adv-cond-poly-b1-03": [
+                    "second_conditional"
+                ],
+                "adv-cond-poly-b1-04": [
+                    "if_it_were_not_for"
+                ],
+                "adv-cond-poly-b1-05": [
+                    "if_it_had_not_been_for"
+                ],
+                "adv-cond-poly-b1-06": [
+                    "but_for"
+                ],
+                "adv-cond-poly-b1-07": [
+                    "were_it_not_for"
+                ],
+                "adv-cond-poly-b1-08": [
+                    "had_it_not_been_for"
+                ],
+                "adv-cond-poly-b1-09": [
+                    "should_you_need"
+                ],
+                "adv-cond-poly-b1-10": [
+                    "conditional_inversion"
+                ],
+                "adv-cond-poly-b1-11": [
+                    "implied_condition"
+                ],
+                "adv-cond-poly-b1-12": [
+                    "typical_mistakes"
+                ],
+                "adv-cond-poly-b2-01": [
+                    "mixed_conditionals"
+                ],
+                "adv-cond-poly-b2-02": [
+                    "third_conditional"
+                ],
+                "adv-cond-poly-b2-03": [
+                    "second_conditional"
+                ],
+                "adv-cond-poly-b2-04": [
+                    "if_it_were_not_for"
+                ],
+                "adv-cond-poly-b2-05": [
+                    "if_it_had_not_been_for"
+                ],
+                "adv-cond-poly-b2-06": [
+                    "but_for"
+                ],
+                "adv-cond-poly-b2-07": [
+                    "were_it_not_for"
+                ],
+                "adv-cond-poly-b2-08": [
+                    "had_it_not_been_for"
+                ],
+                "adv-cond-poly-b2-09": [
+                    "should_you_need"
+                ],
+                "adv-cond-poly-b2-10": [
+                    "conditional_inversion"
+                ],
+                "adv-cond-poly-b2-11": [
+                    "implied_condition"
+                ],
+                "adv-cond-poly-b2-12": [
+                    "typical_mistakes"
+                ],
+                "adv-cond-poly-c1-01": [
+                    "mixed_conditionals"
+                ],
+                "adv-cond-poly-c1-02": [
+                    "third_conditional"
+                ],
+                "adv-cond-poly-c1-03": [
+                    "second_conditional"
+                ],
+                "adv-cond-poly-c1-04": [
+                    "if_it_were_not_for"
+                ],
+                "adv-cond-poly-c1-05": [
+                    "if_it_had_not_been_for"
+                ],
+                "adv-cond-poly-c1-06": [
+                    "but_for"
+                ],
+                "adv-cond-poly-c1-07": [
+                    "were_it_not_for"
+                ],
+                "adv-cond-poly-c1-08": [
+                    "had_it_not_been_for"
+                ],
+                "adv-cond-poly-c1-09": [
+                    "should_you_need"
+                ],
+                "adv-cond-poly-c1-10": [
+                    "conditional_inversion"
+                ],
+                "adv-cond-poly-c1-11": [
+                    "implied_condition"
+                ],
+                "adv-cond-poly-c1-12": [
+                    "typical_mistakes"
+                ],
+                "adv-cond-poly-c2-01": [
+                    "mixed_conditionals"
+                ],
+                "adv-cond-poly-c2-02": [
+                    "third_conditional"
+                ],
+                "adv-cond-poly-c2-03": [
+                    "second_conditional"
+                ],
+                "adv-cond-poly-c2-04": [
+                    "if_it_were_not_for"
+                ],
+                "adv-cond-poly-c2-05": [
+                    "if_it_had_not_been_for"
+                ],
+                "adv-cond-poly-c2-06": [
+                    "but_for"
+                ],
+                "adv-cond-poly-c2-07": [
+                    "were_it_not_for"
+                ],
+                "adv-cond-poly-c2-08": [
+                    "had_it_not_been_for"
+                ],
+                "adv-cond-poly-c2-09": [
+                    "should_you_need"
+                ],
+                "adv-cond-poly-c2-10": [
+                    "conditional_inversion"
+                ],
+                "adv-cond-poly-c2-11": [
+                    "implied_condition"
+                ],
+                "adv-cond-poly-c2-12": [
+                    "typical_mistakes"
+                ]
+            }
+        },
+        {
+            "kind": "legacy_sentence_builder",
+            "saved_test_slug": "polyglot-advanced-conditionals-c1",
+            "saved_test_name": "Sentence Builder: Advanced Conditionals (C1)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedConditionalsC1LessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "polyglot-advanced-conditionals-c1-q01": [
+                    "mixed_conditionals"
+                ],
+                "polyglot-advanced-conditionals-c1-q02": [
+                    "third_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q03": [
+                    "second_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q04": [
+                    "if_it_were_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q05": [
+                    "if_it_had_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q06": [
+                    "but_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q07": [
+                    "were_it_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q08": [
+                    "had_it_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q09": [
+                    "should_you_need"
+                ],
+                "polyglot-advanced-conditionals-c1-q10": [
+                    "conditional_inversion"
+                ],
+                "polyglot-advanced-conditionals-c1-q11": [
+                    "implied_condition"
+                ],
+                "polyglot-advanced-conditionals-c1-q12": [
+                    "typical_mistakes"
+                ],
+                "polyglot-advanced-conditionals-c1-q13": [
+                    "mixed_conditionals"
+                ],
+                "polyglot-advanced-conditionals-c1-q14": [
+                    "third_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q15": [
+                    "second_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q16": [
+                    "if_it_were_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q17": [
+                    "if_it_had_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q18": [
+                    "but_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q19": [
+                    "were_it_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q20": [
+                    "had_it_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q21": [
+                    "should_you_need"
+                ],
+                "polyglot-advanced-conditionals-c1-q22": [
+                    "conditional_inversion"
+                ],
+                "polyglot-advanced-conditionals-c1-q23": [
+                    "implied_condition"
+                ],
+                "polyglot-advanced-conditionals-c1-q24": [
+                    "typical_mistakes"
+                ],
+                "polyglot-advanced-conditionals-c1-q25": [
+                    "mixed_conditionals"
+                ],
+                "polyglot-advanced-conditionals-c1-q26": [
+                    "third_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q27": [
+                    "second_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q28": [
+                    "if_it_were_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q29": [
+                    "if_it_had_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q30": [
+                    "but_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q31": [
+                    "were_it_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q32": [
+                    "had_it_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q33": [
+                    "should_you_need"
+                ],
+                "polyglot-advanced-conditionals-c1-q34": [
+                    "conditional_inversion"
+                ],
+                "polyglot-advanced-conditionals-c1-q35": [
+                    "implied_condition"
+                ],
+                "polyglot-advanced-conditionals-c1-q36": [
+                    "typical_mistakes"
+                ],
+                "polyglot-advanced-conditionals-c1-q37": [
+                    "mixed_conditionals"
+                ],
+                "polyglot-advanced-conditionals-c1-q38": [
+                    "third_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q39": [
+                    "second_conditional"
+                ],
+                "polyglot-advanced-conditionals-c1-q40": [
+                    "if_it_were_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q41": [
+                    "if_it_had_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q42": [
+                    "but_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q43": [
+                    "were_it_not_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q44": [
+                    "had_it_not_been_for"
+                ],
+                "polyglot-advanced-conditionals-c1-q45": [
+                    "should_you_need"
+                ],
+                "polyglot-advanced-conditionals-c1-q46": [
+                    "conditional_inversion"
+                ],
+                "polyglot-advanced-conditionals-c1-q47": [
+                    "implied_condition"
+                ],
+                "polyglot-advanced-conditionals-c1-q48": [
+                    "typical_mistakes"
+                ]
+            }
+        },
+        {
+            "kind": "standard_v3",
+            "saved_test_slug": "advanced-conditionals-all-levels-v3",
+            "saved_test_name": "Advanced Conditionals (All levels V3)",
+            "strategy": "mapped_by_tags_and_fallbacks",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\AdvancedConditionalsAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "mixed_conditionals": "mixed_conditionals",
+                "third_conditional": "third_conditional",
+                "second_conditional": "second_conditional",
+                "if_it_were_not_for": "if_it_were_not_for",
+                "if_it_had_not_been_for": "if_it_had_not_been_for",
+                "but_for": "but_for",
+                "were_it_not_for": "were_it_not_for",
+                "had_it_not_been_for": "had_it_not_been_for",
+                "should_you_need": "should_you_need",
+                "conditional_inversion": "conditional_inversion",
+                "implied_condition": "implied_condition",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {},
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "standard_questions_per_page": 72,
+        "polyglot_questions_per_page": 72,
+        "levels": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "questions_per_level": 12,
+        "json_source_of_truth": true,
+        "do_not_use_question_marker_tag": true
+    },
+    "qa": {
+        "direct_sentence_builder_slug": "polyglot-advanced-conditionals-all-levels",
+        "mixed_test": "theory-page-{page_id}-mixed-a1-c2",
+        "expected_show_theory": true
+    }
+}

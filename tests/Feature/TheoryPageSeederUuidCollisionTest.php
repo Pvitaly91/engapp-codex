@@ -57,6 +57,66 @@ class TheoryPageSeederUuidCollisionTest extends TestCase
         );
     }
 
+    public function test_missing_content_repair_seeders_do_not_introduce_uuid_collisions(): void
+    {
+        $definitions = [];
+        foreach ($this->allV3DefinitionFiles() as $file) {
+            $definition = $this->jsonDefinition($file);
+            $definitions[$file] = $definition;
+        }
+
+        $maps = [
+            'saved_test.uuid' => [],
+            'saved_test.slug' => [],
+            'question.uuid' => [],
+        ];
+
+        foreach ($definitions as $file => $definition) {
+            $savedTest = is_array($definition['saved_test'] ?? null) ? $definition['saved_test'] : [];
+            foreach (['uuid', 'slug'] as $key) {
+                $value = (string) ($savedTest[$key] ?? '');
+                if ($value !== '') {
+                    $maps['saved_test.' . $key][$value][] = $file;
+                }
+            }
+
+            foreach (($definition['questions'] ?? $definition['items'] ?? []) as $question) {
+                if (! is_array($question)) {
+                    continue;
+                }
+
+                $uuid = (string) ($question['uuid'] ?? '');
+                if ($uuid !== '') {
+                    $maps['question.uuid'][$uuid][] = $file;
+                }
+            }
+        }
+
+        foreach ($this->missingContentRepairDefinitionFiles() as $file) {
+            $definition = $definitions[$file] ?? [];
+            $questions = $definition['questions'] ?? $definition['items'] ?? [];
+            $this->assertCount(72, $questions, $file . ': repair seeder should define 72 questions.');
+
+            $savedTestQuestionUuids = array_values(array_filter(array_map('strval', (array) ($definition['saved_test']['question_uuids'] ?? []))));
+            $questionUuids = array_values(array_filter(array_map(
+                fn (mixed $question): string => is_array($question) ? (string) ($question['uuid'] ?? '') : '',
+                $questions
+            )));
+            $this->assertEqualsCanonicalizing($questionUuids, $savedTestQuestionUuids, $file . ': saved_test.question_uuids should match question UUIDs.');
+        }
+
+        foreach ($maps as $mapName => $values) {
+            foreach ($values as $value => $files) {
+                $inRepairScope = array_values(array_intersect($files, $this->missingContentRepairDefinitionFiles()));
+                if ($inRepairScope === []) {
+                    continue;
+                }
+
+                $this->assertSame([$inRepairScope[0]], $files, $mapName . ' collision for ' . $value . ': ' . implode(', ', $files));
+            }
+        }
+    }
+
     /**
      * @return array<string, array<int, string>>
      */
@@ -152,5 +212,46 @@ class TheoryPageSeederUuidCollisionTest extends TestCase
 
         $this->assertStringContainsString($expectedUuid, $contents, $relativePath . ': expected repaired UUID.');
         $this->assertStringNotContainsString($removedUuid, $contents, $relativePath . ': removed colliding UUID.');
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function missingContentRepairDefinitionFiles(): array
+    {
+        return [
+            'database/seeders/V3/PassiveVoice/PassiveVoiceFutureContinuousAllLevelsV3Seeder/definition.json',
+            'database/seeders/V3/Conditionals/ConditionalsWithUnlessProvidedAsLongAsAllLevelsV3Seeder/definition.json',
+            'database/seeders/V3/Conditionals/AdvancedConditionalsAllLevelsV3Seeder/definition.json',
+            'database/seeders/V3/PassiveVoice/PassiveReportingStructuresAllLevelsV3Seeder/definition.json',
+            'database/seeders/V3/Conditionals/ConditionalAlternativesAndNuanceAllLevelsV3Seeder/definition.json',
+            'database/seeders/V3/Polyglot/PolyglotPassiveVoiceFutureContinuousAllLevelsLessonSeeder/definition.json',
+            'database/seeders/V3/Polyglot/PolyglotConditionalsWithUnlessProvidedAsLongAsAllLevelsLessonSeeder/definition.json',
+            'database/seeders/V3/Polyglot/PolyglotAdvancedConditionalsAllLevelsLessonSeeder/definition.json',
+            'database/seeders/V3/Polyglot/PolyglotPassiveReportingStructuresAllLevelsLessonSeeder/definition.json',
+            'database/seeders/V3/Polyglot/PolyglotConditionalAlternativesAndNuanceAllLevelsLessonSeeder/definition.json',
+        ];
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function allV3DefinitionFiles(): array
+    {
+        $basePath = base_path('database/seeders/V3');
+        $files = [];
+        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($basePath));
+
+        foreach ($iterator as $file) {
+            if (! $file->isFile() || $file->getFilename() !== 'definition.json') {
+                continue;
+            }
+
+            $files[] = str_replace('\\', '/', substr($file->getPathname(), strlen(base_path()) + 1));
+        }
+
+        sort($files);
+
+        return $files;
     }
 }
