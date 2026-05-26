@@ -157,6 +157,8 @@ class TheoryPageTestsUnificationAuditService
     {
         $categorySlugPath = $this->categorySlugPath($page);
         $route = '/theory/' . trim($categorySlugPath . '/' . (string) $page->slug, '/');
+        $manifest = $this->manifestForPage($page, $route, $manifestIndex);
+        $route = $this->canonicalRouteForPage($route, $manifest);
         $tests = $this->linkedTestsService->buildForPage($page);
         $directTests = $tests
             ->filter(fn (mixed $test): bool => $test instanceof SavedGrammarTest && $this->isSentenceBuilderDirectTest($test))
@@ -186,7 +188,6 @@ class TheoryPageTestsUnificationAuditService
         $standardCoverage = $this->questionCoverage($v3Seeders);
         $polyglotCoverage = $this->questionCoverage($polyglotSeeders);
         $allCoverage = $this->questionCoverage($allSeeders);
-        $manifest = $this->manifestForPage($page, $route, $manifestIndex);
         $missing = $this->missingItems(
             $directTests->isNotEmpty(),
             $mixedTest !== null,
@@ -726,6 +727,20 @@ class TheoryPageTestsUnificationAuditService
         $categoryAndSlug = $this->normalizeRoute($this->categorySlugPath($page) . '/' . (string) $page->slug);
 
         return $manifestIndex['by_category_and_slug'][$categoryAndSlug] ?? null;
+    }
+
+    /**
+     * @param  array<string, mixed>|null  $manifest
+     */
+    private function canonicalRouteForPage(string $fallbackRoute, ?array $manifest): string
+    {
+        $manifestRoute = trim((string) ($manifest['route'] ?? ''));
+
+        if ($manifestRoute === '') {
+            return $fallbackRoute;
+        }
+
+        return '/' . $this->normalizeRoute($manifestRoute);
     }
 
     private function normalizeRoute(string $route): string

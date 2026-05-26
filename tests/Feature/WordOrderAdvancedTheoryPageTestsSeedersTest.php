@@ -239,6 +239,9 @@ class WordOrderAdvancedTheoryPageTestsSeedersTest extends TestCase
             $this->assertNotNull($row, $caseName . ': route should be present in audit.');
             $this->assertSame('OK', $row['status'] ?? null, $caseName . ': audit status.');
             $this->assertEmpty(collect($row['missing'] ?? [])->intersect(['sentence_builder', 'mixed_a1_c2', 'v3_questions', 'polyglot_questions', 'theory_links', 'polyglot_theory_links', 'question_theory_text_blocks'])->all(), $caseName . ': audit should not report missing items.');
+
+            $legacyNestedRoute = str_replace('/theory/word-order/', '/theory/basic-grammar/word-order/', $case['route']);
+            $this->assertFalse($rowsByRoute->has($legacyNestedRoute), $caseName . ': audit should not report the legacy nested Basic Grammar alias as a separate route.');
         }
     }
 }
