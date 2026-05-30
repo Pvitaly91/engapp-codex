@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 75,
+        "id": 273,
         "uuid": "st-cp-sn-c1-q03",
         "question": "Not only {a1} she win the competition, but she broke the record too.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 75,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 56,
-                "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 75,
-                "tag_id": 56,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 38,
-                "option": "did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 75,
-                "option_id": 38,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 110,
-                "option": "had",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 75,
-                "option_id": 110,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 111,
-                "option": "was",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 75,
-                "option_id": 111,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 75,
-                "question_id": 75,
-                "marker": "a1",
-                "option_id": 38,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 38,
-                "option": "did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 75,
-            "question_id": 75,
-            "text": "Not only {a1} she win the competition, but she broke the record too.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 224,
-            "question_id": 75,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "After negative/restrictive adverbials (Never, Hardly, Not only, Seldom, Only then…), **subject-auxiliary inversion** is required.\nThe inverted auxiliary must match the tense of the original clause. Only the auxiliary comes before the subject.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 225,
-            "question_id": 75,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Po przysłówkach o znaczeniu ograniczającym (Never, Hardly, Not only, Seldom…) wymagana jest inwersja podmiotu i operatora.\nInwertowany operator musi odpowiadać czasowi zdania. Tylko operator przechodzi przed podmiot.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 223,
-            "question_id": 75,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«Not only» на початку викликає інверсію: «Not only + did + підмет + базова форма».\n«Win» — базова форма після «did»; обидва дієслова в Past Simple вказують на допоміжне «did».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 895,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "en",
-            "explanation": "Correct. «did» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 898,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "pl",
-            "explanation": "Poprawnie. «did» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 889,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "«Did» — правильна інверсія Past Simple після «Not only»; базова форма «win» стоїть після підмета.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 890,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "«Did» — правильна інверсія Past Simple після «Not only»; базова форма «win» стоїть після підмета.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 896,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "had",
-            "correct_answer": "did",
-            "language": "en",
-            "explanation": "Incorrect. «had» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 899,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "had",
-            "correct_answer": "did",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «had» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 891,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "had",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "«Had» утворювало б Past Perfect; «broke the record» у Past Simple вказує на паралельний Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 892,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "had",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "«Had» утворювало б Past Perfect; «broke the record» у Past Simple вказує на паралельний Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 897,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "was",
-            "correct_answer": "did",
-            "language": "en",
-            "explanation": "Incorrect. «was» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 900,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "was",
-            "correct_answer": "did",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «was» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 893,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "was",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "«Was she win» граматично некоректне; «win» вимагає допоміжного «did», а не «was».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 894,
-            "question": "Not only {a1} she win the competition, but she broke the record too.",
-            "wrong_answer": "was",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "«Was she win» граматично некоректне; «win» вимагає допоміжного «did», а не «was».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

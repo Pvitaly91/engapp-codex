@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 28,
+        "id": 226,
         "uuid": "st-cp-sn-a2-q10",
         "question": "They {a1} go to the cinema last Saturday.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 32,
-                "name": "Negation with did + not",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "tag_id": 32,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 4,
-                "option": "don't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "option_id": 34,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 40,
-                "option": "weren't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "option_id": 40,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 28,
-                "question_id": 28,
-                "marker": "a1",
-                "option_id": 34,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 28,
-            "question_id": 28,
-            "text": "They {a1} go to the cinema last Saturday.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 83,
-            "question_id": 28,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Past Simple negatives use **didn't + base verb** for all persons.\nThe time marker signals past tense. **Didn't** is the same for all persons in Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 84,
-            "question_id": 28,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Przeczenia w Past Simple: **didn't + forma podstawowa** dla wszystkich osób.\nMarker czasu przeszłego wskazuje na Past Simple. **Didn't** jest jednakowe dla wszystkich osób.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 82,
-            "question_id": 28,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Заперечення смислового дієслова в Past Simple будується через «didn't» + базова форма дієслова.\n«Last Saturday» — маркер минулого часу; підмет «They» вимагає «didn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 331,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Correct. «didn't» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 334,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Poprawnie. «didn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 325,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "«Didn't» — правильна форма заперечення Past Simple для «they»; після неї — базова форма «go».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 326,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "«Didn't» — правильна форма заперечення Past Simple для «they»; після неї — базова форма «go».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 332,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect. «don't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 335,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «don't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 327,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "«Don't» — заперечення Present Simple; «last Saturday» вказує на минуле.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 328,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "«Don't» — заперечення Present Simple; «last Saturday» вказує на минуле.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 333,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "weren't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect. «weren't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 336,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "weren't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «weren't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 329,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "weren't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "«Weren't» — заперечення «to be» у Past Simple; «go» — смислове дієслово.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 330,
-            "question": "They {a1} go to the cinema last Saturday.",
-            "wrong_answer": "weren't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "«Weren't» — заперечення «to be» у Past Simple; «go» — смислове дієслово.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

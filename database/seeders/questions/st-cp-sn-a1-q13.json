@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 13,
+        "id": 211,
         "uuid": "st-cp-sn-a1-q13",
         "question": "Does she {a1} the guitar?",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 13,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 37,
-                "name": "Yes/No question with do/does",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 13,
-                "tag_id": 37,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 28,
-                "option": "play",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 13,
-                "option_id": 28,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 29,
-                "option": "plays",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 13,
-                "option_id": 29,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 30,
-                "option": "played",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 13,
-                "option_id": 30,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 13,
-                "question_id": 13,
-                "marker": "a1",
-                "option_id": 28,
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "option": {
-                "id": 28,
-                "option": "play",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 13,
-            "question_id": 13,
-            "text": "Does she {a1} the guitar?",
-            "created_at": "2026-05-18T13:17:01.000000Z",
-            "updated_at": "2026-05-18T13:17:01.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 38,
-            "question_id": 13,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Yes/No questions in Present Simple: **Do/Does + subject + base verb**.\nIdentify the subject: **you/I/we/they** → **Do**; **he/she/it** → **Does**.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 39,
-            "question_id": 13,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania tak/nie w Present Simple: **Do/Does + podmiot + bezokolicznik**.\nPodmiot **you/I/we/they** → **Do**; **he/she/it** → **Does**.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 37,
-            "question_id": 13,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Після допоміжного дієслова «does» у питанні завжди стоїть базова форма смислового дієслова без -s.\n«Does» вже містить граматичну ознаку 3-ї особи, тому «play» залишається без закінчення.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 151,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "play",
-            "correct_answer": "play",
-            "language": "en",
-            "explanation": "Correct. «play» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 154,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "play",
-            "correct_answer": "play",
-            "language": "pl",
-            "explanation": "Poprawnie. «play» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 145,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "play",
-            "correct_answer": "play",
-            "language": "ua",
-            "explanation": "«Play» — правильна базова форма після «does»; закінчення -s вже \"виражено\" в самому «does».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 146,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "play",
-            "correct_answer": "play",
-            "language": "uk",
-            "explanation": "«Play» — правильна базова форма після «does»; закінчення -s вже \"виражено\" в самому «does».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 153,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "played",
-            "correct_answer": "play",
-            "language": "en",
-            "explanation": "Incorrect. «played» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 156,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "played",
-            "correct_answer": "play",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «played» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 149,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "played",
-            "correct_answer": "play",
-            "language": "ua",
-            "explanation": "«Played» — форма Past Simple; питання стосується теперішнього (does).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 150,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "played",
-            "correct_answer": "play",
-            "language": "uk",
-            "explanation": "«Played» — форма Past Simple; питання стосується теперішнього (does).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 152,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "plays",
-            "correct_answer": "play",
-            "language": "en",
-            "explanation": "Incorrect. «plays» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 155,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "plays",
-            "correct_answer": "play",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «plays» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 147,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "plays",
-            "correct_answer": "play",
-            "language": "ua",
-            "explanation": "«Plays» помилкова: у питанні з «does» смислове дієслово не отримує -s.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 148,
-            "question": "Does she {a1} the guitar?",
-            "wrong_answer": "plays",
-            "correct_answer": "play",
-            "language": "uk",
-            "explanation": "«Plays» помилкова: у питанні з «does» смислове дієслово не отримує -s.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

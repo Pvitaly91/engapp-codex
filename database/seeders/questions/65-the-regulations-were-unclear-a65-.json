@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 173,
+        "id": 947,
         "uuid": "65-the-regulations-were-unclear-a65-",
         "question": "The regulations were unclear, {a65} many companies struggled to comply.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:24.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Conjunction 'so' — result",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Cause-result conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "option_id": 3,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 173,
-                "question_id": 173,
-                "marker": "a65",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 65,
-                "question_id": 173,
-                "marker": "a65",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 173,
-            "question_id": 173,
-            "text": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 517,
-            "question_id": 173,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'So' introduces the regulatory consequence of unclear or ambiguous rules.\nA comma after `regulations were unclear` and the logic: unclear regulations → difficulty with compliance.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 518,
-            "question_id": 173,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'So' wprowadza regulacyjny skutek niejasnych lub niejednoznacznych przepisów.\nPrzecinek po `regulations were unclear` i logika: niejasne przepisy → trudności z przestrzeganiem.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 519,
-            "question_id": 173,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник so вводить наслідок незрозумілих або суперечливих норм.\nКома після `regulations were unclear` та логіка: незрозумілі норми → складнощі з дотриманням вимог.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 2059,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'And' would list two facts: 'regulations unclear AND companies struggled' — possible, but 'so' more precisely conveys the causal link.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2062,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'And' wymieniałoby dwa fakty: 'przepisy niejasne I firmy miały trudności' — możliwe, ale 'so' precyzyjniejsze.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2067,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«and» перелічував би: «норми нечіткі І компанії мали труднощі» — можливо, але «so» точніше передає причинно-наслідковий звʼязок.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2068,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«and» перелічував би: «норми нечіткі І компанії мали труднощі» — можливо, але «so» точніше передає причинно-наслідковий звʼязок.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2058,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Or' introduces an alternative, but there is a direct regulatory consequence here — no choice.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2061,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Or' wprowadza alternatywę, ale tu jest bezpośredni skutek regulacyjny niejasności — bez wyboru.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2065,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок неоднозначних регуляцій, а не вибір.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2066,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок неоднозначних регуляцій, а не вибір.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2057,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct: 'so' shows the consequence of unclear regulations — many companies struggled to comply.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2060,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie: 'so' pokazuje skutek niejasnych przepisów — wiele firm miało trudności z ich przestrzeganiem.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2063,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "Правильно: «so» показує наслідок нечітких норм — багато компаній мали труднощі з дотриманням.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2064,
-            "question": "The regulations were unclear, {a65} many companies struggled to comply.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "Правильно: «so» показує наслідок нечітких норм — багато компаній мали труднощі з дотриманням.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

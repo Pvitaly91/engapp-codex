@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 112,
+        "id": 886,
         "uuid": "4-i-am-hungry-a4-i-did-not-eat-break",
         "question": "I am hungry {a4} I did not eat breakfast.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:27.000000Z"
+        "created_at": "2026-05-26T14:31:45.000000Z",
+        "updated_at": "2026-05-26T14:31:45.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 112,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 43,
-                "name": "Conjunction 'because' — reason",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 112,
-                "tag_id": 43,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 112,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 112,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 112,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 112,
-                "question_id": 112,
-                "marker": "a4",
-                "option_id": 4,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 4,
-                "question_id": 112,
-                "marker": "a4",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 112,
-            "question_id": 112,
-            "text": "I am hungry {a4} I did not eat breakfast.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 334,
-            "question_id": 112,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'Because' introduces a subordinate clause explaining the reason for the state or action in the main clause.\nThe first part `I am hungry` is the result; `I did not eat breakfast` is its explanation. Which conjunction introduces an explanation?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 335,
-            "question_id": 112,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'Because' wprowadza zdanie podrzędne wyjaśniające przyczynę stanu lub czynności w zdaniu głównym.\nPierwsza część `I am hungry` to skutek; `I did not eat breakfast` to wyjaśnienie. Który spójnik wprowadza wyjaśnienie przyczyny?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 336,
-            "question_id": 112,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник because вводить підрядне речення причини, яке пояснює стан або дію в головному реченні.\nПерша частина `I am hungry` — наслідок, а друга частина `I did not eat breakfast` — його причина. Шукайте сполучник, що вводить причину.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1325,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "Correct: 'because' explains the reason for hunger — the speaker skipped breakfast. Direct causal link.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1328,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "Poprawnie: 'because' wyjaśnia przyczynę głodu — mówiący nie jadł śniadania. Bezpośredni związek przyczynowy.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1331,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "Правильно: «because» пояснює причину голоду — мовець не снідав. Між частинами прямий причинний звʼязок.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1332,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "Правильно: «because» пояснює причину голоду — мовець не снідав. Між частинами прямий причинний звʼязок.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1327,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'But' would suggest contrast — 'hungry BUT didn't eat' — which is not a grammatically meaningful construction.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1330,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby kontrast — 'głodny, ALE nie jadł' — co nie jest logicznie sensowną konstrukcją.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1335,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«but» означало б несподіваний контраст — «голодний, АЛЕ не їв», що не є граматично або логічно осмисленою конструкцією.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1336,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«but» означало б несподіваний контраст — «голодний, АЛЕ не їв», що не є граматично або логічно осмисленою конструкцією.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1326,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "so",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'So' introduces a result; with 'so' the cause must come first, but here the result comes first.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1329,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "so",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'So' wprowadza skutek; przy 'so' przyczyna musi być podana pierwsza, ale tu na początku jest skutek (głód).",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1333,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "so",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«so» вводить наслідок. При «so» порядок змінюється: спочатку причина, потім наслідок. Тут же спочатку наслідок (голод), тому «so» не підходить.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1334,
-            "question": "I am hungry {a4} I did not eat breakfast.",
-            "wrong_answer": "so",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«so» вводить наслідок. При «so» порядок змінюється: спочатку причина, потім наслідок. Тут же спочатку наслідок (голод), тому «so» не підходить.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

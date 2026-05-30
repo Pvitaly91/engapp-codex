@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 171,
+        "id": 945,
         "uuid": "63-the-patient-recovered-quickly-a63",
         "question": "The patient recovered quickly {a63} the treatment was started early enough.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:24.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 171,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 43,
-                "name": "Conjunction 'because' — reason",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 171,
-                "tag_id": 43,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 45,
-                "name": "Subordinating conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 171,
-                "tag_id": 45,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 171,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 171,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 171,
-                "option_id": 4,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 171,
-                "question_id": 171,
-                "marker": "a63",
-                "option_id": 4,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 63,
-                "question_id": 171,
-                "marker": "a63",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 171,
-            "question_id": 171,
-            "text": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 511,
-            "question_id": 171,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'Because' introduces the reason for a rapid and successful recovery.\nThe first part `recovered quickly` is the positive result; `treatment was started early` is the reason for this success.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 512,
-            "question_id": 171,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'Because' wprowadza przyczynę szybkiego i skutecznego wyzdrowienia.\nPierwsza część `recovered quickly` to pozytywny wynik; `treatment was started early` to przyczyna tego sukcesu.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 513,
-            "question_id": 171,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник because вводить підрядне речення, що пояснює причину успішного одужання.\nПерша частина `recovered quickly` — позитивний наслідок, а `treatment was started early` — причина цього успіху.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 2034,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'And' would list two facts without explaining the causal link: 'recovered AND treatment started early'.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2037,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'And' wymieniałoby dwa fakty bez wyjaśnienia związku przyczynowego: 'wyzdrowiał I leczenie zaczęto wcześnie'.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2041,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«and» просто перелічував би: «одужав швидко І лікування розпочали вчасно» — без пояснення причинного звʼязку.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2042,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«and» просто перелічував би: «одужав швидко І лікування розпочали вчасно» — без пояснення причинного звʼязку.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2033,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "Correct: 'because' explains the reason for quick recovery — treatment was started early enough.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2036,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "Poprawnie: 'because' wyjaśnia przyczynę szybkiego wyzdrowienia — leczenie zostało podjęte wystarczająco wcześnie.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2039,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "Правильно: «because» пояснює причину швидкого одужання — лікування розпочали вчасно.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2040,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "Правильно: «because» пояснює причину швидкого одужання — лікування розпочали вчасно.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2035,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'But' would imply contrast: 'recovered quickly BUT treatment started early' — illogical.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2038,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby kontrast: 'wyzdrowiał szybko, ALE leczenie zaczęto wcześnie' — nielogiczne.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2043,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«but» означало б контраст: «одужав швидко, АЛЕ лікування розпочали вчасно» — нелогічно.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2044,
-            "question": "The patient recovered quickly {a63} the treatment was started early enough.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«but» означало б контраст: «одужав швидко, АЛЕ лікування розпочали вчасно» — нелогічно.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

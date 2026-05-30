@@ -1,293 +1,33 @@
 {
     "question": {
-        "id": 60,
+        "id": 834,
         "uuid": "cj-cp-sn-b2-q06",
         "question": "The server went down, {a1} the entire operation had to be restarted.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:21.000000Z",
-        "updated_at": "2026-05-18T13:17:27.000000Z"
+        "created_at": "2026-05-26T14:31:42.000000Z",
+        "updated_at": "2026-05-26T14:31:42.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Choosing the correct conjunction",
-                "category": "usage",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 60,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 34,
-                "name": "Resultive conjunction 'so'",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 60,
-                "tag_id": 34,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 39,
-                "name": "Result coordination",
-                "category": "usage",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 60,
-                "tag_id": 39,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 60,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 60,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 60,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 60,
-                "question_id": 60,
-                "marker": "a1",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:21.000000Z",
-                "updated_at": "2026-05-18T13:17:21.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 60,
-            "question_id": 60,
-            "text": "The server went down, {a1} the entire operation had to be restarted.",
-            "created_at": "2026-05-18T13:17:21.000000Z",
-            "updated_at": "2026-05-18T13:17:21.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 179,
-            "question_id": 60,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Use 'so' when a server failure forces an operational restart.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 180,
-            "question_id": 60,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Użyj 'so', gdy awaria serwera wymusza restart operacji.\nВідмова сервера `went down` — технічна причина, а необхідність перезапуску `had to be restarted` — неминучий наслідок.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 178,
-            "question_id": 60,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Сполучник so вводить технічний або організаційний наслідок системного збою.\nВідмова сервера `went down` — технічна причина, а необхідність перезапуску `had to be restarted` — неминучий наслідок.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 716,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Incorrect. 'Because' introduces a reason; the reason (server down) is already stated.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 719,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Because» wprowadza przyczynę; przyczyna (awaria serwera) jest już podana.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 711,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 712,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 717,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Incorrect. 'But' implies a surprising contrast; restarting after a server failure is expected.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 720,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «But» sugeruje nieoczekiwany kontrast; restart po awarii jest oczekiwany.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 713,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«but» передав би несподіваний контраст, але перезапустити операцію після збою — очікувана дія.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 714,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«but» передав би несподіваний контраст, але перезапустити операцію після збою — очікувана дія.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 715,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct. 'So' shows that the server going down directly caused the restart.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 718,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie. «So» pokazuje, że padnięcie serwera bezpośrednio spowodowało konieczność restartu.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 709,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«so» правильний: він передає, що збій сервера безпосередньо спричинив необхідність перезапуску.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 710,
-            "question": "The server went down, {a1} the entire operation had to be restarted.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«so» правильний: він передає, що збій сервера безпосередньо спричинив необхідність перезапуску.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

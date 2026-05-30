@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 12,
+        "id": 210,
         "uuid": "st-cp-sn-a1-q12",
         "question": "{a1} open the fridge without asking.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 12,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 46,
-                "name": "Negative imperative (Don't + verb)",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 12,
-                "tag_id": 46,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 13,
-                "option": "Don't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 12,
-                "option_id": 13,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 14,
-                "option": "Doesn't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 12,
-                "option_id": 14,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 27,
-                "option": "Not",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 12,
-                "option_id": 27,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 12,
-                "question_id": 12,
-                "marker": "a1",
-                "option_id": 13,
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "option": {
-                "id": 13,
-                "option": "Don't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 12,
-            "question_id": 12,
-            "text": "{a1} open the fridge without asking.",
-            "created_at": "2026-05-18T13:17:01.000000Z",
-            "updated_at": "2026-05-18T13:17:01.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 35,
-            "question_id": 12,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Negative imperatives use **Don't + base verb** to express a prohibition or instruction.\nThe absence of a subject and the command structure signal the negative imperative: **Don't + base verb**.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 36,
-            "question_id": 12,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Zaprzeczony tryb rozkazujący = **Don't + forma podstawowa** czasownika.\nBrak podmiotu + zakaz → **Don't + forma podstawowa**.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 34,
-            "question_id": 12,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Заперечний наказовий спосіб формується через «Don't» + базова форма дієслова.\nВідсутність явного підмета та наявність дієслова «open» у початковій позиції вказують на наказовий спосіб.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 140,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Doesn't",
-            "correct_answer": "Don't",
-            "language": "en",
-            "explanation": "Incorrect. «Doesn't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 143,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Doesn't",
-            "correct_answer": "Don't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Doesn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 135,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Doesn't",
-            "correct_answer": "Don't",
-            "language": "ua",
-            "explanation": "«Doesn't» — заперечна форма Present Simple для 3-ї особи однини; у наказовому реченні її не вживають.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 136,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Doesn't",
-            "correct_answer": "Don't",
-            "language": "uk",
-            "explanation": "«Doesn't» — заперечна форма Present Simple для 3-ї особи однини; у наказовому реченні її не вживають.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 139,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Don't",
-            "correct_answer": "Don't",
-            "language": "en",
-            "explanation": "Correct. «Don't» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 142,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Don't",
-            "correct_answer": "Don't",
-            "language": "pl",
-            "explanation": "Poprawnie. «Don't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 133,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Don't",
-            "correct_answer": "Don't",
-            "language": "ua",
-            "explanation": "«Don't» — єдина правильна форма для заперечного imperative в англійській мові.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 134,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Don't",
-            "correct_answer": "Don't",
-            "language": "uk",
-            "explanation": "«Don't» — єдина правильна форма для заперечного imperative в англійській мові.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 141,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Not",
-            "correct_answer": "Don't",
-            "language": "en",
-            "explanation": "Incorrect. «Not» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 144,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Not",
-            "correct_answer": "Don't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Not» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 137,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Not",
-            "correct_answer": "Don't",
-            "language": "ua",
-            "explanation": "«Not» самостійно перед дієсловом не утворює заперечного наказового способу; потрібне «Don't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 138,
-            "question": "{a1} open the fridge without asking.",
-            "wrong_answer": "Not",
-            "correct_answer": "Don't",
-            "language": "uk",
-            "explanation": "«Not» самостійно перед дієсловом не утворює заперечного наказового способу; потрібне «Don't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

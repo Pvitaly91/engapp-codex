@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 16,
+        "id": 214,
         "uuid": "st-cp-sn-a1-q16",
         "question": "Where {a1} your parents live?",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 43,
-                "name": "WH question structure",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "tag_id": 43,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 16,
-                "option": "are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 16,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 22,
-                "option": "do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 22,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 23,
-                "option": "does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 23,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 16,
-                "question_id": 16,
-                "marker": "a1",
-                "option_id": 22,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 22,
-                "option": "do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 16,
-            "question_id": 16,
-            "text": "Where {a1} your parents live?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 47,
-            "question_id": 16,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "WH questions: **WH-word + auxiliary (do/does/did/is/are/will) + subject + base verb**.\nThe WH-word comes first, then the auxiliary, then the subject, then the base verb.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 48,
-            "question_id": 16,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania WH: **Słowo pytające + operator (do/does/did/is/are) + podmiot + forma podstawowa**.\nSłowo pytające, potem operator, potem podmiot, potem forma podstawowa.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 46,
-            "question_id": 16,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "WH-питання з «where» у Present Simple: Where + do/does + підмет + базова форма.\n«Your parents» — множина (= they), тому допоміжне — «do», а не «does».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 189,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "are",
-            "correct_answer": "do",
-            "language": "en",
-            "explanation": "Incorrect. «are» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 192,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "are",
-            "correct_answer": "do",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 185,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "are",
-            "correct_answer": "do",
-            "language": "ua",
-            "explanation": "«Are» — форма «to be»; дієслово «live» — смислове, і вимагає «do» як допоміжного.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 186,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "are",
-            "correct_answer": "do",
-            "language": "uk",
-            "explanation": "«Are» — форма «to be»; дієслово «live» — смислове, і вимагає «do» як допоміжного.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 187,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "do",
-            "correct_answer": "do",
-            "language": "en",
-            "explanation": "Correct. «do» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 190,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "do",
-            "correct_answer": "do",
-            "language": "pl",
-            "explanation": "Poprawnie. «do» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 181,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "do",
-            "correct_answer": "do",
-            "language": "ua",
-            "explanation": "«Do» — правильне допоміжне для «your parents» (множина) у WH-питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 182,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "do",
-            "correct_answer": "do",
-            "language": "uk",
-            "explanation": "«Do» — правильне допоміжне для «your parents» (множина) у WH-питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 188,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "does",
-            "correct_answer": "do",
-            "language": "en",
-            "explanation": "Incorrect. «does» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 191,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "does",
-            "correct_answer": "do",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «does» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 183,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "does",
-            "correct_answer": "do",
-            "language": "ua",
-            "explanation": "«Does» вживається у питаннях для he/she/it; «parents» — множина.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 184,
-            "question": "Where {a1} your parents live?",
-            "wrong_answer": "does",
-            "correct_answer": "do",
-            "language": "uk",
-            "explanation": "«Does» вживається у питаннях для he/she/it; «parents» — множина.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

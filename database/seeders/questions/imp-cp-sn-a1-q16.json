@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 16,
+        "id": 502,
         "uuid": "imp-cp-sn-a1-q16",
         "question": "{a1} the instructions carefully.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 4,
+        "source_id": 5,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:45.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 4,
         "name": "Дієслова та дієслівні форми",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 5,
         "name": "Imperatives — Наказовий спосіб",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 17,
-                "name": "Imperatives",
-                "category": null,
-                "created_at": "2026-05-18T13:17:36.000000Z",
-                "updated_at": "2026-05-18T13:17:36.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "tag_id": 17,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 28,
-                "name": "Affirmative imperatives",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "tag_id": 28,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 46,
-                "option": "Read",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 46,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 47,
-                "option": "Reads",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 47,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 48,
-                "option": "Reading",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 16,
-                "option_id": 48,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 16,
-                "question_id": 16,
-                "marker": "a1",
-                "option_id": 46,
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "option": {
-                "id": 46,
-                "option": "Read",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 16,
-            "question_id": 16,
-            "text": "{a1} the instructions carefully.",
-            "created_at": "2026-05-18T13:17:38.000000Z",
-            "updated_at": "2026-05-18T13:17:38.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 47,
-            "question_id": 16,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "The affirmative imperative uses the base form of the verb at the start of the sentence; -s or -ing forms belong to other grammatical categories.\nThe gap is the first word of the sentence — the classic position for an affirmative command; the base form of the verb is needed.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 48,
-            "question_id": 16,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Twierdzący tryb rozkazujący używa podstawowej formy czasownika na początku zdania; formy z -s lub -ing należą do innych kategorii gramatycznych.\nLuka to pierwsze słowo zdania — klasyczna pozycja twierdzącego rozkazu; potrzebna jest podstawowa forma czasownika.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 46,
-            "question_id": 16,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Стверджувальний наказовий спосіб вживає базову форму дієслова на початку речення; форми з -s або -ing є формами інших граматичних категорій.\nПропуск стоїть першим словом у реченні — класична позиція стверджувального наказу; потрібна базова форма дієслова.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 187,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Read",
-            "correct_answer": "Read",
-            "language": "en",
-            "explanation": "'Read' is the base form of the verb and the correct affirmative imperative.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 190,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Read",
-            "correct_answer": "Read",
-            "language": "pl",
-            "explanation": "«Read» to podstawowa forma i poprawna forma twierdzącego trybu rozkazującego.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 181,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Read",
-            "correct_answer": "Read",
-            "language": "ua",
-            "explanation": "Форма «Read» є базовою формою дієслова і правильно виражає стверджувальний наказовий спосіб.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 182,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Read",
-            "correct_answer": "Read",
-            "language": "uk",
-            "explanation": "Форма «Read» є базовою формою дієслова і правильно виражає стверджувальний наказовий спосіб.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 189,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reading",
-            "correct_answer": "Read",
-            "language": "en",
-            "explanation": "'Reading' is the present participle or gerund. Without 'is/are', it cannot express a command.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 192,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reading",
-            "correct_answer": "Read",
-            "language": "pl",
-            "explanation": "«Reading» to imiesłów teraźniejszy lub rzeczownik odsłowny. Bez «is/are» nie może wyrażać rozkazu.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 185,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reading",
-            "correct_answer": "Read",
-            "language": "ua",
-            "explanation": "Форма «Reading» — дієприкметник теперішнього часу або герундій. Без «is/are» вона не може виражати наказ.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 186,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reading",
-            "correct_answer": "Read",
-            "language": "uk",
-            "explanation": "Форма «Reading» — дієприкметник теперішнього часу або герундій. Без «is/are» вона не може виражати наказ.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 188,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reads",
-            "correct_answer": "Read",
-            "language": "en",
-            "explanation": "'Reads' is the third-person singular present form. Imperatives never take the -s ending.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 191,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reads",
-            "correct_answer": "Read",
-            "language": "pl",
-            "explanation": "«Reads» to forma trzeciej osoby liczby pojedynczej czasu teraźniejszego. Tryb rozkazujący nigdy nie używa końcówki -s.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 183,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reads",
-            "correct_answer": "Read",
-            "language": "ua",
-            "explanation": "Форма «Reads» — форма третьої особи однини теперішнього часу. Наказовий спосіб ніколи не вживає закінчення -s.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 184,
-            "question": "{a1} the instructions carefully.",
-            "wrong_answer": "Reads",
-            "correct_answer": "Read",
-            "language": "uk",
-            "explanation": "Форма «Reads» — форма третьої особи однини теперішнього часу. Наказовий спосіб ніколи не вживає закінчення -s.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 17,
+        "id": 215,
         "uuid": "st-cp-sn-a1-q17",
         "question": "{a1} this your bag?",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 17,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 38,
-                "name": "Yes/No question with am/is/are",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 17,
-                "tag_id": 38,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 7,
-                "option": "Do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 17,
-                "option_id": 7,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 9,
-                "option": "Are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 17,
-                "option_id": 9,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 17,
-                "option_id": 21,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 17,
-                "question_id": 17,
-                "marker": "a1",
-                "option_id": 21,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 17,
-            "question_id": 17,
-            "text": "{a1} this your bag?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 50,
-            "question_id": 17,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Yes/No questions with **to be**: **Am/Is/Are + subject**.\nThe verb **to be** inverts with the subject. Choose **Is** for singular or **Are** for plural/you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 51,
-            "question_id": 17,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania tak/nie z **to be**: **Am/Is/Are + podmiot**.\n**To be** wymienia się z podmiotem. Wybierz **Is** dla l. poj. lub **Are** dla l. mn./you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 49,
-            "question_id": 17,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Загальне питання з «to be» у Present Simple: Is/Are + підмет.\n«This» — займенник однини, тому питання починається з «Is».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 200,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Incorrect. «Are» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 203,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 195,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "«Are» вживається для «these/those» або «you/they»; «this» — однина.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 196,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "«Are» вживається для «these/those» або «you/they»; «this» — однина.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 201,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Incorrect. «Do» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 204,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Do» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 197,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "«Do» — допоміжне для смислових дієслів, а не для «to be».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 198,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "«Do» — допоміжне для смислових дієслів, а не для «to be».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 199,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Correct. «Is» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 202,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Poprawnie. «Is» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 193,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "«Is» — правильна форма «to be» для «this» (однина) у питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 194,
-            "question": "{a1} this your bag?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "«Is» — правильна форма «to be» для «this» (однина) у питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

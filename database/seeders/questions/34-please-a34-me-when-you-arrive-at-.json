@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 142,
+        "id": 628,
         "uuid": "34-please-a34-me-when-you-arrive-at-",
         "question": "Please {a34} me when you arrive at the airport.",
         "difficulty": 2,
         "level": "A2",
         "category_id": 2,
-        "source_id": 2,
+        "source_id": 6,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:42.000000Z",
-        "updated_at": "2026-05-18T13:17:47.000000Z"
+        "created_at": "2026-05-26T14:31:34.000000Z",
+        "updated_at": "2026-05-26T14:31:34.000000Z"
     },
     "category": {
         "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:41.000000Z",
-        "updated_at": "2026-05-18T13:17:41.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 6,
         "name": "Imperatives — Наказові речення",
-        "created_at": "2026-05-18T13:17:41.000000Z",
-        "updated_at": "2026-05-18T13:17:41.000000Z"
+        "created_at": "2026-05-26T14:31:33.000000Z",
+        "updated_at": "2026-05-26T14:31:33.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 4,
-                "name": "Imperative sentences",
-                "category": null,
-                "created_at": "2026-05-18T13:17:35.000000Z",
-                "updated_at": "2026-05-18T13:17:35.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "tag_id": 4,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 40,
-                "name": "Polite imperative with please",
-                "category": "usage",
-                "created_at": "2026-05-18T13:17:41.000000Z",
-                "updated_at": "2026-05-18T13:17:41.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "tag_id": 40,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 41,
-                "name": "Imperative with object pronoun",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:41.000000Z",
-                "updated_at": "2026-05-18T13:17:41.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "tag_id": 41,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 283,
-                "option": "call",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "option_id": 283,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 284,
-                "option": "calls",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "option_id": 284,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 285,
-                "option": "called",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "option_id": 285,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 142,
-                "question_id": 142,
-                "marker": "a34",
-                "option_id": 283,
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "option": {
-                "id": 283,
-                "option": "call",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 34,
-                "question_id": 142,
-                "marker": "a34",
-                "option_id": 256,
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "option": {
-                "id": 256,
-                "option": "polite imperative",
-                "created_at": "2026-05-18T13:17:41.000000Z",
-                "updated_at": "2026-05-18T13:17:41.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 142,
-            "question_id": 142,
-            "text": "Please {a34} me when you arrive at the airport.",
-            "created_at": "2026-05-18T13:17:42.000000Z",
-            "updated_at": "2026-05-18T13:17:42.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 424,
-            "question_id": 142,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "After 'Please', the verb stays in base form: call, not calls or called.\n'Me when you arrive' gives the context of the polite request.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 425,
-            "question_id": 142,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "W trybie rozkazującym czasownik zawsze stoi w formie podstawowej, nawet po 'Please', 'Always' lub 'Never'.\nZwróć uwagę na zaimek dopełnieniowy (me, him, her, them, it) — stoi on bezpośrednio po czasowniku.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 426,
-            "question_id": 142,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Після «Please» дієслово у наказі зберігає базову форму: call, не calls.\nЗайменник «me» після пропуску і часовий маркер «when you arrive» вказують на ввічливе прохання зателефонувати.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1693,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "call",
-            "correct_answer": "call",
-            "language": "en",
-            "explanation": "Correct: 'Please call me' — polite imperative with base form.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1696,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "call",
-            "correct_answer": "call",
-            "language": "pl",
-            "explanation": "Poprawnie: 'Please call me' — polite imperative with base form.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1699,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "call",
-            "correct_answer": "call",
-            "language": "ua",
-            "explanation": "Правильно: «Please call me» — ввічливий наказ із базовою формою + об'єктний займенник.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1700,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "call",
-            "correct_answer": "call",
-            "language": "uk",
-            "explanation": "Правильно: «Please call me» — ввічливий наказ із базовою формою + об'єктний займенник.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1695,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "called",
-            "correct_answer": "call",
-            "language": "en",
-            "explanation": "Wrong: 'called' is past tense. Imperatives use the base form.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1698,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "called",
-            "correct_answer": "call",
-            "language": "pl",
-            "explanation": "Błąd: 'called' is past tense. Imperatives use the base form.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1703,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "called",
-            "correct_answer": "call",
-            "language": "ua",
-            "explanation": "Помилка: «called» — минулий час. Наказ завжди базова форма.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1704,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "called",
-            "correct_answer": "call",
-            "language": "uk",
-            "explanation": "Помилка: «called» — минулий час. Наказ завжди базова форма.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1694,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "calls",
-            "correct_answer": "call",
-            "language": "en",
-            "explanation": "Wrong: 'calls' is third-person. Polite imperatives use the base form.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1697,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "calls",
-            "correct_answer": "call",
-            "language": "pl",
-            "explanation": "Błąd: 'calls' is third-person. Polite imperatives use the base form.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1701,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "calls",
-            "correct_answer": "call",
-            "language": "ua",
-            "explanation": "Помилка: «calls» — третя особа. Навіть із «please» наказ не отримує -s.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 1702,
-            "question": "Please {a34} me when you arrive at the airport.",
-            "wrong_answer": "calls",
-            "correct_answer": "call",
-            "language": "uk",
-            "explanation": "Помилка: «calls» — третя особа. Навіть із «please» наказ не отримує -s.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

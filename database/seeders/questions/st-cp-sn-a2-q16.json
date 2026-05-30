@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 34,
+        "id": 232,
         "uuid": "st-cp-sn-a2-q16",
         "question": "Why {a1} she crying?",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 34,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 43,
-                "name": "WH question structure",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 34,
-                "tag_id": 43,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 16,
-                "option": "are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 34,
-                "option_id": 16,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 17,
-                "option": "is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 34,
-                "option_id": 17,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 23,
-                "option": "does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 34,
-                "option_id": 23,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 34,
-                "question_id": 34,
-                "marker": "a1",
-                "option_id": 17,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 17,
-                "option": "is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 34,
-            "question_id": 34,
-            "text": "Why {a1} she crying?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 101,
-            "question_id": 34,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "WH questions: **WH-word + auxiliary (do/does/did/is/are/will) + subject + base verb**.\nThe WH-word comes first, then the auxiliary, then the subject, then the base verb.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 102,
-            "question_id": 34,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania WH: **Słowo pytające + operator (do/does/did/is/are) + podmiot + forma podstawowa**.\nSłowo pytające, potem operator, potem podmiot, potem forma podstawowa.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 100,
-            "question_id": 34,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "WH-питання у Present Continuous: WH-слово + is/are + підмет + дієслово-ing.\nПідмет «she» — 3-тя особа однини; Present Continuous вимагає «is» + -ing.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 404,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "en",
-            "explanation": "Incorrect. «are» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 407,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 399,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "ua",
-            "explanation": "«Are» вживається для you/we/they; «she» вимагає «is».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 400,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "uk",
-            "explanation": "«Are» вживається для you/we/they; «she» вимагає «is».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 405,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "en",
-            "explanation": "Incorrect. «does» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 408,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «does» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 401,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "ua",
-            "explanation": "«Does» — допоміжне Present Simple для смислових дієслів; у Continuous вживається «is/are».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 402,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "uk",
-            "explanation": "«Does» — допоміжне Present Simple для смислових дієслів; у Continuous вживається «is/are».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 403,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "en",
-            "explanation": "Correct. «is» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 406,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "pl",
-            "explanation": "Poprawnie. «is» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 397,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "ua",
-            "explanation": "«Is» — правильна форма «to be» для «she» у Present Continuous питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 398,
-            "question": "Why {a1} she crying?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "uk",
-            "explanation": "«Is» — правильна форма «to be» для «she» у Present Continuous питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

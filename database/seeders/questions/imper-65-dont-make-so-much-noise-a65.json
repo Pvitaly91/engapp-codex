@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 173,
+        "id": 659,
         "uuid": "imper-65-dont-make-so-much-noise-a65",
         "question": "Don't make so much noise, {a65}?",
         "difficulty": 4,
         "level": "B2",
         "category_id": 2,
-        "source_id": 2,
+        "source_id": 6,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:42.000000Z",
-        "updated_at": "2026-05-18T13:17:47.000000Z"
+        "created_at": "2026-05-26T14:31:34.000000Z",
+        "updated_at": "2026-05-26T14:31:34.000000Z"
     },
     "category": {
         "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:41.000000Z",
-        "updated_at": "2026-05-18T13:17:41.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 2,
+        "id": 6,
         "name": "Imperatives — Наказові речення",
-        "created_at": "2026-05-18T13:17:41.000000Z",
-        "updated_at": "2026-05-18T13:17:41.000000Z"
+        "created_at": "2026-05-26T14:31:33.000000Z",
+        "updated_at": "2026-05-26T14:31:33.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 4,
-                "name": "Imperative sentences",
-                "category": null,
-                "created_at": "2026-05-18T13:17:35.000000Z",
-                "updated_at": "2026-05-18T13:17:35.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "tag_id": 4,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 39,
-                "name": "Negative imperative (Don't + base)",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:41.000000Z",
-                "updated_at": "2026-05-18T13:17:41.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "tag_id": 39,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Imperative + question tag",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:41.000000Z",
-                "updated_at": "2026-05-18T13:17:41.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 304,
-                "option": "will you",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "option_id": 304,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 306,
-                "option": "do you",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "option_id": 306,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 313,
-                "option": "shall you",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "pivot": {
-                "question_id": 173,
-                "option_id": 313,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 173,
-                "question_id": 173,
-                "marker": "a65",
-                "option_id": 304,
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "option": {
-                "id": 304,
-                "option": "will you",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 65,
-                "question_id": 173,
-                "marker": "a65",
-                "option_id": 308,
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            },
-            "option": {
-                "id": 308,
-                "option": "question tag for negative imperative",
-                "created_at": "2026-05-18T13:17:42.000000Z",
-                "updated_at": "2026-05-18T13:17:42.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 173,
-            "question_id": 173,
-            "text": "Don't make so much noise, {a65}?",
-            "created_at": "2026-05-18T13:17:42.000000Z",
-            "updated_at": "2026-05-18T13:17:42.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 517,
-            "question_id": 173,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "Negative imperative 'Don't...' takes the question tag 'will you?'.\nThe command 'Don't make noise' is softened by the tag.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 518,
-            "question_id": 173,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "Question tag dla rozkazów: 'will you?' lub 'won't you?'. Dla 'Let's': 'shall we?'.\nZdanie rozkazujące z question tag brzmi bardziej uprzejmie.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 519,
-            "question_id": 173,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Після заперечного наказу «Don't...» question tag — «will you?».\nНаказ «Don't make noise» — заперечний наказовий спосіб; хвостик відповідний.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 2066,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "do you",
-            "correct_answer": "will you",
-            "language": "en",
-            "explanation": "Wrong: 'do you?' is not for imperative tags.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2069,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "do you",
-            "correct_answer": "will you",
-            "language": "pl",
-            "explanation": "Błąd: 'do you?' is not for imperative tags.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2073,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "do you",
-            "correct_answer": "will you",
-            "language": "ua",
-            "explanation": "Помилка: «do you?» — хвостик для розповідних речень, не для наказів.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2074,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "do you",
-            "correct_answer": "will you",
-            "language": "uk",
-            "explanation": "Помилка: «do you?» — хвостик для розповідних речень, не для наказів.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2067,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "shall you",
-            "correct_answer": "will you",
-            "language": "en",
-            "explanation": "Wrong: 'shall you?' is not a valid imperative tag combination.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2070,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "shall you",
-            "correct_answer": "will you",
-            "language": "pl",
-            "explanation": "Błąd: 'shall you?' is not a valid imperative tag combination.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2075,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "shall you",
-            "correct_answer": "will you",
-            "language": "ua",
-            "explanation": "Помилка: «shall you?» — «shall» із «you» не використовується як question tag для наказів.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2076,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "shall you",
-            "correct_answer": "will you",
-            "language": "uk",
-            "explanation": "Помилка: «shall you?» — «shall» із «you» не використовується як question tag для наказів.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2065,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "will you",
-            "correct_answer": "will you",
-            "language": "en",
-            "explanation": "Correct: 'will you?' — tag for negative imperatives.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2068,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "will you",
-            "correct_answer": "will you",
-            "language": "pl",
-            "explanation": "Poprawnie: 'will you?' — tag for negative imperatives.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2071,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "will you",
-            "correct_answer": "will you",
-            "language": "ua",
-            "explanation": "Правильно: «will you?» — стандартний хвостик і для стверджувальних, і для заперечних наказів.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        },
-        {
-            "id": 2072,
-            "question": "Don't make so much noise, {a65}?",
-            "wrong_answer": "will you",
-            "correct_answer": "will you",
-            "language": "uk",
-            "explanation": "Правильно: «will you?» — стандартний хвостик і для стверджувальних, і для заперечних наказів.",
-            "created_at": "2026-05-18T13:17:43.000000Z",
-            "updated_at": "2026-05-18T13:17:43.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

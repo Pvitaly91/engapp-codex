@@ -1,0 +1,200 @@
+{
+    "question": {
+        "id": 3506,
+        "uuid": "pluralno-4-i-see-five-a1-on-the-farm",
+        "question": "I see five {a1} on the farm.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 8,
+        "source_id": 93,
+        "flag": 0,
+        "created_at": "2026-04-23T14:40:32.000000Z",
+        "updated_at": "2026-05-20T16:33:54.000000Z"
+    },
+    "category": {
+        "id": 8,
+        "name": "Іменники, артиклі та кількість",
+        "created_at": "2026-04-23T14:39:24.000000Z",
+        "updated_at": "2026-04-23T14:39:24.000000Z"
+    },
+    "source": {
+        "id": 93,
+        "name": "Plural Nouns — Множина іменників: правила, винятки, приклади (Page 712)",
+        "created_at": "2026-04-23T14:40:32.000000Z",
+        "updated_at": "2026-04-23T14:40:32.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 804,
+                "name": "Множина іменників",
+                "category": "grammar",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3506,
+                "tag_id": 804,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 805,
+                "name": "Закінчення -s",
+                "category": "grammar",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3506,
+                "tag_id": 805,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4480,
+                "option": "horses",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3506,
+                "option_id": 4480,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4481,
+                "option": "horse",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3506,
+                "option_id": 4481,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4482,
+                "option": "horsees",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3506,
+                "option_id": 4482,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 12527,
+                "question_id": 3506,
+                "marker": "a1",
+                "option_id": 4480,
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "option": {
+                "id": 4480,
+                "option": "horses",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 1897,
+            "question_id": 3506,
+            "text": "I see five {a1} on the farm.",
+            "created_at": "2026-04-23T14:40:32.000000Z",
+            "updated_at": "2026-04-23T14:40:32.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 954,
+            "question_id": 3506,
+            "provider": "chatgpt",
+            "locale": "uk",
+            "hint": "Правило: слова на **-e** просто отримують **-s** у множині.\nПідказка у реченні: числівник **five** вимагає форми множини іменника.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 2025,
+            "question": "I see five {a1} on the farm.",
+            "wrong_answer": "horse",
+            "correct_answer": "horses",
+            "language": "ua",
+            "explanation": "❌ Неправильно: «horse» — однина, а після «five» має стояти множина.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2026,
+            "question": "I see five {a1} on the farm.",
+            "wrong_answer": "horse",
+            "correct_answer": "horses",
+            "language": "uk",
+            "explanation": "❌ Неправильно: «horse» — однина, а після «five» має стояти множина.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2027,
+            "question": "I see five {a1} on the farm.",
+            "wrong_answer": "horsees",
+            "correct_answer": "horses",
+            "language": "ua",
+            "explanation": "❌ Неправильно: подвійне -ee не використовується. Для слів на -e додаємо тільки -s.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2028,
+            "question": "I see five {a1} on the farm.",
+            "wrong_answer": "horsees",
+            "correct_answer": "horses",
+            "language": "uk",
+            "explanation": "❌ Неправильно: подвійне -ee не використовується. Для слів на -e додаємо тільки -s.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2023,
+            "question": "I see five {a1} on the farm.",
+            "wrong_answer": "horses",
+            "correct_answer": "horses",
+            "language": "ua",
+            "explanation": "✅ Правильно! Слово «horse» закінчується на -e, тому множина — horses (лише -s).",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2024,
+            "question": "I see five {a1} on the farm.",
+            "wrong_answer": "horses",
+            "correct_answer": "horses",
+            "language": "uk",
+            "explanation": "✅ Правильно! Слово «horse» закінчується на -e, тому множина — horses (лише -s).",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        }
+    ]
+}

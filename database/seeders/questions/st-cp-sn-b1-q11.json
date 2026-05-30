@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 47,
+        "id": 245,
         "uuid": "st-cp-sn-b1-q11",
         "question": "{a1} you working when I called?",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 47,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 39,
-                "name": "Yes/No question with was/were",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 47,
-                "tag_id": 39,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 36,
-                "option": "Did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 47,
-                "option_id": 36,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 37,
-                "option": "Were",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 47,
-                "option_id": 37,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 41,
-                "option": "Was",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 47,
-                "option_id": 41,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 47,
-                "question_id": 47,
-                "marker": "a1",
-                "option_id": 37,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 37,
-                "option": "Were",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 47,
-            "question_id": 47,
-            "text": "{a1} you working when I called?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 140,
-            "question_id": 47,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Past Simple yes/no questions with **to be**: **Was/Were + subject**.\nChoose **Was** for singular subjects (he/she/it) or **Were** for plural/you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 141,
-            "question_id": 47,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania tak/nie z **to be** w Past: **Was/Were + podmiot**.\nWybierz **Was** dla l. poj. (he/she/it) lub **Were** dla l. mn./you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 139,
-            "question_id": 47,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Питання у Past Continuous: Was/Were + підмет + дієслово-ing.\nПідмет «you» вимагає «Were» у Past Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 561,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Did",
-            "correct_answer": "Were",
-            "language": "en",
-            "explanation": "Incorrect. «Did» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 564,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Did",
-            "correct_answer": "Were",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Did» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 557,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Did",
-            "correct_answer": "Were",
-            "language": "ua",
-            "explanation": "«Did» — допоміжне Past Simple для смислових дієслів; Past Continuous потребує «was/were».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 558,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Did",
-            "correct_answer": "Were",
-            "language": "uk",
-            "explanation": "«Did» — допоміжне Past Simple для смислових дієслів; Past Continuous потребує «was/were».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 560,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Was",
-            "correct_answer": "Were",
-            "language": "en",
-            "explanation": "Incorrect. «Was» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 563,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Was",
-            "correct_answer": "Were",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Was» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 555,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Was",
-            "correct_answer": "Were",
-            "language": "ua",
-            "explanation": "«Was» вживається для he/she/it або I в Past Continuous; «you» вимагає «were».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 556,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Was",
-            "correct_answer": "Were",
-            "language": "uk",
-            "explanation": "«Was» вживається для he/she/it або I в Past Continuous; «you» вимагає «were».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 559,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Were",
-            "correct_answer": "Were",
-            "language": "en",
-            "explanation": "Correct. «Were» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 562,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Were",
-            "correct_answer": "Were",
-            "language": "pl",
-            "explanation": "Poprawnie. «Were» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 553,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Were",
-            "correct_answer": "Were",
-            "language": "ua",
-            "explanation": "«Were» — правильна форма «to be» для «you» у питанні Past Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 554,
-            "question": "{a1} you working when I called?",
-            "wrong_answer": "Were",
-            "correct_answer": "Were",
-            "language": "uk",
-            "explanation": "«Were» — правильна форма «to be» для «you» у питанні Past Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

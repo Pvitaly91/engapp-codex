@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 18,
+        "id": 216,
         "uuid": "st-cp-sn-a1-q18",
         "question": "Who {a1} your English teacher?",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 18,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 43,
-                "name": "WH question structure",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 18,
-                "tag_id": 43,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 16,
-                "option": "are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 18,
-                "option_id": 16,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 17,
-                "option": "is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 18,
-                "option_id": 17,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 23,
-                "option": "does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 18,
-                "option_id": 23,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 18,
-                "question_id": 18,
-                "marker": "a1",
-                "option_id": 17,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 17,
-                "option": "is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 18,
-            "question_id": 18,
-            "text": "Who {a1} your English teacher?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 53,
-            "question_id": 18,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "WH questions: **WH-word + auxiliary (do/does/did/is/are/will) + subject + base verb**.\nThe WH-word comes first, then the auxiliary, then the subject, then the base verb.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 54,
-            "question_id": 18,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania WH: **Słowo pytające + operator (do/does/did/is/are) + podmiot + forma podstawowa**.\nSłowo pytające, potem operator, potem podmiot, potem forma podstawowa.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 52,
-            "question_id": 18,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "У WH-питанні, де «who» є підметом або питається про одну особу, вживається «is».\n«Who» тут вказує на одну особу (ваш учитель — одна людина), тому «is».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 212,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "en",
-            "explanation": "Incorrect. «are» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 215,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 207,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "ua",
-            "explanation": "«Are» вживалося б для множини (Who are your teachers?); тут мається на увазі одна людина.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 208,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "are",
-            "correct_answer": "is",
-            "language": "uk",
-            "explanation": "«Are» вживалося б для множини (Who are your teachers?); тут мається на увазі одна людина.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 213,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "en",
-            "explanation": "Incorrect. «does» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 216,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «does» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 209,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "ua",
-            "explanation": "«Does» — допоміжне для смислових дієслів у Present Simple; тут присудок — «to be».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 210,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "does",
-            "correct_answer": "is",
-            "language": "uk",
-            "explanation": "«Does» — допоміжне для смислових дієслів у Present Simple; тут присудок — «to be».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 211,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "en",
-            "explanation": "Correct. «is» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 214,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "pl",
-            "explanation": "Poprawnie. «is» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 205,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "ua",
-            "explanation": "«Is» — правильна форма «to be» для однини; питання стосується однієї особи (teacher).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 206,
-            "question": "Who {a1} your English teacher?",
-            "wrong_answer": "is",
-            "correct_answer": "is",
-            "language": "uk",
-            "explanation": "«Is» — правильна форма «to be» для однини; питання стосується однієї особи (teacher).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

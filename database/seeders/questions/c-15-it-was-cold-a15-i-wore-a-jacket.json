@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 123,
+        "id": 897,
         "uuid": "c-15-it-was-cold-a15-i-wore-a-jacket",
         "question": "It was cold, {a15} I wore a jacket.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Conjunction 'so' — result",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 123,
-                "question_id": 123,
-                "marker": "a15",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 15,
-                "question_id": 123,
-                "marker": "a15",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 123,
-            "question_id": 123,
-            "text": "It was cold, {a15} I wore a jacket.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 367,
-            "question_id": 123,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'So' introduces the logical consequence of the weather condition or situation described first.\nA comma after `It was cold` and the natural reaction: wearing a jacket. Which conjunction introduces this natural consequence?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 368,
-            "question_id": 123,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'So' wprowadza logiczny skutek stanu pogodowego lub sytuacji z pierwszej części zdania.\nPrzecinek po `It was cold` i naturalna reakcja na zimno: założenie kurtki. Który spójnik wprowadza tę naturalną reakcję?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 369,
-            "question_id": 123,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник so вводить логічний наслідок ситуації або стану з першої частини речення.\nКома після `It was cold` та природна реакція на холод: одягти куртку. Яке слово вводить цю природну реакцію як наслідок?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1458,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Because' would reverse the logic: 'it was cold because I wore a jacket' — a consequence cannot be its own cause.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1461,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Because' odwracałoby logikę: 'było zimno because założył kurtkę' — skutek nie może być własną przyczyną.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1465,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«because» у цій позиції перевертало б логіку: «було холодно because одягнув куртку» — наслідок не може бути причиною.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1466,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«because» у цій позиції перевертало б логіку: «було холодно because одягнув куртку» — наслідок не може бути причиною.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1459,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'But' would suggest an unexpected contrast: 'it was cold BUT I wore a jacket' — illogical; wearing a jacket is the expected reaction to cold, not a contradiction.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1462,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby nieoczekiwany kontrast: 'było zimno, ALE założył kurtkę' — nielogiczne; założenie kurtki to oczekiwana reakcja na zimno.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1467,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«but» означало б несподіваний контраст: «було холодно, АЛЕ одягнув куртку» — нелогічно, одягання куртки є природною реакцією на холод, а не протиставленням.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1468,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«but» означало б несподіваний контраст: «було холодно, АЛЕ одягнув куртку» — нелогічно, одягання куртки є природною реакцією на холод, а не протиставленням.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1457,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct: 'so' shows the natural consequence of cold weather — wearing a jacket.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1460,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie: 'so' pokazuje naturalny skutek zimnej pogody — założył kurtkę.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1463,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "Правильно: «so» показує природний наслідок холодної погоди — одягнув куртку.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1464,
-            "question": "It was cold, {a15} I wore a jacket.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "Правильно: «so» показує природний наслідок холодної погоди — одягнув куртку.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

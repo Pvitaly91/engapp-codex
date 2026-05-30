@@ -1,0 +1,170 @@
+{
+    "question": {
+        "id": 131,
+        "uuid": "altq-v3-c1-11",
+        "question": "Choose the natural answer to an alternative question: {a1}",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-21T20:01:48.000000Z",
+        "updated_at": "2026-05-21T20:02:12.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T20:01:45.000000Z",
+        "updated_at": "2026-05-21T20:01:45.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Alternative Questions",
+        "created_at": "2026-05-21T20:01:48.000000Z",
+        "updated_at": "2026-05-21T20:01:48.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 9,
+                "name": "Alternative Questions",
+                "category": null,
+                "created_at": "2026-05-21T20:01:41.000000Z",
+                "updated_at": "2026-05-21T20:01:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "tag_id": 9,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 105,
+                "name": "C1",
+                "category": "level",
+                "created_at": "2026-05-21T20:01:45.000000Z",
+                "updated_at": "2026-05-21T20:01:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "tag_id": 105,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 121,
+                "name": "Answer With Option",
+                "category": "topic",
+                "created_at": "2026-05-21T20:01:48.000000Z",
+                "updated_at": "2026-05-21T20:01:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "tag_id": 121,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "Yes, I do.",
+                "created_at": "2026-05-21T20:01:45.000000Z",
+                "updated_at": "2026-05-21T20:01:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4,
+                "option": "No, I don't.",
+                "created_at": "2026-05-21T20:01:45.000000Z",
+                "updated_at": "2026-05-21T20:01:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 82,
+                "option": "Maybe.",
+                "created_at": "2026-05-21T20:01:48.000000Z",
+                "updated_at": "2026-05-21T20:01:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 82,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 83,
+                "option": "Both are fine.",
+                "created_at": "2026-05-21T20:01:48.000000Z",
+                "updated_at": "2026-05-21T20:01:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 83,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 97,
+                "option": "Proceed to arbitration.",
+                "created_at": "2026-05-21T20:01:48.000000Z",
+                "updated_at": "2026-05-21T20:01:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 131,
+                "option_id": 97,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 131,
+                "question_id": 131,
+                "marker": "a1",
+                "option_id": 97,
+                "created_at": "2026-05-21T20:01:48.000000Z",
+                "updated_at": "2026-05-21T20:01:48.000000Z"
+            },
+            "option": {
+                "id": 97,
+                "option": "Proceed to arbitration.",
+                "created_at": "2026-05-21T20:01:48.000000Z",
+                "updated_at": "2026-05-21T20:01:48.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 131,
+            "question_id": 131,
+            "text": "Choose the natural answer to an alternative question: {a1}",
+            "created_at": "2026-05-21T20:01:48.000000Z",
+            "updated_at": "2026-05-21T20:01:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

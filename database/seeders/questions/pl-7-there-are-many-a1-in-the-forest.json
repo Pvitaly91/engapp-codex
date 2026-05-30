@@ -1,0 +1,200 @@
+{
+    "question": {
+        "id": 3509,
+        "uuid": "pl-7-there-are-many-a1-in-the-forest",
+        "question": "There are many {a1} in the forest.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 8,
+        "source_id": 93,
+        "flag": 0,
+        "created_at": "2026-04-23T14:40:32.000000Z",
+        "updated_at": "2026-05-20T16:33:54.000000Z"
+    },
+    "category": {
+        "id": 8,
+        "name": "Іменники, артиклі та кількість",
+        "created_at": "2026-04-23T14:39:24.000000Z",
+        "updated_at": "2026-04-23T14:39:24.000000Z"
+    },
+    "source": {
+        "id": 93,
+        "name": "Plural Nouns — Множина іменників: правила, винятки, приклади (Page 712)",
+        "created_at": "2026-04-23T14:40:32.000000Z",
+        "updated_at": "2026-04-23T14:40:32.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 804,
+                "name": "Множина іменників",
+                "category": "grammar",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3509,
+                "tag_id": 804,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 806,
+                "name": "Закінчення -es",
+                "category": "grammar",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3509,
+                "tag_id": 806,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4486,
+                "option": "foxes",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3509,
+                "option_id": 4486,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4487,
+                "option": "foxs",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3509,
+                "option_id": 4487,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4488,
+                "option": "fox",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "pivot": {
+                "question_id": 3509,
+                "option_id": 4488,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 12530,
+                "question_id": 3509,
+                "marker": "a1",
+                "option_id": 4486,
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            },
+            "option": {
+                "id": 4486,
+                "option": "foxes",
+                "created_at": "2026-04-23T14:40:32.000000Z",
+                "updated_at": "2026-04-23T14:40:32.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 1900,
+            "question_id": 3509,
+            "text": "There are many {a1} in the forest.",
+            "created_at": "2026-04-23T14:40:32.000000Z",
+            "updated_at": "2026-04-23T14:40:32.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 957,
+            "question_id": 3509,
+            "provider": "chatgpt",
+            "locale": "uk",
+            "hint": "Правило: іменники на **-x** потребують закінчення **-es** у множині.\nПідказка у реченні: слово **many** вживається зі злічуваними іменниками у множині.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 2045,
+            "question": "There are many {a1} in the forest.",
+            "wrong_answer": "fox",
+            "correct_answer": "foxes",
+            "language": "ua",
+            "explanation": "❌ Неправильно: «fox» — однина, а «many» вживається з множиною.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2046,
+            "question": "There are many {a1} in the forest.",
+            "wrong_answer": "fox",
+            "correct_answer": "foxes",
+            "language": "uk",
+            "explanation": "❌ Неправильно: «fox» — однина, а «many» вживається з множиною.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2041,
+            "question": "There are many {a1} in the forest.",
+            "wrong_answer": "foxes",
+            "correct_answer": "foxes",
+            "language": "ua",
+            "explanation": "✅ Правильно! Слово «fox» закінчується на -x, тому множина — foxes.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2042,
+            "question": "There are many {a1} in the forest.",
+            "wrong_answer": "foxes",
+            "correct_answer": "foxes",
+            "language": "uk",
+            "explanation": "✅ Правильно! Слово «fox» закінчується на -x, тому множина — foxes.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2043,
+            "question": "There are many {a1} in the forest.",
+            "wrong_answer": "foxs",
+            "correct_answer": "foxes",
+            "language": "ua",
+            "explanation": "❌ Неправильно: після -x не можна ставити просто -s. Правильне закінчення — -es.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        },
+        {
+            "id": 2044,
+            "question": "There are many {a1} in the forest.",
+            "wrong_answer": "foxs",
+            "correct_answer": "foxes",
+            "language": "uk",
+            "explanation": "❌ Неправильно: після -x не можна ставити просто -s. Правильне закінчення — -es.",
+            "created_at": "2026-04-23T14:40:34.000000Z",
+            "updated_at": "2026-04-23T14:40:34.000000Z"
+        }
+    ]
+}

@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 7,
+        "id": 205,
         "uuid": "st-cp-sn-a1-q07",
         "question": "He {a1} tired after work today.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:08.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 7,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 33,
-                "name": "Negation with am/is/are + not",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 7,
-                "tag_id": 33,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 5,
-                "option": "doesn't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 7,
-                "option_id": 5,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 19,
-                "option": "isn't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 7,
-                "option_id": 19,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 20,
-                "option": "aren't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 7,
-                "option_id": 20,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 7,
-                "question_id": 7,
-                "marker": "a1",
-                "option_id": 19,
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "option": {
-                "id": 19,
-                "option": "isn't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 7,
-            "question_id": 7,
-            "text": "He {a1} tired after work today.",
-            "created_at": "2026-05-18T13:17:01.000000Z",
-            "updated_at": "2026-05-18T13:17:01.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 20,
-            "question_id": 7,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Pay attention to the sentence type and required auxiliary verb.\nLook at the surrounding words for clues about tense, subject, and sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 21,
-            "question_id": 7,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Zwróć uwagę na rodzaj zdania i wymagany operator.\nSzukaj wskazówek w otaczających słowach — czas, podmiot i typ zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 19,
-            "question_id": 7,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Заперечення з дієсловом «to be» у Present Simple утворюється додаванням «not»: is not = isn't, are not = aren't.\nПідмет «He» — третя особа однини, тому використовується «is», а заперечна форма — «isn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 80,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "aren't",
-            "correct_answer": "isn't",
-            "language": "en",
-            "explanation": "Incorrect. «aren't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 83,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "aren't",
-            "correct_answer": "isn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «aren't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 75,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "aren't",
-            "correct_answer": "isn't",
-            "language": "ua",
-            "explanation": "«Aren't» вживається для you/we/they; підмет «He» — 3-тя особа однини, тому потрібне «isn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 76,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "aren't",
-            "correct_answer": "isn't",
-            "language": "uk",
-            "explanation": "«Aren't» вживається для you/we/they; підмет «He» — 3-тя особа однини, тому потрібне «isn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 81,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "isn't",
-            "language": "en",
-            "explanation": "Incorrect. «doesn't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 84,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "isn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «doesn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 77,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "isn't",
-            "language": "ua",
-            "explanation": "«Doesn't» — заперечення для смислових дієслів (he doesn't do); тут присудок — «to be», а не смислове дієслово.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 78,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "isn't",
-            "language": "uk",
-            "explanation": "«Doesn't» — заперечення для смислових дієслів (he doesn't do); тут присудок — «to be», а не смислове дієслово.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 79,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "isn't",
-            "correct_answer": "isn't",
-            "language": "en",
-            "explanation": "Correct. «isn't» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 82,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "isn't",
-            "correct_answer": "isn't",
-            "language": "pl",
-            "explanation": "Poprawnie. «isn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 73,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "isn't",
-            "correct_answer": "isn't",
-            "language": "ua",
-            "explanation": "«Isn't» — правильна заперечна форма «to be» для he/she/it у Present Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 74,
-            "question": "He {a1} tired after work today.",
-            "wrong_answer": "isn't",
-            "correct_answer": "isn't",
-            "language": "uk",
-            "explanation": "«Isn't» — правильна заперечна форма «to be» для he/she/it у Present Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

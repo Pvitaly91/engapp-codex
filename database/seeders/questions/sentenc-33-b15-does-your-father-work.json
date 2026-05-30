@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 141,
+        "id": 339,
         "uuid": "sentenc-33-b15-does-your-father-work",
         "question": "{b15} does your father work?",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:05.000000Z",
-        "updated_at": "2026-05-18T13:17:10.000000Z"
+        "created_at": "2026-05-26T14:31:22.000000Z",
+        "updated_at": "2026-05-26T14:31:22.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 61,
-                "name": "Wh-question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "tag_id": 61,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 8,
-                "option": "Does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "option_id": 8,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "option_id": 21,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 180,
-                "option": "Where",
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "option_id": 180,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 141,
-                "question_id": 141,
-                "marker": "b15",
-                "option_id": 180,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 180,
-                "option": "Where",
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 33,
-                "question_id": 141,
-                "marker": "b15",
-                "option_id": 155,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 155,
-                "option": "question word",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 141,
-            "question_id": 141,
-            "text": "{b15} does your father work?",
-            "created_at": "2026-05-18T13:17:05.000000Z",
-            "updated_at": "2026-05-18T13:17:05.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 421,
-            "question_id": 141,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This is a wh-question — it begins with a question word (who, what, where, when, why, how).\nLook at the sentence context and the verb hint 'question word' to choose the correct form.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 422,
-            "question_id": 141,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To jest pytanie szczegółowe — zaczyna się od słowa pytającego (who, what, where, when, why, how).\nPrzeanalizuj kontekst zdania i wskazówkę 'question word', aby wybrać właściwą formę.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 423,
-            "question_id": 141,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Спеціальне питання з `Where` запитує про місце дії.\nПитання `_____ does your father work?` потребує питального слова про місце — `Where`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1682,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Does",
-            "correct_answer": "Where",
-            "language": "en",
-            "explanation": "Incorrect: 'Does' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1685,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Does",
-            "correct_answer": "Where",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Does' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1689,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Does",
-            "correct_answer": "Where",
-            "language": "ua",
-            "explanation": "Неправильно: `Does` формує загальне (Yes/No) питання, а контекст потребує спеціального.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1690,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Does",
-            "correct_answer": "Where",
-            "language": "uk",
-            "explanation": "Неправильно: `Does` формує загальне (Yes/No) питання, а контекст потребує спеціального.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1683,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Is",
-            "correct_answer": "Where",
-            "language": "en",
-            "explanation": "Incorrect: 'Is' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1686,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Is",
-            "correct_answer": "Where",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Is' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1691,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Is",
-            "correct_answer": "Where",
-            "language": "ua",
-            "explanation": "Неправильно: `Is` — допоміжне для `to be`, а тут смислове дієслово `work` у Present Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1692,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Is",
-            "correct_answer": "Where",
-            "language": "uk",
-            "explanation": "Неправильно: `Is` — допоміжне для `to be`, а тут смислове дієслово `work` у Present Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1681,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Where",
-            "correct_answer": "Where",
-            "language": "en",
-            "explanation": "Correct: 'Where' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1684,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Where",
-            "correct_answer": "Where",
-            "language": "pl",
-            "explanation": "Poprawnie: 'Where' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1687,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Where",
-            "correct_answer": "Where",
-            "language": "ua",
-            "explanation": "Правильно: `Where does your father work?` — спеціальне питання про місце роботи.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1688,
-            "question": "{b15} does your father work?",
-            "wrong_answer": "Where",
-            "correct_answer": "Where",
-            "language": "uk",
-            "explanation": "Правильно: `Where does your father work?` — спеціальне питання про місце роботи.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

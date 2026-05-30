@@ -1,293 +1,33 @@
 {
     "question": {
-        "id": 28,
+        "id": 802,
         "uuid": "cj-cp-sn-a2-q10",
         "question": "Can you call me today {a1} tomorrow?",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:26.000000Z"
+        "created_at": "2026-05-26T14:31:42.000000Z",
+        "updated_at": "2026-05-26T14:31:42.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Choosing the correct conjunction",
-                "category": "usage",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 32,
-                "name": "Alternative conjunction 'or'",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "tag_id": 32,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 37,
-                "name": "Alternative coordination",
-                "category": "usage",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "tag_id": 37,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 28,
-                "option_id": 3,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 28,
-                "question_id": 28,
-                "marker": "a1",
-                "option_id": 3,
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 28,
-            "question_id": 28,
-            "text": "Can you call me today {a1} tomorrow?",
-            "created_at": "2026-05-18T13:17:20.000000Z",
-            "updated_at": "2026-05-18T13:17:20.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 83,
-            "question_id": 28,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Use 'or' in questions where two time options are available.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 84,
-            "question_id": 28,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Użyj 'or' w pytaniach, gdy dostępne są dwie opcje czasowe.\nДва дні `today` та `tomorrow` — альтернативні варіанти, і питальна форма Can you вказує на необхідність вибору.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 82,
-            "question_id": 28,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Сполучник or у питанні пропонує два варіанти часу для вибору.\nДва дні `today` та `tomorrow` — альтернативні варіанти, і питальна форма Can you вказує на необхідність вибору.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 332,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "and",
-            "correct_answer": "or",
-            "language": "en",
-            "explanation": "Incorrect. 'And' would mean both days are expected, but the question asks for one choice.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 335,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "and",
-            "correct_answer": "or",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «And» oznaczałoby oczekiwanie w obu dniach, ale pytanie dotyczy jednej opcji.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 327,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "and",
-            "correct_answer": "or",
-            "language": "ua",
-            "explanation": "«and» об'єднав би обидва дні, хоча питання передбачає вибір одного зручного дня.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 328,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "and",
-            "correct_answer": "or",
-            "language": "uk",
-            "explanation": "«and» об'єднав би обидва дні, хоча питання передбачає вибір одного зручного дня.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 333,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "but",
-            "correct_answer": "or",
-            "language": "en",
-            "explanation": "Incorrect. 'But' contrasts the days, which is not appropriate in a simple scheduling question.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 336,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "but",
-            "correct_answer": "or",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «But» kontrastowałoby dni, co jest nieodpowiednie w zwykłym pytaniu o termin.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 329,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "but",
-            "correct_answer": "or",
-            "language": "ua",
-            "explanation": "«but» виражав би протиставлення між днями, якого в контексті прохання немає.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 330,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "but",
-            "correct_answer": "or",
-            "language": "uk",
-            "explanation": "«but» виражав би протиставлення між днями, якого в контексті прохання немає.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 331,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "or",
-            "correct_answer": "or",
-            "language": "en",
-            "explanation": "Correct. 'Or' presents today and tomorrow as two possible times to choose from.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 334,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "or",
-            "correct_answer": "or",
-            "language": "pl",
-            "explanation": "Poprawnie. «Or» prezentuje dziś i jutro jako dwie możliwe opcje do wyboru.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 325,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "or",
-            "correct_answer": "or",
-            "language": "ua",
-            "explanation": "«or» правильний: у питанні з двома часовими варіантами or є природним сполучником.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        },
-        {
-            "id": 326,
-            "question": "Can you call me today {a1} tomorrow?",
-            "wrong_answer": "or",
-            "correct_answer": "or",
-            "language": "uk",
-            "explanation": "«or» правильний: у питанні з двома часовими варіантами or є природним сполучником.",
-            "created_at": "2026-05-18T13:17:22.000000Z",
-            "updated_at": "2026-05-18T13:17:22.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

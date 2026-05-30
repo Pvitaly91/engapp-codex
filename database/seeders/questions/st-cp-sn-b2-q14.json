@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 68,
+        "id": 266,
         "uuid": "st-cp-sn-b2-q14",
         "question": "We should leave now, {a1}?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 68,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Tag question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 68,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 98,
-                "option": "shouldn't we",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 68,
-                "option_id": 98,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 99,
-                "option": "should we",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 68,
-                "option_id": 99,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 100,
-                "option": "mustn't we",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 68,
-                "option_id": 100,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 68,
-                "question_id": 68,
-                "marker": "a1",
-                "option_id": 98,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 98,
-                "option": "shouldn't we",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 68,
-            "question_id": 68,
-            "text": "We should leave now, {a1}?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 203,
-            "question_id": 68,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 204,
-            "question_id": 68,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 202,
-            "question_id": 68,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Стверджувальне речення з модальним «should» → заперечний хвіст «shouldn't we».\n«Should» (стверджув.) стає «shouldn't» у хвості; підмет — «we».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 813,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "mustn't we",
-            "correct_answer": "shouldn't we",
-            "language": "en",
-            "explanation": "Incorrect. «mustn't we» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 816,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "mustn't we",
-            "correct_answer": "shouldn't we",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «mustn't we» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 809,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "mustn't we",
-            "correct_answer": "shouldn't we",
-            "language": "ua",
-            "explanation": "«Mustn't we» неправильне: у хвості повторюється саме допоміжне основного речення, а не замінюється іншим.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 810,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "mustn't we",
-            "correct_answer": "shouldn't we",
-            "language": "uk",
-            "explanation": "«Mustn't we» неправильне: у хвості повторюється саме допоміжне основного речення, а не замінюється іншим.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 812,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "should we",
-            "correct_answer": "shouldn't we",
-            "language": "en",
-            "explanation": "Incorrect. «should we» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 815,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "should we",
-            "correct_answer": "shouldn't we",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «should we» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 807,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "should we",
-            "correct_answer": "shouldn't we",
-            "language": "ua",
-            "explanation": "«Should we» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 808,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "should we",
-            "correct_answer": "shouldn't we",
-            "language": "uk",
-            "explanation": "«Should we» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 811,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "shouldn't we",
-            "correct_answer": "shouldn't we",
-            "language": "en",
-            "explanation": "Correct. «shouldn't we» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 814,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "shouldn't we",
-            "correct_answer": "shouldn't we",
-            "language": "pl",
-            "explanation": "Poprawnie. «shouldn't we» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 805,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "shouldn't we",
-            "correct_answer": "shouldn't we",
-            "language": "ua",
-            "explanation": "«Shouldn't we» — правильний хвіст: «should» (стверджув.) → «shouldn't we» (заперечний).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 806,
-            "question": "We should leave now, {a1}?",
-            "wrong_answer": "shouldn't we",
-            "correct_answer": "shouldn't we",
-            "language": "uk",
-            "explanation": "«Shouldn't we» — правильний хвіст: «should» (стверджув.) → «shouldn't we» (заперечний).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

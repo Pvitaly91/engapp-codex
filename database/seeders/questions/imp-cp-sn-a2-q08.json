@@ -1,293 +1,33 @@
 {
     "question": {
-        "id": 26,
+        "id": 512,
         "uuid": "imp-cp-sn-a2-q08",
         "question": "Don't {a1} that milk. It's expired.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 4,
+        "source_id": 5,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:45.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 4,
         "name": "Дієслова та дієслівні форми",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 5,
         "name": "Imperatives — Наказовий спосіб",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 17,
-                "name": "Imperatives",
-                "category": null,
-                "created_at": "2026-05-18T13:17:36.000000Z",
-                "updated_at": "2026-05-18T13:17:36.000000Z"
-            },
-            "pivot": {
-                "question_id": 26,
-                "tag_id": 17,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 28,
-                "name": "Affirmative imperatives",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 26,
-                "tag_id": 28,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 29,
-                "name": "Negative imperatives",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 26,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 34,
-                "option": "drink",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 26,
-                "option_id": 34,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 35,
-                "option": "drinks",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 26,
-                "option_id": 35,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 36,
-                "option": "drank",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 26,
-                "option_id": 36,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 26,
-                "question_id": 26,
-                "marker": "a1",
-                "option_id": 34,
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "option": {
-                "id": 34,
-                "option": "drink",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 26,
-            "question_id": 26,
-            "text": "Don't {a1} that milk. It's expired.",
-            "created_at": "2026-05-18T13:17:38.000000Z",
-            "updated_at": "2026-05-18T13:17:38.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 77,
-            "question_id": 26,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "After 'Don't' in the negative imperative, only the base form of the verb is used; conjugated and past forms cannot follow 'Don't'.\n'Don't' before the gap defines a negative command; 'that milk' is context but does not affect the verb form.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 78,
-            "question_id": 26,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Po «Don't» w przeczącym trybie rozkazującym zawsze używa się podstawowej formy czasownika; odmienione i przeszłe formy nie mogą następować po «Don't».\n«Don't» przed luką definiuje rozkaz przeczący; «that milk» to kontekst, ale nie wpływa na formę czasownika.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 76,
-            "question_id": 26,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Після «Don't» у заперечному наказовому способі завжди вживається базова форма дієслова; відмінювані і минулі форми не можуть стояти після «Don't».\n«Don't» перед пропуском визначає заперечний наказ; «that milk» — контекстний орієнтир, але не впливає на форму дієслова.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 309,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drank",
-            "correct_answer": "drink",
-            "language": "en",
-            "explanation": "'Drank' is the irregular past tense of 'drink'. The negative imperative is built exclusively with the base form.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 312,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drank",
-            "correct_answer": "drink",
-            "language": "pl",
-            "explanation": "«Drank» to nieregularny czas przeszły «drink». Przeczący tryb rozkazujący jest budowany wyłącznie z formą podstawową.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 305,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drank",
-            "correct_answer": "drink",
-            "language": "ua",
-            "explanation": "Форма «drank» — неправильний минулий час дієслова «drink». Заперечний наказ будується виключно з базовою формою.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 306,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drank",
-            "correct_answer": "drink",
-            "language": "uk",
-            "explanation": "Форма «drank» — неправильний минулий час дієслова «drink». Заперечний наказ будується виключно з базовою формою.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 307,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drink",
-            "correct_answer": "drink",
-            "language": "en",
-            "explanation": "'Drink' is the base form and the correct negative imperative after 'Don't'.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 310,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drink",
-            "correct_answer": "drink",
-            "language": "pl",
-            "explanation": "«Drink» to podstawowa forma i poprawny przeczący tryb rozkazujący po «Don't».",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 301,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drink",
-            "correct_answer": "drink",
-            "language": "ua",
-            "explanation": "Форма «drink» є базовою формою дієслова і правильно вживається у заперечному наказовому способі після «Don't».",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 302,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drink",
-            "correct_answer": "drink",
-            "language": "uk",
-            "explanation": "Форма «drink» є базовою формою дієслова і правильно вживається у заперечному наказовому способі після «Don't».",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 308,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drinks",
-            "correct_answer": "drink",
-            "language": "en",
-            "explanation": "'Drinks' is the third-person singular form. No -s ending appears after 'Don't' in an imperative.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 311,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drinks",
-            "correct_answer": "drink",
-            "language": "pl",
-            "explanation": "«Drinks» to forma trzeciej osoby liczby pojedynczej. Po «Don't» w trybie rozkazującym nie pojawia się końcówka -s.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 303,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drinks",
-            "correct_answer": "drink",
-            "language": "ua",
-            "explanation": "Форма «drinks» — форма третьої особи однини. Після «Don't» у наказовому способі дієслово не має закінчення -s.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 304,
-            "question": "Don't {a1} that milk. It's expired.",
-            "wrong_answer": "drinks",
-            "correct_answer": "drink",
-            "language": "uk",
-            "explanation": "Форма «drinks» — форма третьої особи однини. Після «Don't» у наказовому способі дієслово не має закінчення -s.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

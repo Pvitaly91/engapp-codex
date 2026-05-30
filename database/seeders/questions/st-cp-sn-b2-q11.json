@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 65,
+        "id": 263,
         "uuid": "st-cp-sn-b2-q11",
         "question": "She asked how long {a1}.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 65,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 53,
-                "name": "Word order in indirect questions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 65,
-                "tag_id": 53,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 91,
-                "option": "we had been waiting",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 65,
-                "option_id": 91,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 92,
-                "option": "had we been waiting",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 65,
-                "option_id": 92,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 93,
-                "option": "we have been waiting",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 65,
-                "option_id": 93,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 65,
-                "question_id": 65,
-                "marker": "a1",
-                "option_id": 91,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 91,
-                "option": "we had been waiting",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 65,
-            "question_id": 65,
-            "text": "She asked how long {a1}.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 194,
-            "question_id": 65,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Indirect (embedded) questions use **statement word order** (subject + verb), not question inversion.\nAfter **tell me / know / wonder / ask**, the clause uses normal sentence order: **subject + verb**, not inverted question order.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 195,
-            "question_id": 65,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "W pytaniach pośrednich po słowie pytającym obowiązuje szyk twierdzący: **podmiot + orzeczenie** (bez inwersji).\nPo **tell me / know / wonder / ask** szyk jest twierdzący: **podmiot + orzeczenie**, bez inwersji.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 193,
-            "question_id": 65,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "В непрямій мові після «she asked how long» порядок слів — стверджувальний; час зміщується назад (backshift).\nПісля «she asked» (Past Simple) Present Perfect Continuous змінюється на Past Perfect Continuous: «we had been waiting».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 776,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "had we been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "en",
-            "explanation": "Incorrect. «had we been waiting» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 779,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "had we been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «had we been waiting» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 771,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "had we been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "ua",
-            "explanation": "«Had we been waiting» — порядок прямого питання; у непрямому інверсія не вживається.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 772,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "had we been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "uk",
-            "explanation": "«Had we been waiting» — порядок прямого питання; у непрямому інверсія не вживається.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 775,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we had been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "en",
-            "explanation": "Correct. «we had been waiting» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 778,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we had been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "pl",
-            "explanation": "Poprawnie. «we had been waiting» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 769,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we had been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "ua",
-            "explanation": "«We had been waiting» — правильно: непряме питання зі стверджувальним порядком і backshift у Past Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 770,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we had been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "uk",
-            "explanation": "«We had been waiting» — правильно: непряме питання зі стверджувальним порядком і backshift у Past Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 777,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we have been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "en",
-            "explanation": "Incorrect. «we have been waiting» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 780,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we have been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «we have been waiting» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 773,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we have been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "ua",
-            "explanation": "«We have been waiting» — Present Perfect Continuous; але після «asked» (Past) потрібен backshift — Past Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 774,
-            "question": "She asked how long {a1}.",
-            "wrong_answer": "we have been waiting",
-            "correct_answer": "we had been waiting",
-            "language": "uk",
-            "explanation": "«We have been waiting» — Present Perfect Continuous; але після «asked» (Past) потрібен backshift — Past Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

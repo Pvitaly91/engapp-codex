@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 169,
+        "id": 943,
         "uuid": "61-the-restaurant-serves-traditional",
         "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:24.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 169,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 40,
-                "name": "Conjunction 'and' — addition",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 169,
-                "tag_id": 40,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 169,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 169,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 169,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 169,
-                "question_id": 169,
-                "marker": "a61",
-                "option_id": 1,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 61,
-                "question_id": 169,
-                "marker": "a61",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 169,
-            "question_id": 169,
-            "text": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 505,
-            "question_id": 169,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'And' joins two equal culinary styles equally represented on a menu.\nThe sentence names two styles — `traditional` and `modern` — both featured equally on the menu.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 506,
-            "question_id": 169,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'And' łączy dwa równorzędne style kulinarne jednakowo reprezentowane w menu restauracji.\nZdanie wymienia dwa style — `traditional` i `modern` — oba jednakowo reprezentowane w menu.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 507,
-            "question_id": 169,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник and зʼєднує два рівноцінних стилі страв у меню ресторану.\nУ реченні `traditional` та `modern` — два рівноцінних кулінарних напрямки, що представлені в меню. Яке слово їх поєднує?",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 2009,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "en",
-            "explanation": "Correct: 'and' joins both styles — traditional AND modern dishes are both represented on the menu.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2012,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "pl",
-            "explanation": "Poprawnie: 'and' łączy oba style — tradycyjne I nowoczesne dania są oba reprezentowane w menu.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2015,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "ua",
-            "explanation": "Правильно: «and» зʼєднує обидва напрямки — традиційні та сучасні страви. Обидва рівноцінно представлені в меню.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2016,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "uk",
-            "explanation": "Правильно: «and» зʼєднує обидва напрямки — традиційні та сучасні страви. Обидва рівноцінно представлені в меню.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2011,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "en",
-            "explanation": "'Because' introduces a reason: 'traditional because modern' — illogical for describing a menu.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2014,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "pl",
-            "explanation": "'Because' wprowadza przyczynę: 'tradycyjne, bo nowoczesne' — nielogiczne dla opisu menu.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2019,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "ua",
-            "explanation": "«because» вводить причину: «традиційні, ТОМУ ЩО сучасні» — нелогічна конструкція для опису меню.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2020,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "uk",
-            "explanation": "«because» вводить причину: «традиційні, ТОМУ ЩО сучасні» — нелогічна конструкція для опису меню.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2010,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "so",
-            "correct_answer": "and",
-            "language": "en",
-            "explanation": "'So' introduces a consequence: 'traditional, SO modern' — no causal link between the two culinary styles.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2013,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "so",
-            "correct_answer": "and",
-            "language": "pl",
-            "explanation": "'So' wprowadza skutek: 'tradycyjne, WIĘC nowoczesne' — brak związku przyczynowego między dwoma stylami kulinarnymi.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2017,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "so",
-            "correct_answer": "and",
-            "language": "ua",
-            "explanation": "«so» вводить наслідок: «традиційні, ТОМУ сучасні страви» — немає причинно-наслідкового звʼязку між двома стилями.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2018,
-            "question": "The restaurant serves traditional {a61} modern dishes that reflect local culture.",
-            "wrong_answer": "so",
-            "correct_answer": "and",
-            "language": "uk",
-            "explanation": "«so» вводить наслідок: «традиційні, ТОМУ сучасні страви» — немає причинно-наслідкового звʼязку між двома стилями.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

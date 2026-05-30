@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 137,
+        "id": 911,
         "uuid": "29-i-lost-my-keys-a29-i-could-not-op",
         "question": "I lost my keys, {a29} I could not open the door.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 137,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Conjunction 'so' — result",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 137,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Cause-result conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 137,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 137,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 137,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 137,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 137,
-                "question_id": 137,
-                "marker": "a29",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 29,
-                "question_id": 137,
-                "marker": "a29",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 137,
-            "question_id": 137,
-            "text": "I lost my keys, {a29} I could not open the door.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 409,
-            "question_id": 137,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'So' introduces the logical consequence of a prior event.\nA comma after `I lost my keys` and the logic: lost keys → could not open the door. Which conjunction introduces this consequence?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 410,
-            "question_id": 137,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'So' wprowadza logiczny skutek wcześniejszego zdarzenia.\nPrzecinek po `I lost my keys` i logika: zgubione klucze → niemożność otwarcia drzwi. Który spójnik wprowadza ten skutek?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 411,
-            "question_id": 137,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник so вводить логічний наслідок попередньої події або ситуації.\nКома після `I lost my keys` та логіка: втрата ключів → неможливість відкрити двері. Яке слово вводить цей наслідок?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1626,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Because' reverses the logic: 'lost my keys because I could not open the door' — illogical order.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1629,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Because' odwraca logikę: 'zgubiłem klucze, bo nie mogłem otworzyć drzwi' — błędna kolejność przyczyny i skutku.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1633,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«because» вводить причину в неправильному порядку: «загубив ключі, ТОМУ ЩО не міг відчинити» — хибна логіка.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1634,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«because» вводить причину в неправильному порядку: «загубив ключі, ТОМУ ЩО не міг відчинити» — хибна логіка.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1627,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'But' would imply contrast: 'lost my keys BUT could not open the door' — illogical; inability to open the door is the direct result.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1630,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby kontrast: 'zgubiłem klucze, ALE nie mogłem otworzyć drzwi' — nielogiczne; niemożność otwarcia drzwi to bezpośredni skutek.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1635,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«but» означало б протиставлення: «загубив ключі, АЛЕ не міг відчинити» — нелогічно, неможливість відкрити двері є прямим наслідком втрати ключів.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1636,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«but» означало б протиставлення: «загубив ключі, АЛЕ не міг відчинити» — нелогічно, неможливість відкрити двері є прямим наслідком втрати ключів.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1625,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct: 'so' shows the direct consequence — lost the keys, so could not open the door.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1628,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie: 'so' pokazuje bezpośredni skutek — zgubił klucze, więc nie mógł otworzyć drzwi.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1631,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "Правильно: «so» показує прямий наслідок — загубив ключі, тому не міг відчинити двері.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1632,
-            "question": "I lost my keys, {a29} I could not open the door.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "Правильно: «so» показує прямий наслідок — загубив ключі, тому не міг відчинити двері.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

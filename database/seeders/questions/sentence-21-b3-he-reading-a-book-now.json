@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 129,
+        "id": 327,
         "uuid": "sentence-21-b3-he-reading-a-book-now",
         "question": "{b3} he reading a book now?",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:05.000000Z",
-        "updated_at": "2026-05-18T13:17:10.000000Z"
+        "created_at": "2026-05-26T14:31:22.000000Z",
+        "updated_at": "2026-05-26T14:31:22.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 129,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 60,
-                "name": "Yes/No question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 129,
-                "tag_id": 60,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 65,
-                "name": "Subject-auxiliary inversion",
-                "category": "mechanism",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 129,
-                "tag_id": 65,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 7,
-                "option": "Do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 129,
-                "option_id": 7,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 8,
-                "option": "Does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 129,
-                "option_id": 8,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 129,
-                "option_id": 21,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 129,
-                "question_id": 129,
-                "marker": "b3",
-                "option_id": 21,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 21,
-                "question_id": 129,
-                "marker": "b3",
-                "option_id": 147,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 147,
-                "option": "question auxiliary",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 129,
-            "question_id": 129,
-            "text": "{b3} he reading a book now?",
-            "created_at": "2026-05-18T13:17:05.000000Z",
-            "updated_at": "2026-05-18T13:17:05.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 385,
-            "question_id": 129,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This is a yes/no question — it requires an auxiliary verb before the subject.\nSubject-auxiliary inversion is required in this structure.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 386,
-            "question_id": 129,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To jest pytanie ogólne (tak/nie) — wymaga czasownika posiłkowego przed podmiotem.\nW tej strukturze wymagana jest inwersja podmiot-czasownik posiłkowy.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 387,
-            "question_id": 129,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Загальне питання у Present Continuous: `to be` виноситься перед підметом.\nПідмет `he` — третя особа однини, тому питання починається з `Is`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1539,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Incorrect: 'Do' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1542,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Do' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1547,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "Неправильно: `Do` — допоміжне Present Simple для множини/I/you, не підходить для Continuous.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1548,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Do",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "Неправильно: `Do` — допоміжне Present Simple для множини/I/you, не підходить для Continuous.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1538,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Incorrect: 'Does' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1541,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Does' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1545,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "Неправильно: `Does` вживається у питаннях Present Simple, а тут Present Continuous (reading).",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1546,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "Неправильно: `Does` вживається у питаннях Present Simple, а тут Present Continuous (reading).",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1537,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Correct: 'Is' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1540,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Poprawnie: 'Is' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1543,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "Правильно: `Is he reading…?` — інверсія `to be` у Present Continuous для формування питання.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1544,
-            "question": "{b3} he reading a book now?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "Правильно: `Is he reading…?` — інверсія `to be` у Present Continuous для формування питання.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

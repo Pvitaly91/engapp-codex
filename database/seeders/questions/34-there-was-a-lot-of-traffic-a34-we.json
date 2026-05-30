@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 142,
+        "id": 916,
         "uuid": "34-there-was-a-lot-of-traffic-a34-we",
         "question": "There was a lot of traffic, {a34} we arrived late.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Conjunction 'so' — result",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Cause-result conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "option_id": 3,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 142,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 142,
-                "question_id": 142,
-                "marker": "a34",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 34,
-                "question_id": 142,
-                "marker": "a34",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 142,
-            "question_id": 142,
-            "text": "There was a lot of traffic, {a34} we arrived late.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 424,
-            "question_id": 142,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'So' introduces the consequence of a traffic or travel situation.\nA comma after `a lot of traffic` and the logic: heavy traffic → late arrival. Which conjunction introduces this logical consequence?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 425,
-            "question_id": 142,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'So' wprowadza skutek sytuacji komunikacyjnej lub podróżnej.\nPrzecinek po `a lot of traffic` i logika: korki → spóźnienie. Który spójnik wprowadza ten logiczny skutek?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 426,
-            "question_id": 142,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник so вводить наслідок дорожньої ситуації або будь-якої обставини з першої частини.\nКома після `a lot of traffic` та логіка: затори → запізнення. Яке слово вводить логічний наслідок заторів?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1686,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'And' would list two facts: 'a lot of traffic AND arrived late' — possible, but 'so' is more precise about the causal link.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1689,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'And' wymieniałoby dwa fakty: 'dużo korków I przyjechali późno' — możliwe, ale 'so' precyzyjniej oddaje związek przyczynowy.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1693,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«and» перелічував би два факти: «багато заторів І приїхали пізно» — можливо, але «so» точніше передає причинно-наслідковий звʼязок.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1694,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«and» перелічував би два факти: «багато заторів І приїхали пізно» — можливо, але «so» точніше передає причинно-наслідковий звʼязок.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1687,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Or' introduces a choice, but here there is a direct consequence of the road situation — no alternative.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1690,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Or' wprowadza wybór, ale tu jest bezpośredni skutek sytuacji drogowej — bez alternatywy.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1695,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок дорожньої ситуації, а не вибір між двома варіантами.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1696,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок дорожньої ситуації, а не вибір між двома варіантами.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1685,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct: 'so' shows the consequence of traffic — they arrived late because of it.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1688,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie: 'so' pokazuje skutek korków — przyjechali późno przez nie.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1691,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "Правильно: «so» показує наслідок заторів — приїхали із запізненням.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1692,
-            "question": "There was a lot of traffic, {a34} we arrived late.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "Правильно: «so» показує наслідок заторів — приїхали із запізненням.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

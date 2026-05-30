@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 345,
+        "uuid": "indefini-17-would-you-like-a1-to-eat",
+        "question": "Would you like {a1} to eat?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 3,
+        "source_id": 7,
+        "flag": 2,
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:23.000000Z"
+    },
+    "category": {
+        "id": 3,
+        "name": "Pronouns",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "source": {
+        "id": 7,
+        "name": "Custom: Indefinite Pronouns Practice V2 (Page 2)",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Indefinite Pronoun Compounds",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 345,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 4,
+                "name": "Indefinite Pronouns Practice",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 345,
+                "tag_id": 4,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 5,
+                "name": "Something / Anything / Nothing Exercises",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 345,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 119,
+                "option": "anything",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 345,
+                "option_id": 119,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 120,
+                "option": "something",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 345,
+                "option_id": 120,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 121,
+                "option": "nothing",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 345,
+                "option_id": 121,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 348,
+                "question_id": 345,
+                "marker": "a1",
+                "option_id": 120,
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "option": {
+                "id": 120,
+                "option": "something",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 345,
+            "question_id": 345,
+            "text": "Would you like {a1} to eat?",
+            "created_at": "2026-05-26T11:13:04.000000Z",
+            "updated_at": "2026-05-26T11:13:04.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 50,
+            "question_id": 345,
+            "provider": "chatgpt",
+            "locale": "en",
+            "hint": "In polite offers Would you like…? we use **something**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 51,
+            "question_id": 345,
+            "provider": "chatgpt",
+            "locale": "pl",
+            "hint": "W uprzejmych propozycjach Would you like…? używamy **czegoś**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 49,
+            "question_id": 345,
+            "provider": "chatgpt",
+            "locale": "uk",
+            "hint": "У ввічливих пропозиціях Would you like…? вживаємо **something**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 224,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "anything",
+            "correct_answer": "something",
+            "language": "en",
+            "explanation": "❌ *Anything* makes the offer too indifferent.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 227,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "anything",
+            "correct_answer": "something",
+            "language": "pl",
+            "explanation": "❌ *Cokolwiek* czyni propozycję zbyt obojętną.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 219,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "anything",
+            "correct_answer": "something",
+            "language": "ua",
+            "explanation": "❌ *Anything* робить пропозицію занадто байдужою.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 220,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "anything",
+            "correct_answer": "something",
+            "language": "uk",
+            "explanation": "❌ *Anything* робить пропозицію занадто байдужою.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 225,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "nothing",
+            "correct_answer": "something",
+            "language": "en",
+            "explanation": "❌ *Nothing* negates the offer.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 228,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "nothing",
+            "correct_answer": "something",
+            "language": "pl",
+            "explanation": "❌ *Nic* zaprzecza propozycji.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 221,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "nothing",
+            "correct_answer": "something",
+            "language": "ua",
+            "explanation": "❌ *Nothing* заперечує пропозицію.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 222,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "nothing",
+            "correct_answer": "something",
+            "language": "uk",
+            "explanation": "❌ *Nothing* заперечує пропозицію.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 223,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "something",
+            "correct_answer": "something",
+            "language": "en",
+            "explanation": "✅ **Something** sounds warm in the offer.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 226,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "something",
+            "correct_answer": "something",
+            "language": "pl",
+            "explanation": "✅ **Coś** brzmi ciepło w propozycji.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 217,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "something",
+            "correct_answer": "something",
+            "language": "ua",
+            "explanation": "✅ **Something** звучить тепло в пропозиції.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 218,
+            "question": "Would you like {a1} to eat?",
+            "wrong_answer": "something",
+            "correct_answer": "something",
+            "language": "uk",
+            "explanation": "✅ **Something** звучить тепло в пропозиції.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ]
+}

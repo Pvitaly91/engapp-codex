@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 70,
+        "id": 268,
         "uuid": "st-cp-sn-b2-q16",
         "question": "I'm not sure whether {a1} true.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 53,
-                "name": "Word order in indirect questions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "tag_id": 53,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 74,
-                "option": "is it",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "option_id": 74,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 103,
-                "option": "it is",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "option_id": 103,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 104,
-                "option": "that is",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 70,
-                "option_id": 104,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 70,
-                "question_id": 70,
-                "marker": "a1",
-                "option_id": 103,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 103,
-                "option": "it is",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 70,
-            "question_id": 70,
-            "text": "I'm not sure whether {a1} true.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 209,
-            "question_id": 70,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Indirect (embedded) questions use **statement word order** (subject + verb), not question inversion.\nAfter **tell me / know / wonder / ask**, the clause uses normal sentence order: **subject + verb**, not inverted question order.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 210,
-            "question_id": 70,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "W pytaniach pośrednich po słowie pytającym obowiązuje szyk twierdzący: **podmiot + orzeczenie** (bez inwersji).\nPo **tell me / know / wonder / ask** szyk jest twierdzący: **podmiot + orzeczenie**, bez inwersji.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 208,
-            "question_id": 70,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«Whether» вводить непряме питання; після нього порядок слів — стверджувальний: підмет + дієслово.\n«It is true» — стверджувальний порядок; «is it» — порядок прямого питання, тут неприпустимий.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 836,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "is it",
-            "correct_answer": "it is",
-            "language": "en",
-            "explanation": "Incorrect. «is it» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 839,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "is it",
-            "correct_answer": "it is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «is it» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 831,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "is it",
-            "correct_answer": "it is",
-            "language": "ua",
-            "explanation": "«Is it» — порядок прямого питання; у непрямому питанні після «whether» інверсія не вживається.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 832,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "is it",
-            "correct_answer": "it is",
-            "language": "uk",
-            "explanation": "«Is it» — порядок прямого питання; у непрямому питанні після «whether» інверсія не вживається.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 835,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "it is",
-            "correct_answer": "it is",
-            "language": "en",
-            "explanation": "Correct. «it is» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 838,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "it is",
-            "correct_answer": "it is",
-            "language": "pl",
-            "explanation": "Poprawnie. «it is» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 829,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "it is",
-            "correct_answer": "it is",
-            "language": "ua",
-            "explanation": "«It is» — правильно: непряме питання після «whether» зберігає стверджувальний порядок.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 830,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "it is",
-            "correct_answer": "it is",
-            "language": "uk",
-            "explanation": "«It is» — правильно: непряме питання після «whether» зберігає стверджувальний порядок.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 837,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "that is",
-            "correct_answer": "it is",
-            "language": "en",
-            "explanation": "Incorrect. «that is» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 840,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "that is",
-            "correct_answer": "it is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «that is» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 833,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "that is",
-            "correct_answer": "it is",
-            "language": "ua",
-            "explanation": "«That is» може вживатись у деяких контекстах, але «it is» є стандартним для «whether it is true».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 834,
-            "question": "I'm not sure whether {a1} true.",
-            "wrong_answer": "that is",
-            "correct_answer": "it is",
-            "language": "uk",
-            "explanation": "«That is» може вживатись у деяких контекстах, але «it is» є стандартним для «whether it is true».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

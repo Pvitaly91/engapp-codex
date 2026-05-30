@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 23,
+        "id": 221,
         "uuid": "st-cp-sn-a2-q05",
         "question": "{a1} she at the party last night?",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 39,
-                "name": "Yes/No question with was/were",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "tag_id": 39,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 36,
-                "option": "Did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "option_id": 36,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 37,
-                "option": "Were",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "option_id": 37,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 41,
-                "option": "Was",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "option_id": 41,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 23,
-                "question_id": 23,
-                "marker": "a1",
-                "option_id": 41,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 41,
-                "option": "Was",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 23,
-            "question_id": 23,
-            "text": "{a1} she at the party last night?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 68,
-            "question_id": 23,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Past Simple yes/no questions with **to be**: **Was/Were + subject**.\nChoose **Was** for singular subjects (he/she/it) or **Were** for plural/you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 69,
-            "question_id": 23,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania tak/nie z **to be** w Past: **Was/Were + podmiot**.\nWybierz **Was** dla l. poj. (he/she/it) lub **Were** dla l. mn./you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 67,
-            "question_id": 23,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Загальне питання з «to be» у Past Simple: Was/Were + підмет.\nПідмет «she» — 3-тя особа однини; Past Simple форма «to be» для неї — «was».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 273,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Did",
-            "correct_answer": "Was",
-            "language": "en",
-            "explanation": "Incorrect. «Did» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 276,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Did",
-            "correct_answer": "Was",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Did» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 269,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Did",
-            "correct_answer": "Was",
-            "language": "ua",
-            "explanation": "«Did» — допоміжне для смислових дієслів; тут присудок — «to be» (at the party).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 270,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Did",
-            "correct_answer": "Was",
-            "language": "uk",
-            "explanation": "«Did» — допоміжне для смислових дієслів; тут присудок — «to be» (at the party).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 271,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Was",
-            "correct_answer": "Was",
-            "language": "en",
-            "explanation": "Correct. «Was» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 274,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Was",
-            "correct_answer": "Was",
-            "language": "pl",
-            "explanation": "Poprawnie. «Was» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 265,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Was",
-            "correct_answer": "Was",
-            "language": "ua",
-            "explanation": "«Was» — правильна форма «to be» у Past Simple для «she» (3-тя особа однини).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 266,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Was",
-            "correct_answer": "Was",
-            "language": "uk",
-            "explanation": "«Was» — правильна форма «to be» у Past Simple для «she» (3-тя особа однини).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 272,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Were",
-            "correct_answer": "Was",
-            "language": "en",
-            "explanation": "Incorrect. «Were» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 275,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Were",
-            "correct_answer": "Was",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Were» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 267,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Were",
-            "correct_answer": "Was",
-            "language": "ua",
-            "explanation": "«Were» використовується для you/we/they або множини; «she» вимагає «was».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 268,
-            "question": "{a1} she at the party last night?",
-            "wrong_answer": "Were",
-            "correct_answer": "Was",
-            "language": "uk",
-            "explanation": "«Were» використовується для you/we/they або множини; «she» вимагає «was».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

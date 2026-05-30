@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 104,
+        "id": 302,
         "uuid": "st-cp-sn-c2-q14",
         "question": "What remained unclear was whether {a1} intentional.",
         "difficulty": 5,
         "level": "C2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:03.000000Z",
-        "updated_at": "2026-05-18T13:17:10.000000Z"
+        "created_at": "2026-05-26T14:31:20.000000Z",
+        "updated_at": "2026-05-26T14:31:20.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 104,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 53,
-                "name": "Word order in indirect questions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 104,
-                "tag_id": 53,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 137,
-                "option": "it had been",
-                "created_at": "2026-05-18T13:17:03.000000Z",
-                "updated_at": "2026-05-18T13:17:03.000000Z"
-            },
-            "pivot": {
-                "question_id": 104,
-                "option_id": 137,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 138,
-                "option": "had it been",
-                "created_at": "2026-05-18T13:17:03.000000Z",
-                "updated_at": "2026-05-18T13:17:03.000000Z"
-            },
-            "pivot": {
-                "question_id": 104,
-                "option_id": 138,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 139,
-                "option": "it was",
-                "created_at": "2026-05-18T13:17:03.000000Z",
-                "updated_at": "2026-05-18T13:17:03.000000Z"
-            },
-            "pivot": {
-                "question_id": 104,
-                "option_id": 139,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 104,
-                "question_id": 104,
-                "marker": "a1",
-                "option_id": 137,
-                "created_at": "2026-05-18T13:17:03.000000Z",
-                "updated_at": "2026-05-18T13:17:03.000000Z"
-            },
-            "option": {
-                "id": 137,
-                "option": "it had been",
-                "created_at": "2026-05-18T13:17:03.000000Z",
-                "updated_at": "2026-05-18T13:17:03.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 104,
-            "question_id": 104,
-            "text": "What remained unclear was whether {a1} intentional.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 311,
-            "question_id": 104,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Indirect (embedded) questions use **statement word order** (subject + verb), not question inversion.\nAfter **tell me / know / wonder / ask**, the clause uses normal sentence order: **subject + verb**, not inverted question order.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 312,
-            "question_id": 104,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "W pytaniach pośrednich po słowie pytającym obowiązuje szyk twierdzący: **podmiot + orzeczenie** (bez inwersji).\nPo **tell me / know / wonder / ask** szyk jest twierdzący: **podmiot + orzeczenie**, bez inwersji.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 310,
-            "question_id": 104,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Непряме питання після «whether» зберігає стверджувальний порядок; backshift у Past Perfect для дії, що передувала основній.\n«Remained» — Past Simple; «whether it had been» — Past Perfect для більш ранньої дії.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1244,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "had it been",
-            "correct_answer": "it had been",
-            "language": "en",
-            "explanation": "Incorrect. «had it been» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1247,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "had it been",
-            "correct_answer": "it had been",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «had it been» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1239,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "had it been",
-            "correct_answer": "it had been",
-            "language": "ua",
-            "explanation": "«Had it been» — порядок прямого питання або умовна конструкція; у непрямому після «whether» інверсія неприпустима.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1240,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "had it been",
-            "correct_answer": "it had been",
-            "language": "uk",
-            "explanation": "«Had it been» — порядок прямого питання або умовна конструкція; у непрямому після «whether» інверсія неприпустима.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1243,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it had been",
-            "correct_answer": "it had been",
-            "language": "en",
-            "explanation": "Correct. «it had been» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1246,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it had been",
-            "correct_answer": "it had been",
-            "language": "pl",
-            "explanation": "Poprawnie. «it had been» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1237,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it had been",
-            "correct_answer": "it had been",
-            "language": "ua",
-            "explanation": "«It had been» — правильно: стверджувальний порядок + Past Perfect (backshift після «remained»).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1238,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it had been",
-            "correct_answer": "it had been",
-            "language": "uk",
-            "explanation": "«It had been» — правильно: стверджувальний порядок + Past Perfect (backshift після «remained»).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1245,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it was",
-            "correct_answer": "it had been",
-            "language": "en",
-            "explanation": "Incorrect. «it was» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1248,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it was",
-            "correct_answer": "it had been",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «it was» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1241,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it was",
-            "correct_answer": "it had been",
-            "language": "ua",
-            "explanation": "«It was» — Past Simple без додаткового backshift; «it had been» точніше передає попередність дії.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 1242,
-            "question": "What remained unclear was whether {a1} intentional.",
-            "wrong_answer": "it was",
-            "correct_answer": "it had been",
-            "language": "uk",
-            "explanation": "«It was» — Past Simple без додаткового backshift; «it had been» точніше передає попередність дії.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

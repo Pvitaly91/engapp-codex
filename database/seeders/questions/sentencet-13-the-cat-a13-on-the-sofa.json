@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 121,
+        "id": 319,
         "uuid": "sentencet-13-the-cat-a13-on-the-sofa",
         "question": "The cat {a13} on the sofa.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:04.000000Z",
-        "updated_at": "2026-05-18T13:17:10.000000Z"
+        "created_at": "2026-05-26T14:31:22.000000Z",
+        "updated_at": "2026-05-26T14:31:22.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 121,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 30,
-                "name": "Affirmative sentence structure",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 121,
-                "tag_id": 30,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 158,
-                "option": "sits",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 121,
-                "option_id": 158,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 159,
-                "option": "don't sit",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 121,
-                "option_id": 159,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 160,
-                "option": "sit does",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 121,
-                "option_id": 160,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 121,
-                "question_id": 121,
-                "marker": "a13",
-                "option_id": 158,
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "option": {
-                "id": 158,
-                "option": "sits",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 13,
-                "question_id": 121,
-                "marker": "a13",
-                "option_id": 143,
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "option": {
-                "id": 143,
-                "option": "affirmative form",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 121,
-            "question_id": 121,
-            "text": "The cat {a13} on the sofa.",
-            "created_at": "2026-05-18T13:17:04.000000Z",
-            "updated_at": "2026-05-18T13:17:04.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 361,
-            "question_id": 121,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This is an affirmative sentence — it states a positive fact or assertion.\nLook at the sentence context and the verb hint 'affirmative form' to choose the correct form.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 362,
-            "question_id": 121,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To jest zdanie twierdzące — stwierdza pozytywny fakt.\nPrzeanalizuj kontekst zdania i wskazówkę 'affirmative form', aby wybrać właściwą formę.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 363,
-            "question_id": 121,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Стверджувальне речення у Present Simple для третьої особи однини: дієслово отримує закінчення `-s`.\nПідмет `The cat` — третя особа однини, тому `sit` перетворюється на `sits`.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1442,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "don't sit",
-            "correct_answer": "sits",
-            "language": "en",
-            "explanation": "Incorrect: 'don't sit' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1445,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "don't sit",
-            "correct_answer": "sits",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'don't sit' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1449,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "don't sit",
-            "correct_answer": "sits",
-            "language": "ua",
-            "explanation": "Неправильно: `don't sit` — заперечна форма, що суперечить стверджувальному контексту речення.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1450,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "don't sit",
-            "correct_answer": "sits",
-            "language": "uk",
-            "explanation": "Неправильно: `don't sit` — заперечна форма, що суперечить стверджувальному контексту речення.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1443,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sit does",
-            "correct_answer": "sits",
-            "language": "en",
-            "explanation": "Incorrect: 'sit does' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1446,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sit does",
-            "correct_answer": "sits",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'sit does' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1451,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sit does",
-            "correct_answer": "sits",
-            "language": "ua",
-            "explanation": "Неправильно: `sit does` — порушений порядок слів; у стверджувальному реченні допоміжне `does` не потрібне.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1452,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sit does",
-            "correct_answer": "sits",
-            "language": "uk",
-            "explanation": "Неправильно: `sit does` — порушений порядок слів; у стверджувальному реченні допоміжне `does` не потрібне.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1441,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sits",
-            "correct_answer": "sits",
-            "language": "en",
-            "explanation": "Correct: 'sits' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1444,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sits",
-            "correct_answer": "sits",
-            "language": "pl",
-            "explanation": "Poprawnie: 'sits' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1447,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sits",
-            "correct_answer": "sits",
-            "language": "ua",
-            "explanation": "Правильно: `The cat sits on the sofa` — стверджувальне речення Present Simple, де `sits` відповідає підмету однини.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1448,
-            "question": "The cat {a13} on the sofa.",
-            "wrong_answer": "sits",
-            "correct_answer": "sits",
-            "language": "uk",
-            "explanation": "Правильно: `The cat sits on the sofa` — стверджувальне речення Present Simple, де `sits` відповідає підмету однини.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

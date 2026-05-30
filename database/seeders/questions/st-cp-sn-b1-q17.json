@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 53,
+        "id": 251,
         "uuid": "st-cp-sn-b1-q17",
         "question": "They {a1} decided where to go yet.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 53,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 36,
-                "name": "Negation in Present Perfect",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 53,
-                "tag_id": 36,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 53,
-                "option_id": 34,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 45,
-                "option": "haven't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 53,
-                "option_id": 45,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 46,
-                "option": "hasn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 53,
-                "option_id": 46,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 53,
-                "question_id": 53,
-                "marker": "a1",
-                "option_id": 45,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 45,
-                "option": "haven't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 53,
-            "question_id": 53,
-            "text": "They {a1} decided where to go yet.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 158,
-            "question_id": 53,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Present Perfect negatives: **haven't/hasn't + past participle**.\nCheck the subject: **I/you/we/they** → **haven't**; **he/she/it** → **hasn't**. After the auxiliary comes the past participle.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 159,
-            "question_id": 53,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Przeczenia w Present Perfect: **haven't/hasn't + imiesłów bierny**.\nPodmiot **I/you/we/they** → **haven't**; **he/she/it** → **hasn't**. Po operatorze — imiesłów bierny.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 157,
-            "question_id": 53,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Заперечення Present Perfect для they/we/you/I будується через «haven't» + Past Participle.\n«Yet» — маркер Present Perfect заперечення; підмет «They» вимагає «haven't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 633,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "didn't",
-            "correct_answer": "haven't",
-            "language": "en",
-            "explanation": "Incorrect. «didn't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 636,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "didn't",
-            "correct_answer": "haven't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «didn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 629,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "didn't",
-            "correct_answer": "haven't",
-            "language": "ua",
-            "explanation": "«Didn't» — заперечення Past Simple; «yet» вказує на Present Perfect.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 630,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "didn't",
-            "correct_answer": "haven't",
-            "language": "uk",
-            "explanation": "«Didn't» — заперечення Past Simple; «yet» вказує на Present Perfect.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 632,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "hasn't",
-            "correct_answer": "haven't",
-            "language": "en",
-            "explanation": "Incorrect. «hasn't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 635,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "hasn't",
-            "correct_answer": "haven't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «hasn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 627,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "hasn't",
-            "correct_answer": "haven't",
-            "language": "ua",
-            "explanation": "«Hasn't» вживається для he/she/it; «they» вимагає «haven't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 628,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "hasn't",
-            "correct_answer": "haven't",
-            "language": "uk",
-            "explanation": "«Hasn't» вживається для he/she/it; «they» вимагає «haven't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 631,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "haven't",
-            "correct_answer": "haven't",
-            "language": "en",
-            "explanation": "Correct. «haven't» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 634,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "haven't",
-            "correct_answer": "haven't",
-            "language": "pl",
-            "explanation": "Poprawnie. «haven't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 625,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "haven't",
-            "correct_answer": "haven't",
-            "language": "ua",
-            "explanation": "«Haven't» — правильна форма заперечення Present Perfect для «they»; «decided» — Past Participle.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 626,
-            "question": "They {a1} decided where to go yet.",
-            "wrong_answer": "haven't",
-            "correct_answer": "haven't",
-            "language": "uk",
-            "explanation": "«Haven't» — правильна форма заперечення Present Perfect для «they»; «decided» — Past Participle.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

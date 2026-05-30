@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 40,
+        "id": 238,
         "uuid": "st-cp-sn-b1-q04",
         "question": "You {a1} drink so much coffee before bed.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 40,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 35,
-                "name": "Negation with modal verbs",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 40,
-                "tag_id": 35,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 4,
-                "option": "don't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 40,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 42,
-                "option": "can't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 40,
-                "option_id": 42,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 51,
-                "option": "shouldn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 40,
-                "option_id": 51,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 40,
-                "question_id": 40,
-                "marker": "a1",
-                "option_id": 51,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 51,
-                "option": "shouldn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 40,
-            "question_id": 40,
-            "text": "You {a1} drink so much coffee before bed.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 119,
-            "question_id": 40,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Modal verbs form negatives by adding **not** after the modal: can't, couldn't, shouldn't, mustn't.\nThe modal verb expresses ability, permission, or obligation — choose the correct negative form.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 120,
-            "question_id": 40,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Czasowniki modalne tworzą przeczenia przez dodanie **not**: can't, couldn't, shouldn't, mustn't.\nCzasownik modalny wyraża zdolność, pozwolenie lub obowiązek — wybierz odpowiednią formę przeczącą.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 118,
-            "question_id": 40,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«Shouldn't» (should not) виражає заперечну пораду або рекомендацію.\nКонтекст «before bed» підкреслює шкідливу звичку — саме значення «shouldn't» (не варто).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 476,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "can't",
-            "correct_answer": "shouldn't",
-            "language": "en",
-            "explanation": "Incorrect. «can't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 479,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "can't",
-            "correct_answer": "shouldn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «can't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 471,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "can't",
-            "correct_answer": "shouldn't",
-            "language": "ua",
-            "explanation": "«Can't» виражає неможливість/заборону, а не пораду; тут мова йде про рекомендацію.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 472,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "can't",
-            "correct_answer": "shouldn't",
-            "language": "uk",
-            "explanation": "«Can't» виражає неможливість/заборону, а не пораду; тут мова йде про рекомендацію.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 477,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "don't",
-            "correct_answer": "shouldn't",
-            "language": "en",
-            "explanation": "Incorrect. «don't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 480,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "don't",
-            "correct_answer": "shouldn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «don't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 473,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "don't",
-            "correct_answer": "shouldn't",
-            "language": "ua",
-            "explanation": "«Don't drink» — наказовий спосіб або Present Simple заперечення; тут потрібна модальна порада «shouldn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 474,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "don't",
-            "correct_answer": "shouldn't",
-            "language": "uk",
-            "explanation": "«Don't drink» — наказовий спосіб або Present Simple заперечення; тут потрібна модальна порада «shouldn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 475,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "shouldn't",
-            "correct_answer": "shouldn't",
-            "language": "en",
-            "explanation": "Correct. «shouldn't» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 478,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "shouldn't",
-            "correct_answer": "shouldn't",
-            "language": "pl",
-            "explanation": "Poprawnie. «shouldn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 469,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "shouldn't",
-            "correct_answer": "shouldn't",
-            "language": "ua",
-            "explanation": "«Shouldn't» — правильна форма для вираження поради не робити чогось; «you shouldn't drink» = тобі не слід пити.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 470,
-            "question": "You {a1} drink so much coffee before bed.",
-            "wrong_answer": "shouldn't",
-            "correct_answer": "shouldn't",
-            "language": "uk",
-            "explanation": "«Shouldn't» — правильна форма для вираження поради не робити чогось; «you shouldn't drink» = тобі не слід пити.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

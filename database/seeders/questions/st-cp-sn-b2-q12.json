@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 66,
+        "id": 264,
         "uuid": "st-cp-sn-b2-q12",
         "question": "Nobody called while I was out, {a1}?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 66,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 50,
-                "name": "Tag question with nobody/nothing",
-                "category": "usage",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 66,
-                "tag_id": 50,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 79,
-                "option": "didn't they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 66,
-                "option_id": 79,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 80,
-                "option": "did they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 66,
-                "option_id": 80,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 94,
-                "option": "had they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 66,
-                "option_id": 94,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 66,
-                "question_id": 66,
-                "marker": "a1",
-                "option_id": 80,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 80,
-                "option": "did they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 66,
-            "question_id": 66,
-            "text": "Nobody called while I was out, {a1}?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 197,
-            "question_id": 66,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "With **nobody/nothing/no one**, the sentence is semantically negative; use an affirmative tag with **they/it**.\n**Nobody** makes the clause semantically negative, so the tag must be **affirmative** and use **they** as the pronoun.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 198,
-            "question_id": 66,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Po **nobody/nothing** zdanie jest semantycznie przeczące — ogonek jest twierdzący i używa **they/it**.\n**Nobody** sprawia, że zdanie jest semantycznie przeczące, więc ogon musi być **twierdzący** z zaimkiem **they**.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 196,
-            "question_id": 66,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Займенник «Nobody» є заперечним; хвіст до нього — стверджувальний, а займенник замінюється на «they».\n«Nobody called» — Past Simple з «nobody»; стверджувальний хвіст із заміненим займенником: «did they».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 787,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "did they",
-            "language": "en",
-            "explanation": "Correct. «did they» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 790,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "did they",
-            "language": "pl",
-            "explanation": "Poprawnie. «did they» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 781,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "did they",
-            "language": "ua",
-            "explanation": "«Did they» — правильно: «nobody» = заперечний підмет → стверджувальний хвіст «did they».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 782,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "did they",
-            "language": "uk",
-            "explanation": "«Did they» — правильно: «nobody» = заперечний підмет → стверджувальний хвіст «did they».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 788,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "did they",
-            "language": "en",
-            "explanation": "Incorrect. «didn't they» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 791,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "did they",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «didn't they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 783,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "did they",
-            "language": "ua",
-            "explanation": "«Didn't they» — заперечний хвіст; але «nobody» вже надає реченню заперечного сенсу, тому хвіст — стверджувальний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 784,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "did they",
-            "language": "uk",
-            "explanation": "«Didn't they» — заперечний хвіст; але «nobody» вже надає реченню заперечного сенсу, тому хвіст — стверджувальний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 789,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "had they",
-            "correct_answer": "did they",
-            "language": "en",
-            "explanation": "Incorrect. «had they» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 792,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "had they",
-            "correct_answer": "did they",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «had they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 785,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "had they",
-            "correct_answer": "did they",
-            "language": "ua",
-            "explanation": "«Had they» вживалося б для Past Perfect; «called» — Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 786,
-            "question": "Nobody called while I was out, {a1}?",
-            "wrong_answer": "had they",
-            "correct_answer": "did they",
-            "language": "uk",
-            "explanation": "«Had they» вживалося б для Past Perfect; «called» — Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

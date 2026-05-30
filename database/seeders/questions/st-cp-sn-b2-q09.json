@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 63,
+        "id": 261,
         "uuid": "st-cp-sn-b2-q09",
         "question": "You can speak German, {a1}?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 63,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Tag question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 63,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 85,
-                "option": "can't you",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 63,
-                "option_id": 85,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 86,
-                "option": "can you",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 63,
-                "option_id": 86,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 87,
-                "option": "don't you",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 63,
-                "option_id": 87,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 63,
-                "question_id": 63,
-                "marker": "a1",
-                "option_id": 85,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 85,
-                "option": "can't you",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 63,
-            "question_id": 63,
-            "text": "You can speak German, {a1}?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 188,
-            "question_id": 63,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 189,
-            "question_id": 63,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 187,
-            "question_id": 63,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Стверджувальне речення з модальним «can» → заперечний хвіст «can't you».\nДопоміжне «can» стає «can't» у хвості; підмет «you».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 752,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can you",
-            "correct_answer": "can't you",
-            "language": "en",
-            "explanation": "Incorrect. «can you» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 755,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can you",
-            "correct_answer": "can't you",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «can you» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 747,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can you",
-            "correct_answer": "can't you",
-            "language": "ua",
-            "explanation": "«Can you» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 748,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can you",
-            "correct_answer": "can't you",
-            "language": "uk",
-            "explanation": "«Can you» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 751,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can't you",
-            "correct_answer": "can't you",
-            "language": "en",
-            "explanation": "Correct. «can't you» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 754,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can't you",
-            "correct_answer": "can't you",
-            "language": "pl",
-            "explanation": "Poprawnie. «can't you» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 745,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can't you",
-            "correct_answer": "can't you",
-            "language": "ua",
-            "explanation": "«Can't you» — правильний хвіст: «can» (стверджув.) → «can't you» (заперечний).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 746,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "can't you",
-            "correct_answer": "can't you",
-            "language": "uk",
-            "explanation": "«Can't you» — правильний хвіст: «can» (стверджув.) → «can't you» (заперечний).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 753,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "don't you",
-            "correct_answer": "can't you",
-            "language": "en",
-            "explanation": "Incorrect. «don't you» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 756,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "don't you",
-            "correct_answer": "can't you",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «don't you» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 749,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "don't you",
-            "correct_answer": "can't you",
-            "language": "ua",
-            "explanation": "«Don't you» вживалося б для смислових дієслів Present Simple; тут «can» — модальне.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 750,
-            "question": "You can speak German, {a1}?",
-            "wrong_answer": "don't you",
-            "correct_answer": "can't you",
-            "language": "uk",
-            "explanation": "«Don't you» вживалося б для смислових дієслів Present Simple; тут «can» — модальне.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

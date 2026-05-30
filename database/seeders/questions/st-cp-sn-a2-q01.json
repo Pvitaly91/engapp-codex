@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 19,
+        "id": 217,
         "uuid": "st-cp-sn-a2-q01",
         "question": "She {a1} come to school yesterday.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 32,
-                "name": "Negation with did + not",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "tag_id": 32,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 5,
-                "option": "doesn't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "option_id": 5,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "option_id": 34,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 35,
-                "option": "wasn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 19,
-                "option_id": 35,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 19,
-                "question_id": 19,
-                "marker": "a1",
-                "option_id": 34,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 19,
-            "question_id": 19,
-            "text": "She {a1} come to school yesterday.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 56,
-            "question_id": 19,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Past Simple negatives use **didn't + base verb** for all persons.\nThe time marker signals past tense. **Didn't** is the same for all persons in Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 57,
-            "question_id": 19,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Przeczenia w Past Simple: **didn't + forma podstawowa** dla wszystkich osób.\nMarker czasu przeszłego wskazuje na Past Simple. **Didn't** jest jednakowe dla wszystkich osób.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 55,
-            "question_id": 19,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Заперечення у Past Simple з смисловими дієсловами будується через «didn't» + базова форма.\nСлово «yesterday» вказує на минулий час; підмет «She» — 3-тя особа однини, але форма «didn't» однакова для всіх осіб.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 223,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Correct. «didn't» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 226,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Poprawnie. «didn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 217,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "«Didn't» — правильна форма заперечення Past Simple (did + not) для будь-якого підмета; після неї — базова форма «come».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 218,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "«Didn't» — правильна форма заперечення Past Simple (did + not) для будь-якого підмета; після неї — базова форма «come».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 224,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect. «doesn't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 227,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «doesn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 219,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "«Doesn't» — заперечення Present Simple; слово «yesterday» вказує на минулий час.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 220,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "doesn't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "«Doesn't» — заперечення Present Simple; слово «yesterday» вказує на минулий час.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 225,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect. «wasn't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 228,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «wasn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 221,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "«Wasn't» — заперечення «to be» у Past Simple; «come» — смислове дієслово, тому потрібне «didn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 222,
-            "question": "She {a1} come to school yesterday.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "«Wasn't» — заперечення «to be» у Past Simple; «come» — смислове дієслово, тому потрібне «didn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

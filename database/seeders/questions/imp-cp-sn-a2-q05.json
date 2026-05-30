@@ -1,293 +1,33 @@
 {
     "question": {
-        "id": 23,
+        "id": 509,
         "uuid": "imp-cp-sn-a2-q05",
         "question": "Don't {a1} me while I'm speaking.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 4,
+        "source_id": 5,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:45.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 4,
         "name": "Дієслова та дієслівні форми",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 5,
         "name": "Imperatives — Наказовий спосіб",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 17,
-                "name": "Imperatives",
-                "category": null,
-                "created_at": "2026-05-18T13:17:36.000000Z",
-                "updated_at": "2026-05-18T13:17:36.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "tag_id": 17,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 28,
-                "name": "Affirmative imperatives",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "tag_id": 28,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 29,
-                "name": "Negative imperatives",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 65,
-                "option": "interrupt",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "option_id": 65,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 66,
-                "option": "interrupts",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "option_id": 66,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 67,
-                "option": "interrupting",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 23,
-                "option_id": 67,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 23,
-                "question_id": 23,
-                "marker": "a1",
-                "option_id": 65,
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "option": {
-                "id": 65,
-                "option": "interrupt",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 23,
-            "question_id": 23,
-            "text": "Don't {a1} me while I'm speaking.",
-            "created_at": "2026-05-18T13:17:38.000000Z",
-            "updated_at": "2026-05-18T13:17:38.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 68,
-            "question_id": 23,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "The structure 'Don't + base verb' forms a negative command; the verb after 'Don't' never changes its form.\n'Don't' before the gap is a negative command marker; the longer verb 'interrupt' must be in its base form.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 69,
-            "question_id": 23,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Struktura «Don't + podstawowa forma czasownika» tworzy rozkaz przeczący; czasownik po «Don't» nigdy nie zmienia swojej formy.\n«Don't» przed luką to marker rozkazu przeczącego; dłuższy czasownik «interrupt» musi być w formie podstawowej.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 67,
-            "question_id": 23,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Конструкція «Don't + базова форма дієслова» утворює заперечний наказ; дієслово після «Don't» ніколи не змінює своєї форми.\n«Don't» перед пропуском — маркер заперечного наказу; довгіше слово «interrupt» має вживатися у базовій формі.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 271,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupt",
-            "correct_answer": "interrupt",
-            "language": "en",
-            "explanation": "'Interrupt' is the base form and the correct negative imperative after 'Don't'.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 274,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupt",
-            "correct_answer": "interrupt",
-            "language": "pl",
-            "explanation": "«Interrupt» to podstawowa forma i poprawny przeczący tryb rozkazujący po «Don't».",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 265,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupt",
-            "correct_answer": "interrupt",
-            "language": "ua",
-            "explanation": "Форма «interrupt» є базовою формою дієслова і правильно вживається у заперечному наказовому способі після «Don't».",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 266,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupt",
-            "correct_answer": "interrupt",
-            "language": "uk",
-            "explanation": "Форма «interrupt» є базовою формою дієслова і правильно вживається у заперечному наказовому способі після «Don't».",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 273,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupting",
-            "correct_answer": "interrupt",
-            "language": "en",
-            "explanation": "'Interrupting' is the present participle. 'Don't interrupting' is grammatically incorrect.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 276,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupting",
-            "correct_answer": "interrupt",
-            "language": "pl",
-            "explanation": "«Interrupting» to imiesłów teraźniejszy. «Don't interrupting» jest gramatycznie niepoprawne.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 269,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupting",
-            "correct_answer": "interrupt",
-            "language": "ua",
-            "explanation": "Форма «interrupting» — дієприкметник теперішнього часу. Конструкція «Don't interrupting» граматично неправильна.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 270,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupting",
-            "correct_answer": "interrupt",
-            "language": "uk",
-            "explanation": "Форма «interrupting» — дієприкметник теперішнього часу. Конструкція «Don't interrupting» граматично неправильна.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 272,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupts",
-            "correct_answer": "interrupt",
-            "language": "en",
-            "explanation": "'Interrupts' is the third-person singular form. No -s ending is used after 'Don't' in an imperative.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 275,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupts",
-            "correct_answer": "interrupt",
-            "language": "pl",
-            "explanation": "«Interrupts» to forma trzeciej osoby liczby pojedynczej czasu teraźniejszego. Po «Don't» w trybie rozkazującym nie używa się -s.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 267,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupts",
-            "correct_answer": "interrupt",
-            "language": "ua",
-            "explanation": "Форма «interrupts» — форма третьої особи однини теперішнього часу. Після «Don't» у наказовому способі закінчення -s не вживається.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 268,
-            "question": "Don't {a1} me while I'm speaking.",
-            "wrong_answer": "interrupts",
-            "correct_answer": "interrupt",
-            "language": "uk",
-            "explanation": "Форма «interrupts» — форма третьої особи однини теперішнього часу. Після «Don't» у наказовому способі закінчення -s не вживається.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 156,
+        "id": 930,
         "uuid": "48-the-train-was-cancelled-a48-we-ha",
         "question": "The train was cancelled, {a48} we had to find another way to get there.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 156,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Conjunction 'so' — result",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 156,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Cause-result conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 156,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 156,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 156,
-                "option_id": 3,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 156,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 156,
-                "question_id": 156,
-                "marker": "a48",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 48,
-                "question_id": 156,
-                "marker": "a48",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 156,
-            "question_id": 156,
-            "text": "The train was cancelled, {a48} we had to find another way to get there.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 466,
-            "question_id": 156,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'So' introduces the logical consequence of a sudden change in travel plans.\nA comma after `The train was cancelled` and the logic: cancellation → finding another way. Which conjunction introduces this consequence?",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 467,
-            "question_id": 156,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'So' wprowadza logiczny skutek nagłej zmiany planów podróży.\nPrzecinek po `The train was cancelled` i logika: odwołanie pociągu → konieczność znalezienia innego sposobu. Który spójnik wprowadza ten skutek?",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 468,
-            "question_id": 156,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник so вводить логічний наслідок раптової зміни обставин.\nКома після `The train was cancelled` та логіка: скасування поїзда → необхідність шукати інший спосіб.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1855,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'And' would list two facts: 'train cancelled AND had to find another way' — possible, but 'so' is more precise.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1858,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'And' wymieniałoby dwa fakty: 'pociąg odwołany I musieli znaleźć inną drogę' — możliwe, ale 'so' precyzyjniej.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1863,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«and» перелічував би: «поїзд скасовано І мали знайти інший шлях» — можливо, але «so» точніше передає причинно-наслідковий звʼязок.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1864,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "and",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«and» перелічував би: «поїзд скасовано І мали знайти інший шлях» — можливо, але «so» точніше передає причинно-наслідковий звʼязок.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1854,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Or' introduces an alternative, but here there is a direct consequence of the changed circumstances — no explicit choice.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1857,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Or' wprowadza alternatywę, ale tu jest bezpośredni skutek zmiany okoliczności — bez wyraźnego wyboru.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1861,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок зміни обставин, а не вибір між двома варіантами.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1862,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок зміни обставин, а не вибір між двома варіантами.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1853,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct: 'so' shows the consequence of the cancellation — they had to find another way to get there.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1856,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie: 'so' pokazuje skutek odwołania — musieli znaleźć inny sposób dotarcia na miejsce.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1859,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "Правильно: «so» показує наслідок скасування поїзда — довелося шукати інший спосіб дістатися.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1860,
-            "question": "The train was cancelled, {a48} we had to find another way to get there.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "Правильно: «so» показує наслідок скасування поїзда — довелося шукати інший спосіб дістатися.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

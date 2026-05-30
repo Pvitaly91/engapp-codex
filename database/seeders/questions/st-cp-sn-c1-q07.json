@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 79,
+        "id": 277,
         "uuid": "st-cp-sn-c1-q07",
         "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 79,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 55,
-                "name": "Inverted conditional sentence (Should/Were/Had)",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 79,
-                "tag_id": 55,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 37,
-                "option": "Were",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 79,
-                "option_id": 37,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 109,
-                "option": "Should",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 79,
-                "option_id": 109,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 115,
-                "option": "Had",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 79,
-                "option_id": 115,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 79,
-                "question_id": 79,
-                "marker": "a1",
-                "option_id": 115,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 115,
-                "option": "Had",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 79,
-            "question_id": 79,
-            "text": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 236,
-            "question_id": 79,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Formal inverted conditionals omit **if** and place the auxiliary first: **Should/Were/Had + subject + verb**.\nThe absence of **if** and the auxiliary at the start are the key signals. Match the conditional type to the tense in the result clause.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 237,
-            "question_id": 79,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Formalne zdania warunkowe z inwersją pomijają **if** i stawiają operator na początku: **Should/Were/Had + podmiot + czasownik**.\nBrak **if** i operator na początku to główne sygnały. Dobierz typ warunkowy do czasu w zdaniu głównym.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 235,
-            "question_id": 79,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Інвертований умовний III типу: замість «If it had not been for...» → «Had it not been for...».\n«Would have been» у головному реченні — ознака умовного III типу; «Had» виноситься на початок.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 943,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Had",
-            "correct_answer": "Had",
-            "language": "en",
-            "explanation": "Correct. «Had» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 946,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Had",
-            "correct_answer": "Had",
-            "language": "pl",
-            "explanation": "Poprawnie. «Had» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 937,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Had",
-            "correct_answer": "Had",
-            "language": "ua",
-            "explanation": "«Had» — правильна інверсія умовного III типу; «Had it not been for» = «If it had not been for».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 938,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Had",
-            "correct_answer": "Had",
-            "language": "uk",
-            "explanation": "«Had» — правильна інверсія умовного III типу; «Had it not been for» = «If it had not been for».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 945,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Should",
-            "correct_answer": "Had",
-            "language": "en",
-            "explanation": "Incorrect. «Should» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 948,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Should",
-            "correct_answer": "Had",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Should» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 941,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Should",
-            "correct_answer": "Had",
-            "language": "ua",
-            "explanation": "«Should» — інверсія умовного I типу; III тип (would have been) вимагає «Had».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 942,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Should",
-            "correct_answer": "Had",
-            "language": "uk",
-            "explanation": "«Should» — інверсія умовного I типу; III тип (would have been) вимагає «Had».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 944,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Were",
-            "correct_answer": "Had",
-            "language": "en",
-            "explanation": "Incorrect. «Were» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 947,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Were",
-            "correct_answer": "Had",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Were» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 939,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Were",
-            "correct_answer": "Had",
-            "language": "ua",
-            "explanation": "«Were» — інверсія умовного II типу; «would have been» вказує на III тип з «had».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 940,
-            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
-            "wrong_answer": "Were",
-            "correct_answer": "Had",
-            "language": "uk",
-            "explanation": "«Were» — інверсія умовного II типу; «would have been» вказує на III тип з «had».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 11,
+        "id": 497,
         "uuid": "imp-cp-sn-a1-q11",
         "question": "{a1} the book from the top shelf.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 4,
+        "source_id": 5,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:45.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 4,
         "name": "Дієслова та дієслівні форми",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 5,
         "name": "Imperatives — Наказовий спосіб",
-        "created_at": "2026-05-18T13:17:38.000000Z",
-        "updated_at": "2026-05-18T13:17:38.000000Z"
+        "created_at": "2026-05-26T14:31:29.000000Z",
+        "updated_at": "2026-05-26T14:31:29.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 17,
-                "name": "Imperatives",
-                "category": null,
-                "created_at": "2026-05-18T13:17:36.000000Z",
-                "updated_at": "2026-05-18T13:17:36.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "tag_id": 17,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 28,
-                "name": "Affirmative imperatives",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "tag_id": 28,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 31,
-                "option": "Take",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "option_id": 31,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 32,
-                "option": "Takes",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "option_id": 32,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 33,
-                "option": "Took",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "option_id": 33,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 11,
-                "question_id": 11,
-                "marker": "a1",
-                "option_id": 31,
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            },
-            "option": {
-                "id": 31,
-                "option": "Take",
-                "created_at": "2026-05-18T13:17:38.000000Z",
-                "updated_at": "2026-05-18T13:17:38.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 11,
-            "question_id": 11,
-            "text": "{a1} the book from the top shelf.",
-            "created_at": "2026-05-18T13:17:38.000000Z",
-            "updated_at": "2026-05-18T13:17:38.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 32,
-            "question_id": 11,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "The affirmative imperative is the base form of the verb at the start of the sentence — no conjugation added.\nThe verb is at the sentence-opening imperative position; choose the base form with no ending or root change.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 33,
-            "question_id": 11,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Twierdzący tryb rozkazujący to podstawowa forma czasownika na początku zdania — bez żadnych odmian.\nCzasownik stoi na początku zdania w pozycji rozkazu; należy wybrać formę podstawową bez końcówek ani zmian rdzenia.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 31,
-            "question_id": 11,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Стверджувальний наказовий спосіб — це базова форма дієслова на початку речення без будь-яких відмінювань.\nДієслово стоїть на початку речення на позиції наказу; слід вибрати базову форму без закінчень або зміни кореня.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 127,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Take",
-            "correct_answer": "Take",
-            "language": "en",
-            "explanation": "'Take' is the base form and the correct affirmative imperative.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 130,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Take",
-            "correct_answer": "Take",
-            "language": "pl",
-            "explanation": "«Take» to podstawowa forma i poprawna forma twierdzącego trybu rozkazującego.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 121,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Take",
-            "correct_answer": "Take",
-            "language": "ua",
-            "explanation": "Форма «Take» є базовою формою дієслова і правильно виражає стверджувальний наказовий спосіб.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 122,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Take",
-            "correct_answer": "Take",
-            "language": "uk",
-            "explanation": "Форма «Take» є базовою формою дієслова і правильно виражає стверджувальний наказовий спосіб.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 128,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Takes",
-            "correct_answer": "Take",
-            "language": "en",
-            "explanation": "'Takes' is the third-person singular present form. Imperatives never take the -s/-es ending.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 131,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Takes",
-            "correct_answer": "Take",
-            "language": "pl",
-            "explanation": "«Takes» to forma trzeciej osoby liczby pojedynczej czasu teraźniejszego. Tryb rozkazujący nigdy nie używa końcówki -s/-es.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 123,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Takes",
-            "correct_answer": "Take",
-            "language": "ua",
-            "explanation": "Форма «Takes» — форма третьої особи однини теперішнього часу. Наказовий спосіб не вживає закінчення -s/-es.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 124,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Takes",
-            "correct_answer": "Take",
-            "language": "uk",
-            "explanation": "Форма «Takes» — форма третьої особи однини теперішнього часу. Наказовий спосіб не вживає закінчення -s/-es.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 129,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Took",
-            "correct_answer": "Take",
-            "language": "en",
-            "explanation": "'Took' is the irregular past tense of 'take'. Imperatives do not use past-tense forms.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 132,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Took",
-            "correct_answer": "Take",
-            "language": "pl",
-            "explanation": "«Took» to nieregularny czas przeszły «take». Tryb rozkazujący nie używa form czasu przeszłego.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 125,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Took",
-            "correct_answer": "Take",
-            "language": "ua",
-            "explanation": "Форма «Took» — неправильна форма минулого часу дієслова «take». Наказовий спосіб не вживає минулого часу.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        },
-        {
-            "id": 126,
-            "question": "{a1} the book from the top shelf.",
-            "wrong_answer": "Took",
-            "correct_answer": "Take",
-            "language": "uk",
-            "explanation": "Форма «Took» — неправильна форма минулого часу дієслова «take». Наказовий спосіб не вживає минулого часу.",
-            "created_at": "2026-05-18T13:17:39.000000Z",
-            "updated_at": "2026-05-18T13:17:39.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

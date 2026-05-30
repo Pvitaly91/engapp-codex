@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 61,
+        "id": 259,
         "uuid": "st-cp-sn-b2-q07",
         "question": "They moved abroad last year, {a1}?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 61,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Tag question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 61,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 79,
-                "option": "didn't they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 61,
-                "option_id": 79,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 80,
-                "option": "did they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 61,
-                "option_id": 80,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 81,
-                "option": "weren't they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 61,
-                "option_id": 81,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 61,
-                "question_id": 61,
-                "marker": "a1",
-                "option_id": 79,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 79,
-                "option": "didn't they",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 61,
-            "question_id": 61,
-            "text": "They moved abroad last year, {a1}?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 182,
-            "question_id": 61,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 183,
-            "question_id": 61,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 181,
-            "question_id": 61,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Стверджувальне речення у Past Simple → заперечний хвіст «didn't».\nДопоміжне «did» (вжите в «moved» Past Simple) стає «didn't they» у хвості.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 728,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "didn't they",
-            "language": "en",
-            "explanation": "Incorrect. «did they» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 731,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "didn't they",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «did they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 723,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "didn't they",
-            "language": "ua",
-            "explanation": "«Did they» — стверджувальний хвіст; але для ствердженого речення потрібен заперечний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 724,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "did they",
-            "correct_answer": "didn't they",
-            "language": "uk",
-            "explanation": "«Did they» — стверджувальний хвіст; але для ствердженого речення потрібен заперечний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 727,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "didn't they",
-            "language": "en",
-            "explanation": "Correct. «didn't they» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 730,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "didn't they",
-            "language": "pl",
-            "explanation": "Poprawnie. «didn't they» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 721,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "didn't they",
-            "language": "ua",
-            "explanation": "«Didn't they» — правильний хвіст: Past Simple стверджувальне → заперечний «didn't» + підмет «they».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 722,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "didn't they",
-            "correct_answer": "didn't they",
-            "language": "uk",
-            "explanation": "«Didn't they» — правильний хвіст: Past Simple стверджувальне → заперечний «didn't» + підмет «they».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 729,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "weren't they",
-            "correct_answer": "didn't they",
-            "language": "en",
-            "explanation": "Incorrect. «weren't they» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 732,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "weren't they",
-            "correct_answer": "didn't they",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «weren't they» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 725,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "weren't they",
-            "correct_answer": "didn't they",
-            "language": "ua",
-            "explanation": "«Weren't they» вживалося б для «to be» у Past («They were...»); «moved» — смислове дієслово.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 726,
-            "question": "They moved abroad last year, {a1}?",
-            "wrong_answer": "weren't they",
-            "correct_answer": "didn't they",
-            "language": "uk",
-            "explanation": "«Weren't they» вживалося б для «to be» у Past («They were...»); «moved» — смислове дієслово.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

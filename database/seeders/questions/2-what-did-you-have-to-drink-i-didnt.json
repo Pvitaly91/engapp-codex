@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 330,
+        "uuid": "2-what-did-you-have-to-drink-i-didnt",
+        "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 3,
+        "source_id": 6,
+        "flag": 2,
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:23.000000Z"
+    },
+    "category": {
+        "id": 3,
+        "name": "Pronouns",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "source": {
+        "id": 6,
+        "name": "Custom: Indefinite Pronouns Practice V2 (Page 1)",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Indefinite Pronoun Compounds",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 330,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 4,
+                "name": "Indefinite Pronouns Practice",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 330,
+                "tag_id": 4,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 5,
+                "name": "Something / Anything / Nothing Exercises",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 330,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 119,
+                "option": "anything",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 330,
+                "option_id": 119,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 120,
+                "option": "something",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 330,
+                "option_id": 120,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 121,
+                "option": "nothing",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 330,
+                "option_id": 121,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 330,
+                "question_id": 330,
+                "marker": "a1",
+                "option_id": 119,
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "option": {
+                "id": 119,
+                "option": "anything",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 330,
+            "question_id": 330,
+            "text": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "created_at": "2026-05-26T11:13:04.000000Z",
+            "updated_at": "2026-05-26T11:13:04.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 5,
+            "question_id": 330,
+            "provider": "chatgpt",
+            "locale": "en",
+            "hint": "After \"didn't\" we choose an any-word for negation.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 6,
+            "question_id": 330,
+            "provider": "chatgpt",
+            "locale": "pl",
+            "hint": "Po \"didn't\" wybieramy any-słowo dla zaprzeczenia.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 4,
+            "question_id": 330,
+            "provider": "chatgpt",
+            "locale": "uk",
+            "hint": "Після \"didn't\" обираємо any-слово для заперечення.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 20,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "anything",
+            "correct_answer": "anything",
+            "language": "en",
+            "explanation": "✅ **Anything** logically completes the sentence after \"didn't\".",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 23,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "anything",
+            "correct_answer": "anything",
+            "language": "pl",
+            "explanation": "✅ **Cokolwiek** logicznie kończy zdanie po \"didn't\".",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 15,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "anything",
+            "correct_answer": "anything",
+            "language": "ua",
+            "explanation": "✅ **Anything** логічно завершує речення після \"didn't\".",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 16,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "anything",
+            "correct_answer": "anything",
+            "language": "uk",
+            "explanation": "✅ **Anything** логічно завершує речення після \"didn't\".",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 21,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "nothing",
+            "correct_answer": "anything",
+            "language": "en",
+            "explanation": "❌ *Nothing* would make the construction doubly negative.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 24,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "nothing",
+            "correct_answer": "anything",
+            "language": "pl",
+            "explanation": "❌ *Nic* uczyniłoby konstrukcję podwójnie zaprzeczającą.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 17,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "nothing",
+            "correct_answer": "anything",
+            "language": "ua",
+            "explanation": "❌ *Nothing* зробило б конструкцію подвійнозаперечною.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 18,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "nothing",
+            "correct_answer": "anything",
+            "language": "uk",
+            "explanation": "❌ *Nothing* зробило б конструкцію подвійнозаперечною.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 19,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "something",
+            "correct_answer": "anything",
+            "language": "en",
+            "explanation": "❌ *Something* sounds like an assertion, not a negation.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 22,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "something",
+            "correct_answer": "anything",
+            "language": "pl",
+            "explanation": "❌ *Coś* brzmi jak twierdzenie, a nie jak zaprzeczenie.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 13,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "something",
+            "correct_answer": "anything",
+            "language": "ua",
+            "explanation": "❌ *Something* звучить як ствердження, а не як заперечення.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 14,
+            "question": "\"What did you have to drink?\" \"I didn't drink {a1}; only water.\"",
+            "wrong_answer": "something",
+            "correct_answer": "anything",
+            "language": "uk",
+            "explanation": "❌ *Something* звучить як ствердження, а не як заперечення.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ]
+}

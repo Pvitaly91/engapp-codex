@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 39,
+        "id": 237,
         "uuid": "st-cp-sn-b1-q03",
         "question": "How long {a1} you been waiting?",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 39,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "WH question in Present Perfect",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 39,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 38,
-                "option": "did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 39,
-                "option_id": 38,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 49,
-                "option": "have",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 39,
-                "option_id": 49,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 50,
-                "option": "has",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 39,
-                "option_id": 50,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 39,
-                "question_id": 39,
-                "marker": "a1",
-                "option_id": 49,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 49,
-                "option": "have",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 39,
-            "question_id": 39,
-            "text": "How long {a1} you been waiting?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 116,
-            "question_id": 39,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "WH questions in Present Perfect: **WH-word + have/has + subject + past participle**.\nAfter the WH-word, choose **have** (for you/we/they/I) or **has** (for he/she/it), then the subject.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 117,
-            "question_id": 39,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania WH w Present Perfect: **Słowo pytające + have/has + podmiot + imiesłów bierny**.\nPo słowie pytającym: **have** (dla you/we/they/I) lub **has** (dla he/she/it), potem podmiot.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 115,
-            "question_id": 39,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "WH-питання «how long» у Present Perfect Continuous: How long + have/has + підмет + been + дієслово-ing.\nПідмет «you» вимагає «have» у Present Perfect.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 465,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "did",
-            "correct_answer": "have",
-            "language": "en",
-            "explanation": "Incorrect. «did» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 468,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "did",
-            "correct_answer": "have",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «did» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 461,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "did",
-            "correct_answer": "have",
-            "language": "ua",
-            "explanation": "«Did» — допоміжне Past Simple; конструкція «been waiting» вказує на Present Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 462,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "did",
-            "correct_answer": "have",
-            "language": "uk",
-            "explanation": "«Did» — допоміжне Past Simple; конструкція «been waiting» вказує на Present Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 464,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "has",
-            "correct_answer": "have",
-            "language": "en",
-            "explanation": "Incorrect. «has» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 467,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "has",
-            "correct_answer": "have",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «has» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 459,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "has",
-            "correct_answer": "have",
-            "language": "ua",
-            "explanation": "«Has» вживається для he/she/it; «you» вимагає «have».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 460,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "has",
-            "correct_answer": "have",
-            "language": "uk",
-            "explanation": "«Has» вживається для he/she/it; «you» вимагає «have».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 463,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "have",
-            "correct_answer": "have",
-            "language": "en",
-            "explanation": "Correct. «have» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 466,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "have",
-            "correct_answer": "have",
-            "language": "pl",
-            "explanation": "Poprawnie. «have» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 457,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "have",
-            "correct_answer": "have",
-            "language": "ua",
-            "explanation": "«Have» — правильне допоміжне для «you» у питанні Present Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 458,
-            "question": "How long {a1} you been waiting?",
-            "wrong_answer": "have",
-            "correct_answer": "have",
-            "language": "uk",
-            "explanation": "«Have» — правильне допоміжне для «you» у питанні Present Perfect Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

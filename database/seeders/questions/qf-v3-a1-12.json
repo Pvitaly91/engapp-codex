@@ -1,0 +1,157 @@
+{
+    "question": {
+        "id": 12,
+        "uuid": "qf-v3-a1-12",
+        "question": "A yes/no question often begins with {a1}.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-21T20:02:35.000000Z",
+        "updated_at": "2026-05-21T20:02:54.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T20:02:35.000000Z",
+        "updated_at": "2026-05-21T20:02:35.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Question Forms",
+        "created_at": "2026-05-21T20:02:35.000000Z",
+        "updated_at": "2026-05-21T20:02:35.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "Question Forms",
+                "category": null,
+                "created_at": "2026-05-21T20:02:30.000000Z",
+                "updated_at": "2026-05-21T20:02:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 12,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 13,
+                "name": "A1",
+                "category": null,
+                "created_at": "2026-05-21T20:02:30.000000Z",
+                "updated_at": "2026-05-21T20:02:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 12,
+                "tag_id": 13,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 91,
+                "name": "General Structure",
+                "category": "topic",
+                "created_at": "2026-05-21T20:02:35.000000Z",
+                "updated_at": "2026-05-21T20:02:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 12,
+                "tag_id": 91,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 20,
+                "option": "auxiliary",
+                "created_at": "2026-05-21T20:02:35.000000Z",
+                "updated_at": "2026-05-21T20:02:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 12,
+                "option_id": 20,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 21,
+                "option": "subject",
+                "created_at": "2026-05-21T20:02:35.000000Z",
+                "updated_at": "2026-05-21T20:02:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 12,
+                "option_id": 21,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 22,
+                "option": "object",
+                "created_at": "2026-05-21T20:02:35.000000Z",
+                "updated_at": "2026-05-21T20:02:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 12,
+                "option_id": 22,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23,
+                "option": "article",
+                "created_at": "2026-05-21T20:02:35.000000Z",
+                "updated_at": "2026-05-21T20:02:35.000000Z"
+            },
+            "pivot": {
+                "question_id": 12,
+                "option_id": 23,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 12,
+                "question_id": 12,
+                "marker": "a1",
+                "option_id": 20,
+                "created_at": "2026-05-21T20:02:35.000000Z",
+                "updated_at": "2026-05-21T20:02:35.000000Z"
+            },
+            "option": {
+                "id": 20,
+                "option": "auxiliary",
+                "created_at": "2026-05-21T20:02:35.000000Z",
+                "updated_at": "2026-05-21T20:02:35.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 12,
+            "question_id": 12,
+            "text": "A yes/no question often begins with {a1}.",
+            "created_at": "2026-05-21T20:02:35.000000Z",
+            "updated_at": "2026-05-21T20:02:35.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

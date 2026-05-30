@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 132,
+        "id": 330,
         "uuid": "24-i-b6-go-to-school-yesterday-becau",
         "question": "I {b6} go to school yesterday because I was sick.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:05.000000Z",
-        "updated_at": "2026-05-18T13:17:10.000000Z"
+        "created_at": "2026-05-26T14:31:22.000000Z",
+        "updated_at": "2026-05-26T14:31:22.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 59,
-                "name": "Negative sentence formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "tag_id": 59,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 4,
-                "option": "don't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "option_id": 34,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 35,
-                "option": "wasn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "option_id": 35,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 132,
-                "question_id": 132,
-                "marker": "b6",
-                "option_id": 34,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 24,
-                "question_id": 132,
-                "marker": "b6",
-                "option_id": 169,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 169,
-                "option": "past negative auxiliary",
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 132,
-            "question_id": 132,
-            "text": "I {b6} go to school yesterday because I was sick.",
-            "created_at": "2026-05-18T13:17:05.000000Z",
-            "updated_at": "2026-05-18T13:17:05.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 394,
-            "question_id": 132,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This is a negative sentence — it denies or negates something.\nLook at the sentence context and the verb hint 'past negative auxiliary' to choose the correct form.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 395,
-            "question_id": 132,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To jest zdanie przeczące — zaprzecza czemuś za pomocą odpowiedniego operatora.\nPrzeanalizuj kontekst zdania i wskazówkę 'past negative auxiliary', aby wybrać właściwą formę.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 396,
-            "question_id": 132,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Заперечне речення у Past Simple утворюється через `didn't` + інфінітив.\nСлово `yesterday` вказує на минулий час; заперечення минулого часу — `didn't`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1573,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Correct: 'didn't' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1576,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Poprawnie: 'didn't' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1579,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "Правильно: `I didn't go` — заперечне речення Past Simple з допоміжним `didn't`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1580,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "Правильно: `I didn't go` — заперечне речення Past Simple з допоміжним `didn't`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1574,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect: 'don't' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1577,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'don't' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1581,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "Неправильно: `don't` — заперечення Present Simple; слово `yesterday` вимагає минулого часу.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1582,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "Неправильно: `don't` — заперечення Present Simple; слово `yesterday` вимагає минулого часу.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1575,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect: 'wasn't' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1578,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'wasn't' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1583,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "Неправильно: `wasn't` — заперечення `to be` у минулому, а тут заперечується дієслово `go`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1584,
-            "question": "I {b6} go to school yesterday because I was sick.",
-            "wrong_answer": "wasn't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "Неправильно: `wasn't` — заперечення `to be` у минулому, а тут заперечується дієслово `go`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

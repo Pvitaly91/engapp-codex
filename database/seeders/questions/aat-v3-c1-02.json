@@ -1,0 +1,159 @@
+{
+    "question": {
+        "id": 50,
+        "uuid": "aat-v3-c1-02",
+        "question": "Mark is {a1} economist",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-26T14:50:16.000000Z",
+        "updated_at": "2026-05-26T14:50:34.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Nouns / Articles / Quantity",
+        "created_at": "2026-05-26T14:50:16.000000Z",
+        "updated_at": "2026-05-26T14:50:16.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Articles A An The",
+        "created_at": "2026-05-26T14:50:16.000000Z",
+        "updated_at": "2026-05-26T14:50:16.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 47,
+                "name": "Articles A An The",
+                "category": "nouns_articles_quantity",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "tag_id": 47,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 49,
+                "name": "An Vowel Sound",
+                "category": "topic",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "tag_id": 49,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "a",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3,
+                "option": "an",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 3,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4,
+                "option": "the",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 4,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5,
+                "option": "no article",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 5,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 50,
+                "question_id": 50,
+                "marker": "a1",
+                "option_id": 3,
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "option": {
+                "id": 3,
+                "option": "an",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50,
+                "question_id": 50,
+                "marker": "a1",
+                "option_id": 6,
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            },
+            "option": {
+                "id": 6,
+                "option": "Use an before a vowel sound.",
+                "created_at": "2026-05-26T14:50:16.000000Z",
+                "updated_at": "2026-05-26T14:50:16.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 50,
+            "question_id": 50,
+            "text": "Mark is {a1} economist",
+            "created_at": "2026-05-26T14:50:16.000000Z",
+            "updated_at": "2026-05-26T14:50:16.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

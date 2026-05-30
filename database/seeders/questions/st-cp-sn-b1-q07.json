@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 43,
+        "id": 241,
         "uuid": "st-cp-sn-b1-q07",
         "question": "{a1} he working on the new project?",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 43,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 38,
-                "name": "Yes/No question with am/is/are",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 43,
-                "tag_id": 38,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 8,
-                "option": "Does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 43,
-                "option_id": 8,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 9,
-                "option": "Are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 43,
-                "option_id": 9,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 43,
-                "option_id": 21,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 43,
-                "question_id": 43,
-                "marker": "a1",
-                "option_id": 21,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 43,
-            "question_id": 43,
-            "text": "{a1} he working on the new project?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 128,
-            "question_id": 43,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Yes/No questions with **to be**: **Am/Is/Are + subject**.\nThe verb **to be** inverts with the subject. Choose **Is** for singular or **Are** for plural/you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 129,
-            "question_id": 43,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania tak/nie z **to be**: **Am/Is/Are + podmiot**.\n**To be** wymienia się z podmiotem. Wybierz **Is** dla l. poj. lub **Are** dla l. mn./you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 127,
-            "question_id": 43,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Питання у Present Continuous: Is/Are + підмет + дієслово-ing.\nПідмет «he» — 3-тя особа однини; Present Continuous питання для нього починається з «Is».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 512,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Incorrect. «Are» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 515,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Are» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 507,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "«Are» вживається для you/we/they або множини; «he» — 3-тя особа однини.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 508,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Are",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "«Are» вживається для you/we/they або множини; «he» — 3-тя особа однини.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 513,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Incorrect. «Does» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 516,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Does» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 509,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "«Does» — допоміжне Present Simple для смислових дієслів; у Continuous вживається «is/are».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 510,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Does",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "«Does» — допоміжне Present Simple для смислових дієслів; у Continuous вживається «is/are».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 511,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "en",
-            "explanation": "Correct. «Is» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 514,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "pl",
-            "explanation": "Poprawnie. «Is» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 505,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "ua",
-            "explanation": "«Is» — правильна форма «to be» для «he» у питанні Present Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 506,
-            "question": "{a1} he working on the new project?",
-            "wrong_answer": "Is",
-            "correct_answer": "Is",
-            "language": "uk",
-            "explanation": "«Is» — правильна форма «to be» для «he» у питанні Present Continuous.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

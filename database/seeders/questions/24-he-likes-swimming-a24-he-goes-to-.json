@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 132,
+        "id": 906,
         "uuid": "24-he-likes-swimming-a24-he-goes-to-",
         "question": "He likes swimming {a24} he goes to the pool every week.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 40,
-                "name": "Conjunction 'and' — addition",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "tag_id": 40,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 50,
-                "name": "Clause linking",
-                "category": "usage",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "tag_id": 50,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 132,
-                "option_id": 4,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 132,
-                "question_id": 132,
-                "marker": "a24",
-                "option_id": 1,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 24,
-                "question_id": 132,
-                "marker": "a24",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 132,
-            "question_id": 132,
-            "text": "He likes swimming {a24} he goes to the pool every week.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 394,
-            "question_id": 132,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'And' joins two related facts about the same person that naturally complement each other.\nThe sentence states a hobby — `likes swimming` — and a regular habit — `goes to the pool every week`. Which conjunction naturally links these two facts?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 395,
-            "question_id": 132,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'And' łączy dwa powiązane fakty dotyczące tej samej osoby, które naturalnie się uzupełniają.\nZdanie podaje hobby — `likes swimming` — i regularny nawyk — `goes to the pool every week`. Który spójnik naturalnie łączy te dwa fakty?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 396,
-            "question_id": 132,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник and зʼєднує два факти про одну і ту саму особу, що логічно доповнюють один одного.\nУ реченні `likes swimming` — хобі, а `goes to the pool every week` — регулярна звичка. Яке слово природно поєднує ці два факти?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1565,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "en",
-            "explanation": "Correct: 'and' joins the hobby and the habit — he likes swimming and regularly puts it into practice.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1568,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "pl",
-            "explanation": "Poprawnie: 'and' łączy hobby i nawyk — lubi pływanie i regularnie je praktykuje.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1571,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "ua",
-            "explanation": "Правильно: «and» обʼєднує хобі та звичку — любить плавання й регулярно практикує його.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1572,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "and",
-            "correct_answer": "and",
-            "language": "uk",
-            "explanation": "Правильно: «and» обʼєднує хобі та звичку — любить плавання й регулярно практикує його.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1566,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "en",
-            "explanation": "'Because' would reverse the cause: 'likes swimming because goes to the pool' — cause and effect are muddled.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1569,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "pl",
-            "explanation": "'Because' odwracałoby przyczynę: 'lubi pływanie, bo chodzi na basen' — przyczyna i skutek są pomylone.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1573,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "ua",
-            "explanation": "«because» означало б причинний звʼязок: «любить плавати, ТОМУ ЩО ходить у басейн» — причина та наслідок переплутані місцями.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1574,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "because",
-            "correct_answer": "and",
-            "language": "uk",
-            "explanation": "«because» означало б причинний звʼязок: «любить плавати, ТОМУ ЩО ходить у басейн» — причина та наслідок переплутані місцями.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1567,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "but",
-            "correct_answer": "and",
-            "language": "en",
-            "explanation": "'But' would imply contrast: 'likes swimming BUT goes to the pool' — illogical; these facts support each other.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1570,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "but",
-            "correct_answer": "and",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby kontrast: 'lubi pływanie, ALE chodzi na basen' — nielogiczne; te fakty wzajemnie się uzupełniają.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1575,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "but",
-            "correct_answer": "and",
-            "language": "ua",
-            "explanation": "«but» означало б протиставлення: «любить плавати, АЛЕ ходить у басейн» — нелогічно, ці факти доповнюють, а не протиставляють одне одного.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1576,
-            "question": "He likes swimming {a24} he goes to the pool every week.",
-            "wrong_answer": "but",
-            "correct_answer": "and",
-            "language": "uk",
-            "explanation": "«but» означало б протиставлення: «любить плавати, АЛЕ ходить у басейн» — нелогічно, ці факти доповнюють, а не протиставляють одне одного.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

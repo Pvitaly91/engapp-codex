@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 155,
+        "id": 929,
         "uuid": "47-we-missed-the-deadline-a47-we-had",
         "question": "We missed the deadline {a47} we hadn't planned the project properly.",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 43,
-                "name": "Conjunction 'because' — reason",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "tag_id": 43,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Cause-result conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 1,
-                "option": "and",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "option_id": 1,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "option_id": 4,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 155,
-                "question_id": 155,
-                "marker": "a47",
-                "option_id": 4,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 47,
-                "question_id": 155,
-                "marker": "a47",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 155,
-            "question_id": 155,
-            "text": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 463,
-            "question_id": 155,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'Because' introduces the reason for a missed deadline or project failure.\nThe first part `missed the deadline` is the negative event; `hadn't planned properly` is the reason behind it. Which conjunction introduces the cause of a failure?",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 464,
-            "question_id": 155,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'Because' wprowadza przyczynę przekroczenia terminu lub niepowodzenia projektu.\nPierwsza część `missed the deadline` to negatywne zdarzenie; `hadn't planned properly` to jego przyczyna. Który spójnik wprowadza przyczynę niepowodzenia?",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 465,
-            "question_id": 155,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник because вводить причину невдачі або проблеми.\nПерша частина `missed the deadline` — негативна подія, а `hadn't planned properly` — причина цієї невдачі.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1843,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'And' would list two facts without explaining the causal link.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1846,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'And' wymieniałoby dwa fakty bez wyjaśnienia związku przyczynowego.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1851,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«and» перелічував би: «пропустили дедлайн І не планували» — без пояснення причинного звʼязку.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1852,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "and",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«and» перелічував би: «пропустили дедлайн І не планували» — без пояснення причинного звʼязку.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1841,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "Correct: 'because' explains the reason for the missed deadline — the project had not been planned properly.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1844,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "Poprawnie: 'because' wyjaśnia przyczynę przekroczenia terminu — projekt nie był właściwie zaplanowany.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1847,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "Правильно: «because» пояснює причину прострочення — не спланували проект належним чином.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1848,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "Правильно: «because» пояснює причину прострочення — не спланували проект належним чином.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1842,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'But' would imply contrast: 'missed the deadline BUT hadn't planned' — illogical; poor planning is the cause, not a contradiction.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1845,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby kontrast: 'przekroczyli termin, ALE nie planowali' — nielogiczne; złe planowanie jest przyczyną, nie kontrastem.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1849,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«but» означало б контраст: «пропустили дедлайн, АЛЕ не планували» — нелогічно, погане планування є причиною, а не контрастом.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 1850,
-            "question": "We missed the deadline {a47} we hadn't planned the project properly.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«but» означало б контраст: «пропустили дедлайн, АЛЕ не планували» — нелогічно, погане планування є причиною, а не контрастом.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

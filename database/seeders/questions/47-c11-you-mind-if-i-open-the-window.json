@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 155,
+        "id": 353,
         "uuid": "47-c11-you-mind-if-i-open-the-window",
         "question": "{c11} you mind if I open the window?",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:06.000000Z",
-        "updated_at": "2026-05-18T13:17:10.000000Z"
+        "created_at": "2026-05-26T14:31:22.000000Z",
+        "updated_at": "2026-05-26T14:31:22.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 60,
-                "name": "Yes/No question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "tag_id": 60,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 7,
-                "option": "Do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "option_id": 7,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 9,
-                "option": "Are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "option_id": 9,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 53,
-                "option": "Would",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 155,
-                "option_id": 53,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 155,
-                "question_id": 155,
-                "marker": "c11",
-                "option_id": 53,
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            },
-            "option": {
-                "id": 53,
-                "option": "Would",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 47,
-                "question_id": 155,
-                "marker": "c11",
-                "option_id": 199,
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            },
-            "option": {
-                "id": 199,
-                "option": "polite question form",
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 155,
-            "question_id": 155,
-            "text": "{c11} you mind if I open the window?",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 463,
-            "question_id": 155,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This is a yes/no question — it requires an auxiliary verb before the subject.\nLook at the sentence context and the verb hint 'polite question form' to choose the correct form.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 464,
-            "question_id": 155,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To jest pytanie ogólne (tak/nie) — wymaga czasownika posiłkowego przed podmiotem.\nPrzeanalizuj kontekst zdania i wskazówkę 'polite question form', aby wybrać właściwą formę.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 465,
-            "question_id": 155,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Ввічливе питання `Would you mind if…?` — стандартна конструкція для ввічливих прохань.\nМодальне `Would` на початку формує ввічливе запитання дозволу.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1851,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Are",
-            "correct_answer": "Would",
-            "language": "en",
-            "explanation": "Incorrect: 'Are' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1854,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Are",
-            "correct_answer": "Would",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Are' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1859,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Are",
-            "correct_answer": "Would",
-            "language": "ua",
-            "explanation": "Неправильно: `Are you mind…?` — неграматична конструкція; `mind` потребує допоміжного `do/would`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1860,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Are",
-            "correct_answer": "Would",
-            "language": "uk",
-            "explanation": "Неправильно: `Are you mind…?` — неграматична конструкція; `mind` потребує допоміжного `do/would`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1850,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Do",
-            "correct_answer": "Would",
-            "language": "en",
-            "explanation": "Incorrect: 'Do' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1853,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Do",
-            "correct_answer": "Would",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Do' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1857,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Do",
-            "correct_answer": "Would",
-            "language": "ua",
-            "explanation": "Неправильно: `Do you mind…?` граматично можливе, але `Would` — більш ввічлива і стандартна форма.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1858,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Do",
-            "correct_answer": "Would",
-            "language": "uk",
-            "explanation": "Неправильно: `Do you mind…?` граматично можливе, але `Would` — більш ввічлива і стандартна форма.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1849,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Would",
-            "correct_answer": "Would",
-            "language": "en",
-            "explanation": "Correct: 'Would' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1852,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Would",
-            "correct_answer": "Would",
-            "language": "pl",
-            "explanation": "Poprawnie: 'Would' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1855,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Would",
-            "correct_answer": "Would",
-            "language": "ua",
-            "explanation": "Правильно: `Would you mind…?` — ввічлива форма запитання дозволу.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 1856,
-            "question": "{c11} you mind if I open the window?",
-            "wrong_answer": "Would",
-            "correct_answer": "Would",
-            "language": "uk",
-            "explanation": "Правильно: `Would you mind…?` — ввічлива форма запитання дозволу.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

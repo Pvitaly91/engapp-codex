@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 77,
+        "id": 275,
         "uuid": "st-cp-sn-c1-q05",
         "question": "No sooner {a1} the concert begun than it started raining.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 56,
-                "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "tag_id": 56,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 38,
-                "option": "did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "option_id": 38,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 50,
-                "option": "has",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "option_id": 50,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 110,
-                "option": "had",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 77,
-                "option_id": 110,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 77,
-                "question_id": 77,
-                "marker": "a1",
-                "option_id": 110,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 110,
-                "option": "had",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 77,
-            "question_id": 77,
-            "text": "No sooner {a1} the concert begun than it started raining.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 230,
-            "question_id": 77,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "After negative/restrictive adverbials (Never, Hardly, Not only, Seldom, Only then…), **subject-auxiliary inversion** is required.\nThe inverted auxiliary must match the tense of the original clause. Only the auxiliary comes before the subject.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 231,
-            "question_id": 77,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Po przysłówkach o znaczeniu ograniczającym (Never, Hardly, Not only, Seldom…) wymagana jest inwersja podmiotu i operatora.\nInwertowany operator musi odpowiadać czasowi zdania. Tylko operator przechodzi przed podmiot.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 229,
-            "question_id": 77,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«No sooner...than» — конструкція Past Perfect з інверсією: «No sooner had + підмет + Past Participle than...».\n«Begun» — Past Participle дієслова «begin»; це ознака Past Perfect після «had».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 921,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "did",
-            "correct_answer": "had",
-            "language": "en",
-            "explanation": "Incorrect. «did» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 924,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "did",
-            "correct_answer": "had",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «did» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 917,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "did",
-            "correct_answer": "had",
-            "language": "ua",
-            "explanation": "«Did» + «begun» граматично некоректно: «begun» — Past Participle, що вимагає «had».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 918,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "did",
-            "correct_answer": "had",
-            "language": "uk",
-            "explanation": "«Did» + «begun» граматично некоректно: «begun» — Past Participle, що вимагає «had».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 919,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "had",
-            "correct_answer": "had",
-            "language": "en",
-            "explanation": "Correct. «had» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 922,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "had",
-            "correct_answer": "had",
-            "language": "pl",
-            "explanation": "Poprawnie. «had» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 913,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "had",
-            "correct_answer": "had",
-            "language": "ua",
-            "explanation": "«Had» — правильна інверсія Past Perfect: «No sooner had the concert begun than...».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 914,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "had",
-            "correct_answer": "had",
-            "language": "uk",
-            "explanation": "«Had» — правильна інверсія Past Perfect: «No sooner had the concert begun than...».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 920,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "has",
-            "correct_answer": "had",
-            "language": "en",
-            "explanation": "Incorrect. «has» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 923,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "has",
-            "correct_answer": "had",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «has» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 915,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "has",
-            "correct_answer": "had",
-            "language": "ua",
-            "explanation": "«Has» — Present Perfect; «started raining» (Past Simple) вказує на минулий контекст Past Perfect.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 916,
-            "question": "No sooner {a1} the concert begun than it started raining.",
-            "wrong_answer": "has",
-            "correct_answer": "had",
-            "language": "uk",
-            "explanation": "«Has» — Present Perfect; «started raining» (Past Simple) вказує на минулий контекст Past Perfect.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

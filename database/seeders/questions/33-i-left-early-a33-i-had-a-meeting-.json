@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 141,
+        "id": 915,
         "uuid": "33-i-left-early-a33-i-had-a-meeting-",
         "question": "I left early {a33} I had a meeting at nine.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 43,
-                "name": "Conjunction 'because' — reason",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "tag_id": 43,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "option_id": 3,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 141,
-                "option_id": 4,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 141,
-                "question_id": 141,
-                "marker": "a33",
-                "option_id": 4,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 33,
-                "question_id": 141,
-                "marker": "a33",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 141,
-            "question_id": 141,
-            "text": "I left early {a33} I had a meeting at nine.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 421,
-            "question_id": 141,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'Because' introduces the motive or reason behind an action.\nThe first part `left early` is the action; `had a meeting at nine` is the direct motive for it. Which conjunction introduces a motive?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 422,
-            "question_id": 141,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'Because' wprowadza motyw lub przyczynę czynności.\nPierwsza część `left early` to czynność; `had a meeting at nine` to bezpośredni motyw. Który spójnik wprowadza motyw?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 423,
-            "question_id": 141,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник because вводить підрядне речення, що пояснює причину або мотив дії.\nПерша частина `I left early` — дія, а `had a meeting at nine` — причина, що пояснює ранній відхід.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1673,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "Correct: 'because' explains the reason for leaving early — there was a meeting at nine.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1676,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "Poprawnie: 'because' wyjaśnia powód wyjścia wcześnie — było spotkanie o dziewiątej.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1679,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "Правильно: «because» вказує на причину раннього відходу — була зустріч о дев'ятій. Пряма причина пояснює дію.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1680,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "because",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "Правильно: «because» вказує на причину раннього відходу — була зустріч о дев'ятій. Пряма причина пояснює дію.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1674,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'But' would imply contrast: 'left early BUT had a meeting' — illogical; the meeting is the reason, not a contradiction.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1677,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby kontrast: 'wyszedł wcześnie, ALE miał spotkanie' — nielogiczne; spotkanie jest powodem, nie kontrastem.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1681,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«but» означало б протиставлення: «пішов рано, АЛЕ мав зустріч» — нелогічно, зустріч є причиною, а не контрастом.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1682,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "but",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«but» означало б протиставлення: «пішов рано, АЛЕ мав зустріч» — нелогічно, зустріч є причиною, а не контрастом.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1675,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "or",
-            "correct_answer": "because",
-            "language": "en",
-            "explanation": "'Or' introduces a choice, but here there is a direct motive for the action — no alternative.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1678,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "or",
-            "correct_answer": "because",
-            "language": "pl",
-            "explanation": "'Or' wprowadza wybór, ale tu jest bezpośredni motyw czynności — bez alternatywy.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1683,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "or",
-            "correct_answer": "because",
-            "language": "ua",
-            "explanation": "«or» вводить вибір, але тут є прямий мотив дії, а не альтернативна ситуація.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1684,
-            "question": "I left early {a33} I had a meeting at nine.",
-            "wrong_answer": "or",
-            "correct_answer": "because",
-            "language": "uk",
-            "explanation": "«or» вводить вибір, але тут є прямий мотив дії, а не альтернативна ситуація.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

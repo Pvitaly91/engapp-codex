@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 123,
+        "id": 321,
         "uuid": "sentencetypes-15-a15-they-have-a-dog",
         "question": "{a15} they have a dog?",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:04.000000Z",
-        "updated_at": "2026-05-18T13:17:10.000000Z"
+        "created_at": "2026-05-26T14:31:22.000000Z",
+        "updated_at": "2026-05-26T14:31:22.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 60,
-                "name": "Yes/No question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "tag_id": 60,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 64,
-                "name": "Auxiliary do/does usage",
-                "category": "mechanism",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "tag_id": 64,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 7,
-                "option": "Do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "option_id": 7,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 8,
-                "option": "Does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "option_id": 8,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 9,
-                "option": "Are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 123,
-                "option_id": 9,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 123,
-                "question_id": 123,
-                "marker": "a15",
-                "option_id": 7,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 7,
-                "option": "Do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 15,
-                "question_id": 123,
-                "marker": "a15",
-                "option_id": 147,
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            },
-            "option": {
-                "id": 147,
-                "option": "question auxiliary",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 123,
-            "question_id": 123,
-            "text": "{a15} they have a dog?",
-            "created_at": "2026-05-18T13:17:05.000000Z",
-            "updated_at": "2026-05-18T13:17:05.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 367,
-            "question_id": 123,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This is a yes/no question — it requires an auxiliary verb before the subject.\nThe auxiliary 'do/does/did' is needed for questions and negatives with action verbs in simple tenses.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 368,
-            "question_id": 123,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To jest pytanie ogólne (tak/nie) — wymaga czasownika posiłkowego przed podmiotem.\nCzasownik posiłkowy 'do/does/did' jest potrzebny w pytaniach i przeczeniach z czasownikami czynnościowymi.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 369,
-            "question_id": 123,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Загальне питання у Present Simple з `they`: на початку стоїть `Do`.\nПідмет `they` — множина, тому допоміжне дієслово у питанні — `Do`, а не `Does`.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1467,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Are",
-            "correct_answer": "Do",
-            "language": "en",
-            "explanation": "Incorrect: 'Are' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1470,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Are",
-            "correct_answer": "Do",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Are' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1475,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Are",
-            "correct_answer": "Do",
-            "language": "ua",
-            "explanation": "Неправильно: `Are` — допоміжне дієслова `to be`, а тут смислове дієслово `have`.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1476,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Are",
-            "correct_answer": "Do",
-            "language": "uk",
-            "explanation": "Неправильно: `Are` — допоміжне дієслова `to be`, а тут смислове дієслово `have`.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1465,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Do",
-            "correct_answer": "Do",
-            "language": "en",
-            "explanation": "Correct: 'Do' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1468,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Do",
-            "correct_answer": "Do",
-            "language": "pl",
-            "explanation": "Poprawnie: 'Do' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1471,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Do",
-            "correct_answer": "Do",
-            "language": "ua",
-            "explanation": "Правильно: `Do they have a dog?` — стандартне загальне питання для множинного підмета.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1472,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Do",
-            "correct_answer": "Do",
-            "language": "uk",
-            "explanation": "Правильно: `Do they have a dog?` — стандартне загальне питання для множинного підмета.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1466,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Does",
-            "correct_answer": "Do",
-            "language": "en",
-            "explanation": "Incorrect: 'Does' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1469,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Does",
-            "correct_answer": "Do",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'Does' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1473,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Does",
-            "correct_answer": "Do",
-            "language": "ua",
-            "explanation": "Неправильно: `Does` — для третьої особи однини, а `they` — множина.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        },
-        {
-            "id": 1474,
-            "question": "{a15} they have a dog?",
-            "wrong_answer": "Does",
-            "correct_answer": "Do",
-            "language": "uk",
-            "explanation": "Неправильно: `Does` — для третьої особи однини, а `they` — множина.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

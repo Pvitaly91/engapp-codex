@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 8,
+        "id": 206,
         "uuid": "st-cp-sn-a1-q08",
         "question": "{a1} they your classmates?",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:08.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 8,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 38,
-                "name": "Yes/No question with am/is/are",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 8,
-                "tag_id": 38,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 7,
-                "option": "Do",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 8,
-                "option_id": 7,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 9,
-                "option": "Are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 8,
-                "option_id": 9,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 21,
-                "option": "Is",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 8,
-                "option_id": 21,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 8,
-                "question_id": 8,
-                "marker": "a1",
-                "option_id": 9,
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "option": {
-                "id": 9,
-                "option": "Are",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 8,
-            "question_id": 8,
-            "text": "{a1} they your classmates?",
-            "created_at": "2026-05-18T13:17:01.000000Z",
-            "updated_at": "2026-05-18T13:17:01.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 23,
-            "question_id": 8,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Yes/No questions with **to be**: **Am/Is/Are + subject**.\nThe verb **to be** inverts with the subject. Choose **Is** for singular or **Are** for plural/you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 24,
-            "question_id": 8,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania tak/nie z **to be**: **Am/Is/Are + podmiot**.\n**To be** wymienia się z podmiotem. Wybierz **Is** dla l. poj. lub **Are** dla l. mn./you.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 22,
-            "question_id": 8,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Загальне питання з дієсловом «to be» утворюється інверсією: Are/Is + підмет.\nПідмет «they» — множина, тому на початку питання стоїть «Are».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 91,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Are",
-            "correct_answer": "Are",
-            "language": "en",
-            "explanation": "Correct. «Are» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 94,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Are",
-            "correct_answer": "Are",
-            "language": "pl",
-            "explanation": "Poprawnie. «Are» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 85,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Are",
-            "correct_answer": "Are",
-            "language": "ua",
-            "explanation": "«Are» — правильна форма «to be» для «they» у питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 86,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Are",
-            "correct_answer": "Are",
-            "language": "uk",
-            "explanation": "«Are» — правильна форма «to be» для «they» у питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 93,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Do",
-            "correct_answer": "Are",
-            "language": "en",
-            "explanation": "Incorrect. «Do» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 96,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Do",
-            "correct_answer": "Are",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Do» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 89,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Do",
-            "correct_answer": "Are",
-            "language": "ua",
-            "explanation": "«Do» — допоміжне дієслово для смислових дієслів у Present Simple; але тут присудок — «to be» (classmates).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 90,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Do",
-            "correct_answer": "Are",
-            "language": "uk",
-            "explanation": "«Do» — допоміжне дієслово для смислових дієслів у Present Simple; але тут присудок — «to be» (classmates).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 92,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Is",
-            "correct_answer": "Are",
-            "language": "en",
-            "explanation": "Incorrect. «Is» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 95,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Is",
-            "correct_answer": "Are",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «Is» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 87,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Is",
-            "correct_answer": "Are",
-            "language": "ua",
-            "explanation": "«Is» використовується для he/she/it або однини, а не для «they».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 88,
-            "question": "{a1} they your classmates?",
-            "wrong_answer": "Is",
-            "correct_answer": "Are",
-            "language": "uk",
-            "explanation": "«Is» використовується для he/she/it або однини, а не для «they».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

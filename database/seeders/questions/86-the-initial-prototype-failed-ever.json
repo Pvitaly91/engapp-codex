@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 194,
+        "id": 968,
         "uuid": "86-the-initial-prototype-failed-ever",
         "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:24.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:47.000000Z",
+        "updated_at": "2026-05-26T14:31:47.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 194,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Conjunction 'so' — result",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 194,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Cause-result conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 194,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 194,
-                "option_id": 3,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 4,
-                "option": "because",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 194,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 194,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 194,
-                "question_id": 194,
-                "marker": "a86",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 86,
-                "question_id": 194,
-                "marker": "a86",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:24.000000Z",
-                "updated_at": "2026-05-18T13:17:24.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 194,
-            "question_id": 194,
-            "text": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 580,
-            "question_id": 194,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'So' introduces the engineering consequence of a complete prototype failure.\nA comma after `failed every stress test` and the logic: total failure → complete redesign from scratch.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 581,
-            "question_id": 194,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'So' wprowadza inżynierski skutek całkowitego niepowodzenia prototypu.\nPrzecinek po `failed every stress test` i logika: całkowite niepowodzenie → pełne przeprojektowanie od podstaw.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 582,
-            "question_id": 194,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник so вводить технологічний або інженерний наслідок повного провалу прототипу.\nКома після `failed every stress test` та логіка: провал у всіх тестах → повне перепроектування з нуля.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 2310,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Because' reverses the logic: 'prototype failed because they redesigned' — incorrect causal order.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2313,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Because' odwraca logikę: 'prototyp nie przeszedł testów, bo przeprojektowali' — błędna kolejność przyczynowo-skutkowa.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2317,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«because» перевертало б логіку: «прототип провалився, ТОМУ ЩО перепроектували» — хибний причинно-наслідковий порядок.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2318,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "because",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«because» перевертало б логіку: «прототип провалився, ТОМУ ЩО перепроектували» — хибний причинно-наслідковий порядок.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2311,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Or' introduces an alternative, but there is a direct engineering consequence of the failure — no choice.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2314,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Or' wprowadza alternatywę, ale tu jest bezpośredni skutek niepowodzenia — bez wyboru.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2319,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок невдачі, а не вибір між двома варіантами.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2320,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«or» вводить альтернативу, але тут є прямий наслідок невдачі, а не вибір між двома варіантами.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2309,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct: 'so' shows the engineering consequence — the prototype failed all tests, so the team redesigned the chassis from scratch.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2312,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie: 'so' pokazuje inżynierski skutek — prototyp nie przeszedł żadnego testu, więc zespół przeprojektował podwozie od podstaw.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2315,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "Правильно: «so» показує прямий технологічний наслідок — прототип провалив усі тести, тому команда повністю перепроектувала шасі.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        },
-        {
-            "id": 2316,
-            "question": "The initial prototype failed every stress test, {a86} the engineering team redesigned the chassis from scratch.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "Правильно: «so» показує прямий технологічний наслідок — прототип провалив усі тести, тому команда повністю перепроектувала шасі.",
-            "created_at": "2026-05-18T13:17:25.000000Z",
-            "updated_at": "2026-05-18T13:17:25.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 172,
+        "id": 370,
         "uuid": "64-not-only-d10-she-pass-the-exam-bu",
         "question": "Not only {d10} she pass the exam, but she also got the highest score.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:06.000000Z",
-        "updated_at": "2026-05-18T13:17:11.000000Z"
+        "created_at": "2026-05-26T14:31:23.000000Z",
+        "updated_at": "2026-05-26T14:31:23.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 172,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 30,
-                "name": "Affirmative sentence structure",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 172,
-                "tag_id": 30,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 65,
-                "name": "Subject-auxiliary inversion",
-                "category": "mechanism",
-                "created_at": "2026-05-18T13:17:04.000000Z",
-                "updated_at": "2026-05-18T13:17:04.000000Z"
-            },
-            "pivot": {
-                "question_id": 172,
-                "tag_id": 65,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 23,
-                "option": "does",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 172,
-                "option_id": 23,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 38,
-                "option": "did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 172,
-                "option_id": 38,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 50,
-                "option": "has",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 172,
-                "option_id": 50,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 172,
-                "question_id": 172,
-                "marker": "d10",
-                "option_id": 38,
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            },
-            "option": {
-                "id": 38,
-                "option": "did",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 64,
-                "question_id": 172,
-                "marker": "d10",
-                "option_id": 217,
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            },
-            "option": {
-                "id": 217,
-                "option": "inversion after negative adverb",
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 172,
-            "question_id": 172,
-            "text": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 514,
-            "question_id": 172,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This is an affirmative sentence — it states a positive fact or assertion.\nSubject-auxiliary inversion is required in this structure.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 515,
-            "question_id": 172,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To jest zdanie twierdzące — stwierdza pozytywny fakt.\nW tej strukturze wymagana jest inwersja podmiot-czasownik posiłkowy.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 516,
-            "question_id": 172,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Інверсія після `Not only`: `Not only did + S + V` — емфатична конструкція.\nВираз `Not only` на початку вимагає інверсії допоміжного дієслова; для Past Simple — `did`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 2053,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "en",
-            "explanation": "Correct: 'did' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2056,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "pl",
-            "explanation": "Poprawnie: 'did' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2059,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "Правильно: `Not only did she pass…` — інверсія Past Simple для емфатичного підсилення.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2060,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "did",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "Правильно: `Not only did she pass…` — інверсія Past Simple для емфатичного підсилення.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2054,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "does",
-            "correct_answer": "did",
-            "language": "en",
-            "explanation": "Incorrect: 'does' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2057,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "does",
-            "correct_answer": "did",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'does' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2061,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "does",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "Неправильно: `does` — Present Simple, а контекст (`passed`, `got`) вказує на минулий час.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2062,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "does",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "Неправильно: `does` — Present Simple, а контекст (`passed`, `got`) вказує на минулий час.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2055,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "has",
-            "correct_answer": "did",
-            "language": "en",
-            "explanation": "Incorrect: 'has' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2058,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "has",
-            "correct_answer": "did",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'has' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2063,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "has",
-            "correct_answer": "did",
-            "language": "ua",
-            "explanation": "Неправильно: `has she pass` — змішання часів; `Not only` з Past Simple потребує `did`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2064,
-            "question": "Not only {d10} she pass the exam, but she also got the highest score.",
-            "wrong_answer": "has",
-            "correct_answer": "did",
-            "language": "uk",
-            "explanation": "Неправильно: `has she pass` — змішання часів; `Not only` з Past Simple потребує `did`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

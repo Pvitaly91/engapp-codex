@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 55,
+        "id": 253,
         "uuid": "st-cp-sn-b2-q01",
         "question": "She's a teacher, {a1}?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 55,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Tag question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 55,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 63,
-                "option": "isn't she",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 55,
-                "option_id": 63,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 64,
-                "option": "is she",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 55,
-                "option_id": 64,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 65,
-                "option": "doesn't she",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 55,
-                "option_id": 65,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 55,
-                "question_id": 55,
-                "marker": "a1",
-                "option_id": 63,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 63,
-                "option": "isn't she",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 55,
-            "question_id": 55,
-            "text": "She's a teacher, {a1}?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 164,
-            "question_id": 55,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 165,
-            "question_id": 55,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 163,
-            "question_id": 55,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "Розмовне питання-хвіст (tag question) формується так: якщо основне речення стверджувальне, хвіст — заперечний.\n«She's» = «she is»; допоміжне — «is», тому хвіст — «isn't she».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 657,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "doesn't she",
-            "correct_answer": "isn't she",
-            "language": "en",
-            "explanation": "Incorrect. «doesn't she» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 660,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "doesn't she",
-            "correct_answer": "isn't she",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «doesn't she» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 653,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "doesn't she",
-            "correct_answer": "isn't she",
-            "language": "ua",
-            "explanation": "«Doesn't she» вживалося б, якби основне присудкове дієслово було смисловим (she teaches...); тут — «to be».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 654,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "doesn't she",
-            "correct_answer": "isn't she",
-            "language": "uk",
-            "explanation": "«Doesn't she» вживалося б, якби основне присудкове дієслово було смисловим (she teaches...); тут — «to be».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 656,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "is she",
-            "correct_answer": "isn't she",
-            "language": "en",
-            "explanation": "Incorrect. «is she» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 659,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "is she",
-            "correct_answer": "isn't she",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «is she» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 651,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "is she",
-            "correct_answer": "isn't she",
-            "language": "ua",
-            "explanation": "«Is she» — хвіст був би стверджувальним, але для ствердження потрібен заперечний хвіст.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 652,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "is she",
-            "correct_answer": "isn't she",
-            "language": "uk",
-            "explanation": "«Is she» — хвіст був би стверджувальним, але для ствердження потрібен заперечний хвіст.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 655,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "isn't she",
-            "correct_answer": "isn't she",
-            "language": "en",
-            "explanation": "Correct. «isn't she» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 658,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "isn't she",
-            "correct_answer": "isn't she",
-            "language": "pl",
-            "explanation": "Poprawnie. «isn't she» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 649,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "isn't she",
-            "correct_answer": "isn't she",
-            "language": "ua",
-            "explanation": "«Isn't she» — правильний хвіст: основне речення стверджувальне → хвіст заперечний, використовуючи допоміжне «is» з підметом «she».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 650,
-            "question": "She's a teacher, {a1}?",
-            "wrong_answer": "isn't she",
-            "correct_answer": "isn't she",
-            "language": "uk",
-            "explanation": "«Isn't she» — правильний хвіст: основне речення стверджувальне → хвіст заперечний, використовуючи допоміжне «is» з підметом «she».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

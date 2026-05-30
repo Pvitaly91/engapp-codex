@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 62,
+        "id": 260,
         "uuid": "st-cp-sn-b2-q08",
         "question": "I wonder what time {a1}.",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 62,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 53,
-                "name": "Word order in indirect questions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 62,
-                "tag_id": 53,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 82,
-                "option": "the show starts",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 62,
-                "option_id": 82,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 83,
-                "option": "does the show start",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 62,
-                "option_id": 83,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 84,
-                "option": "the show does start",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 62,
-                "option_id": 84,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 62,
-                "question_id": 62,
-                "marker": "a1",
-                "option_id": 82,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 82,
-                "option": "the show starts",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 62,
-            "question_id": 62,
-            "text": "I wonder what time {a1}.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 185,
-            "question_id": 62,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Indirect (embedded) questions use **statement word order** (subject + verb), not question inversion.\nAfter **tell me / know / wonder / ask**, the clause uses normal sentence order: **subject + verb**, not inverted question order.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 186,
-            "question_id": 62,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "W pytaniach pośrednich po słowie pytającym obowiązuje szyk twierdzący: **podmiot + orzeczenie** (bez inwersji).\nPo **tell me / know / wonder / ask** szyk jest twierdzący: **podmiot + orzeczenie**, bez inwersji.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 184,
-            "question_id": 62,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«I wonder what time» вводить непряме питання: після нього порядок слів — стверджувальний (підмет + дієслово).\n«The show starts» — підмет + дієслово Present Simple; ніякої інверсії у непрямому питанні.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 740,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "does the show start",
-            "correct_answer": "the show starts",
-            "language": "en",
-            "explanation": "Incorrect. «does the show start» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 743,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "does the show start",
-            "correct_answer": "the show starts",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «does the show start» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 735,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "does the show start",
-            "correct_answer": "the show starts",
-            "language": "ua",
-            "explanation": "«Does the show start» — порядок прямого питання; після «I wonder» інверсія неприпустима.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 736,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "does the show start",
-            "correct_answer": "the show starts",
-            "language": "uk",
-            "explanation": "«Does the show start» — порядок прямого питання; після «I wonder» інверсія неприпустима.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 741,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show does start",
-            "correct_answer": "the show starts",
-            "language": "en",
-            "explanation": "Incorrect. «the show does start» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 744,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show does start",
-            "correct_answer": "the show starts",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «the show does start» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 737,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show does start",
-            "correct_answer": "the show starts",
-            "language": "ua",
-            "explanation": "«The show does start» помилкова: «does» зайвий в непрямому питанні без особливого наголосу.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 738,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show does start",
-            "correct_answer": "the show starts",
-            "language": "uk",
-            "explanation": "«The show does start» помилкова: «does» зайвий в непрямому питанні без особливого наголосу.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 739,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show starts",
-            "correct_answer": "the show starts",
-            "language": "en",
-            "explanation": "Correct. «the show starts» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 742,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show starts",
-            "correct_answer": "the show starts",
-            "language": "pl",
-            "explanation": "Poprawnie. «the show starts» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 733,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show starts",
-            "correct_answer": "the show starts",
-            "language": "ua",
-            "explanation": "«The show starts» — правильно: у непрямому питанні зберігається стверджувальний порядок.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 734,
-            "question": "I wonder what time {a1}.",
-            "wrong_answer": "the show starts",
-            "correct_answer": "the show starts",
-            "language": "uk",
-            "explanation": "«The show starts» — правильно: у непрямому питанні зберігається стверджувальний порядок.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

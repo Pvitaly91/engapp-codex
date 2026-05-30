@@ -1,310 +1,33 @@
 {
     "question": {
-        "id": 131,
+        "id": 905,
         "uuid": "23-the-shop-was-closed-a23-we-went-h",
         "question": "The shop was closed, {a23} we went home.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 8,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:23.000000Z",
-        "updated_at": "2026-05-18T13:17:28.000000Z"
+        "created_at": "2026-05-26T14:31:46.000000Z",
+        "updated_at": "2026-05-26T14:31:46.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 8,
         "name": "Conjunctions — and, but, or, because, so",
-        "created_at": "2026-05-18T13:17:20.000000Z",
-        "updated_at": "2026-05-18T13:17:20.000000Z"
+        "created_at": "2026-05-26T14:31:41.000000Z",
+        "updated_at": "2026-05-26T14:31:41.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 3,
-                "name": "Coordinating conjunctions",
-                "category": null,
-                "created_at": "2026-05-18T13:17:17.000000Z",
-                "updated_at": "2026-05-18T13:17:17.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "tag_id": 3,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 44,
-                "name": "Conjunction 'so' — result",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "tag_id": 44,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Cause-result conjunctions",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 2,
-                "option": "but",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "option_id": 2,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 3,
-                "option": "or",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "option_id": 3,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            },
-            "pivot": {
-                "question_id": 131,
-                "option_id": 5,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 131,
-                "question_id": 131,
-                "marker": "a23",
-                "option_id": 5,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 5,
-                "option": "so",
-                "created_at": "2026-05-18T13:17:20.000000Z",
-                "updated_at": "2026-05-18T13:17:20.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 23,
-                "question_id": 131,
-                "marker": "a23",
-                "option_id": 6,
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            },
-            "option": {
-                "id": 6,
-                "option": "conjunction",
-                "created_at": "2026-05-18T13:17:23.000000Z",
-                "updated_at": "2026-05-18T13:17:23.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 131,
-            "question_id": 131,
-            "text": "The shop was closed, {a23} we went home.",
-            "created_at": "2026-05-18T13:17:23.000000Z",
-            "updated_at": "2026-05-18T13:17:23.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 391,
-            "question_id": 131,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "'So' introduces the consequence of a situation described before the comma.\nA comma after `The shop was closed` and the logic: closed shop → went home. Which conjunction introduces this logical consequence?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 392,
-            "question_id": 131,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "'So' wprowadza skutek sytuacji opisanej przed przecinkiem.\nPrzecinek po `The shop was closed` i logika: zamknięty sklep → powrót do domu. Który spójnik wprowadza ten logiczny skutek?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 393,
-            "question_id": 131,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Сполучник so вводить наслідок ситуації, описаної перед комою.\nКома після `The shop was closed` та логіка: зачинений магазин → пішли додому. Яке слово вводить цей логічний наслідок?",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 1555,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'But' would imply contrast: 'the shop was closed BUT went home' — illogical for a causal description.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1558,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'But' sugerowałoby kontrast: 'sklep był zamknięty, ALE wrócili do domu' — nielogiczne.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1563,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«but» означало б протиставлення: «магазин зачинено, АЛЕ пішли додому» — нелогічно для причинно-наслідкового опису.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1564,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "but",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«but» означало б протиставлення: «магазин зачинено, АЛЕ пішли додому» — нелогічно для причинно-наслідкового опису.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1554,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "'Or' would offer a choice, but here there is a direct consequence of the situation, not an alternative.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1557,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "'Or' oferowałoby wybór, ale tu jest bezpośredni skutek sytuacji, a nie alternatywa.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1561,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "«or» пропонує вибір між двома діями, але тут є прямий наслідок ситуації, а не альтернатива.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1562,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "or",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "«or» пропонує вибір між двома діями, але тут є прямий наслідок ситуації, а не альтернатива.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1553,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "en",
-            "explanation": "Correct: 'so' shows the consequence — the shop was closed, so they went home.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1556,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "pl",
-            "explanation": "Poprawnie: 'so' pokazuje skutek — sklep był zamknięty, więc wrócili do domu.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1559,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "ua",
-            "explanation": "Правильно: «so» показує наслідок — магазин зачинено, тому пішли додому.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        },
-        {
-            "id": 1560,
-            "question": "The shop was closed, {a23} we went home.",
-            "wrong_answer": "so",
-            "correct_answer": "so",
-            "language": "uk",
-            "explanation": "Правильно: «so» показує наслідок — магазин зачинено, тому пішли додому.",
-            "created_at": "2026-05-18T13:17:24.000000Z",
-            "updated_at": "2026-05-18T13:17:24.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

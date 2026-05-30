@@ -1,295 +1,33 @@
 {
     "question": {
-        "id": 197,
+        "id": 395,
         "uuid": "89-you-submitted-the-report-on-time-",
         "question": "You submitted the report on time, {e17} you?",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 2,
-        "created_at": "2026-05-18T13:17:06.000000Z",
-        "updated_at": "2026-05-18T13:17:11.000000Z"
+        "created_at": "2026-05-26T14:31:23.000000Z",
+        "updated_at": "2026-05-26T14:31:23.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 2,
-                "name": "Sentence types",
-                "category": null,
-                "created_at": "2026-05-18T13:16:58.000000Z",
-                "updated_at": "2026-05-18T13:16:58.000000Z"
-            },
-            "pivot": {
-                "question_id": 197,
-                "tag_id": 2,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Tag question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 197,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 4,
-                "option": "don't",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 197,
-                "option_id": 4,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 197,
-                "option_id": 34,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 45,
-                "option": "haven't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 197,
-                "option_id": 45,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 197,
-                "question_id": 197,
-                "marker": "e17",
-                "option_id": 34,
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            },
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
-    "verb_hints": [
-        {
-            "verb_hint": {
-                "id": 89,
-                "question_id": 197,
-                "marker": "e17",
-                "option_id": 192,
-                "created_at": "2026-05-18T13:17:06.000000Z",
-                "updated_at": "2026-05-18T13:17:06.000000Z"
-            },
-            "option": {
-                "id": 192,
-                "option": "negative tag",
-                "created_at": "2026-05-18T13:17:05.000000Z",
-                "updated_at": "2026-05-18T13:17:05.000000Z"
-            }
-        }
-    ],
-    "variants": [
-        {
-            "id": 197,
-            "question_id": 197,
-            "text": "You submitted the report on time, {e17} you?",
-            "created_at": "2026-05-18T13:17:06.000000Z",
-            "updated_at": "2026-05-18T13:17:06.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 589,
-            "question_id": 197,
-            "provider": "copilot-opus46",
-            "locale": "en",
-            "hint": "This sentence uses a tag question — after an affirmative clause, the tag is negative, and vice versa.\nLook at the sentence context and the verb hint 'negative tag' to choose the correct form.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 590,
-            "question_id": 197,
-            "provider": "copilot-opus46",
-            "locale": "pl",
-            "hint": "To zdanie zawiera question tag — po zdaniu twierdzącym tag jest przeczący i odwrotnie.\nPrzeanalizuj kontekst zdania i wskazówkę 'negative tag', aby wybrać właściwą formę.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 591,
-            "question_id": 197,
-            "provider": "copilot-opus46",
-            "locale": "uk",
-            "hint": "Tag question: після стверджувального речення Past Simple тег — заперечний з `didn't`.\n`You submitted` — Past Simple; заперечний тег — `didn't you?`.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 2353,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Correct: 'didn't' is the right choice for this sentence type and grammatical context.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2356,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Poprawnie: 'didn't' jest właściwym wyborem dla tego typu zdania i kontekstu gramatycznego.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2359,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "Правильно: `didn't you?` — заперечний тег після стверджувального речення Past Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2360,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "didn't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "Правильно: `didn't you?` — заперечний тег після стверджувального речення Past Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2354,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect: 'don't' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2357,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'don't' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2361,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "Неправильно: `don't you?` — тег Present Simple, а основне речення в Past Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2362,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "don't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "Неправильно: `don't you?` — тег Present Simple, а основне речення в Past Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2355,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "haven't",
-            "correct_answer": "didn't",
-            "language": "en",
-            "explanation": "Incorrect: 'haven't' does not fit the required grammatical structure of this sentence.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2358,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "haven't",
-            "correct_answer": "didn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie: 'haven't' nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2363,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "haven't",
-            "correct_answer": "didn't",
-            "language": "ua",
-            "explanation": "Неправильно: `haven't you?` — тег Present Perfect, а дієслово `submitted` тут Past Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        },
-        {
-            "id": 2364,
-            "question": "You submitted the report on time, {e17} you?",
-            "wrong_answer": "haven't",
-            "correct_answer": "didn't",
-            "language": "uk",
-            "explanation": "Неправильно: `haven't you?` — тег Present Perfect, а дієслово `submitted` тут Past Simple.",
-            "created_at": "2026-05-18T13:17:07.000000Z",
-            "updated_at": "2026-05-18T13:17:07.000000Z"
-        }
-    ]
+    "tags": [],
+    "options": [],
+    "answers": [],
+    "verb_hints": [],
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

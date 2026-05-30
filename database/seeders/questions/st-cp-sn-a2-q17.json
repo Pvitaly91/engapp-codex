@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 35,
+        "id": 233,
         "uuid": "st-cp-sn-a2-q17",
         "question": "We {a1} see anything from the back row.",
         "difficulty": 2,
         "level": "A2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 35,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 35,
-                "name": "Negation with modal verbs",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 35,
-                "tag_id": 35,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 34,
-                "option": "didn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 35,
-                "option_id": 34,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 42,
-                "option": "can't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 35,
-                "option_id": 42,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 44,
-                "option": "couldn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 35,
-                "option_id": 44,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 35,
-                "question_id": 35,
-                "marker": "a1",
-                "option_id": 44,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 44,
-                "option": "couldn't",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 35,
-            "question_id": 35,
-            "text": "We {a1} see anything from the back row.",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 104,
-            "question_id": 35,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Modal verbs form negatives by adding **not** after the modal: can't, couldn't, shouldn't, mustn't.\nThe modal verb expresses ability, permission, or obligation — choose the correct negative form.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 105,
-            "question_id": 35,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Czasowniki modalne tworzą przeczenia przez dodanie **not**: can't, couldn't, shouldn't, mustn't.\nCzasownik modalny wyraża zdolność, pozwolenie lub obowiązek — wybierz odpowiednią formę przeczącą.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 103,
-            "question_id": 35,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«Couldn't» — заперечна форма «could», що означає нездатність у минулому.\nОповідь у минулому часі («from the back row» — ситуація, що вже відбулась) підказує «couldn't».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 416,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "can't",
-            "correct_answer": "couldn't",
-            "language": "en",
-            "explanation": "Incorrect. «can't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 419,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "can't",
-            "correct_answer": "couldn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «can't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 411,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "can't",
-            "correct_answer": "couldn't",
-            "language": "ua",
-            "explanation": "«Can't» виражає нездатність у теперішньому часі; тут мова йде про минулу ситуацію.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 412,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "can't",
-            "correct_answer": "couldn't",
-            "language": "uk",
-            "explanation": "«Can't» виражає нездатність у теперішньому часі; тут мова йде про минулу ситуацію.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 415,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "couldn't",
-            "correct_answer": "couldn't",
-            "language": "en",
-            "explanation": "Correct. «couldn't» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 418,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "couldn't",
-            "correct_answer": "couldn't",
-            "language": "pl",
-            "explanation": "Poprawnie. «couldn't» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 409,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "couldn't",
-            "correct_answer": "couldn't",
-            "language": "ua",
-            "explanation": "«Couldn't» — правильна форма: нездатність бачити у конкретній минулій ситуації.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 410,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "couldn't",
-            "correct_answer": "couldn't",
-            "language": "uk",
-            "explanation": "«Couldn't» — правильна форма: нездатність бачити у конкретній минулій ситуації.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 417,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "didn't",
-            "correct_answer": "couldn't",
-            "language": "en",
-            "explanation": "Incorrect. «didn't» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 420,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "didn't",
-            "correct_answer": "couldn't",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «didn't» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 413,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "didn't",
-            "correct_answer": "couldn't",
-            "language": "ua",
-            "explanation": "«Didn't see» також можливо граматично, але «couldn't see» точніше передає значення нездатності (неможливості), а не просто факту.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 414,
-            "question": "We {a1} see anything from the back row.",
-            "wrong_answer": "didn't",
-            "correct_answer": "couldn't",
-            "language": "uk",
-            "explanation": "«Didn't see» також можливо граматично, але «couldn't see» точніше передає значення нездатності (неможливості), а не просто факту.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

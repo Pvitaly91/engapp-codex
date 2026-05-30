@@ -1,278 +1,33 @@
 {
     "question": {
-        "id": 72,
+        "id": 270,
         "uuid": "st-cp-sn-b2-q18",
         "question": "Nothing went wrong, {a1}?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 2,
+        "source_id": 3,
         "flag": 0,
-        "created_at": "2026-05-18T13:17:02.000000Z",
-        "updated_at": "2026-05-18T13:17:09.000000Z"
+        "created_at": "2026-05-26T14:31:19.000000Z",
+        "updated_at": "2026-05-26T14:31:19.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 2,
         "name": "Базова граматика",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:11.000000Z",
+        "updated_at": "2026-05-26T14:31:11.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 3,
         "name": "Sentence Types — Види речень",
-        "created_at": "2026-05-18T13:17:01.000000Z",
-        "updated_at": "2026-05-18T13:17:01.000000Z"
+        "created_at": "2026-05-26T14:31:18.000000Z",
+        "updated_at": "2026-05-26T14:31:18.000000Z"
     },
-    "tags": [
-        {
-            "tag": {
-                "id": 29,
-                "name": "Sentence type structure",
-                "category": "topic",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 72,
-                "tag_id": 29,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 47,
-                "name": "Tag question formation",
-                "category": "pattern",
-                "created_at": "2026-05-18T13:17:01.000000Z",
-                "updated_at": "2026-05-18T13:17:01.000000Z"
-            },
-            "pivot": {
-                "question_id": 72,
-                "tag_id": 47,
-                "created_at": null,
-                "updated_at": null
-            }
-        }
-    ],
-    "options": [
-        {
-            "option": {
-                "id": 106,
-                "option": "did it",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 72,
-                "option_id": 106,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 107,
-                "option": "didn't it",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 72,
-                "option_id": 107,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 108,
-                "option": "was it",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "pivot": {
-                "question_id": 72,
-                "option_id": 108,
-                "flag": null
-            }
-        }
-    ],
-    "answers": [
-        {
-            "answer": {
-                "id": 72,
-                "question_id": 72,
-                "marker": "a1",
-                "option_id": 106,
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            },
-            "option": {
-                "id": 106,
-                "option": "did it",
-                "created_at": "2026-05-18T13:17:02.000000Z",
-                "updated_at": "2026-05-18T13:17:02.000000Z"
-            }
-        }
-    ],
+    "tags": [],
+    "options": [],
+    "answers": [],
     "verb_hints": [],
-    "variants": [
-        {
-            "id": 72,
-            "question_id": 72,
-            "text": "Nothing went wrong, {a1}?",
-            "created_at": "2026-05-18T13:17:02.000000Z",
-            "updated_at": "2026-05-18T13:17:02.000000Z"
-        }
-    ],
-    "hints": [
-        {
-            "id": 215,
-            "question_id": 72,
-            "provider": "copilot-sonate",
-            "locale": "en",
-            "hint": "Tag questions: affirmative sentence → negative tag; negative sentence → affirmative tag. The auxiliary in the tag matches the main clause.\nUse the same auxiliary as in the main clause, but switch positive↔negative and use the appropriate pronoun.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 216,
-            "question_id": 72,
-            "provider": "copilot-sonate",
-            "locale": "pl",
-            "hint": "Pytania rozłączne (tag questions): zdanie twierdzące → zaprz. ogon; zdanie przeczące → twierdzący ogon.\nUżyj tego samego operatora co w zdaniu głównym, zamień twierdzący↔przeczący i dobierz właściwy zaimek.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 214,
-            "question_id": 72,
-            "provider": "copilot-sonate",
-            "locale": "uk",
-            "hint": "«Nothing» — заперечний займенник; хвіст до нього — стверджувальний, займенник замінюється на «it».\n«Went» — Past Simple смислового дієслова → стверджувальний хвіст «did it».",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ],
-    "chatgpt_explanations": [
-        {
-            "id": 859,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "did it",
-            "correct_answer": "did it",
-            "language": "en",
-            "explanation": "Correct. «did it» is the right form here based on the grammar rule for this sentence type.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 862,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "did it",
-            "correct_answer": "did it",
-            "language": "pl",
-            "explanation": "Poprawnie. «did it» jest właściwą formą zgodnie z regułą gramatyczną tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 853,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "did it",
-            "correct_answer": "did it",
-            "language": "ua",
-            "explanation": "«Did it» — правильно: «nothing» = заперечний → стверджувальний хвіст «did it» (Past Simple).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 854,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "did it",
-            "correct_answer": "did it",
-            "language": "uk",
-            "explanation": "«Did it» — правильно: «nothing» = заперечний → стверджувальний хвіст «did it» (Past Simple).",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 860,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "didn't it",
-            "correct_answer": "did it",
-            "language": "en",
-            "explanation": "Incorrect. «didn't it» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 863,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "didn't it",
-            "correct_answer": "did it",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «didn't it» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 855,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "didn't it",
-            "correct_answer": "did it",
-            "language": "ua",
-            "explanation": "«Didn't it» — заперечний хвіст; але «nothing» вже надає заперечного сенсу, тому хвіст — стверджувальний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 856,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "didn't it",
-            "correct_answer": "did it",
-            "language": "uk",
-            "explanation": "«Didn't it» — заперечний хвіст; але «nothing» вже надає заперечного сенсу, тому хвіст — стверджувальний.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 861,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "was it",
-            "correct_answer": "did it",
-            "language": "en",
-            "explanation": "Incorrect. «was it» does not fit the grammatical structure required in this sentence.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 864,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "was it",
-            "correct_answer": "did it",
-            "language": "pl",
-            "explanation": "Niepoprawnie. «was it» nie pasuje do wymaganej struktury gramatycznej tego zdania.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 857,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "was it",
-            "correct_answer": "did it",
-            "language": "ua",
-            "explanation": "«Was it» вживалося б для «to be»; «went» — смислове дієслово Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        },
-        {
-            "id": 858,
-            "question": "Nothing went wrong, {a1}?",
-            "wrong_answer": "was it",
-            "correct_answer": "did it",
-            "language": "uk",
-            "explanation": "«Was it» вживалося б для «to be»; «went» — смислове дієслово Past Simple.",
-            "created_at": "2026-05-18T13:17:03.000000Z",
-            "updated_at": "2026-05-18T13:17:03.000000Z"
-        }
-    ]
+    "variants": [],
+    "hints": [],
+    "chatgpt_explanations": []
 }

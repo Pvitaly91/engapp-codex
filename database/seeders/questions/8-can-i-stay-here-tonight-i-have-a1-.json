@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 336,
+        "uuid": "8-can-i-stay-here-tonight-i-have-a1-",
+        "question": "Can I stay here tonight? I have {a1} to go.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 3,
+        "source_id": 6,
+        "flag": 2,
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:23.000000Z"
+    },
+    "category": {
+        "id": 3,
+        "name": "Pronouns",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "source": {
+        "id": 6,
+        "name": "Custom: Indefinite Pronouns Practice V2 (Page 1)",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Indefinite Pronoun Compounds",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 336,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 4,
+                "name": "Indefinite Pronouns Practice",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 336,
+                "tag_id": 4,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 5,
+                "name": "Something / Anything / Nothing Exercises",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 336,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 116,
+                "option": "anywhere",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 336,
+                "option_id": 116,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 117,
+                "option": "somewhere",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 336,
+                "option_id": 117,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 118,
+                "option": "nowhere",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 336,
+                "option_id": 118,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 338,
+                "question_id": 336,
+                "marker": "a1",
+                "option_id": 118,
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "option": {
+                "id": 118,
+                "option": "nowhere",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 336,
+            "question_id": 336,
+            "text": "Can I stay here tonight? I have {a1} to go.",
+            "created_at": "2026-05-26T11:13:04.000000Z",
+            "updated_at": "2026-05-26T11:13:04.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 23,
+            "question_id": 336,
+            "provider": "chatgpt",
+            "locale": "en",
+            "hint": "When there is no place, we say **nowhere**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 24,
+            "question_id": 336,
+            "provider": "chatgpt",
+            "locale": "pl",
+            "hint": "Kiedy nie ma żadnego miejsca, mówimy **nigdzie**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 22,
+            "question_id": 336,
+            "provider": "chatgpt",
+            "locale": "uk",
+            "hint": "Коли немає жодного місця, кажемо **nowhere**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 104,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "anywhere",
+            "correct_answer": "nowhere",
+            "language": "en",
+            "explanation": "❌ *Anywhere* means \"anywhere\", but the hero has nowhere to go.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 107,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "anywhere",
+            "correct_answer": "nowhere",
+            "language": "pl",
+            "explanation": "❌ *Gdziekolwiek* oznacza „gdziekolwiek”, ale bohater nie ma dokąd iść.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 99,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "anywhere",
+            "correct_answer": "nowhere",
+            "language": "ua",
+            "explanation": "❌ *Anywhere* означає «де завгодно», але герою нема куди йти.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 100,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "anywhere",
+            "correct_answer": "nowhere",
+            "language": "uk",
+            "explanation": "❌ *Anywhere* означає «де завгодно», але герою нема куди йти.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 105,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "nowhere",
+            "correct_answer": "nowhere",
+            "language": "en",
+            "explanation": "✅ **Nowhere** clearly conveys the complete absence of a place.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 108,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "nowhere",
+            "correct_answer": "nowhere",
+            "language": "pl",
+            "explanation": "✅ **Nigdzie** wyraźnie przekazuje całkowity brak miejsca.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 101,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "nowhere",
+            "correct_answer": "nowhere",
+            "language": "ua",
+            "explanation": "✅ **Nowhere** чітко передає повну відсутність місця.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 102,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "nowhere",
+            "correct_answer": "nowhere",
+            "language": "uk",
+            "explanation": "✅ **Nowhere** чітко передає повну відсутність місця.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 103,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "somewhere",
+            "correct_answer": "nowhere",
+            "language": "en",
+            "explanation": "❌ *Somewhere* means that a place exists, but is unknown.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 106,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "somewhere",
+            "correct_answer": "nowhere",
+            "language": "pl",
+            "explanation": "❌ *Gdzieś* oznacza, że miejsce istnieje, ale jest nieznane.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 97,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "somewhere",
+            "correct_answer": "nowhere",
+            "language": "ua",
+            "explanation": "❌ *Somewhere* означає, що місце є, але невідоме.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 98,
+            "question": "Can I stay here tonight? I have {a1} to go.",
+            "wrong_answer": "somewhere",
+            "correct_answer": "nowhere",
+            "language": "uk",
+            "explanation": "❌ *Somewhere* означає, що місце є, але невідоме.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ]
+}
