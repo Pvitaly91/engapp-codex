@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\SentenceStructureBudovaRecenniaSvoV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "copilot-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "In SVO order, the verb always comes between the subject and the object.",
+        "The subject is `The cat` — the verb must follow it immediately, before `milk`."
+      ],
+      "explanations": {
+        "a1": {
+          "drinks": "Correct: 'drinks' is the verb placed between the subject 'The cat' and the object 'milk', following S-V-O order.",
+          "milk drinks": "Incorrect: the object 'milk' cannot precede the verb in a standard English declarative sentence.",
+          "drinks the cat": "Incorrect: this reverses the subject-verb relationship, violating SVO word order."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "The subject (S) is whoever performs the action. In SVO, it always comes first.",
+        "The verb is `reads` and the object is `a book`. Who performs the reading action?"
+      ],
+      "explanations": {
+        "a2": {
+          "She": "Correct: 'She' is the subject performing the action 'reads'. SVO order: She reads a book.",
+          "A book": "Incorrect: 'A book' is the object — it receives the action, not performs it.",
+          "Reads": "Incorrect: 'Reads' is the verb, not the subject. A subject must be a noun or pronoun."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "The object (O) receives the action and comes after the verb in SVO.",
+        "The subject is `Tom`, the verb is `eats`. What does he eat?"
+      ],
+      "explanations": {
+        "a3": {
+          "an apple": "Correct: 'an apple' is the object after the verb 'eats', following SVO order.",
+          "Tom": "Incorrect: 'Tom' is the subject, already at the beginning of the sentence.",
+          "eats Tom": "Incorrect: placing the verb before the subject in the object position violates SVO."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "The verb comes right after the subject in a declarative SVO sentence.",
+        "The subject is `I`. Which word describes the action performed daily?"
+      ],
+      "explanations": {
+        "a4": {
+          "study": "Correct: 'study' is the verb after the subject 'I', before the object 'English'. SVO maintained.",
+          "English study": "Incorrect: the object 'English' cannot precede the verb in a declarative sentence.",
+          "every day study": "Incorrect: the time adverbial cannot separate the subject from the verb in this position."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "The subject performs the action and comes before the verb in SVO order.",
+        "The verb is `likes`, the object is `chocolate`. Who likes chocolate?"
+      ],
+      "explanations": {
+        "a5": {
+          "My sister": "Correct: 'My sister' is the subject performing 'likes'. SVO order maintained.",
+          "Chocolate": "Incorrect: 'Chocolate' is the object, not the subject.",
+          "Likes": "Incorrect: 'Likes' is the verb, not the subject."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "The object answers 'what?' and comes after the verb.",
+        "Subject: `We`, verb: `play`. What do we play?"
+      ],
+      "explanations": {
+        "a6": {
+          "football": "Correct: 'football' is the object after 'play'. SVO order maintained.",
+          "we": "Incorrect: 'we' is the subject, not the object.",
+          "play we": "Incorrect: repeating the verb with the subject in object position is ungrammatical."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "In SVO, the verb sits between the subject and the object.",
+        "Subject: `The dog`, object: `the ball`. What action connects them?"
+      ],
+      "explanations": {
+        "a7": {
+          "chases": "Correct: 'chases' is the verb between 'The dog' (S) and 'the ball' (O).",
+          "the ball chases": "Incorrect: the object cannot precede the verb in a declarative sentence.",
+          "the dog the ball": "Incorrect: without a verb, the sentence has no predicate."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "SVO order: subject → verb → object. Time adverbials usually go at the end.",
+        "Subject: `My mother`, object: `dinner`. What verb describes the cooking action?"
+      ],
+      "explanations": {
+        "a8": {
+          "cooks": "Correct: 'cooks' follows the subject and precedes the object. SVO maintained.",
+          "dinner cooks": "Incorrect: the object cannot come before the verb.",
+          "every evening cooks": "Incorrect: the time adverbial cannot separate subject from verb in this way."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "The subject comes first and answers 'who?' or 'what?'",
+        "The verb is `opens`, the object is `the door`. Who opens the door?"
+      ],
+      "explanations": {
+        "a9": {
+          "The teacher": "Correct: 'The teacher' is the subject performing 'opens'. SVO order.",
+          "The door": "Incorrect: 'The door' is the object.",
+          "Opens": "Incorrect: 'Opens' is the verb, not the subject."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "The object follows the verb and answers 'what?'.",
+        "Subject: `They`, verb: `watch`. What do they watch?"
+      ],
+      "explanations": {
+        "a10": {
+          "cartoons": "Correct: 'cartoons' is the object after 'watch'.",
+          "they": "Incorrect: 'they' is the subject.",
+          "watch they": "Incorrect: verb + subject in object position is ungrammatical."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "The verb immediately follows the subject in SVO.",
+        "Subject: `He`, object: `water`. What action word fills the gap?"
+      ],
+      "explanations": {
+        "a11": {
+          "drinks": "Correct: 'drinks' follows the subject 'He' and precedes 'water'. SVO maintained.",
+          "water drinks": "Incorrect: the object cannot precede the verb.",
+          "in the morning drinks": "Incorrect: the time phrase cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "The subject is the noun or pronoun before the verb.",
+        "Verb: `writes`, object: `letters`. Who writes letters?"
+      ],
+      "explanations": {
+        "a12": {
+          "Anna": "Correct: 'Anna' is the subject. SVO: Anna writes letters.",
+          "Letters": "Incorrect: 'Letters' is the object.",
+          "Writes": "Incorrect: 'Writes' is the verb."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "The object names what receives the action, after the verb.",
+        "Subject: `The children`, verb: `eat`. What do they eat?"
+      ],
+      "explanations": {
+        "a13": {
+          "sandwiches": "Correct: 'sandwiches' is the object after 'eat'.",
+          "the children": "Incorrect: 'the children' is the subject.",
+          "eat children": "Incorrect: verb + subject as object is ungrammatical."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "The verb follows the subject directly. The prepositional object `to music` comes after.",
+        "Subject: `She`. Which word names the listening action?"
+      ],
+      "explanations": {
+        "a14": {
+          "listens": "Correct: 'listens' follows 'She'. SVO with prepositional object: She listens to music.",
+          "music listens": "Incorrect: the object cannot precede the verb.",
+          "at home listens": "Incorrect: place adverbial cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "The subject performs the action and comes before the verb.",
+        "Verb: `has`, object: `a red car`. Who has the car?"
+      ],
+      "explanations": {
+        "a15": {
+          "My father": "Correct: 'My father' is the subject performing 'has'.",
+          "A red car": "Incorrect: 'A red car' is the object.",
+          "Has": "Incorrect: 'Has' is the verb."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "The object answers 'what?' and follows the verb.",
+        "Subject: `I`, verb: `see`. What do I see?"
+      ],
+      "explanations": {
+        "a16": {
+          "a bird": "Correct: 'a bird' is the object after 'see'.",
+          "I": "Incorrect: 'I' is the subject.",
+          "see I": "Incorrect: verb + subject as object is ungrammatical."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "The verb immediately follows the subject regardless of what comes after.",
+        "Subject: `My friend`, object: `a bike`. What verb describes the action?"
+      ],
+      "explanations": {
+        "a17": {
+          "rides": "Correct: 'rides' follows the subject, before the object. SVO maintained.",
+          "a bike rides": "Incorrect: the object cannot precede the verb.",
+          "to school rides": "Incorrect: a place phrase cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "SVO: the verb is the bridge between subject and object.",
+        "Subject: `The baby`, object: `the toy`. What verb connects them?"
+      ],
+      "explanations": {
+        "a18": {
+          "holds": "Correct: 'holds' connects 'The baby' (S) and 'the toy' (O).",
+          "the toy holds": "Incorrect: the object cannot precede the verb.",
+          "the baby the toy": "Incorrect: without a verb, there is no predicate."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "The verb follows the subject; time adverbials go at the end.",
+        "Subject: `My parents`, object: `breakfast`. What verb fits?"
+      ],
+      "explanations": {
+        "a19": {
+          "have": "Correct: 'have' follows the subject, before the object.",
+          "breakfast have": "Incorrect: the object cannot precede the verb.",
+          "together have": "Incorrect: 'together' cannot separate subject from verb here."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "After `does not`, the main verb must be in its base (infinitive) form.",
+        "Note the negation structure: does not + base verb."
+      ],
+      "explanations": {
+        "a20": {
+          "drink": "Correct: base form 'drink' after 'does not'.",
+          "drinks": "Incorrect: the -s form is wrong after 'does not' — the auxiliary already carries the tense.",
+          "drinking": "Incorrect: -ing form is not used after 'does not'."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "The question word `What` asks about the object — 'what?'.",
+        "The question asks about the thing eaten for dinner — the object of 'eat'."
+      ],
+      "explanations": {
+        "a21": {
+          "What": "Correct: 'What' asks about the object — 'What do you eat for dinner?'.",
+          "Where": "Incorrect: 'Where' asks about place, not the object.",
+          "Who": "Incorrect: 'Who' asks about a person, not food."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "The verb comes right after the subject in a declarative sentence.",
+        "Subject: `The students`, object: `homework`. What verb?"
+      ],
+      "explanations": {
+        "a22": {
+          "do": "Correct: 'do' follows the subject, before 'homework'. SVO maintained.",
+          "homework do": "Incorrect: the object cannot precede the verb.",
+          "after classes do": "Incorrect: a time phrase cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Frequency adverbs like `always` go before the main verb in SVO.",
+        "Note: `always` is already placed — the gap needs the main verb."
+      ],
+      "explanations": {
+        "a23": {
+          "puts": "Correct: 'puts' is the main verb after 'always'. S + adverb + V + O.",
+          "always puts keys": "Incorrect: the gap needs only the verb, not repeated elements.",
+          "keys puts": "Incorrect: the object cannot precede the verb."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "After `do not`, the main verb is in base form.",
+        "Subject `We` is plural, so the auxiliary is `do not`."
+      ],
+      "explanations": {
+        "a24": {
+          "watch": "Correct: base form 'watch' after 'do not'.",
+          "watches": "Incorrect: -es form not allowed after 'do not'.",
+          "watching": "Incorrect: -ing form not used after 'do not'."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "The question word asks about the object of `teach`.",
+        "We want to know what she teaches — the direct object."
+      ],
+      "explanations": {
+        "a25": {
+          "What": "Correct: 'What' asks about the object of 'teach'.",
+          "Where": "Incorrect: 'Where' asks about place.",
+          "When": "Incorrect: 'When' asks about time."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "The indirect object (IO) goes between the verb and the direct object: S + V + IO + DO.",
+        "Verb: `gives`, DO: `a present`. To whom?"
+      ],
+      "explanations": {
+        "a26": {
+          "her friend": "Correct: 'her friend' is the IO between 'gives' and 'a present'.",
+          "Maria": "Incorrect: 'Maria' is the subject.",
+          "gives Maria": "Incorrect: repeating the verb with the subject is ungrammatical."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Frequency adverb `usually` sits between subject and main verb.",
+        "Subject: `The boys`, adverb already placed — gap needs the verb."
+      ],
+      "explanations": {
+        "a27": {
+          "play": "Correct: 'play' after 'usually'. S + adverb + V + O.",
+          "football play": "Incorrect: the object cannot precede the verb.",
+          "in the park play": "Incorrect: place phrase cannot separate adverb from verb."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "For negation with `They` (plural), the auxiliary is `do`.",
+        "'Does' is for third person singular (he/she/it)."
+      ],
+      "explanations": {
+        "a28": {
+          "do": "Correct: 'do' is the plural auxiliary. They do not like...",
+          "does": "Incorrect: 'does' is for he/she/it, not 'they'.",
+          "are": "Incorrect: 'are' is a form of 'to be', unsuitable for negation with 'like'."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "'Who' asks about the subject — who performs the action.",
+        "No auxiliary is needed in a subject question: Who + V + O?"
+      ],
+      "explanations": {
+        "a29": {
+          "Who": "Correct: 'Who' asks about the subject — 'Who plays the piano?'.",
+          "What": "Incorrect: 'What' asks about things/objects.",
+          "Which": "Incorrect: 'Which' implies a limited choice, unsuitable here."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Structure: S + adverb + V + IO + DO.",
+        "Subject: `My teacher`, adverb `often` is placed — gap needs the verb."
+      ],
+      "explanations": {
+        "a30": {
+          "tells": "Correct: 'tells' after 'often', with IO 'us' and DO 'stories'.",
+          "stories tells": "Incorrect: the object cannot precede the verb.",
+          "us stories tells": "Incorrect: both objects must follow the verb."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "The verb follows the subject directly.",
+        "Subject: `The girl`, object: `a picture`. What verb means drawing?"
+      ],
+      "explanations": {
+        "a31": {
+          "draws": "Correct: 'draws' follows the subject, before 'a picture'. SVO maintained.",
+          "a picture draws": "Incorrect: the object cannot precede the verb.",
+          "for her mother draws": "Incorrect: prepositional phrase cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "For negation with `He` (3rd person singular), use `does`.",
+        "After 'does not', the main verb is in base form: `understand`."
+      ],
+      "explanations": {
+        "a32": {
+          "does": "Correct: 'does' is the auxiliary for 'He'. He does not understand.",
+          "do": "Incorrect: 'do' is for I/you/we/they.",
+          "is": "Incorrect: 'is' is a form of 'to be', wrong for negation with 'understand'."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "IO comes between the verb and DO: S + V + IO + DO.",
+        "Verb: `send`, DO: `emails`. To whom?"
+      ],
+      "explanations": {
+        "a33": {
+          "my boss": "Correct: 'my boss' is the IO between 'send' and 'emails'.",
+          "I": "Incorrect: 'I' is the subject.",
+          "send I": "Incorrect: repeating the verb with subject is ungrammatical."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "The question word asks about the object of `study`.",
+        "We want to know what the brother studies."
+      ],
+      "explanations": {
+        "a34": {
+          "What": "Correct: 'What' asks about the object — 'What does your brother study?'.",
+          "Who": "Incorrect: 'Who' asks about a person, not a subject of study.",
+          "How": "Incorrect: 'How' asks about manner."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "Frequency adverb `never` comes before the main verb.",
+        "Subject: `The cat`, adverb `never` placed — gap needs the verb."
+      ],
+      "explanations": {
+        "a35": {
+          "scratches": "Correct: 'scratches' after 'never'. S + adverb + V + O.",
+          "the furniture scratches": "Incorrect: the object cannot precede the verb.",
+          "never the furniture": "Incorrect: adverb cannot stand next to object without a verb."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "IO comes right after `shows`, before the DO.",
+        "Verb: `shows`, DO: `her new photos`. To whom?"
+      ],
+      "explanations": {
+        "a36": {
+          "us": "Correct: 'us' is the IO after 'shows', before 'her new photos'.",
+          "she": "Incorrect: 'she' is the subject.",
+          "shows she": "Incorrect: repeating verb + subject as object is wrong."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "In past tense, SVO order is preserved: S + V(past) + O.",
+        "Subject: `The manager`, object: `the report`. Past tense verb for presenting?"
+      ],
+      "explanations": {
+        "a37": {
+          "presented": "Correct: 'presented' follows the subject before the object. SVO maintained in past tense.",
+          "the report presented": "Incorrect: the object cannot precede the verb.",
+          "to the team presented": "Incorrect: prepositional phrase cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "After `did not`, the verb must be in base form.",
+        "`did not` already marks past tense — no need for past form on the main verb."
+      ],
+      "explanations": {
+        "a38": {
+          "finish": "Correct: base form 'finish' after 'did not'.",
+          "finished": "Incorrect: past form after 'did not' is redundant.",
+          "finishing": "Incorrect: -ing form not used after 'did not'."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "The question word determines what information is being asked about.",
+        "The sentence already has subject and object — we need to ask about time."
+      ],
+      "explanations": {
+        "a39": {
+          "When": "Correct: 'When' asks about time — 'When did the students submit?'.",
+          "What": "Incorrect: the object 'their projects' is already specified.",
+          "Who": "Incorrect: the subject 'the students' is already specified."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "A compound subject with `and` takes a plural verb.",
+        "`My brother and I` = two people, requiring plural agreement."
+      ],
+      "explanations": {
+        "a40": {
+          "run": "Correct: 'run' is the plural form matching the compound subject.",
+          "runs": "Incorrect: 'runs' is singular, but the compound subject is plural.",
+          "running": "Incorrect: -ing form without an auxiliary cannot be the main verb."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "A compound object is two or more objects joined by `and`, placed after the verb.",
+        "Verb: `bought`, subject: `She`. What was bought?"
+      ],
+      "explanations": {
+        "a41": {
+          "fresh vegetables and fruit": "Correct: compound object after 'bought'.",
+          "she": "Incorrect: 'she' is the subject.",
+          "bought she yesterday": "Incorrect: mixing verb, subject, and time adverbial violates SVO."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Frequency adverb `rarely` goes between subject and main verb.",
+        "Subject: `The children`, adverb placed — gap needs the verb."
+      ],
+      "explanations": {
+        "a42": {
+          "complete": "Correct: 'complete' after 'rarely'. S + adverb + V + O.",
+          "homework complete": "Incorrect: the object cannot precede the verb.",
+          "without help complete": "Incorrect: manner phrase cannot separate adverb from verb."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "SVO order is maintained even with a time expression at the end.",
+        "Subject: `The company`, object: `new employees`. Verb between them."
+      ],
+      "explanations": {
+        "a43": {
+          "hires": "Correct: 'hires' between subject and object. SVO + time at the end.",
+          "new employees hires": "Incorrect: object cannot precede verb.",
+          "every spring hires": "Incorrect: time expression cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "With `neither...nor`, the verb agrees with the nearest subject.",
+        "Nearest subject: `the students` (plural)."
+      ],
+      "explanations": {
+        "a44": {
+          "know": "Correct: 'know' agrees with 'the students' (plural), the nearest subject after 'nor'.",
+          "knows": "Incorrect: 'knows' is singular, but the nearest subject is plural.",
+          "knowing": "Incorrect: -ing form without auxiliary cannot be the predicate."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "After `has not`, use the past participle (V3) for Present Perfect.",
+        "The word `yet` confirms Present Perfect tense."
+      ],
+      "explanations": {
+        "a45": {
+          "received": "Correct: 'received' is the past participle. Has not received = Present Perfect negative.",
+          "receive": "Incorrect: base form doesn't work after 'has not' — needs V3.",
+          "receiving": "Incorrect: -ing form not used after 'has not'."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "Manner adverb `carefully` goes before the main verb.",
+        "Subject: `The artist`, adverb placed — gap needs the verb."
+      ],
+      "explanations": {
+        "a46": {
+          "examines": "Correct: 'examines' after 'carefully'. S + adverb + V + O.",
+          "every detail examines": "Incorrect: the object cannot precede the verb.",
+          "in the painting examines": "Incorrect: place phrase cannot separate adverb from verb."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Subject question: `Who` replaces the subject. No auxiliary `did` needed.",
+        "We're asking who performed the action of inventing."
+      ],
+      "explanations": {
+        "a47": {
+          "Who": "Correct: 'Who' asks about the subject — 'Who invented the telephone?'.",
+          "What": "Incorrect: 'What' asks about things, not people.",
+          "When": "Incorrect: 'When' asks about time."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "IO goes between `gave` and the DO `extra homework`.",
+        "Verb: `gave`, DO: `extra homework`. To whom?"
+      ],
+      "explanations": {
+        "a48": {
+          "the students": "Correct: IO between 'gave' and 'extra homework'.",
+          "the teacher": "Incorrect: 'the teacher' is the subject.",
+          "gave the teacher": "Incorrect: repeating verb + subject is ungrammatical."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "`both...and` compound subjects always take a plural verb.",
+        "Context is past tense."
+      ],
+      "explanations": {
+        "a49": {
+          "signed": "Correct: 'signed' — Past Simple matching compound subject.",
+          "signs": "Incorrect: 'signs' is present singular, wrong tense and number.",
+          "signing": "Incorrect: -ing without auxiliary cannot be the predicate."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "IO comes after `lent`, before DO `my bicycle`.",
+        "Verb: `lent`, DO: `my bicycle`. To whom?"
+      ],
+      "explanations": {
+        "a50": {
+          "my neighbour": "Correct: IO after 'lent', before 'my bicycle'.",
+          "I": "Incorrect: 'I' is the subject.",
+          "my bicycle lent": "Incorrect: DO + verb is ungrammatical in this position."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "Frequency adverb `seldom` precedes the main verb.",
+        "Subject: `She`, adverb placed — gap needs the verb."
+      ],
+      "explanations": {
+        "a51": {
+          "makes": "Correct: 'makes' after 'seldom'. S + adverb + V + O.",
+          "mistakes makes": "Incorrect: object cannot precede verb.",
+          "in her essays makes": "Incorrect: place phrase cannot separate adverb from verb."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Compound object with `and` follows the verb: V + O1 and O2.",
+        "Subject: `The researchers`. What did they review?"
+      ],
+      "explanations": {
+        "a52": {
+          "reviewed": "Correct: 'reviewed' before compound object.",
+          "the data reviewed": "Incorrect: partial object cannot precede verb.",
+          "and the conclusions reviewed": "Incorrect: second object element cannot precede verb."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "`What` asks about the object of `designed`.",
+        "We want to know what the engineers designed."
+      ],
+      "explanations": {
+        "a53": {
+          "What": "Correct: 'What' asks about the object.",
+          "Who": "Incorrect: 'Who' asks about a person.",
+          "Where": "Incorrect: 'Where' asks about place."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Adverb `quickly` before the verb, object after.",
+        "Subject: `We`, adverb placed — gap needs the verb."
+      ],
+      "explanations": {
+        "a54": {
+          "identified": "Correct: 'identified' after 'quickly', before 'the problem'.",
+          "the problem identified": "Incorrect: object cannot precede verb.",
+          "and fixed identified": "Incorrect: conjunction continuation is not part of the gap."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "SVO order: verb directly follows the subject, even in formal contexts.",
+        "Subject: `The committee`, object: `a unanimous decision`."
+      ],
+      "explanations": {
+        "a55": {
+          "reached": "Correct: 'reached' follows the subject before the object.",
+          "a unanimous decision reached": "Incorrect: object cannot precede verb.",
+          "after deliberation reached": "Incorrect: adverbial cannot separate subject from verb."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "After `has not`, use past participle (V3).",
+        "Present Perfect negative: has not + V3."
+      ],
+      "explanations": {
+        "a56": {
+          "produced": "Correct: 'produced' is V3 after 'has not'.",
+          "produce": "Incorrect: base form doesn't work after 'has not'.",
+          "producing": "Incorrect: -ing form not used after 'has not'."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "In formal questions, `Whom` is the object form of `Who`.",
+        "The question ends with `to` — asking about the recipient (object)."
+      ],
+      "explanations": {
+        "a57": {
+          "Whom": "Correct: 'Whom' is the formal object form.",
+          "Who": "Incorrect: 'Who' is the subject form; formal style requires 'Whom' after prepositions.",
+          "Which": "Incorrect: 'Which' asks about selection from a group, not a person."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "`not only...but also` requires parallel verb forms.",
+        "First verb: `gathered` (Past Simple), so the second must match."
+      ],
+      "explanations": {
+        "a58": {
+          "interviewed": "Correct: 'interviewed' matches 'gathered' in Past Simple.",
+          "interviews": "Incorrect: Present Simple breaks the parallel structure.",
+          "interviewing": "Incorrect: -ing form breaks parallelism with 'gathered'."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Passive voice: the subject receives the action. Formula: be + past participle.",
+        "Subject `The letter` is the receiver of the typing action."
+      ],
+      "explanations": {
+        "a59": {
+          "was typed": "Correct: Past Simple Passive. The letter received the typing action.",
+          "typed": "Incorrect: active voice, but the letter didn't do the typing.",
+          "has typed": "Incorrect: active Present Perfect — the letter can't type."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "`Each of` takes a singular verb — it refers to individuals separately.",
+        "Subject: `Each of the participants` — formally singular."
+      ],
+      "explanations": {
+        "a60": {
+          "received": "Correct: Past Simple matching singular 'Each'.",
+          "receive": "Incorrect: base form without tense marker.",
+          "were received": "Incorrect: passive doesn't fit — each participant actively received."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "`along with` does not change the subject number. Subject: `The professor` (singular).",
+        "The verb agrees with 'The professor', not 'two assistants'."
+      ],
+      "explanations": {
+        "a61": {
+          "conducts": "Correct: singular form for 'The professor'.",
+          "conduct": "Incorrect: plural form, but subject is singular.",
+          "conducting": "Incorrect: -ing without auxiliary cannot be predicate."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "Passive: subject receives the action. Formula: was/were + V3.",
+        "`by the team` indicates the agent — a passive voice marker."
+      ],
+      "explanations": {
+        "a62": {
+          "was developed": "Correct: Past Simple Passive.",
+          "developed": "Incorrect: active voice — software didn't develop itself.",
+          "has developing": "Incorrect: grammatically malformed."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "In `neither...nor`, verb agrees with nearest subject.",
+        "Nearest: `the board members` (plural). Past context."
+      ],
+      "explanations": {
+        "a63": {
+          "approved": "Correct: Past Simple, agreeing with plural nearest subject.",
+          "approves": "Incorrect: Present singular, wrong tense and number.",
+          "approving": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "`data` in formal/scientific English is often treated as plural.",
+        "Adverb `clearly` between subject and verb. Subject: `The data`."
+      ],
+      "explanations": {
+        "a64": {
+          "show": "Correct: plural form matching 'data' (plural).",
+          "shows": "Incorrect: singular, but 'data' is plural here.",
+          "showing": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "`What` asks about the object of `suggest`.",
+        "We want to know what the evidence suggests about the theory."
+      ],
+      "explanations": {
+        "a65": {
+          "What": "Correct: 'What' asks about the object.",
+          "Who": "Incorrect: 'Who' asks about a person.",
+          "How": "Incorrect: 'How' asks about manner."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Adverb `gradually` between subject and verb.",
+        "Subject: `The government`, adverb placed — gap needs verb."
+      ],
+      "explanations": {
+        "a66": {
+          "lifted": "Correct: 'lifted' after 'gradually', before 'restrictions'.",
+          "restrictions lifted": "Incorrect: object cannot precede verb.",
+          "on imports lifted": "Incorrect: prepositional phrase cannot separate adverb from verb."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Compound object after verb: V + O1 and O2.",
+        "Verb: `damaged`. What was damaged?"
+      ],
+      "explanations": {
+        "a67": {
+          "buildings and roads": "Correct: compound object after 'damaged'.",
+          "the storm": "Incorrect: 'the storm' is the subject.",
+          "damaged the storm": "Incorrect: repeating verb + subject is wrong."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "Subject `The results` is plural — verb must be plural.",
+        "Prepositional phrase `of the survey` doesn't change subject number."
+      ],
+      "explanations": {
+        "a68": {
+          "indicate": "Correct: plural form for 'The results'.",
+          "indicates": "Incorrect: singular, but subject is plural.",
+          "indicating": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "Parenthetical relative clause doesn't affect subject number. Subject: `The report` (singular).",
+        "The 'which' clause is just extra information."
+      ],
+      "explanations": {
+        "a69": {
+          "summarises": "Correct: singular for 'The report'.",
+          "summarise": "Incorrect: plural, but subject is singular.",
+          "summarising": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Active SVO: the subject performs the action.",
+        "Subject: `A famous architect` did the designing."
+      ],
+      "explanations": {
+        "a70": {
+          "designed": "Correct: active voice Past Simple. Architect (S) designed (V) museum (O).",
+          "was designed": "Incorrect: passive would make the architect the receiver.",
+          "designing": "Incorrect: -ing without auxiliary can't be predicate in Past Simple."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Adverb `eagerly` before verb, compound object after.",
+        "Subject: `The volunteers`, adverb placed."
+      ],
+      "explanations": {
+        "a71": {
+          "collected": "Correct: 'collected' after 'eagerly', before compound object.",
+          "donations collected": "Incorrect: partial object cannot precede verb.",
+          "supplies collected": "Incorrect: second object element cannot precede verb."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Passive: subject receives action. Formula: was/were + V3.",
+        "`by` after the gap signals passive voice."
+      ],
+      "explanations": {
+        "a72": {
+          "was given": "Correct: Past Simple Passive.",
+          "gave": "Incorrect: active voice — the award didn't give anything.",
+          "has giving": "Incorrect: grammatically malformed."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Inversion after negative adverb: Seldom + aux + S + V.",
+        "After `Seldom`, the word order inverts: auxiliary before subject."
+      ],
+      "explanations": {
+        "a73": {
+          "does one encounter": "Correct: inversion — 'does' before 'one', then 'encounter'.",
+          "one encounters": "Incorrect: direct order after fronted negative adverb requires inversion.",
+          "one does encounter": "Incorrect: emphatic order, not inversion."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Cleft sentence: It + be + focus + that-clause.",
+        "`It` always pairs with `was/is` in cleft structures."
+      ],
+      "explanations": {
+        "a74": {
+          "was": "Correct: 'It was...' in cleft structure regardless of focus number.",
+          "were": "Incorrect: despite plural focus, 'It' requires 'was' in cleft.",
+          "had": "Incorrect: 'had' doesn't fit the cleft pattern."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "Verb in relative clause agrees with its own subject.",
+        "Subject in clause: `several universities` (plural), past context."
+      ],
+      "explanations": {
+        "a75": {
+          "funded": "Correct: Past Simple agreeing with 'several universities'.",
+          "funds": "Incorrect: Present singular, wrong tense and number.",
+          "funding": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Inversion after `Not until`: Not until X + did + S + V.",
+        "After fronted `Not until`, auxiliary comes before subject."
+      ],
+      "explanations": {
+        "a76": {
+          "did the author reveal": "Correct: inversion — 'did' before 'the author', then 'reveal'.",
+          "the author revealed": "Incorrect: fronted 'Not until' requires inversion.",
+          "the author did reveal": "Incorrect: emphatic, not inverted order."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Pseudo-cleft: What-clause as subject takes a verb.",
+        "The what-clause functions as a single noun phrase subject."
+      ],
+      "explanations": {
+        "a77": {
+          "contradicted": "Correct: Past Simple verb for the what-clause subject.",
+          "contradict": "Incorrect: base form lacks tense marking.",
+          "contradicting": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Verb in relative clause `that the team...` agrees with clause subject.",
+        "Subject: `the team`, past context."
+      ],
+      "explanations": {
+        "a78": {
+          "proposed": "Correct: Past Simple in relative clause.",
+          "proposes": "Incorrect: Present Simple doesn't match past context.",
+          "proposing": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Inversion after `Under no circumstances`: aux + S + V.",
+        "Negative phrase at the start triggers inversion."
+      ],
+      "explanations": {
+        "a79": {
+          "should employees": "Correct: inversion — modal 'should' before subject 'employees'.",
+          "employees should": "Incorrect: direct order after negative phrase is wrong.",
+          "employees": "Incorrect: no modal — sentence loses prohibitive meaning."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Cleft: It was X who + V. Past tense in who-clause.",
+        "Focus: `the lead engineer`, who-clause describes their action."
+      ],
+      "explanations": {
+        "a80": {
+          "identified": "Correct: Past Simple in who-clause of cleft.",
+          "identify": "Incorrect: base form doesn't match past context.",
+          "identifying": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "Relative clause modifies `The policy`. Verb agrees with clause subject.",
+        "Clause subject: `the board of directors`, past context."
+      ],
+      "explanations": {
+        "a81": {
+          "adopted": "Correct: Past Simple in relative clause.",
+          "adopts": "Incorrect: Present Simple doesn't match past action.",
+          "adopting": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Inversion after `Rarely`: aux + S + V.",
+        "After `Rarely`, use: have + S + Past Participle."
+      ],
+      "explanations": {
+        "a82": {
+          "have scholars produced": "Correct: inversion — 'have' before 'scholars', then 'produced'.",
+          "scholars have produced": "Incorrect: direct order after 'Rarely' requires inversion.",
+          "scholars produced": "Incorrect: Past Simple without inversion after 'Rarely'."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Verb in non-restrictive relative clause: past tense.",
+        "Subject: `the court`, object: `some of which`."
+      ],
+      "explanations": {
+        "a83": {
+          "sealed": "Correct: Past Simple in relative clause.",
+          "seals": "Incorrect: Present Simple doesn't match past context.",
+          "sealing": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Pseudo-cleft: What-clause + be + complement.",
+        "Complement: `the lack` (singular), so `was`."
+      ],
+      "explanations": {
+        "a84": {
+          "was": "Correct: 'was' matches singular complement.",
+          "were": "Incorrect: plural, but complement is singular.",
+          "being": "Incorrect: 'being' without auxiliary isn't a predicate here."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "`together with` doesn't change subject number. Subject: `The amendment` (singular).",
+        "Verb must be singular."
+      ],
+      "explanations": {
+        "a85": {
+          "expands": "Correct: singular for 'The amendment'.",
+          "expand": "Incorrect: plural, but subject is singular.",
+          "expanding": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Inversion after `Only after`: did + S + V.",
+        "Fronted 'Only after' requires inversion."
+      ],
+      "explanations": {
+        "a86": {
+          "did the jury announce": "Correct: inversion — 'did' before 'the jury', then 'announce'.",
+          "the jury announced": "Incorrect: direct order after 'Only after' needs inversion.",
+          "the jury did announce": "Incorrect: emphatic order, not inversion."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "`rather than` doesn't affect subject number. Subject: `The CEO` (singular).",
+        "Verb agrees with 'The CEO'."
+      ],
+      "explanations": {
+        "a87": {
+          "makes": "Correct: singular for 'The CEO'.",
+          "make": "Incorrect: plural, but subject is singular.",
+          "making": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "`A number of` + plural noun takes a plural verb.",
+        "Past context: `last year`."
+      ],
+      "explanations": {
+        "a88": {
+          "passed": "Correct: Past Simple with plural agreement.",
+          "passes": "Incorrect: Present singular, wrong tense and number.",
+          "was passed": "Incorrect: passive doesn't fit — candidates actively passed."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "After `So + adj + was + S + that`, the that-clause follows normal SVO.",
+        "Subject: `the jury`, past context."
+      ],
+      "explanations": {
+        "a89": {
+          "returned": "Correct: Past Simple in the that-clause. Normal SVO.",
+          "returns": "Incorrect: Present Simple doesn't match past context.",
+          "returning": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Verb in relative clause agrees with `experts` (plural).",
+        "Past context: effects that were predicted earlier."
+      ],
+      "explanations": {
+        "a90": {
+          "predicted": "Correct: Past Simple in relative clause.",
+          "predicts": "Incorrect: Present singular, wrong tense and number.",
+          "predicting": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "Inversion after `Never before`: had + S + Past Participle.",
+        "`Never before` triggers Past Perfect inversion."
+      ],
+      "explanations": {
+        "a91": {
+          "had researchers witnessed": "Correct: inversion — 'had' before 'researchers', then 'witnessed'.",
+          "researchers had witnessed": "Incorrect: direct order after 'Never before' needs inversion.",
+          "researchers witnessed": "Incorrect: Past Simple without inversion."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Cleft: It is X that + V. Focus: `the underlying methodology` (singular).",
+        "`not the findings` is parenthetical — doesn't change focus number."
+      ],
+      "explanations": {
+        "a92": {
+          "warrants": "Correct: singular for singular focus 'methodology'.",
+          "warrant": "Incorrect: plural, but focus is singular.",
+          "warranting": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "Relative clause: `every chapter of which the supervisor...`",
+        "Subject: `the supervisor`, past context."
+      ],
+      "explanations": {
+        "a93": {
+          "reviewed": "Correct: Past Simple. The supervisor reviewed every chapter.",
+          "reviews": "Incorrect: Present Simple doesn't match past context.",
+          "reviewing": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Inversion after `Not only`: did + S + V.",
+        "`Not only` at sentence start triggers inversion."
+      ],
+      "explanations": {
+        "a94": {
+          "did the author critique": "Correct: inversion — 'did' before 'the author'.",
+          "the author critiqued": "Incorrect: direct order after 'Not only' needs inversion.",
+          "the author did critique": "Incorrect: emphatic, not inverted."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "Pseudo-cleft complement is plural: `failures`.",
+        "When the complement is plural, `were` can be used."
+      ],
+      "explanations": {
+        "a95": {
+          "were": "Correct: 'were' matches plural complement 'failures'.",
+          "was": "Incorrect: singular, but complement is plural.",
+          "being": "Incorrect: 'being' without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "Relative clause: `from which the algorithm...`",
+        "Subject: `the algorithm`, past context."
+      ],
+      "explanations": {
+        "a96": {
+          "derived": "Correct: Past Simple in relative clause.",
+          "derives": "Incorrect: Present Simple doesn't match past context.",
+          "deriving": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Inversion after `Hardly`: had + S + V3 + when...",
+        "`Hardly` triggers Past Perfect inversion."
+      ],
+      "explanations": {
+        "a97": {
+          "had they begun": "Correct: inversion — 'had' before 'they', then 'begun'.",
+          "they had begun": "Incorrect: direct order after 'Hardly' needs inversion.",
+          "they began": "Incorrect: Past Simple without inversion."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "Cleft: It was not X but Y that... — identify Y.",
+        "Structure: not the hypothesis but the ___ drew criticism."
+      ],
+      "explanations": {
+        "a98": {
+          "methodology": "Correct: 'methodology' is Y — what drew criticism.",
+          "hypothesis": "Incorrect: 'hypothesis' is X, already negated by 'not'.",
+          "criticism": "Incorrect: 'criticism' is the result, not the focus element."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "The subject of `was enacted` is modified by the relative clause.",
+        "What was enacted? The committee deliberated over it."
+      ],
+      "explanations": {
+        "a99": {
+          "legislation": "Correct: 'legislation' is what was enacted.",
+          "committee": "Incorrect: 'committee' is the relative clause subject.",
+          "deliberation": "Incorrect: a deliberation cannot be enacted."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "Inversion after `At no point`: aux + S + V.",
+        "Negative phrase triggers inversion."
+      ],
+      "explanations": {
+        "a100": {
+          "did the defendants lose": "Correct: inversion — 'did' before 'the defendants'.",
+          "the defendants lost": "Incorrect: direct order needs inversion after 'At no point'.",
+          "the defendants did lose": "Incorrect: emphatic, not inverted."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "Free relative clause: `what` = 'the thing(s) that'.",
+        "`what` functions as both relative pronoun and object."
+      ],
+      "explanations": {
+        "a101": {
+          "what": "Correct: 'what' introduces a free relative clause.",
+          "which": "Incorrect: 'which' needs an antecedent, but there is none.",
+          "that": "Incorrect: 'that' cannot start a free relative without an antecedent."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "In the that-clause after inverted `So...was`, normal SVO applies.",
+        "Subject: `it`, past context."
+      ],
+      "explanations": {
+        "a102": {
+          "invalidated": "Correct: Past Simple in the that-clause.",
+          "invalidates": "Incorrect: Present Simple doesn't match past.",
+          "invalidating": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Relative clause: `that the researchers...`",
+        "Subject: `the researchers` (plural), past context."
+      ],
+      "explanations": {
+        "a103": {
+          "controlled": "Correct: Past Simple in relative clause.",
+          "controls": "Incorrect: Present singular, wrong tense and number.",
+          "controlling": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "After preposition `by`, use gerund (-ing form).",
+        "Structure: Only by + gerund + can + S + V."
+      ],
+      "explanations": {
+        "a104": {
+          "eliminating": "Correct: gerund after 'by'. Only by eliminating...",
+          "eliminate": "Incorrect: base form not used after preposition 'by'.",
+          "eliminated": "Incorrect: past participle not used after 'by' here."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "In relative clause, subject is `a full account` (singular).",
+        "Verb must agree with singular 'account'."
+      ],
+      "explanations": {
+        "a105": {
+          "appears": "Correct: singular for 'a full account'.",
+          "appear": "Incorrect: plural, but subject is singular.",
+          "appearing": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Inversion after `Nowhere`: aux + S + V.",
+        "`Nowhere` at start triggers inversion."
+      ],
+      "explanations": {
+        "a106": {
+          "does one find": "Correct: inversion — 'does' before 'one', then 'find'.",
+          "one finds": "Incorrect: direct order after 'Nowhere' needs inversion.",
+          "one does find": "Incorrect: emphatic, not inverted."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Cleft: It is X that + V. Focus: `the rigour` (singular).",
+        "Verb in that-clause agrees with singular focus."
+      ],
+      "explanations": {
+        "a107": {
+          "sets": "Correct: singular for 'the rigour'.",
+          "set": "Incorrect: could be read as plural or base form, not matching singular.",
+          "setting": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Relative clause: `none of whose members...`",
+        "Subject: `members` (plural), past context."
+      ],
+      "explanations": {
+        "a108": {
+          "seconded": "Correct: Past Simple. None of the members seconded.",
+          "seconds": "Incorrect: Present singular, wrong tense and number.",
+          "seconding": "Incorrect: -ing without auxiliary isn't a predicate."
+        }
+      }
+    }
+  ]
+}

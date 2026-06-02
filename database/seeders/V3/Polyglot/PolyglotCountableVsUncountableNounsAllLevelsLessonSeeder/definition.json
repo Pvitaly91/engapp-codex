@@ -1,0 +1,4826 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotCountableVsUncountableNounsAllLevelsLessonSeeder",
+        "uuid_namespace": "PolyglotCountableVsUncountableNounsAllLevelsLessonSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_countable_vs_uncountable_nouns": {
+            "name": "Countable Vs Uncountable Nouns"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_countable_vs_uncountable_nouns": {
+            "name": "Countable Vs Uncountable Nouns",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "countable_singular": {
+            "name": "Countable Singular",
+            "category": "topic"
+        },
+        "countable_plural": {
+            "name": "Countable Plural",
+            "category": "topic"
+        },
+        "uncountable_no_plural": {
+            "name": "Uncountable No Plural",
+            "category": "topic"
+        },
+        "uncountable_singular_verb": {
+            "name": "Uncountable Singular Verb",
+            "category": "topic"
+        },
+        "article_determiner_needed": {
+            "name": "Article Determiner Needed",
+            "category": "topic"
+        },
+        "much_many": {
+            "name": "Much Many",
+            "category": "topic"
+        },
+        "few_little": {
+            "name": "Few Little",
+            "category": "topic"
+        },
+        "common_uncountables": {
+            "name": "Common Uncountables",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cvu-poly-a1-01",
+            "question": "Вона купила яблуко",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "apple"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "apple",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Вона купила яблуко",
+            "target_text": "She bought a apple",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "apple"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-singular",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_singular",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "cvu-poly-a1-02",
+            "question": "Мені потрібен стілець",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "need",
+                "a3": "a",
+                "a4": "chair"
+            },
+            "options": [
+                "I",
+                "need",
+                "a",
+                "chair",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Мені потрібен стілець",
+            "target_text": "I need a chair",
+            "tokens_correct": [
+                "I",
+                "need",
+                "a",
+                "chair"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "article-determiner-needed",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "article_determiner_needed",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "cvu-poly-a1-03",
+            "question": "На столі три яблука",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "are",
+                "a3": "three",
+                "a4": "apples",
+                "a5": "on",
+                "a6": "the",
+                "a7": "table"
+            },
+            "options": [
+                "There",
+                "are",
+                "three",
+                "apples",
+                "on",
+                "the",
+                "table",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "На столі три яблука",
+            "target_text": "There are three apples on the table",
+            "tokens_correct": [
+                "There",
+                "are",
+                "three",
+                "apples",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "cvu-poly-a1-04",
+            "question": "Сьогодні надійшло кілька книжок",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "Several",
+                "a2": "books",
+                "a3": "arrived",
+                "a4": "today"
+            },
+            "options": [
+                "Several",
+                "books",
+                "arrived",
+                "today",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Сьогодні надійшло кілька книжок",
+            "target_text": "Several books arrived today",
+            "tokens_correct": [
+                "Several",
+                "books",
+                "arrived",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "cvu-poly-a1-05",
+            "question": "Нам потрібна вода",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "some",
+                "a4": "water"
+            },
+            "options": [
+                "We",
+                "need",
+                "some",
+                "water",
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Нам потрібна вода",
+            "target_text": "We need some water",
+            "tokens_correct": [
+                "We",
+                "need",
+                "some",
+                "water"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-no-plural",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_no_plural",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "cvu-poly-a1-06",
+            "question": "Вона дала мені корисну річ: порада",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "gave",
+                "a3": "me",
+                "a4": "useful",
+                "a5": "advice"
+            },
+            "options": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "advice",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Вона дала мені корисну річ: порада",
+            "target_text": "She gave me useful advice",
+            "tokens_correct": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "advice"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "common-uncountables",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "common_uncountables",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid": "cvu-poly-a1-07",
+            "question": "Ця вода свіжа",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "water",
+                "a3": "is",
+                "a4": "fresh"
+            },
+            "options": [
+                "This",
+                "water",
+                "is",
+                "fresh",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця вода свіжа",
+            "target_text": "This water is fresh",
+            "tokens_correct": [
+                "This",
+                "water",
+                "is",
+                "fresh"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "cvu-poly-a1-08",
+            "question": "Ця порада корисна",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "advice",
+                "a3": "is",
+                "a4": "useful"
+            },
+            "options": [
+                "The",
+                "advice",
+                "is",
+                "useful",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця порада корисна",
+            "target_text": "The advice is useful",
+            "tokens_correct": [
+                "The",
+                "advice",
+                "is",
+                "useful"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "cvu-poly-a1-09",
+            "question": "Скільки у тебе книжок?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "many",
+                "a3": "books",
+                "a4": "do",
+                "a5": "you",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "many",
+                "books",
+                "do",
+                "you",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у тебе книжок?",
+            "target_text": "How many books do you have",
+            "tokens_correct": [
+                "How",
+                "many",
+                "books",
+                "do",
+                "you",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid": "cvu-poly-a1-10",
+            "question": "Скільки у нас часу?",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "much",
+                "a3": "time",
+                "a4": "do",
+                "a5": "we",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "much",
+                "time",
+                "do",
+                "we",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у нас часу?",
+            "target_text": "How much time do we have",
+            "tokens_correct": [
+                "How",
+                "much",
+                "time",
+                "do",
+                "we",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid": "cvu-poly-a1-11",
+            "question": "У нас тут є кілька друзів",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "have",
+                "a3": "a",
+                "a4": "few",
+                "a5": "friends",
+                "a6": "here"
+            },
+            "options": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "friends",
+                "here",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "У нас тут є кілька друзів",
+            "target_text": "We have a few friends here",
+            "tokens_correct": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "friends",
+                "here"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "few-little",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "few_little",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid": "cvu-poly-a1-12",
+            "question": "Залишилося трохи молока",
+            "level": "A1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "is",
+                "a3": "a",
+                "a4": "little",
+                "a5": "milk",
+                "a6": "left"
+            },
+            "options": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "milk",
+                "left",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "source_text_uk": "Залишилося трохи молока",
+            "target_text": "There is a little milk left",
+            "tokens_correct": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "milk",
+                "left"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "typical-mistakes",
+                "a1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "typical_mistakes",
+                "level_a1"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "cvu-poly-a2-01",
+            "question": "Вона купила сендвіч",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "sandwich"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "sandwich",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Вона купила сендвіч",
+            "target_text": "She bought a sandwich",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "sandwich"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-singular",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_singular",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "cvu-poly-a2-02",
+            "question": "Мені потрібен зошит",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "need",
+                "a3": "a",
+                "a4": "notebook"
+            },
+            "options": [
+                "I",
+                "need",
+                "a",
+                "notebook",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Мені потрібен зошит",
+            "target_text": "I need a notebook",
+            "tokens_correct": [
+                "I",
+                "need",
+                "a",
+                "notebook"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "article-determiner-needed",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "article_determiner_needed",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "cvu-poly-a2-03",
+            "question": "На столі три сендвічі",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "are",
+                "a3": "three",
+                "a4": "sandwiches",
+                "a5": "on",
+                "a6": "the",
+                "a7": "table"
+            },
+            "options": [
+                "There",
+                "are",
+                "three",
+                "sandwiches",
+                "on",
+                "the",
+                "table",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "На столі три сендвічі",
+            "target_text": "There are three sandwiches on the table",
+            "tokens_correct": [
+                "There",
+                "are",
+                "three",
+                "sandwiches",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "cvu-poly-a2-04",
+            "question": "Сьогодні надійшло кілька листів",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "Several",
+                "a2": "emails",
+                "a3": "arrived",
+                "a4": "today"
+            },
+            "options": [
+                "Several",
+                "emails",
+                "arrived",
+                "today",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Сьогодні надійшло кілька листів",
+            "target_text": "Several emails arrived today",
+            "tokens_correct": [
+                "Several",
+                "emails",
+                "arrived",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "cvu-poly-a2-05",
+            "question": "Нам потрібна рис",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "some",
+                "a4": "rice"
+            },
+            "options": [
+                "We",
+                "need",
+                "some",
+                "rice",
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Нам потрібна рис",
+            "target_text": "We need some rice",
+            "tokens_correct": [
+                "We",
+                "need",
+                "some",
+                "rice"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-no-plural",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_no_plural",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "cvu-poly-a2-06",
+            "question": "Вона дала мені корисну річ: домашнє завдання",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "gave",
+                "a3": "me",
+                "a4": "useful",
+                "a5": "homework"
+            },
+            "options": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "homework",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Вона дала мені корисну річ: домашнє завдання",
+            "target_text": "She gave me useful homework",
+            "tokens_correct": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "homework"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "common-uncountables",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "common_uncountables",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid": "cvu-poly-a2-07",
+            "question": "Ця рис свіжа",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "rice",
+                "a3": "is",
+                "a4": "fresh"
+            },
+            "options": [
+                "This",
+                "rice",
+                "is",
+                "fresh",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця рис свіжа",
+            "target_text": "This rice is fresh",
+            "tokens_correct": [
+                "This",
+                "rice",
+                "is",
+                "fresh"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 20,
+            "uuid": "cvu-poly-a2-08",
+            "question": "Ця домашнє завдання корисна",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "homework",
+                "a3": "is",
+                "a4": "useful"
+            },
+            "options": [
+                "The",
+                "homework",
+                "is",
+                "useful",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця домашнє завдання корисна",
+            "target_text": "The homework is useful",
+            "tokens_correct": [
+                "The",
+                "homework",
+                "is",
+                "useful"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid": "cvu-poly-a2-09",
+            "question": "Скільки у тебе листів?",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "many",
+                "a3": "emails",
+                "a4": "do",
+                "a5": "you",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "many",
+                "emails",
+                "do",
+                "you",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у тебе листів?",
+            "target_text": "How many emails do you have",
+            "tokens_correct": [
+                "How",
+                "many",
+                "emails",
+                "do",
+                "you",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid": "cvu-poly-a2-10",
+            "question": "Скільки у нас грошей?",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "much",
+                "a3": "money",
+                "a4": "do",
+                "a5": "we",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "much",
+                "money",
+                "do",
+                "we",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у нас грошей?",
+            "target_text": "How much money do we have",
+            "tokens_correct": [
+                "How",
+                "much",
+                "money",
+                "do",
+                "we",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid": "cvu-poly-a2-11",
+            "question": "У нас тут є кілька помилок",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "have",
+                "a3": "a",
+                "a4": "few",
+                "a5": "mistakes",
+                "a6": "here"
+            },
+            "options": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "mistakes",
+                "here",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "У нас тут є кілька помилок",
+            "target_text": "We have a few mistakes here",
+            "tokens_correct": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "mistakes",
+                "here"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "few-little",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "few_little",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid": "cvu-poly-a2-12",
+            "question": "Залишилося трохи цукру",
+            "level": "A2",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "is",
+                "a3": "a",
+                "a4": "little",
+                "a5": "sugar",
+                "a6": "left"
+            },
+            "options": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "sugar",
+                "left",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "source_text_uk": "Залишилося трохи цукру",
+            "target_text": "There is a little sugar left",
+            "tokens_correct": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "sugar",
+                "left"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "typical-mistakes",
+                "a2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "typical_mistakes",
+                "level_a2"
+            ]
+        },
+        {
+            "id": 25,
+            "uuid": "cvu-poly-b1-01",
+            "question": "Вона купила квиток",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "ticket"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "ticket",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Вона купила квиток",
+            "target_text": "She bought a ticket",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "ticket"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-singular",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_singular",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 26,
+            "uuid": "cvu-poly-b1-02",
+            "question": "Мені потрібен камеру",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "need",
+                "a3": "a",
+                "a4": "camera"
+            },
+            "options": [
+                "I",
+                "need",
+                "a",
+                "camera",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Мені потрібен камеру",
+            "target_text": "I need a camera",
+            "tokens_correct": [
+                "I",
+                "need",
+                "a",
+                "camera"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "article-determiner-needed",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "article_determiner_needed",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 27,
+            "uuid": "cvu-poly-b1-03",
+            "question": "На столі три квитки",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "are",
+                "a3": "three",
+                "a4": "tickets",
+                "a5": "on",
+                "a6": "the",
+                "a7": "table"
+            },
+            "options": [
+                "There",
+                "are",
+                "three",
+                "tickets",
+                "on",
+                "the",
+                "table",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "На столі три квитки",
+            "target_text": "There are three tickets on the table",
+            "tokens_correct": [
+                "There",
+                "are",
+                "three",
+                "tickets",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 28,
+            "uuid": "cvu-poly-b1-04",
+            "question": "Сьогодні надійшло кілька проєктів",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "Several",
+                "a2": "projects",
+                "a3": "arrived",
+                "a4": "today"
+            },
+            "options": [
+                "Several",
+                "projects",
+                "arrived",
+                "today",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Сьогодні надійшло кілька проєктів",
+            "target_text": "Several projects arrived today",
+            "tokens_correct": [
+                "Several",
+                "projects",
+                "arrived",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 29,
+            "uuid": "cvu-poly-b1-05",
+            "question": "Нам потрібна меблі",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "some",
+                "a4": "furniture"
+            },
+            "options": [
+                "We",
+                "need",
+                "some",
+                "furniture",
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Нам потрібна меблі",
+            "target_text": "We need some furniture",
+            "tokens_correct": [
+                "We",
+                "need",
+                "some",
+                "furniture"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-no-plural",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_no_plural",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 30,
+            "uuid": "cvu-poly-b1-06",
+            "question": "Вона дала мені корисну річ: багаж",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "gave",
+                "a3": "me",
+                "a4": "useful",
+                "a5": "luggage"
+            },
+            "options": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "luggage",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Вона дала мені корисну річ: багаж",
+            "target_text": "She gave me useful luggage",
+            "tokens_correct": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "luggage"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "common-uncountables",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "common_uncountables",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid": "cvu-poly-b1-07",
+            "question": "Ця меблі свіжа",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "furniture",
+                "a3": "is",
+                "a4": "fresh"
+            },
+            "options": [
+                "This",
+                "furniture",
+                "is",
+                "fresh",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця меблі свіжа",
+            "target_text": "This furniture is fresh",
+            "tokens_correct": [
+                "This",
+                "furniture",
+                "is",
+                "fresh"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 32,
+            "uuid": "cvu-poly-b1-08",
+            "question": "Ця багаж корисна",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "luggage",
+                "a3": "is",
+                "a4": "useful"
+            },
+            "options": [
+                "The",
+                "luggage",
+                "is",
+                "useful",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця багаж корисна",
+            "target_text": "The luggage is useful",
+            "tokens_correct": [
+                "The",
+                "luggage",
+                "is",
+                "useful"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid": "cvu-poly-b1-09",
+            "question": "Скільки у тебе проєктів?",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "many",
+                "a3": "projects",
+                "a4": "do",
+                "a5": "you",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "many",
+                "projects",
+                "do",
+                "you",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у тебе проєктів?",
+            "target_text": "How many projects do you have",
+            "tokens_correct": [
+                "How",
+                "many",
+                "projects",
+                "do",
+                "you",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 34,
+            "uuid": "cvu-poly-b1-10",
+            "question": "Скільки у нас досвіду?",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "much",
+                "a3": "experience",
+                "a4": "do",
+                "a5": "we",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "much",
+                "experience",
+                "do",
+                "we",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у нас досвіду?",
+            "target_text": "How much experience do we have",
+            "tokens_correct": [
+                "How",
+                "much",
+                "experience",
+                "do",
+                "we",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid": "cvu-poly-b1-11",
+            "question": "У нас тут є кілька помилок",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "have",
+                "a3": "a",
+                "a4": "few",
+                "a5": "errors",
+                "a6": "here"
+            },
+            "options": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "errors",
+                "here",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "У нас тут є кілька помилок",
+            "target_text": "We have a few errors here",
+            "tokens_correct": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "errors",
+                "here"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "few-little",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "few_little",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 36,
+            "uuid": "cvu-poly-b1-12",
+            "question": "Залишилося трохи надії",
+            "level": "B1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "is",
+                "a3": "a",
+                "a4": "little",
+                "a5": "hope",
+                "a6": "left"
+            },
+            "options": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "hope",
+                "left",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "source_text_uk": "Залишилося трохи надії",
+            "target_text": "There is a little hope left",
+            "tokens_correct": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "hope",
+                "left"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "typical-mistakes",
+                "b1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "typical_mistakes",
+                "level_b1"
+            ]
+        },
+        {
+            "id": 37,
+            "uuid": "cvu-poly-b2-01",
+            "question": "Вона купила пропозиція",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "proposal"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "proposal",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Вона купила пропозиція",
+            "target_text": "She bought a proposal",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "proposal"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-singular",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_singular",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 38,
+            "uuid": "cvu-poly-b2-02",
+            "question": "Мені потрібен контракт",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "need",
+                "a3": "a",
+                "a4": "contract"
+            },
+            "options": [
+                "I",
+                "need",
+                "a",
+                "contract",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Мені потрібен контракт",
+            "target_text": "I need a contract",
+            "tokens_correct": [
+                "I",
+                "need",
+                "a",
+                "contract"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "article-determiner-needed",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "article_determiner_needed",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 39,
+            "uuid": "cvu-poly-b2-03",
+            "question": "На столі три пропозиції",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "are",
+                "a3": "three",
+                "a4": "proposals",
+                "a5": "on",
+                "a6": "the",
+                "a7": "table"
+            },
+            "options": [
+                "There",
+                "are",
+                "three",
+                "proposals",
+                "on",
+                "the",
+                "table",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "На столі три пропозиції",
+            "target_text": "There are three proposals on the table",
+            "tokens_correct": [
+                "There",
+                "are",
+                "three",
+                "proposals",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 40,
+            "uuid": "cvu-poly-b2-04",
+            "question": "Сьогодні надійшло кілька учасників",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "Several",
+                "a2": "participants",
+                "a3": "arrived",
+                "a4": "today"
+            },
+            "options": [
+                "Several",
+                "participants",
+                "arrived",
+                "today",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Сьогодні надійшло кілька учасників",
+            "target_text": "Several participants arrived today",
+            "tokens_correct": [
+                "Several",
+                "participants",
+                "arrived",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 41,
+            "uuid": "cvu-poly-b2-05",
+            "question": "Нам потрібна обладнання",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "some",
+                "a4": "equipment"
+            },
+            "options": [
+                "We",
+                "need",
+                "some",
+                "equipment",
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Нам потрібна обладнання",
+            "target_text": "We need some equipment",
+            "tokens_correct": [
+                "We",
+                "need",
+                "some",
+                "equipment"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-no-plural",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_no_plural",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 42,
+            "uuid": "cvu-poly-b2-06",
+            "question": "Вона дала мені корисну річ: дослідження",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "gave",
+                "a3": "me",
+                "a4": "useful",
+                "a5": "research"
+            },
+            "options": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "research",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Вона дала мені корисну річ: дослідження",
+            "target_text": "She gave me useful research",
+            "tokens_correct": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "research"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "common-uncountables",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "common_uncountables",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 43,
+            "uuid": "cvu-poly-b2-07",
+            "question": "Ця обладнання свіжа",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "equipment",
+                "a3": "is",
+                "a4": "fresh"
+            },
+            "options": [
+                "This",
+                "equipment",
+                "is",
+                "fresh",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця обладнання свіжа",
+            "target_text": "This equipment is fresh",
+            "tokens_correct": [
+                "This",
+                "equipment",
+                "is",
+                "fresh"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 44,
+            "uuid": "cvu-poly-b2-08",
+            "question": "Ця дослідження корисна",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "research",
+                "a3": "is",
+                "a4": "useful"
+            },
+            "options": [
+                "The",
+                "research",
+                "is",
+                "useful",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця дослідження корисна",
+            "target_text": "The research is useful",
+            "tokens_correct": [
+                "The",
+                "research",
+                "is",
+                "useful"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 45,
+            "uuid": "cvu-poly-b2-09",
+            "question": "Скільки у тебе учасників?",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "many",
+                "a3": "participants",
+                "a4": "do",
+                "a5": "you",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "many",
+                "participants",
+                "do",
+                "you",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у тебе учасників?",
+            "target_text": "How many participants do you have",
+            "tokens_correct": [
+                "How",
+                "many",
+                "participants",
+                "do",
+                "you",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 46,
+            "uuid": "cvu-poly-b2-10",
+            "question": "Скільки у нас прогресу?",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "much",
+                "a3": "progress",
+                "a4": "do",
+                "a5": "we",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "much",
+                "progress",
+                "do",
+                "we",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у нас прогресу?",
+            "target_text": "How much progress do we have",
+            "tokens_correct": [
+                "How",
+                "much",
+                "progress",
+                "do",
+                "we",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 47,
+            "uuid": "cvu-poly-b2-11",
+            "question": "У нас тут є кілька відповідей",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "have",
+                "a3": "a",
+                "a4": "few",
+                "a5": "responses",
+                "a6": "here"
+            },
+            "options": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "responses",
+                "here",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "У нас тут є кілька відповідей",
+            "target_text": "We have a few responses here",
+            "tokens_correct": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "responses",
+                "here"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "few-little",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "few_little",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 48,
+            "uuid": "cvu-poly-b2-12",
+            "question": "Залишилося трохи терпіння",
+            "level": "B2",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "is",
+                "a3": "a",
+                "a4": "little",
+                "a5": "patience",
+                "a6": "left"
+            },
+            "options": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "patience",
+                "left",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "source_text_uk": "Залишилося трохи терпіння",
+            "target_text": "There is a little patience left",
+            "tokens_correct": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "patience",
+                "left"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "typical-mistakes",
+                "b2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "typical_mistakes",
+                "level_b2"
+            ]
+        },
+        {
+            "id": 49,
+            "uuid": "cvu-poly-c1-01",
+            "question": "Вона купила аргумент",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "argument"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "argument",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Вона купила аргумент",
+            "target_text": "She bought a argument",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "argument"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-singular",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_singular",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 50,
+            "uuid": "cvu-poly-c1-02",
+            "question": "Мені потрібен інструктаж",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "need",
+                "a3": "a",
+                "a4": "briefing"
+            },
+            "options": [
+                "I",
+                "need",
+                "a",
+                "briefing",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Мені потрібен інструктаж",
+            "target_text": "I need a briefing",
+            "tokens_correct": [
+                "I",
+                "need",
+                "a",
+                "briefing"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "article-determiner-needed",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "article_determiner_needed",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 51,
+            "uuid": "cvu-poly-c1-03",
+            "question": "На столі три аргументи",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "are",
+                "a3": "three",
+                "a4": "arguments",
+                "a5": "on",
+                "a6": "the",
+                "a7": "table"
+            },
+            "options": [
+                "There",
+                "are",
+                "three",
+                "arguments",
+                "on",
+                "the",
+                "table",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "На столі три аргументи",
+            "target_text": "There are three arguments on the table",
+            "tokens_correct": [
+                "There",
+                "are",
+                "three",
+                "arguments",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 52,
+            "uuid": "cvu-poly-c1-04",
+            "question": "Сьогодні надійшло кілька гіпотез",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "Several",
+                "a2": "hypotheses",
+                "a3": "arrived",
+                "a4": "today"
+            },
+            "options": [
+                "Several",
+                "hypotheses",
+                "arrived",
+                "today",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Сьогодні надійшло кілька гіпотез",
+            "target_text": "Several hypotheses arrived today",
+            "tokens_correct": [
+                "Several",
+                "hypotheses",
+                "arrived",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 53,
+            "uuid": "cvu-poly-c1-05",
+            "question": "Нам потрібна дані",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "some",
+                "a4": "data"
+            },
+            "options": [
+                "We",
+                "need",
+                "some",
+                "data",
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Нам потрібна дані",
+            "target_text": "We need some data",
+            "tokens_correct": [
+                "We",
+                "need",
+                "some",
+                "data"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-no-plural",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_no_plural",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 54,
+            "uuid": "cvu-poly-c1-06",
+            "question": "Вона дала мені корисну річ: програмне забезпечення",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "gave",
+                "a3": "me",
+                "a4": "useful",
+                "a5": "software"
+            },
+            "options": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "software",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Вона дала мені корисну річ: програмне забезпечення",
+            "target_text": "She gave me useful software",
+            "tokens_correct": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "software"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "common-uncountables",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "common_uncountables",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 55,
+            "uuid": "cvu-poly-c1-07",
+            "question": "Ця дані свіжа",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "data",
+                "a3": "is",
+                "a4": "fresh"
+            },
+            "options": [
+                "This",
+                "data",
+                "is",
+                "fresh",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця дані свіжа",
+            "target_text": "This data is fresh",
+            "tokens_correct": [
+                "This",
+                "data",
+                "is",
+                "fresh"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 56,
+            "uuid": "cvu-poly-c1-08",
+            "question": "Ця програмне забезпечення корисна",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "software",
+                "a3": "is",
+                "a4": "useful"
+            },
+            "options": [
+                "The",
+                "software",
+                "is",
+                "useful",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця програмне забезпечення корисна",
+            "target_text": "The software is useful",
+            "tokens_correct": [
+                "The",
+                "software",
+                "is",
+                "useful"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 57,
+            "uuid": "cvu-poly-c1-09",
+            "question": "Скільки у тебе гіпотез?",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "many",
+                "a3": "hypotheses",
+                "a4": "do",
+                "a5": "you",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "many",
+                "hypotheses",
+                "do",
+                "you",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у тебе гіпотез?",
+            "target_text": "How many hypotheses do you have",
+            "tokens_correct": [
+                "How",
+                "many",
+                "hypotheses",
+                "do",
+                "you",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 58,
+            "uuid": "cvu-poly-c1-10",
+            "question": "Скільки у нас фінансування?",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "much",
+                "a3": "funding",
+                "a4": "do",
+                "a5": "we",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "much",
+                "funding",
+                "do",
+                "we",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у нас фінансування?",
+            "target_text": "How much funding do we have",
+            "tokens_correct": [
+                "How",
+                "much",
+                "funding",
+                "do",
+                "we",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 59,
+            "uuid": "cvu-poly-c1-11",
+            "question": "У нас тут є кілька припущень",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "have",
+                "a3": "a",
+                "a4": "few",
+                "a5": "assumptions",
+                "a6": "here"
+            },
+            "options": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "assumptions",
+                "here",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "У нас тут є кілька припущень",
+            "target_text": "We have a few assumptions here",
+            "tokens_correct": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "assumptions",
+                "here"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "few-little",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "few_little",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 60,
+            "uuid": "cvu-poly-c1-12",
+            "question": "Залишилося трохи певності",
+            "level": "C1",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "is",
+                "a3": "a",
+                "a4": "little",
+                "a5": "certainty",
+                "a6": "left"
+            },
+            "options": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "certainty",
+                "left",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "source_text_uk": "Залишилося трохи певності",
+            "target_text": "There is a little certainty left",
+            "tokens_correct": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "certainty",
+                "left"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "typical-mistakes",
+                "c1"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "typical_mistakes",
+                "level_c1"
+            ]
+        },
+        {
+            "id": 61,
+            "uuid": "cvu-poly-c2-01",
+            "question": "Вона купила критерій",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "bought",
+                "a3": "a",
+                "a4": "criterion"
+            },
+            "options": [
+                "She",
+                "bought",
+                "a",
+                "criterion",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Вона купила критерій",
+            "target_text": "She bought a criterion",
+            "tokens_correct": [
+                "She",
+                "bought",
+                "a",
+                "criterion"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-singular",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_singular",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 62,
+            "uuid": "cvu-poly-c2-02",
+            "question": "Мені потрібен мандат",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "I",
+                "a2": "need",
+                "a3": "a",
+                "a4": "mandate"
+            },
+            "options": [
+                "I",
+                "need",
+                "a",
+                "mandate",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Мені потрібен мандат",
+            "target_text": "I need a mandate",
+            "tokens_correct": [
+                "I",
+                "need",
+                "a",
+                "mandate"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "article-determiner-needed",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "article_determiner_needed",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 63,
+            "uuid": "cvu-poly-c2-03",
+            "question": "На столі три критерії",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "are",
+                "a3": "three",
+                "a4": "criteria",
+                "a5": "on",
+                "a6": "the",
+                "a7": "table"
+            },
+            "options": [
+                "There",
+                "are",
+                "three",
+                "criteria",
+                "on",
+                "the",
+                "table",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "На столі три критерії",
+            "target_text": "There are three criteria on the table",
+            "tokens_correct": [
+                "There",
+                "are",
+                "three",
+                "criteria",
+                "on",
+                "the",
+                "table"
+            ],
+            "distractors": [
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 64,
+            "uuid": "cvu-poly-c2-04",
+            "question": "Сьогодні надійшло кілька прецедентів",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "Several",
+                "a2": "precedents",
+                "a3": "arrived",
+                "a4": "today"
+            },
+            "options": [
+                "Several",
+                "precedents",
+                "arrived",
+                "today",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Сьогодні надійшло кілька прецедентів",
+            "target_text": "Several precedents arrived today",
+            "tokens_correct": [
+                "Several",
+                "precedents",
+                "arrived",
+                "today"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "countable-plural",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "countable_plural",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 65,
+            "uuid": "cvu-poly-c2-05",
+            "question": "Нам потрібна законодавство",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "need",
+                "a3": "some",
+                "a4": "legislation"
+            },
+            "options": [
+                "We",
+                "need",
+                "some",
+                "legislation",
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Нам потрібна законодавство",
+            "target_text": "We need some legislation",
+            "tokens_correct": [
+                "We",
+                "need",
+                "some",
+                "legislation"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-no-plural",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_no_plural",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 66,
+            "uuid": "cvu-poly-c2-06",
+            "question": "Вона дала мені корисну річ: знання",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "She",
+                "a2": "gave",
+                "a3": "me",
+                "a4": "useful",
+                "a5": "knowledge"
+            },
+            "options": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "knowledge",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "source_text_uk": "Вона дала мені корисну річ: знання",
+            "target_text": "She gave me useful knowledge",
+            "tokens_correct": [
+                "She",
+                "gave",
+                "me",
+                "useful",
+                "knowledge"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "common-uncountables",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "common_uncountables",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 67,
+            "uuid": "cvu-poly-c2-07",
+            "question": "Ця законодавство свіжа",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "This",
+                "a2": "legislation",
+                "a3": "is",
+                "a4": "fresh"
+            },
+            "options": [
+                "This",
+                "legislation",
+                "is",
+                "fresh",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця законодавство свіжа",
+            "target_text": "This legislation is fresh",
+            "tokens_correct": [
+                "This",
+                "legislation",
+                "is",
+                "fresh"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 68,
+            "uuid": "cvu-poly-c2-08",
+            "question": "Ця знання корисна",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "The",
+                "a2": "knowledge",
+                "a3": "is",
+                "a4": "useful"
+            },
+            "options": [
+                "The",
+                "knowledge",
+                "is",
+                "useful",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Ця знання корисна",
+            "target_text": "The knowledge is useful",
+            "tokens_correct": [
+                "The",
+                "knowledge",
+                "is",
+                "useful"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "little",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "uncountable-singular-verb",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "uncountable_singular_verb",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 69,
+            "uuid": "cvu-poly-c2-09",
+            "question": "Скільки у тебе прецедентів?",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "many",
+                "a3": "precedents",
+                "a4": "do",
+                "a5": "you",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "many",
+                "precedents",
+                "do",
+                "you",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у тебе прецедентів?",
+            "target_text": "How many precedents do you have",
+            "tokens_correct": [
+                "How",
+                "many",
+                "precedents",
+                "do",
+                "you",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "much",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 70,
+            "uuid": "cvu-poly-c2-10",
+            "question": "Скільки у нас важелів впливу?",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "How",
+                "a2": "much",
+                "a3": "leverage",
+                "a4": "do",
+                "a5": "we",
+                "a6": "have"
+            },
+            "options": [
+                "How",
+                "much",
+                "leverage",
+                "do",
+                "we",
+                "have",
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "source_text_uk": "Скільки у нас важелів впливу?",
+            "target_text": "How much leverage do we have",
+            "tokens_correct": [
+                "How",
+                "much",
+                "leverage",
+                "do",
+                "we",
+                "have"
+            ],
+            "distractors": [
+                "the",
+                "a",
+                "an",
+                "some",
+                "many",
+                "few",
+                "little",
+                "is",
+                "are",
+                "informations"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "much-many",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "much_many",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 71,
+            "uuid": "cvu-poly-c2-11",
+            "question": "У нас тут є кілька заперечень",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "We",
+                "a2": "have",
+                "a3": "a",
+                "a4": "few",
+                "a5": "objections",
+                "a6": "here"
+            },
+            "options": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "objections",
+                "here",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "source_text_uk": "У нас тут є кілька заперечень",
+            "target_text": "We have a few objections here",
+            "tokens_correct": [
+                "We",
+                "have",
+                "a",
+                "few",
+                "objections",
+                "here"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "little",
+                "is",
+                "are",
+                "informations",
+                "advices"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "few-little",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "few_little",
+                "level_c2"
+            ]
+        },
+        {
+            "id": 72,
+            "uuid": "cvu-poly-c2-12",
+            "question": "Залишилося трохи згоди",
+            "level": "C2",
+            "type": 4,
+            "answers": {
+                "a1": "There",
+                "a2": "is",
+                "a3": "a",
+                "a4": "little",
+                "a5": "consensus",
+                "a6": "left"
+            },
+            "options": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "consensus",
+                "left",
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "source_text_uk": "Залишилося трохи згоди",
+            "target_text": "There is a little consensus left",
+            "tokens_correct": [
+                "There",
+                "is",
+                "a",
+                "little",
+                "consensus",
+                "left"
+            ],
+            "distractors": [
+                "the",
+                "an",
+                "some",
+                "many",
+                "much",
+                "few",
+                "are",
+                "informations",
+                "advices",
+                "a few"
+            ],
+            "variants": [],
+            "source": "theory_page_countable_vs_uncountable_nouns",
+            "grammar_tags": [
+                "countable-vs-uncountable-nouns",
+                "typical-mistakes",
+                "c2"
+            ],
+            "tag_keys": [
+                "polyglot_countable_vs_uncountable_nouns",
+                "typical_mistakes",
+                "level_c2"
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "naq-cvu-poly-all",
+        "slug": "polyglot-countable-vs-uncountable-nouns-all-levels",
+        "name": "Sentence Builder: Countable Vs Uncountable Nouns (All levels)",
+        "description": "Compose-token Sentence Builder package for Countable Vs Uncountable Nouns across A1-C2.",
+        "question_uuids": [
+            "cvu-poly-a1-01",
+            "cvu-poly-a1-02",
+            "cvu-poly-a1-03",
+            "cvu-poly-a1-04",
+            "cvu-poly-a1-05",
+            "cvu-poly-a1-06",
+            "cvu-poly-a1-07",
+            "cvu-poly-a1-08",
+            "cvu-poly-a1-09",
+            "cvu-poly-a1-10",
+            "cvu-poly-a1-11",
+            "cvu-poly-a1-12",
+            "cvu-poly-a2-01",
+            "cvu-poly-a2-02",
+            "cvu-poly-a2-03",
+            "cvu-poly-a2-04",
+            "cvu-poly-a2-05",
+            "cvu-poly-a2-06",
+            "cvu-poly-a2-07",
+            "cvu-poly-a2-08",
+            "cvu-poly-a2-09",
+            "cvu-poly-a2-10",
+            "cvu-poly-a2-11",
+            "cvu-poly-a2-12",
+            "cvu-poly-b1-01",
+            "cvu-poly-b1-02",
+            "cvu-poly-b1-03",
+            "cvu-poly-b1-04",
+            "cvu-poly-b1-05",
+            "cvu-poly-b1-06",
+            "cvu-poly-b1-07",
+            "cvu-poly-b1-08",
+            "cvu-poly-b1-09",
+            "cvu-poly-b1-10",
+            "cvu-poly-b1-11",
+            "cvu-poly-b1-12",
+            "cvu-poly-b2-01",
+            "cvu-poly-b2-02",
+            "cvu-poly-b2-03",
+            "cvu-poly-b2-04",
+            "cvu-poly-b2-05",
+            "cvu-poly-b2-06",
+            "cvu-poly-b2-07",
+            "cvu-poly-b2-08",
+            "cvu-poly-b2-09",
+            "cvu-poly-b2-10",
+            "cvu-poly-b2-11",
+            "cvu-poly-b2-12",
+            "cvu-poly-c1-01",
+            "cvu-poly-c1-02",
+            "cvu-poly-c1-03",
+            "cvu-poly-c1-04",
+            "cvu-poly-c1-05",
+            "cvu-poly-c1-06",
+            "cvu-poly-c1-07",
+            "cvu-poly-c1-08",
+            "cvu-poly-c1-09",
+            "cvu-poly-c1-10",
+            "cvu-poly-c1-11",
+            "cvu-poly-c1-12",
+            "cvu-poly-c2-01",
+            "cvu-poly-c2-02",
+            "cvu-poly-c2-03",
+            "cvu-poly-c2-04",
+            "cvu-poly-c2-05",
+            "cvu-poly-c2-06",
+            "cvu-poly-c2-07",
+            "cvu-poly-c2-08",
+            "cvu-poly-c2-09",
+            "cvu-poly-c2-10",
+            "cvu-poly-c2-11",
+            "cvu-poly-c2-12"
+        ],
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "Countable Vs Uncountable Nouns",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotCountableVsUncountableNounsAllLevelsLessonSeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "countable-vs-uncountable-nouns",
+                    "title": "Countable / Uncountable Nouns — Злічувані й незлічувані",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityCountableUncountableNounsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/countable-vs-uncountable-nouns"
+                }
+            }
+        }
+    }
+}

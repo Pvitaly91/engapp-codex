@@ -1,0 +1,3127 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\PossessiveAdjectivesVsPronounsAllLevelsV3Seeder",
+        "uuid_namespace": "PossessiveAdjectivesVsPronounsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "theory_page_possessive_adjectives_vs_pronouns": {
+            "name": "Possessive Adjectives vs Pronouns"
+        }
+    },
+    "tags": {
+        "possessive_adjectives_vs_pronouns": {
+            "name": "Possessive Adjectives vs Pronouns",
+            "category": "pronouns_demonstratives"
+        },
+        "possessive_adjective_before_noun": {
+            "name": "Possessive Adjective Before Noun",
+            "category": "topic"
+        },
+        "your_vs_yours": {
+            "name": "Your VS Yours",
+            "category": "topic"
+        },
+        "her_vs_hers": {
+            "name": "Her VS Hers",
+            "category": "topic"
+        },
+        "our_vs_ours": {
+            "name": "Our VS Ours",
+            "category": "topic"
+        },
+        "their_vs_theirs": {
+            "name": "Their VS Theirs",
+            "category": "topic"
+        },
+        "its_vs_its": {
+            "name": "Its VS Its",
+            "category": "topic"
+        },
+        "my_vs_mine": {
+            "name": "MY VS Mine",
+            "category": "topic"
+        },
+        "no_apostrophe": {
+            "name": "NO Apostrophe",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "possessive_adjectives_vs_pronouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pavp-v3-a1-01",
+            "question": "This is {a1} laptop today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for possessive adjective before noun.",
+                    "gap_tags": [
+                        "possessive_adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possessive_adjective_before_noun"
+            ],
+            "variants": [
+                "This is {a1} laptop today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 2,
+            "uuid": "pavp-v3-a1-02",
+            "question": "Is this {a1} suitcase today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "your",
+                    "options": [
+                        "your",
+                        "my",
+                        "mine",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "Is this {a1} suitcase today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 3,
+            "uuid": "pavp-v3-a1-03",
+            "question": "Marta forgot {a1} coat today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "Marta forgot {a1} coat today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 4,
+            "uuid": "pavp-v3-a1-04",
+            "question": "This is {a1} project today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "our",
+                    "options": [
+                        "our",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "This is {a1} project today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 5,
+            "uuid": "pavp-v3-a1-05",
+            "question": "The students opened {a1} books today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "their",
+                    "options": [
+                        "their",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The students opened {a1} books today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 6,
+            "uuid": "pavp-v3-a1-06",
+            "question": "The company changed {a1} logo today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "its",
+                    "options": [
+                        "its",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for its vs its.",
+                    "gap_tags": [
+                        "its_vs_its"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "its_vs_its"
+            ],
+            "variants": [
+                "The company changed {a1} logo today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 7,
+            "uuid": "pavp-v3-a1-07",
+            "question": "This laptop is {a1} today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for my vs mine.",
+                    "gap_tags": [
+                        "my_vs_mine"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "my_vs_mine"
+            ],
+            "variants": [
+                "This laptop is {a1} today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 8,
+            "uuid": "pavp-v3-a1-08",
+            "question": "That suitcase is {a1} today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "yours",
+                    "options": [
+                        "yours",
+                        "my",
+                        "mine",
+                        "your",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "That suitcase is {a1} today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 9,
+            "uuid": "pavp-v3-a1-09",
+            "question": "The blue coat is {a1} today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "hers",
+                    "options": [
+                        "hers",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "The blue coat is {a1} today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 10,
+            "uuid": "pavp-v3-a1-10",
+            "question": "The final project is {a1} today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ours",
+                    "options": [
+                        "ours",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "The final project is {a1} today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 11,
+            "uuid": "pavp-v3-a1-11",
+            "question": "The open seats are {a1} today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The open seats are {a1} today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 12,
+            "uuid": "pavp-v3-a1-12",
+            "question": "The team says the responsibility is {a1} today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for no apostrophe.",
+                    "gap_tags": [
+                        "no_apostrophe"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_apostrophe"
+            ],
+            "variants": [
+                "The team says the responsibility is {a1} today"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 13,
+            "uuid": "pavp-v3-a2-01",
+            "question": "This is {a1} laptop at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for possessive adjective before noun.",
+                    "gap_tags": [
+                        "possessive_adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possessive_adjective_before_noun"
+            ],
+            "variants": [
+                "This is {a1} laptop at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 14,
+            "uuid": "pavp-v3-a2-02",
+            "question": "Is this {a1} suitcase at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "your",
+                    "options": [
+                        "your",
+                        "my",
+                        "mine",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "Is this {a1} suitcase at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 15,
+            "uuid": "pavp-v3-a2-03",
+            "question": "Marta forgot {a1} coat at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "Marta forgot {a1} coat at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 16,
+            "uuid": "pavp-v3-a2-04",
+            "question": "This is {a1} project at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "our",
+                    "options": [
+                        "our",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "This is {a1} project at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 17,
+            "uuid": "pavp-v3-a2-05",
+            "question": "The students opened {a1} books at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "their",
+                    "options": [
+                        "their",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The students opened {a1} books at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 18,
+            "uuid": "pavp-v3-a2-06",
+            "question": "The company changed {a1} logo at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "its",
+                    "options": [
+                        "its",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for its vs its.",
+                    "gap_tags": [
+                        "its_vs_its"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "its_vs_its"
+            ],
+            "variants": [
+                "The company changed {a1} logo at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 19,
+            "uuid": "pavp-v3-a2-07",
+            "question": "This laptop is {a1} at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for my vs mine.",
+                    "gap_tags": [
+                        "my_vs_mine"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "my_vs_mine"
+            ],
+            "variants": [
+                "This laptop is {a1} at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 20,
+            "uuid": "pavp-v3-a2-08",
+            "question": "That suitcase is {a1} at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "yours",
+                    "options": [
+                        "yours",
+                        "my",
+                        "mine",
+                        "your",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "That suitcase is {a1} at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 21,
+            "uuid": "pavp-v3-a2-09",
+            "question": "The blue coat is {a1} at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "hers",
+                    "options": [
+                        "hers",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "The blue coat is {a1} at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 22,
+            "uuid": "pavp-v3-a2-10",
+            "question": "The final project is {a1} at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ours",
+                    "options": [
+                        "ours",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "The final project is {a1} at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 23,
+            "uuid": "pavp-v3-a2-11",
+            "question": "The open seats are {a1} at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The open seats are {a1} at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 24,
+            "uuid": "pavp-v3-a2-12",
+            "question": "The team says the responsibility is {a1} at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for no apostrophe.",
+                    "gap_tags": [
+                        "no_apostrophe"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_apostrophe"
+            ],
+            "variants": [
+                "The team says the responsibility is {a1} at school"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 25,
+            "uuid": "pavp-v3-b1-01",
+            "question": "This is {a1} laptop during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for possessive adjective before noun.",
+                    "gap_tags": [
+                        "possessive_adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possessive_adjective_before_noun"
+            ],
+            "variants": [
+                "This is {a1} laptop during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 26,
+            "uuid": "pavp-v3-b1-02",
+            "question": "Is this {a1} suitcase during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "your",
+                    "options": [
+                        "your",
+                        "my",
+                        "mine",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "Is this {a1} suitcase during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 27,
+            "uuid": "pavp-v3-b1-03",
+            "question": "Marta forgot {a1} coat during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "Marta forgot {a1} coat during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 28,
+            "uuid": "pavp-v3-b1-04",
+            "question": "This is {a1} project during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "our",
+                    "options": [
+                        "our",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "This is {a1} project during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 29,
+            "uuid": "pavp-v3-b1-05",
+            "question": "The students opened {a1} books during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "their",
+                    "options": [
+                        "their",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The students opened {a1} books during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 30,
+            "uuid": "pavp-v3-b1-06",
+            "question": "The company changed {a1} logo during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "its",
+                    "options": [
+                        "its",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for its vs its.",
+                    "gap_tags": [
+                        "its_vs_its"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "its_vs_its"
+            ],
+            "variants": [
+                "The company changed {a1} logo during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 31,
+            "uuid": "pavp-v3-b1-07",
+            "question": "This laptop is {a1} during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for my vs mine.",
+                    "gap_tags": [
+                        "my_vs_mine"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "my_vs_mine"
+            ],
+            "variants": [
+                "This laptop is {a1} during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 32,
+            "uuid": "pavp-v3-b1-08",
+            "question": "That suitcase is {a1} during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "yours",
+                    "options": [
+                        "yours",
+                        "my",
+                        "mine",
+                        "your",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "That suitcase is {a1} during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 33,
+            "uuid": "pavp-v3-b1-09",
+            "question": "The blue coat is {a1} during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "hers",
+                    "options": [
+                        "hers",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "The blue coat is {a1} during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 34,
+            "uuid": "pavp-v3-b1-10",
+            "question": "The final project is {a1} during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ours",
+                    "options": [
+                        "ours",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "The final project is {a1} during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 35,
+            "uuid": "pavp-v3-b1-11",
+            "question": "The open seats are {a1} during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The open seats are {a1} during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 36,
+            "uuid": "pavp-v3-b1-12",
+            "question": "The team says the responsibility is {a1} during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for no apostrophe.",
+                    "gap_tags": [
+                        "no_apostrophe"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_apostrophe"
+            ],
+            "variants": [
+                "The team says the responsibility is {a1} during the lesson"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 37,
+            "uuid": "pavp-v3-b2-01",
+            "question": "This is {a1} laptop at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for possessive adjective before noun.",
+                    "gap_tags": [
+                        "possessive_adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possessive_adjective_before_noun"
+            ],
+            "variants": [
+                "This is {a1} laptop at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 38,
+            "uuid": "pavp-v3-b2-02",
+            "question": "Is this {a1} suitcase at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "your",
+                    "options": [
+                        "your",
+                        "my",
+                        "mine",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "Is this {a1} suitcase at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 39,
+            "uuid": "pavp-v3-b2-03",
+            "question": "Marta forgot {a1} coat at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "Marta forgot {a1} coat at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 40,
+            "uuid": "pavp-v3-b2-04",
+            "question": "This is {a1} project at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "our",
+                    "options": [
+                        "our",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "This is {a1} project at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 41,
+            "uuid": "pavp-v3-b2-05",
+            "question": "The students opened {a1} books at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "their",
+                    "options": [
+                        "their",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The students opened {a1} books at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 42,
+            "uuid": "pavp-v3-b2-06",
+            "question": "The company changed {a1} logo at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "its",
+                    "options": [
+                        "its",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for its vs its.",
+                    "gap_tags": [
+                        "its_vs_its"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "its_vs_its"
+            ],
+            "variants": [
+                "The company changed {a1} logo at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 43,
+            "uuid": "pavp-v3-b2-07",
+            "question": "This laptop is {a1} at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for my vs mine.",
+                    "gap_tags": [
+                        "my_vs_mine"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "my_vs_mine"
+            ],
+            "variants": [
+                "This laptop is {a1} at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 44,
+            "uuid": "pavp-v3-b2-08",
+            "question": "That suitcase is {a1} at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "yours",
+                    "options": [
+                        "yours",
+                        "my",
+                        "mine",
+                        "your",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "That suitcase is {a1} at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 45,
+            "uuid": "pavp-v3-b2-09",
+            "question": "The blue coat is {a1} at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "hers",
+                    "options": [
+                        "hers",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "The blue coat is {a1} at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 46,
+            "uuid": "pavp-v3-b2-10",
+            "question": "The final project is {a1} at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ours",
+                    "options": [
+                        "ours",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "The final project is {a1} at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 47,
+            "uuid": "pavp-v3-b2-11",
+            "question": "The open seats are {a1} at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The open seats are {a1} at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 48,
+            "uuid": "pavp-v3-b2-12",
+            "question": "The team says the responsibility is {a1} at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for no apostrophe.",
+                    "gap_tags": [
+                        "no_apostrophe"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_apostrophe"
+            ],
+            "variants": [
+                "The team says the responsibility is {a1} at the office"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 49,
+            "uuid": "pavp-v3-c1-01",
+            "question": "This is {a1} laptop during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for possessive adjective before noun.",
+                    "gap_tags": [
+                        "possessive_adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possessive_adjective_before_noun"
+            ],
+            "variants": [
+                "This is {a1} laptop during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 50,
+            "uuid": "pavp-v3-c1-02",
+            "question": "Is this {a1} suitcase during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "your",
+                    "options": [
+                        "your",
+                        "my",
+                        "mine",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "Is this {a1} suitcase during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 51,
+            "uuid": "pavp-v3-c1-03",
+            "question": "Marta forgot {a1} coat during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "Marta forgot {a1} coat during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 52,
+            "uuid": "pavp-v3-c1-04",
+            "question": "This is {a1} project during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "our",
+                    "options": [
+                        "our",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "This is {a1} project during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 53,
+            "uuid": "pavp-v3-c1-05",
+            "question": "The students opened {a1} books during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "their",
+                    "options": [
+                        "their",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The students opened {a1} books during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 54,
+            "uuid": "pavp-v3-c1-06",
+            "question": "The company changed {a1} logo during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "its",
+                    "options": [
+                        "its",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for its vs its.",
+                    "gap_tags": [
+                        "its_vs_its"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "its_vs_its"
+            ],
+            "variants": [
+                "The company changed {a1} logo during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 55,
+            "uuid": "pavp-v3-c1-07",
+            "question": "This laptop is {a1} during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for my vs mine.",
+                    "gap_tags": [
+                        "my_vs_mine"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "my_vs_mine"
+            ],
+            "variants": [
+                "This laptop is {a1} during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 56,
+            "uuid": "pavp-v3-c1-08",
+            "question": "That suitcase is {a1} during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "yours",
+                    "options": [
+                        "yours",
+                        "my",
+                        "mine",
+                        "your",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "That suitcase is {a1} during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 57,
+            "uuid": "pavp-v3-c1-09",
+            "question": "The blue coat is {a1} during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "hers",
+                    "options": [
+                        "hers",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "The blue coat is {a1} during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 58,
+            "uuid": "pavp-v3-c1-10",
+            "question": "The final project is {a1} during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ours",
+                    "options": [
+                        "ours",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "The final project is {a1} during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 59,
+            "uuid": "pavp-v3-c1-11",
+            "question": "The open seats are {a1} during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The open seats are {a1} during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 60,
+            "uuid": "pavp-v3-c1-12",
+            "question": "The team says the responsibility is {a1} during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for no apostrophe.",
+                    "gap_tags": [
+                        "no_apostrophe"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_apostrophe"
+            ],
+            "variants": [
+                "The team says the responsibility is {a1} during the review"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 61,
+            "uuid": "pavp-v3-c2-01",
+            "question": "This is {a1} laptop after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for possessive adjective before noun.",
+                    "gap_tags": [
+                        "possessive_adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possessive_adjective_before_noun"
+            ],
+            "variants": [
+                "This is {a1} laptop after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 62,
+            "uuid": "pavp-v3-c2-02",
+            "question": "Is this {a1} suitcase after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "your",
+                    "options": [
+                        "your",
+                        "my",
+                        "mine",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "Is this {a1} suitcase after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 63,
+            "uuid": "pavp-v3-c2-03",
+            "question": "Marta forgot {a1} coat after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "Marta forgot {a1} coat after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 64,
+            "uuid": "pavp-v3-c2-04",
+            "question": "This is {a1} project after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "our",
+                    "options": [
+                        "our",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "This is {a1} project after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 65,
+            "uuid": "pavp-v3-c2-05",
+            "question": "The students opened {a1} books after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "their",
+                    "options": [
+                        "their",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The students opened {a1} books after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 66,
+            "uuid": "pavp-v3-c2-06",
+            "question": "The company changed {a1} logo after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "its",
+                    "options": [
+                        "its",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for its vs its.",
+                    "gap_tags": [
+                        "its_vs_its"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "its_vs_its"
+            ],
+            "variants": [
+                "The company changed {a1} logo after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 67,
+            "uuid": "pavp-v3-c2-07",
+            "question": "This laptop is {a1} after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for my vs mine.",
+                    "gap_tags": [
+                        "my_vs_mine"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "my_vs_mine"
+            ],
+            "variants": [
+                "This laptop is {a1} after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 68,
+            "uuid": "pavp-v3-c2-08",
+            "question": "That suitcase is {a1} after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "yours",
+                    "options": [
+                        "yours",
+                        "my",
+                        "mine",
+                        "your",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for your vs yours.",
+                    "gap_tags": [
+                        "your_vs_yours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "your_vs_yours"
+            ],
+            "variants": [
+                "That suitcase is {a1} after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 69,
+            "uuid": "pavp-v3-c2-09",
+            "question": "The blue coat is {a1} after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "hers",
+                    "options": [
+                        "hers",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for her vs hers.",
+                    "gap_tags": [
+                        "her_vs_hers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "her_vs_hers"
+            ],
+            "variants": [
+                "The blue coat is {a1} after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 70,
+            "uuid": "pavp-v3-c2-10",
+            "question": "The final project is {a1} after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ours",
+                    "options": [
+                        "ours",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "their",
+                        "theirs",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for our vs ours.",
+                    "gap_tags": [
+                        "our_vs_ours"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "our_vs_ours"
+            ],
+            "variants": [
+                "The final project is {a1} after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 71,
+            "uuid": "pavp-v3-c2-11",
+            "question": "The open seats are {a1} after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for their vs theirs.",
+                    "gap_tags": [
+                        "their_vs_theirs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "their_vs_theirs"
+            ],
+            "variants": [
+                "The open seats are {a1} after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        },
+        {
+            "id": 72,
+            "uuid": "pavp-v3-c2-12",
+            "question": "The team says the responsibility is {a1} after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "theirs",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "mine",
+                        "your",
+                        "yours",
+                        "his",
+                        "her",
+                        "hers",
+                        "its",
+                        "our",
+                        "ours",
+                        "their",
+                        "it",
+                        "they",
+                        "them",
+                        "we",
+                        "us"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for no apostrophe.",
+                    "gap_tags": [
+                        "no_apostrophe"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_apostrophe"
+            ],
+            "variants": [
+                "The team says the responsibility is {a1} after the final discussion"
+            ],
+            "source": "theory_page_possessive_adjectives_vs_pronouns"
+        }
+    ],
+    "saved_test": {
+        "uuid": "pd-pavp-v3-all",
+        "slug": "possessive-adjectives-vs-pronouns-all-levels-v3",
+        "name": "Possessive Adjectives vs Pronouns (All levels V3)",
+        "description": "Standard V3 package for Possessive Adjectives vs Pronouns across A1-C2.",
+        "question_uuids": [
+            "pavp-v3-a1-01",
+            "pavp-v3-a1-02",
+            "pavp-v3-a1-03",
+            "pavp-v3-a1-04",
+            "pavp-v3-a1-05",
+            "pavp-v3-a1-06",
+            "pavp-v3-a1-07",
+            "pavp-v3-a1-08",
+            "pavp-v3-a1-09",
+            "pavp-v3-a1-10",
+            "pavp-v3-a1-11",
+            "pavp-v3-a1-12",
+            "pavp-v3-a2-01",
+            "pavp-v3-a2-02",
+            "pavp-v3-a2-03",
+            "pavp-v3-a2-04",
+            "pavp-v3-a2-05",
+            "pavp-v3-a2-06",
+            "pavp-v3-a2-07",
+            "pavp-v3-a2-08",
+            "pavp-v3-a2-09",
+            "pavp-v3-a2-10",
+            "pavp-v3-a2-11",
+            "pavp-v3-a2-12",
+            "pavp-v3-b1-01",
+            "pavp-v3-b1-02",
+            "pavp-v3-b1-03",
+            "pavp-v3-b1-04",
+            "pavp-v3-b1-05",
+            "pavp-v3-b1-06",
+            "pavp-v3-b1-07",
+            "pavp-v3-b1-08",
+            "pavp-v3-b1-09",
+            "pavp-v3-b1-10",
+            "pavp-v3-b1-11",
+            "pavp-v3-b1-12",
+            "pavp-v3-b2-01",
+            "pavp-v3-b2-02",
+            "pavp-v3-b2-03",
+            "pavp-v3-b2-04",
+            "pavp-v3-b2-05",
+            "pavp-v3-b2-06",
+            "pavp-v3-b2-07",
+            "pavp-v3-b2-08",
+            "pavp-v3-b2-09",
+            "pavp-v3-b2-10",
+            "pavp-v3-b2-11",
+            "pavp-v3-b2-12",
+            "pavp-v3-c1-01",
+            "pavp-v3-c1-02",
+            "pavp-v3-c1-03",
+            "pavp-v3-c1-04",
+            "pavp-v3-c1-05",
+            "pavp-v3-c1-06",
+            "pavp-v3-c1-07",
+            "pavp-v3-c1-08",
+            "pavp-v3-c1-09",
+            "pavp-v3-c1-10",
+            "pavp-v3-c1-11",
+            "pavp-v3-c1-12",
+            "pavp-v3-c2-01",
+            "pavp-v3-c2-02",
+            "pavp-v3-c2-03",
+            "pavp-v3-c2-04",
+            "pavp-v3-c2-05",
+            "pavp-v3-c2-06",
+            "pavp-v3-c2-07",
+            "pavp-v3-c2-08",
+            "pavp-v3-c2-09",
+            "pavp-v3-c2-10",
+            "pavp-v3-c2-11",
+            "pavp-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PronounsDemonstratives\\PossessiveAdjectivesVsPronounsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "possessive-adjectives-vs-pronouns-my-mine-your-yours",
+                    "title": "Possessive Adjectives vs Pronouns",
+                    "category_slug_path": "zaimennyky-ta-vkazivni-slova",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesPossessiveAdjectivesVsPronounsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/zaimennyky-ta-vkazivni-slova/possessive-adjectives-vs-pronouns-my-mine-your-yours"
+                }
+            }
+        }
+    }
+}

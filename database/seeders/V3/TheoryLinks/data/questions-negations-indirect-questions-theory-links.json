@@ -1,0 +1,378 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Indirect Questions theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/indirect-questions",
+        "category_slug": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+        "slug": "indirect-questions",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+        "title": "Indirect Questions"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "structure": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+            "sort_order": 2,
+            "title": "Basic patterns"
+        },
+        "usage": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+            "sort_order": 3,
+            "title": "Usage"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+            "sort_order": 4,
+            "title": "Typical mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+            "sort_order": 5,
+            "title": "Summary"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "polite_frame": [
+            "usage",
+            "overview",
+            "summary"
+        ],
+        "could_you_tell_me": [
+            "usage",
+            "overview",
+            "summary"
+        ],
+        "do_you_know": [
+            "usage",
+            "overview",
+            "summary"
+        ],
+        "statement_word_order": [
+            "structure",
+            "overview",
+            "summary"
+        ],
+        "indirect_wh": [
+            "usage",
+            "overview",
+            "summary"
+        ],
+        "indirect_if_whether": [
+            "usage",
+            "overview",
+            "summary"
+        ],
+        "no_extra_auxiliary": [
+            "usage",
+            "overview",
+            "summary"
+        ],
+        "punctuation": [
+            "summary",
+            "usage",
+            "overview"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview",
+            "summary"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\QuestionsNegations\\IndirectQuestionsAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotIndirectQuestionsAllLevelsLessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-indirect-questions-all-levels",
+            "saved_test_name": "Sentence Builder: Indirect Questions (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotIndirectQuestionsAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "indq-poly-a1-01": [
+                    "polite_frame"
+                ],
+                "indq-poly-a1-02": [
+                    "could_you_tell_me"
+                ],
+                "indq-poly-a1-03": [
+                    "do_you_know"
+                ],
+                "indq-poly-a1-04": [
+                    "statement_word_order"
+                ],
+                "indq-poly-a1-05": [
+                    "indirect_wh"
+                ],
+                "indq-poly-a1-06": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-a1-07": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-a1-08": [
+                    "no_extra_auxiliary"
+                ],
+                "indq-poly-a1-09": [
+                    "punctuation"
+                ],
+                "indq-poly-a1-10": [
+                    "polite_frame"
+                ],
+                "indq-poly-a1-11": [
+                    "indirect_wh"
+                ],
+                "indq-poly-a1-12": [
+                    "typical_mistakes"
+                ],
+                "indq-poly-a2-01": [
+                    "polite_frame"
+                ],
+                "indq-poly-a2-02": [
+                    "could_you_tell_me"
+                ],
+                "indq-poly-a2-03": [
+                    "do_you_know"
+                ],
+                "indq-poly-a2-04": [
+                    "statement_word_order"
+                ],
+                "indq-poly-a2-05": [
+                    "indirect_wh"
+                ],
+                "indq-poly-a2-06": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-a2-07": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-a2-08": [
+                    "no_extra_auxiliary"
+                ],
+                "indq-poly-a2-09": [
+                    "punctuation"
+                ],
+                "indq-poly-a2-10": [
+                    "polite_frame"
+                ],
+                "indq-poly-a2-11": [
+                    "indirect_wh"
+                ],
+                "indq-poly-a2-12": [
+                    "typical_mistakes"
+                ],
+                "indq-poly-b1-01": [
+                    "polite_frame"
+                ],
+                "indq-poly-b1-02": [
+                    "could_you_tell_me"
+                ],
+                "indq-poly-b1-03": [
+                    "do_you_know"
+                ],
+                "indq-poly-b1-04": [
+                    "statement_word_order"
+                ],
+                "indq-poly-b1-05": [
+                    "indirect_wh"
+                ],
+                "indq-poly-b1-06": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-b1-07": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-b1-08": [
+                    "no_extra_auxiliary"
+                ],
+                "indq-poly-b1-09": [
+                    "punctuation"
+                ],
+                "indq-poly-b1-10": [
+                    "polite_frame"
+                ],
+                "indq-poly-b1-11": [
+                    "indirect_wh"
+                ],
+                "indq-poly-b1-12": [
+                    "typical_mistakes"
+                ],
+                "indq-poly-b2-01": [
+                    "polite_frame"
+                ],
+                "indq-poly-b2-02": [
+                    "could_you_tell_me"
+                ],
+                "indq-poly-b2-03": [
+                    "do_you_know"
+                ],
+                "indq-poly-b2-04": [
+                    "statement_word_order"
+                ],
+                "indq-poly-b2-05": [
+                    "indirect_wh"
+                ],
+                "indq-poly-b2-06": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-b2-07": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-b2-08": [
+                    "no_extra_auxiliary"
+                ],
+                "indq-poly-b2-09": [
+                    "punctuation"
+                ],
+                "indq-poly-b2-10": [
+                    "polite_frame"
+                ],
+                "indq-poly-b2-11": [
+                    "indirect_wh"
+                ],
+                "indq-poly-b2-12": [
+                    "typical_mistakes"
+                ],
+                "indq-poly-c1-01": [
+                    "polite_frame"
+                ],
+                "indq-poly-c1-02": [
+                    "could_you_tell_me"
+                ],
+                "indq-poly-c1-03": [
+                    "do_you_know"
+                ],
+                "indq-poly-c1-04": [
+                    "statement_word_order"
+                ],
+                "indq-poly-c1-05": [
+                    "indirect_wh"
+                ],
+                "indq-poly-c1-06": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-c1-07": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-c1-08": [
+                    "no_extra_auxiliary"
+                ],
+                "indq-poly-c1-09": [
+                    "punctuation"
+                ],
+                "indq-poly-c1-10": [
+                    "polite_frame"
+                ],
+                "indq-poly-c1-11": [
+                    "indirect_wh"
+                ],
+                "indq-poly-c1-12": [
+                    "typical_mistakes"
+                ],
+                "indq-poly-c2-01": [
+                    "polite_frame"
+                ],
+                "indq-poly-c2-02": [
+                    "could_you_tell_me"
+                ],
+                "indq-poly-c2-03": [
+                    "do_you_know"
+                ],
+                "indq-poly-c2-04": [
+                    "statement_word_order"
+                ],
+                "indq-poly-c2-05": [
+                    "indirect_wh"
+                ],
+                "indq-poly-c2-06": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-c2-07": [
+                    "indirect_if_whether"
+                ],
+                "indq-poly-c2-08": [
+                    "no_extra_auxiliary"
+                ],
+                "indq-poly-c2-09": [
+                    "punctuation"
+                ],
+                "indq-poly-c2-10": [
+                    "polite_frame"
+                ],
+                "indq-poly-c2-11": [
+                    "indirect_wh"
+                ],
+                "indq-poly-c2-12": [
+                    "typical_mistakes"
+                ]
+            }
+        },
+        {
+            "kind": "standard_v3",
+            "saved_test_slug": "indirect-questions-all-levels-v3",
+            "saved_test_name": "Indirect Questions (All levels V3)",
+            "strategy": "mapped_by_tags_and_fallbacks",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\IndirectQuestionsAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "polite_frame": "polite_frame",
+                "could_you_tell_me": "could_you_tell_me",
+                "do_you_know": "do_you_know",
+                "statement_word_order": "statement_word_order",
+                "indirect_wh": "indirect_wh",
+                "indirect_if_whether": "indirect_if_whether",
+                "no_extra_auxiliary": "no_extra_auxiliary",
+                "punctuation": "punctuation",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {},
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "standard_questions_per_page": 72,
+        "polyglot_questions_per_page": 72,
+        "levels": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "questions_per_level": 12,
+        "json_source_of_truth": true,
+        "do_not_use_question_marker_tag": true
+    },
+    "qa": {
+        "direct_sentence_builder_slug": "polyglot-indirect-questions-all-levels",
+        "mixed_test": "theory-page-{page_id}-mixed-a1-c2",
+        "expected_show_theory": true
+    }
+}

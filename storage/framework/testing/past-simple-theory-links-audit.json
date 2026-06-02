@@ -1,0 +1,402 @@
+{
+    "generated_at": "2026-05-26T18:12:39+03:00",
+    "prompt_id": "GLZ-CODEX-THEORY-PAGE-TESTS-UNIFICATION-001",
+    "summary": {
+        "total_theory_pages": 4,
+        "pages_ok": 4,
+        "pages_missing_only_theory_links": 0,
+        "pages_missing_sentence_builder": 0,
+        "pages_missing_v3": 0,
+        "pages_missing_both_tests": 0,
+        "status_counts": {
+            "OK": 4
+        }
+    },
+    "pages": [
+        {
+            "page_id": 1,
+            "category_slug": "past-simple",
+            "category_slug_path": "tenses/past-simple",
+            "page_slug": "past-simple-forms",
+            "route": "/theory/tenses/past-simple/past-simple-forms",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleFormsTheorySeeder",
+            "text_block_count": 24,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-past-simple-forms-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-1-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleFormsAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleIrregularVerbsLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleRegularVerbsLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleFormsAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleFormsAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleFormsAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleIrregularVerbsLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleRegularVerbsLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleFormsAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 120,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleFormsAllLevelsLessonSeeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleRegularVerbsLessonSeeder": 24,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleIrregularVerbsLessonSeeder": 24
+                    },
+                    "questions_with_pivot_rows": 120,
+                    "questions_with_legacy_uuid": 120,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleFormsAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleIrregularVerbsLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleRegularVerbsLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleFormsAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 192,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleFormsAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleFormsAllLevelsLessonSeeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleRegularVerbsLessonSeeder": 24,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleIrregularVerbsLessonSeeder": 24
+                    },
+                    "questions_with_pivot_rows": 192,
+                    "questions_with_legacy_uuid": 192,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/past-simple-forms-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\PastSimpleFormsTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleFormsAllLevelsV3Seeder"
+            ],
+            "manifest_expected_polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleFormsAllLevelsLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleRegularVerbsLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleIrregularVerbsLessonSeeder"
+            ],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 2,
+            "category_slug": "past-simple",
+            "category_slug_path": "tenses/past-simple",
+            "page_slug": "past-simple-negatives",
+            "route": "/theory/tenses/past-simple/past-simple-negatives",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleNegativesTheorySeeder",
+            "text_block_count": 24,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-past-simple-negatives-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-2-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleNegativesAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleNegativesAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleNegativesAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleNegativesAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleNegativesAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleNegativesAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleNegativesAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleNegativesAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleNegativesAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleNegativesAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/past-simple-negatives-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\PastSimpleNegativesTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleNegativesAllLevelsV3Seeder"
+            ],
+            "manifest_expected_polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleNegativesAllLevelsLessonSeeder"
+            ],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 3,
+            "category_slug": "past-simple",
+            "category_slug_path": "tenses/past-simple",
+            "page_slug": "past-simple-questions",
+            "route": "/theory/tenses/past-simple/past-simple-questions",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleQuestionsTheorySeeder",
+            "text_block_count": 27,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-past-simple-questions-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-3-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleQuestionsAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleQuestionsAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleQuestionsAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleQuestionsAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleQuestionsAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/past-simple-questions-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\PastSimpleQuestionsTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder"
+            ],
+            "manifest_expected_polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleQuestionsAllLevelsLessonSeeder"
+            ],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 4,
+            "category_slug": "past-simple",
+            "category_slug_path": "tenses/past-simple",
+            "page_slug": "past-simple-time-expressions",
+            "route": "/theory/tenses/past-simple/past-simple-time-expressions",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsTheorySeeder",
+            "text_block_count": 24,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-past-simple-time-expressions-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-4-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/past-simple-time-expressions-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\PastSimpleTimeExpressionsTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [
+                "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder"
+            ],
+            "manifest_expected_polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder"
+            ],
+            "status": "OK",
+            "missing": []
+        }
+    ],
+    "backlog": []
+}

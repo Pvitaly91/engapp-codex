@@ -1,0 +1,66 @@
+{
+    "schema_version": 1,
+    "content_type": "page",
+    "slug": "reported-questions",
+    "page": {
+        "title": "Reported Questions",
+        "subtitle_html": "<p><strong>Reported Questions</strong> пояснює, як передавати yes/no questions і wh-questions без інверсії прямого питання.</p>",
+        "subtitle_text": "Передавання yes/no questions і wh-questions у reported speech.",
+        "locale": "uk",
+        "category": {
+            "slug": "reported-speech",
+            "title": "Reported Speech",
+            "language": "uk"
+        },
+        "tags": [
+            "Reported Speech",
+            "Reported Questions",
+            "If Whether",
+            "Wh Questions",
+            "Theory",
+            "B1",
+            "B2"
+        ],
+        "blocks": [
+            {
+                "type": "hero",
+                "column": "header",
+                "level": "B1",
+                "body": "{\"level\":\"B1-B2\",\"intro\":\"<strong>Reported questions</strong> потрібні, коли ми переказуємо запитання як частину іншого речення, а не ставимо його напряму.\",\"rules\":[{\"label\":\"Yes / no questions\",\"color\":\"emerald\",\"text\":\"Для загальних питань найчастіше використовуємо <strong>if</strong> або <strong>whether</strong>.\",\"example\":\"She asked if I was ready.\"},{\"label\":\"Wh-questions\",\"color\":\"blue\",\"text\":\"Для спеціальних питань зберігаємо <strong>question word</strong>: <strong>where, why, when, how</strong> тощо.\",\"example\":\"He asked where I lived.\"},{\"label\":\"No inversion\",\"color\":\"amber\",\"text\":\"У reported clause більше немає питання з допоміжним дієсловом на початку. Порядок слів стає звичайним, і знак питання зазвичай не потрібний.\",\"example\":\"She asked what time the film started.\"}]}"
+            },
+            {
+                "type": "box",
+                "column": "left",
+                "heading": "1. Форма і структура",
+                "body": "<p>Для reported questions часто використовуємо модель <strong>subject + asked + reported clause</strong>.</p><ul><li><strong>Yes / no question</strong> → <strong>if / whether + statement order</strong>: <em>He asked if I was free.</em></li><li><strong>Wh-question</strong> → <strong>question word + statement order</strong>: <em>She asked where I lived.</em></li><li>Після переходу в reported speech не ставимо інверсію типу <em>where did you live</em>; правильно <em>where I lived</em>.</li><li>У середині складного речення знак питання зазвичай зникає.</li></ul>"
+            },
+            {
+                "type": "box",
+                "column": "left",
+                "heading": "2. Основні випадки вживання і приклади",
+                "body": "<table><thead><tr><th>Direct question</th><th>Reported question</th><th>Коментар</th></tr></thead><tbody><tr><td>“Do you like coffee?”</td><td>She asked if I liked coffee.</td><td>Yes / no question → <strong>if</strong></td></tr><tr><td>“Are they coming tonight?”</td><td>He asked whether they were coming that night.</td><td><strong>whether</strong> теж можливе</td></tr><tr><td>“Where do you live?”</td><td>She asked where I lived.</td><td><strong>where</strong> зберігається, інверсія зникає</td></tr><tr><td>“Why did you leave early?”</td><td>They asked why I had left early.</td><td>питальне слово + backshift</td></tr></tbody></table>"
+            },
+            {
+                "type": "box",
+                "column": "right",
+                "heading": "3. Типові помилки",
+                "body": "<ul><li><strong>Помилка:</strong> залишати допоміжне дієслово перед підметом. <br><strong>Краще:</strong> <em>He asked where I lived</em>, а не <em>He asked where did I live</em>.</li><li><strong>Помилка:</strong> ставити знак питання в середині reported clause. <br><strong>Краще:</strong> <em>She asked if I was ready.</em></li><li><strong>Помилка:</strong> забувати про <strong>if / whether</strong> у yes/no questions. <br><strong>Краще:</strong> <em>They asked whether we needed help.</em></li></ul>"
+            },
+            {
+                "type": "box",
+                "column": "right",
+                "heading": "4. Коротке правило",
+                "body": "<ul><li><strong>Yes / no questions</strong> переходять у <strong>if / whether + statement order</strong>.</li><li><strong>Wh-questions</strong> зберігають питальне слово, але <strong>втрачають інверсію</strong>.</li><li>У reported question ми переказуємо зміст питання, тому форма стає схожою на твердження.</li></ul>"
+            },
+            {
+                "type": "navigation-chips",
+                "column": "footer",
+                "body": "{\"title\":\"Сторінки цього розділу\",\"items\":[{\"label\":\"Reported Statements\",\"url\":\"/theory/reported-speech/reported-statements\",\"current\":false},{\"label\":\"Reported Questions\",\"url\":\"/theory/reported-speech/reported-questions\",\"current\":true},{\"label\":\"Reported Commands and Requests\",\"url\":\"/theory/reported-speech/reported-commands-and-requests\",\"current\":false},{\"label\":\"Backshift of Tenses\",\"url\":\"/theory/reported-speech/backshift-of-tenses\",\"current\":false},{\"label\":\"Time and Place Changes\",\"url\":\"/theory/reported-speech/time-and-place-changes\",\"current\":false},{\"label\":\"Say / Tell / Ask\",\"url\":\"/theory/reported-speech/say-tell-ask\",\"current\":false}]}"
+            }
+        ]
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechQuestionsTheorySeeder"
+    },
+    "type": "theory"
+}

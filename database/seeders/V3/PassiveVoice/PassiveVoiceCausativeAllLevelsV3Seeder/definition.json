@@ -1,0 +1,1860 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceCausativeAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveVoiceCausativeAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_voice_causative": {
+            "name": "Passive Voice Causative"
+        }
+    },
+    "tags": {
+        "passive_voice_causative": {
+            "name": "Passive Voice Causative",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "have_object_v3": {
+            "name": "Have Object V3",
+            "category": "topic"
+        },
+        "get_object_v3": {
+            "name": "Get Object V3",
+            "category": "topic"
+        },
+        "service_done": {
+            "name": "Service Done",
+            "category": "topic"
+        },
+        "have_hair_cut": {
+            "name": "Have Hair Cut",
+            "category": "topic"
+        },
+        "get_car_repaired": {
+            "name": "Get Car Repaired",
+            "category": "topic"
+        },
+        "causative_vs_self": {
+            "name": "Causative Vs Self",
+            "category": "topic"
+        },
+        "causative_negatives": {
+            "name": "Causative Negatives",
+            "category": "topic"
+        },
+        "causative_questions": {
+            "name": "Causative Questions",
+            "category": "topic"
+        },
+        "tense_changes": {
+            "name": "Tense Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvcau-v3-a1-01",
+            "question": "Causative form: “I had my car {a1}.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "have_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvcau-v3-a1-02",
+            "question": "Informal causative: “She got her phone {a1}.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "fixed",
+                    "options": [
+                        "fixed",
+                        "fix",
+                        "to fix",
+                        "fixing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvcau-v3-a1-03",
+            "question": "Use causative for services: “We had the house {a1}.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "service_done"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "paint",
+                        "to paint",
+                        "painting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvcau-v3-a1-04",
+            "question": "The standard phrase is “I had my hair {a1}.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "have_hair_cut"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvcau-v3-a1-05",
+            "question": "“I got the car repaired” means someone else {a1} it.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "get_car_repaired"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "drove",
+                        "owned",
+                        "lost"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvcau-v3-a1-06",
+            "question": "“I repaired my car” means I did it myself; “I had my car repaired” means someone else {a1}.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "causative_vs_self"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it",
+                    "options": [
+                        "did it",
+                        "watched it",
+                        "sold it",
+                        "found it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvcau-v3-a1-07",
+            "question": "Negative causative: “I {a1} my car serviced last year.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "causative_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did not have",
+                    "options": [
+                        "did not have",
+                        "did not had",
+                        "was not have",
+                        "had not to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvcau-v3-a1-08",
+            "question": "Question form: “Did you {a1} your eyes tested?”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "having",
+                        "to have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvcau-v3-a1-09",
+            "question": "Future causative: “We will have the windows {a1} tomorrow.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "tense_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "clean",
+                        "to clean",
+                        "cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvcau-v3-a1-10",
+            "question": "Do not write “I had my car to repair”; write “I had my car {a1}.”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvcau-v3-a1-11",
+            "question": "“They finally got the roof {a1}” stresses the result after effort.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvcau-v3-a1-12",
+            "question": "Wh-question: “Where did you have your hair {a1}?”",
+            "level": "A1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a1",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvcau-v3-a2-01",
+            "question": "Causative form: “I had my car {a1}.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "have_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvcau-v3-a2-02",
+            "question": "Informal causative: “She got her phone {a1}.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "fixed",
+                    "options": [
+                        "fixed",
+                        "fix",
+                        "to fix",
+                        "fixing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvcau-v3-a2-03",
+            "question": "Use causative for services: “We had the house {a1}.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "service_done"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "paint",
+                        "to paint",
+                        "painting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvcau-v3-a2-04",
+            "question": "The standard phrase is “I had my hair {a1}.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "have_hair_cut"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvcau-v3-a2-05",
+            "question": "“I got the car repaired” means someone else {a1} it.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "get_car_repaired"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "drove",
+                        "owned",
+                        "lost"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvcau-v3-a2-06",
+            "question": "“I repaired my car” means I did it myself; “I had my car repaired” means someone else {a1}.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "causative_vs_self"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it",
+                    "options": [
+                        "did it",
+                        "watched it",
+                        "sold it",
+                        "found it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvcau-v3-a2-07",
+            "question": "Negative causative: “I {a1} my car serviced last year.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "causative_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did not have",
+                    "options": [
+                        "did not have",
+                        "did not had",
+                        "was not have",
+                        "had not to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvcau-v3-a2-08",
+            "question": "Question form: “Did you {a1} your eyes tested?”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "having",
+                        "to have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvcau-v3-a2-09",
+            "question": "Future causative: “We will have the windows {a1} tomorrow.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "tense_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "clean",
+                        "to clean",
+                        "cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvcau-v3-a2-10",
+            "question": "Do not write “I had my car to repair”; write “I had my car {a1}.”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvcau-v3-a2-11",
+            "question": "“They finally got the roof {a1}” stresses the result after effort.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvcau-v3-a2-12",
+            "question": "Wh-question: “Where did you have your hair {a1}?”",
+            "level": "A2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_a2",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvcau-v3-b1-01",
+            "question": "Causative form: “I had my car {a1}.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "have_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvcau-v3-b1-02",
+            "question": "Informal causative: “She got her phone {a1}.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "fixed",
+                    "options": [
+                        "fixed",
+                        "fix",
+                        "to fix",
+                        "fixing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvcau-v3-b1-03",
+            "question": "Use causative for services: “We had the house {a1}.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "service_done"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "paint",
+                        "to paint",
+                        "painting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvcau-v3-b1-04",
+            "question": "The standard phrase is “I had my hair {a1}.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "have_hair_cut"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvcau-v3-b1-05",
+            "question": "“I got the car repaired” means someone else {a1} it.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "get_car_repaired"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "drove",
+                        "owned",
+                        "lost"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvcau-v3-b1-06",
+            "question": "“I repaired my car” means I did it myself; “I had my car repaired” means someone else {a1}.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "causative_vs_self"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it",
+                    "options": [
+                        "did it",
+                        "watched it",
+                        "sold it",
+                        "found it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvcau-v3-b1-07",
+            "question": "Negative causative: “I {a1} my car serviced last year.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "causative_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did not have",
+                    "options": [
+                        "did not have",
+                        "did not had",
+                        "was not have",
+                        "had not to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvcau-v3-b1-08",
+            "question": "Question form: “Did you {a1} your eyes tested?”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "having",
+                        "to have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvcau-v3-b1-09",
+            "question": "Future causative: “We will have the windows {a1} tomorrow.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "tense_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "clean",
+                        "to clean",
+                        "cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvcau-v3-b1-10",
+            "question": "Do not write “I had my car to repair”; write “I had my car {a1}.”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvcau-v3-b1-11",
+            "question": "“They finally got the roof {a1}” stresses the result after effort.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvcau-v3-b1-12",
+            "question": "Wh-question: “Where did you have your hair {a1}?”",
+            "level": "B1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b1",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvcau-v3-b2-01",
+            "question": "Causative form: “I had my car {a1}.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "have_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvcau-v3-b2-02",
+            "question": "Informal causative: “She got her phone {a1}.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "fixed",
+                    "options": [
+                        "fixed",
+                        "fix",
+                        "to fix",
+                        "fixing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvcau-v3-b2-03",
+            "question": "Use causative for services: “We had the house {a1}.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "service_done"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "paint",
+                        "to paint",
+                        "painting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvcau-v3-b2-04",
+            "question": "The standard phrase is “I had my hair {a1}.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "have_hair_cut"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvcau-v3-b2-05",
+            "question": "“I got the car repaired” means someone else {a1} it.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "get_car_repaired"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "drove",
+                        "owned",
+                        "lost"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvcau-v3-b2-06",
+            "question": "“I repaired my car” means I did it myself; “I had my car repaired” means someone else {a1}.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "causative_vs_self"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it",
+                    "options": [
+                        "did it",
+                        "watched it",
+                        "sold it",
+                        "found it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvcau-v3-b2-07",
+            "question": "Negative causative: “I {a1} my car serviced last year.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "causative_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did not have",
+                    "options": [
+                        "did not have",
+                        "did not had",
+                        "was not have",
+                        "had not to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvcau-v3-b2-08",
+            "question": "Question form: “Did you {a1} your eyes tested?”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "having",
+                        "to have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvcau-v3-b2-09",
+            "question": "Future causative: “We will have the windows {a1} tomorrow.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "tense_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "clean",
+                        "to clean",
+                        "cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvcau-v3-b2-10",
+            "question": "Do not write “I had my car to repair”; write “I had my car {a1}.”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvcau-v3-b2-11",
+            "question": "“They finally got the roof {a1}” stresses the result after effort.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvcau-v3-b2-12",
+            "question": "Wh-question: “Where did you have your hair {a1}?”",
+            "level": "B2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_b2",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvcau-v3-c1-01",
+            "question": "Causative form: “I had my car {a1}.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "have_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvcau-v3-c1-02",
+            "question": "Informal causative: “She got her phone {a1}.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "fixed",
+                    "options": [
+                        "fixed",
+                        "fix",
+                        "to fix",
+                        "fixing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvcau-v3-c1-03",
+            "question": "Use causative for services: “We had the house {a1}.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "service_done"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "paint",
+                        "to paint",
+                        "painting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvcau-v3-c1-04",
+            "question": "The standard phrase is “I had my hair {a1}.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "have_hair_cut"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvcau-v3-c1-05",
+            "question": "“I got the car repaired” means someone else {a1} it.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "get_car_repaired"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "drove",
+                        "owned",
+                        "lost"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvcau-v3-c1-06",
+            "question": "“I repaired my car” means I did it myself; “I had my car repaired” means someone else {a1}.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "causative_vs_self"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it",
+                    "options": [
+                        "did it",
+                        "watched it",
+                        "sold it",
+                        "found it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvcau-v3-c1-07",
+            "question": "Negative causative: “I {a1} my car serviced last year.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "causative_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did not have",
+                    "options": [
+                        "did not have",
+                        "did not had",
+                        "was not have",
+                        "had not to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvcau-v3-c1-08",
+            "question": "Question form: “Did you {a1} your eyes tested?”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "having",
+                        "to have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvcau-v3-c1-09",
+            "question": "Future causative: “We will have the windows {a1} tomorrow.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "tense_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "clean",
+                        "to clean",
+                        "cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvcau-v3-c1-10",
+            "question": "Do not write “I had my car to repair”; write “I had my car {a1}.”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvcau-v3-c1-11",
+            "question": "“They finally got the roof {a1}” stresses the result after effort.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvcau-v3-c1-12",
+            "question": "Wh-question: “Where did you have your hair {a1}?”",
+            "level": "C1",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c1",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvcau-v3-c2-01",
+            "question": "Causative form: “I had my car {a1}.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "have_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvcau-v3-c2-02",
+            "question": "Informal causative: “She got her phone {a1}.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "fixed",
+                    "options": [
+                        "fixed",
+                        "fix",
+                        "to fix",
+                        "fixing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvcau-v3-c2-03",
+            "question": "Use causative for services: “We had the house {a1}.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "service_done"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "paint",
+                        "to paint",
+                        "painting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvcau-v3-c2-04",
+            "question": "The standard phrase is “I had my hair {a1}.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "have_hair_cut"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvcau-v3-c2-05",
+            "question": "“I got the car repaired” means someone else {a1} it.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "get_car_repaired"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "drove",
+                        "owned",
+                        "lost"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvcau-v3-c2-06",
+            "question": "“I repaired my car” means I did it myself; “I had my car repaired” means someone else {a1}.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "causative_vs_self"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it",
+                    "options": [
+                        "did it",
+                        "watched it",
+                        "sold it",
+                        "found it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvcau-v3-c2-07",
+            "question": "Negative causative: “I {a1} my car serviced last year.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "causative_negatives"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did not have",
+                    "options": [
+                        "did not have",
+                        "did not had",
+                        "was not have",
+                        "had not to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvcau-v3-c2-08",
+            "question": "Question form: “Did you {a1} your eyes tested?”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "having",
+                        "to have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvcau-v3-c2-09",
+            "question": "Future causative: “We will have the windows {a1} tomorrow.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "tense_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "clean",
+                        "to clean",
+                        "cleaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvcau-v3-c2-10",
+            "question": "Do not write “I had my car to repair”; write “I had my car {a1}.”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvcau-v3-c2-11",
+            "question": "“They finally got the roof {a1}” stresses the result after effort.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "get_object_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repair",
+                        "to repair",
+                        "repairing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvcau-v3-c2-12",
+            "question": "Wh-question: “Where did you have your hair {a1}?”",
+            "level": "C2",
+            "source": "theory_page_passive_voice_causative",
+            "tag_keys": [
+                "passive_voice_causative",
+                "level_c2",
+                "causative_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "cut",
+                    "options": [
+                        "cut",
+                        "to cut",
+                        "cutted",
+                        "cutting"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-cau-v3-all",
+        "slug": "passive-voice-causative-all-levels-v3",
+        "name": "Passive Voice Causative (All levels V3)",
+        "description": "Standard V3 package for Passive Voice Causative across A1-C2.",
+        "question_uuids": [
+            "pvcau-v3-a1-01",
+            "pvcau-v3-a1-02",
+            "pvcau-v3-a1-03",
+            "pvcau-v3-a1-04",
+            "pvcau-v3-a1-05",
+            "pvcau-v3-a1-06",
+            "pvcau-v3-a1-07",
+            "pvcau-v3-a1-08",
+            "pvcau-v3-a1-09",
+            "pvcau-v3-a1-10",
+            "pvcau-v3-a1-11",
+            "pvcau-v3-a1-12",
+            "pvcau-v3-a2-01",
+            "pvcau-v3-a2-02",
+            "pvcau-v3-a2-03",
+            "pvcau-v3-a2-04",
+            "pvcau-v3-a2-05",
+            "pvcau-v3-a2-06",
+            "pvcau-v3-a2-07",
+            "pvcau-v3-a2-08",
+            "pvcau-v3-a2-09",
+            "pvcau-v3-a2-10",
+            "pvcau-v3-a2-11",
+            "pvcau-v3-a2-12",
+            "pvcau-v3-b1-01",
+            "pvcau-v3-b1-02",
+            "pvcau-v3-b1-03",
+            "pvcau-v3-b1-04",
+            "pvcau-v3-b1-05",
+            "pvcau-v3-b1-06",
+            "pvcau-v3-b1-07",
+            "pvcau-v3-b1-08",
+            "pvcau-v3-b1-09",
+            "pvcau-v3-b1-10",
+            "pvcau-v3-b1-11",
+            "pvcau-v3-b1-12",
+            "pvcau-v3-b2-01",
+            "pvcau-v3-b2-02",
+            "pvcau-v3-b2-03",
+            "pvcau-v3-b2-04",
+            "pvcau-v3-b2-05",
+            "pvcau-v3-b2-06",
+            "pvcau-v3-b2-07",
+            "pvcau-v3-b2-08",
+            "pvcau-v3-b2-09",
+            "pvcau-v3-b2-10",
+            "pvcau-v3-b2-11",
+            "pvcau-v3-b2-12",
+            "pvcau-v3-c1-01",
+            "pvcau-v3-c1-02",
+            "pvcau-v3-c1-03",
+            "pvcau-v3-c1-04",
+            "pvcau-v3-c1-05",
+            "pvcau-v3-c1-06",
+            "pvcau-v3-c1-07",
+            "pvcau-v3-c1-08",
+            "pvcau-v3-c1-09",
+            "pvcau-v3-c1-10",
+            "pvcau-v3-c1-11",
+            "pvcau-v3-c1-12",
+            "pvcau-v3-c2-01",
+            "pvcau-v3-c2-02",
+            "pvcau-v3-c2-03",
+            "pvcau-v3-c2-04",
+            "pvcau-v3-c2-05",
+            "pvcau-v3-c2-06",
+            "pvcau-v3-c2-07",
+            "pvcau-v3-c2-08",
+            "pvcau-v3-c2-09",
+            "pvcau-v3-c2-10",
+            "pvcau-v3-c2-11",
+            "pvcau-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceCausativeAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-passive-voice-causative",
+                    "title": "Passive Voice Causative",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceCausativeTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/theory-passive-voice-causative"
+                }
+            }
+        }
+    }
+}

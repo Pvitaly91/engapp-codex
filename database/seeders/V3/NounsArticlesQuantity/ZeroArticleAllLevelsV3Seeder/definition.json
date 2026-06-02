@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\ZeroArticleAllLevelsV3Seeder",
+        "uuid_namespace": "ZeroArticleAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "theory_page_zero_article": {
+            "name": "Zero Article"
+        }
+    },
+    "tags": {
+        "zero_article": {
+            "name": "Zero Article",
+            "category": "nouns_articles_quantity"
+        },
+        "plural_general": {
+            "name": "Plural General",
+            "category": "topic"
+        },
+        "uncountable_general": {
+            "name": "Uncountable General",
+            "category": "topic"
+        },
+        "meals_languages_subjects": {
+            "name": "Meals Languages Subjects",
+            "category": "topic"
+        },
+        "fixed_zero_article_phrases": {
+            "name": "Fixed Zero Article Phrases",
+            "category": "topic"
+        },
+        "proper_names": {
+            "name": "Proper Names",
+            "category": "topic"
+        },
+        "zero_vs_the": {
+            "name": "Zero Vs The",
+            "category": "topic"
+        },
+        "abstract_general": {
+            "name": "Abstract General",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "zero_article"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "za-v3-a1-01",
+            "question": "{a1} Dogs need exercise",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in general.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Dogs need exercise"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 2,
+            "uuid": "za-v3-a1-02",
+            "question": "{a1} Teachers need patience",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article for a general plural group.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Teachers need patience"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 3,
+            "uuid": "za-v3-a1-03",
+            "question": "{a1} Water is important",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in general.",
+                    "gap_tags": [
+                        "uncountable_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_general"
+            ],
+            "variants": [
+                "{a1} Water is important"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 4,
+            "uuid": "za-v3-a1-04",
+            "question": "{a1} Friendship matters",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article before abstract nouns in general.",
+                    "gap_tags": [
+                        "abstract_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "abstract_general"
+            ],
+            "variants": [
+                "{a1} Friendship matters"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 5,
+            "uuid": "za-v3-a1-05",
+            "question": "We have {a1} breakfast at seven",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with usual meal names.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "We have {a1} breakfast at seven"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 6,
+            "uuid": "za-v3-a1-06",
+            "question": "She studies {a1} English",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with languages and school subjects.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "She studies {a1} English"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 7,
+            "uuid": "za-v3-a1-07",
+            "question": "They go there by {a1} bus",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in by plus transport phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "They go there by {a1} bus"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 8,
+            "uuid": "za-v3-a1-08",
+            "question": "He is still in {a1} bed",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in common institutional or fixed phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "He is still in {a1} bed"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 9,
+            "uuid": "za-v3-a1-09",
+            "question": "{a1} Maria lives in Kyiv",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with personal names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "{a1} Maria lives in Kyiv"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 10,
+            "uuid": "za-v3-a1-10",
+            "question": "They visited {a1} Kyiv in May",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most city names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "They visited {a1} Kyiv in May"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 11,
+            "uuid": "za-v3-a1-11",
+            "question": "{a1} Coffee can be expensive in general",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use zero article for general meaning.",
+                    "gap_tags": [
+                        "zero_vs_the"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_vs_the"
+            ],
+            "variants": [
+                "{a1} Coffee can be expensive in general"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 12,
+            "uuid": "za-v3-a1-12",
+            "question": "She knows {a1} English well",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Do not add the before general languages or subjects.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She knows {a1} English well"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 13,
+            "uuid": "za-v3-a2-01",
+            "question": "{a1} Children need sleep",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in general.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Children need sleep"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 14,
+            "uuid": "za-v3-a2-02",
+            "question": "{a1} Doctors need rest",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article for a general plural group.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Doctors need rest"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 15,
+            "uuid": "za-v3-a2-03",
+            "question": "{a1} Milk is important",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in general.",
+                    "gap_tags": [
+                        "uncountable_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_general"
+            ],
+            "variants": [
+                "{a1} Milk is important"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 16,
+            "uuid": "za-v3-a2-04",
+            "question": "{a1} Honesty matters",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article before abstract nouns in general.",
+                    "gap_tags": [
+                        "abstract_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "abstract_general"
+            ],
+            "variants": [
+                "{a1} Honesty matters"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 17,
+            "uuid": "za-v3-a2-05",
+            "question": "We have {a1} lunch at seven",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with usual meal names.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "We have {a1} lunch at seven"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 18,
+            "uuid": "za-v3-a2-06",
+            "question": "She studies {a1} history",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with languages and school subjects.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "She studies {a1} history"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 19,
+            "uuid": "za-v3-a2-07",
+            "question": "They go there by {a1} train",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in by plus transport phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "They go there by {a1} train"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 20,
+            "uuid": "za-v3-a2-08",
+            "question": "He is still in {a1} school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in common institutional or fixed phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "He is still in {a1} school"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 21,
+            "uuid": "za-v3-a2-09",
+            "question": "{a1} Olena lives in Lviv",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with personal names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "{a1} Olena lives in Lviv"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 22,
+            "uuid": "za-v3-a2-10",
+            "question": "They visited {a1} Lviv in May",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most city names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "They visited {a1} Lviv in May"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 23,
+            "uuid": "za-v3-a2-11",
+            "question": "{a1} Tea can be expensive in general",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use zero article for general meaning.",
+                    "gap_tags": [
+                        "zero_vs_the"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_vs_the"
+            ],
+            "variants": [
+                "{a1} Tea can be expensive in general"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 24,
+            "uuid": "za-v3-a2-12",
+            "question": "She knows {a1} history well",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Do not add the before general languages or subjects.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She knows {a1} history well"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 25,
+            "uuid": "za-v3-b1-01",
+            "question": "{a1} Students need feedback",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in general.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Students need feedback"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 26,
+            "uuid": "za-v3-b1-02",
+            "question": "{a1} Nurses need calm",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article for a general plural group.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Nurses need calm"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 27,
+            "uuid": "za-v3-b1-03",
+            "question": "{a1} Advice is important",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in general.",
+                    "gap_tags": [
+                        "uncountable_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_general"
+            ],
+            "variants": [
+                "{a1} Advice is important"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 28,
+            "uuid": "za-v3-b1-04",
+            "question": "{a1} Freedom matters",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article before abstract nouns in general.",
+                    "gap_tags": [
+                        "abstract_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "abstract_general"
+            ],
+            "variants": [
+                "{a1} Freedom matters"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 29,
+            "uuid": "za-v3-b1-05",
+            "question": "We have {a1} dinner at seven",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with usual meal names.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "We have {a1} dinner at seven"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 30,
+            "uuid": "za-v3-b1-06",
+            "question": "She studies {a1} biology",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with languages and school subjects.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "She studies {a1} biology"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 31,
+            "uuid": "za-v3-b1-07",
+            "question": "They go there by {a1} metro",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in by plus transport phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "They go there by {a1} metro"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 32,
+            "uuid": "za-v3-b1-08",
+            "question": "He is still in {a1} work",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in common institutional or fixed phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "He is still in {a1} work"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 33,
+            "uuid": "za-v3-b1-09",
+            "question": "{a1} Petro lives in Odesa",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with personal names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "{a1} Petro lives in Odesa"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 34,
+            "uuid": "za-v3-b1-10",
+            "question": "They visited {a1} Odesa in May",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most city names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "They visited {a1} Odesa in May"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 35,
+            "uuid": "za-v3-b1-11",
+            "question": "{a1} Fresh air can be expensive in general",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use zero article for general meaning.",
+                    "gap_tags": [
+                        "zero_vs_the"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_vs_the"
+            ],
+            "variants": [
+                "{a1} Fresh air can be expensive in general"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 36,
+            "uuid": "za-v3-b1-12",
+            "question": "She knows {a1} biology well",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Do not add the before general languages or subjects.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She knows {a1} biology well"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 37,
+            "uuid": "za-v3-b2-01",
+            "question": "{a1} Companies need trust",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in general.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Companies need trust"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 38,
+            "uuid": "za-v3-b2-02",
+            "question": "{a1} Researchers need evidence",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article for a general plural group.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Researchers need evidence"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 39,
+            "uuid": "za-v3-b2-03",
+            "question": "{a1} Information is important",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in general.",
+                    "gap_tags": [
+                        "uncountable_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_general"
+            ],
+            "variants": [
+                "{a1} Information is important"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 40,
+            "uuid": "za-v3-b2-04",
+            "question": "{a1} Justice matters",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article before abstract nouns in general.",
+                    "gap_tags": [
+                        "abstract_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "abstract_general"
+            ],
+            "variants": [
+                "{a1} Justice matters"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 41,
+            "uuid": "za-v3-b2-05",
+            "question": "We have {a1} supper at seven",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with usual meal names.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "We have {a1} supper at seven"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 42,
+            "uuid": "za-v3-b2-06",
+            "question": "She studies {a1} economics",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with languages and school subjects.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "She studies {a1} economics"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 43,
+            "uuid": "za-v3-b2-07",
+            "question": "They go there by {a1} plane",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in by plus transport phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "They go there by {a1} plane"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 44,
+            "uuid": "za-v3-b2-08",
+            "question": "He is still in {a1} university",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in common institutional or fixed phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "He is still in {a1} university"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 45,
+            "uuid": "za-v3-b2-09",
+            "question": "{a1} Kateryna lives in Kharkiv",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with personal names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "{a1} Kateryna lives in Kharkiv"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 46,
+            "uuid": "za-v3-b2-10",
+            "question": "They visited {a1} Kharkiv in May",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most city names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "They visited {a1} Kharkiv in May"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 47,
+            "uuid": "za-v3-b2-11",
+            "question": "{a1} Knowledge can be expensive in general",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use zero article for general meaning.",
+                    "gap_tags": [
+                        "zero_vs_the"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_vs_the"
+            ],
+            "variants": [
+                "{a1} Knowledge can be expensive in general"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 48,
+            "uuid": "za-v3-b2-12",
+            "question": "She knows {a1} economics well",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Do not add the before general languages or subjects.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She knows {a1} economics well"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 49,
+            "uuid": "za-v3-c1-01",
+            "question": "{a1} Markets need stability",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in general.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Markets need stability"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 50,
+            "uuid": "za-v3-c1-02",
+            "question": "{a1} Analysts need context",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article for a general plural group.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Analysts need context"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 51,
+            "uuid": "za-v3-c1-03",
+            "question": "{a1} Research is important",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in general.",
+                    "gap_tags": [
+                        "uncountable_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_general"
+            ],
+            "variants": [
+                "{a1} Research is important"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 52,
+            "uuid": "za-v3-c1-04",
+            "question": "{a1} Democracy matters",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article before abstract nouns in general.",
+                    "gap_tags": [
+                        "abstract_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "abstract_general"
+            ],
+            "variants": [
+                "{a1} Democracy matters"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 53,
+            "uuid": "za-v3-c1-05",
+            "question": "We have {a1} brunch at seven",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with usual meal names.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "We have {a1} brunch at seven"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 54,
+            "uuid": "za-v3-c1-06",
+            "question": "She studies {a1} philosophy",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with languages and school subjects.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "She studies {a1} philosophy"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 55,
+            "uuid": "za-v3-c1-07",
+            "question": "They go there by {a1} taxi",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in by plus transport phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "They go there by {a1} taxi"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 56,
+            "uuid": "za-v3-c1-08",
+            "question": "He is still in {a1} court",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in common institutional or fixed phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "He is still in {a1} court"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 57,
+            "uuid": "za-v3-c1-09",
+            "question": "{a1} Andrii lives in Chernihiv",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with personal names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "{a1} Andrii lives in Chernihiv"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 58,
+            "uuid": "za-v3-c1-10",
+            "question": "They visited {a1} Chernihiv in May",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most city names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "They visited {a1} Chernihiv in May"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 59,
+            "uuid": "za-v3-c1-11",
+            "question": "{a1} Silence can be expensive in general",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use zero article for general meaning.",
+                    "gap_tags": [
+                        "zero_vs_the"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_vs_the"
+            ],
+            "variants": [
+                "{a1} Silence can be expensive in general"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 60,
+            "uuid": "za-v3-c1-12",
+            "question": "She knows {a1} philosophy well",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Do not add the before general languages or subjects.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She knows {a1} philosophy well"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 61,
+            "uuid": "za-v3-c2-01",
+            "question": "{a1} Institutions need legitimacy",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with plural nouns in general.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Institutions need legitimacy"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 62,
+            "uuid": "za-v3-c2-02",
+            "question": "{a1} Negotiators need clarity",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article for a general plural group.",
+                    "gap_tags": [
+                        "plural_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_general"
+            ],
+            "variants": [
+                "{a1} Negotiators need clarity"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 63,
+            "uuid": "za-v3-c2-03",
+            "question": "{a1} Wisdom is important",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with uncountable nouns in general.",
+                    "gap_tags": [
+                        "uncountable_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_general"
+            ],
+            "variants": [
+                "{a1} Wisdom is important"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 64,
+            "uuid": "za-v3-c2-04",
+            "question": "{a1} Accountability matters",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article before abstract nouns in general.",
+                    "gap_tags": [
+                        "abstract_general"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "abstract_general"
+            ],
+            "variants": [
+                "{a1} Accountability matters"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 65,
+            "uuid": "za-v3-c2-05",
+            "question": "We have {a1} tea at seven",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with usual meal names.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "We have {a1} tea at seven"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 66,
+            "uuid": "za-v3-c2-06",
+            "question": "She studies {a1} linguistics",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with languages and school subjects.",
+                    "gap_tags": [
+                        "meals_languages_subjects"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "meals_languages_subjects"
+            ],
+            "variants": [
+                "She studies {a1} linguistics"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 67,
+            "uuid": "za-v3-c2-07",
+            "question": "They go there by {a1} ferry",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in by plus transport phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "They go there by {a1} ferry"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 68,
+            "uuid": "za-v3-c2-08",
+            "question": "He is still in {a1} parliament",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article in common institutional or fixed phrases.",
+                    "gap_tags": [
+                        "fixed_zero_article_phrases"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fixed_zero_article_phrases"
+            ],
+            "variants": [
+                "He is still in {a1} parliament"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 69,
+            "uuid": "za-v3-c2-09",
+            "question": "{a1} Iryna lives in Dnipro",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with personal names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "{a1} Iryna lives in Dnipro"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 70,
+            "uuid": "za-v3-c2-10",
+            "question": "They visited {a1} Dnipro in May",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use no article with most city names.",
+                    "gap_tags": [
+                        "proper_names"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "proper_names"
+            ],
+            "variants": [
+                "They visited {a1} Dnipro in May"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 71,
+            "uuid": "za-v3-c2-11",
+            "question": "{a1} Experience can be expensive in general",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Use zero article for general meaning.",
+                    "gap_tags": [
+                        "zero_vs_the"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "zero_vs_the"
+            ],
+            "variants": [
+                "{a1} Experience can be expensive in general"
+            ],
+            "source": "theory_page_zero_article"
+        },
+        {
+            "id": 72,
+            "uuid": "za-v3-c2-12",
+            "question": "She knows {a1} linguistics well",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no article",
+                    "options": [
+                        "no article",
+                        "the",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Do not add the before general languages or subjects.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She knows {a1} linguistics well"
+            ],
+            "source": "theory_page_zero_article"
+        }
+    ],
+    "saved_test": {
+        "uuid": "naq-za-v3-all",
+        "slug": "zero-article-all-levels-v3",
+        "name": "Zero Article (All levels V3)",
+        "description": "Standard V3 package for Zero Article across A1-C2.",
+        "question_uuids": [
+            "za-v3-a1-01",
+            "za-v3-a1-02",
+            "za-v3-a1-03",
+            "za-v3-a1-04",
+            "za-v3-a1-05",
+            "za-v3-a1-06",
+            "za-v3-a1-07",
+            "za-v3-a1-08",
+            "za-v3-a1-09",
+            "za-v3-a1-10",
+            "za-v3-a1-11",
+            "za-v3-a1-12",
+            "za-v3-a2-01",
+            "za-v3-a2-02",
+            "za-v3-a2-03",
+            "za-v3-a2-04",
+            "za-v3-a2-05",
+            "za-v3-a2-06",
+            "za-v3-a2-07",
+            "za-v3-a2-08",
+            "za-v3-a2-09",
+            "za-v3-a2-10",
+            "za-v3-a2-11",
+            "za-v3-a2-12",
+            "za-v3-b1-01",
+            "za-v3-b1-02",
+            "za-v3-b1-03",
+            "za-v3-b1-04",
+            "za-v3-b1-05",
+            "za-v3-b1-06",
+            "za-v3-b1-07",
+            "za-v3-b1-08",
+            "za-v3-b1-09",
+            "za-v3-b1-10",
+            "za-v3-b1-11",
+            "za-v3-b1-12",
+            "za-v3-b2-01",
+            "za-v3-b2-02",
+            "za-v3-b2-03",
+            "za-v3-b2-04",
+            "za-v3-b2-05",
+            "za-v3-b2-06",
+            "za-v3-b2-07",
+            "za-v3-b2-08",
+            "za-v3-b2-09",
+            "za-v3-b2-10",
+            "za-v3-b2-11",
+            "za-v3-b2-12",
+            "za-v3-c1-01",
+            "za-v3-c1-02",
+            "za-v3-c1-03",
+            "za-v3-c1-04",
+            "za-v3-c1-05",
+            "za-v3-c1-06",
+            "za-v3-c1-07",
+            "za-v3-c1-08",
+            "za-v3-c1-09",
+            "za-v3-c1-10",
+            "za-v3-c1-11",
+            "za-v3-c1-12",
+            "za-v3-c2-01",
+            "za-v3-c2-02",
+            "za-v3-c2-03",
+            "za-v3-c2-04",
+            "za-v3-c2-05",
+            "za-v3-c2-06",
+            "za-v3-c2-07",
+            "za-v3-c2-08",
+            "za-v3-c2-09",
+            "za-v3-c2-10",
+            "za-v3-c2-11",
+            "za-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\NounsArticlesQuantity\\ZeroArticleAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "zero-article",
+                    "title": "Zero Article — Нульовий артикль",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityZeroArticleTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/zero-article"
+                }
+            }
+        }
+    }
+}

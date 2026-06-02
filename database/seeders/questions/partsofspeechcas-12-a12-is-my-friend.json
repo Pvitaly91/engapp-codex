@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 60,
+        "uuid": "partsofspeechcas-12-a12-is-my-friend",
+        "question": "{a12} is my friend.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-26T14:30:54.000000Z",
+        "updated_at": "2026-05-26T14:30:57.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:48.000000Z",
+                "updated_at": "2026-05-26T14:30:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 60,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 48,
+                "name": "Pronoun usage",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60,
+                "tag_id": 48,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 102,
+                "option": "His",
+                "created_at": "2026-05-26T14:30:51.000000Z",
+                "updated_at": "2026-05-26T14:30:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 60,
+                "option_id": 102,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 169,
+                "option": "He",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60,
+                "option_id": 169,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 171,
+                "option": "Him",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60,
+                "option_id": 171,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 170,
+                "question_id": 60,
+                "marker": "a12",
+                "option_id": 169,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 169,
+                "option": "He",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 12,
+                "question_id": 60,
+                "marker": "a12",
+                "option_id": 170,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 170,
+                "option": "subject pronoun",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 42,
+            "question_id": 60,
+            "text": "{a12} is my friend.",
+            "created_at": "2026-05-26T14:30:54.000000Z",
+            "updated_at": "2026-05-26T14:30:54.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 64,
+            "question_id": 60,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Choose the word that best completes the sentence grammatically.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 65,
+            "question_id": 60,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Zaimek podmiotowy (subject pronoun) występuje przed czasownikiem 'is'.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 66,
+            "question_id": 60,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "На початку речення як підмет потрібен особовий займенник у називному відмінку.\nЗайменник 'He' виконує роль підмета і стоїть перед дієсловом 'is'.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 313,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "He",
+            "correct_answer": "He",
+            "language": "en",
+            "explanation": "Correct. 'He' is the appropriate choice in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 316,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "He",
+            "correct_answer": "He",
+            "language": "pl",
+            "explanation": "Poprawnie! 'He' to zaimek podmiotowy w pozycji podmiotu.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 319,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "He",
+            "correct_answer": "He",
+            "language": "ua",
+            "explanation": "Особовий займенник 'He' у називному відмінку правильно виконує функцію підмета.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 320,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "He",
+            "correct_answer": "He",
+            "language": "uk",
+            "explanation": "Особовий займенник 'He' у називному відмінку правильно виконує функцію підмета.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 314,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "Him",
+            "correct_answer": "He",
+            "language": "en",
+            "explanation": "Incorrect. 'Him' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 317,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "Him",
+            "correct_answer": "He",
+            "language": "pl",
+            "explanation": "'Him' to zaimek dopełnienia, nie podmiot.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 321,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "Him",
+            "correct_answer": "He",
+            "language": "ua",
+            "explanation": "Займенник 'Him' у об'єктному відмінку використовується після дієслів і прийменників.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 322,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "Him",
+            "correct_answer": "He",
+            "language": "uk",
+            "explanation": "Займенник 'Him' у об'єктному відмінку використовується після дієслів і прийменників.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 315,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "His",
+            "correct_answer": "He",
+            "language": "en",
+            "explanation": "Incorrect. 'His' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 318,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "His",
+            "correct_answer": "He",
+            "language": "pl",
+            "explanation": "'His' to zaimek dzierżawczy, nie podmiot.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 323,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "His",
+            "correct_answer": "He",
+            "language": "ua",
+            "explanation": "Присвійний займенник 'His' вказує на приналежність, а не виконує роль підмета.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 324,
+            "question": "{a12} is my friend.",
+            "wrong_answer": "His",
+            "correct_answer": "He",
+            "language": "uk",
+            "explanation": "Присвійний займенник 'His' вказує на приналежність, а не виконує роль підмета.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ]
+}

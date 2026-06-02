@@ -1,0 +1,1733 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrderQuestionsNegativesAllLevelsV3Seeder",
+        "uuid_namespace": "WordOrderQuestionsNegativesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Word Order"
+    },
+    "sources": {
+        "theory_page_theory_word_order_questions_negatives": {
+            "name": "Word Order in Questions and Negatives"
+        }
+    },
+    "tags": {
+        "auxiliary_verbs": {
+            "name": "Auxiliary Verbs",
+            "category": "topic"
+        },
+        "do_does_did": {
+            "name": "Do/Does/Did",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh-Questions",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "auxiliary_verbs"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "{a1} you like cats?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "auxiliary for yes/no question"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a1} you like cats?"
+            ]
+        },
+        {
+            "id": 2,
+            "question": "{a2} she work on Saturdays?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "Does",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "auxiliary for third-person singular"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "{a2} she work on Saturdays?"
+            ]
+        },
+        {
+            "id": 3,
+            "question": "I {a3} not like coffee.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "am"
+                    ],
+                    "verb_hint": "auxiliary for negative"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "I {a3} not like coffee."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "He {a4} not live in London.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "does",
+                    "options": [
+                        "do",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "auxiliary for third-person singular negative"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "He {a4} not live in London."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "{a5} is your name?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "How",
+                        "Do"
+                    ],
+                    "verb_hint": "wh-word for name"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "{a5} is your name?"
+            ]
+        },
+        {
+            "id": 6,
+            "question": "{a6} do you live?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "When",
+                        "What"
+                    ],
+                    "verb_hint": "wh-word for place"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a6} do you live?"
+            ]
+        },
+        {
+            "id": 7,
+            "question": "{a7} you happy today?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Does"
+                    ],
+                    "verb_hint": "auxiliary be for adjective"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a7} you happy today?"
+            ]
+        },
+        {
+            "id": 8,
+            "question": "She {a8} not a teacher.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "do"
+                    ],
+                    "verb_hint": "be for negative with noun"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "She {a8} not a teacher."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "They {a9} not play football on Mondays.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are"
+                    ],
+                    "verb_hint": "auxiliary for plural subject"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "They {a9} not play football on Mondays."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "{a10} does your father work?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Does",
+                        "What"
+                    ],
+                    "verb_hint": "wh-word for place"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a10} does your father work?"
+            ]
+        },
+        {
+            "id": 11,
+            "question": "{a11} is she from?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "What",
+                        "Who"
+                    ],
+                    "verb_hint": "wh-word for origin"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "{a11} is she from?"
+            ]
+        },
+        {
+            "id": 12,
+            "question": "{a12} you a student?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Is"
+                    ],
+                    "verb_hint": "auxiliary be for you"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a12} you a student?"
+            ]
+        },
+        {
+            "id": 13,
+            "question": "{a19} you go to the party last night?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Were"
+                    ],
+                    "verb_hint": "past simple auxiliary"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a19} you go to the party last night?"
+            ]
+        },
+        {
+            "id": 14,
+            "question": "She {a20} not visit her grandparents yesterday.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "past simple auxiliary negative"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "She {a20} not visit her grandparents yesterday."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "{a21} did you buy at the shop?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "When"
+                    ],
+                    "verb_hint": "wh-word for thing"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a21} did you buy at the shop?"
+            ]
+        },
+        {
+            "id": 16,
+            "question": "{a22} did they arrive?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "What",
+                        "Who"
+                    ],
+                    "verb_hint": "wh-word for time"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a22} did they arrive?"
+            ]
+        },
+        {
+            "id": 17,
+            "question": "We {a23} not going to the cinema tonight.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "does"
+                    ],
+                    "verb_hint": "be for present continuous"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "We {a23} not going to the cinema tonight."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "{a24} is she wearing today?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "Where",
+                        "How"
+                    ],
+                    "verb_hint": "wh-word for thing"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a24} is she wearing today?"
+            ]
+        },
+        {
+            "id": 19,
+            "question": "{a25} you sleeping when I called?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Did",
+                        "Do"
+                    ],
+                    "verb_hint": "past continuous auxiliary"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a25} you sleeping when I called?"
+            ]
+        },
+        {
+            "id": 20,
+            "question": "He {a26} not finish his homework last night.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was"
+                    ],
+                    "verb_hint": "past simple auxiliary"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "He {a26} not finish his homework last night."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "{a27} can I find a good restaurant near here?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "What",
+                        "How"
+                    ],
+                    "verb_hint": "wh-word for place"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a27} can I find a good restaurant near here?"
+            ]
+        },
+        {
+            "id": 22,
+            "question": "You {a28} not need to bring anything.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are"
+                    ],
+                    "verb_hint": "auxiliary for you"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "You {a28} not need to bring anything."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "{a29} you like to have some tea?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Do",
+                        "Are"
+                    ],
+                    "verb_hint": "modal for polite offer"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "{a29} you like to have some tea?"
+            ]
+        },
+        {
+            "id": 24,
+            "question": "{a30} were you doing at 8 o'clock yesterday?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "When",
+                        "Where"
+                    ],
+                    "verb_hint": "wh-word for activity"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a30} were you doing at 8 o'clock yesterday?"
+            ]
+        },
+        {
+            "id": 25,
+            "question": "{a37} have you ever been to Japan?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Did",
+                        "Do"
+                    ],
+                    "verb_hint": "present perfect auxiliary"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a37} have you ever been to Japan?"
+            ]
+        },
+        {
+            "id": 26,
+            "question": "She has {a38} finished the report yet.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "never"
+                    ],
+                    "verb_hint": "negation in present perfect"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "She has {a38} finished the report yet."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "{a39} long have you been waiting?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "What",
+                        "When"
+                    ],
+                    "verb_hint": "wh-word for duration"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a39} long have you been waiting?"
+            ]
+        },
+        {
+            "id": 28,
+            "question": "You {a40} tell anyone about the surprise.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "must not",
+                    "options": [
+                        "must not",
+                        "do not",
+                        "have not"
+                    ],
+                    "verb_hint": "modal negative for prohibition"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "You {a40} tell anyone about the surprise."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "{a41} should I do about the broken window?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "How",
+                        "Where"
+                    ],
+                    "verb_hint": "wh-word for action"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "{a41} should I do about the broken window?"
+            ]
+        },
+        {
+            "id": 30,
+            "question": "{a42} broke the vase on the shelf?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Who did",
+                        "What did"
+                    ],
+                    "verb_hint": "subject question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a42} broke the vase on the shelf?"
+            ]
+        },
+        {
+            "id": 31,
+            "question": "{a43} lives in that old house on the corner?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Who does",
+                        "What does"
+                    ],
+                    "verb_hint": "subject question present"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "{a43} lives in that old house on the corner?"
+            ]
+        },
+        {
+            "id": 32,
+            "question": "They {a44} not have visited Paris before moving to France.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "have",
+                        "did"
+                    ],
+                    "verb_hint": "past perfect auxiliary"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "They {a44} not have visited Paris before moving to France."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "She doesn't {a45} to work on Sundays, does she?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "having"
+                    ],
+                    "verb_hint": "base form after doesn't"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "She doesn't {a45} to work on Sundays, does she?"
+            ]
+        },
+        {
+            "id": 34,
+            "question": "You haven't met my sister, {a46} you?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "did"
+                    ],
+                    "verb_hint": "positive tag after negative"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "You haven't met my sister, {a46} you?"
+            ]
+        },
+        {
+            "id": 35,
+            "question": "She {a47} not be able to attend the meeting tomorrow.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "future negative auxiliary"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "She {a47} not be able to attend the meeting tomorrow."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "{a48} many books have you read this year?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "What",
+                        "Which"
+                    ],
+                    "verb_hint": "wh-word for quantity"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a48} many books have you read this year?"
+            ]
+        },
+        {
+            "id": 37,
+            "question": "Can you tell me where the station {a55}?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "is it",
+                        "it is"
+                    ],
+                    "verb_hint": "indirect question word order"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Can you tell me where the station {a55}?"
+            ]
+        },
+        {
+            "id": 38,
+            "question": "Do you know what time the meeting {a56}?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "starts",
+                    "options": [
+                        "starts",
+                        "does start",
+                        "does starts"
+                    ],
+                    "verb_hint": "indirect question: no auxiliary inversion"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Do you know what time the meeting {a56}?"
+            ]
+        },
+        {
+            "id": 39,
+            "question": "I wonder {a57} she didn't come to the party.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "why",
+                    "options": [
+                        "why",
+                        "why did",
+                        "that why"
+                    ],
+                    "verb_hint": "indirect question connector"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "I wonder {a57} she didn't come to the party."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "Not only {a58} she pass the exam, but she got the highest score.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "she",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after not only"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Not only {a58} she pass the exam, but she got the highest score."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "He should {a59} have been driving so fast in the rain.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "never",
+                        "no"
+                    ],
+                    "verb_hint": "negation between modal and have"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "He should {a59} have been driving so fast in the rain."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "Could you explain {a60} this machine works?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "how",
+                    "options": [
+                        "how",
+                        "how does",
+                        "what"
+                    ],
+                    "verb_hint": "indirect question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Could you explain {a60} this machine works?"
+            ]
+        },
+        {
+            "id": 43,
+            "question": "She needn't {a61} worried so much about the results.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "had"
+                    ],
+                    "verb_hint": "needn't + perfect infinitive"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "She needn't {a61} worried so much about the results."
+            ]
+        },
+        {
+            "id": 44,
+            "question": "Nobody told him about the change, {a62} they?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "didn't",
+                        "haven't"
+                    ],
+                    "verb_hint": "positive tag after nobody (negative subject)"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Nobody told him about the change, {a62} they?"
+            ]
+        },
+        {
+            "id": 45,
+            "question": "I'd like to know {a63} the nearest pharmacy is.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "where is",
+                        "that where"
+                    ],
+                    "verb_hint": "indirect question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "I'd like to know {a63} the nearest pharmacy is."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "Hardly {a64} he entered the room when the phone rang.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after hardly"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Hardly {a64} he entered the room when the phone rang."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "She asked me {a65} I had finished the assignment.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "whether",
+                    "options": [
+                        "whether",
+                        "did",
+                        "that"
+                    ],
+                    "verb_hint": "indirect yes/no question connector"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "She asked me {a65} I had finished the assignment."
+            ]
+        },
+        {
+            "id": 48,
+            "question": "The students aren't supposed to {a66} their phones during the exam, are they?",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "using",
+                        "used"
+                    ],
+                    "verb_hint": "base form after be supposed to"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "The students aren't supposed to {a66} their phones during the exam, are they?"
+            ]
+        },
+        {
+            "id": 49,
+            "question": "Never {a73} I seen such a magnificent sunset.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "did"
+                    ],
+                    "verb_hint": "inversion after never + present perfect"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Never {a73} I seen such a magnificent sunset."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "Seldom {a74} one encounter such generosity in modern business.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is"
+                    ],
+                    "verb_hint": "inversion after seldom"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Seldom {a74} one encounter such generosity in modern business."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Not until the results were announced {a75} we realise the true extent of the problem.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "do"
+                    ],
+                    "verb_hint": "inversion after not until"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Not until the results were announced {a75} we realise the true extent of the problem."
+            ]
+        },
+        {
+            "id": 52,
+            "question": "Under no circumstances {a76} this door to be left unlocked.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after under no circumstances"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Under no circumstances {a76} this door to be left unlocked."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "Only after reading the entire document {a77} she understand the implications.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "was"
+                    ],
+                    "verb_hint": "inversion after only after"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Only after reading the entire document {a77} she understand the implications."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "No sooner {a78} the concert started than the power went out.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after no sooner (past perfect)"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "No sooner {a78} the concert started than the power went out."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "I wanted to know whether the committee {a79} reached a decision.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "had they",
+                        "did they"
+                    ],
+                    "verb_hint": "indirect question keeps statement order"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "I wanted to know whether the committee {a79} reached a decision."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "Were she {a80} accept the position, the whole department would benefit.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "would",
+                        "should"
+                    ],
+                    "verb_hint": "formal conditional inversion: were + to"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Were she {a80} accept the position, the whole department would benefit."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "Rarely {a81} such a well-prepared candidate applied for this role.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "had",
+                        "does"
+                    ],
+                    "verb_hint": "inversion after rarely + present perfect"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Rarely {a81} such a well-prepared candidate applied for this role."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "The inspector inquired as to {a82} the safety regulations had been followed.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "whether",
+                    "options": [
+                        "whether",
+                        "if did",
+                        "that"
+                    ],
+                    "verb_hint": "formal indirect yes/no question"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "The inspector inquired as to {a82} the safety regulations had been followed."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "At no point {a83} the company aware of the defect before the recall.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "had"
+                    ],
+                    "verb_hint": "inversion after at no point"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "At no point {a83} the company aware of the defect before the recall."
+            ]
+        },
+        {
+            "id": 60,
+            "question": "Only when all the evidence was presented {a84} the jury reach a verdict.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "was"
+                    ],
+                    "verb_hint": "inversion after only when"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Only when all the evidence was presented {a84} the jury reach a verdict."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "In no way {a91} the government's response been adequate to the crisis.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "had",
+                        "did"
+                    ],
+                    "verb_hint": "inversion after in no way + present perfect"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "In no way {a91} the government's response been adequate to the crisis."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "So profound was the silence that not a murmur {a92} be heard in the auditorium.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "modal after negative inversion"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "So profound was the silence that not a murmur {a92} be heard in the auditorium."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "On no account {a93} classified documents to be removed from the premises.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "have"
+                    ],
+                    "verb_hint": "inversion after on no account"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "On no account {a93} classified documents to be removed from the premises."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "Scarcely {a94} the delegation arrived when controversy erupted over the proposed amendments.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after scarcely (past perfect)"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Scarcely {a94} the delegation arrived when controversy erupted over the proposed amendments."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "Not for one moment {a95} the researchers doubt the validity of their hypothesis.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "do"
+                    ],
+                    "verb_hint": "inversion after not for one moment"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Not for one moment {a95} the researchers doubt the validity of their hypothesis."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "The chairman inquired whether any objections to the merger {a96} been raised by minority shareholders.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "had they",
+                        "were"
+                    ],
+                    "verb_hint": "indirect question: statement order"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "The chairman inquired whether any objections to the merger {a96} been raised by minority shareholders."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "Neither the CEO nor the board members {a97} willing to comment on the allegations.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "did"
+                    ],
+                    "verb_hint": "verb agrees with nearest subject in neither...nor"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Neither the CEO nor the board members {a97} willing to comment on the allegations."
+            ]
+        },
+        {
+            "id": 68,
+            "question": "Only in retrospect {a98} the full significance of the discovery become apparent.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "was"
+                    ],
+                    "verb_hint": "inversion after only in retrospect"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Only in retrospect {a98} the full significance of the discovery become apparent."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "It remains unclear to what extent the sanctions {a99} affected the trade balance.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "have they",
+                        "did they"
+                    ],
+                    "verb_hint": "indirect question: statement order"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "It remains unclear to what extent the sanctions {a99} affected the trade balance."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "Nowhere in the literature {a100} one find a more compelling refutation of the theory.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "can"
+                    ],
+                    "verb_hint": "inversion after nowhere"
+                }
+            },
+            "tag_keys": [
+                "auxiliary_verbs"
+            ],
+            "variants": [
+                "Nowhere in the literature {a100} one find a more compelling refutation of the theory."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "Had it not {a101} for the swift intervention of the emergency services, the outcome would have been catastrophic.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "being",
+                        "be"
+                    ],
+                    "verb_hint": "inverted conditional: had it not been for"
+                }
+            },
+            "tag_keys": [
+                "do_does_did"
+            ],
+            "variants": [
+                "Had it not {a101} for the swift intervention of the emergency services, the outcome would have been catastrophic."
+            ]
+        },
+        {
+            "id": 72,
+            "question": "So rarely {a102} such an opportunity arise that the board convened an emergency session.",
+            "source": "theory_page_theory_word_order_questions_negatives",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after so rarely"
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "So rarely {a102} such an opportunity arise that the board convened an emergency session."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "wo-qn-v3-test",
+        "slug": "word-order-questions-negatives-all-levels-v3",
+        "name": "Word Order in Questions and Negatives: V3 All Levels",
+        "description": "Page-local V3 package for Word Order in Questions and Negatives with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\WordOrderQuestionsNegativesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-word-order-questions-negatives",
+                    "title": "Word Order in Questions and Negatives",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-word-order-questions-negatives"
+                }
+            }
+        }
+    }
+}

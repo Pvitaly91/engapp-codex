@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\HadBetterAllLevelsV3Seeder",
+        "uuid_namespace": "HadBetterAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_had_better": {
+            "name": "Had better"
+        }
+    },
+    "tags": {
+        "conditionals_had_better": {
+            "name": "Had better",
+            "category": "conditionals"
+        },
+        "had_better_base": {
+            "name": "Had Better Base",
+            "category": "topic"
+        },
+        "had_better_not": {
+            "name": "Had Better Not",
+            "category": "topic"
+        },
+        "strong_advice": {
+            "name": "Strong Advice",
+            "category": "topic"
+        },
+        "warning": {
+            "name": "Warning",
+            "category": "topic"
+        },
+        "consequence": {
+            "name": "Consequence",
+            "category": "topic"
+        },
+        "had_better_vs_should": {
+            "name": "Had Better Vs Should",
+            "category": "topic"
+        },
+        "no_to_after_had_better": {
+            "name": "No To After Had Better",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_had_better"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "hb-v3-a1-01",
+            "question": "You {a1} your mother",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better call",
+                    "options": [
+                        "had better call",
+                        "will had better call",
+                        "would had better call",
+                        "did had better call"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "You {a1} your mother"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 2,
+            "uuid": "hb-v3-a1-02",
+            "question": "You {a1} be late",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "You {a1} be late"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 3,
+            "uuid": "hb-v3-a1-03",
+            "question": "You {a1} see a doctor",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Strong Advice.",
+                    "gap_tags": [
+                        "strong_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "strong_advice"
+            ],
+            "variants": [
+                "You {a1} see a doctor"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 4,
+            "uuid": "hb-v3-a1-04",
+            "question": "You {a1} hurry or you will miss the train",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "You {a1} hurry or you will miss the train"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 5,
+            "uuid": "hb-v3-a1-05",
+            "question": "You had better study or you {a1} fail",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will will",
+                        "would will",
+                        "did will"
+                    ],
+                    "verb_hint": "Focus on Consequence.",
+                    "gap_tags": [
+                        "consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence"
+            ],
+            "variants": [
+                "You had better study or you {a1} fail"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 6,
+            "uuid": "hb-v3-a1-06",
+            "question": "You {a1} call now because it is urgent",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Vs Should.",
+                    "gap_tags": [
+                        "had_better_vs_should"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_vs_should"
+            ],
+            "variants": [
+                "You {a1} call now because it is urgent"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 7,
+            "uuid": "hb-v3-a1-07",
+            "question": "You {a1} now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better go",
+                    "options": [
+                        "had better go",
+                        "will had better go",
+                        "would had better go",
+                        "did had better go"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "You {a1} now"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 8,
+            "uuid": "hb-v3-a1-08",
+            "question": "Use {a1} not had better to leave",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better leave",
+                    "options": [
+                        "had better leave",
+                        "will had better leave",
+                        "would had better leave",
+                        "did had better leave"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} not had better to leave"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 9,
+            "uuid": "hb-v3-a1-09",
+            "question": "You{a1} hurry",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "'d better",
+                    "options": [
+                        "'d better",
+                        "will 'd better",
+                        "would 'd better",
+                        "did 'd better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "You{a1} hurry"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 10,
+            "uuid": "hb-v3-a1-10",
+            "question": "You {a1} touch that wire",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "You {a1} touch that wire"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 11,
+            "uuid": "hb-v3-a1-11",
+            "question": "You {a1} wear a helmet or you may get hurt",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "You {a1} wear a helmet or you may get hurt"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 12,
+            "uuid": "hb-v3-a1-12",
+            "question": "You {a1} for help",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had better ask",
+                    "options": [
+                        "had better ask",
+                        "will had better ask",
+                        "would had better ask",
+                        "did had better ask"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "You {a1} for help"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 13,
+            "uuid": "hb-v3-a2-01",
+            "question": "She {a1} take a taxi",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "She {a1} take a taxi"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 14,
+            "uuid": "hb-v3-a2-02",
+            "question": "She {a1} forget the keys",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "She {a1} forget the keys"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 15,
+            "uuid": "hb-v3-a2-03",
+            "question": "She {a1} rest today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Strong Advice.",
+                    "gap_tags": [
+                        "strong_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "strong_advice"
+            ],
+            "variants": [
+                "She {a1} rest today"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 16,
+            "uuid": "hb-v3-a2-04",
+            "question": "She {a1} lock the door or the dog will run out",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "She {a1} lock the door or the dog will run out"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 17,
+            "uuid": "hb-v3-a2-05",
+            "question": "She had better leave now or she {a1} be late",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will will",
+                        "would will",
+                        "did will"
+                    ],
+                    "verb_hint": "Focus on Consequence.",
+                    "gap_tags": [
+                        "consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence"
+            ],
+            "variants": [
+                "She had better leave now or she {a1} be late"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 18,
+            "uuid": "hb-v3-a2-06",
+            "question": "She {a1} call him when she has time",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "will should",
+                        "would should",
+                        "did should"
+                    ],
+                    "verb_hint": "Focus on Had Better Vs Should.",
+                    "gap_tags": [
+                        "had_better_vs_should"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_vs_should"
+            ],
+            "variants": [
+                "She {a1} call him when she has time"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 19,
+            "uuid": "hb-v3-a2-07",
+            "question": "She {a1} ask first",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "She {a1} ask first"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 20,
+            "uuid": "hb-v3-a2-08",
+            "question": "Use {a1} not leave for the negative form",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} not leave for the negative form"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 21,
+            "uuid": "hb-v3-a2-09",
+            "question": "She{a1} bring her passport",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "'d better",
+                    "options": [
+                        "'d better",
+                        "will 'd better",
+                        "would 'd better",
+                        "did 'd better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "She{a1} bring her passport"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 22,
+            "uuid": "hb-v3-a2-10",
+            "question": "She {a1} drive in this fog",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "She {a1} drive in this fog"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 23,
+            "uuid": "hb-v3-a2-11",
+            "question": "She {a1} save the receipt or she may not get a refund",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "She {a1} save the receipt or she may not get a refund"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 24,
+            "uuid": "hb-v3-a2-12",
+            "question": "She {a1} close the window",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "She {a1} close the window"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 25,
+            "uuid": "hb-v3-b1-01",
+            "question": "We {a1} leave now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "We {a1} leave now"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 26,
+            "uuid": "hb-v3-b1-02",
+            "question": "We {a1} tell anyone yet",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "We {a1} tell anyone yet"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 27,
+            "uuid": "hb-v3-b1-03",
+            "question": "We {a1} finish the form",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Strong Advice.",
+                    "gap_tags": [
+                        "strong_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "strong_advice"
+            ],
+            "variants": [
+                "We {a1} finish the form"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 28,
+            "uuid": "hb-v3-b1-04",
+            "question": "We {a1} save the file or we may lose it",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "We {a1} save the file or we may lose it"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 29,
+            "uuid": "hb-v3-b1-05",
+            "question": "We had better call them or they {a1} worry",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will will",
+                        "would will",
+                        "did will"
+                    ],
+                    "verb_hint": "Focus on Consequence.",
+                    "gap_tags": [
+                        "consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence"
+            ],
+            "variants": [
+                "We had better call them or they {a1} worry"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 30,
+            "uuid": "hb-v3-b1-06",
+            "question": "We {a1} move the car before it is towed",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Vs Should.",
+                    "gap_tags": [
+                        "had_better_vs_should"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_vs_should"
+            ],
+            "variants": [
+                "We {a1} move the car before it is towed"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 31,
+            "uuid": "hb-v3-b1-07",
+            "question": "We {a1} wait here",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "We {a1} wait here"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 32,
+            "uuid": "hb-v3-b1-08",
+            "question": "Use {a1} for a warning not a simple preference",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} for a warning not a simple preference"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 33,
+            "uuid": "hb-v3-b1-09",
+            "question": "We{a1} check the address",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "'d better",
+                    "options": [
+                        "'d better",
+                        "will 'd better",
+                        "would 'd better",
+                        "did 'd better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "We{a1} check the address"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 34,
+            "uuid": "hb-v3-b1-10",
+            "question": "We {a1} open the box",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "We {a1} open the box"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 35,
+            "uuid": "hb-v3-b1-11",
+            "question": "We {a1} leave a note or they may panic",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "We {a1} leave a note or they may panic"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 36,
+            "uuid": "hb-v3-b1-12",
+            "question": "We {a1} prepare dinner",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "We {a1} prepare dinner"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 37,
+            "uuid": "hb-v3-b2-01",
+            "question": "He {a1} check the contract",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "He {a1} check the contract"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 38,
+            "uuid": "hb-v3-b2-02",
+            "question": "He {a1} ignore the warning",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "He {a1} ignore the warning"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 39,
+            "uuid": "hb-v3-b2-03",
+            "question": "He {a1} apologize before the meeting",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Strong Advice.",
+                    "gap_tags": [
+                        "strong_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "strong_advice"
+            ],
+            "variants": [
+                "He {a1} apologize before the meeting"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 40,
+            "uuid": "hb-v3-b2-04",
+            "question": "He {a1} update the password or the account may be blocked",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "He {a1} update the password or the account may be blocked"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 41,
+            "uuid": "hb-v3-b2-05",
+            "question": "He had better submit the report or he {a1} miss the deadline",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will will",
+                        "would will",
+                        "did will"
+                    ],
+                    "verb_hint": "Focus on Consequence.",
+                    "gap_tags": [
+                        "consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence"
+            ],
+            "variants": [
+                "He had better submit the report or he {a1} miss the deadline"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 42,
+            "uuid": "hb-v3-b2-06",
+            "question": "He {a1} read more when the course starts",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "will should",
+                        "would should",
+                        "did should"
+                    ],
+                    "verb_hint": "Focus on Had Better Vs Should.",
+                    "gap_tags": [
+                        "had_better_vs_should"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_vs_should"
+            ],
+            "variants": [
+                "He {a1} read more when the course starts"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 43,
+            "uuid": "hb-v3-b2-07",
+            "question": "He {a1} speak clearly",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "He {a1} speak clearly"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 44,
+            "uuid": "hb-v3-b2-08",
+            "question": "{a1} should for softer general advice",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Use",
+                    "options": [
+                        "Use",
+                        "will Use",
+                        "would Use",
+                        "did Use"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} should for softer general advice"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 45,
+            "uuid": "hb-v3-b2-09",
+            "question": "He{a1} finish the invoice",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "'d better",
+                    "options": [
+                        "'d better",
+                        "will 'd better",
+                        "would 'd better",
+                        "did 'd better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "He{a1} finish the invoice"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 46,
+            "uuid": "hb-v3-b2-10",
+            "question": "He {a1} promise too much",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "He {a1} promise too much"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 47,
+            "uuid": "hb-v3-b2-11",
+            "question": "He {a1} report the leak or the damage may spread",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "He {a1} report the leak or the damage may spread"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 48,
+            "uuid": "hb-v3-b2-12",
+            "question": "He {a1} revise the draft",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "He {a1} revise the draft"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 49,
+            "uuid": "hb-v3-c1-01",
+            "question": "The team {a1} test the backup",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "The team {a1} test the backup"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 50,
+            "uuid": "hb-v3-c1-02",
+            "question": "The company {a1} delay the disclosure",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "The company {a1} delay the disclosure"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 51,
+            "uuid": "hb-v3-c1-03",
+            "question": "The board {a1} review the risk register",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Strong Advice.",
+                    "gap_tags": [
+                        "strong_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "strong_advice"
+            ],
+            "variants": [
+                "The board {a1} review the risk register"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 52,
+            "uuid": "hb-v3-c1-04",
+            "question": "The contractor {a1} fix the railing or the site will close",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "The contractor {a1} fix the railing or the site will close"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 53,
+            "uuid": "hb-v3-c1-05",
+            "question": "The firm had better comply or it {a1} face a fine",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will will",
+                        "would will",
+                        "did will"
+                    ],
+                    "verb_hint": "Focus on Consequence.",
+                    "gap_tags": [
+                        "consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence"
+            ],
+            "variants": [
+                "The firm had better comply or it {a1} face a fine"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 54,
+            "uuid": "hb-v3-c1-06",
+            "question": "The lab {a1} isolate the sample before it degrades",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Vs Should.",
+                    "gap_tags": [
+                        "had_better_vs_should"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_vs_should"
+            ],
+            "variants": [
+                "The lab {a1} isolate the sample before it degrades"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 55,
+            "uuid": "hb-v3-c1-07",
+            "question": "The company {a1} respond today",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "The company {a1} respond today"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 56,
+            "uuid": "hb-v3-c1-08",
+            "question": "Use base verb after {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use base verb after {a1}"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 57,
+            "uuid": "hb-v3-c1-09",
+            "question": "The directors{a1} document the decision",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "'d better",
+                    "options": [
+                        "'d better",
+                        "will 'd better",
+                        "would 'd better",
+                        "did 'd better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "The directors{a1} document the decision"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 58,
+            "uuid": "hb-v3-c1-10",
+            "question": "The agency {a1} ignore the complaint",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "The agency {a1} ignore the complaint"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 59,
+            "uuid": "hb-v3-c1-11",
+            "question": "The operator {a1} shut the valve or pressure may rise",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "The operator {a1} shut the valve or pressure may rise"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 60,
+            "uuid": "hb-v3-c1-12",
+            "question": "The firm {a1} appoint an auditor",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "The firm {a1} appoint an auditor"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 61,
+            "uuid": "hb-v3-c2-01",
+            "question": "The committee {a1} verify the figures",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "The committee {a1} verify the figures"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 62,
+            "uuid": "hb-v3-c2-02",
+            "question": "The minister {a1} dismiss the objection",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "The minister {a1} dismiss the objection"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 63,
+            "uuid": "hb-v3-c2-03",
+            "question": "The agency {a1} correct the guidance immediately",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Strong Advice.",
+                    "gap_tags": [
+                        "strong_advice"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "strong_advice"
+            ],
+            "variants": [
+                "The agency {a1} correct the guidance immediately"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 64,
+            "uuid": "hb-v3-c2-04",
+            "question": "The negotiators {a1} clarify the clause or the deal may fail",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "The negotiators {a1} clarify the clause or the deal may fail"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 65,
+            "uuid": "hb-v3-c2-05",
+            "question": "The council had better publish the minutes or it {a1} lose trust",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "will will",
+                        "would will",
+                        "did will"
+                    ],
+                    "verb_hint": "Focus on Consequence.",
+                    "gap_tags": [
+                        "consequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequence"
+            ],
+            "variants": [
+                "The council had better publish the minutes or it {a1} lose trust"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 66,
+            "uuid": "hb-v3-c2-06",
+            "question": "The committee {a1} discuss the topic at the next meeting",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "will should",
+                        "would should",
+                        "did should"
+                    ],
+                    "verb_hint": "Focus on Had Better Vs Should.",
+                    "gap_tags": [
+                        "had_better_vs_should"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_vs_should"
+            ],
+            "variants": [
+                "The committee {a1} discuss the topic at the next meeting"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 67,
+            "uuid": "hb-v3-c2-07",
+            "question": "The panel {a1} decide before noon",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "The panel {a1} decide before noon"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 68,
+            "uuid": "hb-v3-c2-08",
+            "question": "Do not use to after {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Do not use to after {a1}"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 69,
+            "uuid": "hb-v3-c2-09",
+            "question": "The parties{a1} preserve the correspondence",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "'d better",
+                    "options": [
+                        "'d better",
+                        "will 'd better",
+                        "would 'd better",
+                        "did 'd better"
+                    ],
+                    "verb_hint": "Focus on Had Better Base.",
+                    "gap_tags": [
+                        "had_better_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_base"
+            ],
+            "variants": [
+                "The parties{a1} preserve the correspondence"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 70,
+            "uuid": "hb-v3-c2-10",
+            "question": "The negotiators {a1} weaken the safeguards",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "will had better not",
+                        "would had better not",
+                        "did had better not"
+                    ],
+                    "verb_hint": "Focus on Had Better Not.",
+                    "gap_tags": [
+                        "had_better_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "had_better_not"
+            ],
+            "variants": [
+                "The negotiators {a1} weaken the safeguards"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 71,
+            "uuid": "hb-v3-c2-11",
+            "question": "The regulator {a1} act now or confidence may collapse",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on Warning.",
+                    "gap_tags": [
+                        "warning"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "warning"
+            ],
+            "variants": [
+                "The regulator {a1} act now or confidence may collapse"
+            ],
+            "source": "theory_page_had_better"
+        },
+        {
+            "id": 72,
+            "uuid": "hb-v3-c2-12",
+            "question": "The council {a1} publish the criteria",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had better",
+                    "options": [
+                        "had better",
+                        "will had better",
+                        "would had better",
+                        "did had better"
+                    ],
+                    "verb_hint": "Focus on No To After Had Better.",
+                    "gap_tags": [
+                        "no_to_after_had_better"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_to_after_had_better"
+            ],
+            "variants": [
+                "The council {a1} publish the criteria"
+            ],
+            "source": "theory_page_had_better"
+        }
+    ],
+    "saved_test": {
+        "uuid": "cond-extra-hb-v3-all",
+        "slug": "had-better-all-levels-v3",
+        "name": "Had better: V3 All Levels",
+        "description": "Page-local V3 package for Had better with A1-C2 coverage.",
+        "question_uuids": [
+            "hb-v3-a1-01",
+            "hb-v3-a1-02",
+            "hb-v3-a1-03",
+            "hb-v3-a1-04",
+            "hb-v3-a1-05",
+            "hb-v3-a1-06",
+            "hb-v3-a1-07",
+            "hb-v3-a1-08",
+            "hb-v3-a1-09",
+            "hb-v3-a1-10",
+            "hb-v3-a1-11",
+            "hb-v3-a1-12",
+            "hb-v3-a2-01",
+            "hb-v3-a2-02",
+            "hb-v3-a2-03",
+            "hb-v3-a2-04",
+            "hb-v3-a2-05",
+            "hb-v3-a2-06",
+            "hb-v3-a2-07",
+            "hb-v3-a2-08",
+            "hb-v3-a2-09",
+            "hb-v3-a2-10",
+            "hb-v3-a2-11",
+            "hb-v3-a2-12",
+            "hb-v3-b1-01",
+            "hb-v3-b1-02",
+            "hb-v3-b1-03",
+            "hb-v3-b1-04",
+            "hb-v3-b1-05",
+            "hb-v3-b1-06",
+            "hb-v3-b1-07",
+            "hb-v3-b1-08",
+            "hb-v3-b1-09",
+            "hb-v3-b1-10",
+            "hb-v3-b1-11",
+            "hb-v3-b1-12",
+            "hb-v3-b2-01",
+            "hb-v3-b2-02",
+            "hb-v3-b2-03",
+            "hb-v3-b2-04",
+            "hb-v3-b2-05",
+            "hb-v3-b2-06",
+            "hb-v3-b2-07",
+            "hb-v3-b2-08",
+            "hb-v3-b2-09",
+            "hb-v3-b2-10",
+            "hb-v3-b2-11",
+            "hb-v3-b2-12",
+            "hb-v3-c1-01",
+            "hb-v3-c1-02",
+            "hb-v3-c1-03",
+            "hb-v3-c1-04",
+            "hb-v3-c1-05",
+            "hb-v3-c1-06",
+            "hb-v3-c1-07",
+            "hb-v3-c1-08",
+            "hb-v3-c1-09",
+            "hb-v3-c1-10",
+            "hb-v3-c1-11",
+            "hb-v3-c1-12",
+            "hb-v3-c2-01",
+            "hb-v3-c2-02",
+            "hb-v3-c2-03",
+            "hb-v3-c2-04",
+            "hb-v3-c2-05",
+            "hb-v3-c2-06",
+            "hb-v3-c2-07",
+            "hb-v3-c2-08",
+            "hb-v3-c2-09",
+            "hb-v3-c2-10",
+            "hb-v3-c2-11",
+            "hb-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\HadBetterAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "had-better",
+                    "title": "Had better",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsHadBetterTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/had-better"
+                }
+            }
+        }
+    }
+}

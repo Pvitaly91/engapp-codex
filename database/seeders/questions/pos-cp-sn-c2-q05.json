@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 48,
+        "uuid": "pos-cp-sn-c2-q05",
+        "question": "The word 'one' in 'One must always respect others.' is a ___.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-26T14:30:53.000000Z",
+        "updated_at": "2026-05-26T14:30:57.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 39,
+                "name": "Pronoun identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 48,
+                "tag_id": 39,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 137,
+                "option": "noun",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 48,
+                "option_id": 137,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 141,
+                "option": "pronoun",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 48,
+                "option_id": 141,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 145,
+                "option": "numeral",
+                "created_at": "2026-05-26T14:30:53.000000Z",
+                "updated_at": "2026-05-26T14:30:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 48,
+                "option_id": 145,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 158,
+                "question_id": 48,
+                "marker": "a1",
+                "option_id": 141,
+                "created_at": "2026-05-26T14:30:53.000000Z",
+                "updated_at": "2026-05-26T14:30:53.000000Z"
+            },
+            "option": {
+                "id": 141,
+                "option": "pronoun",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 30,
+            "question_id": 48,
+            "text": "The word 'one' in 'One must always respect others.' is a ___.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 30,
+            "question_id": 48,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«One» може бути числівником (one book) або неозначеним займенником (one must).\nСлово `one` тут виступає безособовим займенником, що узагальнено позначає людину взагалі.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 179,
+            "question": "The word 'one' in 'One must always respect others.' is a ___.",
+            "wrong_answer": "noun",
+            "correct_answer": "pronoun",
+            "language": "ua",
+            "explanation": "«One» не є іменником у цьому контексті. Іменники називають речі, а займенники їх замінюють.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 180,
+            "question": "The word 'one' in 'One must always respect others.' is a ___.",
+            "wrong_answer": "noun",
+            "correct_answer": "pronoun",
+            "language": "uk",
+            "explanation": "«One» не є іменником у цьому контексті. Іменники називають речі, а займенники їх замінюють.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 177,
+            "question": "The word 'one' in 'One must always respect others.' is a ___.",
+            "wrong_answer": "numeral",
+            "correct_answer": "pronoun",
+            "language": "ua",
+            "explanation": "«One» як числівник позначає кількість ('one apple'). Тут воно не рахує предмети, а замінює суб'єкт.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 178,
+            "question": "The word 'one' in 'One must always respect others.' is a ___.",
+            "wrong_answer": "numeral",
+            "correct_answer": "pronoun",
+            "language": "uk",
+            "explanation": "«One» як числівник позначає кількість ('one apple'). Тут воно не рахує предмети, а замінює суб'єкт.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 175,
+            "question": "The word 'one' in 'One must always respect others.' is a ___.",
+            "wrong_answer": "pronoun",
+            "correct_answer": "pronoun",
+            "language": "ua",
+            "explanation": "«One» є неозначеним займенником, що виражає загальне твердження про людей без вказівки на конкретну особу.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 176,
+            "question": "The word 'one' in 'One must always respect others.' is a ___.",
+            "wrong_answer": "pronoun",
+            "correct_answer": "pronoun",
+            "language": "uk",
+            "explanation": "«One» є неозначеним займенником, що виражає загальне твердження про людей без вказівки на конкретну особу.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ]
+}

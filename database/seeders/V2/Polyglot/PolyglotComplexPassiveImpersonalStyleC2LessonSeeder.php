@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotComplexPassiveImpersonalStyleC2LessonSeeder as V3PolyglotComplexPassiveImpersonalStyleC2LessonSeeder;
+
+class PolyglotComplexPassiveImpersonalStyleC2LessonSeeder extends V3PolyglotComplexPassiveImpersonalStyleC2LessonSeeder
+{
+}

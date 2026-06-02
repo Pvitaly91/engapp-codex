@@ -1,0 +1,1859 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\YesNoQuestionsGeneralQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "YesNoQuestionsGeneralQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_yes_no_questions": {
+            "name": "Yes / No Questions"
+        }
+    },
+    "tags": {
+        "yes_no_questions": {
+            "name": "Yes / No Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "yes_no_structure": {
+            "name": "Yes No Structure",
+            "category": "topic"
+        },
+        "auxiliary_subject": {
+            "name": "Auxiliary Subject",
+            "category": "topic"
+        },
+        "do_does_did_simple": {
+            "name": "Do Does Did Simple",
+            "category": "topic"
+        },
+        "to_be_inversion": {
+            "name": "To Be Inversion",
+            "category": "topic"
+        },
+        "modal_inversion": {
+            "name": "Modal Inversion",
+            "category": "topic"
+        },
+        "perfect_auxiliary_inversion": {
+            "name": "Perfect Auxiliary Inversion",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "no_wh_word": {
+            "name": "No Wh Word",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "yes_no_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ynq-v3-a1-01",
+            "question": "{a1} you like tea?",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "What",
+                        "Where",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "ynq-v3-a1-02",
+            "question": "In \"Do you work here?\", the auxiliary is {a1}.",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "auxiliary_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "you",
+                        "work",
+                        "here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "ynq-v3-a1-03",
+            "question": "{a1} you play football?",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "do_does_did_simple"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Is",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "ynq-v3-a1-04",
+            "question": "{a1} you ready?",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Does",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "ynq-v3-a1-05",
+            "question": "{a1} you swim?",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "ynq-v3-a1-06",
+            "question": "{a1} you finished your homework?",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "ynq-v3-a1-07",
+            "question": "Do you like tea? Yes, I {a1}.",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "am",
+                        "does",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "ynq-v3-a1-08",
+            "question": "A yes/no question should not begin with {a1}.",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "do",
+                        "does",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "ynq-v3-a1-09",
+            "question": "Correct form: {a1} you happy?",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "You are",
+                        "Does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "ynq-v3-a1-10",
+            "question": "A yes/no question expects the answer yes or {a1}.",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "where",
+                        "why",
+                        "what"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "ynq-v3-a1-11",
+            "question": "In yes/no questions, the auxiliary is usually before the {a1}.",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "no_wh_word"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "object",
+                        "place",
+                        "time"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "ynq-v3-a1-12",
+            "question": "Are you tired? Yes, I {a1}.",
+            "level": "A1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "do",
+                        "is",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "ynq-v3-a2-01",
+            "question": "{a1} she at school?",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "What",
+                        "Where",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "ynq-v3-a2-02",
+            "question": "In \"Does Tom drive?\", the subject is {a1}.",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "auxiliary_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Tom",
+                    "options": [
+                        "Tom",
+                        "Does",
+                        "drive",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "ynq-v3-a2-03",
+            "question": "{a1} he work here?",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "do_does_did_simple"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "ynq-v3-a2-04",
+            "question": "{a1} it expensive?",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Do",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "ynq-v3-a2-05",
+            "question": "{a1} we go now?",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Are",
+                        "Have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "ynq-v3-a2-06",
+            "question": "{a1} she seen the message?",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Is",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "ynq-v3-a2-07",
+            "question": "Is she ready? No, she {a1}.",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "doesn't",
+                        "aren't",
+                        "didn't"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "ynq-v3-a2-08",
+            "question": "Choose the yes/no opener: {a1} she live here?",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Where",
+                        "Why",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "ynq-v3-a2-09",
+            "question": "Correct form: Does she {a1} here?",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "work",
+                    "options": [
+                        "work",
+                        "works",
+                        "working",
+                        "worked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "ynq-v3-a2-10",
+            "question": "The first word in \"Are they ready?\" is {a1}.",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "they",
+                        "ready",
+                        "Do"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "ynq-v3-a2-11",
+            "question": "In \"Do they live here?\", the subject is {a1}.",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "no_wh_word"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "Do",
+                        "live",
+                        "here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "ynq-v3-a2-12",
+            "question": "Does he know? No, he {a1}.",
+            "level": "A2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't",
+                    "options": [
+                        "doesn't",
+                        "isn't",
+                        "don't",
+                        "didn't"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "ynq-v3-b1-01",
+            "question": "{a1} they finish on time?",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "When",
+                        "Who",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "ynq-v3-b1-02",
+            "question": "In \"Did they leave?\", the auxiliary comes before {a1}.",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "auxiliary_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "leave",
+                        "Did",
+                        "before"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "ynq-v3-b1-03",
+            "question": "{a1} they arrive yesterday?",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "do_does_did_simple"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Were"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "ynq-v3-b1-04",
+            "question": "{a1} they at home yesterday?",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Did",
+                        "Are",
+                        "Have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "ynq-v3-b1-05",
+            "question": "{a1} they visit us tomorrow?",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "ynq-v3-b1-06",
+            "question": "{a1} they left before you arrived?",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Did",
+                        "Were",
+                        "Have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "ynq-v3-b1-07",
+            "question": "Did they call? Yes, they {a1}.",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were",
+                        "have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "ynq-v3-b1-08",
+            "question": "Choose the yes/no opener: {a1} they ready?",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "When",
+                        "What",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "ynq-v3-b1-09",
+            "question": "Correct form: Did they {a1} home?",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "go",
+                    "options": [
+                        "go",
+                        "went",
+                        "goes",
+                        "going"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "ynq-v3-b1-10",
+            "question": "The main verb after did stays in the {a1} form.",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "base",
+                    "options": [
+                        "base",
+                        "past",
+                        "plural",
+                        "-ing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "ynq-v3-b1-11",
+            "question": "In \"Was he late?\", the auxiliary is {a1}.",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "no_wh_word"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "he",
+                        "late",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "ynq-v3-b1-12",
+            "question": "Were they late? Yes, they {a1}.",
+            "level": "B1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "did",
+                        "have",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "ynq-v3-b2-01",
+            "question": "{a1} you coming with us?",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "ynq-v3-b2-02",
+            "question": "In \"Are you listening?\", the auxiliary is {a1}.",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "auxiliary_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "you",
+                        "listening",
+                        "Do"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "ynq-v3-b2-03",
+            "question": "{a1} your sister know the answer?",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "do_does_did_simple"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "ynq-v3-b2-04",
+            "question": "{a1} the room being cleaned now?",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "ynq-v3-b2-05",
+            "question": "{a1} you explain the rule again?",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Did",
+                        "Do",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "ynq-v3-b2-06",
+            "question": "{a1} the package arrived yet?",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Did",
+                        "Is",
+                        "Does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "ynq-v3-b2-07",
+            "question": "Can he drive? No, he {a1}.",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "doesn't",
+                        "isn't",
+                        "didn't"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "ynq-v3-b2-08",
+            "question": "Choose the yes/no opener: {a1} he call yesterday?",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Why",
+                        "Where",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "ynq-v3-b2-09",
+            "question": "Correct form: {a1} you can swim?",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "ynq-v3-b2-10",
+            "question": "With to be, we use {a1} instead of do-support.",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "inversion",
+                    "options": [
+                        "inversion",
+                        "an article",
+                        "a tag",
+                        "a noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "ynq-v3-b2-11",
+            "question": "In \"Will you join us?\", the subject is {a1}.",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "no_wh_word"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "you",
+                    "options": [
+                        "you",
+                        "Will",
+                        "join",
+                        "us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "ynq-v3-b2-12",
+            "question": "Should we wait? Yes, we {a1}.",
+            "level": "B2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "do",
+                        "are",
+                        "have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "ynq-v3-c1-01",
+            "question": "{a1} she completed the application?",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Why",
+                        "What",
+                        "Where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "ynq-v3-c1-02",
+            "question": "In \"Has she replied?\", the auxiliary is {a1}.",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "auxiliary_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "she",
+                        "replied",
+                        "Does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "ynq-v3-c1-03",
+            "question": "{a1} the clients accept the offer last week?",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "do_does_did_simple"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Have",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "ynq-v3-c1-04",
+            "question": "{a1} the results available yet?",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Have",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "ynq-v3-c1-05",
+            "question": "{a1} the team delay the launch?",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Might",
+                    "options": [
+                        "Might",
+                        "Does",
+                        "Has",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "ynq-v3-c1-06",
+            "question": "{a1} you been waiting long?",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Are",
+                        "Do",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "ynq-v3-c1-07",
+            "question": "Has she replied? Yes, she {a1}.",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "does",
+                        "is",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "ynq-v3-c1-08",
+            "question": "Choose the yes/no opener: {a1} you ever worked abroad?",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Where",
+                        "Why",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "ynq-v3-c1-09",
+            "question": "Correct form: {a1} she finished yet?",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Is",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "ynq-v3-c1-10",
+            "question": "With modals, we put the modal before the {a1}.",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "object",
+                        "adverb",
+                        "article"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "ynq-v3-c1-11",
+            "question": "In \"Have they arrived?\", the subject is {a1}.",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "no_wh_word"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "Have",
+                        "arrived",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "ynq-v3-c1-12",
+            "question": "Have you checked it? No, I {a1}.",
+            "level": "C1",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "haven't",
+                    "options": [
+                        "haven't",
+                        "didn't",
+                        "don't",
+                        "am not"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "ynq-v3-c2-01",
+            "question": "{a1} the contract be renewed next month?",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Where",
+                        "Who",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "ynq-v3-c2-02",
+            "question": "In \"Could we postpone it?\", the modal auxiliary is {a1}.",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "auxiliary_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "we",
+                        "postpone",
+                        "it"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "ynq-v3-c2-03",
+            "question": "{a1} these figures match the invoice?",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "do_does_did_simple"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are",
+                        "Have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "ynq-v3-c2-04",
+            "question": "{a1} the witnesses present during the hearing?",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Did",
+                        "Have",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "ynq-v3-c2-05",
+            "question": "{a1} the applicant submit extra evidence?",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Must",
+                    "options": [
+                        "Must",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "ynq-v3-c2-06",
+            "question": "{a1} the system been tested thoroughly?",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Is",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "ynq-v3-c2-07",
+            "question": "Will they attend? No, they {a1}.",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "yes_no_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "won't",
+                    "options": [
+                        "won't",
+                        "don't",
+                        "aren't",
+                        "haven't"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "ynq-v3-c2-08",
+            "question": "Choose the yes/no opener: {a1} the policy change soon?",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "to_be_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Why",
+                        "Where",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "ynq-v3-c2-09",
+            "question": "Correct form: {a1} the proposal have been approved?",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "modal_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Is",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "ynq-v3-c2-10",
+            "question": "In perfect tense questions, have/has/had comes before the {a1}.",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "perfect_auxiliary_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "past participle",
+                        "object",
+                        "adverb"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "ynq-v3-c2-11",
+            "question": "In \"Must we disclose this?\", the auxiliary is {a1}.",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "no_wh_word"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Must",
+                    "options": [
+                        "Must",
+                        "we",
+                        "disclose",
+                        "this"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "ynq-v3-c2-12",
+            "question": "Would she agree? Yes, she {a1}.",
+            "level": "C2",
+            "source": "theory_page_yes_no_questions",
+            "tag_keys": [
+                "yes_no_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "did",
+                        "has",
+                        "is"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn-yn-v3-all",
+        "slug": "yes-no-questions-general-questions-all-levels-v3",
+        "name": "Yes / No Questions (All levels V3)",
+        "description": "Standard V3 package for Yes / No Questions across A1-C2.",
+        "question_uuids": [
+            "ynq-v3-a1-01",
+            "ynq-v3-a1-02",
+            "ynq-v3-a1-03",
+            "ynq-v3-a1-04",
+            "ynq-v3-a1-05",
+            "ynq-v3-a1-06",
+            "ynq-v3-a1-07",
+            "ynq-v3-a1-08",
+            "ynq-v3-a1-09",
+            "ynq-v3-a1-10",
+            "ynq-v3-a1-11",
+            "ynq-v3-a1-12",
+            "ynq-v3-a2-01",
+            "ynq-v3-a2-02",
+            "ynq-v3-a2-03",
+            "ynq-v3-a2-04",
+            "ynq-v3-a2-05",
+            "ynq-v3-a2-06",
+            "ynq-v3-a2-07",
+            "ynq-v3-a2-08",
+            "ynq-v3-a2-09",
+            "ynq-v3-a2-10",
+            "ynq-v3-a2-11",
+            "ynq-v3-a2-12",
+            "ynq-v3-b1-01",
+            "ynq-v3-b1-02",
+            "ynq-v3-b1-03",
+            "ynq-v3-b1-04",
+            "ynq-v3-b1-05",
+            "ynq-v3-b1-06",
+            "ynq-v3-b1-07",
+            "ynq-v3-b1-08",
+            "ynq-v3-b1-09",
+            "ynq-v3-b1-10",
+            "ynq-v3-b1-11",
+            "ynq-v3-b1-12",
+            "ynq-v3-b2-01",
+            "ynq-v3-b2-02",
+            "ynq-v3-b2-03",
+            "ynq-v3-b2-04",
+            "ynq-v3-b2-05",
+            "ynq-v3-b2-06",
+            "ynq-v3-b2-07",
+            "ynq-v3-b2-08",
+            "ynq-v3-b2-09",
+            "ynq-v3-b2-10",
+            "ynq-v3-b2-11",
+            "ynq-v3-b2-12",
+            "ynq-v3-c1-01",
+            "ynq-v3-c1-02",
+            "ynq-v3-c1-03",
+            "ynq-v3-c1-04",
+            "ynq-v3-c1-05",
+            "ynq-v3-c1-06",
+            "ynq-v3-c1-07",
+            "ynq-v3-c1-08",
+            "ynq-v3-c1-09",
+            "ynq-v3-c1-10",
+            "ynq-v3-c1-11",
+            "ynq-v3-c1-12",
+            "ynq-v3-c2-01",
+            "ynq-v3-c2-02",
+            "ynq-v3-c2-03",
+            "ynq-v3-c2-04",
+            "ynq-v3-c2-05",
+            "ynq-v3-c2-06",
+            "ynq-v3-c2-07",
+            "ynq-v3-c2-08",
+            "ynq-v3-c2-09",
+            "ynq-v3-c2-10",
+            "ynq-v3-c2-11",
+            "ynq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\YesNoQuestionsGeneralQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "yesno-questions-general-questions",
+                    "title": "Yes / No Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions"
+                }
+            }
+        }
+    }
+}

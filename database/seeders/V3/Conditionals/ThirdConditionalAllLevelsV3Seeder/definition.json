@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\ThirdConditionalAllLevelsV3Seeder",
+        "uuid_namespace": "ThirdConditionalAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_third_conditional": {
+            "name": "Third Conditional"
+        }
+    },
+    "tags": {
+        "conditionals_third_conditional": {
+            "name": "Third Conditional",
+            "category": "conditionals"
+        },
+        "if_past_perfect": {
+            "name": "If Past Perfect",
+            "category": "topic"
+        },
+        "would_have_v3": {
+            "name": "Would Have V3",
+            "category": "topic"
+        },
+        "unreal_past": {
+            "name": "Unreal Past",
+            "category": "topic"
+        },
+        "regret": {
+            "name": "Regret",
+            "category": "topic"
+        },
+        "criticism": {
+            "name": "Criticism",
+            "category": "topic"
+        },
+        "could_might_have": {
+            "name": "Could Might Have",
+            "category": "topic"
+        },
+        "comma_rules": {
+            "name": "Comma Rules",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_third_conditional"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "tc-v3-a1-01",
+            "question": "If I {a1} earlier, I would have caught the train.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "left",
+                        "would leave",
+                        "have left"
+                    ],
+                    "verb_hint": "Use past perfect in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If I {a1} earlier, I would have caught the train."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 2,
+            "uuid": "tc-v3-a1-02",
+            "question": "If she had studied, she {a1} the exam.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have passed",
+                    "options": [
+                        "would have passed",
+                        "would pass",
+                        "will have passed",
+                        "passed"
+                    ],
+                    "verb_hint": "Use would have + past participle in the result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If she had studied, she {a1} the exam."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 3,
+            "uuid": "tc-v3-a1-03",
+            "question": "If we had known, we {a1} you.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have helped",
+                    "options": [
+                        "would have helped",
+                        "would help",
+                        "will help",
+                        "helped"
+                    ],
+                    "verb_hint": "This is an unreal past condition.",
+                    "gap_tags": [
+                        "unreal_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past"
+            ],
+            "variants": [
+                "If we had known, we {a1} you."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 4,
+            "uuid": "tc-v3-a1-04",
+            "question": "If I had saved money, I {a1} that laptop.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have bought",
+                    "options": [
+                        "would have bought",
+                        "would buy",
+                        "will buy",
+                        "bought"
+                    ],
+                    "verb_hint": "Third conditional often expresses regret.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had saved money, I {a1} that laptop."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 5,
+            "uuid": "tc-v3-a1-05",
+            "question": "If you had listened, you {a1} the mistake.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have avoided",
+                    "options": [
+                        "would have avoided",
+                        "would avoid",
+                        "will avoid",
+                        "avoided"
+                    ],
+                    "verb_hint": "This criticizes a past action.",
+                    "gap_tags": [
+                        "criticism"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "criticism"
+            ],
+            "variants": [
+                "If you had listened, you {a1} the mistake."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 6,
+            "uuid": "tc-v3-a1-06",
+            "question": "If he had called, we {a1} met him.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "could",
+                        "will have",
+                        "had could"
+                    ],
+                    "verb_hint": "Could have can replace would have.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If he had called, we {a1} met him."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 7,
+            "uuid": "tc-v3-a1-07",
+            "question": "If the past condition comes first, we usually {a1} a comma.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "used",
+                        "would use",
+                        "will use"
+                    ],
+                    "verb_hint": "This is a punctuation rule.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the past condition comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 8,
+            "uuid": "tc-v3-a1-08",
+            "question": "If she {a1} the address, she would have arrived.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had found",
+                    "options": [
+                        "had found",
+                        "would have found",
+                        "found",
+                        "has found"
+                    ],
+                    "verb_hint": "Do not use would have in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she {a1} the address, she would have arrived."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 9,
+            "uuid": "tc-v3-a1-09",
+            "question": "If they {a1} the map, they would not have got lost.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had checked",
+                    "options": [
+                        "had checked",
+                        "checked",
+                        "would check",
+                        "have checked"
+                    ],
+                    "verb_hint": "Use had + V3 in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If they {a1} the map, they would not have got lost."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 10,
+            "uuid": "tc-v3-a1-10",
+            "question": "If Marta had arrived on time, we {a1} earlier.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have started",
+                    "options": [
+                        "would have started",
+                        "would start",
+                        "will start",
+                        "started"
+                    ],
+                    "verb_hint": "Use would have + V3 for the unreal result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If Marta had arrived on time, we {a1} earlier."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 11,
+            "uuid": "tc-v3-a1-11",
+            "question": "If the weather had improved, we {a1} gone hiking.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "will have",
+                        "had might"
+                    ],
+                    "verb_hint": "Might have shows a possible past result.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If the weather had improved, we {a1} gone hiking."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 12,
+            "uuid": "tc-v3-a1-12",
+            "question": "If I had taken notes, I {a1} the details.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have remembered",
+                    "options": [
+                        "would have remembered",
+                        "would remember",
+                        "will remember",
+                        "remembered"
+                    ],
+                    "verb_hint": "This expresses a regret about the past.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had taken notes, I {a1} the details."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 13,
+            "uuid": "tc-v3-a2-01",
+            "question": "If I {a1} earlier, I would have caught the train.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "left",
+                        "would leave",
+                        "have left"
+                    ],
+                    "verb_hint": "Use past perfect in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If I {a1} earlier, I would have caught the train."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 14,
+            "uuid": "tc-v3-a2-02",
+            "question": "If she had studied, she {a1} the exam.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have passed",
+                    "options": [
+                        "would have passed",
+                        "would pass",
+                        "will have passed",
+                        "passed"
+                    ],
+                    "verb_hint": "Use would have + past participle in the result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If she had studied, she {a1} the exam."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 15,
+            "uuid": "tc-v3-a2-03",
+            "question": "If we had known, we {a1} you.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have helped",
+                    "options": [
+                        "would have helped",
+                        "would help",
+                        "will help",
+                        "helped"
+                    ],
+                    "verb_hint": "This is an unreal past condition.",
+                    "gap_tags": [
+                        "unreal_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past"
+            ],
+            "variants": [
+                "If we had known, we {a1} you."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 16,
+            "uuid": "tc-v3-a2-04",
+            "question": "If I had saved money, I {a1} that laptop.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have bought",
+                    "options": [
+                        "would have bought",
+                        "would buy",
+                        "will buy",
+                        "bought"
+                    ],
+                    "verb_hint": "Third conditional often expresses regret.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had saved money, I {a1} that laptop."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 17,
+            "uuid": "tc-v3-a2-05",
+            "question": "If you had listened, you {a1} the mistake.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have avoided",
+                    "options": [
+                        "would have avoided",
+                        "would avoid",
+                        "will avoid",
+                        "avoided"
+                    ],
+                    "verb_hint": "This criticizes a past action.",
+                    "gap_tags": [
+                        "criticism"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "criticism"
+            ],
+            "variants": [
+                "If you had listened, you {a1} the mistake."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 18,
+            "uuid": "tc-v3-a2-06",
+            "question": "If he had called, we {a1} met him.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "could",
+                        "will have",
+                        "had could"
+                    ],
+                    "verb_hint": "Could have can replace would have.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If he had called, we {a1} met him."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 19,
+            "uuid": "tc-v3-a2-07",
+            "question": "If the past condition comes first, we usually {a1} a comma.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "used",
+                        "would use",
+                        "will use"
+                    ],
+                    "verb_hint": "This is a punctuation rule.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the past condition comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 20,
+            "uuid": "tc-v3-a2-08",
+            "question": "If she {a1} the address, she would have arrived.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had found",
+                    "options": [
+                        "had found",
+                        "would have found",
+                        "found",
+                        "has found"
+                    ],
+                    "verb_hint": "Do not use would have in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she {a1} the address, she would have arrived."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 21,
+            "uuid": "tc-v3-a2-09",
+            "question": "If they {a1} the map, they would not have got lost.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had checked",
+                    "options": [
+                        "had checked",
+                        "checked",
+                        "would check",
+                        "have checked"
+                    ],
+                    "verb_hint": "Use had + V3 in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If they {a1} the map, they would not have got lost."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 22,
+            "uuid": "tc-v3-a2-10",
+            "question": "If Marta had arrived on time, we {a1} earlier.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have started",
+                    "options": [
+                        "would have started",
+                        "would start",
+                        "will start",
+                        "started"
+                    ],
+                    "verb_hint": "Use would have + V3 for the unreal result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If Marta had arrived on time, we {a1} earlier."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 23,
+            "uuid": "tc-v3-a2-11",
+            "question": "If the weather had improved, we {a1} gone hiking.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "will have",
+                        "had might"
+                    ],
+                    "verb_hint": "Might have shows a possible past result.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If the weather had improved, we {a1} gone hiking."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 24,
+            "uuid": "tc-v3-a2-12",
+            "question": "If I had taken notes, I {a1} the details.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have remembered",
+                    "options": [
+                        "would have remembered",
+                        "would remember",
+                        "will remember",
+                        "remembered"
+                    ],
+                    "verb_hint": "This expresses a regret about the past.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had taken notes, I {a1} the details."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 25,
+            "uuid": "tc-v3-b1-01",
+            "question": "If I {a1} earlier, I would have caught the train.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "left",
+                        "would leave",
+                        "have left"
+                    ],
+                    "verb_hint": "Use past perfect in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If I {a1} earlier, I would have caught the train."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 26,
+            "uuid": "tc-v3-b1-02",
+            "question": "If she had studied, she {a1} the exam.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have passed",
+                    "options": [
+                        "would have passed",
+                        "would pass",
+                        "will have passed",
+                        "passed"
+                    ],
+                    "verb_hint": "Use would have + past participle in the result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If she had studied, she {a1} the exam."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 27,
+            "uuid": "tc-v3-b1-03",
+            "question": "If we had known, we {a1} you.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have helped",
+                    "options": [
+                        "would have helped",
+                        "would help",
+                        "will help",
+                        "helped"
+                    ],
+                    "verb_hint": "This is an unreal past condition.",
+                    "gap_tags": [
+                        "unreal_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past"
+            ],
+            "variants": [
+                "If we had known, we {a1} you."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 28,
+            "uuid": "tc-v3-b1-04",
+            "question": "If I had saved money, I {a1} that laptop.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have bought",
+                    "options": [
+                        "would have bought",
+                        "would buy",
+                        "will buy",
+                        "bought"
+                    ],
+                    "verb_hint": "Third conditional often expresses regret.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had saved money, I {a1} that laptop."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 29,
+            "uuid": "tc-v3-b1-05",
+            "question": "If you had listened, you {a1} the mistake.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have avoided",
+                    "options": [
+                        "would have avoided",
+                        "would avoid",
+                        "will avoid",
+                        "avoided"
+                    ],
+                    "verb_hint": "This criticizes a past action.",
+                    "gap_tags": [
+                        "criticism"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "criticism"
+            ],
+            "variants": [
+                "If you had listened, you {a1} the mistake."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 30,
+            "uuid": "tc-v3-b1-06",
+            "question": "If he had called, we {a1} met him.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "could",
+                        "will have",
+                        "had could"
+                    ],
+                    "verb_hint": "Could have can replace would have.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If he had called, we {a1} met him."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 31,
+            "uuid": "tc-v3-b1-07",
+            "question": "If the past condition comes first, we usually {a1} a comma.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "used",
+                        "would use",
+                        "will use"
+                    ],
+                    "verb_hint": "This is a punctuation rule.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the past condition comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 32,
+            "uuid": "tc-v3-b1-08",
+            "question": "If she {a1} the address, she would have arrived.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had found",
+                    "options": [
+                        "had found",
+                        "would have found",
+                        "found",
+                        "has found"
+                    ],
+                    "verb_hint": "Do not use would have in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she {a1} the address, she would have arrived."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 33,
+            "uuid": "tc-v3-b1-09",
+            "question": "If they {a1} the map, they would not have got lost.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had checked",
+                    "options": [
+                        "had checked",
+                        "checked",
+                        "would check",
+                        "have checked"
+                    ],
+                    "verb_hint": "Use had + V3 in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If they {a1} the map, they would not have got lost."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 34,
+            "uuid": "tc-v3-b1-10",
+            "question": "If Marta had arrived on time, we {a1} earlier.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have started",
+                    "options": [
+                        "would have started",
+                        "would start",
+                        "will start",
+                        "started"
+                    ],
+                    "verb_hint": "Use would have + V3 for the unreal result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If Marta had arrived on time, we {a1} earlier."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 35,
+            "uuid": "tc-v3-b1-11",
+            "question": "If the weather had improved, we {a1} gone hiking.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "will have",
+                        "had might"
+                    ],
+                    "verb_hint": "Might have shows a possible past result.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If the weather had improved, we {a1} gone hiking."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 36,
+            "uuid": "tc-v3-b1-12",
+            "question": "If I had taken notes, I {a1} the details.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have remembered",
+                    "options": [
+                        "would have remembered",
+                        "would remember",
+                        "will remember",
+                        "remembered"
+                    ],
+                    "verb_hint": "This expresses a regret about the past.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had taken notes, I {a1} the details."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 37,
+            "uuid": "tc-v3-b2-01",
+            "question": "If I {a1} earlier, I would have caught the train.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "left",
+                        "would leave",
+                        "have left"
+                    ],
+                    "verb_hint": "Use past perfect in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If I {a1} earlier, I would have caught the train."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 38,
+            "uuid": "tc-v3-b2-02",
+            "question": "If she had studied, she {a1} the exam.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have passed",
+                    "options": [
+                        "would have passed",
+                        "would pass",
+                        "will have passed",
+                        "passed"
+                    ],
+                    "verb_hint": "Use would have + past participle in the result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If she had studied, she {a1} the exam."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 39,
+            "uuid": "tc-v3-b2-03",
+            "question": "If we had known, we {a1} you.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have helped",
+                    "options": [
+                        "would have helped",
+                        "would help",
+                        "will help",
+                        "helped"
+                    ],
+                    "verb_hint": "This is an unreal past condition.",
+                    "gap_tags": [
+                        "unreal_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past"
+            ],
+            "variants": [
+                "If we had known, we {a1} you."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 40,
+            "uuid": "tc-v3-b2-04",
+            "question": "If I had saved money, I {a1} that laptop.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have bought",
+                    "options": [
+                        "would have bought",
+                        "would buy",
+                        "will buy",
+                        "bought"
+                    ],
+                    "verb_hint": "Third conditional often expresses regret.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had saved money, I {a1} that laptop."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 41,
+            "uuid": "tc-v3-b2-05",
+            "question": "If you had listened, you {a1} the mistake.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have avoided",
+                    "options": [
+                        "would have avoided",
+                        "would avoid",
+                        "will avoid",
+                        "avoided"
+                    ],
+                    "verb_hint": "This criticizes a past action.",
+                    "gap_tags": [
+                        "criticism"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "criticism"
+            ],
+            "variants": [
+                "If you had listened, you {a1} the mistake."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 42,
+            "uuid": "tc-v3-b2-06",
+            "question": "If he had called, we {a1} met him.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "could",
+                        "will have",
+                        "had could"
+                    ],
+                    "verb_hint": "Could have can replace would have.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If he had called, we {a1} met him."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 43,
+            "uuid": "tc-v3-b2-07",
+            "question": "If the past condition comes first, we usually {a1} a comma.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "used",
+                        "would use",
+                        "will use"
+                    ],
+                    "verb_hint": "This is a punctuation rule.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the past condition comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 44,
+            "uuid": "tc-v3-b2-08",
+            "question": "If she {a1} the address, she would have arrived.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had found",
+                    "options": [
+                        "had found",
+                        "would have found",
+                        "found",
+                        "has found"
+                    ],
+                    "verb_hint": "Do not use would have in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she {a1} the address, she would have arrived."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 45,
+            "uuid": "tc-v3-b2-09",
+            "question": "If they {a1} the map, they would not have got lost.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had checked",
+                    "options": [
+                        "had checked",
+                        "checked",
+                        "would check",
+                        "have checked"
+                    ],
+                    "verb_hint": "Use had + V3 in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If they {a1} the map, they would not have got lost."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 46,
+            "uuid": "tc-v3-b2-10",
+            "question": "If Marta had arrived on time, we {a1} earlier.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have started",
+                    "options": [
+                        "would have started",
+                        "would start",
+                        "will start",
+                        "started"
+                    ],
+                    "verb_hint": "Use would have + V3 for the unreal result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If Marta had arrived on time, we {a1} earlier."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 47,
+            "uuid": "tc-v3-b2-11",
+            "question": "If the weather had improved, we {a1} gone hiking.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "will have",
+                        "had might"
+                    ],
+                    "verb_hint": "Might have shows a possible past result.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If the weather had improved, we {a1} gone hiking."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 48,
+            "uuid": "tc-v3-b2-12",
+            "question": "If I had taken notes, I {a1} the details.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have remembered",
+                    "options": [
+                        "would have remembered",
+                        "would remember",
+                        "will remember",
+                        "remembered"
+                    ],
+                    "verb_hint": "This expresses a regret about the past.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had taken notes, I {a1} the details."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 49,
+            "uuid": "tc-v3-c1-01",
+            "question": "If I {a1} earlier, I would have caught the train.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "left",
+                        "would leave",
+                        "have left"
+                    ],
+                    "verb_hint": "Use past perfect in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If I {a1} earlier, I would have caught the train."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 50,
+            "uuid": "tc-v3-c1-02",
+            "question": "If she had studied, she {a1} the exam.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have passed",
+                    "options": [
+                        "would have passed",
+                        "would pass",
+                        "will have passed",
+                        "passed"
+                    ],
+                    "verb_hint": "Use would have + past participle in the result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If she had studied, she {a1} the exam."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 51,
+            "uuid": "tc-v3-c1-03",
+            "question": "If we had known, we {a1} you.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have helped",
+                    "options": [
+                        "would have helped",
+                        "would help",
+                        "will help",
+                        "helped"
+                    ],
+                    "verb_hint": "This is an unreal past condition.",
+                    "gap_tags": [
+                        "unreal_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past"
+            ],
+            "variants": [
+                "If we had known, we {a1} you."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 52,
+            "uuid": "tc-v3-c1-04",
+            "question": "If I had saved money, I {a1} that laptop.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have bought",
+                    "options": [
+                        "would have bought",
+                        "would buy",
+                        "will buy",
+                        "bought"
+                    ],
+                    "verb_hint": "Third conditional often expresses regret.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had saved money, I {a1} that laptop."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 53,
+            "uuid": "tc-v3-c1-05",
+            "question": "If you had listened, you {a1} the mistake.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have avoided",
+                    "options": [
+                        "would have avoided",
+                        "would avoid",
+                        "will avoid",
+                        "avoided"
+                    ],
+                    "verb_hint": "This criticizes a past action.",
+                    "gap_tags": [
+                        "criticism"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "criticism"
+            ],
+            "variants": [
+                "If you had listened, you {a1} the mistake."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 54,
+            "uuid": "tc-v3-c1-06",
+            "question": "If he had called, we {a1} met him.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "could",
+                        "will have",
+                        "had could"
+                    ],
+                    "verb_hint": "Could have can replace would have.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If he had called, we {a1} met him."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 55,
+            "uuid": "tc-v3-c1-07",
+            "question": "If the past condition comes first, we usually {a1} a comma.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "used",
+                        "would use",
+                        "will use"
+                    ],
+                    "verb_hint": "This is a punctuation rule.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the past condition comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 56,
+            "uuid": "tc-v3-c1-08",
+            "question": "If she {a1} the address, she would have arrived.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had found",
+                    "options": [
+                        "had found",
+                        "would have found",
+                        "found",
+                        "has found"
+                    ],
+                    "verb_hint": "Do not use would have in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she {a1} the address, she would have arrived."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 57,
+            "uuid": "tc-v3-c1-09",
+            "question": "If they {a1} the map, they would not have got lost.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had checked",
+                    "options": [
+                        "had checked",
+                        "checked",
+                        "would check",
+                        "have checked"
+                    ],
+                    "verb_hint": "Use had + V3 in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If they {a1} the map, they would not have got lost."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 58,
+            "uuid": "tc-v3-c1-10",
+            "question": "If Marta had arrived on time, we {a1} earlier.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have started",
+                    "options": [
+                        "would have started",
+                        "would start",
+                        "will start",
+                        "started"
+                    ],
+                    "verb_hint": "Use would have + V3 for the unreal result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If Marta had arrived on time, we {a1} earlier."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 59,
+            "uuid": "tc-v3-c1-11",
+            "question": "If the weather had improved, we {a1} gone hiking.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "will have",
+                        "had might"
+                    ],
+                    "verb_hint": "Might have shows a possible past result.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If the weather had improved, we {a1} gone hiking."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 60,
+            "uuid": "tc-v3-c1-12",
+            "question": "If I had taken notes, I {a1} the details.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have remembered",
+                    "options": [
+                        "would have remembered",
+                        "would remember",
+                        "will remember",
+                        "remembered"
+                    ],
+                    "verb_hint": "This expresses a regret about the past.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had taken notes, I {a1} the details."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 61,
+            "uuid": "tc-v3-c2-01",
+            "question": "If I {a1} earlier, I would have caught the train.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "left",
+                        "would leave",
+                        "have left"
+                    ],
+                    "verb_hint": "Use past perfect in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If I {a1} earlier, I would have caught the train."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 62,
+            "uuid": "tc-v3-c2-02",
+            "question": "If she had studied, she {a1} the exam.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have passed",
+                    "options": [
+                        "would have passed",
+                        "would pass",
+                        "will have passed",
+                        "passed"
+                    ],
+                    "verb_hint": "Use would have + past participle in the result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If she had studied, she {a1} the exam."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 63,
+            "uuid": "tc-v3-c2-03",
+            "question": "If we had known, we {a1} you.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have helped",
+                    "options": [
+                        "would have helped",
+                        "would help",
+                        "will help",
+                        "helped"
+                    ],
+                    "verb_hint": "This is an unreal past condition.",
+                    "gap_tags": [
+                        "unreal_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unreal_past"
+            ],
+            "variants": [
+                "If we had known, we {a1} you."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 64,
+            "uuid": "tc-v3-c2-04",
+            "question": "If I had saved money, I {a1} that laptop.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have bought",
+                    "options": [
+                        "would have bought",
+                        "would buy",
+                        "will buy",
+                        "bought"
+                    ],
+                    "verb_hint": "Third conditional often expresses regret.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had saved money, I {a1} that laptop."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 65,
+            "uuid": "tc-v3-c2-05",
+            "question": "If you had listened, you {a1} the mistake.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have avoided",
+                    "options": [
+                        "would have avoided",
+                        "would avoid",
+                        "will avoid",
+                        "avoided"
+                    ],
+                    "verb_hint": "This criticizes a past action.",
+                    "gap_tags": [
+                        "criticism"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "criticism"
+            ],
+            "variants": [
+                "If you had listened, you {a1} the mistake."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 66,
+            "uuid": "tc-v3-c2-06",
+            "question": "If he had called, we {a1} met him.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "could",
+                        "will have",
+                        "had could"
+                    ],
+                    "verb_hint": "Could have can replace would have.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If he had called, we {a1} met him."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 67,
+            "uuid": "tc-v3-c2-07",
+            "question": "If the past condition comes first, we usually {a1} a comma.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "used",
+                        "would use",
+                        "will use"
+                    ],
+                    "verb_hint": "This is a punctuation rule.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the past condition comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 68,
+            "uuid": "tc-v3-c2-08",
+            "question": "If she {a1} the address, she would have arrived.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had found",
+                    "options": [
+                        "had found",
+                        "would have found",
+                        "found",
+                        "has found"
+                    ],
+                    "verb_hint": "Do not use would have in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If she {a1} the address, she would have arrived."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 69,
+            "uuid": "tc-v3-c2-09",
+            "question": "If they {a1} the map, they would not have got lost.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had checked",
+                    "options": [
+                        "had checked",
+                        "checked",
+                        "would check",
+                        "have checked"
+                    ],
+                    "verb_hint": "Use had + V3 in the if-clause.",
+                    "gap_tags": [
+                        "if_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_past_perfect"
+            ],
+            "variants": [
+                "If they {a1} the map, they would not have got lost."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 70,
+            "uuid": "tc-v3-c2-10",
+            "question": "If Marta had arrived on time, we {a1} earlier.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have started",
+                    "options": [
+                        "would have started",
+                        "would start",
+                        "will start",
+                        "started"
+                    ],
+                    "verb_hint": "Use would have + V3 for the unreal result.",
+                    "gap_tags": [
+                        "would_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have_v3"
+            ],
+            "variants": [
+                "If Marta had arrived on time, we {a1} earlier."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 71,
+            "uuid": "tc-v3-c2-11",
+            "question": "If the weather had improved, we {a1} gone hiking.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "will have",
+                        "had might"
+                    ],
+                    "verb_hint": "Might have shows a possible past result.",
+                    "gap_tags": [
+                        "could_might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_might_have"
+            ],
+            "variants": [
+                "If the weather had improved, we {a1} gone hiking."
+            ],
+            "source": "theory_page_third_conditional"
+        },
+        {
+            "id": 72,
+            "uuid": "tc-v3-c2-12",
+            "question": "If I had taken notes, I {a1} the details.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have remembered",
+                    "options": [
+                        "would have remembered",
+                        "would remember",
+                        "will remember",
+                        "remembered"
+                    ],
+                    "verb_hint": "This expresses a regret about the past.",
+                    "gap_tags": [
+                        "regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "regret"
+            ],
+            "variants": [
+                "If I had taken notes, I {a1} the details."
+            ],
+            "source": "theory_page_third_conditional"
+        }
+    ],
+    "saved_test": {
+        "uuid": "conditionals-third-v3-all",
+        "slug": "third-conditional-all-levels-v3",
+        "name": "Third Conditional: V3 All Levels",
+        "description": "Page-local V3 package for Third Conditional with A1-C2 coverage.",
+        "question_uuids": [
+            "tc-v3-a1-01",
+            "tc-v3-a1-02",
+            "tc-v3-a1-03",
+            "tc-v3-a1-04",
+            "tc-v3-a1-05",
+            "tc-v3-a1-06",
+            "tc-v3-a1-07",
+            "tc-v3-a1-08",
+            "tc-v3-a1-09",
+            "tc-v3-a1-10",
+            "tc-v3-a1-11",
+            "tc-v3-a1-12",
+            "tc-v3-a2-01",
+            "tc-v3-a2-02",
+            "tc-v3-a2-03",
+            "tc-v3-a2-04",
+            "tc-v3-a2-05",
+            "tc-v3-a2-06",
+            "tc-v3-a2-07",
+            "tc-v3-a2-08",
+            "tc-v3-a2-09",
+            "tc-v3-a2-10",
+            "tc-v3-a2-11",
+            "tc-v3-a2-12",
+            "tc-v3-b1-01",
+            "tc-v3-b1-02",
+            "tc-v3-b1-03",
+            "tc-v3-b1-04",
+            "tc-v3-b1-05",
+            "tc-v3-b1-06",
+            "tc-v3-b1-07",
+            "tc-v3-b1-08",
+            "tc-v3-b1-09",
+            "tc-v3-b1-10",
+            "tc-v3-b1-11",
+            "tc-v3-b1-12",
+            "tc-v3-b2-01",
+            "tc-v3-b2-02",
+            "tc-v3-b2-03",
+            "tc-v3-b2-04",
+            "tc-v3-b2-05",
+            "tc-v3-b2-06",
+            "tc-v3-b2-07",
+            "tc-v3-b2-08",
+            "tc-v3-b2-09",
+            "tc-v3-b2-10",
+            "tc-v3-b2-11",
+            "tc-v3-b2-12",
+            "tc-v3-c1-01",
+            "tc-v3-c1-02",
+            "tc-v3-c1-03",
+            "tc-v3-c1-04",
+            "tc-v3-c1-05",
+            "tc-v3-c1-06",
+            "tc-v3-c1-07",
+            "tc-v3-c1-08",
+            "tc-v3-c1-09",
+            "tc-v3-c1-10",
+            "tc-v3-c1-11",
+            "tc-v3-c1-12",
+            "tc-v3-c2-01",
+            "tc-v3-c2-02",
+            "tc-v3-c2-03",
+            "tc-v3-c2-04",
+            "tc-v3-c2-05",
+            "tc-v3-c2-06",
+            "tc-v3-c2-07",
+            "tc-v3-c2-08",
+            "tc-v3-c2-09",
+            "tc-v3-c2-10",
+            "tc-v3-c2-11",
+            "tc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\ThirdConditionalAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "third-conditional",
+                    "title": "Third Conditional",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsThirdTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/third-conditional"
+                }
+            }
+        }
+    }
+}

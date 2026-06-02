@@ -1,0 +1,200 @@
+{
+    "question": {
+        "id": 1,
+        "uuid": "ss-cp-sn-a1-q01",
+        "question": "She {a1} an apple every morning.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 1,
+        "source_id": 1,
+        "flag": 0,
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:32:02.000000Z"
+    },
+    "category": {
+        "id": 1,
+        "name": "Речення та граматика",
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:31:53.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:31:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 28,
+                "name": "Sentence structure SVO",
+                "category": "topic",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "tag_id": 28,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 29,
+                "name": "Basic SVO order",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "tag_id": 29,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1,
+                "option": "eats",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "option_id": 1,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2,
+                "option": "eat",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3,
+                "option": "eating",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 1,
+                "option_id": 3,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 1,
+                "question_id": 1,
+                "marker": "a1",
+                "option_id": 1,
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "option": {
+                "id": 1,
+                "option": "eats",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 1,
+            "question_id": 1,
+            "text": "She {a1} an apple every morning.",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 1,
+            "question_id": 1,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "У реченнях типу SVO (підмет + присудок + додаток) дієслово узгоджується з підметом у числі та особі.\nЗ підметом третьої особи однини (he, she, it) у Present Simple до дієслова додається закінчення -s або -es.",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 3,
+            "question": "She {a1} an apple every morning.",
+            "wrong_answer": "eat",
+            "correct_answer": "eats",
+            "language": "ua",
+            "explanation": "Форма «eat» — базова форма дієслова, яка вживається з підметами I, you, we, they, але не з she/he/it у Present Simple.",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        },
+        {
+            "id": 4,
+            "question": "She {a1} an apple every morning.",
+            "wrong_answer": "eat",
+            "correct_answer": "eats",
+            "language": "uk",
+            "explanation": "Форма «eat» — базова форма дієслова, яка вживається з підметами I, you, we, they, але не з she/he/it у Present Simple.",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        },
+        {
+            "id": 5,
+            "question": "She {a1} an apple every morning.",
+            "wrong_answer": "eating",
+            "correct_answer": "eats",
+            "language": "ua",
+            "explanation": "Форма «eating» — дієприкметник теперішнього часу, який не може виступати присудком без допоміжного дієслова «is».",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        },
+        {
+            "id": 6,
+            "question": "She {a1} an apple every morning.",
+            "wrong_answer": "eating",
+            "correct_answer": "eats",
+            "language": "uk",
+            "explanation": "Форма «eating» — дієприкметник теперішнього часу, який не може виступати присудком без допоміжного дієслова «is».",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        },
+        {
+            "id": 1,
+            "question": "She {a1} an apple every morning.",
+            "wrong_answer": "eats",
+            "correct_answer": "eats",
+            "language": "ua",
+            "explanation": "Форма «eats» правильна: підмет «She» — третя особа однини, тому у Present Simple до дієслова «eat» додається -s.",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        },
+        {
+            "id": 2,
+            "question": "She {a1} an apple every morning.",
+            "wrong_answer": "eats",
+            "correct_answer": "eats",
+            "language": "uk",
+            "explanation": "Форма «eats» правильна: підмет «She» — третя особа однини, тому у Present Simple до дієслова «eat» додається -s.",
+            "created_at": "2026-05-26T14:31:53.000000Z",
+            "updated_at": "2026-05-26T14:31:53.000000Z"
+        }
+    ]
+}

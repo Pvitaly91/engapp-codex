@@ -1,0 +1,1737 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicWordOrderAllLevelsV3Seeder",
+        "uuid_namespace": "BasicWordOrderAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Word Order"
+    },
+    "sources": {
+        "theory_page_theory_basic_word_order": {
+            "name": "Basic Word Order"
+        }
+    },
+    "tags": {
+        "affirmative_sentences": {
+            "name": "Affirmative Sentences",
+            "category": "topic"
+        },
+        "adverbs_of_frequency": {
+            "name": "Adverbs of Frequency",
+            "category": "topic"
+        },
+        "time_adverbials": {
+            "name": "Time Adverbials",
+            "category": "topic"
+        },
+        "place_adverbials": {
+            "name": "Place Adverbials",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "affirmative_sentences"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "She {a1} every day.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "reads books",
+                    "options": [
+                        "reads books",
+                        "books reads",
+                        "books she reads"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "She {a1} every day."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "They {a2} at school.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "learn English",
+                    "options": [
+                        "learn English",
+                        "English learn",
+                        "learn they English"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "They {a2} at school."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "My brother {a3} in the morning.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "drinks coffee",
+                    "options": [
+                        "drinks coffee",
+                        "coffee drinks",
+                        "coffee he drinks"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "My brother {a3} in the morning."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "The cat {a4} on the sofa.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "is sleeping",
+                    "options": [
+                        "is sleeping",
+                        "sleeping is",
+                        "sleeping"
+                    ],
+                    "verb_hint": "SV order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "The cat {a4} on the sofa."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "I {a5} eat breakfast at 7 a.m.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "always",
+                    "options": [
+                        "always",
+                        "eat always",
+                        "always am"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "I {a5} eat breakfast at 7 a.m."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "We {a6} play in the park.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "often",
+                    "options": [
+                        "often",
+                        "play often",
+                        "often are"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "We {a6} play in the park."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "He is {a7} late for class.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "is never",
+                        "never is"
+                    ],
+                    "verb_hint": "frequency adverb after be"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "He is {a7} late for class."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "She watched TV {a8}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "at home yesterday",
+                    "options": [
+                        "at home yesterday",
+                        "yesterday at home",
+                        "home yesterday at"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "She watched TV {a8}."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "We played football {a9}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "in the park on Saturday",
+                    "options": [
+                        "in the park on Saturday",
+                        "on Saturday in the park",
+                        "Saturday park in the on"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "We played football {a9}."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "Tom {a10} to his friend.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "gave a present",
+                    "options": [
+                        "gave a present",
+                        "a present gave",
+                        "present gave a"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "Tom {a10} to his friend."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "Anna {a11} after school.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "does her homework",
+                    "options": [
+                        "does her homework",
+                        "her homework does",
+                        "homework does her"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "Anna {a11} after school."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "My parents {a12} dinner every evening.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "cook",
+                    "options": [
+                        "cook",
+                        "dinner cook",
+                        "cooks"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "My parents {a12} dinner every evening."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "My sister {a19} a letter to her friend.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "wrote",
+                    "options": [
+                        "wrote",
+                        "a letter wrote",
+                        "friend wrote a"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "My sister {a19} a letter to her friend."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "He {a20} eats vegetables.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "rarely",
+                    "options": [
+                        "rarely",
+                        "eats rarely",
+                        "rare"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "He {a20} eats vegetables."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "The teacher gave {a21}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "the students homework",
+                    "options": [
+                        "the students homework",
+                        "homework the students",
+                        "students the homework"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "The teacher gave {a21}."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "She {a22} the piano.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "plays beautifully",
+                    "options": [
+                        "plays beautifully",
+                        "beautifully plays",
+                        "plays beautiful"
+                    ],
+                    "verb_hint": "adverb of manner after verb"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "She {a22} the piano."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "I bought a {a23} bag.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "big red leather",
+                    "options": [
+                        "big red leather",
+                        "red big leather",
+                        "leather big red"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "I bought a {a23} bag."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "They {a24} go swimming.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "sometimes",
+                    "options": [
+                        "sometimes",
+                        "go sometimes",
+                        "sometime"
+                    ],
+                    "verb_hint": "frequency adverb position"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "They {a24} go swimming."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "She {a25} understand the question.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "did not",
+                    "options": [
+                        "did not",
+                        "not did",
+                        "did she not"
+                    ],
+                    "verb_hint": "negation order"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "She {a25} understand the question."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "He drove the car {a26}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "carefully",
+                    "options": [
+                        "carefully",
+                        "careful",
+                        "he carefully drove"
+                    ],
+                    "verb_hint": "adverb of manner after object"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "He drove the car {a26}."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "She wore a {a27} dress.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "beautiful long white",
+                    "options": [
+                        "beautiful long white",
+                        "white long beautiful",
+                        "long beautiful white"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "She wore a {a27} dress."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "My mother sent {a28}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "me a postcard",
+                    "options": [
+                        "me a postcard",
+                        "a postcard me",
+                        "postcard a me"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "My mother sent {a28}."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "They are {a29} tired after work.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "usually",
+                    "options": [
+                        "usually",
+                        "tired usually",
+                        "are usually"
+                    ],
+                    "verb_hint": "frequency adverb after be"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "They are {a29} tired after work."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "We studied {a30}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "in the library all afternoon",
+                    "options": [
+                        "in the library all afternoon",
+                        "all afternoon in the library",
+                        "library all afternoon in"
+                    ],
+                    "verb_hint": "place before time"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "We studied {a30}."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "{a37} like your new job?",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "Do you",
+                    "options": [
+                        "Do you",
+                        "You do",
+                        "Like you do"
+                    ],
+                    "verb_hint": "question inversion"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "{a37} like your new job?"
+            ]
+        },
+        {
+            "id": 26,
+            "question": "Not only {a38} the exam, but she also got the highest mark.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "did she pass",
+                    "options": [
+                        "did she pass",
+                        "she passed",
+                        "she did pass"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "Not only {a38} the exam, but she also got the highest mark."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "She speaks English {a39}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "fluently",
+                    "options": [
+                        "fluently",
+                        "fluent",
+                        "she fluently speaks"
+                    ],
+                    "verb_hint": "adverb of manner after object"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "She speaks English {a39}."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "I have {a40} seen such a beautiful sunset.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "never",
+                    "options": [
+                        "never",
+                        "have never",
+                        "seen never"
+                    ],
+                    "verb_hint": "frequency adverb between auxiliary and main verb"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "I have {a40} seen such a beautiful sunset."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "She told {a41} about the meeting.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "him everything",
+                    "options": [
+                        "him everything",
+                        "everything him",
+                        "to him everything about"
+                    ],
+                    "verb_hint": "indirect object before direct object"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "She told {a41} about the meeting."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "{a42} your sister been to London?",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "question inversion with auxiliary"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "{a42} your sister been to London?"
+            ]
+        },
+        {
+            "id": 31,
+            "question": "He {a43} to work by bus.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "does not usually go",
+                    "options": [
+                        "does not usually go",
+                        "usually does not go",
+                        "does usually not go"
+                    ],
+                    "verb_hint": "negation + frequency adverb order"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "He {a43} to work by bus."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "She has an {a44} scarf.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "elegant new Italian silk",
+                    "options": [
+                        "elegant new Italian silk",
+                        "new silk Italian elegant",
+                        "Italian elegant silk new"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "She has an {a44} scarf."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "{a45} the window, I noticed a bird.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "Looking through",
+                    "options": [
+                        "Looking through",
+                        "Through looking",
+                        "I looking through"
+                    ],
+                    "verb_hint": "participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "{a45} the window, I noticed a bird."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "He said that {a46} the book.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "he had finished",
+                    "options": [
+                        "he had finished",
+                        "had he finished",
+                        "finished he had"
+                    ],
+                    "verb_hint": "reported speech word order"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "He said that {a46} the book."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "She always {a47} her coffee slowly in the morning.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "drinks",
+                    "options": [
+                        "drinks",
+                        "slowly drinks",
+                        "coffee drinks"
+                    ],
+                    "verb_hint": "SVO with manner adverb after object"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "She always {a47} her coffee slowly in the morning."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "The children {a48} quickly.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "finished their homework",
+                    "options": [
+                        "finished their homework",
+                        "their homework finished",
+                        "homework their finished"
+                    ],
+                    "verb_hint": "SVO order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "The children {a48} quickly."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "Seldom {a55} such generosity in the business world.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "do we see",
+                    "options": [
+                        "do we see",
+                        "we see",
+                        "we do see"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "Seldom {a55} such generosity in the business world."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "It was the manager {a56} approved the proposal.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whom",
+                        "which"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "It was the manager {a56} approved the proposal."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "She explained {a57} very clearly.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "the problem to us",
+                    "options": [
+                        "the problem to us",
+                        "to us the problem",
+                        "us the problem to"
+                    ],
+                    "verb_hint": "direct object + to + indirect object"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "She explained {a57} very clearly."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "Only after the presentation {a58} the audience ask questions.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "Only after the presentation {a58} the audience ask questions."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "What {a59} about the new policy?",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "does she think",
+                    "options": [
+                        "does she think",
+                        "she thinks",
+                        "she does think"
+                    ],
+                    "verb_hint": "question inversion"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "What {a59} about the new policy?"
+            ]
+        },
+        {
+            "id": 42,
+            "question": "{a60}, we decided to cancel the picnic.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "Having checked the weather forecast",
+                    "options": [
+                        "Having checked the weather forecast",
+                        "Checked the weather forecast having",
+                        "The weather forecast having checked"
+                    ],
+                    "verb_hint": "participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "{a60}, we decided to cancel the picnic."
+            ]
+        },
+        {
+            "id": 43,
+            "question": "He wanted to know {a61} the next day.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "whether she would come",
+                    "options": [
+                        "whether she would come",
+                        "whether would she come",
+                        "would she whether come"
+                    ],
+                    "verb_hint": "reported speech word order"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "He wanted to know {a61} the next day."
+            ]
+        },
+        {
+            "id": 44,
+            "question": "She lives in a {a62} house.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "lovely old stone",
+                    "options": [
+                        "lovely old stone",
+                        "stone old lovely",
+                        "old lovely stone"
+                    ],
+                    "verb_hint": "adjective order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "She lives in a {a62} house."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "It was {a63} that the team won the championship.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "in 2019",
+                    "options": [
+                        "in 2019",
+                        "2019 in",
+                        "when 2019"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "It was {a63} that the team won the championship."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "She {a64} been given the opportunity to present her research.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "has recently",
+                    "options": [
+                        "has recently",
+                        "recently has",
+                        "has been recently"
+                    ],
+                    "verb_hint": "adverb between auxiliary and past participle"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "She {a64} been given the opportunity to present her research."
+            ]
+        },
+        {
+            "id": 47,
+            "question": "Under no circumstances {a65} leave the building during the drill.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "should you",
+                    "options": [
+                        "should you",
+                        "you should",
+                        "you should not"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "Under no circumstances {a65} leave the building during the drill."
+            ]
+        },
+        {
+            "id": 48,
+            "question": "They explained to us {a66}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "what the procedure involved",
+                    "options": [
+                        "what the procedure involved",
+                        "what did the procedure involve",
+                        "what involved the procedure"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "They explained to us {a66}."
+            ]
+        },
+        {
+            "id": 49,
+            "question": "Never before {a73} such a compelling argument in a student paper.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "had the professor encountered",
+                    "options": [
+                        "had the professor encountered",
+                        "the professor had encountered",
+                        "encountered the professor had"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "Never before {a73} such a compelling argument in a student paper."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "It was her unwavering determination {a74} ultimately secured the contract.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "what"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "It was her unwavering determination {a74} ultimately secured the contract."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Only when the results were published {a75} the significance of the study.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "did the researchers understand",
+                    "options": [
+                        "did the researchers understand",
+                        "the researchers understood",
+                        "the researchers did understand"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "Only when the results were published {a75} the significance of the study."
+            ]
+        },
+        {
+            "id": 52,
+            "question": "{a76}, the committee decided to postpone the vote indefinitely.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "Having considered all the objections raised by the opposition",
+                    "options": [
+                        "Having considered all the objections raised by the opposition",
+                        "All the objections raised by the opposition having considered",
+                        "Considered having all the objections by the opposition raised"
+                    ],
+                    "verb_hint": "participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "{a76}, the committee decided to postpone the vote indefinitely."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "What the investigation {a77} was far more alarming than anyone had anticipated.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "revealed",
+                    "options": [
+                        "revealed",
+                        "did reveal",
+                        "reveal did"
+                    ],
+                    "verb_hint": "nominal clause word order"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "What the investigation {a77} was far more alarming than anyone had anticipated."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "She donated to the foundation {a78}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "all the proceeds from her latest exhibition at the national gallery last autumn",
+                    "options": [
+                        "all the proceeds from her latest exhibition at the national gallery last autumn",
+                        "last autumn all the proceeds at the national gallery from her latest exhibition",
+                        "at the national gallery last autumn all the proceeds from her latest exhibition"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "She donated to the foundation {a78}."
+            ]
+        },
+        {
+            "id": 55,
+            "question": "No sooner {a79} than the phone rang.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "had she sat down",
+                    "options": [
+                        "had she sat down",
+                        "she had sat down",
+                        "sat she had down"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "No sooner {a79} than the phone rang."
+            ]
+        },
+        {
+            "id": 56,
+            "question": "She asked the interviewer {a80}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "how many candidates had been shortlisted",
+                    "options": [
+                        "how many candidates had been shortlisted",
+                        "how many had candidates been shortlisted",
+                        "how many candidates been had shortlisted"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "She asked the interviewer {a80}."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "It is the lack of transparency {a81} most concerns the stakeholders.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "what",
+                        "which"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "It is the lack of transparency {a81} most concerns the stakeholders."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "She {a82} been able to reconcile the conflicting reports from both departments.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "has never",
+                    "options": [
+                        "has never",
+                        "never has",
+                        "has been never"
+                    ],
+                    "verb_hint": "adverb between auxiliary and main verb"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "She {a82} been able to reconcile the conflicting reports from both departments."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "{a83} the CEO arrived did the board begin deliberations.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "Not until",
+                    "options": [
+                        "Not until",
+                        "Until not",
+                        "Not when"
+                    ],
+                    "verb_hint": "negative fronting trigger"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "{a83} the CEO arrived did the board begin deliberations."
+            ]
+        },
+        {
+            "id": 60,
+            "question": "The research team presented to the committee {a84}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "a comprehensive report detailing the environmental impact of the proposed development",
+                    "options": [
+                        "a comprehensive report detailing the environmental impact of the proposed development",
+                        "the environmental impact a comprehensive report of the proposed development detailing",
+                        "detailing a comprehensive report the proposed development the environmental impact of"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "The research team presented to the committee {a84}."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "So profound {a91} that it reshaped the entire discipline for decades to come.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "was the impact of her research",
+                    "options": [
+                        "was the impact of her research",
+                        "the impact of her research was",
+                        "her research the impact was of"
+                    ],
+                    "verb_hint": "inversion after fronted adjective complement"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "So profound {a91} that it reshaped the entire discipline for decades to come."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "What {a92} was not mere coincidence but the culmination of years of meticulous preparation.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "appeared to be a sudden breakthrough",
+                    "options": [
+                        "appeared to be a sudden breakthrough",
+                        "a sudden breakthrough appeared to be",
+                        "to be appeared a sudden breakthrough"
+                    ],
+                    "verb_hint": "nominal clause word order"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "What {a92} was not mere coincidence but the culmination of years of meticulous preparation."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "Not only {a93} the structural integrity of the original design, but it also introduced unforeseen aerodynamic advantages.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "did the modification preserve",
+                    "options": [
+                        "did the modification preserve",
+                        "the modification preserved",
+                        "the modification did preserve"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "Not only {a93} the structural integrity of the original design, but it also introduced unforeseen aerodynamic advantages."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "It was not until the manuscript had been independently verified {a94} its publication.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "that the journal authorised",
+                    "options": [
+                        "that the journal authorised",
+                        "the journal authorised that",
+                        "that authorised the journal"
+                    ],
+                    "verb_hint": "cleft sentence structure with negative fronting"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "It was not until the manuscript had been independently verified {a94} its publication."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "{a95} in the archives for over a century, the documents shed entirely new light on the origins of the conflict.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "Having lain undiscovered",
+                    "options": [
+                        "Having lain undiscovered",
+                        "Undiscovered having lain",
+                        "Lain having undiscovered"
+                    ],
+                    "verb_hint": "perfect participle clause at sentence start"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "{a95} in the archives for over a century, the documents shed entirely new light on the origins of the conflict."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "The board allocated to the research division {a96}.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "a substantial proportion of the newly approved budget earmarked for technological innovation across all subsidiaries",
+                    "options": [
+                        "a substantial proportion of the newly approved budget earmarked for technological innovation across all subsidiaries",
+                        "across all subsidiaries a substantial proportion for technological innovation of the newly approved budget earmarked",
+                        "the newly approved budget a substantial proportion earmarked across all subsidiaries for technological innovation of"
+                    ],
+                    "verb_hint": "end-weight principle"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "The board allocated to the research division {a96}."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "Little {a97} that the findings would eventually overturn decades of established orthodoxy.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "did the researchers suspect",
+                    "options": [
+                        "did the researchers suspect",
+                        "the researchers suspected",
+                        "the researchers did suspect"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "Little {a97} that the findings would eventually overturn decades of established orthodoxy."
+            ]
+        },
+        {
+            "id": 68,
+            "question": "The diplomat enquired {a98} before the summit convened.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "whether all parties had ratified the preliminary accord",
+                    "options": [
+                        "whether all parties had ratified the preliminary accord",
+                        "whether had all parties ratified the preliminary accord",
+                        "whether ratified all parties had the preliminary accord"
+                    ],
+                    "verb_hint": "embedded question word order"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "The diplomat enquired {a98} before the summit convened."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "Scarcely {a99} when the second tremor struck with even greater force.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "had the evacuees reached safety",
+                    "options": [
+                        "had the evacuees reached safety",
+                        "the evacuees had reached safety",
+                        "reached the evacuees had safety"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "affirmative_sentences"
+            ],
+            "variants": [
+                "Scarcely {a99} when the second tremor struck with even greater force."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "It is her singular ability to synthesise disparate strands of evidence {a100} distinguishes her scholarship.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "what"
+                    ],
+                    "verb_hint": "cleft sentence structure"
+                }
+            },
+            "tag_keys": [
+                "adverbs_of_frequency"
+            ],
+            "variants": [
+                "It is her singular ability to synthesise disparate strands of evidence {a100} distinguishes her scholarship."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "She {a101} acknowledged the methodological limitations of her earlier work.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "has only recently",
+                    "options": [
+                        "has only recently",
+                        "only recently has",
+                        "has recently only"
+                    ],
+                    "verb_hint": "adverb cluster between auxiliary and main verb"
+                }
+            },
+            "tag_keys": [
+                "time_adverbials"
+            ],
+            "variants": [
+                "She {a101} acknowledged the methodological limitations of her earlier work."
+            ]
+        },
+        {
+            "id": 72,
+            "question": "On no account {a102} be disclosed to unauthorised personnel.",
+            "source": "theory_page_theory_basic_word_order",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "must this information",
+                    "options": [
+                        "must this information",
+                        "this information must",
+                        "this must information"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "place_adverbials"
+            ],
+            "variants": [
+                "On no account {a102} be disclosed to unauthorised personnel."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "wo-bwo-v3-test",
+        "slug": "basic-word-order-all-levels-v3",
+        "name": "Basic Word Order: V3 All Levels",
+        "description": "Page-local V3 package for Basic Word Order with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\BasicWordOrderAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-basic-word-order",
+                    "title": "Basic Word Order",
+                    "category_slug_path": "basic-grammar/word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/theory-basic-word-order"
+                }
+            }
+        }
+    }
+}

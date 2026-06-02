@@ -1,0 +1,4649 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+        "uuid_namespace": "cj-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1061": {
+            "name": "Conjunctions — and, but, or, because, so"
+        }
+    },
+    "tags": {
+        "conjunction_choice": {
+            "name": "Choosing the correct conjunction",
+            "category": "usage"
+        },
+        "conjunction_and": {
+            "name": "Additive conjunction 'and'",
+            "category": "pattern"
+        },
+        "conjunction_but": {
+            "name": "Adversative conjunction 'but'",
+            "category": "pattern"
+        },
+        "conjunction_or": {
+            "name": "Alternative conjunction 'or'",
+            "category": "pattern"
+        },
+        "conjunction_because": {
+            "name": "Causal conjunction 'because'",
+            "category": "pattern"
+        },
+        "conjunction_so": {
+            "name": "Resultive conjunction 'so'",
+            "category": "pattern"
+        },
+        "conjunction_addition": {
+            "name": "Additive coordination",
+            "category": "usage"
+        },
+        "conjunction_contrast": {
+            "name": "Adversative/contrastive coordination",
+            "category": "usage"
+        },
+        "conjunction_alternative": {
+            "name": "Alternative coordination",
+            "category": "usage"
+        },
+        "conjunction_cause": {
+            "name": "Causal subordination",
+            "category": "usage"
+        },
+        "conjunction_result": {
+            "name": "Result coordination",
+            "category": "usage"
+        }
+    },
+    "default_tag_keys": [
+        "conjunction_choice"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "I like cats {a1} dogs.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and вживається для з'єднання двох слів або речень, що доповнюють одне одного.",
+                        "У реченні перераховуються дві тварини `cats` та `dogs`, і між ними потрібен сполучник, що додає."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує два іменники cats і dogs, показуючи, що мовець любить обох тварин.",
+                            "but": "«but» означає протиставлення, тоді як у реченні немає контрасту між cats і dogs.",
+                            "or": "«or» пропонує вибір, але мовець любить обох тварин одночасно — вибір тут недоречний."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "I like cats {a1} dogs."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "She is tall {a1} he is short.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but вживається для протиставлення двох контрастних фактів або ідей.",
+                        "Слова `tall` та `short` — протилежні характеристики, що вказують на контраст між двома особами."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він підкреслює протиставлення між tall (висока) і short (низький).",
+                            "and": "«and» просто додає інформацію без контрасту — воно не підходить, коли факти є протилежними.",
+                            "or": "«or» пропонує альтернативу, але обидва факти істинні одночасно і вони протиставляються."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "She is tall {a1} he is short."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "Is it Monday {a1} Tuesday today?",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or вживається у питаннях, де пропонується вибір між двома варіантами.",
+                        "Речення — запитання з двома днями тижня `Monday` та `Tuesday`, між якими треба обрати один."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: у питаннях з двома альтернативами or вказує, що правильним є лише один варіант.",
+                            "and": "«and» об'єднує варіанти, але не можна, щоб сьогодні був одночасно понеділок і вівторок.",
+                            "but": "«but» виражає протиставлення, але тут просто потрібно вибрати один день."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "Is it Monday {a1} Tuesday today?"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "He is cold {a1} he didn't wear a coat.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because вживається для пояснення причини: він відповідає на запитання «чому?».",
+                        "Слово `cold` — це наслідок, а `didn't wear a coat` — причина: саме ці слова вказують на пояснення стану холоду."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує наслідок (холодно) з причиною (не вдягнув пальто).",
+                            "so": "«so» вводить наслідок, а не причину — якби стояло so, то «didn't wear a coat» стало б результатом.",
+                            "and": "«and» просто додає ще один факт, не пояснюючи, чому людині холодно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "He is cold {a1} he didn't wear a coat."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "It was hot, {a1} I opened the window.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "but",
+                        "because"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вживається для вираження результату або наслідку попередньої ситуації.",
+                        "Слово `hot` — це причина, а `opened the window` — логічний наслідок: кома перед пропуском підказує результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що відкриття вікна стало наслідком спеки.",
+                            "but": "«but» виражає протиставлення, але відкрити вікно через спеку — очікуваний, а не несподіваний результат.",
+                            "because": "«because» вводить причину, але в цьому реченні причина вже названа (hot), а далі йде наслідок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "It was hot, {a1} I opened the window."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a1",
+                "q06"
+            ],
+            "question": "We have bread {a1} butter.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два іменники, утворюючи перелік або пару.",
+                        "Поєднання `bread` та `butter` — стала пара продуктів, яку природно об'єднувати сполучником додавання."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він поєднує два пов'язані іменники в одне ціле.",
+                            "but": "«but» передає контраст, якого немає між хлібом і маслом як парою продуктів.",
+                            "or": "«or» пропонує вибір між двома варіантами, але обидва продукти наявні одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "We have bread {a1} butter."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a1",
+                "q07"
+            ],
+            "question": "The bag is big {a1} heavy.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два прикметники, які обидва характеризують один предмет.",
+                        "Обидві ознаки `big` та `heavy` стосуються однієї сумки й не суперечать одна одній."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він нейтрально об'єднує два взаємодоповнюючі прикметники.",
+                            "but": "«but» натякав би на несподіваний контраст, якого тут немає — велика та важка сумка є природним поєднанням.",
+                            "or": "«or» пропонував би вибір між ознаками, але сумка є і великою, і важкою одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The bag is big {a1} heavy."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a1",
+                "q08"
+            ],
+            "question": "She is smart {a1} lazy.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but виражає несподіваний або суперечливий контраст між двома ознаками.",
+                        "Слова `smart` (розумна) та `lazy` (лінива) — протилежні якості характеру, що суперечать одна одній."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він підкреслює, що обидві якості справжні, але вони контрастують між собою.",
+                            "and": "«and» просто додає ознаки без вказівки на їхню суперечність — речення втрачає зміст несподіванки.",
+                            "or": "«or» пропонує вибір між якостями, але обидві одночасно притаманні людині."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "She is smart {a1} lazy."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a1",
+                "q09"
+            ],
+            "question": "Would you like tea {a1} coffee?",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or у питальних реченнях пропонує два варіанти на вибір.",
+                        "Питання пропонує два напої `tea` та `coffee`, і слухач має обрати один — це класична ситуація для or."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: у питаннях про вибір між двома варіантами or є єдино правильним сполучником.",
+                            "and": "«and» означав би, що пропонуються обидва напої одночасно, але питальна форма Would you like вказує на вибір.",
+                            "but": "«but» означає протиставлення, якого між чаєм і кавою в контексті пропозиції немає."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "Would you like tea {a1} coffee?"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a1",
+                "q10"
+            ],
+            "question": "He stayed home {a1} he was sick.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because вводить пояснення причини: він відповідає на запитання «чому?».",
+                        "Залишитися вдома `stayed home` — наслідок, а `was sick` — причина: хвороба пояснює, чому він не вийшов."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує вчинок (залишився вдома) з його причиною (був хворий).",
+                            "so": "«so» вводив би наслідок після причини, але тут на початку йде наслідок — sick ще не сказано.",
+                            "and": "«and» просто додав би факт, не пояснюючи причинно-наслідковий зв'язок між хворобою і перебуванням вдома."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "He stayed home {a1} he was sick."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "a1",
+                "q11"
+            ],
+            "question": "The baby cried, {a1} the mother came quickly.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить наслідок або результат того, що сталося в першій частині речення.",
+                        "Частина `The baby cried` — причина, а кома перед пропуском підказує, що далі буде результат дії матері."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: плач дитини викликав швидку реакцію матері — це причинно-наслідковий зв'язок.",
+                            "because": "«because» пов'язує наслідок з причиною, але якби стояло because, то другою частиною мала бути причина.",
+                            "and": "«and» просто додав би факт, не передаючи того, що прихід матері є результатом плачу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The baby cried, {a1} the mother came quickly."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "a1",
+                "q12"
+            ],
+            "question": "Tom {a1} Mary are my friends.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два іменники у підметі, утворюючи множинний підмет.",
+                        "Обидва імені `Tom` та `Mary` є одночасно друзями, а дієслово `are` (множина) підтверджує, що їх двоє."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує Tom і Mary, що узгоджується з дієсловом are.",
+                            "or": "«or» пропонував би вибір між двома особами, але речення стверджує, що обидва є друзями.",
+                            "but": "«but» виражав би протиставлення, хоча обидва імені — рівноправні частини підмета."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "Tom {a1} Mary are my friends."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "a1",
+                "q13"
+            ],
+            "question": "He is funny {a1} kind.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два прикметники, які позитивно характеризують особу.",
+                        "Обидві якості `funny` та `kind` — позитивні й доповнюють одна одну без жодного протиставлення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він перелічує дві сумісні позитивні риси.",
+                            "but": "«but» передає несподіваний контраст, але веселий та добросердий не суперечать одне одному.",
+                            "or": "«or» пропонує вибір між якостями, хоча людина може бути і веселою, і доброю одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "He is funny {a1} kind."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "a1",
+                "q14"
+            ],
+            "question": "The dog is small {a1} loud.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but підкреслює несподіваний контраст між розміром та поведінкою.",
+                        "Слова `small` (маленький) та `loud` (голосний) суперечать очікуванню: маленька собака, але гучна."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає несподіванку — маленький, але гучний.",
+                            "and": "«and» просто перелічував би ознаки, не передаючи несподіванки від їхнього поєднання.",
+                            "or": "«or» пропонував би вибір, але собака є і маленькою, і гучною одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The dog is small {a1} loud."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "a1",
+                "q15"
+            ],
+            "question": "Can we go left {a1} right?",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or у питальних реченнях пропонує вибір між двома напрямками або варіантами.",
+                        "У питанні пропонуються два напрямки `left` та `right`, і or вказує на необхідність обрати один."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: питання про напрямок завжди передбачає вибір одного варіанта.",
+                            "and": "«and» об'єднував би обидва напрямки — але одночасно йти вліво і вправо неможливо.",
+                            "but": "«but» виражав би контраст між напрямками, а не пропозицію вибору."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "Can we go left {a1} right?"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "a1",
+                "q16"
+            ],
+            "question": "She was hungry, {a1} she ate a big lunch.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because після коми вводить пояснення причини вже названого вчинку.",
+                        "Велика обідня порція `ate a big lunch` — наслідок, а `was hungry` — причина: голод пояснює великий обід."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пояснює, чому вона з'їла великий обід — бо була голодна.",
+                            "so": "«so» вводив би результат після причини, але тут порядок інший — спочатку вчинок, потім причина.",
+                            "and": "«and» просто з'єднував би два факти, не передаючи того, що голод спонукав до великого обіду."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "She was hungry, {a1} she ate a big lunch."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "a1",
+                "q17"
+            ],
+            "question": "The room was cold, {a1} he put on a sweater.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вказує на логічний наслідок попередньої ситуації.",
+                        "Холод у кімнаті `cold` — очевидна причина: кома перед пропуском типово передує наслідку."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що надягання светра є безпосереднім результатом холоду.",
+                            "because": "«because» вводив би причину після наслідку, але тут причина вже стоїть на початку речення.",
+                            "and": "«and» просто додавав би дію без вказівки на те, що вона спровокована холодом."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The room was cold, {a1} he put on a sweater."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "a1",
+                "q18"
+            ],
+            "question": "My sister {a1} I love music.",
+            "source": "theory_page_1061",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два підмети, утворюючи разом із I множинний підмет.",
+                        "Обидва — `My sister` і `I` — рівноправно розділяють любов до музики, тому потрібен сполучник, що об'єднує."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він поєднує дві особи в один складений підмет, що відповідає дієслову love.",
+                            "but": "«but» передав би протиставлення між сестрою та мовцем, але речення стверджує, що обоє люблять музику.",
+                            "or": "«or» запропонував би вибір між особами, хоча вони обоє є підметом дії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "My sister {a1} I love music."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "I study hard {a1} I want to pass my exams.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює мотивацію або причину дії.",
+                        "Наполеглива навчання `study hard` — дія, а `want to pass` — мета, яка пояснює цю дію: чому вчишся?"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує наполегливу роботу з метою — скласти іспити.",
+                            "so": "«so» вводив би наслідок, але після study hard іде пояснення мотиву, а не результат.",
+                            "and": "«and» просто з'єднав би два факти без вказівки на причинно-наслідковий зв'язок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "I study hard {a1} I want to pass my exams."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "She finished her homework, {a1} she went out to play.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить результат або наступний логічний крок після завершення дії.",
+                        "Завершення домашнього завдання `finished her homework` — причина, а вихід гуляти `went out to play` — результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: спочатку зробила уроки, і тому (so) змогла піти гуляти.",
+                            "because": "«because» вводив би причину, але тут прийшла черга результату — вона пішла гуляти завдяки урокам.",
+                            "but": "«but» передав би несподіваний контраст, але вийти гуляти після уроків — очікуваний результат."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "She finished her homework, {a1} she went out to play."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "He can speak English {a1} French.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує дві мови, якими людина одночасно володіє.",
+                        "Слова `English` та `French` — обидві мови доступні мовцю, і перелік без протиставлення вимагає and."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує дві мови в повний перелік здібностей.",
+                            "but": "«but» передав би контраст між мовами, але знання обох не є суперечливим фактом.",
+                            "or": "«or» пропонував би вибір між мовами, хоча речення стверджує, що обома він розмовляє."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "He can speak English {a1} French."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "The weather is warm {a1} cloudy today.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає несподіваний контраст між теплом і похмурим небом.",
+                        "Тепло `warm` зазвичай асоціюється з гарною погодою, але `cloudy` вносить несподіваний елемент."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає суперечність між приємним теплом і похмурим небом.",
+                            "and": "«and» просто перелічував би обидві характеристики без акценту на їхній контрастності.",
+                            "or": "«or» пропонував би вибір між ознаками, але погода є одночасно теплою і хмарною."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The weather is warm {a1} cloudy today."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "Would you like soup {a1} salad first?",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or у питаннях пропонує вибір між двома стравами.",
+                        "Слово `first` (спочатку) підказує, що гість має обрати один варіант — або суп, або салат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: питання пропонує вибір між двома стравами для першої подачі.",
+                            "and": "«and» об'єднав би обидві страви, але питання припускає вибір однієї для початку.",
+                            "but": "«but» виражав би протиставлення між стравами, якого тут не існує."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "Would you like soup {a1} salad first?"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "They didn't come {a1} they weren't invited.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because вводить пояснення причини того, чому хтось не прийшов.",
+                        "Відсутність `didn't come` — наслідок, а `weren't invited` — причина: запрошення не було."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: відсутність запрошення є прямою причиною того, що вони не прийшли.",
+                            "so": "«so» вводив би результат після причини, але тут другою частиною є саме причина.",
+                            "and": "«and» просто додав би факт без пояснення причинно-наслідкового зв'язку."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "They didn't come {a1} they weren't invited."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "He forgot his umbrella, {a1} he got wet.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить очікуваний наслідок забудькуватості.",
+                        "Забута парасолька `forgot his umbrella` — причина, а `got wet` — прямий та очікуваний результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що намокнути є безпосереднім наслідком забутої парасольки.",
+                            "because": "«because» пов'язував би наслідок з причиною у зворотному порядку — але тут причина стоїть першою.",
+                            "but": "«but» передав би несподіваний контраст, але намокнути без парасольки — цілком очікувана ситуація."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "He forgot his umbrella, {a1} he got wet."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "My sister {a1} I both enjoy reading.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два підмети, коли вони обоє виконують однакову дію.",
+                        "Слово `both` (обоє) підкреслює, що і сестра, і мовець однаково люблять читання — це потребує and."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: both ... and підкреслює, що обидві особи розділяють одне захоплення.",
+                            "or": "«or» пропонував би вибір між особами, але both вказує, що читання стосується обох одночасно.",
+                            "but": "«but» передав би протиставлення між сестрою і мовцем, хоча обоє поділяють одне захоплення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "My sister {a1} I both enjoy reading."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "The movie was long {a1} very interesting.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає позитивну несподіванку всупереч очікуванню від тривалості.",
+                        "Довгий фільм `long` зазвичай сприймається як недолік, але `very interesting` заперечує це очікування."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає несподівано позитивну якість попри тривалість фільму.",
+                            "and": "«and» просто додав би ознаки без акценту на несподіваному позитивному контрасті.",
+                            "or": "«or» пропонував би вибір між ознаками, хоча фільм є і довгим, і цікавим одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The movie was long {a1} very interesting."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "Can you call me today {a1} tomorrow?",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or у питанні пропонує два варіанти часу для вибору.",
+                        "Два дні `today` та `tomorrow` — альтернативні варіанти, і питальна форма Can you вказує на необхідність вибору."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: у питанні з двома часовими варіантами or є природним сполучником.",
+                            "and": "«and» об'єднав би обидва дні, хоча питання передбачає вибір одного зручного дня.",
+                            "but": "«but» виражав би протиставлення між днями, якого в контексті прохання немає."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "Can you call me today {a1} tomorrow?"
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "a2",
+                "q11"
+            ],
+            "question": "I feel tired {a1} I didn't sleep well.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює причину фізичного стану мовця.",
+                        "Втома `feel tired` — відчуття, а `didn't sleep well` — її пряма причина: поганий сон спричиняє втому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує втому з поганим сном як її безпосередньою причиною.",
+                            "so": "«so» вводив би наслідок, але друга частина речення є причиною, а не результатом втоми.",
+                            "and": "«and» просто з'єднав би два факти без пояснення того, чому мовець почувається втомленим."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "I feel tired {a1} I didn't sleep well."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "a2",
+                "q12"
+            ],
+            "question": "The project finished on time, {a1} the team celebrated.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so після коми показує, що святкування є природним результатом вчасного завершення.",
+                        "Своєчасне завершення проєкту `finished on time` — привід для святкування: кома перед пропуском підказує наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що команда отримала підставу для святкування через вчасне завершення.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі логічно очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але святкувати після завершення проєкту — очікувана реакція."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The project finished on time, {a1} the team celebrated."
+            ]
+        },
+        {
+            "id": 31,
+            "uuid_segments": [
+                "a2",
+                "q13"
+            ],
+            "question": "She plays the piano {a1} the violin.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує два музичні інструменти, якими людина грає.",
+                        "Обидва інструменти `piano` та `violin` — реальні вміння мовця, що природно перелічуються через and."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує два інструменти в перелік музичних здібностей.",
+                            "but": "«but» передав би контраст між інструментами, якого не існує в контексті переліку вмінь.",
+                            "or": "«or» пропонував би вибір між інструментами, але речення стверджує, що вона грає на обох."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "She plays the piano {a1} the violin."
+            ]
+        },
+        {
+            "id": 32,
+            "uuid_segments": [
+                "a2",
+                "q14"
+            ],
+            "question": "The food was cheap {a1} not very fresh.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає недолік або несподіваний негативний аспект після позитивної ознаки.",
+                        "Дешева ціна `cheap` — позитивна риса, а `not very fresh` — недолік, що суперечить першому враженню."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає, що попри дешевизну є суттєвий недолік — несвіжість.",
+                            "and": "«and» просто перелічував би ознаки без акценту на контрасті між ними.",
+                            "or": "«or» пропонував би вибір між ознаками, але їжа є і дешевою, і несвіжою одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The food was cheap {a1} not very fresh."
+            ]
+        },
+        {
+            "id": 33,
+            "uuid_segments": [
+                "a2",
+                "q15"
+            ],
+            "question": "Should we travel by train {a1} by car?",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or у питаннях пропонує вибір між двома способами пересування.",
+                        "Два варіанти подорожі `by train` та `by car` — альтернативи, і питальна форма Should we вимагає вибору."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: питання про вибір транспорту між двома варіантами завжди використовує or.",
+                            "and": "«and» об'єднав би обидва варіанти, але питання передбачає вибір одного способу.",
+                            "but": "«but» виражав би протиставлення між транспортом, якого в контексті вибору немає."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "Should we travel by train {a1} by car?"
+            ]
+        },
+        {
+            "id": 34,
+            "uuid_segments": [
+                "a2",
+                "q16"
+            ],
+            "question": "She was late {a1} the bus broke down.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює причину запізнення.",
+                        "Запізнення `was late` — наслідок, а `bus broke down` — причина, що пояснює, чому вона не вчасно приїхала."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує запізнення з технічною несправністю автобуса.",
+                            "so": "«so» вводив би результат після причини, але тут на початку стоїть наслідок (запізнення).",
+                            "and": "«and» просто додав би факт без демонстрації того, що поломка спричинила запізнення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "She was late {a1} the bus broke down."
+            ]
+        },
+        {
+            "id": 35,
+            "uuid_segments": [
+                "a2",
+                "q17"
+            ],
+            "question": "The shop was closed, {a1} we went to a different one.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить логічний наступний крок після того, як щось не вдалося.",
+                        "Зачинений магазин `was closed` — перешкода, а похід до іншого `went to a different one` — результат цього."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що через зачинений магазин вирішили піти до іншого.",
+                            "because": "«because» вводив би причину після наслідку, але тут причина (зачинено) стоїть першою.",
+                            "but": "«but» передав би несподіваний контраст, але пошук альтернативного магазину — очікувана поведінка."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The shop was closed, {a1} we went to a different one."
+            ]
+        },
+        {
+            "id": 36,
+            "uuid_segments": [
+                "a2",
+                "q18"
+            ],
+            "question": "He likes swimming {a1} running.",
+            "source": "theory_page_1061",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два іменники-дії у переліку захоплень.",
+                        "Обидві дії `swimming` та `running` — однаково улюблені заняття, що перелічуються без протиставлення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує два улюблені заняття в один перелік.",
+                            "but": "«but» натякав би на те, що одне заняття суперечить іншому, але обидва є щиро улюбленими.",
+                            "or": "«or» пропонував би вибір між захопленнями, хоча людина однаково любить обидва."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "He likes swimming {a1} running."
+            ]
+        },
+        {
+            "id": 37,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "She didn't go to work {a1} she had a fever.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "but",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because вводить медичну або фактичну причину відсутності.",
+                        "Не пішла на роботу `didn't go to work` — наслідок, а `had a fever` — причина, що пояснює цей вчинок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує відсутність на роботі з об'єктивною причиною — підвищеною температурою.",
+                            "but": "«but» передав би контраст: 'не пішла на роботу, але мала температуру' — це не протиставлення, а причина.",
+                            "so": "«so» вводив би наслідок, але в реченні температура є причиною, а не результатом відсутності."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "She didn't go to work {a1} she had a fever."
+            ]
+        },
+        {
+            "id": 38,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "It was raining heavily, {a1} we cancelled the picnic.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить рішення або дію, що є прямим наслідком погодних умов.",
+                        "Сильний дощ `raining heavily` — причина, а скасування пікніка `cancelled the picnic` — логічний результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що скасування пікніка стало безпосереднім наслідком дощу.",
+                            "because": "«because» вводить причину, але вона вже стоїть на початку речення, тому далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але скасувати пікнік через дощ — цілком очікувана реакція."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "It was raining heavily, {a1} we cancelled the picnic."
+            ]
+        },
+        {
+            "id": 39,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "He is very talented {a1} doesn't practise enough.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but виражає жалкування або несподіваний недолік попри наявний талант.",
+                        "Талановитий `very talented` — позитивна ознака, а `doesn't practise enough` — несподіваний недолік."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає контраст між великим талантом і недостатньою практикою.",
+                            "and": "«and» просто об'єднав би ознаки без акценту на тому, що нестача практики є несподіваним недоліком.",
+                            "so": "«so» вводив би результат: 'дуже талановитий, тому не практикує' — це не відповідає змісту."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "He is very talented {a1} doesn't practise enough."
+            ]
+        },
+        {
+            "id": 40,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "You can pay by cash {a1} by card at this shop.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or пропонує два альтернативні способи оплати на вибір.",
+                        "Два варіанти оплати `by cash` та `by card` — взаємовиключні у конкретній транзакції."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він вказує, що клієнт може обрати один зручний спосіб оплати.",
+                            "and": "«and» об'єднав би обидва способи, але кожен платіж здійснюється одним способом за раз.",
+                            "but": "«but» виражав би протиставлення між способами оплати, якого в контексті зручності немає."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "You can pay by cash {a1} by card at this shop."
+            ]
+        },
+        {
+            "id": 41,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "I enjoyed the concert {a1} the seats were uncomfortable.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає позитивний досвід, ускладнений певним недоліком.",
+                        "Насолода концертом `enjoyed the concert` — позитивне враження, а `seats were uncomfortable` — його негативний аспект."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає думку 'концерт сподобався, але є застереження — незручні місця'.",
+                            "and": "«and» просто додав би факт, не підкреслюючи того, що незручність суперечить загальному задоволенню.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'насолоджувався, тому місця були незручні' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "I enjoyed the concert {a1} the seats were uncomfortable."
+            ]
+        },
+        {
+            "id": 42,
+            "uuid_segments": [
+                "b1",
+                "q06"
+            ],
+            "question": "We were late {a1} the traffic was terrible.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює об'єктивну зовнішню причину запізнення.",
+                        "Запізнення `were late` — наслідок, а `traffic was terrible` — зовнішня причина, що спричинила запізнення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує запізнення з конкретною причиною — жахливими пробками.",
+                            "so": "«so» вводив би результат, але дорожні умови є причиною, а не результатом запізнення.",
+                            "and": "«and» просто з'єднав би два факти без вказівки на те, що пробки спричинили запізнення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "We were late {a1} the traffic was terrible."
+            ]
+        },
+        {
+            "id": 43,
+            "uuid_segments": [
+                "b1",
+                "q07"
+            ],
+            "question": "She studied all week, {a1} she passed the exam with a high grade.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so показує закономірний результат наполегливої підготовки.",
+                        "Тижнева підготовка `studied all week` — причина, а висока оцінка `passed the exam with a high grade` — результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що наполеглива праця принесла заслужений результат.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — після неї логічно очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але успішно скласти після тижня навчання — очікуваний результат."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "She studied all week, {a1} she passed the exam with a high grade."
+            ]
+        },
+        {
+            "id": 44,
+            "uuid_segments": [
+                "b1",
+                "q08"
+            ],
+            "question": "The report was long {a1} well-structured.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує дві нейтрально сумісні характеристики документа.",
+                        "Обидві ознаки `long` та `well-structured` описують один звіт без жодного протиставлення між ними."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він нейтрально об'єднує два аспекти якості документа.",
+                            "but": "«but» передав би контраст, але довгий і добре структурований звіт — природне поєднання.",
+                            "or": "«or» пропонував би вибір між ознаками, хоча звіт є одночасно і довгим, і добре структурованим."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The report was long {a1} well-structured."
+            ]
+        },
+        {
+            "id": 45,
+            "uuid_segments": [
+                "b1",
+                "q09"
+            ],
+            "question": "I'd love to help {a1} I'm fully booked this week.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but після виразу бажання вводить об'єктивну перешкоду або обмеження.",
+                        "Бажання допомогти `I'd love to help` — позитивний намір, а `fully booked` — реальна перешкода цьому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він класично виражає контраст між бажанням і неможливістю через зайнятість.",
+                            "and": "«and» просто об'єднав би бажання і зайнятість без вказівки на те, що вони суперечать одне одному.",
+                            "or": "«or» пропонував би альтернативу, але речення не пропонує вибору — воно пояснює перешкоду."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "I'd love to help {a1} I'm fully booked this week."
+            ]
+        },
+        {
+            "id": 46,
+            "uuid_segments": [
+                "b1",
+                "q10"
+            ],
+            "question": "He reads books {a1} listens to podcasts to improve his English.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує два паралельні методи вивчення мови.",
+                        "Обидві активності `reads books` та `listens to podcasts` — методи з однаковою метою, що доповнюють одна одну."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує два методи, що спільно слугують одній меті — покращити англійську.",
+                            "but": "«but» передав би контраст між методами, але обидва є ефективними способами навчання.",
+                            "or": "«or» пропонував би вибір між методами, хоча він використовує обидва одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "He reads books {a1} listens to podcasts to improve his English."
+            ]
+        },
+        {
+            "id": 47,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "We can leave now {a1} wait another hour for him.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or між двома дієслівними фразами пропонує вибір між двома варіантами дій.",
+                        "Дві дії `leave now` та `wait another hour` — взаємовиключні альтернативи, між якими треба обрати одну."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він пропонує вибір між двома несумісними рішеннями.",
+                            "and": "«and» об'єднав би обидві дії, але неможливо одночасно піти зараз і чекати ще годину.",
+                            "but": "«but» виражав би контраст між діями, а не пропозицію вибору між ними."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "We can leave now {a1} wait another hour for him."
+            ]
+        },
+        {
+            "id": 48,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "They cancelled the event {a1} not enough people registered.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because вводить практичну причину прийнятого рішення.",
+                        "Скасування заходу `cancelled the event` — рішення, а `not enough people registered` — причина, що його зумовила."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пояснює, чому захід скасували — через недостатню кількість реєстрацій.",
+                            "so": "«so» вводив би результат, але в реченні вже спочатку йде результат (скасування), потім причина.",
+                            "and": "«and» просто з'єднав би факти без вказівки на те, що мала реєстрація спричинила скасування."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "They cancelled the event {a1} not enough people registered."
+            ]
+        },
+        {
+            "id": 49,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "The system crashed, {a1} all unsaved data was lost.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить технічний наслідок несправності системи.",
+                        "Збій системи `crashed` — технічна причина, а втрата даних `all unsaved data was lost` — неминучий результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що втрата даних стала прямим наслідком збою.",
+                            "because": "«because» вводив би причину, але причина (збій) вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але втратити незбережені дані при збої — очікуваний наслідок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The system crashed, {a1} all unsaved data was lost."
+            ]
+        },
+        {
+            "id": 50,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "She speaks quietly {a1} very clearly.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає несподіваний позитивний контраст попри тихий голос.",
+                        "Тихий голос `quietly` зазвичай ускладнює розуміння, але `very clearly` підкреслює несподівану виразність."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає несподіваний позитив — говорить тихо, але дуже виразно.",
+                            "and": "«and» просто перелічував би обидві ознаки без акценту на їхній несподіваній суперечності.",
+                            "so": "«so» вводив би результат: 'говорить тихо, тому дуже виразно' — це нелогічний причинно-наслідковий зв'язок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "She speaks quietly {a1} very clearly."
+            ]
+        },
+        {
+            "id": 51,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "You have to decide: career {a1} family — you can't always choose both.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or між двома іменниками вказує на взаємовиключний вибір у складній ситуації.",
+                        "Уточнення `you can't always choose both` підтверджує, що `career` та `family` є взаємовиключними варіантами."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він виражає, що треба обрати між двома важливими пріоритетами.",
+                            "and": "«and» об'єднав би обидва поняття, але речення явно вказує, що їх неможливо поєднати одночасно.",
+                            "but": "«but» передав би протиставлення між кар'єрою і сім'єю, а не вибір між ними."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "You have to decide: career {a1} family — you can't always choose both."
+            ]
+        },
+        {
+            "id": 52,
+            "uuid_segments": [
+                "b1",
+                "q16"
+            ],
+            "question": "He trained every day for a year, {a1} he got significantly stronger.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить очікуваний результат тривалих і систематичних тренувань.",
+                        "Щоденні тренування протягом року `trained every day for a year` — причина, а сила `got significantly stronger` — результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що рік щоденних тренувань закономірно призвів до зростання сили.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою, тому далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але набрати силу після року тренувань — цілком закономірно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "He trained every day for a year, {a1} he got significantly stronger."
+            ]
+        },
+        {
+            "id": 53,
+            "uuid_segments": [
+                "b1",
+                "q17"
+            ],
+            "question": "The children were exhausted {a1} too excited to fall asleep.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає парадоксальну ситуацію: виснаженість, але неможливість заснути через збудження.",
+                        "Виснаженість `exhausted` зазвичай призводить до сну, але `too excited to fall asleep` суперечить цьому."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає парадокс між фізичною виснаженістю та емоційним збудженням.",
+                            "and": "«and» просто перелічував би обидва стани, не підкреслюючи їхньої суперечності.",
+                            "so": "«so» передав би причинно-наслідковий зв'язок: 'виснажені, тому надто збуджені' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The children were exhausted {a1} too excited to fall asleep."
+            ]
+        },
+        {
+            "id": 54,
+            "uuid_segments": [
+                "b1",
+                "q18"
+            ],
+            "question": "I'm calling {a1} I need your advice on this matter.",
+            "source": "theory_page_1061",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює причину телефонного дзвінка.",
+                        "Дзвінок `I'm calling` — дія, а `need your advice` — пряма причина, яка змусила подзвонити."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пояснює мотив дзвінка — необхідність отримати пораду.",
+                            "so": "«so» вводив би результат: 'дзвоню, тому потрібна порада' — це нелогічний порядок причини і результату.",
+                            "and": "«and» просто з'єднав би дві дії без пояснення того, чому саме відбувається дзвінок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "I'm calling {a1} I need your advice on this matter."
+            ]
+        },
+        {
+            "id": 55,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "The proposal was creative {a1} far too expensive to implement.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає обмеження або значний недолік, що врівноважує позитивну ознаку.",
+                        "Творча пропозиція `creative` — перевага, а `far too expensive` — суттєве обмеження, що суперечить позитивному враженню."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він класично виражає контраст між достоїнством (творчість) і вирішальним недоліком (ціна).",
+                            "and": "«and» просто перелічував би ознаки без акценту на тому, що вартість є суттєвою перешкодою.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'творча, тому надто дорога' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The proposal was creative {a1} far too expensive to implement."
+            ]
+        },
+        {
+            "id": 56,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "She had rehearsed for weeks, {a1} her performance was flawless.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить закономірний результат тривалої та інтенсивної підготовки.",
+                        "Тижневі репетиції `rehearsed for weeks` — причина, а бездоганне виконання `flawless` — результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що бездоганний виступ став природним наслідком ретельної підготовки.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі логічно очікується результат.",
+                            "but": "«but» передав би несподіваний контраст: 'репетирувала тижнями, але виступила бездоганно' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "She had rehearsed for weeks, {a1} her performance was flawless."
+            ]
+        },
+        {
+            "id": 57,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "He resigned {a1} he felt undervalued by the management.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because вводить емоційну або суб'єктивну причину важливого рішення.",
+                        "Відставка `resigned` — рішення, а `felt undervalued` — внутрішня причина, яка до неї призвела."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує звільнення з конкретним психологічним мотивом.",
+                            "so": "«so» вводив би наслідок: 'він звільнився, тому відчував себе недооціненим' — це нелогічний порядок.",
+                            "but": "«but» передав би контраст: 'звільнився, але відчував себе недооціненим' — між ними немає протиставлення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "He resigned {a1} he felt undervalued by the management."
+            ]
+        },
+        {
+            "id": 58,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "You can accept the current offer {a1} negotiate for better terms.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or між двома дієслівними фразами пропонує два стратегічно різні варіанти дій.",
+                        "Прийняти пропозицію `accept the offer` та домовлятися `negotiate` — взаємовиключні тактики."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він пропонує вибір між двома діловими стратегіями.",
+                            "and": "«and» об'єднав би обидві дії, але не можна одночасно прийняти пропозицію і продовжувати переговори.",
+                            "but": "«but» виражав би протиставлення між діями, а не вибір між двома стратегіями."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "You can accept the current offer {a1} negotiate for better terms."
+            ]
+        },
+        {
+            "id": 59,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "The results were promising {a1} required further verification.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but вводить застереження або умову, що обмежує оптимістичну першу частину.",
+                        "Обнадійливі результати `promising` — позитивний початок, а `required further verification` — необхідне застереження."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає, що обнадійливість результатів потребує підтвердження.",
+                            "and": "«and» просто додав би факт, не акцентуючи на тому, що необхідність перевірки обмежує ентузіазм.",
+                            "so": "«so» вводив би результат: 'результати обнадійливі, тому потребують перевірки' — це нелогічний зв'язок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The results were promising {a1} required further verification."
+            ]
+        },
+        {
+            "id": 60,
+            "uuid_segments": [
+                "b2",
+                "q06"
+            ],
+            "question": "The server went down, {a1} the entire operation had to be restarted.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить технічний або організаційний наслідок системного збою.",
+                        "Відмова сервера `went down` — технічна причина, а необхідність перезапуску `had to be restarted` — неминучий наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що збій сервера безпосередньо спричинив необхідність перезапуску.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але перезапустити операцію після збою — очікувана дія."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The server went down, {a1} the entire operation had to be restarted."
+            ]
+        },
+        {
+            "id": 61,
+            "uuid_segments": [
+                "b2",
+                "q07"
+            ],
+            "question": "The policy was unpopular {a1} ultimately effective.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає парадокс між масовим несприйняттям та реальною ефективністю.",
+                        "Непопулярна `unpopular` — публічна оцінка, а `ultimately effective` — об'єктивний результат: між ними є контраст."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає парадокс між суспільним сприйняттям і фактичними результатами.",
+                            "and": "«and» просто перелічував би ознаки без акценту на протиріччі між ними.",
+                            "so": "«so» вводив би результат: 'непопулярна, тому зрештою ефективна' — це не логічний зв'язок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The policy was unpopular {a1} ultimately effective."
+            ]
+        },
+        {
+            "id": 62,
+            "uuid_segments": [
+                "b2",
+                "q08"
+            ],
+            "question": "We had to postpone the meeting {a1} the keynote speaker fell ill.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює зовнішню непередбачувану причину перенесення заходу.",
+                        "Перенесення зустрічі `postpone the meeting` — рішення, а `keynote speaker fell ill` — об'єктивна причина."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує рішення про перенесення з конкретною причиною — хворобою спікера.",
+                            "so": "«so» вводив би результат: 'перенесли, тому спікер захворів' — це нелогічний причинно-наслідковий зв'язок.",
+                            "and": "«and» просто з'єднав би факти без вказівки на те, що хвороба спікера зумовила перенесення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "We had to postpone the meeting {a1} the keynote speaker fell ill."
+            ]
+        },
+        {
+            "id": 63,
+            "uuid_segments": [
+                "b2",
+                "q09"
+            ],
+            "question": "The platform allows users to save {a1} export their work.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує дві пов'язані функціональні можливості платформи.",
+                        "Зберегти `save` та експортувати `export` — два доповнюючі одна одну функції платформи."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує дві взаємодоповнюючі функції в один перелік можливостей.",
+                            "but": "«but» передав би контраст між функціями, але зберегти та експортувати — природне доповнення.",
+                            "or": "«or» пропонував би вибір між функціями, але обидві є доступними одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The platform allows users to save {a1} export their work."
+            ]
+        },
+        {
+            "id": 64,
+            "uuid_segments": [
+                "b2",
+                "q10"
+            ],
+            "question": "The task was tedious {a1} absolutely necessary for quality control.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає визнання неприємності завдання разом із підтвердженням його необхідності.",
+                        "Нудне завдання `tedious` — суб'єктивна оцінка, а `absolutely necessary` — об'єктивна важливість: між ними є контраст."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає двоїстість — неприємне, але необхідне.",
+                            "and": "«and» просто перелічував би ознаки без акценту на тому, що необхідність компенсує нудність.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'нудне, тому необхідне' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The task was tedious {a1} absolutely necessary for quality control."
+            ]
+        },
+        {
+            "id": 65,
+            "uuid_segments": [
+                "b2",
+                "q11"
+            ],
+            "question": "She could either step down voluntarily {a1} face a formal disciplinary hearing.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or після either є обов'язковим елементом конструкції either ... or.",
+                        "Конструкція `either ... or` — стала граматична структура, що завжди вимагає or як другу частину."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: конструкція either ... or є фіксованою і потребує or для завершення.",
+                            "and": "«and» розриває конструкцію either ... and, якої в англійській не існує.",
+                            "but": "«but» також неможливий у конструкції either ... but — це неграматично."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "She could either step down voluntarily {a1} face a formal disciplinary hearing."
+            ]
+        },
+        {
+            "id": 66,
+            "uuid_segments": [
+                "b2",
+                "q12"
+            ],
+            "question": "The storm intensified overnight, {a1} the authorities ordered a full evacuation.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить офіційну реакцію або рішення, спричинене погіршенням ситуації.",
+                        "Посилення шторму `intensified overnight` — причина, а наказ про евакуацію `ordered a full evacuation` — наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що загострення шторму безпосередньо спричинило наказ про евакуацію.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але евакуація при сильному шторму — очікувана відповідь."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The storm intensified overnight, {a1} the authorities ordered a full evacuation."
+            ]
+        },
+        {
+            "id": 67,
+            "uuid_segments": [
+                "b2",
+                "q13"
+            ],
+            "question": "He studied economics {a1} later became a successful diplomat.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два послідовні факти з біографії особи.",
+                        "Навчання `studied economics` та кар'єра `became a successful diplomat` — два хронологічно пов'язані факти."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він об'єднує два послідовні факти біографії в один плавний наратив.",
+                            "but": "«but» передав би контраст між освітою і кар'єрою, якого тут немає.",
+                            "or": "«or» пропонував би вибір між освітою і кар'єрою, але речення стверджує, що обидві події відбулися."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "He studied economics {a1} later became a successful diplomat."
+            ]
+        },
+        {
+            "id": 68,
+            "uuid_segments": [
+                "b2",
+                "q14"
+            ],
+            "question": "The interface was elegant {a1} the underlying functionality was poor.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає суттєву розбіжність між зовнішнім виглядом і внутрішнім функціоналом.",
+                        "Елегантний інтерфейс `elegant` — позитивна зовнішня ознака, а `underlying functionality was poor` — прихований недолік."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає контраст між привабливим виглядом і слабкою функціональністю.",
+                            "and": "«and» просто перелічував би характеристики без акценту на суперечності між ними.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'елегантний, тому функціональність слабка' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The interface was elegant {a1} the underlying functionality was poor."
+            ]
+        },
+        {
+            "id": 69,
+            "uuid_segments": [
+                "b2",
+                "q15"
+            ],
+            "question": "We can meet on Thursday {a1} Friday if that suits you better.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or між двома днями пропонує гнучкий вибір зручного часу для зустрічі.",
+                        "Два дні `Thursday` та `Friday` — варіанти для вибору, а фраза `if that suits you better` підтверджує альтернативу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він пропонує два можливих дні для зустрічі на вибір.",
+                            "and": "«and» об'єднав би обидва дні, але зустріч не може відбутися одночасно і в четвер, і в п'ятницю.",
+                            "but": "«but» виражав би протиставлення між днями, якого в контексті пропозиції вибору немає."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "We can meet on Thursday {a1} Friday if that suits you better."
+            ]
+        },
+        {
+            "id": 70,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "She completed all required modules, {a1} she was eligible to graduate.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить офіційний наслідок виконання всіх вимог програми.",
+                        "Завершення всіх модулів `completed all required modules` — умова, а право на випуск `eligible to graduate` — наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що виконання всіх вимог автоматично дало право на отримання диплома.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст: 'виконала всі модулі, але не мала права на випуск' — це суперечить логіці."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "She completed all required modules, {a1} she was eligible to graduate."
+            ]
+        },
+        {
+            "id": 71,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "The committee approved the plan {a1} requested minor revisions.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but після схвалення вводить додаткову умову або застереження.",
+                        "Схвалення плану `approved the plan` — позитивне рішення, а `requested minor revisions` — його уточнення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає, що схвалення не є безумовним — потрібні незначні виправлення.",
+                            "and": "«and» просто з'єднав би обидва факти, не акцентуючи на тому, що умова обмежує беззастережне схвалення.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'схвалили, тому попросили виправлення' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The committee approved the plan {a1} requested minor revisions."
+            ]
+        },
+        {
+            "id": 72,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "He was offered a scholarship {a1} his academic record was exceptional.",
+            "source": "theory_page_1061",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює офіційну причину або підставу для надання стипендії.",
+                        "Стипендія `was offered a scholarship` — рішення, а `academic record was exceptional` — об'єктивна підстава."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує рішення про стипендію з конкретним академічним досягненням.",
+                            "so": "«so» вводив би результат: 'йому запропонували стипендію, тому його успішність була виключною' — це нелогічно.",
+                            "and": "«and» просто з'єднав би факти без демонстрації того, що висока успішність є причиною стипендії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "He was offered a scholarship {a1} his academic record was exceptional."
+            ]
+        },
+        {
+            "id": 73,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "The legislation was controversial {a1} it challenged long-established norms.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because після оцінки пояснює глибинну причину суперечливості законодавства.",
+                        "Суперечливе `controversial` — оцінка, а `challenged long-established norms` — причина цієї суперечливості."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пояснює, чому саме законодавство було суперечливим — воно зачіпало усталені норми.",
+                            "so": "«so» вводив би наслідок: 'суперечливе, тому вплинуло на норми' — але тут пояснюється причина.",
+                            "but": "«but» передав би контраст: 'суперечливе, але вплинуло на норми' — між ними немає протиставлення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "The legislation was controversial {a1} it challenged long-established norms."
+            ]
+        },
+        {
+            "id": 74,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "The data remained inconclusive, {a1} the research team commissioned a follow-up study.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить методологічну відповідь на непереконливі наукові дані.",
+                        "Непереконливі дані `remained inconclusive` — причина для дій, а додаткове дослідження `follow-up study` — наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що непереконливість даних призвела до рішення провести додаткове дослідження.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але замовити додаткове дослідження при непереконливих даних — стандартна практика."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The data remained inconclusive, {a1} the research team commissioned a follow-up study."
+            ]
+        },
+        {
+            "id": 75,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "His argument was logically sound {a1} failed to resonate with the broader audience.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but виражає розрив між академічною якістю аргументу та його публічним сприйняттям.",
+                        "Логічна переконливість `logically sound` — академічна чеснота, а `failed to resonate` — комунікативна невдача."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає контраст між академічною якістю та реальним сприйняттям аудиторією.",
+                            "and": "«and» просто з'єднав би факти без акценту на суперечності між якістю і провалом у спілкуванні.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'логічно переконливий, тому не знайшов відгуку' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "His argument was logically sound {a1} failed to resonate with the broader audience."
+            ]
+        },
+        {
+            "id": 76,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "You may proceed with the trial {a1} await the ethics committee's approval first.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or між двома офіційними процедурами пропонує вибір стратегії з різними наслідками.",
+                        "Дві альтернативи `proceed with the trial` та `await the ethics committee's approval` — взаємовиключні кроки."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він пропонує вибір між двома несумісними процедурами.",
+                            "and": "«and» об'єднав би обидва кроки, але не можна одночасно розпочати випробування і чекати схвалення.",
+                            "but": "«but» виражав би протиставлення між процедурами, а не вибір між ними."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "You may proceed with the trial {a1} await the ethics committee's approval first."
+            ]
+        },
+        {
+            "id": 77,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "The merger was approved by the board {a1} met with significant public resistance.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but виражає розрив між корпоративним схваленням і суспільним спротивом.",
+                        "Схвалення радою директорів `approved by the board` — офіційне рішення, а `public resistance` — контрасний наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає контраст між офіційним схваленням і реальною суспільною реакцією.",
+                            "and": "«and» просто перелічував би факти без підкреслення того, що суспільний спротив є несподіваним контрастом.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'схвалено радою, тому спротив суспільства' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The merger was approved by the board {a1} met with significant public resistance."
+            ]
+        },
+        {
+            "id": 78,
+            "uuid_segments": [
+                "c1",
+                "q06"
+            ],
+            "question": "The infrastructure is outdated {a1} extremely costly to upgrade.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and об'єднує два нейтрально пов'язані проблемні аспекти інфраструктури.",
+                        "Застарілість `outdated` та висока вартість оновлення `extremely costly` — два взаємопов'язані аспекти одного недоліку."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він передає, що обидва проблемні аспекти існують одночасно і підсилюють один одного.",
+                            "but": "«but» передав би несподіваний контраст між двома проблемами, хоча застарілість і дорожнеча природно пов'язані.",
+                            "or": "«or» пропонував би вибір між проблемами, але інфраструктура є одночасно і застарілою, і дорогою в оновленні."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The infrastructure is outdated {a1} extremely costly to upgrade."
+            ]
+        },
+        {
+            "id": 79,
+            "uuid_segments": [
+                "c1",
+                "q07"
+            ],
+            "question": "She demonstrated exceptional leadership skills, {a1} she was appointed regional director.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить професійне підвищення як закономірний результат продемонстрованих якостей.",
+                        "Виняткові лідерські навички `exceptional leadership skills` — причина, а призначення `was appointed` — результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що призначення стало прямим наслідком продемонстрованих лідерських якостей.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст: 'продемонструвала видатні навички, але її призначили' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "She demonstrated exceptional leadership skills, {a1} she was appointed regional director."
+            ]
+        },
+        {
+            "id": 80,
+            "uuid_segments": [
+                "c1",
+                "q08"
+            ],
+            "question": "The language of the report was concise {a1} precise.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує два взаємодоповнюючі стилістичні достоїнства.",
+                        "Стислість `concise` та точність `precise` — дві якості академічного тексту, що природно поєднуються."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він перелічує дві рівноцінні позитивні якості тексту без жодного контрасту.",
+                            "but": "«but» передав би контраст між двома якостями, але стислість і точність природно поєднуються.",
+                            "or": "«or» пропонував би вибір між якостями, хоча текст є і стислим, і точним одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The language of the report was concise {a1} precise."
+            ]
+        },
+        {
+            "id": 81,
+            "uuid_segments": [
+                "c1",
+                "q09"
+            ],
+            "question": "The analysis was thorough {a1} the conclusions remained notably ambiguous.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but виражає фундаментальну суперечність між якістю аналізу і невизначеністю висновків.",
+                        "Ретельний аналіз `thorough` — позитивна характеристика, а `notably ambiguous` у висновках — несподіваний недолік."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає суперечність між якісним аналізом і туманними висновками.",
+                            "and": "«and» просто об'єднав би факти без акценту на тому, що невизначеність суперечить якісному аналізу.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'аналіз ретельний, тому висновки неоднозначні' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The analysis was thorough {a1} the conclusions remained notably ambiguous."
+            ]
+        },
+        {
+            "id": 82,
+            "uuid_segments": [
+                "c1",
+                "q10"
+            ],
+            "question": "You need to submit the revised draft tonight {a1} risk losing the contract.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or у загрозливому попередженні пропонує вибір між дією та її негативними наслідками.",
+                        "Конструкція `do X or risk Y` — стандартний англійський зворот, де or вводить негативний наслідок невиконання дії."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він передає, що єдина альтернатива своєчасному поданню — ризик втратити контракт.",
+                            "and": "«and» з'єднав би обидві дії, але речення передає загрозу: якщо не подаси, ризикуєш втратити контракт.",
+                            "but": "«but» виражав би контраст, але тут не протиставлення — пряме попередження про наслідок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "You need to submit the revised draft tonight {a1} risk losing the contract."
+            ]
+        },
+        {
+            "id": 83,
+            "uuid_segments": [
+                "c1",
+                "q11"
+            ],
+            "question": "Many participants withdrew {a1} the study conditions proved too demanding.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "and"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює методологічну причину відмови учасників від дослідження.",
+                        "Відмова учасників `withdrew` — подія, а `study conditions proved too demanding` — об'єктивна причина."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує відмову учасників з конкретною причиною — надмірною вимогливістю умов.",
+                            "so": "«so» вводив би результат: 'учасники відмовились, тому умови виявились надто вимогливими' — це нелогічно.",
+                            "and": "«and» просто з'єднав би факти без вказівки на те, що вимогливість умов спричинила відмови."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "Many participants withdrew {a1} the study conditions proved too demanding."
+            ]
+        },
+        {
+            "id": 84,
+            "uuid_segments": [
+                "c1",
+                "q12"
+            ],
+            "question": "The solution appeared straightforward, {a1} its implementation proved far more challenging.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but виражає класичний контраст між першим враженням і реальністю.",
+                        "Очевидна простота `appeared straightforward` — перше враження, а `proved far more challenging` — реальна складність."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає класичне протиставлення між удаваною простотою і реальною складністю.",
+                            "and": "«and» просто об'єднав би перше враження і реальність без акценту на їхній розбіжності.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'здавалась очевидною, тому виявилась складнішою' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The solution appeared straightforward, {a1} its implementation proved far more challenging."
+            ]
+        },
+        {
+            "id": 85,
+            "uuid_segments": [
+                "c1",
+                "q13"
+            ],
+            "question": "The committee convened weekly {a1} reviewed all pending submissions.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує два регулярні завдання комітету як частини одного процесу.",
+                        "Щотижневі засідання `convened weekly` та перегляд заявок `reviewed all pending submissions` — взаємопов'язані завдання."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він перелічує дві рівноцінні регулярні функції комітету.",
+                            "but": "«but» передав би контраст між засіданнями і переглядом заявок, якого не існує.",
+                            "or": "«or» пропонував би вибір між функціями, хоча комітет виконує обидві одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The committee convened weekly {a1} reviewed all pending submissions."
+            ]
+        },
+        {
+            "id": 86,
+            "uuid_segments": [
+                "c1",
+                "q14"
+            ],
+            "question": "The deadline was fast approaching, {a1} the team worked through the night.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить вимушену реакцію на стресову ситуацію з дедлайном.",
+                        "Наближення дедлайну `deadline was fast approaching` — причина стресу, а нічна праця `worked through the night` — наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що нічна праця стала прямим результатом наближення дедлайну.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але працювати вночі через дедлайн — очікувана реакція."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The deadline was fast approaching, {a1} the team worked through the night."
+            ]
+        },
+        {
+            "id": 87,
+            "uuid_segments": [
+                "c1",
+                "q15"
+            ],
+            "question": "He acknowledged the flaws in his methodology {a1} defended the overall validity of his findings.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає академічну чесність, поєднану з захистом висновків.",
+                        "Визнання недоліків `acknowledged the flaws` — інтелектуальна чесність, а `defended the overall validity` — захист основних висновків."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає контраст між визнанням обмежень і захистом загальної валідності.",
+                            "and": "«and» просто об'єднав би обидві дії без акценту на тому, що захист висновків попри визнані недоліки є суттєвим.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'визнав недоліки, тому захищав валідність' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "He acknowledged the flaws in his methodology {a1} defended the overall validity of his findings."
+            ]
+        },
+        {
+            "id": 88,
+            "uuid_segments": [
+                "c1",
+                "q16"
+            ],
+            "question": "The symposium attracted both scholars {a1} practitioners from across the discipline.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and після both є обов'язковим елементом граматичної конструкції both ... and.",
+                        "Конструкція `both ... and` є фіксованим граматичним зворотом, де and є обов'язковим другим елементом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: both ... and є стандартною парною конструкцією, що вказує на включення обох груп.",
+                            "or": "«or» розриває конструкцію both ... or, якої в стандартній англійській не існує.",
+                            "but": "«but» також неможливий у конструкції both ... but — це порушує граматичну норму."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The symposium attracted both scholars {a1} practitioners from across the discipline."
+            ]
+        },
+        {
+            "id": 89,
+            "uuid_segments": [
+                "c1",
+                "q17"
+            ],
+            "question": "Their proposal was well-structured {a1} persuasively argued.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує дві рівноцінні академічні чесноти пропозиції.",
+                        "Добра структура `well-structured` та переконливість аргументів `persuasively argued` — взаємодоповнюючі достоїнства."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він перелічує два рівноцінні позитивні аспекти пропозиції без жодного контрасту.",
+                            "but": "«but» передав би контраст між структурою та переконливістю, але обидві є достоїнствами.",
+                            "or": "«or» пропонував би вибір між якостями, хоча пропозиція є одночасно і структурованою, і переконливою."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "Their proposal was well-structured {a1} persuasively argued."
+            ]
+        },
+        {
+            "id": 90,
+            "uuid_segments": [
+                "c1",
+                "q18"
+            ],
+            "question": "The recommendation was rejected {a1} it conflicted with existing regulatory policy.",
+            "source": "theory_page_1061",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник because пояснює офіційну правову причину відхилення рекомендації.",
+                        "Відхилення `rejected` — офіційне рішення, а `conflicted with existing regulatory policy` — його правова підстава."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "because": "«because» правильний: він пов'язує відхилення з конкретною правовою підставою.",
+                            "so": "«so» вводив би наслідок: 'рекомендацію відхилили, тому вона суперечила регуляторній політиці' — це нелогічно.",
+                            "but": "«but» передав би контраст: 'відхилили, але суперечила регуляторній політиці' — між ними немає протиставлення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_because",
+                "conjunction_cause"
+            ],
+            "variants": [
+                "The recommendation was rejected {a1} it conflicted with existing regulatory policy."
+            ]
+        },
+        {
+            "id": 91,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "The initiative was costly {a1} ultimately transformative for the sector.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає парадокс між значними витратами та трансформаційним впливом.",
+                        "Висока вартість `costly` — очевидний недолік, а `ultimately transformative` — несподівано значущий результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає парадокс між дорожнечею і стратегічним значенням ініціативи.",
+                            "and": "«and» просто об'єднав би ці аспекти без акценту на тому, що трансформаційний ефект перевищує витрати.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'дорога ініціатива, тому трансформаційна' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The initiative was costly {a1} ultimately transformative for the sector."
+            ]
+        },
+        {
+            "id": 92,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "The evidence was compelling, {a1} the motion passed without further opposition.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить логічний парламентський або судовий результат переконливих доказів.",
+                        "Переконливі докази `compelling` — причина, а прийняття рішення без спротиву `passed without further opposition` — результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що переконливість доказів безпосередньо зумовила прийняття рішення.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але прийняти рішення при переконливих доказах — очікуваний результат."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The evidence was compelling, {a1} the motion passed without further opposition."
+            ]
+        },
+        {
+            "id": 93,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "His critique was incisive {a1} occasionally undermined by rhetorical excess.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає тонкий контраст між аналітичною гостротою та стилістичним перебільшенням.",
+                        "Гостра критика `incisive` — інтелектуальна чеснота, а `undermined by rhetorical excess` — стилістичний недолік."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає академічну оцінку із застереженням — гостра, але подекуди риторично перебільшена.",
+                            "and": "«and» просто перелічував би ознаки без акценту на тому, що надмірна риторика підриває гостроту критики.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'гостра, тому підривається риторикою' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "His critique was incisive {a1} occasionally undermined by rhetorical excess."
+            ]
+        },
+        {
+            "id": 94,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "You may pursue litigation {a1} seek mediation as a less adversarial alternative.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or між двома юридичними стратегіями пропонує вибір між протилежними підходами до вирішення конфлікту.",
+                        "Судовий розгляд `litigation` та медіація `mediation` — принципово різні підходи: or вказує на вибір."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він пропонує вибір між двома протилежними за характером юридичними стратегіями.",
+                            "and": "«and» об'єднав би обидві стратегії, але вони є альтернативними, а не взаємодоповнюючими.",
+                            "but": "«but» виражав би протиставлення між стратегіями, а не пропозицію вибору між ними."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "You may pursue litigation {a1} seek mediation as a less adversarial alternative."
+            ]
+        },
+        {
+            "id": 95,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "The regime was authoritarian {a1} unable to suppress all forms of dissent.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає обмеження авторитаризму — попри жорстку владу, повністю придушити інакомислення неможливо.",
+                        "Авторитарний режим `authoritarian` — характеристика сили, а `unable to suppress all dissent` — несподіване обмеження."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає парадокс — режим авторитарний, але не всесильний.",
+                            "and": "«and» просто об'єднав би ознаки без акценту на несподіваному обмеженні авторитарного контролю.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'авторитарний, тому неспроможний придушити інакомислення' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The regime was authoritarian {a1} unable to suppress all forms of dissent."
+            ]
+        },
+        {
+            "id": 96,
+            "uuid_segments": [
+                "c2",
+                "q06"
+            ],
+            "question": "The session was unusually contentious, {a1} it was extended to accommodate continued debate.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить процедурне рішення як наслідок незапланованої напруженості дискусії.",
+                        "Незвично суперечливий характер сесії `unusually contentious` — причина, а продовження `was extended` — процедурний результат."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що продовження сесії стало безпосереднім наслідком суперечливих дебатів.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але продовжити суперечливу сесію — стандартна процедурна відповідь."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The session was unusually contentious, {a1} it was extended to accommodate continued debate."
+            ]
+        },
+        {
+            "id": 97,
+            "uuid_segments": [
+                "c2",
+                "q07"
+            ],
+            "question": "She had mastered classical {a1} contemporary performance techniques with equal fluency.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and перелічує дві контрастні, але рівноцінно засвоєні виконавські традиції.",
+                        "Класичні `classical` та сучасні `contemporary` техніки — два різних стилі, якими вона однаково вільно `equal fluency` володіє."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він передає, що обидві традиції засвоєні з однаковою майстерністю.",
+                            "but": "«but» передав би контраст між стилями, але речення наголошує на рівному рівні майстерності в обох.",
+                            "or": "«or» пропонував би вибір між стилями, але вона однаково вільно володіє обома."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "She had mastered classical {a1} contemporary performance techniques with equal fluency."
+            ]
+        },
+        {
+            "id": 98,
+            "uuid_segments": [
+                "c2",
+                "q08"
+            ],
+            "question": "The manuscript had been revised extensively {a1} still contained factual inaccuracies.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає розчарування від того, що ретельна ревізія не усунула фактичних помилок.",
+                        "Широка ревізія `revised extensively` — значні зусилля, а `still contained factual inaccuracies` — збережений недолік."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає протиставлення між значним обсягом ревізії і тим, що помилки залишились.",
+                            "and": "«and» просто об'єднав би факти без акценту на несподіваності того, що ревізія не усунула всіх помилок.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'ретельно переглянуто, тому містить неточності' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The manuscript had been revised extensively {a1} still contained factual inaccuracies."
+            ]
+        },
+        {
+            "id": 99,
+            "uuid_segments": [
+                "c2",
+                "q09"
+            ],
+            "question": "They could renegotiate the contract terms {a1} dissolve the partnership entirely.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник or між двома юридичними варіантами пропонує вибір між збереженням і розривом ділових стосунків.",
+                        "Переговори про умови `renegotiate` та розпуск партнерства `dissolve the partnership` — взаємовиключні варіанти."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "or": "«or» правильний: він пропонує вибір між двома принципово різними юридичними рішеннями.",
+                            "and": "«and» об'єднав би обидва варіанти, але не можна одночасно переукласти контракт і розпустити партнерство.",
+                            "but": "«but» виражав би протиставлення між варіантами, а не вибір між двома стратегічними напрямками."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_or",
+                "conjunction_alternative"
+            ],
+            "variants": [
+                "They could renegotiate the contract terms {a1} dissolve the partnership entirely."
+            ]
+        },
+        {
+            "id": 100,
+            "uuid_segments": [
+                "c2",
+                "q10"
+            ],
+            "question": "His account was internally plausible {a1} contained subtle contradictions under scrutiny.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but виражає контраст між поверхневою переконливістю та прихованими логічними суперечностями.",
+                        "Внутрішня правдоподібність `internally plausible` — перше враження, а `subtle contradictions under scrutiny` — прихований недолік."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає класичне протиставлення між зовнішньою переконливістю і прихованими суперечностями.",
+                            "and": "«and» просто об'єднав би факти без акценту на тому, що суперечності підривають правдоподібність.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'правдоподібний, тому містить суперечності' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "His account was internally plausible {a1} contained subtle contradictions under scrutiny."
+            ]
+        },
+        {
+            "id": 101,
+            "uuid_segments": [
+                "c2",
+                "q11"
+            ],
+            "question": "The ecosystem was fragile, {a1} any proposed intervention required careful prior assessment.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить обов'язковий методологічний наслідок вразливості екосистеми.",
+                        "Вразливість екосистеми `fragile` — об'єктивна умова, а необхідність ретельної оцінки `careful prior assessment` — її наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він показує, що крихкість екосистеми безпосередньо вимагає обережного підходу до втручання.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але вимагати ретельної оцінки при вразливій екосистемі — логічна вимога."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The ecosystem was fragile, {a1} any proposed intervention required careful prior assessment."
+            ]
+        },
+        {
+            "id": 102,
+            "uuid_segments": [
+                "c2",
+                "q12"
+            ],
+            "question": "The artist was prolific {a1} rarely exhibited or sold work commercially.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає суперечність між великим творчим доробком і свідомою відмовою від комерційного успіху.",
+                        "Плідна творчість `prolific` — ознака значного доробку, а `rarely exhibited or sold` — несподівана відстороненість."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він виражає парадокс між творчою плідністю і комерційною непомітністю.",
+                            "and": "«and» просто об'єднав би ознаки без акценту на суперечності між великим доробком і відсутністю виставок.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'плідний, тому рідко виставляється' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The artist was prolific {a1} rarely exhibited or sold work commercially."
+            ]
+        },
+        {
+            "id": 103,
+            "uuid_segments": [
+                "c2",
+                "q13"
+            ],
+            "question": "We must acknowledge our limitations as researchers {a1} refuse to be defined by them.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два взаємодоповнюючі наукові принципи як частини єдиної позиції.",
+                        "Визнання обмежень `acknowledge our limitations` та відмова бути ними визначеними `refuse to be defined` — два принципи зрілого дослідника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він передає, що обидва принципи є частиною єдиної збалансованої наукової позиції.",
+                            "but": "«but» передав би контраст між принципами, але визнавати і не дозволяти визначати себе — це не протиставлення.",
+                            "or": "«or» пропонував би вибір між принципами, хоча дослідник дотримується обох одночасно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "We must acknowledge our limitations as researchers {a1} refuse to be defined by them."
+            ]
+        },
+        {
+            "id": 104,
+            "uuid_segments": [
+                "c2",
+                "q14"
+            ],
+            "question": "The discovery was serendipitous {a1} subsequently corroborated by independent experimentation.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and об'єднує два хронологічно пов'язані аспекти наукового відкриття.",
+                        "Випадковість відкриття `serendipitous` та подальше підтвердження `subsequently corroborated` — два послідовні факти."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він нейтрально об'єднує два аспекти наукового відкриття в один опис.",
+                            "but": "«but» передав би контраст між випадковістю і підтвердженням, хоча вони є природним продовженням одне одного.",
+                            "or": "«or» пропонував би вибір між аспектами, хоча обидва є реальними і послідовними."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The discovery was serendipitous {a1} subsequently corroborated by independent experimentation."
+            ]
+        },
+        {
+            "id": 105,
+            "uuid_segments": [
+                "c2",
+                "q15"
+            ],
+            "question": "The delegation reached consensus on broad objectives {a1} remained divided on implementation specifics.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає класичну дипломатичну суперечність між загальною згодою і розбіжністю у деталях.",
+                        "Консенсус щодо цілей `consensus on broad objectives` — дипломатичне досягнення, а `divided on implementation specifics` — збережена розбіжність."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає дипломатичний парадокс — загальна згода при збереженні розбіжності у деталях.",
+                            "and": "«and» просто об'єднав би факти без акценту на тому, що розбіжність у деталях суперечить консенсусу.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'досягли консенсусу, тому залишились поділеними' — це нелогічно."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The delegation reached consensus on broad objectives {a1} remained divided on implementation specifics."
+            ]
+        },
+        {
+            "id": 106,
+            "uuid_segments": [
+                "c2",
+                "q16"
+            ],
+            "question": "The original blueprint was fundamentally flawed, {a1} the engineers developed an entirely new design.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник so вводить радикальне технічне рішення як неминучий наслідок фундаментального дефекту.",
+                        "Фундаментальний дефект `fundamentally flawed` — технічна причина, а розробка нового дизайну `developed an entirely new design` — наслідок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "so": "«so» правильний: він передає, що суттєвий дефект зробив повну переробку неминучою.",
+                            "because": "«because» вводив би причину, але вона вже стоїть першою — далі очікується результат.",
+                            "but": "«but» передав би несподіваний контраст, але розробити новий дизайн при фундаментальному дефекті — очікувана реакція."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_so",
+                "conjunction_result"
+            ],
+            "variants": [
+                "The original blueprint was fundamentally flawed, {a1} the engineers developed an entirely new design."
+            ]
+        },
+        {
+            "id": 107,
+            "uuid_segments": [
+                "c2",
+                "q17"
+            ],
+            "question": "The philosopher argued that liberty {a1} responsibility are not opposing values but complementary ones.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник and з'єднує два поняття у філософській тезі про їхню взаємодоповнюваність.",
+                        "Свобода `liberty` та відповідальність `responsibility` — два поняття, які за твердженням філософа є взаємодоповнюючими."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "and": "«and» правильний: він з'єднує два поняття, підкреслюючи їхню взаємозалежність у філософській тезі.",
+                            "or": "«or» пропонував би вибір між поняттями, але теза стверджує їхню взаємодоповнюваність.",
+                            "but": "«but» передав би протиставлення, але речення явно заперечує, що ці цінності є протилежними."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_and",
+                "conjunction_addition"
+            ],
+            "variants": [
+                "The philosopher argued that liberty {a1} responsibility are not opposing values but complementary ones."
+            ]
+        },
+        {
+            "id": 108,
+            "uuid_segments": [
+                "c2",
+                "q18"
+            ],
+            "question": "The period was politically turbulent {a1} exceptionally fertile ground for artistic innovation.",
+            "source": "theory_page_1061",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "so"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Сполучник but передає культурно-історичний парадокс між політичною нестабільністю та мистецьким розквітом.",
+                        "Політична турбулентність `politically turbulent` — негативна характеристика, а `exceptionally fertile ground` — несподіваний позитивний контраст."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "but": "«but» правильний: він передає класичний культурно-історичний парадокс — хаос як каталізатор творчості.",
+                            "and": "«and» просто об'єднав би факти без акценту на несподіваній позитивній якості, що суперечить турбулентності.",
+                            "so": "«so» вводив би причинно-наслідковий зв'язок: 'турбулентний, тому родючий ґрунт' — але but краще передає несподіваний контраст."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "conjunction_but",
+                "conjunction_contrast"
+            ],
+            "variants": [
+                "The period was politically turbulent {a1} exceptionally fertile ground for artistic innovation."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "cj-cp-sn-saved-test",
+        "slug": "conjunctions-sonate-v3-questions-test",
+        "name": "Conjunctions — and, but, or, because, so — Sonate V3 Test",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1061,
+                "theory_page_ids": [
+                    1061
+                ],
+                "theory_page": {
+                    "id": 1061,
+                    "slug": "basic-conjunctions-and-but-or-because-so",
+                    "title": "Conjunctions — and, but, or, because, so",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarConjunctionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/basic-conjunctions-and-but-or-because-so"
+                }
+            }
+        }
+    }
+}

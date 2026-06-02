@@ -1,0 +1,487 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Plural Nouns S Es Ies theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies",
+        "category_slug": "imennyky-artykli-ta-kilkist",
+        "slug": "plural-nouns-s-es-ies",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+        "title": "Plural Nouns — Множина іменників"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "forms": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 2,
+            "title": "Forms"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 11,
+            "title": "Typical Mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 12,
+            "title": "Summary"
+        },
+        "regular_s": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 3,
+            "title": "Regular S"
+        },
+        "es_endings": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 4,
+            "title": "Es Endings"
+        },
+        "consonant_y_ies": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 5,
+            "title": "Consonant Y Ies"
+        },
+        "vowel_y_s": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 5,
+            "title": "Vowel Y S"
+        },
+        "o_endings": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 4,
+            "title": "O Endings"
+        },
+        "spelling_changes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 6,
+            "title": "Spelling Changes"
+        },
+        "plural_verb_agreement": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "sort_order": 3,
+            "title": "Plural Verb Agreement"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "regular_s": [
+            "regular_s",
+            "overview",
+            "summary"
+        ],
+        "es_endings": [
+            "es_endings",
+            "overview",
+            "summary"
+        ],
+        "consonant_y_ies": [
+            "consonant_y_ies",
+            "overview",
+            "summary"
+        ],
+        "vowel_y_s": [
+            "vowel_y_s",
+            "overview",
+            "summary"
+        ],
+        "o_endings": [
+            "o_endings",
+            "overview",
+            "summary"
+        ],
+        "spelling_changes": [
+            "spelling_changes",
+            "overview",
+            "summary"
+        ],
+        "plural_verb_agreement": [
+            "plural_verb_agreement",
+            "overview",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview",
+            "summary"
+        ]
+    },
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-plural-nouns-s-es-ies-all-levels",
+            "saved_test_name": "Sentence Builder: Plural Nouns S Es Ies (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPluralNounsSEsIesAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "pns-poly-a1-01": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-a1-02": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-a1-03": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-a1-04": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-a1-05": [
+                    "consonant_y_ies",
+                    "general_overview"
+                ],
+                "pns-poly-a1-06": [
+                    "vowel_y_s",
+                    "general_overview"
+                ],
+                "pns-poly-a1-07": [
+                    "o_endings",
+                    "general_overview"
+                ],
+                "pns-poly-a1-08": [
+                    "spelling_changes",
+                    "general_overview"
+                ],
+                "pns-poly-a1-09": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-a1-10": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-a1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-a1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-a2-01": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-a2-02": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-a2-03": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-a2-04": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-a2-05": [
+                    "consonant_y_ies",
+                    "general_overview"
+                ],
+                "pns-poly-a2-06": [
+                    "vowel_y_s",
+                    "general_overview"
+                ],
+                "pns-poly-a2-07": [
+                    "o_endings",
+                    "general_overview"
+                ],
+                "pns-poly-a2-08": [
+                    "spelling_changes",
+                    "general_overview"
+                ],
+                "pns-poly-a2-09": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-a2-10": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-a2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-a2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-b1-01": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-b1-02": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-b1-03": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-b1-04": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-b1-05": [
+                    "consonant_y_ies",
+                    "general_overview"
+                ],
+                "pns-poly-b1-06": [
+                    "vowel_y_s",
+                    "general_overview"
+                ],
+                "pns-poly-b1-07": [
+                    "o_endings",
+                    "general_overview"
+                ],
+                "pns-poly-b1-08": [
+                    "spelling_changes",
+                    "general_overview"
+                ],
+                "pns-poly-b1-09": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-b1-10": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-b1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-b1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-b2-01": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-b2-02": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-b2-03": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-b2-04": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-b2-05": [
+                    "consonant_y_ies",
+                    "general_overview"
+                ],
+                "pns-poly-b2-06": [
+                    "vowel_y_s",
+                    "general_overview"
+                ],
+                "pns-poly-b2-07": [
+                    "o_endings",
+                    "general_overview"
+                ],
+                "pns-poly-b2-08": [
+                    "spelling_changes",
+                    "general_overview"
+                ],
+                "pns-poly-b2-09": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-b2-10": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-b2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-b2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-c1-01": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-c1-02": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-c1-03": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-c1-04": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-c1-05": [
+                    "consonant_y_ies",
+                    "general_overview"
+                ],
+                "pns-poly-c1-06": [
+                    "vowel_y_s",
+                    "general_overview"
+                ],
+                "pns-poly-c1-07": [
+                    "o_endings",
+                    "general_overview"
+                ],
+                "pns-poly-c1-08": [
+                    "spelling_changes",
+                    "general_overview"
+                ],
+                "pns-poly-c1-09": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-c1-10": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-c1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-c1-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-c2-01": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-c2-02": [
+                    "regular_s",
+                    "general_overview"
+                ],
+                "pns-poly-c2-03": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-c2-04": [
+                    "es_endings",
+                    "general_overview"
+                ],
+                "pns-poly-c2-05": [
+                    "consonant_y_ies",
+                    "general_overview"
+                ],
+                "pns-poly-c2-06": [
+                    "vowel_y_s",
+                    "general_overview"
+                ],
+                "pns-poly-c2-07": [
+                    "o_endings",
+                    "general_overview"
+                ],
+                "pns-poly-c2-08": [
+                    "spelling_changes",
+                    "general_overview"
+                ],
+                "pns-poly-c2-09": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-c2-10": [
+                    "plural_verb_agreement",
+                    "general_overview"
+                ],
+                "pns-poly-c2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "pns-poly-c2-12": [
+                    "typical_mistakes",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_standard_v3",
+            "saved_test_slug": "plural-nouns-s-es-ies-all-levels-v3",
+            "seeder_class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\PluralNounsSEsIesAllLevelsV3Seeder",
+            "strategy": "mapped_by_tags_answers_and_text",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\NounsArticlesQuantity\\PluralNounsSEsIesAllLevelsV3Seeder",
+                "Database\\Seeders\\V3\\AI\\NewV3\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\Gemini\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\Copilot\\NewV3Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\Copilot\\ClaudeOpus45\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\ChatGptPro\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\ChatGpt\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\ChatGpt\\CodexWithTags\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+                "Database\\Seeders\\V3\\AI\\ChatGpt\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+            ],
+            "tag_key_to_bundle": {
+                "regular_s": "regular_s",
+                "es_endings": "es_endings",
+                "consonant_y_ies": "consonant_y_ies",
+                "vowel_y_s": "vowel_y_s",
+                "o_endings": "o_endings",
+                "spelling_changes": "spelling_changes",
+                "plural_verb_agreement": "plural_verb_agreement",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {
+                "regular s": "regular_s",
+                "es endings": "es_endings",
+                "consonant y ies": "consonant_y_ies",
+                "vowel y s": "vowel_y_s",
+                "o endings": "o_endings",
+                "spelling changes": "spelling_changes",
+                "plural verb agreement": "plural_verb_agreement",
+                "typical mistakes": "typical_mistakes"
+            },
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "seed_before_links": [
+            "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+            "Database\\Seeders\\V3\\NounsArticlesQuantity\\PluralNounsSEsIesAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotPluralNounsSEsIesAllLevelsLessonSeeder"
+        ],
+        "question_counts": {
+            "standard_v3": 72,
+            "polyglot_direct": 72
+        }
+    },
+    "qa": {
+        "expected_route_status": "OK",
+        "no_question_marker_tag": true,
+        "source_of_truth": "json_manifest",
+        "notes": [
+            "Polyglot questions use explicit uuid maps.",
+            "Standard V3 questions use tag and answer fallbacks."
+        ]
+    }
+}

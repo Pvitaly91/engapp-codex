@@ -1,0 +1,224 @@
+name: ContentOps Release Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      base_ref:
+        description: 'Base git ref for changed-content diff. Defaults to origin/<default branch>.'
+        required: false
+        default: ''
+      head_ref:
+        description: 'Head git ref for changed-content diff. Defaults to HEAD.'
+        required: false
+        default: ''
+      domains:
+        description: 'Content domains to inspect.'
+        required: false
+        default: 'v3,page-v3'
+        type: choice
+        options:
+          - 'v3,page-v3'
+          - 'v3'
+          - 'page-v3'
+      profile:
+        description: 'Release-gate profile.'
+        required: false
+        default: 'ci'
+        type: choice
+        options:
+          - 'ci'
+          - 'deployment'
+          - 'local'
+      with_release_check:
+        description: 'Run release-check aggregation for actionable current packages.'
+        required: false
+        default: true
+        type: boolean
+      strict:
+        description: 'Treat warnings as fatal in doctor/release-gate exit codes.'
+        required: false
+        default: true
+        type: boolean
+      target_sha:
+        description: 'Optional exact SHA expected at checkout for operator-dispatched runs.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  contentops-preflight:
+    name: ContentOps Preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: composer:v2
+          extensions: mbstring, dom, fileinfo, sqlite3, pdo_sqlite
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Install Node dependencies
+        if: hashFiles('package-lock.json') != ''
+        run: npm ci
+
+      - name: Prepare isolated CI environment
+        shell: bash
+        run: |
+          cp .env.example .env
+          touch database/database.sqlite
+          {
+            echo "APP_ENV=testing"
+            echo "APP_DEBUG=false"
+            echo "DB_CONNECTION=sqlite"
+            echo "DB_DATABASE=${GITHUB_WORKSPACE}/database/database.sqlite"
+            echo "CACHE_DRIVER=array"
+            echo "QUEUE_CONNECTION=sync"
+            echo "SESSION_DRIVER=array"
+            echo "MAIL_MAILER=array"
+            echo "PULSE_ENABLED=false"
+            echo "TELESCOPE_ENABLED=false"
+            echo "CHAT_GPT_API_KEY=ci-dummy-key"
+            echo "GEMINI_API_KEY=ci-dummy-key"
+          } >> .env
+          php artisan key:generate --ansi
+          php artisan config:clear
+
+      - name: Resolve ContentOps refs and inputs
+        id: contentops
+        shell: bash
+        env:
+          DISPATCH_BASE_REF: ${{ inputs.base_ref }}
+          DISPATCH_HEAD_REF: ${{ inputs.head_ref }}
+          DISPATCH_DOMAINS: ${{ inputs.domains }}
+          DISPATCH_PROFILE: ${{ inputs.profile }}
+          DISPATCH_WITH_RELEASE_CHECK: ${{ inputs.with_release_check }}
+          DISPATCH_STRICT: ${{ inputs.strict }}
+          DISPATCH_TARGET_SHA: ${{ inputs.target_sha }}
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            BASE_BRANCH="${GITHUB_BASE_REF}"
+            BASE_REF="origin/${BASE_BRANCH}"
+            HEAD_REF="${GITHUB_SHA}"
+            DOMAINS="v3,page-v3"
+            PROFILE="ci"
+            WITH_RELEASE_CHECK="true"
+            STRICT="true"
+            git fetch --no-tags --prune origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
+          else
+            BASE_REF="${DISPATCH_BASE_REF:-}"
+            HEAD_REF="${DISPATCH_HEAD_REF:-}"
+            DOMAINS="${DISPATCH_DOMAINS:-v3,page-v3}"
+            PROFILE="${DISPATCH_PROFILE:-ci}"
+            WITH_RELEASE_CHECK="${DISPATCH_WITH_RELEASE_CHECK:-true}"
+            STRICT="${DISPATCH_STRICT:-true}"
+            TARGET_SHA="${DISPATCH_TARGET_SHA:-}"
+
+            if [[ -z "$BASE_REF" ]]; then
+              BASE_REF="origin/${GITHUB_REF_NAME:-main}"
+              if [[ "${GITHUB_REF_TYPE:-}" != "branch" ]]; then
+                BASE_REF="origin/${{ github.event.repository.default_branch }}"
+              fi
+            fi
+
+            if [[ -z "$HEAD_REF" ]]; then
+              HEAD_REF="HEAD"
+            fi
+
+            if [[ "$BASE_REF" == origin/* ]]; then
+              BASE_BRANCH="${BASE_REF#origin/}"
+              git fetch --no-tags --prune origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
+            fi
+
+            if [[ "$HEAD_REF" == origin/* ]]; then
+              HEAD_BRANCH="${HEAD_REF#origin/}"
+              git fetch --no-tags --prune origin "+refs/heads/${HEAD_BRANCH}:refs/remotes/origin/${HEAD_BRANCH}"
+            fi
+          fi
+
+          case "$DOMAINS" in
+            "v3"|"page-v3"|"v3,page-v3") ;;
+            *) echo "Unsupported domains input: ${DOMAINS}" >&2; exit 1 ;;
+          esac
+
+          case "$PROFILE" in
+            "local"|"ci"|"deployment") ;;
+            *) echo "Unsupported profile input: ${PROFILE}" >&2; exit 1 ;;
+          esac
+
+          case "$WITH_RELEASE_CHECK" in
+            "true"|"false") ;;
+            *) echo "with_release_check must be true or false." >&2; exit 1 ;;
+          esac
+
+          case "$STRICT" in
+            "true"|"false") ;;
+            *) echo "strict must be true or false." >&2; exit 1 ;;
+          esac
+
+          git rev-parse --verify "${BASE_REF}^{commit}"
+          git rev-parse --verify "${HEAD_REF}^{commit}"
+
+          if [[ -n "${TARGET_SHA:-}" ]]; then
+            CURRENT_SHA="$(git rev-parse HEAD)"
+            if [[ "${CURRENT_SHA}" != "${TARGET_SHA}" ]]; then
+              echo "Checked-out HEAD (${CURRENT_SHA}) does not match requested target_sha (${TARGET_SHA})." >&2
+              exit 1
+            fi
+          fi
+
+          echo "base_ref=${BASE_REF}" >> "$GITHUB_OUTPUT"
+          echo "head_ref=${HEAD_REF}" >> "$GITHUB_OUTPUT"
+          echo "domains=${DOMAINS}" >> "$GITHUB_OUTPUT"
+          echo "profile=${PROFILE}" >> "$GITHUB_OUTPUT"
+          echo "with_release_check=${WITH_RELEASE_CHECK}" >> "$GITHUB_OUTPUT"
+          echo "strict=${STRICT}" >> "$GITHUB_OUTPUT"
+          echo "target_sha=${TARGET_SHA:-}" >> "$GITHUB_OUTPUT"
+          echo "sync_ref=$(git rev-parse "${HEAD_REF}^{commit}")" >> "$GITHUB_OUTPUT"
+
+      - name: Run ContentOps CI preflight
+        shell: bash
+        env:
+          CONTENTOPS_BASE_REF: ${{ steps.contentops.outputs.base_ref }}
+          CONTENTOPS_HEAD_REF: ${{ steps.contentops.outputs.head_ref }}
+          CONTENTOPS_DOMAINS: ${{ steps.contentops.outputs.domains }}
+          CONTENTOPS_PROFILE: ${{ steps.contentops.outputs.profile }}
+          CONTENTOPS_WITH_RELEASE_CHECK: ${{ steps.contentops.outputs.with_release_check }}
+          CONTENTOPS_STRICT: ${{ steps.contentops.outputs.strict }}
+          CONTENTOPS_TARGET_SHA: ${{ steps.contentops.outputs.target_sha }}
+          CONTENTOPS_CI_SYNC_REF: ${{ steps.contentops.outputs.sync_ref }}
+          CONTENTOPS_CI_BOOTSTRAP_SYNC_STATE: 'true'
+        run: bash scripts/contentops-ci-preflight.sh
+
+      - name: Upload ContentOps reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: contentops-release-gate-reports
+          if-no-files-found: warn
+          path: |
+              storage/app/contentops-ci/**
+              storage/app/content-doctor-reports/**
+              storage/app/content-ci-status/**
+              storage/app/content-release-gates/**

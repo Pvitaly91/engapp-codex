@@ -1,0 +1,1859 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\IndirectQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "IndirectQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_indirect_questions": {
+            "name": "Indirect Questions"
+        }
+    },
+    "tags": {
+        "indirect_questions": {
+            "name": "Indirect Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polite_frame": {
+            "name": "Polite Frame",
+            "category": "topic"
+        },
+        "could_you_tell_me": {
+            "name": "Could You Tell Me",
+            "category": "topic"
+        },
+        "do_you_know": {
+            "name": "Do You Know",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "indirect_wh": {
+            "name": "Indirect Wh",
+            "category": "topic"
+        },
+        "indirect_if_whether": {
+            "name": "Indirect If Whether",
+            "category": "topic"
+        },
+        "no_extra_auxiliary": {
+            "name": "No Extra Auxiliary",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "indirect_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "indq-v3-a1-01",
+            "question": "{a1} where the lift is?",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me",
+                    "options": [
+                        "Could you tell me",
+                        "Tell me direct",
+                        "You tell me",
+                        "Could tell you me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "indq-v3-a1-02",
+            "question": "Could you tell me {a1}?",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "could_you_tell_me"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the office is",
+                    "options": [
+                        "where the office is",
+                        "where is the office",
+                        "where does the office",
+                        "where the office"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "indq-v3-a1-03",
+            "question": "Do you know {a1}?",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "do_you_know"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the train leaves",
+                    "options": [
+                        "when the train leaves",
+                        "when does the train leave",
+                        "when leaves the train",
+                        "when the train leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "indq-v3-a1-04",
+            "question": "I would like to know {a1}.",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why the meeting changed",
+                    "options": [
+                        "why the meeting changed",
+                        "why did the meeting change",
+                        "why changed the meeting",
+                        "why the meeting did change"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "indq-v3-a1-05",
+            "question": "Can you explain {a1}?",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this form works",
+                    "options": [
+                        "how this form works",
+                        "how does this form work",
+                        "how works this form",
+                        "how this form does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "indq-v3-a1-06",
+            "question": "Could you tell me {a1}?",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if the bank is open",
+                    "options": [
+                        "if the bank is open",
+                        "is the bank open",
+                        "if is the bank open",
+                        "whether is the bank open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "indq-v3-a1-07",
+            "question": "Do you know {a1}?",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they have replied",
+                    "options": [
+                        "whether they have replied",
+                        "have they replied",
+                        "whether have they replied",
+                        "if have they replied"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "indq-v3-a1-08",
+            "question": "I would like to know {a1}.",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "no_extra_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she works",
+                    "options": [
+                        "where she works",
+                        "where does she work",
+                        "where she does work",
+                        "where works she"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "indq-v3-a1-09",
+            "question": "The correct polite question is {a1}.",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me when it starts?",
+                    "options": [
+                        "Could you tell me when it starts?",
+                        "Could you tell me when does it start?",
+                        "Could you tell me when it starts.",
+                        "Could you tell me when starts it?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "indq-v3-a1-10",
+            "question": "{a1} why the file disappeared?",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can you explain",
+                    "options": [
+                        "Can you explain",
+                        "Explain can you",
+                        "Can explain you",
+                        "You can explain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "indq-v3-a1-11",
+            "question": "Please tell me {a1}.",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what I should bring",
+                    "options": [
+                        "what I should bring",
+                        "what should I bring",
+                        "what I should to bring",
+                        "what bring should I"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "indq-v3-a1-12",
+            "question": "The correct indirect question is {a1}.",
+            "level": "A1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do you know where he lives?",
+                    "options": [
+                        "Do you know where he lives?",
+                        "Do you know where does he live?",
+                        "Do you know where lives he?",
+                        "Do you know where he live?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "indq-v3-a2-01",
+            "question": "{a1} where the lift is?",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me",
+                    "options": [
+                        "Could you tell me",
+                        "Tell me direct",
+                        "You tell me",
+                        "Could tell you me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "indq-v3-a2-02",
+            "question": "Could you tell me {a1}?",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "could_you_tell_me"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the office is",
+                    "options": [
+                        "where the office is",
+                        "where is the office",
+                        "where does the office",
+                        "where the office"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "indq-v3-a2-03",
+            "question": "Do you know {a1}?",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "do_you_know"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the train leaves",
+                    "options": [
+                        "when the train leaves",
+                        "when does the train leave",
+                        "when leaves the train",
+                        "when the train leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "indq-v3-a2-04",
+            "question": "I would like to know {a1}.",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why the meeting changed",
+                    "options": [
+                        "why the meeting changed",
+                        "why did the meeting change",
+                        "why changed the meeting",
+                        "why the meeting did change"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "indq-v3-a2-05",
+            "question": "Can you explain {a1}?",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this form works",
+                    "options": [
+                        "how this form works",
+                        "how does this form work",
+                        "how works this form",
+                        "how this form does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "indq-v3-a2-06",
+            "question": "Could you tell me {a1}?",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if the bank is open",
+                    "options": [
+                        "if the bank is open",
+                        "is the bank open",
+                        "if is the bank open",
+                        "whether is the bank open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "indq-v3-a2-07",
+            "question": "Do you know {a1}?",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they have replied",
+                    "options": [
+                        "whether they have replied",
+                        "have they replied",
+                        "whether have they replied",
+                        "if have they replied"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "indq-v3-a2-08",
+            "question": "I would like to know {a1}.",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "no_extra_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she works",
+                    "options": [
+                        "where she works",
+                        "where does she work",
+                        "where she does work",
+                        "where works she"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "indq-v3-a2-09",
+            "question": "The correct polite question is {a1}.",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me when it starts?",
+                    "options": [
+                        "Could you tell me when it starts?",
+                        "Could you tell me when does it start?",
+                        "Could you tell me when it starts.",
+                        "Could you tell me when starts it?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "indq-v3-a2-10",
+            "question": "{a1} why the file disappeared?",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can you explain",
+                    "options": [
+                        "Can you explain",
+                        "Explain can you",
+                        "Can explain you",
+                        "You can explain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "indq-v3-a2-11",
+            "question": "Please tell me {a1}.",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what I should bring",
+                    "options": [
+                        "what I should bring",
+                        "what should I bring",
+                        "what I should to bring",
+                        "what bring should I"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "indq-v3-a2-12",
+            "question": "The correct indirect question is {a1}.",
+            "level": "A2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do you know where he lives?",
+                    "options": [
+                        "Do you know where he lives?",
+                        "Do you know where does he live?",
+                        "Do you know where lives he?",
+                        "Do you know where he live?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "indq-v3-b1-01",
+            "question": "{a1} where the lift is?",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me",
+                    "options": [
+                        "Could you tell me",
+                        "Tell me direct",
+                        "You tell me",
+                        "Could tell you me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "indq-v3-b1-02",
+            "question": "Could you tell me {a1}?",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "could_you_tell_me"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the office is",
+                    "options": [
+                        "where the office is",
+                        "where is the office",
+                        "where does the office",
+                        "where the office"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "indq-v3-b1-03",
+            "question": "Do you know {a1}?",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "do_you_know"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the train leaves",
+                    "options": [
+                        "when the train leaves",
+                        "when does the train leave",
+                        "when leaves the train",
+                        "when the train leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "indq-v3-b1-04",
+            "question": "I would like to know {a1} today.",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why the meeting changed",
+                    "options": [
+                        "why the meeting changed",
+                        "why did the meeting change",
+                        "why changed the meeting",
+                        "why the meeting did change"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "indq-v3-b1-05",
+            "question": "Can you explain {a1}?",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this form works",
+                    "options": [
+                        "how this form works",
+                        "how does this form work",
+                        "how works this form",
+                        "how this form does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "indq-v3-b1-06",
+            "question": "Could you tell me {a1}?",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if the bank is open",
+                    "options": [
+                        "if the bank is open",
+                        "is the bank open",
+                        "if is the bank open",
+                        "whether is the bank open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "indq-v3-b1-07",
+            "question": "Do you know {a1}?",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they have replied",
+                    "options": [
+                        "whether they have replied",
+                        "have they replied",
+                        "whether have they replied",
+                        "if have they replied"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "indq-v3-b1-08",
+            "question": "I would like to know {a1} today.",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "no_extra_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she works",
+                    "options": [
+                        "where she works",
+                        "where does she work",
+                        "where she does work",
+                        "where works she"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "indq-v3-b1-09",
+            "question": "The correct polite question is {a1} today.",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me when it starts?",
+                    "options": [
+                        "Could you tell me when it starts?",
+                        "Could you tell me when does it start?",
+                        "Could you tell me when it starts.",
+                        "Could you tell me when starts it?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "indq-v3-b1-10",
+            "question": "{a1} why the file disappeared?",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can you explain",
+                    "options": [
+                        "Can you explain",
+                        "Explain can you",
+                        "Can explain you",
+                        "You can explain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "indq-v3-b1-11",
+            "question": "Please tell me {a1} today.",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what I should bring",
+                    "options": [
+                        "what I should bring",
+                        "what should I bring",
+                        "what I should to bring",
+                        "what bring should I"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "indq-v3-b1-12",
+            "question": "The correct indirect question is {a1} today.",
+            "level": "B1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do you know where he lives?",
+                    "options": [
+                        "Do you know where he lives?",
+                        "Do you know where does he live?",
+                        "Do you know where lives he?",
+                        "Do you know where he live?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "indq-v3-b2-01",
+            "question": "{a1} where the lift is?",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me",
+                    "options": [
+                        "Could you tell me",
+                        "Tell me direct",
+                        "You tell me",
+                        "Could tell you me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "indq-v3-b2-02",
+            "question": "Could you tell me {a1}?",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "could_you_tell_me"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the office is",
+                    "options": [
+                        "where the office is",
+                        "where is the office",
+                        "where does the office",
+                        "where the office"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "indq-v3-b2-03",
+            "question": "Do you know {a1}?",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "do_you_know"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the train leaves",
+                    "options": [
+                        "when the train leaves",
+                        "when does the train leave",
+                        "when leaves the train",
+                        "when the train leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "indq-v3-b2-04",
+            "question": "At this point, I would like to know {a1}.",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why the meeting changed",
+                    "options": [
+                        "why the meeting changed",
+                        "why did the meeting change",
+                        "why changed the meeting",
+                        "why the meeting did change"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "indq-v3-b2-05",
+            "question": "Can you explain {a1}?",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this form works",
+                    "options": [
+                        "how this form works",
+                        "how does this form work",
+                        "how works this form",
+                        "how this form does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "indq-v3-b2-06",
+            "question": "Could you tell me {a1}?",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if the bank is open",
+                    "options": [
+                        "if the bank is open",
+                        "is the bank open",
+                        "if is the bank open",
+                        "whether is the bank open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "indq-v3-b2-07",
+            "question": "Do you know {a1}?",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they have replied",
+                    "options": [
+                        "whether they have replied",
+                        "have they replied",
+                        "whether have they replied",
+                        "if have they replied"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "indq-v3-b2-08",
+            "question": "At this point, I would like to know {a1}.",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "no_extra_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she works",
+                    "options": [
+                        "where she works",
+                        "where does she work",
+                        "where she does work",
+                        "where works she"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "indq-v3-b2-09",
+            "question": "The correct polite question is {a1}.",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me when it starts?",
+                    "options": [
+                        "Could you tell me when it starts?",
+                        "Could you tell me when does it start?",
+                        "Could you tell me when it starts.",
+                        "Could you tell me when starts it?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "indq-v3-b2-10",
+            "question": "{a1} why the file disappeared?",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can you explain",
+                    "options": [
+                        "Can you explain",
+                        "Explain can you",
+                        "Can explain you",
+                        "You can explain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "indq-v3-b2-11",
+            "question": "Please tell me {a1}.",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what I should bring",
+                    "options": [
+                        "what I should bring",
+                        "what should I bring",
+                        "what I should to bring",
+                        "what bring should I"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "indq-v3-b2-12",
+            "question": "The correct indirect question is {a1}.",
+            "level": "B2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do you know where he lives?",
+                    "options": [
+                        "Do you know where he lives?",
+                        "Do you know where does he live?",
+                        "Do you know where lives he?",
+                        "Do you know where he live?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "indq-v3-c1-01",
+            "question": "{a1} where the lift is?",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me",
+                    "options": [
+                        "Could you tell me",
+                        "Tell me direct",
+                        "You tell me",
+                        "Could tell you me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "indq-v3-c1-02",
+            "question": "Could you tell me {a1}?",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "could_you_tell_me"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the office is",
+                    "options": [
+                        "where the office is",
+                        "where is the office",
+                        "where does the office",
+                        "where the office"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "indq-v3-c1-03",
+            "question": "Do you know {a1}?",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "do_you_know"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the train leaves",
+                    "options": [
+                        "when the train leaves",
+                        "when does the train leave",
+                        "when leaves the train",
+                        "when the train leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "indq-v3-c1-04",
+            "question": "I would like to know {a1}.",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why the meeting changed",
+                    "options": [
+                        "why the meeting changed",
+                        "why did the meeting change",
+                        "why changed the meeting",
+                        "why the meeting did change"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "indq-v3-c1-05",
+            "question": "Can you explain {a1}?",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this form works",
+                    "options": [
+                        "how this form works",
+                        "how does this form work",
+                        "how works this form",
+                        "how this form does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "indq-v3-c1-06",
+            "question": "Could you tell me {a1}?",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if the bank is open",
+                    "options": [
+                        "if the bank is open",
+                        "is the bank open",
+                        "if is the bank open",
+                        "whether is the bank open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "indq-v3-c1-07",
+            "question": "Do you know {a1}?",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they have replied",
+                    "options": [
+                        "whether they have replied",
+                        "have they replied",
+                        "whether have they replied",
+                        "if have they replied"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "indq-v3-c1-08",
+            "question": "I would like to know {a1}.",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "no_extra_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she works",
+                    "options": [
+                        "where she works",
+                        "where does she work",
+                        "where she does work",
+                        "where works she"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "indq-v3-c1-09",
+            "question": "In formal English, the correct polite question is {a1}.",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me when it starts?",
+                    "options": [
+                        "Could you tell me when it starts?",
+                        "Could you tell me when does it start?",
+                        "Could you tell me when it starts.",
+                        "Could you tell me when starts it?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "indq-v3-c1-10",
+            "question": "{a1} why the file disappeared?",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can you explain",
+                    "options": [
+                        "Can you explain",
+                        "Explain can you",
+                        "Can explain you",
+                        "You can explain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "indq-v3-c1-11",
+            "question": "Please tell me {a1}.",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what I should bring",
+                    "options": [
+                        "what I should bring",
+                        "what should I bring",
+                        "what I should to bring",
+                        "what bring should I"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "indq-v3-c1-12",
+            "question": "In formal English, the correct indirect question is {a1}.",
+            "level": "C1",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do you know where he lives?",
+                    "options": [
+                        "Do you know where he lives?",
+                        "Do you know where does he live?",
+                        "Do you know where lives he?",
+                        "Do you know where he live?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "indq-v3-c2-01",
+            "question": "{a1} where the lift is?",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me",
+                    "options": [
+                        "Could you tell me",
+                        "Tell me direct",
+                        "You tell me",
+                        "Could tell you me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "indq-v3-c2-02",
+            "question": "Could you tell me {a1}?",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "could_you_tell_me"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the office is",
+                    "options": [
+                        "where the office is",
+                        "where is the office",
+                        "where does the office",
+                        "where the office"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "indq-v3-c2-03",
+            "question": "Do you know {a1}?",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "do_you_know"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the train leaves",
+                    "options": [
+                        "when the train leaves",
+                        "when does the train leave",
+                        "when leaves the train",
+                        "when the train leave"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "indq-v3-c2-04",
+            "question": "I would like to know {a1}.",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why the meeting changed",
+                    "options": [
+                        "why the meeting changed",
+                        "why did the meeting change",
+                        "why changed the meeting",
+                        "why the meeting did change"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "indq-v3-c2-05",
+            "question": "Can you explain {a1}?",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this form works",
+                    "options": [
+                        "how this form works",
+                        "how does this form work",
+                        "how works this form",
+                        "how this form does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "indq-v3-c2-06",
+            "question": "Could you tell me {a1}?",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if the bank is open",
+                    "options": [
+                        "if the bank is open",
+                        "is the bank open",
+                        "if is the bank open",
+                        "whether is the bank open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "indq-v3-c2-07",
+            "question": "Do you know {a1}?",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "indirect_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they have replied",
+                    "options": [
+                        "whether they have replied",
+                        "have they replied",
+                        "whether have they replied",
+                        "if have they replied"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "indq-v3-c2-08",
+            "question": "I would like to know {a1}.",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "no_extra_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she works",
+                    "options": [
+                        "where she works",
+                        "where does she work",
+                        "where she does work",
+                        "where works she"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "indq-v3-c2-09",
+            "question": "The correct polite question is {a1}.",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could you tell me when it starts?",
+                    "options": [
+                        "Could you tell me when it starts?",
+                        "Could you tell me when does it start?",
+                        "Could you tell me when it starts.",
+                        "Could you tell me when starts it?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "indq-v3-c2-10",
+            "question": "{a1} why the file disappeared?",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "polite_frame"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can you explain",
+                    "options": [
+                        "Can you explain",
+                        "Explain can you",
+                        "Can explain you",
+                        "You can explain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "indq-v3-c2-11",
+            "question": "Please tell me {a1}.",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "indirect_wh"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what I should bring",
+                    "options": [
+                        "what I should bring",
+                        "what should I bring",
+                        "what I should to bring",
+                        "what bring should I"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "indq-v3-c2-12",
+            "question": "The correct indirect question is {a1}.",
+            "level": "C2",
+            "source": "theory_page_indirect_questions",
+            "tag_keys": [
+                "indirect_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do you know where he lives?",
+                    "options": [
+                        "Do you know where he lives?",
+                        "Do you know where does he live?",
+                        "Do you know where lives he?",
+                        "Do you know where he live?"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn3-ind-v3-all",
+        "slug": "indirect-questions-all-levels-v3",
+        "name": "Indirect Questions (All levels V3)",
+        "description": "Standard V3 package for Indirect Questions across A1-C2.",
+        "question_uuids": [
+            "indq-v3-a1-01",
+            "indq-v3-a1-02",
+            "indq-v3-a1-03",
+            "indq-v3-a1-04",
+            "indq-v3-a1-05",
+            "indq-v3-a1-06",
+            "indq-v3-a1-07",
+            "indq-v3-a1-08",
+            "indq-v3-a1-09",
+            "indq-v3-a1-10",
+            "indq-v3-a1-11",
+            "indq-v3-a1-12",
+            "indq-v3-a2-01",
+            "indq-v3-a2-02",
+            "indq-v3-a2-03",
+            "indq-v3-a2-04",
+            "indq-v3-a2-05",
+            "indq-v3-a2-06",
+            "indq-v3-a2-07",
+            "indq-v3-a2-08",
+            "indq-v3-a2-09",
+            "indq-v3-a2-10",
+            "indq-v3-a2-11",
+            "indq-v3-a2-12",
+            "indq-v3-b1-01",
+            "indq-v3-b1-02",
+            "indq-v3-b1-03",
+            "indq-v3-b1-04",
+            "indq-v3-b1-05",
+            "indq-v3-b1-06",
+            "indq-v3-b1-07",
+            "indq-v3-b1-08",
+            "indq-v3-b1-09",
+            "indq-v3-b1-10",
+            "indq-v3-b1-11",
+            "indq-v3-b1-12",
+            "indq-v3-b2-01",
+            "indq-v3-b2-02",
+            "indq-v3-b2-03",
+            "indq-v3-b2-04",
+            "indq-v3-b2-05",
+            "indq-v3-b2-06",
+            "indq-v3-b2-07",
+            "indq-v3-b2-08",
+            "indq-v3-b2-09",
+            "indq-v3-b2-10",
+            "indq-v3-b2-11",
+            "indq-v3-b2-12",
+            "indq-v3-c1-01",
+            "indq-v3-c1-02",
+            "indq-v3-c1-03",
+            "indq-v3-c1-04",
+            "indq-v3-c1-05",
+            "indq-v3-c1-06",
+            "indq-v3-c1-07",
+            "indq-v3-c1-08",
+            "indq-v3-c1-09",
+            "indq-v3-c1-10",
+            "indq-v3-c1-11",
+            "indq-v3-c1-12",
+            "indq-v3-c2-01",
+            "indq-v3-c2-02",
+            "indq-v3-c2-03",
+            "indq-v3-c2-04",
+            "indq-v3-c2-05",
+            "indq-v3-c2-06",
+            "indq-v3-c2-07",
+            "indq-v3-c2-08",
+            "indq-v3-c2-09",
+            "indq-v3-c2-10",
+            "indq-v3-c2-11",
+            "indq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\IndirectQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "indirect-questions",
+                    "title": "Indirect Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/indirect-questions"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,2106 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Tenses\\PresentContinuous\\PresentContinuousNegativesAllLevelsV3Seeder",
+        "uuid_namespace": "PresentContinuousNegativesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Tenses / Present Continuous"
+    },
+    "sources": {
+        "theory_page_present_continuous_negatives": {
+            "name": "Present Continuous: Negatives"
+        }
+    },
+    "tags": {
+        "present_continuous": {
+            "name": "Present Continuous",
+            "category": "tense"
+        },
+        "am_not": {
+            "name": "Am Not",
+            "category": "topic"
+        },
+        "is_not": {
+            "name": "Is Not",
+            "category": "topic"
+        },
+        "are_not": {
+            "name": "Are Not",
+            "category": "topic"
+        },
+        "not_position": {
+            "name": "Not Position",
+            "category": "topic"
+        },
+        "negative_order": {
+            "name": "Negative Order",
+            "category": "topic"
+        },
+        "ing_spelling": {
+            "name": "Ing Spelling",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "present_continuous"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pc-negatives-v3-a1-01",
+            "question": "I {a1} working today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "am_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} working today"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 2,
+            "uuid": "pc-negatives-v3-a1-02",
+            "question": "She {a1} playing right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} playing right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 3,
+            "uuid": "pc-negatives-v3-a1-03",
+            "question": "They {a1} sleeping at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} sleeping at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 4,
+            "uuid": "pc-negatives-v3-a1-04",
+            "question": "She is {a1} waiting currently",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "She is {a1} waiting currently"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 5,
+            "uuid": "pc-negatives-v3-a1-05",
+            "question": "It {a1} running right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "It {a1} running right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 6,
+            "uuid": "pc-negatives-v3-a1-06",
+            "question": "We aren't {a1} at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "writing",
+                    "options": [
+                        "writing",
+                        "write",
+                        "writes",
+                        "writeing"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "We aren't {a1} at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 7,
+            "uuid": "pc-negatives-v3-a1-07",
+            "question": "She {a1} making this week",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} making this week"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 8,
+            "uuid": "pc-negatives-v3-a1-08",
+            "question": "They {a1} lying right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} lying right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 9,
+            "uuid": "pc-negatives-v3-a1-09",
+            "question": "My brother is {a1} sitting at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "My brother is {a1} sitting at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 10,
+            "uuid": "pc-negatives-v3-a1-10",
+            "question": "The team {a1} studying this month",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "doesn't",
+                        "don't",
+                        "is no"
+                    ],
+                    "verb_hint": "Do not use do / does with Present Continuous negatives.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The team {a1} studying this month"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 11,
+            "uuid": "pc-negatives-v3-a1-11",
+            "question": "Our colleagues {a1} coming right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "Our colleagues {a1} coming right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 12,
+            "uuid": "pc-negatives-v3-a1-12",
+            "question": "The analyst isn't {a1} at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "taking",
+                    "options": [
+                        "taking",
+                        "take",
+                        "takes",
+                        "takeing"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "The analyst isn't {a1} at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 13,
+            "uuid": "pc-negatives-v3-a2-01",
+            "question": "I {a1} sleeping this week",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "am_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} sleeping this week"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 14,
+            "uuid": "pc-negatives-v3-a2-02",
+            "question": "She {a1} waiting at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} waiting at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 15,
+            "uuid": "pc-negatives-v3-a2-03",
+            "question": "They {a1} running now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} running now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 16,
+            "uuid": "pc-negatives-v3-a2-04",
+            "question": "We are {a1} writing this month",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "We are {a1} writing this month"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 17,
+            "uuid": "pc-negatives-v3-a2-05",
+            "question": "They {a1} making at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "They {a1} making at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 18,
+            "uuid": "pc-negatives-v3-a2-06",
+            "question": "The children aren't {a1} now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "lying",
+                    "options": [
+                        "lying",
+                        "lie",
+                        "lies",
+                        "lieing"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "The children aren't {a1} now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 19,
+            "uuid": "pc-negatives-v3-a2-07",
+            "question": "She {a1} sitting these days",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} sitting these days"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 20,
+            "uuid": "pc-negatives-v3-a2-08",
+            "question": "They {a1} studying at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} studying at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 21,
+            "uuid": "pc-negatives-v3-a2-09",
+            "question": "Our colleagues are {a1} coming now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "Our colleagues are {a1} coming now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 22,
+            "uuid": "pc-negatives-v3-a2-10",
+            "question": "The analyst {a1} taking today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "doesn't",
+                        "don't",
+                        "is no"
+                    ],
+                    "verb_hint": "Do not use do / does with Present Continuous negatives.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The analyst {a1} taking today"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 23,
+            "uuid": "pc-negatives-v3-a2-11",
+            "question": "I {a1} preparing at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "I {a1} preparing at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 24,
+            "uuid": "pc-negatives-v3-a2-12",
+            "question": "You aren't {a1} now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "reviewing",
+                    "options": [
+                        "reviewing",
+                        "review",
+                        "reviews"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "You aren't {a1} now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 25,
+            "uuid": "pc-negatives-v3-b1-01",
+            "question": "I {a1} running these days",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "am_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} running these days"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 26,
+            "uuid": "pc-negatives-v3-b1-02",
+            "question": "She {a1} writing now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} writing now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 27,
+            "uuid": "pc-negatives-v3-b1-03",
+            "question": "They {a1} making right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} making right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 28,
+            "uuid": "pc-negatives-v3-b1-04",
+            "question": "The children are {a1} lying today",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "The children are {a1} lying today"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 29,
+            "uuid": "pc-negatives-v3-b1-05",
+            "question": "My brother {a1} sitting now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "My brother {a1} sitting now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 30,
+            "uuid": "pc-negatives-v3-b1-06",
+            "question": "The team isn't {a1} right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "studying",
+                    "options": [
+                        "studying",
+                        "study",
+                        "studies"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "The team isn't {a1} right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 31,
+            "uuid": "pc-negatives-v3-b1-07",
+            "question": "She {a1} coming currently",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} coming currently"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 32,
+            "uuid": "pc-negatives-v3-b1-08",
+            "question": "They {a1} taking now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} taking now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 33,
+            "uuid": "pc-negatives-v3-b1-09",
+            "question": "I am {a1} preparing right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "I am {a1} preparing right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 34,
+            "uuid": "pc-negatives-v3-b1-10",
+            "question": "You {a1} reviewing this week",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "doesn't",
+                        "don't",
+                        "are no"
+                    ],
+                    "verb_hint": "Do not use do / does with Present Continuous negatives.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "You {a1} reviewing this week"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 35,
+            "uuid": "pc-negatives-v3-b1-11",
+            "question": "He {a1} developing now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "He {a1} developing now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 36,
+            "uuid": "pc-negatives-v3-b1-12",
+            "question": "She isn't {a1} right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "reads"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "She isn't {a1} right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 37,
+            "uuid": "pc-negatives-v3-b2-01",
+            "question": "I {a1} making currently",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "am_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} making currently"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 38,
+            "uuid": "pc-negatives-v3-b2-02",
+            "question": "She {a1} lying right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} lying right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 39,
+            "uuid": "pc-negatives-v3-b2-03",
+            "question": "They {a1} sitting at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} sitting at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 40,
+            "uuid": "pc-negatives-v3-b2-04",
+            "question": "The team is {a1} studying this week",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "The team is {a1} studying this week"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 41,
+            "uuid": "pc-negatives-v3-b2-05",
+            "question": "Our colleagues {a1} coming right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "Our colleagues {a1} coming right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 42,
+            "uuid": "pc-negatives-v3-b2-06",
+            "question": "The analyst isn't {a1} at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "taking",
+                    "options": [
+                        "taking",
+                        "take",
+                        "takes",
+                        "takeing"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "The analyst isn't {a1} at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 43,
+            "uuid": "pc-negatives-v3-b2-07",
+            "question": "She {a1} preparing this month",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} preparing this month"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 44,
+            "uuid": "pc-negatives-v3-b2-08",
+            "question": "They {a1} reviewing right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} reviewing right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 45,
+            "uuid": "pc-negatives-v3-b2-09",
+            "question": "He is {a1} developing at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "He is {a1} developing at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 46,
+            "uuid": "pc-negatives-v3-b2-10",
+            "question": "She {a1} reading these days",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "doesn't",
+                        "don't",
+                        "is no"
+                    ],
+                    "verb_hint": "Do not use do / does with Present Continuous negatives.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She {a1} reading these days"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 47,
+            "uuid": "pc-negatives-v3-b2-11",
+            "question": "It {a1} working right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "It {a1} working right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 48,
+            "uuid": "pc-negatives-v3-b2-12",
+            "question": "We aren't {a1} at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "playing",
+                    "options": [
+                        "playing",
+                        "play",
+                        "plays"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "We aren't {a1} at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 49,
+            "uuid": "pc-negatives-v3-c1-01",
+            "question": "I {a1} sitting this month",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "am_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} sitting this month"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 50,
+            "uuid": "pc-negatives-v3-c1-02",
+            "question": "She {a1} studying at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} studying at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 51,
+            "uuid": "pc-negatives-v3-c1-03",
+            "question": "They {a1} coming now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} coming now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 52,
+            "uuid": "pc-negatives-v3-c1-04",
+            "question": "The analyst is {a1} taking these days",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "The analyst is {a1} taking these days"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 53,
+            "uuid": "pc-negatives-v3-c1-05",
+            "question": "I {a1} preparing at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "I {a1} preparing at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 54,
+            "uuid": "pc-negatives-v3-c1-06",
+            "question": "You aren't {a1} now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "reviewing",
+                    "options": [
+                        "reviewing",
+                        "review",
+                        "reviews"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "You aren't {a1} now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 55,
+            "uuid": "pc-negatives-v3-c1-07",
+            "question": "She {a1} developing today",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} developing today"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 56,
+            "uuid": "pc-negatives-v3-c1-08",
+            "question": "They {a1} reading at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} reading at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 57,
+            "uuid": "pc-negatives-v3-c1-09",
+            "question": "It is {a1} working now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "It is {a1} working now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 58,
+            "uuid": "pc-negatives-v3-c1-10",
+            "question": "We {a1} playing currently",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "doesn't",
+                        "don't",
+                        "are no"
+                    ],
+                    "verb_hint": "Do not use do / does with Present Continuous negatives.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "We {a1} playing currently"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 59,
+            "uuid": "pc-negatives-v3-c1-11",
+            "question": "They {a1} sleeping at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "They {a1} sleeping at the moment"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 60,
+            "uuid": "pc-negatives-v3-c1-12",
+            "question": "The children aren't {a1} now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "waiting",
+                    "options": [
+                        "waiting",
+                        "wait",
+                        "waits"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "The children aren't {a1} now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 61,
+            "uuid": "pc-negatives-v3-c2-01",
+            "question": "I {a1} coming today",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "do not",
+                        "does not",
+                        "am"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "am_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "am_not"
+            ],
+            "variants": [
+                "I {a1} coming today"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 62,
+            "uuid": "pc-negatives-v3-c2-02",
+            "question": "She {a1} taking now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} taking now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 63,
+            "uuid": "pc-negatives-v3-c2-03",
+            "question": "They {a1} preparing right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} preparing right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 64,
+            "uuid": "pc-negatives-v3-c2-04",
+            "question": "You are {a1} reviewing currently",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "You are {a1} reviewing currently"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 65,
+            "uuid": "pc-negatives-v3-c2-05",
+            "question": "He {a1} developing now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "He {a1} developing now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 66,
+            "uuid": "pc-negatives-v3-c2-06",
+            "question": "She isn't {a1} right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "reads"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "She isn't {a1} right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 67,
+            "uuid": "pc-negatives-v3-c2-07",
+            "question": "She {a1} working this week",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "is_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "is_not"
+            ],
+            "variants": [
+                "She {a1} working this week"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 68,
+            "uuid": "pc-negatives-v3-c2-08",
+            "question": "They {a1} playing now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "do not",
+                        "does not",
+                        "are"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "are_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "are_not"
+            ],
+            "variants": [
+                "They {a1} playing now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 69,
+            "uuid": "pc-negatives-v3-c2-09",
+            "question": "They are {a1} sleeping right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "not",
+                    "options": [
+                        "not",
+                        "no",
+                        "don't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "In Present Continuous, not comes after am / is / are.",
+                    "gap_tags": [
+                        "not_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "not_position"
+            ],
+            "variants": [
+                "They are {a1} sleeping right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 70,
+            "uuid": "pc-negatives-v3-c2-10",
+            "question": "The children {a1} waiting this month",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "doesn't",
+                        "don't",
+                        "are no"
+                    ],
+                    "verb_hint": "Do not use do / does with Present Continuous negatives.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The children {a1} waiting this month"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 71,
+            "uuid": "pc-negatives-v3-c2-11",
+            "question": "My brother {a1} running now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "do not",
+                        "does not",
+                        "is"
+                    ],
+                    "verb_hint": "Use am not / is not / are not before verb-ing.",
+                    "gap_tags": [
+                        "negative_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_order"
+            ],
+            "variants": [
+                "My brother {a1} running now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        },
+        {
+            "id": 72,
+            "uuid": "pc-negatives-v3-c2-12",
+            "question": "The team isn't {a1} right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "writing",
+                    "options": [
+                        "writing",
+                        "write",
+                        "writes",
+                        "writeing"
+                    ],
+                    "verb_hint": "Keep the -ing form after negative be.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "The team isn't {a1} right now"
+            ],
+            "source": "theory_page_present_continuous_negatives"
+        }
+    ],
+    "saved_test": {
+        "uuid": "pc-negatives-v3-all-levels",
+        "slug": "present-continuous-negatives-all-levels-v3",
+        "name": "Present Continuous: Negatives: V3 All Levels",
+        "description": "Page-local V3 package for Present Continuous: Negatives with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\PresentContinuous\\PresentContinuousNegativesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "present-continuous-negatives",
+                    "title": "Present Continuous: Negatives",
+                    "category_slug_path": "tenses/present-continuous",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousNegativesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/tenses/present-continuous/present-continuous-negatives"
+                }
+            }
+        }
+    }
+}

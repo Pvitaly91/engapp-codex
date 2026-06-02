@@ -1,0 +1,2195 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\LinkingWordsAllLevelsV3Seeder",
+        "uuid_namespace": "LinkingWordsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_linking_words": {
+            "name": "Linking Words"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_linking_words": {
+            "name": "Linking Words",
+            "category": "clauses_and_linking_words"
+        },
+        "addition": {
+            "name": "Addition",
+            "category": "topic"
+        },
+        "contrast": {
+            "name": "Contrast",
+            "category": "topic"
+        },
+        "reason": {
+            "name": "Reason",
+            "category": "topic"
+        },
+        "result": {
+            "name": "Result",
+            "category": "topic"
+        },
+        "purpose": {
+            "name": "Purpose",
+            "category": "topic"
+        },
+        "sequence": {
+            "name": "Sequence",
+            "category": "topic"
+        },
+        "formal_linking_words": {
+            "name": "Formal Linking Words",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_linking_words"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "lw-v3-a1-01",
+            "question": "I bought bread {a1} I bought milk",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows addition.",
+                    "gap_tags": [
+                        "addition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition"
+            ],
+            "variants": [
+                "I bought bread {a1} I bought milk"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 2,
+            "uuid": "lw-v3-a1-02",
+            "question": "it was cold {a1} we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast.",
+                    "gap_tags": [
+                        "contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast"
+            ],
+            "variants": [
+                "it was cold {a1} we played outside"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 3,
+            "uuid": "lw-v3-a1-03",
+            "question": "we stayed inside {a1} it was raining",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "although",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows reason.",
+                    "gap_tags": [
+                        "reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reason"
+            ],
+            "variants": [
+                "we stayed inside {a1} it was raining"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 4,
+            "uuid": "lw-v3-a1-04",
+            "question": "it was dark {a1} we turned on the light",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows result.",
+                    "gap_tags": [
+                        "result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result"
+            ],
+            "variants": [
+                "it was dark {a1} we turned on the light"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 5,
+            "uuid": "lw-v3-a1-05",
+            "question": "She saved money {a1} buy a phone",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "because",
+                        "so",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows purpose.",
+                    "gap_tags": [
+                        "purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "purpose"
+            ],
+            "variants": [
+                "She saved money {a1} buy a phone"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 6,
+            "uuid": "lw-v3-a1-06",
+            "question": "{a1} I washed the cups",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} I washed the cups"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 7,
+            "uuid": "lw-v3-a1-07",
+            "question": "{a1} I made tea",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Then",
+                    "options": [
+                        "Then",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} I made tea"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 8,
+            "uuid": "lw-v3-a1-08",
+            "question": "{a1} I called my friend",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Finally",
+                    "options": [
+                        "Finally",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} I called my friend"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 9,
+            "uuid": "lw-v3-a1-09",
+            "question": "the shop was closed {a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the shop was closed {a1} we came back later"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 10,
+            "uuid": "lw-v3-a1-10",
+            "question": "{a1} it was cold we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "{a1} it was cold we played outside"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 11,
+            "uuid": "lw-v3-a1-11",
+            "question": "we stayed inside {a1} it was raining",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "we stayed inside {a1} it was raining"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 12,
+            "uuid": "lw-v3-a1-12",
+            "question": "the shop was closed {a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "so that"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the shop was closed {a1} we came back later"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 13,
+            "uuid": "lw-v3-a2-01",
+            "question": "We cleaned the kitchen {a1} we cooked dinner",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows addition.",
+                    "gap_tags": [
+                        "addition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition"
+            ],
+            "variants": [
+                "We cleaned the kitchen {a1} we cooked dinner"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 14,
+            "uuid": "lw-v3-a2-02",
+            "question": "the film was long {a1} the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast.",
+                    "gap_tags": [
+                        "contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast"
+            ],
+            "variants": [
+                "the film was long {a1} the children enjoyed it"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 15,
+            "uuid": "lw-v3-a2-03",
+            "question": "I took a jacket {a1} the evening was cold",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "although",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows reason.",
+                    "gap_tags": [
+                        "reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reason"
+            ],
+            "variants": [
+                "I took a jacket {a1} the evening was cold"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 16,
+            "uuid": "lw-v3-a2-04",
+            "question": "the train was full {a1} we waited for the next one",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows result.",
+                    "gap_tags": [
+                        "result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result"
+            ],
+            "variants": [
+                "the train was full {a1} we waited for the next one"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 17,
+            "uuid": "lw-v3-a2-05",
+            "question": "They left early {a1} catch the train",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "because",
+                        "so",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows purpose.",
+                    "gap_tags": [
+                        "purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "purpose"
+            ],
+            "variants": [
+                "They left early {a1} catch the train"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 18,
+            "uuid": "lw-v3-a2-06",
+            "question": "{a1} We packed our bags",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} We packed our bags"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 19,
+            "uuid": "lw-v3-a2-07",
+            "question": "{a1} we checked the tickets",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Then",
+                    "options": [
+                        "Then",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} we checked the tickets"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 20,
+            "uuid": "lw-v3-a2-08",
+            "question": "{a1} we went to the station",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Finally",
+                    "options": [
+                        "Finally",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} we went to the station"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 21,
+            "uuid": "lw-v3-a2-09",
+            "question": "the printer was broken {a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the printer was broken {a1} we sent the files online"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 22,
+            "uuid": "lw-v3-a2-10",
+            "question": "{a1} the film was long the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "{a1} the film was long the children enjoyed it"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 23,
+            "uuid": "lw-v3-a2-11",
+            "question": "I took a jacket {a1} the evening was cold",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I took a jacket {a1} the evening was cold"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 24,
+            "uuid": "lw-v3-a2-12",
+            "question": "the printer was broken {a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "so that"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the printer was broken {a1} we sent the files online"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 25,
+            "uuid": "lw-v3-b1-01",
+            "question": "The team finished the design {a1} the manager approved it",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows addition.",
+                    "gap_tags": [
+                        "addition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition"
+            ],
+            "variants": [
+                "The team finished the design {a1} the manager approved it"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 26,
+            "uuid": "lw-v3-b1-02",
+            "question": "the instructions looked simple {a1} the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast.",
+                    "gap_tags": [
+                        "contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast"
+            ],
+            "variants": [
+                "the instructions looked simple {a1} the task took two hours"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 27,
+            "uuid": "lw-v3-b1-03",
+            "question": "The meeting was postponed {a1} several people were absent",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "although",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows reason.",
+                    "gap_tags": [
+                        "reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reason"
+            ],
+            "variants": [
+                "The meeting was postponed {a1} several people were absent"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 28,
+            "uuid": "lw-v3-b1-04",
+            "question": "The road was icy {a1} the bus arrived late",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows result.",
+                    "gap_tags": [
+                        "result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result"
+            ],
+            "variants": [
+                "The road was icy {a1} the bus arrived late"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 29,
+            "uuid": "lw-v3-b1-05",
+            "question": "Marta wrote everything down {a1} avoid mistakes",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "because",
+                        "so",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows purpose.",
+                    "gap_tags": [
+                        "purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "purpose"
+            ],
+            "variants": [
+                "Marta wrote everything down {a1} avoid mistakes"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 30,
+            "uuid": "lw-v3-b1-06",
+            "question": "{a1} The students read the text",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} The students read the text"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 31,
+            "uuid": "lw-v3-b1-07",
+            "question": "{a1} they discussed the examples",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Then",
+                    "options": [
+                        "Then",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} they discussed the examples"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 32,
+            "uuid": "lw-v3-b1-08",
+            "question": "{a1} they wrote a summary",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Finally",
+                    "options": [
+                        "Finally",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} they wrote a summary"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 33,
+            "uuid": "lw-v3-b1-09",
+            "question": "the deadline was changed {a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the deadline was changed {a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 34,
+            "uuid": "lw-v3-b1-10",
+            "question": "{a1} the instructions looked simple the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "{a1} the instructions looked simple the task took two hours"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 35,
+            "uuid": "lw-v3-b1-11",
+            "question": "The meeting was postponed {a1} several people were absent",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The meeting was postponed {a1} several people were absent"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 36,
+            "uuid": "lw-v3-b1-12",
+            "question": "the deadline was changed {a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "so that"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the deadline was changed {a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 37,
+            "uuid": "lw-v3-b2-01",
+            "question": "The company reduced costs {a1} it improved customer support",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows addition.",
+                    "gap_tags": [
+                        "addition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition"
+            ],
+            "variants": [
+                "The company reduced costs {a1} it improved customer support"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 38,
+            "uuid": "lw-v3-b2-02",
+            "question": "the proposal was ambitious {a1} the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast.",
+                    "gap_tags": [
+                        "contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast"
+            ],
+            "variants": [
+                "the proposal was ambitious {a1} the board accepted it"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 39,
+            "uuid": "lw-v3-b2-03",
+            "question": "The project moved slowly {a1} the requirements kept changing",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "although",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows reason.",
+                    "gap_tags": [
+                        "reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reason"
+            ],
+            "variants": [
+                "The project moved slowly {a1} the requirements kept changing"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 40,
+            "uuid": "lw-v3-b2-04",
+            "question": "The server failed overnight {a1} the support team restored the data",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows result.",
+                    "gap_tags": [
+                        "result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result"
+            ],
+            "variants": [
+                "The server failed overnight {a1} the support team restored the data"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 41,
+            "uuid": "lw-v3-b2-05",
+            "question": "The analyst simplified the report {a1} make the findings clearer",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "because",
+                        "so",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows purpose.",
+                    "gap_tags": [
+                        "purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "purpose"
+            ],
+            "variants": [
+                "The analyst simplified the report {a1} make the findings clearer"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 42,
+            "uuid": "lw-v3-b2-06",
+            "question": "{a1} The researchers collected the data",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} The researchers collected the data"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 43,
+            "uuid": "lw-v3-b2-07",
+            "question": "{a1} they checked the results",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Then",
+                    "options": [
+                        "Then",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} they checked the results"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 44,
+            "uuid": "lw-v3-b2-08",
+            "question": "{a1} they published the report",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Finally",
+                    "options": [
+                        "Finally",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} they published the report"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 45,
+            "uuid": "lw-v3-b2-09",
+            "question": "the evidence was incomplete {a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the evidence was incomplete {a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 46,
+            "uuid": "lw-v3-b2-10",
+            "question": "{a1} the proposal was ambitious the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "{a1} the proposal was ambitious the board accepted it"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 47,
+            "uuid": "lw-v3-b2-11",
+            "question": "The project moved slowly {a1} the requirements kept changing",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The project moved slowly {a1} the requirements kept changing"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 48,
+            "uuid": "lw-v3-b2-12",
+            "question": "the evidence was incomplete {a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "so that"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the evidence was incomplete {a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 49,
+            "uuid": "lw-v3-c1-01",
+            "question": "The policy lowered emissions {a1} it encouraged long term investment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows addition.",
+                    "gap_tags": [
+                        "addition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition"
+            ],
+            "variants": [
+                "The policy lowered emissions {a1} it encouraged long term investment"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 50,
+            "uuid": "lw-v3-c1-02",
+            "question": "the evidence seemed persuasive {a1} the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast.",
+                    "gap_tags": [
+                        "contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast"
+            ],
+            "variants": [
+                "the evidence seemed persuasive {a1} the judge requested more data"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 51,
+            "uuid": "lw-v3-c1-03",
+            "question": "The negotiations stalled {a1} both sides rejected the compromise",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "although",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows reason.",
+                    "gap_tags": [
+                        "reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reason"
+            ],
+            "variants": [
+                "The negotiations stalled {a1} both sides rejected the compromise"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 52,
+            "uuid": "lw-v3-c1-04",
+            "question": "Demand increased sharply {a1} suppliers raised their prices",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows result.",
+                    "gap_tags": [
+                        "result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result"
+            ],
+            "variants": [
+                "Demand increased sharply {a1} suppliers raised their prices"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 53,
+            "uuid": "lw-v3-c1-05",
+            "question": "The committee revised the wording {a1} avoid legal ambiguity",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "because",
+                        "so",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows purpose.",
+                    "gap_tags": [
+                        "purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "purpose"
+            ],
+            "variants": [
+                "The committee revised the wording {a1} avoid legal ambiguity"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 54,
+            "uuid": "lw-v3-c1-06",
+            "question": "{a1} The committee reviewed the evidence",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} The committee reviewed the evidence"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 55,
+            "uuid": "lw-v3-c1-07",
+            "question": "{a1} it questioned the witnesses",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Then",
+                    "options": [
+                        "Then",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} it questioned the witnesses"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 56,
+            "uuid": "lw-v3-c1-08",
+            "question": "{a1} it issued a recommendation",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Finally",
+                    "options": [
+                        "Finally",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} it issued a recommendation"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 57,
+            "uuid": "lw-v3-c1-09",
+            "question": "the figures were unreliable {a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the figures were unreliable {a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 58,
+            "uuid": "lw-v3-c1-10",
+            "question": "{a1} the evidence seemed persuasive the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "{a1} the evidence seemed persuasive the judge requested more data"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 59,
+            "uuid": "lw-v3-c1-11",
+            "question": "The negotiations stalled {a1} both sides rejected the compromise",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The negotiations stalled {a1} both sides rejected the compromise"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 60,
+            "uuid": "lw-v3-c1-12",
+            "question": "the figures were unreliable {a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "so that"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the figures were unreliable {a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 61,
+            "uuid": "lw-v3-c2-01",
+            "question": "The reform improved transparency {a1} it strengthened public accountability",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows addition.",
+                    "gap_tags": [
+                        "addition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "addition"
+            ],
+            "variants": [
+                "The reform improved transparency {a1} it strengthened public accountability"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 62,
+            "uuid": "lw-v3-c2-02",
+            "question": "the argument was elegantly constructed {a1} its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "and",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast.",
+                    "gap_tags": [
+                        "contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast"
+            ],
+            "variants": [
+                "the argument was elegantly constructed {a1} its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 63,
+            "uuid": "lw-v3-c2-03",
+            "question": "The appeal was dismissed {a1} the claimant missed the deadline",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "so",
+                        "although",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows reason.",
+                    "gap_tags": [
+                        "reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reason"
+            ],
+            "variants": [
+                "The appeal was dismissed {a1} the claimant missed the deadline"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 64,
+            "uuid": "lw-v3-c2-04",
+            "question": "The initial forecast underestimated demand {a1} the agency revised its budget",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows result.",
+                    "gap_tags": [
+                        "result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result"
+            ],
+            "variants": [
+                "The initial forecast underestimated demand {a1} the agency revised its budget"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 65,
+            "uuid": "lw-v3-c2-05",
+            "question": "The authors restructured the chapter {a1} make the argument more coherent",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "because",
+                        "so",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows purpose.",
+                    "gap_tags": [
+                        "purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "purpose"
+            ],
+            "variants": [
+                "The authors restructured the chapter {a1} make the argument more coherent"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 66,
+            "uuid": "lw-v3-c2-06",
+            "question": "{a1} The panel examined the methodology",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "First",
+                    "options": [
+                        "First",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} The panel examined the methodology"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 67,
+            "uuid": "lw-v3-c2-07",
+            "question": "{a1} it challenged the assumptions",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Then",
+                    "options": [
+                        "Then",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} it challenged the assumptions"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 68,
+            "uuid": "lw-v3-c2-08",
+            "question": "{a1} it endorsed the final report",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Finally",
+                    "options": [
+                        "Finally",
+                        "Because",
+                        "Although",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows sequence.",
+                    "gap_tags": [
+                        "sequence"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sequence"
+            ],
+            "variants": [
+                "{a1} it endorsed the final report"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 69,
+            "uuid": "lw-v3-c2-09",
+            "question": "the contract terms were ambiguous {a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the contract terms were ambiguous {a1} the parties requested clarification"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 70,
+            "uuid": "lw-v3-c2-10",
+            "question": "{a1} the argument was elegantly constructed its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "{a1} the argument was elegantly constructed its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 71,
+            "uuid": "lw-v3-c2-11",
+            "question": "The appeal was dismissed {a1} the claimant missed the deadline",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so",
+                        "therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The appeal was dismissed {a1} the claimant missed the deadline"
+            ],
+            "source": "theory_page_linking_words"
+        },
+        {
+            "id": 72,
+            "uuid": "lw-v3-c2-12",
+            "question": "the contract terms were ambiguous {a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "so that"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal linking words.",
+                    "gap_tags": [
+                        "formal_linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_linking_words"
+            ],
+            "variants": [
+                "the contract terms were ambiguous {a1} the parties requested clarification"
+            ],
+            "source": "theory_page_linking_words"
+        }
+    ],
+    "saved_test": {
+        "uuid": "clw-lw-v3-all",
+        "slug": "linking-words-all-levels-v3",
+        "name": "Linking Words: V3 All Levels",
+        "description": "Page-local V3 package for Linking Words with A1-C2 coverage.",
+        "question_uuids": [
+            "lw-v3-a1-01",
+            "lw-v3-a1-02",
+            "lw-v3-a1-03",
+            "lw-v3-a1-04",
+            "lw-v3-a1-05",
+            "lw-v3-a1-06",
+            "lw-v3-a1-07",
+            "lw-v3-a1-08",
+            "lw-v3-a1-09",
+            "lw-v3-a1-10",
+            "lw-v3-a1-11",
+            "lw-v3-a1-12",
+            "lw-v3-a2-01",
+            "lw-v3-a2-02",
+            "lw-v3-a2-03",
+            "lw-v3-a2-04",
+            "lw-v3-a2-05",
+            "lw-v3-a2-06",
+            "lw-v3-a2-07",
+            "lw-v3-a2-08",
+            "lw-v3-a2-09",
+            "lw-v3-a2-10",
+            "lw-v3-a2-11",
+            "lw-v3-a2-12",
+            "lw-v3-b1-01",
+            "lw-v3-b1-02",
+            "lw-v3-b1-03",
+            "lw-v3-b1-04",
+            "lw-v3-b1-05",
+            "lw-v3-b1-06",
+            "lw-v3-b1-07",
+            "lw-v3-b1-08",
+            "lw-v3-b1-09",
+            "lw-v3-b1-10",
+            "lw-v3-b1-11",
+            "lw-v3-b1-12",
+            "lw-v3-b2-01",
+            "lw-v3-b2-02",
+            "lw-v3-b2-03",
+            "lw-v3-b2-04",
+            "lw-v3-b2-05",
+            "lw-v3-b2-06",
+            "lw-v3-b2-07",
+            "lw-v3-b2-08",
+            "lw-v3-b2-09",
+            "lw-v3-b2-10",
+            "lw-v3-b2-11",
+            "lw-v3-b2-12",
+            "lw-v3-c1-01",
+            "lw-v3-c1-02",
+            "lw-v3-c1-03",
+            "lw-v3-c1-04",
+            "lw-v3-c1-05",
+            "lw-v3-c1-06",
+            "lw-v3-c1-07",
+            "lw-v3-c1-08",
+            "lw-v3-c1-09",
+            "lw-v3-c1-10",
+            "lw-v3-c1-11",
+            "lw-v3-c1-12",
+            "lw-v3-c2-01",
+            "lw-v3-c2-02",
+            "lw-v3-c2-03",
+            "lw-v3-c2-04",
+            "lw-v3-c2-05",
+            "lw-v3-c2-06",
+            "lw-v3-c2-07",
+            "lw-v3-c2-08",
+            "lw-v3-c2-09",
+            "lw-v3-c2-10",
+            "lw-v3-c2-11",
+            "lw-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\LinkingWordsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "linking-words",
+                    "title": "Linking Words",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsLinkingWordsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/linking-words"
+                }
+            }
+        }
+    }
+}

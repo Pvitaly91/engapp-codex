@@ -1,0 +1,2261 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\CanCouldAllLevelsV3Seeder",
+        "uuid_namespace": "CanCouldAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "theory_page_can_could": {
+            "name": "Can / Could"
+        }
+    },
+    "tags": {
+        "modal_can_could": {
+            "name": "Can / Could",
+            "category": "modal-verbs"
+        },
+        "can_ability": {
+            "name": "Can Ability",
+            "category": "topic"
+        },
+        "could_past_ability": {
+            "name": "Could Past Ability",
+            "category": "topic"
+        },
+        "permission": {
+            "name": "Permission",
+            "category": "topic"
+        },
+        "polite_request": {
+            "name": "Polite Request",
+            "category": "topic"
+        },
+        "possibility": {
+            "name": "Possibility",
+            "category": "topic"
+        },
+        "negative_forms": {
+            "name": "Negative Forms",
+            "category": "topic"
+        },
+        "question_forms": {
+            "name": "Question Forms",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "modal_can_could"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cc-v3-a1-01",
+            "question": "I {a1} swim well",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "have to",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "I {a1} swim well"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 2,
+            "uuid": "cc-v3-a1-02",
+            "question": "When I was six I {a1} read simple books",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "was able to",
+                        "must",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Could Past Ability.",
+                    "gap_tags": [
+                        "could_past_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_past_ability"
+            ],
+            "variants": [
+                "When I was six I {a1} read simple books"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 3,
+            "uuid": "cc-v3-a1-03",
+            "question": "You {a1} sit here",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "have to",
+                        "may have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Permission.",
+                    "gap_tags": [
+                        "permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "permission"
+            ],
+            "variants": [
+                "You {a1} sit here"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 4,
+            "uuid": "cc-v3-a1-04",
+            "question": "{a1} you help me",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "might have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Polite Request.",
+                    "gap_tags": [
+                        "polite_request"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "polite_request"
+            ],
+            "variants": [
+                "{a1} you help me"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 5,
+            "uuid": "cc-v3-a1-05",
+            "question": "It {a1} rain later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "It {a1} rain later"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 6,
+            "uuid": "cc-v3-a1-06",
+            "question": "I {a1} hear you",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "can",
+                        "could",
+                        "must not",
+                        "should not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "I {a1} hear you"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 7,
+            "uuid": "cc-v3-a1-07",
+            "question": "I {a1} sleep last night",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "could",
+                        "can",
+                        "must not",
+                        "was able to",
+                        "should not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "I {a1} sleep last night"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 8,
+            "uuid": "cc-v3-a1-08",
+            "question": "{a1} you swim",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Could",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} you swim"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 9,
+            "uuid": "cc-v3-a1-09",
+            "question": "{a1} you help us today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Can",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} you help us today"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 10,
+            "uuid": "cc-v3-a1-10",
+            "question": "She {a1} speak English",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "cans",
+                        "can to",
+                        "could to",
+                        "must to",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She {a1} speak English"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 11,
+            "uuid": "cc-v3-a1-11",
+            "question": "We {a1} finish this today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "has to",
+                        "should",
+                        "will be"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "We {a1} finish this today"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 12,
+            "uuid": "cc-v3-a1-12",
+            "question": "Roads {a1} be icy in winter",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "has to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "Roads {a1} be icy in winter"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 13,
+            "uuid": "cc-v3-a2-01",
+            "question": "My sister {a1} drive now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "have to",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "My sister {a1} drive now"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 14,
+            "uuid": "cc-v3-a2-02",
+            "question": "My grandfather {a1} speak Polish as a child",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "was able to",
+                        "must",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Could Past Ability.",
+                    "gap_tags": [
+                        "could_past_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_past_ability"
+            ],
+            "variants": [
+                "My grandfather {a1} speak Polish as a child"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 15,
+            "uuid": "cc-v3-a2-03",
+            "question": "Students {a1} use a dictionary in this task",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "have to",
+                        "may have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Permission.",
+                    "gap_tags": [
+                        "permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "permission"
+            ],
+            "variants": [
+                "Students {a1} use a dictionary in this task"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 16,
+            "uuid": "cc-v3-a2-04",
+            "question": "{a1} you open the window please",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "might have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Polite Request.",
+                    "gap_tags": [
+                        "polite_request"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "polite_request"
+            ],
+            "variants": [
+                "{a1} you open the window please"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 17,
+            "uuid": "cc-v3-a2-05",
+            "question": "This key {a1} open the side door",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This key {a1} open the side door"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 18,
+            "uuid": "cc-v3-a2-06",
+            "question": "She {a1} come tonight",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "can",
+                        "could",
+                        "must not",
+                        "should not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "She {a1} come tonight"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 19,
+            "uuid": "cc-v3-a2-07",
+            "question": "They {a1} find the address yesterday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "could",
+                        "can",
+                        "must not",
+                        "was able to",
+                        "should not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "They {a1} find the address yesterday"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 20,
+            "uuid": "cc-v3-a2-08",
+            "question": "{a1} I use your phone",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Could",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} I use your phone"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 21,
+            "uuid": "cc-v3-a2-09",
+            "question": "{a1} I ask a question",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Can",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} I ask a question"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 22,
+            "uuid": "cc-v3-a2-10",
+            "question": "He {a1} play chess well",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "cans",
+                        "can to",
+                        "could to",
+                        "must to",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He {a1} play chess well"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 23,
+            "uuid": "cc-v3-a2-11",
+            "question": "They {a1} join the call now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "has to",
+                        "should",
+                        "will be"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "They {a1} join the call now"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 24,
+            "uuid": "cc-v3-a2-12",
+            "question": "This medicine {a1} make you sleepy",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "has to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "This medicine {a1} make you sleepy"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 25,
+            "uuid": "cc-v3-b1-01",
+            "question": "With this app you {a1} learn faster",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "have to",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "With this app you {a1} learn faster"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 26,
+            "uuid": "cc-v3-b1-02",
+            "question": "Before the injury she {a1} run very fast",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "was able to",
+                        "must",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Could Past Ability.",
+                    "gap_tags": [
+                        "could_past_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_past_ability"
+            ],
+            "variants": [
+                "Before the injury she {a1} run very fast"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 27,
+            "uuid": "cc-v3-b1-03",
+            "question": "Visitors {a1} park behind the building",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "have to",
+                        "may have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Permission.",
+                    "gap_tags": [
+                        "permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "permission"
+            ],
+            "variants": [
+                "Visitors {a1} park behind the building"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 28,
+            "uuid": "cc-v3-b1-04",
+            "question": "{a1} you call me after lunch",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "might have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Polite Request.",
+                    "gap_tags": [
+                        "polite_request"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "polite_request"
+            ],
+            "variants": [
+                "{a1} you call me after lunch"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 29,
+            "uuid": "cc-v3-b1-05",
+            "question": "The delay {a1} cause problems tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "The delay {a1} cause problems tomorrow"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 30,
+            "uuid": "cc-v3-b1-06",
+            "question": "We {a1} use this password anymore",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "can",
+                        "could",
+                        "must not",
+                        "should not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "We {a1} use this password anymore"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 31,
+            "uuid": "cc-v3-b1-07",
+            "question": "We {a1} open the old document",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "could",
+                        "can",
+                        "must not",
+                        "was able to",
+                        "should not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "We {a1} open the old document"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 32,
+            "uuid": "cc-v3-b1-08",
+            "question": "{a1} we start now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Could",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} we start now"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 33,
+            "uuid": "cc-v3-b1-09",
+            "question": "{a1} we meet at six",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Can",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} we meet at six"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 34,
+            "uuid": "cc-v3-b1-10",
+            "question": "My phone {a1} translate short texts",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "cans",
+                        "can to",
+                        "could to",
+                        "must to",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My phone {a1} translate short texts"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 35,
+            "uuid": "cc-v3-b1-11",
+            "question": "You {a1} save the file as PDF",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "has to",
+                        "should",
+                        "will be"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "You {a1} save the file as PDF"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 36,
+            "uuid": "cc-v3-b1-12",
+            "question": "Online forms {a1} be confusing",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "has to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "Online forms {a1} be confusing"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 37,
+            "uuid": "cc-v3-b2-01",
+            "question": "Most adults {a1} manage simple online forms",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "have to",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "Most adults {a1} manage simple online forms"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 38,
+            "uuid": "cc-v3-b2-02",
+            "question": "At university he {a1} solve complex equations quickly",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "was able to",
+                        "must",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Could Past Ability.",
+                    "gap_tags": [
+                        "could_past_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_past_ability"
+            ],
+            "variants": [
+                "At university he {a1} solve complex equations quickly"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 39,
+            "uuid": "cc-v3-b2-03",
+            "question": "Members {a1} access the archive after registration",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "have to",
+                        "may have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Permission.",
+                    "gap_tags": [
+                        "permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "permission"
+            ],
+            "variants": [
+                "Members {a1} access the archive after registration"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 40,
+            "uuid": "cc-v3-b2-04",
+            "question": "{a1} you send the contract again",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "might have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Polite Request.",
+                    "gap_tags": [
+                        "polite_request"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "polite_request"
+            ],
+            "variants": [
+                "{a1} you send the contract again"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 41,
+            "uuid": "cc-v3-b2-05",
+            "question": "A small error {a1} change the result completely",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "A small error {a1} change the result completely"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 42,
+            "uuid": "cc-v3-b2-06",
+            "question": "The program {a1} run without the license file",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "can",
+                        "could",
+                        "must not",
+                        "should not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "The program {a1} run without the license file"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 43,
+            "uuid": "cc-v3-b2-07",
+            "question": "The team {a1} reproduce the earlier result",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "could",
+                        "can",
+                        "must not",
+                        "was able to",
+                        "should not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "The team {a1} reproduce the earlier result"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 44,
+            "uuid": "cc-v3-b2-08",
+            "question": "{a1} this machine work offline",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Could",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} this machine work offline"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 45,
+            "uuid": "cc-v3-b2-09",
+            "question": "{a1} you forward the revised file",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Can",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} you forward the revised file"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 46,
+            "uuid": "cc-v3-b2-10",
+            "question": "The new printer {a1} scan both sides",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "cans",
+                        "can to",
+                        "could to",
+                        "must to",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The new printer {a1} scan both sides"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 47,
+            "uuid": "cc-v3-b2-11",
+            "question": "A trained nurse {a1} recognize the symptoms early",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "has to",
+                        "should",
+                        "will be"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "A trained nurse {a1} recognize the symptoms early"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 48,
+            "uuid": "cc-v3-b2-12",
+            "question": "Minor wording changes {a1} have legal consequences",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "has to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "Minor wording changes {a1} have legal consequences"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 49,
+            "uuid": "cc-v3-c1-01",
+            "question": "The system {a1} process thousands of requests per minute",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "have to",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "The system {a1} process thousands of requests per minute"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 50,
+            "uuid": "cc-v3-c1-02",
+            "question": "In earlier versions the device {a1} operate without a network",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "was able to",
+                        "must",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Could Past Ability.",
+                    "gap_tags": [
+                        "could_past_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_past_ability"
+            ],
+            "variants": [
+                "In earlier versions the device {a1} operate without a network"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 51,
+            "uuid": "cc-v3-c1-03",
+            "question": "Researchers {a1} consult the original files on request",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "have to",
+                        "may have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Permission.",
+                    "gap_tags": [
+                        "permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "permission"
+            ],
+            "variants": [
+                "Researchers {a1} consult the original files on request"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 52,
+            "uuid": "cc-v3-c1-04",
+            "question": "{a1} you clarify the final paragraph for us",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "might have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Polite Request.",
+                    "gap_tags": [
+                        "polite_request"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "polite_request"
+            ],
+            "variants": [
+                "{a1} you clarify the final paragraph for us"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 53,
+            "uuid": "cc-v3-c1-05",
+            "question": "The new rule {a1} affect independent contractors",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "The new rule {a1} affect independent contractors"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 54,
+            "uuid": "cc-v3-c1-06",
+            "question": "The proposal {a1} be accepted in its current form",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "can",
+                        "could",
+                        "must not",
+                        "should not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "The proposal {a1} be accepted in its current form"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 55,
+            "uuid": "cc-v3-c1-07",
+            "question": "The witness {a1} identify the driver with confidence",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "could",
+                        "can",
+                        "must not",
+                        "was able to",
+                        "should not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "The witness {a1} identify the driver with confidence"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 56,
+            "uuid": "cc-v3-c1-08",
+            "question": "{a1} children enter without a ticket",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Could",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} children enter without a ticket"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 57,
+            "uuid": "cc-v3-c1-09",
+            "question": "{a1} the data support another interpretation",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Can",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} the data support another interpretation"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 58,
+            "uuid": "cc-v3-c1-10",
+            "question": "The model {a1} detect repeated patterns",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "cans",
+                        "can to",
+                        "could to",
+                        "must to",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The model {a1} detect repeated patterns"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 59,
+            "uuid": "cc-v3-c1-11",
+            "question": "The algorithm {a1} classify most routine cases",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "has to",
+                        "should",
+                        "will be"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "The algorithm {a1} classify most routine cases"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 60,
+            "uuid": "cc-v3-c1-12",
+            "question": "Repeated exposure {a1} reduce sensitivity over time",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "has to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "Repeated exposure {a1} reduce sensitivity over time"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 61,
+            "uuid": "cc-v3-c2-01",
+            "question": "Experienced negotiators {a1} detect hesitation from small details",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "have to",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "Experienced negotiators {a1} detect hesitation from small details"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 62,
+            "uuid": "cc-v3-c2-02",
+            "question": "Before the reform smaller firms {a1} avoid several reporting duties",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "was able to",
+                        "must",
+                        "should",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Could Past Ability.",
+                    "gap_tags": [
+                        "could_past_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_past_ability"
+            ],
+            "variants": [
+                "Before the reform smaller firms {a1} avoid several reporting duties"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 63,
+            "uuid": "cc-v3-c2-03",
+            "question": "Participants {a1} withdraw their consent at any stage",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "have to",
+                        "may have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Permission.",
+                    "gap_tags": [
+                        "permission"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "permission"
+            ],
+            "variants": [
+                "Participants {a1} withdraw their consent at any stage"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 64,
+            "uuid": "cc-v3-c2-04",
+            "question": "{a1} you indicate which assumption you find weakest",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "might have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Polite Request.",
+                    "gap_tags": [
+                        "polite_request"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "polite_request"
+            ],
+            "variants": [
+                "{a1} you indicate which assumption you find weakest"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 65,
+            "uuid": "cc-v3-c2-05",
+            "question": "An overlooked variable {a1} explain the apparent contradiction",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can",
+                        "must",
+                        "should",
+                        "have to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "An overlooked variable {a1} explain the apparent contradiction"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 66,
+            "uuid": "cc-v3-c2-06",
+            "question": "The conclusion {a1} be defended without further evidence",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "can",
+                        "could",
+                        "must not",
+                        "should not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "The conclusion {a1} be defended without further evidence"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 67,
+            "uuid": "cc-v3-c2-07",
+            "question": "The committee {a1} reach a defensible compromise",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "could",
+                        "can",
+                        "must not",
+                        "was able to",
+                        "should not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "The committee {a1} reach a defensible compromise"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 68,
+            "uuid": "cc-v3-c2-08",
+            "question": "{a1} the clause be interpreted more narrowly",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Could",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} the clause be interpreted more narrowly"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 69,
+            "uuid": "cc-v3-c2-09",
+            "question": "{a1} this exception apply to cross-border cases",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Can",
+                        "Must",
+                        "Should",
+                        "Have",
+                        "Do"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Question Forms.",
+                    "gap_tags": [
+                        "question_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_forms"
+            ],
+            "variants": [
+                "{a1} this exception apply to cross-border cases"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 70,
+            "uuid": "cc-v3-c2-10",
+            "question": "A narrow reading {a1} avoid the inconsistency",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "cans",
+                        "can to",
+                        "could to",
+                        "must to",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "A narrow reading {a1} avoid the inconsistency"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 71,
+            "uuid": "cc-v3-c2-11",
+            "question": "A careful reader {a1} infer the missing premise",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "has to",
+                        "should",
+                        "will be"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Can Ability.",
+                    "gap_tags": [
+                        "can_ability"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "can_ability"
+            ],
+            "variants": [
+                "A careful reader {a1} infer the missing premise"
+            ],
+            "source": "theory_page_can_could"
+        },
+        {
+            "id": 72,
+            "uuid": "cc-v3-c2-12",
+            "question": "A single assumption {a1} distort an entire theoretical model",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "could",
+                        "must",
+                        "should",
+                        "has to",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Possibility.",
+                    "gap_tags": [
+                        "possibility"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possibility"
+            ],
+            "variants": [
+                "A single assumption {a1} distort an entire theoretical model"
+            ],
+            "source": "theory_page_can_could"
+        }
+    ],
+    "saved_test": {
+        "uuid": "modal-cc-v3-all",
+        "slug": "can-could-all-levels-v3",
+        "name": "Can / Could: V3 All Levels",
+        "description": "Page-local V3 package for Can / Could with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ModalVerbs\\CanCouldAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "can-could",
+                    "title": "Can / Could",
+                    "category_slug_path": "modal-verbs",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsCanCouldTheorySeeder",
+                    "url": "https://gramlyze.com/theory/modal-verbs/can-could"
+                }
+            }
+        }
+    }
+}

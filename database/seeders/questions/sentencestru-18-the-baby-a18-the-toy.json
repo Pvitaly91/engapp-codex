@@ -1,0 +1,280 @@
+{
+    "question": {
+        "id": 36,
+        "uuid": "sentencestru-18-the-baby-a18-the-toy",
+        "question": "The baby {a18} the toy.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-26T14:31:55.000000Z",
+        "updated_at": "2026-05-26T14:32:03.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:31:54.000000Z",
+        "updated_at": "2026-05-26T14:31:54.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:31:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-26T14:31:50.000000Z",
+                "updated_at": "2026-05-26T14:31:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 102,
+                "option": "holds",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "option_id": 102,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 104,
+                "option": "the toy holds",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "option_id": 104,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 105,
+                "option": "the baby the toy",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 36,
+                "option_id": 105,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 36,
+                "question_id": 36,
+                "marker": "a18",
+                "option_id": 102,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 102,
+                "option": "holds",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 18,
+                "question_id": 36,
+                "marker": "a18",
+                "option_id": 103,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 103,
+                "option": "action between S and O",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 36,
+            "question_id": 36,
+            "text": "The baby {a18} the toy.",
+            "created_at": "2026-05-26T14:31:55.000000Z",
+            "updated_at": "2026-05-26T14:31:55.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 70,
+            "question_id": 36,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "SVO: the verb is the bridge between subject and object.\nSubject: `The baby`, object: `the toy`. What verb connects them?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 71,
+            "question_id": 36,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "SVO: the verb is the bridge between subject and object.\nSubject: `The baby`, object: `the toy`. What verb connects them?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 72,
+            "question_id": 36,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "SVO: підмет → дієслово → додаток. Дієслово — це «міст» між підметом і додатком.\nПідмет — `The baby`, додаток — `the toy`. Яке дієслово стоїть між ними?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 313,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "holds",
+            "correct_answer": "holds",
+            "language": "en",
+            "explanation": "Correct: 'holds' connects 'The baby' (S) and 'the toy' (O).",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 316,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "holds",
+            "correct_answer": "holds",
+            "language": "pl",
+            "explanation": "Correct: 'holds' connects 'The baby' (S) and 'the toy' (O).",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 319,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "holds",
+            "correct_answer": "holds",
+            "language": "ua",
+            "explanation": "Правильно: «holds» — дієслово між підметом `The baby` та додатком `the toy`. SVO дотримано.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 320,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "holds",
+            "correct_answer": "holds",
+            "language": "uk",
+            "explanation": "Правильно: «holds» — дієслово між підметом `The baby` та додатком `the toy`. SVO дотримано.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 315,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the baby the toy",
+            "correct_answer": "holds",
+            "language": "en",
+            "explanation": "Incorrect: without a verb, there is no predicate.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 318,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the baby the toy",
+            "correct_answer": "holds",
+            "language": "pl",
+            "explanation": "Incorrect: without a verb, there is no predicate.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 323,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the baby the toy",
+            "correct_answer": "holds",
+            "language": "ua",
+            "explanation": "Неправильно: без дієслова речення не має сенсу. SVO вимагає дію між підметом і додатком.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 324,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the baby the toy",
+            "correct_answer": "holds",
+            "language": "uk",
+            "explanation": "Неправильно: без дієслова речення не має сенсу. SVO вимагає дію між підметом і додатком.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 314,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the toy holds",
+            "correct_answer": "holds",
+            "language": "en",
+            "explanation": "Incorrect: the object cannot precede the verb.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 317,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the toy holds",
+            "correct_answer": "holds",
+            "language": "pl",
+            "explanation": "Incorrect: the object cannot precede the verb.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 321,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the toy holds",
+            "correct_answer": "holds",
+            "language": "ua",
+            "explanation": "Неправильно: додаток не може стояти перед дієсловом у стверджувальному реченні.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 322,
+            "question": "The baby {a18} the toy.",
+            "wrong_answer": "the toy holds",
+            "correct_answer": "holds",
+            "language": "uk",
+            "explanation": "Неправильно: додаток не може стояти перед дієсловом у стверджувальному реченні.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        }
+    ]
+}

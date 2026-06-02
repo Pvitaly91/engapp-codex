@@ -1,0 +1,1867 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\QuestionFormsAllLevelsV3Seeder",
+        "uuid_namespace": "QuestionFormsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_question_forms": {
+            "name": "Question Forms"
+        }
+    },
+    "tags": {
+        "question_forms": {
+            "name": "Question Forms",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "general_structure": {
+            "name": "General Structure",
+            "category": "topic"
+        },
+        "auxiliary_before_subject": {
+            "name": "Auxiliary Before Subject",
+            "category": "topic"
+        },
+        "yes_no_questions": {
+            "name": "Yes No Questions",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh Questions",
+            "category": "topic"
+        },
+        "do_does_did": {
+            "name": "Do Does Did",
+            "category": "topic"
+        },
+        "to_be_questions": {
+            "name": "To Be Questions",
+            "category": "topic"
+        },
+        "modal_questions": {
+            "name": "Modal Questions",
+            "category": "topic"
+        },
+        "perfect_auxiliary_questions": {
+            "name": "Perfect Auxiliary Questions",
+            "category": "topic"
+        },
+        "question_word_order": {
+            "name": "Question Word Order",
+            "category": "topic"
+        },
+        "subject_questions_overview": {
+            "name": "Subject Questions Overview",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "question_forms"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qf-v3-a1-01",
+            "question": "{a1} you ready?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Does",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "qf-v3-a1-02",
+            "question": "{a1} we wait here?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "auxiliary_before_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "qf-v3-a1-03",
+            "question": "{a1} it cold outside?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "yes_no_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Do",
+                        "Can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "qf-v3-a1-04",
+            "question": "{a1} do you live?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "wh_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Do",
+                        "Are",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "qf-v3-a1-05",
+            "question": "{a1} you speak English?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "qf-v3-a1-06",
+            "question": "{a1} you at home?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "to_be_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Does",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "qf-v3-a1-07",
+            "question": "{a1} you help me?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "modal_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "qf-v3-a1-08",
+            "question": "{a1} you finished?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "perfect_auxiliary_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "qf-v3-a1-09",
+            "question": "Where {a1} you live?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "question_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "you",
+                        "are",
+                        "does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "qf-v3-a1-10",
+            "question": "Who {a1} here?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "subject_questions_overview"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lives",
+                    "options": [
+                        "lives",
+                        "does live",
+                        "do live",
+                        "live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "qf-v3-a1-11",
+            "question": "Correct form: {a1} you happy?",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "You are",
+                        "Does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "qf-v3-a1-12",
+            "question": "A yes/no question often begins with {a1}.",
+            "level": "A1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a1",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "auxiliary",
+                    "options": [
+                        "auxiliary",
+                        "subject",
+                        "object",
+                        "article"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "qf-v3-a2-01",
+            "question": "{a1} they like music?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "qf-v3-a2-02",
+            "question": "{a1} Tom drive to work?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "auxiliary_before_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "qf-v3-a2-03",
+            "question": "{a1} your parents live nearby?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "yes_no_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "qf-v3-a2-04",
+            "question": "{a1} does the lesson start?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "wh_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Where",
+                        "Does",
+                        "Who"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "qf-v3-a2-05",
+            "question": "{a1} she play tennis?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "qf-v3-a2-06",
+            "question": "{a1} she a doctor?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "to_be_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Do",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "qf-v3-a2-07",
+            "question": "{a1} we start now?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "modal_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "May",
+                    "options": [
+                        "May",
+                        "Do",
+                        "Are",
+                        "Have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "qf-v3-a2-08",
+            "question": "{a1} she seen this photo?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "perfect_auxiliary_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Is",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "qf-v3-a2-09",
+            "question": "What {a1} she want?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "question_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "she",
+                        "is",
+                        "do"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "qf-v3-a2-10",
+            "question": "What {a1} on the table?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "subject_questions_overview"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "do",
+                        "has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "qf-v3-a2-11",
+            "question": "Correct form: Where {a1} she live?",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "she",
+                        "is",
+                        "do"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "qf-v3-a2-12",
+            "question": "In a normal question, the auxiliary comes before the {a1}.",
+            "level": "A2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_a2",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "object",
+                        "adverb",
+                        "noun"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "qf-v3-b1-01",
+            "question": "{a1} she working now?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Did",
+                        "Can"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "qf-v3-b1-02",
+            "question": "{a1} they arrive yesterday?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "auxiliary_before_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Were",
+                        "Have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "qf-v3-b1-03",
+            "question": "{a1} he finish the task last night?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "yes_no_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Does",
+                        "Has",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "qf-v3-b1-04",
+            "question": "{a1} did they leave early?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "wh_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Why",
+                    "options": [
+                        "Why",
+                        "When",
+                        "Did",
+                        "How"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "qf-v3-b1-05",
+            "question": "{a1} they call you yesterday?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Have",
+                        "Were"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "qf-v3-b1-06",
+            "question": "{a1} they tired after the trip?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "to_be_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Did",
+                        "Are",
+                        "Was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "qf-v3-b1-07",
+            "question": "{a1} they come tomorrow?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "modal_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "qf-v3-b1-08",
+            "question": "{a1} they left before lunch?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "perfect_auxiliary_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Did",
+                        "Have",
+                        "Were"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "qf-v3-b1-09",
+            "question": "When {a1} they arrive?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "question_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "they",
+                        "were",
+                        "do"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "qf-v3-b1-10",
+            "question": "Who {a1} the window yesterday?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "subject_questions_overview"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broke",
+                    "options": [
+                        "broke",
+                        "did break",
+                        "break",
+                        "does break"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "qf-v3-b1-11",
+            "question": "Correct form: Can you {a1} me?",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "help",
+                    "options": [
+                        "help",
+                        "helps",
+                        "to help",
+                        "helped"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "qf-v3-b1-12",
+            "question": "In Simple tenses, questions often use {a1}.",
+            "level": "B1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b1",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "be",
+                        "to",
+                        "a"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "qf-v3-b2-01",
+            "question": "{a1} you ever seen this film?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Do",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "qf-v3-b2-02",
+            "question": "{a1} Anna been invited?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "auxiliary_before_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Does",
+                        "Did",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "qf-v3-b2-03",
+            "question": "{a1} they coming with us?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "yes_no_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Did",
+                        "Have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "qf-v3-b2-04",
+            "question": "{a1} have you put my keys?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "wh_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Why",
+                        "Have",
+                        "What"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "qf-v3-b2-05",
+            "question": "What {a1} he mean by that?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "do",
+                        "is",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "qf-v3-b2-06",
+            "question": "Where {a1} the files stored?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "to_be_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "have",
+                        "were"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "qf-v3-b2-07",
+            "question": "What {a1} we do next?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "modal_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "do",
+                        "are",
+                        "have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "qf-v3-b2-08",
+            "question": "What {a1} you done with the receipt?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "perfect_auxiliary_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "do",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "qf-v3-b2-09",
+            "question": "Why {a1} he waiting outside?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "question_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "did",
+                        "he"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "qf-v3-b2-10",
+            "question": "What {a1} the delay?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "subject_questions_overview"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "caused",
+                    "options": [
+                        "caused",
+                        "did cause",
+                        "does cause",
+                        "cause"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "qf-v3-b2-11",
+            "question": "Correct form: Who {a1} you?",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "does call",
+                        "call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "qf-v3-b2-12",
+            "question": "With modal verbs, the modal comes before the {a1}.",
+            "level": "B2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_b2",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "object",
+                        "main verb",
+                        "adjective"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "qf-v3-c1-01",
+            "question": "{a1} the committee approve the plan tomorrow?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Does",
+                        "Did",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "qf-v3-c1-02",
+            "question": "{a1} we have to submit the form today?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "auxiliary_before_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Are",
+                        "Have",
+                        "Should"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "qf-v3-c1-03",
+            "question": "{a1} she have the right documents?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "yes_no_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "qf-v3-c1-04",
+            "question": "{a1} should we contact if the server fails?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "wh_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Whom",
+                        "What",
+                        "Where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "qf-v3-c1-05",
+            "question": "Why {a1} the team cancel the meeting last week?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "has",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "qf-v3-c1-06",
+            "question": "Why {a1} the deadline so strict?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "to_be_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "qf-v3-c1-07",
+            "question": "Why {a1} he refuse such an offer?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "modal_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "did",
+                        "does",
+                        "has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "qf-v3-c1-08",
+            "question": "Why {a1} the contract not been signed yet?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "perfect_auxiliary_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "does",
+                        "is",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "qf-v3-c1-09",
+            "question": "How long {a1} you been studying English?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "question_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "do",
+                        "are",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "qf-v3-c1-10",
+            "question": "Who {a1} responsible for this decision?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "subject_questions_overview"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "qf-v3-c1-11",
+            "question": "Correct form: Did they {a1} the report?",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "send",
+                    "options": [
+                        "send",
+                        "sent",
+                        "sends",
+                        "sending"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "qf-v3-c1-12",
+            "question": "With Present Perfect, the question begins with have or {a1}.",
+            "level": "C1",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c1",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "does",
+                        "did",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "qf-v3-c2-01",
+            "question": "{a1} the report have been finished by noon?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Did",
+                        "Has",
+                        "Does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "qf-v3-c2-02",
+            "question": "{a1} the guests be informed before they arrive?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "auxiliary_before_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Do",
+                        "Are",
+                        "Did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "qf-v3-c2-03",
+            "question": "{a1} the final decision already been made?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "yes_no_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Did",
+                        "Does",
+                        "Will"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "qf-v3-c2-04",
+            "question": "{a1} could the policy be interpreted differently?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "wh_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "options": [
+                        "How",
+                        "Why",
+                        "Could",
+                        "What"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "qf-v3-c2-05",
+            "question": "How often {a1} the auditors review the logs?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are",
+                        "have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "qf-v3-c2-06",
+            "question": "{a1} the witnesses present during the meeting?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "to_be_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Did",
+                        "Have",
+                        "Does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "qf-v3-c2-07",
+            "question": "{a1} the board reconsider the proposal?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "modal_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Did",
+                        "Does",
+                        "Has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "qf-v3-c2-08",
+            "question": "{a1} the evidence been reviewed before the hearing?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "perfect_auxiliary_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Did",
+                        "Was",
+                        "Does"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "qf-v3-c2-09",
+            "question": "By what date {a1} the team have completed the audit?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "question_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "does",
+                        "has",
+                        "did"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "qf-v3-c2-10",
+            "question": "What {a1} the market react so sharply?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "subject_questions_overview"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "qf-v3-c2-11",
+            "question": "Correct form: Have you {a1} the update?",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "seen",
+                    "options": [
+                        "seen",
+                        "saw",
+                        "see",
+                        "seeing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "qf-v3-c2-12",
+            "question": "A subject question usually keeps {a1} word order.",
+            "level": "C2",
+            "source": "theory_page_question_forms",
+            "tag_keys": [
+                "question_forms",
+                "level_c2",
+                "general_structure"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "negative",
+                        "inverted",
+                        "passive"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn-qf-v3-all",
+        "slug": "question-forms-all-levels-v3",
+        "name": "Question Forms (All levels V3)",
+        "description": "Standard V3 package for Question Forms across A1-C2.",
+        "question_uuids": [
+            "qf-v3-a1-01",
+            "qf-v3-a1-02",
+            "qf-v3-a1-03",
+            "qf-v3-a1-04",
+            "qf-v3-a1-05",
+            "qf-v3-a1-06",
+            "qf-v3-a1-07",
+            "qf-v3-a1-08",
+            "qf-v3-a1-09",
+            "qf-v3-a1-10",
+            "qf-v3-a1-11",
+            "qf-v3-a1-12",
+            "qf-v3-a2-01",
+            "qf-v3-a2-02",
+            "qf-v3-a2-03",
+            "qf-v3-a2-04",
+            "qf-v3-a2-05",
+            "qf-v3-a2-06",
+            "qf-v3-a2-07",
+            "qf-v3-a2-08",
+            "qf-v3-a2-09",
+            "qf-v3-a2-10",
+            "qf-v3-a2-11",
+            "qf-v3-a2-12",
+            "qf-v3-b1-01",
+            "qf-v3-b1-02",
+            "qf-v3-b1-03",
+            "qf-v3-b1-04",
+            "qf-v3-b1-05",
+            "qf-v3-b1-06",
+            "qf-v3-b1-07",
+            "qf-v3-b1-08",
+            "qf-v3-b1-09",
+            "qf-v3-b1-10",
+            "qf-v3-b1-11",
+            "qf-v3-b1-12",
+            "qf-v3-b2-01",
+            "qf-v3-b2-02",
+            "qf-v3-b2-03",
+            "qf-v3-b2-04",
+            "qf-v3-b2-05",
+            "qf-v3-b2-06",
+            "qf-v3-b2-07",
+            "qf-v3-b2-08",
+            "qf-v3-b2-09",
+            "qf-v3-b2-10",
+            "qf-v3-b2-11",
+            "qf-v3-b2-12",
+            "qf-v3-c1-01",
+            "qf-v3-c1-02",
+            "qf-v3-c1-03",
+            "qf-v3-c1-04",
+            "qf-v3-c1-05",
+            "qf-v3-c1-06",
+            "qf-v3-c1-07",
+            "qf-v3-c1-08",
+            "qf-v3-c1-09",
+            "qf-v3-c1-10",
+            "qf-v3-c1-11",
+            "qf-v3-c1-12",
+            "qf-v3-c2-01",
+            "qf-v3-c2-02",
+            "qf-v3-c2-03",
+            "qf-v3-c2-04",
+            "qf-v3-c2-05",
+            "qf-v3-c2-06",
+            "qf-v3-c2-07",
+            "qf-v3-c2-08",
+            "qf-v3-c2-09",
+            "qf-v3-c2-10",
+            "qf-v3-c2-11",
+            "qf-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\QuestionFormsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "question-forms",
+                    "title": "Question Forms",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsQuestionFormsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/question-forms"
+                }
+            }
+        }
+    }
+}

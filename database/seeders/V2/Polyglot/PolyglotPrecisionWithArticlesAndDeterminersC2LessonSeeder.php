@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotPrecisionWithArticlesAndDeterminersC2LessonSeeder as V3PolyglotPrecisionWithArticlesAndDeterminersC2LessonSeeder;
+
+class PolyglotPrecisionWithArticlesAndDeterminersC2LessonSeeder extends V3PolyglotPrecisionWithArticlesAndDeterminersC2LessonSeeder
+{
+}

@@ -1,0 +1,1246 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+        "uuid_namespace": "pn-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Іменники, артиклі та кількість"
+    },
+    "sources": {
+        "theory_page_712": {
+            "name": "Plural Nouns — Множина іменників: правила, винятки, приклади"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Plural nouns",
+            "category": "topic"
+        },
+        "regular_plural": {
+            "name": "Regular plural formation",
+            "category": "pattern"
+        },
+        "spelling_rules": {
+            "name": "Plural spelling rules",
+            "category": "pattern"
+        },
+        "irregular_forms": {
+            "name": "Irregular plural forms",
+            "category": "pattern"
+        },
+        "zero_plural": {
+            "name": "Zero plural nouns",
+            "category": "pattern"
+        },
+        "singular_only_nouns": {
+            "name": "Nouns used only in the singular",
+            "category": "usage"
+        },
+        "plural_only_nouns": {
+            "name": "Nouns used only in the plural",
+            "category": "usage"
+        },
+        "latin_greek_roots": {
+            "name": "Latin and Greek plural forms",
+            "category": "pattern"
+        },
+        "compound_plurals": {
+            "name": "Compound noun plurals",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "regular_plural"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": ["a1", "q01"],
+            "question": "I have two {a1} in my bag.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "cats",
+                    "options": [
+                        "cats",
+                        "cat",
+                        "cates"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Більшість злічуваних іменників утворюють множину, додаючи закінчення -s до основи слова.",
+                        "Ключове слово `two` вказує на те, що іменник після нього повинен стояти у формі множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "cats": "Форма «cats» тут правильна: іменник «cat» закінчується на звичайний приголосний, тому множина утворюється простим додаванням -s, і це узгоджується з числом «two».",
+                            "cat": "Форма «cat» є формою однини і не узгоджується зі словом «two», яке вимагає множини.",
+                            "cates": "Форма «cates» помилкова: закінчення -es тут непотрібне, оскільки «cat» не закінчується на шиплячий звук (-s, -x, -ch, -sh, -z)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "I have two {a1} in my bag."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": ["a1", "q02"],
+            "question": "The {a1} are on the shelf.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "books",
+                    "options": [
+                        "books",
+                        "book",
+                        "bookses"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Для звичайних іменників, що не мають особливого закінчення, множина утворюється додаванням -s.",
+                        "Дієслово `are` у реченні вказує на те, що підмет стоїть у формі множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "books": "Форма «books» правильна: стандартна множина іменника «book» утворюється додаванням -s, а дієслово «are» підтверджує потребу у множині.",
+                            "book": "Форма «book» є однинною: дієслово «are» у реченні вживається лише з підметом у множині.",
+                            "bookses": "Форма «bookses» не існує в англійській мові: іменник «book» не закінчується на шиплячий, тому будь-яке подвоєне закінчення є помилкою."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "The {a1} are on the shelf."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": ["a1", "q03"],
+            "question": "Look at those big {a1}.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "boxes",
+                    "options": [
+                        "boxes",
+                        "boxs",
+                        "box"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменники, що закінчуються на -x, вимагають закінчення -es у множині.",
+                        "Вказівний займенник `those` вживається виключно з іменниками у формі множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "boxes": "Форма «boxes» правильна: після закінчення -x завжди додається -es для зручності вимови, і займенник «those» підтверджує форму множини.",
+                            "boxs": "Форма «boxs» помилкова: після -x не можна просто додати -s — така комбінація порушує правило написання та незручна для вимови.",
+                            "box": "Форма «box» є однинною і не узгоджується з займенником «those», який завжди стоїть перед іменниками у множині."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Look at those big {a1}."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": ["a1", "q04"],
+            "question": "She bought two {a1} as gifts.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "watches",
+                    "options": [
+                        "watches",
+                        "watchs",
+                        "watch"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменники, що закінчуються на -ch, утворюють множину за допомогою закінчення -es.",
+                        "Слово `two` у реченні сигналізує про необхідність форми множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "watches": "Форма «watches» правильна: «watch» закінчується на -ch, тому множина утворюється через -es, а не просто -s.",
+                            "watchs": "Форма «watchs» помилкова: після -ch не можна додавати лише -s — потрібне повне закінчення -es для правильної вимови та написання.",
+                            "watch": "Форма «watch» є однинною та суперечить числівнику «two», який вимагає форми множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "She bought two {a1} as gifts."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": ["a1", "q05"],
+            "question": "Can you wash the {a1} after dinner, please?",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "dishes",
+                    "options": [
+                        "dishes",
+                        "dishs",
+                        "dish"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменники, що закінчуються на -sh, вимагають закінчення -es у формі множини.",
+                        "Поєднання «wash the ___» у контексті прибирання після вечері зазвичай передбачає множину, і артикль «the» вживається тут узагальнено."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "dishes": "Форма «dishes» правильна: «dish» закінчується на -sh — шиплячий звук, що вимагає закінчення -es у множині.",
+                            "dishs": "Форма «dishs» помилкова: після -sh обов'язково потрібна голосна -e перед -s для правильної вимови та відповідно до правила написання.",
+                            "dish": "Форма «dish» є однинною і не підходить до контексту: «wash the dishes» — стала фраза, що передбачає множину."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Can you wash the {a1} after dinner, please?"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": ["a2", "q01"],
+            "question": "There are three {a1} crying in the nursery.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "babies",
+                    "options": [
+                        "babies",
+                        "babys",
+                        "baby"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Якщо іменник закінчується на приголосний + -y, потрібно замінити -y на -ies для утворення множини.",
+                        "Слово `three` та дієслово `are` вказують на форму множини — однинна форма тут не підходить."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "babies": "Форма «babies» правильна: «baby» закінчується на приголосний (b) + -y, тому -y замінюється на -ies.",
+                            "babys": "Форма «babys» помилкова: не можна просто додати -s до іменника на -y після приголосного — правило вимагає заміни -y на -ies.",
+                            "baby": "Форма «baby» є однинною і не узгоджується з «three» та «are»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "There are three {a1} crying in the nursery."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": ["a2", "q02"],
+            "question": "She visited four European {a1} during her trip.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "cities",
+                    "options": [
+                        "cities",
+                        "citys",
+                        "city"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменники на приголосний + -y утворюють множину за схемою -y → -ies.",
+                        "Числівник `four` після себе вимагає форму множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "cities": "Форма «cities» правильна: «city» закінчується на -ty (приголосний + -y), тому -y замінюється на -ies.",
+                            "citys": "Форма «citys» помилкова: після приголосного + -y ніколи не додається лише -s — правило однозначно вимагає -ies.",
+                            "city": "Форма «city» є однинною та не узгоджується з числівником «four», який вимагає множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "She visited four European {a1} during her trip."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": ["a2", "q03"],
+            "question": "Two {a1} left the station at the same time.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "buses",
+                    "options": [
+                        "buses",
+                        "buss",
+                        "bus"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменники, що закінчуються на -s, утворюють множину додаванням -es, а не просто -s.",
+                        "Числівник `Two` перед порожнім місцем вказує на форму множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "buses": "Форма «buses» правильна: «bus» закінчується на -s, тому потрібне закінчення -es, а не просто -s.",
+                            "buss": "Форма «buss» помилкова та має інше значення (поцілунок); іменник «bus» у множині пишеться «buses».",
+                            "bus": "Форма «bus» є однинною та не відповідає числівнику «Two»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Two {a1} left the station at the same time."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": ["a2", "q04"],
+            "question": "He grew several {a1} in his garden last summer.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "tomatoes",
+                    "options": [
+                        "tomatoes",
+                        "tomatos",
+                        "tomato"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Більшість іменників, що закінчуються на -o після приголосного (крім запозичень), утворюють множину через -oes.",
+                        "Слово `several` перед порожнім місцем вимагає форми множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "tomatoes": "Форма «tomatoes» правильна: «tomato» належить до іменників на -o, що утворюють множину через -oes (так само: potato → potatoes).",
+                            "tomatos": "Форма «tomatos» помилкова: для слова «tomato» правильне закінчення -oes, а не просто -s — потрібно додати -e перед -s.",
+                            "tomato": "Форма «tomato» є однинною та не узгоджується зі словом «several», яке передбачає множину."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "He grew several {a1} in his garden last summer."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": ["a2", "q05"],
+            "question": "In autumn, the {a1} of the trees turn golden.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "leaves",
+                    "options": [
+                        "leaves",
+                        "leafs",
+                        "leaf"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Деякі іменники, що закінчуються на -f або -fe, утворюють множину, замінюючи -f/-fe на -ves.",
+                        "Артикль `the` та контекст (кілька дерев) вказують на те, що йдеться про множину листків."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "leaves": "Форма «leaves» правильна: «leaf» належить до іменників, де -f замінюється на -ves у множині (так само: loaf → loaves, half → halves).",
+                            "leafs": "Форма «leafs» помилкова: слово «leaf» не утворює множину простим додаванням -s; потрібна заміна -f на -ves.",
+                            "leaf": "Форма «leaf» є однинною: контекст речення (trees у множині та опис загального явища) передбачає форму множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "In autumn, the {a1} of the trees turn golden."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": ["b1", "q01"],
+            "question": "The {a1} in the factory work long shifts every week.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "men",
+                    "options": [
+                        "men",
+                        "mans",
+                        "man"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Слово «man» має неправильну форму множини, яку потрібно запам'ятати: вона утворюється зміною кореневої голосної, а не додаванням закінчення.",
+                        "Дієслово `work` без -s та загальний контекст «фабрика та довгі зміни» вказують на підмет у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "men": "Форма «men» правильна: «man» → «men» — неправильна множина із зміною голосної в корені (внутрішня зміна, успадкована від давньоанглійської).",
+                            "mans": "Форма «mans» не існує в англійській мові: «man» не утворює множину додаванням -s, оскільки є нерегулярним іменником.",
+                            "man": "Форма «man» є однинною та не узгоджується з дієсловом «work» і загальним значенням речення про групу людей."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "The {a1} in the factory work long shifts every week."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": ["b1", "q02"],
+            "question": "All the {a1} played happily in the park after school.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "children",
+                    "options": [
+                        "children",
+                        "childs",
+                        "child"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Слово «child» має неправильну множину: вона не утворюється ані через -s, ані через -es, і її потрібно запам'ятати.",
+                        "Слово `All` на початку та дієслово `played` вказують на підмет у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "children": "Форма «children» правильна: це нерегулярна множина іменника «child», яку потрібно запам'ятати окремо.",
+                            "childs": "Форма «childs» не існує: «child» є нерегулярним іменником і не утворює множину через додавання -s.",
+                            "child": "Форма «child» є однинною і не поєднується з «All the ___» у значенні всіх дітей."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "All the {a1} played happily in the park after school."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": ["b1", "q03"],
+            "question": "After the long hike, her {a1} were sore.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "feet",
+                    "options": [
+                        "feet",
+                        "foots",
+                        "foot"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Foot» має неправильну форму множини, де корінь слова змінюється — це так звана умлаутна множина, успадкована від давньоанглійської.",
+                        "Дієслово `were` вказує на підмет у множині — потрібна форма множини іменника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "feet": "Форма «feet» правильна: «foot» → «feet» — неправильна множина із зміною голосної в корені (аналогічно: tooth → teeth).",
+                            "foots": "Форма «foots» не існує: «foot» не утворює множину через -s, оскільки є нерегулярним іменником.",
+                            "foot": "Форма «foot» є однинною: дієслово «were» вимагає підмета у множині."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "After the long hike, her {a1} were sore."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": ["b1", "q04"],
+            "question": "The two {a1} decided to start a business together.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "wives",
+                    "options": [
+                        "wives",
+                        "wifes",
+                        "wife"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменники, що закінчуються на -fe, утворюють множину через заміну -fe на -ves.",
+                        "Числівник `two` перед порожнім місцем вказує на форму множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wives": "Форма «wives» правильна: «wife» закінчується на -fe, тому -fe замінюється на -ves (так само: knife → knives, life → lives).",
+                            "wifes": "Форма «wifes» помилкова: для іменників на -fe не можна просто додавати -s; правило вимагає заміни -fe на -ves.",
+                            "wife": "Форма «wife» є однинною і не узгоджується з «two»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The two {a1} decided to start a business together."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": ["b1", "q05"],
+            "question": "A flock of {a1} was grazing on the hillside.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "sheep",
+                    "options": [
+                        "sheep",
+                        "sheeps",
+                        "sheepes"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Sheep» — це іменник із так званою нульовою множиною: у множині він виглядає точно так само, як і в однині.",
+                        "Конструкція `a flock of` означає групу тварин і завжди передбачає іменник після «of», що вживається у множинному значенні."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "sheep": "Форма «sheep» правильна в обох числах: це нульова множина, тобто одна вівця і кілька овець — одне й те саме слово.",
+                            "sheeps": "Форма «sheeps» не існує: «sheep» ніколи не додає закінчення -s у множині, це нерегулярний (нульовий) plural.",
+                            "sheepes": "Форма «sheepes» не існує: «sheep» не приймає жодних закінчень множини — ні -s, ні -es."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "A flock of {a1} was grazing on the hillside."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": ["b2", "q01"],
+            "question": "The {a1} about the earthquake was very alarming.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "news",
+                    "options": [
+                        "news",
+                        "newses",
+                        "new"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«News» — це незлічуваний іменник в англійській мові, який завжди вживається у формі однини, навіть коли йдеться про кілька повідомлень.",
+                        "Дієслово `was` після порожнього місця підказує, що підмет стоїть в однині або є незлічуваним."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "news": "Форма «news» правильна: незважаючи на закінчення -s, цей іменник незлічуваний і завжди вимагає дієслова в однині (was, is).",
+                            "newses": "Форма «newses» не існує: «news» не має форми множини і не приймає жодних закінчень — це завжди однина.",
+                            "new": "Форма «new» є прикметником, а не іменником; тут потрібен підмет-іменник, а не означення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "The {a1} about the earthquake was very alarming."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": ["b2", "q02"],
+            "question": "Where are my {a1}? I left them on the desk.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "scissors",
+                    "options": [
+                        "scissors",
+                        "scissor",
+                        "scissores"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Scissors» — це так зване plurale tantum: іменник, що завжди стоїть у формі множини та вимагає дієслова множини.",
+                        "Дієслово `are` та займенник `them` у реченні підтверджують, що шуканий іменник вживається у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "scissors": "Форма «scissors» правильна: ножиці — двоскладний предмет, тому в англійській завжди вживається у множині з дієсловом «are».",
+                            "scissor": "Форма «scissor» є нестандартною: вона може виступати прикметником у складних словах (scissor kick), але не є самостійним підметом у значенні ножиці.",
+                            "scissores": "Форма «scissores» не існує в англійській мові; «scissors» не набуває закінчення -es, оскільки вже є формою множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "Where are my {a1}? I left them on the desk."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": ["b2", "q03"],
+            "question": "We caught six {a1} in the river this morning.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "fish",
+                    "options": [
+                        "fish",
+                        "fishes",
+                        "fishs"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Fish» у значенні особин одного виду може вживатися як нульова множина: однакова форма для однини та множини.",
+                        "Числівник `six` після себе вимагає множини, але для «fish» ця множина збігається з формою однини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "fish": "Форма «fish» правильна: у значенні «впіймати певну кількість однакових риб» використовується нульова множина — «six fish».",
+                            "fishes": "Форма «fishes» вживається у спеціальному значенні «різні види риб», але не для підрахунку особин одного виду, як у цьому реченні.",
+                            "fishs": "Форма «fishs» не існує в англійській мові: будь-яке множинне закінчення тут або «fishes» (для видів), або нульова форма «fish»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "We caught six {a1} in the river this morning."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": ["b2", "q04"],
+            "question": "The scientists used several {a1} in their laboratory experiment.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "mice",
+                    "options": [
+                        "mice",
+                        "mouses",
+                        "mouse"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Mouse» має нерегулярну форму множини, де відбувається зміна кореневої голосної (як у goose → geese).",
+                        "Слово `several` вказує на множину: потрібна нерегулярна форма цього іменника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "mice": "Форма «mice» правильна: «mouse» → «mice» — нерегулярна множина із зміною кореня (аналогічно: goose → geese).",
+                            "mouses": "Форма «mouses» не існує як стандартна: «mouse» у значенні «гризун» утворює нерегулярну множину «mice».",
+                            "mouse": "Форма «mouse» є однинною і не узгоджується зі словом «several»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "The scientists used several {a1} in their laboratory experiment."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": ["b2", "q05"],
+            "question": "The dentist found that three of her {a1} needed treatment.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "teeth",
+                    "options": [
+                        "teeth",
+                        "tooths",
+                        "tooth"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Tooth» має нерегулярну форму множини із зміною голосної у корені — аналогічно до foot → feet.",
+                        "Числівник `three` перед «of her» вказує на форму множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "teeth": "Форма «teeth» правильна: «tooth» → «teeth» — нерегулярна множина із зміною голосної в корені (аналогічно: foot → feet).",
+                            "tooths": "Форма «tooths» не існує: «tooth» ніколи не утворює множину через -s; єдина правильна форма — «teeth».",
+                            "tooth": "Форма «tooth» є однинною і суперечить числівнику «three»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "The dentist found that three of her {a1} needed treatment."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": ["c1", "q01"],
+            "question": "The botanist identified several rare {a1} during the expedition.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "cacti",
+                    "options": [
+                        "cacti",
+                        "cactus",
+                        "cactises"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Cactus» — це іменник латинського походження на -us, що утворює множину за латинською моделлю: -us → -i.",
+                        "Слово `several` вказує на множину: потрібна не однинна, а множинна форма цього латинського іменника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "cacti": "Форма «cacti» правильна: латинські іменники на -us зазвичай утворюють множину через -i (cactus → cacti, alumnus → alumni).",
+                            "cactus": "Форма «cactus» є однинною і не узгоджується зі словом «several».",
+                            "cactises": "Форма «cactises» не існує: «cactus» не приймає закінчення -es і не подвоює закінчення при утворенні множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "latin_greek_roots"
+            ],
+            "variants": [
+                "The botanist identified several rare {a1} during the expedition."
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": ["c1", "q02"],
+            "question": "Several extraordinary {a1} were documented by the research team.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "phenomena",
+                    "options": [
+                        "phenomena",
+                        "phenomenons",
+                        "phenomenon"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Phenomenon» — іменник грецького походження на -on, чия множина утворюється за грецькою схемою: -on → -a.",
+                        "Слово `Several` на початку речення вимагає форми множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "phenomena": "Форма «phenomena» правильна: «phenomenon» → «phenomena» — стандартна грецька множина (так само: criterion → criteria).",
+                            "phenomenons": "Форма «phenomenons» є розмовним варіантом, але в академічному та науковому контексті перевага надається формі «phenomena».",
+                            "phenomenon": "Форма «phenomenon» є однинною і не узгоджується зі словом «Several»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "latin_greek_roots"
+            ],
+            "variants": [
+                "Several extraordinary {a1} were documented by the research team."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": ["c1", "q03"],
+            "question": "Two {a1} stopped to ask for directions outside the shop.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "passersby",
+                    "options": [
+                        "passersby",
+                        "passerbys",
+                        "passersbys"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У складених іменниках типу «passerby» множина утворюється шляхом додавання -s до головного слова («passer»), а не до всього слова.",
+                        "Числівник `Two` вимагає форми множини: потрібно визначити, до якого елементу складного іменника додається -s."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "passersby": "Форма «passersby» правильна: у слові «passerby» головне слово — «passer», тому -s додається до нього (passersby), а не до «by».",
+                            "passerbys": "Форма «passerbys» помилкова: -s додається не до другого елемента «by», а до головного слова «passer».",
+                            "passersbys": "Форма «passersbys» не існує: додавати -s одночасно до «passer» і «by» неможливо."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "Two {a1} stopped to ask for directions outside the shop."
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": ["c1", "q04"],
+            "question": "The farmer used two {a1} to pull the heavy plough.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "oxen",
+                    "options": [
+                        "oxen",
+                        "oxes",
+                        "ox"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Ox» є давньоанглійським іменником з архаїчною формою множини на -en, яку потрібно запам'ятати — стандартні закінчення -s/-es тут не діють.",
+                        "Числівник `two` перед порожнім місцем вимагає форми множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "oxen": "Форма «oxen» правильна: це архаїчна нерегулярна множина від «ox», схожа на «children» від «child».",
+                            "oxes": "Форма «oxes» не існує: «ox» не утворює множину через -es, оскільки є нерегулярним іменником з формою «oxen».",
+                            "ox": "Форма «ox» є однинною і не узгоджується з числівником «two»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "The farmer used two {a1} to pull the heavy plough."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": ["c1", "q05"],
+            "question": "The committee agreed on five {a1} for evaluating the projects.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "criteria",
+                    "options": [
+                        "criteria",
+                        "criterions",
+                        "criterion"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Criterion» — грецький іменник на -on, чия множина утворюється за схемою -on → -a.",
+                        "Числівник `five` після підмета вказує на форму множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "criteria": "Форма «criteria» правильна: «criterion» → «criteria» — стандартна грецька множина (так само: phenomenon → phenomena).",
+                            "criterions": "Форма «criterions» є неформальним варіантом, що зустрічається в розмовній мові, але в академічному або офіційному контексті використовується «criteria».",
+                            "criterion": "Форма «criterion» є однинною і не узгоджується з числівником «five»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "latin_greek_roots"
+            ],
+            "variants": [
+                "The committee agreed on five {a1} for evaluating the projects."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": ["c2", "q01"],
+            "question": "The statistical {a1} in the paper confirmed the hypothesis.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "analyses",
+                    "options": [
+                        "analyses",
+                        "analysises",
+                        "analysis"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Analysis» — іменник грецького походження на -sis, чия множина утворюється за схемою -sis → -ses.",
+                        "Сполучення «The statistical ___» у загальному академічному контексті вказує на множину: кілька аналізів, що разом підтверджують гіпотезу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "analyses": "Форма «analyses» правильна: «analysis» → «analyses» за грецьким правилом -sis → -ses (так само: basis → bases, thesis → theses).",
+                            "analysises": "Форма «analysises» не існує: після -sis не додається -es; потрібна повна заміна -sis на -ses.",
+                            "analysis": "Форма «analysis» є однинною: контекст речення (кілька аналізів, що разом підтверджують) вказує на форму множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "latin_greek_roots"
+            ],
+            "variants": [
+                "The statistical {a1} in the paper confirmed the hypothesis."
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": ["c2", "q02"],
+            "question": "The {a1} collected over ten years support the new theory.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "data",
+                    "options": [
+                        "data",
+                        "datums",
+                        "datum"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Datum» — латинський іменник на -um, чия класична множина — «data» за моделлю -um → -a.",
+                        "Дієслово `support` без -s після «ten years» вказує, що підмет «___» стоїть у формі множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "data": "Форма «data» правильна: «datum» → «data» — латинська множина (як stratum → strata, medium → media); дієслово «support» без -s підтверджує множину підмета.",
+                            "datums": "Форма «datums» іноді вживається у вузькоспеціалізованих технічних контекстах (геодезія), але в загальнонауковому та академічному мовленні правильна форма — «data».",
+                            "datum": "Форма «datum» є однинною і не узгоджується з дієсловом «support» у формі множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "latin_greek_roots"
+            ],
+            "variants": [
+                "The {a1} collected over ten years support the new theory."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": ["c2", "q03"],
+            "question": "He put on his {a1} and left the house quickly.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "trousers",
+                    "options": [
+                        "trousers",
+                        "trouser",
+                        "trouserses"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Trousers» — plurale tantum, іменник, що вживається виключно у формі множини в стандартній англійській мові.",
+                        "Займенник `his` лише вказує на приналежність і не означає однину: «his trousers» — це стала конструкція."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "trousers": "Форма «trousers» правильна: штани — двоскладний предмет одягу, який в англійській завжди вживається у формі множини.",
+                            "trouser": "Форма «trouser» вживається виключно як прикметник у складених словах (trouser leg, trouser pocket), але не як самостійний підмет у значенні «штани».",
+                            "trouserses": "Форма «trouserses» не існує: «trousers» вже є формою множини і не приймає додаткових закінчень."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "He put on his {a1} and left the house quickly."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": ["c2", "q04"],
+            "question": "Under the electron microscope, the {a1} of the cells were clearly visible.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "nuclei",
+                    "options": [
+                        "nuclei",
+                        "nucleus",
+                        "nucleuses"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Nucleus» — латинський іменник на -us, чия наукова множина утворюється за латинським правилом -us → -i.",
+                        "Дієслово `were` після «the ___» вказує на підмет у формі множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "nuclei": "Форма «nuclei» правильна: «nucleus» → «nuclei» — латинська множина, стандартна в науковій та медичній термінології.",
+                            "nucleus": "Форма «nucleus» є однинною і не узгоджується з дієсловом «were».",
+                            "nucleuses": "Форма «nucleuses» є рідкісним розмовним варіантом, але в академічному та науковому тексті перевагу завжди надають формі «nuclei»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "latin_greek_roots"
+            ],
+            "variants": [
+                "Under the electron microscope, the {a1} of the cells were clearly visible."
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": ["c2", "q05"],
+            "question": "The researchers described three new {a1} of insects in their publication.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "genera",
+                    "options": [
+                        "genera",
+                        "genus",
+                        "genuses"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Genus» — латинський іменник третьої відміни (genus, generis), що утворює множину через -era: genus → genera.",
+                        "Числівник `three` перед «new ___» вимагає форми множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "genera": "Форма «genera» правильна: «genus» належить до латинських іменників третьої відміни, тому множина — «genera», а не «geni» (як можна було б помилково утворити за правилом -us → -i).",
+                            "genus": "Форма «genus» є однинною і не узгоджується з числівником «three».",
+                            "genuses": "Форма «genuses» не є стандартною в науковій термінології: у біологічній та таксономічній мові завжди вживається латинська форма «genera»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "latin_greek_roots"
+            ],
+            "variants": [
+                "The researchers described three new {a1} of insects in their publication."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "pn-cp-sn-saved-test",
+        "slug": "plural-nouns-sonate-v3-questions-test",
+        "name": "Plural Nouns — Sonate V3 Questions Test",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 712,
+                "theory_page_ids": [
+                    712
+                ],
+                "theory_page": {
+                    "id": 712,
+                    "slug": "plural-nouns-s-es-ies",
+                    "title": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,646 @@
+{
+  "schema_version": 1,
+  "content_type": "theory_test_links_manifest",
+  "purpose": "Describe curated links between Word Order in Questions and Negatives theory text blocks and theory-page tests so the public test UI can render Show theory.",
+  "page": {
+    "route": "/theory/word-order/theory-word-order-questions-negatives",
+    "category_slug": "word-order",
+    "slug": "theory-word-order-questions-negatives",
+    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+    "title": "Word Order in Questions and Negatives"
+  },
+  "target_pivot": {
+    "table": "question_theory_text_blocks",
+    "question_key": "question_uuid",
+    "block_key": "text_block_uuid",
+    "position_column": "position",
+    "legacy_question_column": "questions.theory_text_block_uuid",
+    "notes": [
+      "Seeder writes many-to-many links into question_theory_text_blocks.",
+      "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+      "Seeder is idempotent: it deletes existing links only for each covered question_uuid before inserting the resolved ordered block list."
+    ]
+  },
+  "theory_text_block_aliases": {
+    "overview": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 1,
+      "title": "Hero / overview"
+    },
+    "auxiliary_before_subject": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 2,
+      "title": "Auxiliary verbs"
+    },
+    "do_does_did": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 2,
+      "title": "Do / does / did"
+    },
+    "question_order": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 3,
+      "title": "Yes/No question order"
+    },
+    "be_questions": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 3,
+      "title": "Be questions"
+    },
+    "modal_questions": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 3,
+      "title": "Modal questions"
+    },
+    "wh_questions": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 4,
+      "title": "Wh-questions"
+    },
+    "negative_word_order": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 5,
+      "title": "Negative word order"
+    },
+    "dont_doesnt_didnt": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 6,
+      "title": "Don't / doesn't / didn't"
+    },
+    "negative_adverbs": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 5,
+      "title": "Never / no / nobody / nothing"
+    },
+    "typical_mistakes": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 7,
+      "title": "Typical mistakes"
+    },
+    "summary": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "sort_order": 8,
+      "title": "Summary"
+    }
+  },
+  "bundles": {
+    "general_overview": [
+      "overview",
+      "summary"
+    ],
+    "question_order": [
+      "question_order",
+      "auxiliary_before_subject",
+      "summary"
+    ],
+    "do_support_questions": [
+      "do_does_did",
+      "question_order",
+      "summary"
+    ],
+    "be_questions": [
+      "be_questions",
+      "auxiliary_before_subject",
+      "summary"
+    ],
+    "modal_questions": [
+      "modal_questions",
+      "auxiliary_before_subject",
+      "summary"
+    ],
+    "wh_questions": [
+      "wh_questions",
+      "question_order",
+      "summary"
+    ],
+    "negatives": [
+      "negative_word_order",
+      "dont_doesnt_didnt",
+      "summary"
+    ],
+    "negative_adverbs": [
+      "negative_adverbs",
+      "negative_word_order",
+      "typical_mistakes",
+      "summary"
+    ],
+    "typical_mistakes": [
+      "typical_mistakes",
+      "summary"
+    ]
+  },
+  "tests_on_page": [
+    {
+      "kind": "direct_sentence_builder",
+      "saved_test_slug": "polyglot-word-order-questions-negatives-all-levels",
+      "saved_test_name": "Sentence Builder: Word Order in Questions and Negatives (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotWordOrderQuestionsNegativesAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-woqn-a1-01": [
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-02": [
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-03": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-04": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-05": [
+          "wh_questions",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-06": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-07": [
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-08": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-09": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-10": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-11": [
+          "wh_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a1-12": [
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-01": [
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-02": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-03": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-04": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-05": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-06": [
+          "wh_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-07": [
+          "wh_questions",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-08": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-09": [
+          "wh_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-10": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-11": [
+          "do_support_questions",
+          "be_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-a2-12": [
+          "wh_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-01": [
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-02": [
+          "negative_adverbs",
+          "negatives",
+          "general_overview"
+        ],
+        "poly-woqn-b1-03": [
+          "wh_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-04": [
+          "negatives",
+          "do_support_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-05": [
+          "wh_questions",
+          "do_support_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-06": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-07": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-08": [
+          "negatives",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-09": [
+          "negatives",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-10": [
+          "negatives",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-11": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b1-12": [
+          "wh_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-01": [
+          "wh_questions",
+          "be_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-02": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-03": [
+          "negatives",
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-04": [
+          "negative_adverbs",
+          "negatives",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-05": [
+          "negative_adverbs",
+          "negatives",
+          "be_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-06": [
+          "wh_questions",
+          "do_support_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-07": [
+          "negatives",
+          "general_overview"
+        ],
+        "poly-woqn-b2-08": [
+          "negatives",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-09": [
+          "wh_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-10": [
+          "negative_adverbs",
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-11": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-b2-12": [
+          "negatives",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-01": [
+          "negative_adverbs",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-02": [
+          "negative_adverbs",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-03": [
+          "negative_adverbs",
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-04": [
+          "negative_adverbs",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-05": [
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-06": [
+          "negative_adverbs",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-07": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-08": [
+          "be_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-09": [
+          "negative_adverbs",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-10": [
+          "wh_questions",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-11": [
+          "negative_adverbs",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c1-12": [
+          "wh_questions",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-01": [
+          "negative_adverbs",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-02": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-03": [
+          "negative_adverbs",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-04": [
+          "negative_adverbs",
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-05": [
+          "negative_adverbs",
+          "negatives",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-06": [
+          "wh_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-07": [
+          "negative_adverbs",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-08": [
+          "negatives",
+          "do_support_questions",
+          "be_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-09": [
+          "wh_questions",
+          "do_support_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-10": [
+          "negative_adverbs",
+          "do_support_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-11": [
+          "negatives",
+          "be_questions",
+          "modal_questions",
+          "general_overview"
+        ],
+        "poly-woqn-c2-12": [
+          "negative_adverbs",
+          "do_support_questions",
+          "general_overview"
+        ]
+      }
+    },
+    {
+      "kind": "virtual_mixed_test",
+      "saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+      "expected_seeder_classes": [
+        "Database\\Seeders\\V3\\WordOrderQuestionsNegativesAllLevelsV3Seeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotWordOrderQuestionsNegativesAllLevelsLessonSeeder"
+      ],
+      "strategy": "mapped_question_fallback",
+      "tag_key_to_bundle": {
+        "Auxiliary Verbs": "question_order",
+        "Do/Does/Did": "do_support_questions",
+        "Wh-Questions": "wh_questions"
+      },
+      "answer_value_to_bundle_fallback": {
+        "Do": "do_support_questions",
+        "Does": "do_support_questions",
+        "Did": "do_support_questions",
+        "do": "do_support_questions",
+        "does": "do_support_questions",
+        "did": "do_support_questions",
+        "Are": "be_questions",
+        "Were": "be_questions",
+        "is": "be_questions",
+        "was": "be_questions",
+        "were": "be_questions",
+        "can": "modal_questions",
+        "could": "modal_questions",
+        "should": "modal_questions",
+        "must not": "modal_questions",
+        "would": "modal_questions",
+        "will": "modal_questions",
+        "What": "wh_questions",
+        "Where": "wh_questions",
+        "When": "wh_questions",
+        "How": "wh_questions",
+        "Who": "wh_questions",
+        "whether": "wh_questions",
+        "not": "negatives",
+        "Nobody": "negative_adverbs",
+        "Never": "negative_adverbs",
+        "Hardly": "negative_adverbs"
+      },
+      "question_text_to_bundle_fallback": {
+        "not": "negatives",
+        "doesnt": "negatives",
+        "dont": "negatives",
+        "didnt": "negatives",
+        "never": "negative_adverbs",
+        "not only": "negative_adverbs",
+        "hardly": "negative_adverbs",
+        "seldom": "negative_adverbs",
+        "rarely": "negative_adverbs",
+        "no sooner": "negative_adverbs",
+        "under no circumstances": "negative_adverbs",
+        "wh": "wh_questions",
+        "where": "wh_questions",
+        "what": "wh_questions",
+        "who": "wh_questions",
+        "how": "wh_questions",
+        "whether": "wh_questions"
+      },
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\WordOrderQuestionsNegativesAllLevelsV3Seeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotWordOrderQuestionsNegativesAllLevelsLessonSeeder"
+      ],
+      "source_saved_test_slug": "word-order-questions-negatives-all-levels-v3"
+    }
+  ],
+  "seeder_requirements": {
+    "page_seeders_must_run_first": [
+      "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarCategorySeeder",
+      "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderCategorySeeder",
+      "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder"
+    ],
+    "question_seeders_must_run_first": [
+      "Database\\Seeders\\V3\\WordOrderQuestionsNegativesAllLevelsV3Seeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotWordOrderQuestionsNegativesAllLevelsLessonSeeder"
+    ],
+    "json_is_source_of_truth": true,
+    "php_seeder_should_only_load_this_manifest": true,
+    "do_not_create_questions_or_saved_tests": true,
+    "do_not_use_question_marker_tag": true
+  },
+  "qa": {
+    "expected_routes_without_missing_theory_links": [
+      "/theory/word-order/theory-word-order-questions-negatives"
+    ],
+    "direct_polyglot_saved_test_slug": "polyglot-word-order-questions-negatives-all-levels",
+    "mixed_saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+    "standard_v3_strategy": "Use tag_key_to_bundle, answer_value_to_bundle_fallback, option values, question_text_to_bundle_fallback, then default_bundle.",
+    "polyglot_strategy": "Use explicit question_links first. If future Polyglot UUIDs are absent, fallback links them and prints a warning.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
+    ]
+  }
+}

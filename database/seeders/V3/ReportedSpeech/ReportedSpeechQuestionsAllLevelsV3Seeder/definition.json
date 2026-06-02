@@ -1,0 +1,1862 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "ReportedSpeechQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "theory_page_reported_questions": {
+            "name": "Reported Questions"
+        }
+    },
+    "tags": {
+        "reported_speech_questions_all_levels": {
+            "name": "reported speech questions all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "if_whether_questions": {
+            "name": "If Whether Questions",
+            "category": "topic"
+        },
+        "wh_reported_questions": {
+            "name": "Wh Reported Questions",
+            "category": "topic"
+        },
+        "no_inversion": {
+            "name": "No Inversion",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "reporting_verbs": {
+            "name": "Reporting Verbs",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "question_backshift": {
+            "name": "Question Backshift",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-v3-a1-01",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-v3-a1-02",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-v3-a1-03",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-v3-a1-04",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-v3-a1-05",
+            "question": "Choose the reporting verb frame: They {a1} whether we needed help.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "reporting_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told",
+                        "answered"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-v3-a1-06",
+            "question": "Original question: “Do you know my sister?” He asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I knew his sister",
+                    "options": [
+                        "if I knew his sister",
+                        "if he knew my sister",
+                        "did I know his sister",
+                        "that I knew my sister"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-v3-a1-07",
+            "question": "Past reporting verb: “Why did you leave?” They asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "question_backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left",
+                    "options": [
+                        "why I had left",
+                        "why did I leave",
+                        "why I leave",
+                        "if I had left why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-v3-a1-08",
+            "question": "The whole sentence is a statement. Choose {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "He asked if I was ready.",
+                    "options": [
+                        "He asked if I was ready.",
+                        "He asked if I was ready?",
+                        "He asked was I ready.",
+                        "He asked that I was ready."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-v3-a1-09",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-v3-a1-10",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-v3-a1-11",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-v3-a1-12",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a1",
+                "statement_word_order",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-v3-a2-01",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-v3-a2-02",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-v3-a2-03",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-v3-a2-04",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-v3-a2-05",
+            "question": "Choose the reporting verb frame: They {a1} whether we needed help.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "reporting_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told",
+                        "answered"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-v3-a2-06",
+            "question": "Original question: “Do you know my sister?” He asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I knew his sister",
+                    "options": [
+                        "if I knew his sister",
+                        "if he knew my sister",
+                        "did I know his sister",
+                        "that I knew my sister"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "rsq-v3-a2-07",
+            "question": "Past reporting verb: “Why did you leave?” They asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "question_backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left",
+                    "options": [
+                        "why I had left",
+                        "why did I leave",
+                        "why I leave",
+                        "if I had left why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "rsq-v3-a2-08",
+            "question": "The whole sentence is a statement. Choose {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "He asked if I was ready.",
+                    "options": [
+                        "He asked if I was ready.",
+                        "He asked if I was ready?",
+                        "He asked was I ready.",
+                        "He asked that I was ready."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "rsq-v3-a2-09",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "rsq-v3-a2-10",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "rsq-v3-a2-11",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "rsq-v3-a2-12",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_a2",
+                "statement_word_order",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "rsq-v3-b1-01",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "rsq-v3-b1-02",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "rsq-v3-b1-03",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "rsq-v3-b1-04",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "rsq-v3-b1-05",
+            "question": "Choose the reporting verb frame: They {a1} whether we needed help.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "reporting_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told",
+                        "answered"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "rsq-v3-b1-06",
+            "question": "Original question: “Do you know my sister?” He asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I knew his sister",
+                    "options": [
+                        "if I knew his sister",
+                        "if he knew my sister",
+                        "did I know his sister",
+                        "that I knew my sister"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "rsq-v3-b1-07",
+            "question": "Past reporting verb: “Why did you leave?” They asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "question_backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left",
+                    "options": [
+                        "why I had left",
+                        "why did I leave",
+                        "why I leave",
+                        "if I had left why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "rsq-v3-b1-08",
+            "question": "The whole sentence is a statement. Choose {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "He asked if I was ready.",
+                    "options": [
+                        "He asked if I was ready.",
+                        "He asked if I was ready?",
+                        "He asked was I ready.",
+                        "He asked that I was ready."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "rsq-v3-b1-09",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "rsq-v3-b1-10",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "rsq-v3-b1-11",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "rsq-v3-b1-12",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b1",
+                "statement_word_order",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "rsq-v3-b2-01",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "rsq-v3-b2-02",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "rsq-v3-b2-03",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "rsq-v3-b2-04",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "rsq-v3-b2-05",
+            "question": "Choose the reporting verb frame: They {a1} whether we needed help.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "reporting_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told",
+                        "answered"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "rsq-v3-b2-06",
+            "question": "Original question: “Do you know my sister?” He asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I knew his sister",
+                    "options": [
+                        "if I knew his sister",
+                        "if he knew my sister",
+                        "did I know his sister",
+                        "that I knew my sister"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "rsq-v3-b2-07",
+            "question": "Past reporting verb: “Why did you leave?” They asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "question_backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left",
+                    "options": [
+                        "why I had left",
+                        "why did I leave",
+                        "why I leave",
+                        "if I had left why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "rsq-v3-b2-08",
+            "question": "The whole sentence is a statement. Choose {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "He asked if I was ready.",
+                    "options": [
+                        "He asked if I was ready.",
+                        "He asked if I was ready?",
+                        "He asked was I ready.",
+                        "He asked that I was ready."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "rsq-v3-b2-09",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "rsq-v3-b2-10",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "rsq-v3-b2-11",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "rsq-v3-b2-12",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_b2",
+                "statement_word_order",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "rsq-v3-c1-01",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "rsq-v3-c1-02",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "rsq-v3-c1-03",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "rsq-v3-c1-04",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "rsq-v3-c1-05",
+            "question": "Choose the reporting verb frame: They {a1} whether we needed help.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "reporting_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told",
+                        "answered"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "rsq-v3-c1-06",
+            "question": "Original question: “Do you know my sister?” He asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I knew his sister",
+                    "options": [
+                        "if I knew his sister",
+                        "if he knew my sister",
+                        "did I know his sister",
+                        "that I knew my sister"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "rsq-v3-c1-07",
+            "question": "Past reporting verb: “Why did you leave?” They asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "question_backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left",
+                    "options": [
+                        "why I had left",
+                        "why did I leave",
+                        "why I leave",
+                        "if I had left why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "rsq-v3-c1-08",
+            "question": "The whole sentence is a statement. Choose {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "He asked if I was ready.",
+                    "options": [
+                        "He asked if I was ready.",
+                        "He asked if I was ready?",
+                        "He asked was I ready.",
+                        "He asked that I was ready."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "rsq-v3-c1-09",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "rsq-v3-c1-10",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "rsq-v3-c1-11",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "rsq-v3-c1-12",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c1",
+                "statement_word_order",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "rsq-v3-c2-01",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "rsq-v3-c2-02",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "rsq-v3-c2-03",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "rsq-v3-c2-04",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "rsq-v3-c2-05",
+            "question": "Choose the reporting verb frame: They {a1} whether we needed help.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "reporting_verbs"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked",
+                    "options": [
+                        "asked",
+                        "said",
+                        "told",
+                        "answered"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "rsq-v3-c2-06",
+            "question": "Original question: “Do you know my sister?” He asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "pronoun_changes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I knew his sister",
+                    "options": [
+                        "if I knew his sister",
+                        "if he knew my sister",
+                        "did I know his sister",
+                        "that I knew my sister"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "rsq-v3-c2-07",
+            "question": "Past reporting verb: “Why did you leave?” They asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "question_backshift"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left",
+                    "options": [
+                        "why I had left",
+                        "why did I leave",
+                        "why I leave",
+                        "if I had left why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "rsq-v3-c2-08",
+            "question": "The whole sentence is a statement. Choose {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "He asked if I was ready.",
+                    "options": [
+                        "He asked if I was ready.",
+                        "He asked if I was ready?",
+                        "He asked was I ready.",
+                        "He asked that I was ready."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "rsq-v3-c2-09",
+            "question": "Report the yes/no question “Are you ready?” He asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "if_whether_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if I was ready",
+                    "options": [
+                        "if I was ready",
+                        "was I ready",
+                        "if was I ready",
+                        "that I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "rsq-v3-c2-10",
+            "question": "Report the wh-question “Where do you live?” She asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "wh_reported_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I lived",
+                    "options": [
+                        "where I lived",
+                        "where did I live",
+                        "where do I live",
+                        "if I lived where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "rsq-v3-c2-11",
+            "question": "Choose the version without inversion: He wanted to know {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why I had left early",
+                    "options": [
+                        "why I had left early",
+                        "why had I left early",
+                        "why did I leave early",
+                        "if why I left early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "rsq-v3-c2-12",
+            "question": "Choose statement word order: She asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_questions",
+            "tag_keys": [
+                "reported_speech_questions_all_levels",
+                "level_c2",
+                "statement_word_order",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what time the train arrived",
+                    "options": [
+                        "what time the train arrived",
+                        "what time did the train arrive",
+                        "did the train arrive what time",
+                        "what time arrived the train?"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "rsq-v3-all",
+        "slug": "reported-questions-all-levels-v3",
+        "name": "Reported Questions (All levels V3)",
+        "description": "Standard V3 package for Reported Questions across A1-C2.",
+        "question_uuids": [
+            "rsq-v3-a1-01",
+            "rsq-v3-a1-02",
+            "rsq-v3-a1-03",
+            "rsq-v3-a1-04",
+            "rsq-v3-a1-05",
+            "rsq-v3-a1-06",
+            "rsq-v3-a1-07",
+            "rsq-v3-a1-08",
+            "rsq-v3-a1-09",
+            "rsq-v3-a1-10",
+            "rsq-v3-a1-11",
+            "rsq-v3-a1-12",
+            "rsq-v3-a2-01",
+            "rsq-v3-a2-02",
+            "rsq-v3-a2-03",
+            "rsq-v3-a2-04",
+            "rsq-v3-a2-05",
+            "rsq-v3-a2-06",
+            "rsq-v3-a2-07",
+            "rsq-v3-a2-08",
+            "rsq-v3-a2-09",
+            "rsq-v3-a2-10",
+            "rsq-v3-a2-11",
+            "rsq-v3-a2-12",
+            "rsq-v3-b1-01",
+            "rsq-v3-b1-02",
+            "rsq-v3-b1-03",
+            "rsq-v3-b1-04",
+            "rsq-v3-b1-05",
+            "rsq-v3-b1-06",
+            "rsq-v3-b1-07",
+            "rsq-v3-b1-08",
+            "rsq-v3-b1-09",
+            "rsq-v3-b1-10",
+            "rsq-v3-b1-11",
+            "rsq-v3-b1-12",
+            "rsq-v3-b2-01",
+            "rsq-v3-b2-02",
+            "rsq-v3-b2-03",
+            "rsq-v3-b2-04",
+            "rsq-v3-b2-05",
+            "rsq-v3-b2-06",
+            "rsq-v3-b2-07",
+            "rsq-v3-b2-08",
+            "rsq-v3-b2-09",
+            "rsq-v3-b2-10",
+            "rsq-v3-b2-11",
+            "rsq-v3-b2-12",
+            "rsq-v3-c1-01",
+            "rsq-v3-c1-02",
+            "rsq-v3-c1-03",
+            "rsq-v3-c1-04",
+            "rsq-v3-c1-05",
+            "rsq-v3-c1-06",
+            "rsq-v3-c1-07",
+            "rsq-v3-c1-08",
+            "rsq-v3-c1-09",
+            "rsq-v3-c1-10",
+            "rsq-v3-c1-11",
+            "rsq-v3-c1-12",
+            "rsq-v3-c2-01",
+            "rsq-v3-c2-02",
+            "rsq-v3-c2-03",
+            "rsq-v3-c2-04",
+            "rsq-v3-c2-05",
+            "rsq-v3-c2-06",
+            "rsq-v3-c2-07",
+            "rsq-v3-c2-08",
+            "rsq-v3-c2-09",
+            "rsq-v3-c2-10",
+            "rsq-v3-c2-11",
+            "rsq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "reported-questions",
+                    "title": "Reported Questions",
+                    "category_slug_path": "reported-speech",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/reported-speech/reported-questions"
+                }
+            }
+        }
+    }
+}

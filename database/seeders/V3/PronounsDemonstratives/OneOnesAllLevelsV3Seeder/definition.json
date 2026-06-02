@@ -1,0 +1,2226 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\OneOnesAllLevelsV3Seeder",
+        "uuid_namespace": "OneOnesAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "pd-oo-v3-all",
+        "slug": "one-ones-all-levels-v3",
+        "name": "One / Ones: V3 All Levels",
+        "description": "Page-local V3 package for One / Ones with A1-C2 coverage.",
+        "question_uuids": [
+            "pd-oo-v3-a1-01",
+            "pd-oo-v3-a1-02",
+            "pd-oo-v3-a1-03",
+            "pd-oo-v3-a1-04",
+            "pd-oo-v3-a1-05",
+            "pd-oo-v3-a1-06",
+            "pd-oo-v3-a1-07",
+            "pd-oo-v3-a1-08",
+            "pd-oo-v3-a1-09",
+            "pd-oo-v3-a1-10",
+            "pd-oo-v3-a1-11",
+            "pd-oo-v3-a1-12",
+            "pd-oo-v3-a2-01",
+            "pd-oo-v3-a2-02",
+            "pd-oo-v3-a2-03",
+            "pd-oo-v3-a2-04",
+            "pd-oo-v3-a2-05",
+            "pd-oo-v3-a2-06",
+            "pd-oo-v3-a2-07",
+            "pd-oo-v3-a2-08",
+            "pd-oo-v3-a2-09",
+            "pd-oo-v3-a2-10",
+            "pd-oo-v3-a2-11",
+            "pd-oo-v3-a2-12",
+            "pd-oo-v3-b1-01",
+            "pd-oo-v3-b1-02",
+            "pd-oo-v3-b1-03",
+            "pd-oo-v3-b1-04",
+            "pd-oo-v3-b1-05",
+            "pd-oo-v3-b1-06",
+            "pd-oo-v3-b1-07",
+            "pd-oo-v3-b1-08",
+            "pd-oo-v3-b1-09",
+            "pd-oo-v3-b1-10",
+            "pd-oo-v3-b1-11",
+            "pd-oo-v3-b1-12",
+            "pd-oo-v3-b2-01",
+            "pd-oo-v3-b2-02",
+            "pd-oo-v3-b2-03",
+            "pd-oo-v3-b2-04",
+            "pd-oo-v3-b2-05",
+            "pd-oo-v3-b2-06",
+            "pd-oo-v3-b2-07",
+            "pd-oo-v3-b2-08",
+            "pd-oo-v3-b2-09",
+            "pd-oo-v3-b2-10",
+            "pd-oo-v3-b2-11",
+            "pd-oo-v3-b2-12",
+            "pd-oo-v3-c1-01",
+            "pd-oo-v3-c1-02",
+            "pd-oo-v3-c1-03",
+            "pd-oo-v3-c1-04",
+            "pd-oo-v3-c1-05",
+            "pd-oo-v3-c1-06",
+            "pd-oo-v3-c1-07",
+            "pd-oo-v3-c1-08",
+            "pd-oo-v3-c1-09",
+            "pd-oo-v3-c1-10",
+            "pd-oo-v3-c1-11",
+            "pd-oo-v3-c1-12",
+            "pd-oo-v3-c2-01",
+            "pd-oo-v3-c2-02",
+            "pd-oo-v3-c2-03",
+            "pd-oo-v3-c2-04",
+            "pd-oo-v3-c2-05",
+            "pd-oo-v3-c2-06",
+            "pd-oo-v3-c2-07",
+            "pd-oo-v3-c2-08",
+            "pd-oo-v3-c2-09",
+            "pd-oo-v3-c2-10",
+            "pd-oo-v3-c2-11",
+            "pd-oo-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PronounsDemonstratives\\OneOnesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "zaimennyky-ta-vkazivni-slova",
+                "page_slug": "one-ones",
+                "page_route": "/theory/zaimennyky-ta-vkazivni-slova/one-ones",
+                "theory_page": {
+                    "slug": "one-ones",
+                    "title": "One / Ones",
+                    "category_slug_path": "zaimennyky-ta-vkazivni-slova",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/zaimennyky-ta-vkazivni-slova/one-ones"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pd-oo-v3-a1-01",
+            "question": "I want the red {a1}, not the blue cup.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "one_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_singular"
+            ],
+            "variants": [
+                "I want the red {a1}, not the blue cup."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 2,
+            "uuid": "pd-oo-v3-a1-02",
+            "question": "These shoes are old; I need new {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "These shoes are old; I need new {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 3,
+            "uuid": "pd-oo-v3-a1-03",
+            "question": "I like this bag, but I prefer that {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "this_that_one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_that_one"
+            ],
+            "variants": [
+                "I like this bag, but I prefer that {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 4,
+            "uuid": "pd-oo-v3-a1-04",
+            "question": "These apples are cheaper than those {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "these_those_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_those_ones"
+            ],
+            "variants": [
+                "These apples are cheaper than those {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 5,
+            "uuid": "pd-oo-v3-a1-05",
+            "question": "The {a1} on the left is mine.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "ones of"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "the_one_the_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_one_the_ones"
+            ],
+            "variants": [
+                "The {a1} on the left is mine."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 6,
+            "uuid": "pd-oo-v3-a1-06",
+            "question": "Do you want the small {a1} or the large one?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "adjective_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_one_ones"
+            ],
+            "variants": [
+                "Do you want the small {a1} or the large one?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 7,
+            "uuid": "pd-oo-v3-a1-07",
+            "question": "Which {a1} do you prefer, the red cup or the blue cup?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "which_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_one_ones"
+            ],
+            "variants": [
+                "Which {a1} do you prefer, the red cup or the blue cup?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 8,
+            "uuid": "pd-oo-v3-a1-08",
+            "question": "Use one or ones to avoid noun {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "repetition",
+                    "options": [
+                        "repetition",
+                        "agreement",
+                        "tense",
+                        "article"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "Use one or ones to avoid noun {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 9,
+            "uuid": "pd-oo-v3-a1-09",
+            "question": "Use one for a singular {a1} noun.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "countable",
+                    "options": [
+                        "countable",
+                        "uncountable",
+                        "possessive",
+                        "abstract"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "countable_only"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_only"
+            ],
+            "variants": [
+                "Use one for a singular {a1} noun."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 10,
+            "uuid": "pd-oo-v3-a1-10",
+            "question": "\"My one is broken\" sounds {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "correct",
+                        "formal",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "unnatural_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unnatural_use"
+            ],
+            "variants": [
+                "\"My one is broken\" sounds {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 11,
+            "uuid": "pd-oo-v3-a1-11",
+            "question": "\"I need some water. A cold one\" is usually a {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "good replacement",
+                        "plural form",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"I need some water. A cold one\" is usually a {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 12,
+            "uuid": "pd-oo-v3-a1-12",
+            "question": "The black {a1} are more comfortable than the brown shoes.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "The black {a1} are more comfortable than the brown shoes."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 13,
+            "uuid": "pd-oo-v3-a2-01",
+            "question": "I want the red {a1}, not the blue cup.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "one_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_singular"
+            ],
+            "variants": [
+                "I want the red {a1}, not the blue cup."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 14,
+            "uuid": "pd-oo-v3-a2-02",
+            "question": "These shoes are old; I need new {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "These shoes are old; I need new {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 15,
+            "uuid": "pd-oo-v3-a2-03",
+            "question": "I like this bag, but I prefer that {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "this_that_one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_that_one"
+            ],
+            "variants": [
+                "I like this bag, but I prefer that {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 16,
+            "uuid": "pd-oo-v3-a2-04",
+            "question": "These apples are cheaper than those {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "these_those_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_those_ones"
+            ],
+            "variants": [
+                "These apples are cheaper than those {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 17,
+            "uuid": "pd-oo-v3-a2-05",
+            "question": "The {a1} on the left is mine.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "ones of"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "the_one_the_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_one_the_ones"
+            ],
+            "variants": [
+                "The {a1} on the left is mine."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 18,
+            "uuid": "pd-oo-v3-a2-06",
+            "question": "Do you want the small {a1} or the large one?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "adjective_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_one_ones"
+            ],
+            "variants": [
+                "Do you want the small {a1} or the large one?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 19,
+            "uuid": "pd-oo-v3-a2-07",
+            "question": "Which {a1} do you prefer, the red cup or the blue cup?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "which_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_one_ones"
+            ],
+            "variants": [
+                "Which {a1} do you prefer, the red cup or the blue cup?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 20,
+            "uuid": "pd-oo-v3-a2-08",
+            "question": "Use one or ones to avoid noun {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "repetition",
+                    "options": [
+                        "repetition",
+                        "agreement",
+                        "tense",
+                        "article"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "Use one or ones to avoid noun {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 21,
+            "uuid": "pd-oo-v3-a2-09",
+            "question": "Use one for a singular {a1} noun.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "countable",
+                    "options": [
+                        "countable",
+                        "uncountable",
+                        "possessive",
+                        "abstract"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "countable_only"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_only"
+            ],
+            "variants": [
+                "Use one for a singular {a1} noun."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 22,
+            "uuid": "pd-oo-v3-a2-10",
+            "question": "\"My one is broken\" sounds {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "correct",
+                        "formal",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "unnatural_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unnatural_use"
+            ],
+            "variants": [
+                "\"My one is broken\" sounds {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 23,
+            "uuid": "pd-oo-v3-a2-11",
+            "question": "\"I need some water. A cold one\" is usually a {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "good replacement",
+                        "plural form",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"I need some water. A cold one\" is usually a {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 24,
+            "uuid": "pd-oo-v3-a2-12",
+            "question": "The black {a1} are more comfortable than the brown shoes.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "The black {a1} are more comfortable than the brown shoes."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 25,
+            "uuid": "pd-oo-v3-b1-01",
+            "question": "I want the red {a1}, not the blue cup.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "one_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_singular"
+            ],
+            "variants": [
+                "I want the red {a1}, not the blue cup."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 26,
+            "uuid": "pd-oo-v3-b1-02",
+            "question": "These shoes are old; I need new {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "These shoes are old; I need new {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 27,
+            "uuid": "pd-oo-v3-b1-03",
+            "question": "I like this bag, but I prefer that {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "this_that_one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_that_one"
+            ],
+            "variants": [
+                "I like this bag, but I prefer that {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 28,
+            "uuid": "pd-oo-v3-b1-04",
+            "question": "These apples are cheaper than those {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "these_those_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_those_ones"
+            ],
+            "variants": [
+                "These apples are cheaper than those {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 29,
+            "uuid": "pd-oo-v3-b1-05",
+            "question": "The {a1} on the left is mine.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "ones of"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "the_one_the_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_one_the_ones"
+            ],
+            "variants": [
+                "The {a1} on the left is mine."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 30,
+            "uuid": "pd-oo-v3-b1-06",
+            "question": "Do you want the small {a1} or the large one?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "adjective_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_one_ones"
+            ],
+            "variants": [
+                "Do you want the small {a1} or the large one?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 31,
+            "uuid": "pd-oo-v3-b1-07",
+            "question": "Which {a1} do you prefer, the red cup or the blue cup?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "which_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_one_ones"
+            ],
+            "variants": [
+                "Which {a1} do you prefer, the red cup or the blue cup?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 32,
+            "uuid": "pd-oo-v3-b1-08",
+            "question": "Use one or ones to avoid noun {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "repetition",
+                    "options": [
+                        "repetition",
+                        "agreement",
+                        "tense",
+                        "article"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "Use one or ones to avoid noun {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 33,
+            "uuid": "pd-oo-v3-b1-09",
+            "question": "Use one for a singular {a1} noun.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "countable",
+                    "options": [
+                        "countable",
+                        "uncountable",
+                        "possessive",
+                        "abstract"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "countable_only"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_only"
+            ],
+            "variants": [
+                "Use one for a singular {a1} noun."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 34,
+            "uuid": "pd-oo-v3-b1-10",
+            "question": "\"My one is broken\" sounds {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "correct",
+                        "formal",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "unnatural_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unnatural_use"
+            ],
+            "variants": [
+                "\"My one is broken\" sounds {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 35,
+            "uuid": "pd-oo-v3-b1-11",
+            "question": "\"I need some water. A cold one\" is usually a {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "good replacement",
+                        "plural form",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"I need some water. A cold one\" is usually a {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 36,
+            "uuid": "pd-oo-v3-b1-12",
+            "question": "The black {a1} are more comfortable than the brown shoes.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "The black {a1} are more comfortable than the brown shoes."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 37,
+            "uuid": "pd-oo-v3-b2-01",
+            "question": "I want the red {a1}, not the blue cup.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "one_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_singular"
+            ],
+            "variants": [
+                "I want the red {a1}, not the blue cup."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 38,
+            "uuid": "pd-oo-v3-b2-02",
+            "question": "These shoes are old; I need new {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "These shoes are old; I need new {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 39,
+            "uuid": "pd-oo-v3-b2-03",
+            "question": "I like this bag, but I prefer that {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "this_that_one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_that_one"
+            ],
+            "variants": [
+                "I like this bag, but I prefer that {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 40,
+            "uuid": "pd-oo-v3-b2-04",
+            "question": "These apples are cheaper than those {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "these_those_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_those_ones"
+            ],
+            "variants": [
+                "These apples are cheaper than those {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 41,
+            "uuid": "pd-oo-v3-b2-05",
+            "question": "The {a1} on the left is mine.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "ones of"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "the_one_the_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_one_the_ones"
+            ],
+            "variants": [
+                "The {a1} on the left is mine."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 42,
+            "uuid": "pd-oo-v3-b2-06",
+            "question": "Do you want the small {a1} or the large one?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "adjective_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_one_ones"
+            ],
+            "variants": [
+                "Do you want the small {a1} or the large one?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 43,
+            "uuid": "pd-oo-v3-b2-07",
+            "question": "Which {a1} do you prefer, the red cup or the blue cup?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "which_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_one_ones"
+            ],
+            "variants": [
+                "Which {a1} do you prefer, the red cup or the blue cup?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 44,
+            "uuid": "pd-oo-v3-b2-08",
+            "question": "Use one or ones to avoid noun {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "repetition",
+                    "options": [
+                        "repetition",
+                        "agreement",
+                        "tense",
+                        "article"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "Use one or ones to avoid noun {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 45,
+            "uuid": "pd-oo-v3-b2-09",
+            "question": "Use one for a singular {a1} noun.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "countable",
+                    "options": [
+                        "countable",
+                        "uncountable",
+                        "possessive",
+                        "abstract"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "countable_only"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_only"
+            ],
+            "variants": [
+                "Use one for a singular {a1} noun."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 46,
+            "uuid": "pd-oo-v3-b2-10",
+            "question": "\"My one is broken\" sounds {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "correct",
+                        "formal",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "unnatural_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unnatural_use"
+            ],
+            "variants": [
+                "\"My one is broken\" sounds {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 47,
+            "uuid": "pd-oo-v3-b2-11",
+            "question": "\"I need some water. A cold one\" is usually a {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "good replacement",
+                        "plural form",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"I need some water. A cold one\" is usually a {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 48,
+            "uuid": "pd-oo-v3-b2-12",
+            "question": "The black {a1} are more comfortable than the brown shoes.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "The black {a1} are more comfortable than the brown shoes."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 49,
+            "uuid": "pd-oo-v3-c1-01",
+            "question": "I want the red {a1}, not the blue cup.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "one_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_singular"
+            ],
+            "variants": [
+                "I want the red {a1}, not the blue cup."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 50,
+            "uuid": "pd-oo-v3-c1-02",
+            "question": "These shoes are old; I need new {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "These shoes are old; I need new {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 51,
+            "uuid": "pd-oo-v3-c1-03",
+            "question": "I like this bag, but I prefer that {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "this_that_one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_that_one"
+            ],
+            "variants": [
+                "I like this bag, but I prefer that {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 52,
+            "uuid": "pd-oo-v3-c1-04",
+            "question": "These apples are cheaper than those {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "these_those_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_those_ones"
+            ],
+            "variants": [
+                "These apples are cheaper than those {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 53,
+            "uuid": "pd-oo-v3-c1-05",
+            "question": "The {a1} on the left is mine.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "ones of"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "the_one_the_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_one_the_ones"
+            ],
+            "variants": [
+                "The {a1} on the left is mine."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 54,
+            "uuid": "pd-oo-v3-c1-06",
+            "question": "Do you want the small {a1} or the large one?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "adjective_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_one_ones"
+            ],
+            "variants": [
+                "Do you want the small {a1} or the large one?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 55,
+            "uuid": "pd-oo-v3-c1-07",
+            "question": "Which {a1} do you prefer, the red cup or the blue cup?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "which_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_one_ones"
+            ],
+            "variants": [
+                "Which {a1} do you prefer, the red cup or the blue cup?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 56,
+            "uuid": "pd-oo-v3-c1-08",
+            "question": "Use one or ones to avoid noun {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "repetition",
+                    "options": [
+                        "repetition",
+                        "agreement",
+                        "tense",
+                        "article"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "Use one or ones to avoid noun {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 57,
+            "uuid": "pd-oo-v3-c1-09",
+            "question": "Use one for a singular {a1} noun.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "countable",
+                    "options": [
+                        "countable",
+                        "uncountable",
+                        "possessive",
+                        "abstract"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "countable_only"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_only"
+            ],
+            "variants": [
+                "Use one for a singular {a1} noun."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 58,
+            "uuid": "pd-oo-v3-c1-10",
+            "question": "\"My one is broken\" sounds {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "correct",
+                        "formal",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "unnatural_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unnatural_use"
+            ],
+            "variants": [
+                "\"My one is broken\" sounds {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 59,
+            "uuid": "pd-oo-v3-c1-11",
+            "question": "\"I need some water. A cold one\" is usually a {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "good replacement",
+                        "plural form",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"I need some water. A cold one\" is usually a {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 60,
+            "uuid": "pd-oo-v3-c1-12",
+            "question": "The black {a1} are more comfortable than the brown shoes.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "The black {a1} are more comfortable than the brown shoes."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 61,
+            "uuid": "pd-oo-v3-c2-01",
+            "question": "I want the red {a1}, not the blue cup.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "one_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "one_singular"
+            ],
+            "variants": [
+                "I want the red {a1}, not the blue cup."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 62,
+            "uuid": "pd-oo-v3-c2-02",
+            "question": "These shoes are old; I need new {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "These shoes are old; I need new {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 63,
+            "uuid": "pd-oo-v3-c2-03",
+            "question": "I like this bag, but I prefer that {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "this_that_one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_that_one"
+            ],
+            "variants": [
+                "I like this bag, but I prefer that {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 64,
+            "uuid": "pd-oo-v3-c2-04",
+            "question": "These apples are cheaper than those {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "these_those_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_those_ones"
+            ],
+            "variants": [
+                "These apples are cheaper than those {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 65,
+            "uuid": "pd-oo-v3-c2-05",
+            "question": "The {a1} on the left is mine.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "ones of"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "the_one_the_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "the_one_the_ones"
+            ],
+            "variants": [
+                "The {a1} on the left is mine."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 66,
+            "uuid": "pd-oo-v3-c2-06",
+            "question": "Do you want the small {a1} or the large one?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "adjective_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_one_ones"
+            ],
+            "variants": [
+                "Do you want the small {a1} or the large one?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 67,
+            "uuid": "pd-oo-v3-c2-07",
+            "question": "Which {a1} do you prefer, the red cup or the blue cup?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "some",
+                        "them"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "which_one_ones"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_one_ones"
+            ],
+            "variants": [
+                "Which {a1} do you prefer, the red cup or the blue cup?"
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 68,
+            "uuid": "pd-oo-v3-c2-08",
+            "question": "Use one or ones to avoid noun {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "repetition",
+                    "options": [
+                        "repetition",
+                        "agreement",
+                        "tense",
+                        "article"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "avoid_repetition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_repetition"
+            ],
+            "variants": [
+                "Use one or ones to avoid noun {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 69,
+            "uuid": "pd-oo-v3-c2-09",
+            "question": "Use one for a singular {a1} noun.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "countable",
+                    "options": [
+                        "countable",
+                        "uncountable",
+                        "possessive",
+                        "abstract"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "countable_only"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_only"
+            ],
+            "variants": [
+                "Use one for a singular {a1} noun."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 70,
+            "uuid": "pd-oo-v3-c2-10",
+            "question": "\"My one is broken\" sounds {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "correct",
+                        "formal",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "unnatural_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unnatural_use"
+            ],
+            "variants": [
+                "\"My one is broken\" sounds {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 71,
+            "uuid": "pd-oo-v3-c2-11",
+            "question": "\"I need some water. A cold one\" is usually a {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "good replacement",
+                        "plural form",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"I need some water. A cold one\" is usually a {a1}."
+            ],
+            "source": "theory_page_one_ones"
+        },
+        {
+            "id": 72,
+            "uuid": "pd-oo-v3-c2-12",
+            "question": "The black {a1} are more comfortable than the brown shoes.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "some",
+                        "it"
+                    ],
+                    "verb_hint": "Choose the pronoun or determiner that fits the context.",
+                    "gap_tags": [
+                        "ones_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ones_plural"
+            ],
+            "variants": [
+                "The black {a1} are more comfortable than the brown shoes."
+            ],
+            "source": "theory_page_one_ones"
+        }
+    ],
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "theory_page_one_ones": {
+            "name": "One / Ones"
+        }
+    },
+    "tags": {
+        "one_singular": {
+            "name": "one singular",
+            "category": "topic"
+        },
+        "ones_plural": {
+            "name": "ones plural",
+            "category": "topic"
+        },
+        "this_that_one": {
+            "name": "this that one",
+            "category": "topic"
+        },
+        "these_those_ones": {
+            "name": "these those ones",
+            "category": "topic"
+        },
+        "the_one_the_ones": {
+            "name": "the one the ones",
+            "category": "topic"
+        },
+        "adjective_one_ones": {
+            "name": "adjective one ones",
+            "category": "topic"
+        },
+        "which_one_ones": {
+            "name": "which one ones",
+            "category": "topic"
+        },
+        "avoid_repetition": {
+            "name": "avoid repetition",
+            "category": "topic"
+        },
+        "countable_only": {
+            "name": "countable only",
+            "category": "topic"
+        },
+        "unnatural_use": {
+            "name": "unnatural use",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "theory_page_one_ones"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}

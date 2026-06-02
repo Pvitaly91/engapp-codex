@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "prompt_id": "GLZ-CODEX-SENTENCE-BUILDER-UK-SOURCE-QUALITY-AUDIT-017",
+  "generated_at": "2026-05-18T13:32:07.684Z",
+  "scope": "database/seeders/V3/Polyglot/**/definition.json",
+  "source_fields_checked": [
+    "question",
+    "source_text_uk",
+    "prompt_uk",
+    "source_sentence_uk"
+  ],
+  "total_scanned_files": 168,
+  "total_scanned_questions": 8538,
+  "files_with_quality_issues": 20,
+  "total_fixed_source_fields": 1436,
+  "reason_counts": {
+    "cloze_prompt": 360,
+    "ellipsis_placeholder": 355,
+    "unnatural_ukrainian": 285,
+    "source_target_mismatch": 154,
+    "generated_context_label": 851
+  },
+  "cloze_ellipsis_context_artifacts_fixed": {
+    "cloze_prompt": 360,
+    "ellipsis_placeholder": 355,
+    "generated_context_label": 851
+  },
+  "changed_files": [
+    "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotBasicWordOrderAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotConjunctionsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotNarrativeTensesAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPastPerfectFormsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPastPerfectNegativesAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPastPerfectQuestionsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPastPerfectVsPastPerfectContinuousAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPastSimpleQuestionsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPastSimpleVsPastContinuousAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousTimeExpressionsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPresentPerfectVsPastSimpleAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPresentPerfectVsPresentPerfectContinuousAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotPresentSimpleVsPresentContinuousAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotStativeVerbsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotUsedToWouldAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotWordOrderAdverbsAdverbialsAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotWordOrderQuestionsNegativesAllLevelsLessonSeeder/definition.json",
+    "database/seeders/V3/Polyglot/PolyglotWordOrderVerbsObjectsAllLevelsLessonSeeder/definition.json"
+  ],
+  "forbidden_non_source_changes": [],
+  "examples": [
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-01",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Ніколи... такий гарний захід сонця.",
+      "after": "Я ніколи не бачив такого гарного заходу сонця.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotConjunctionsAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-conj-c1-02",
+      "field": "question",
+      "before": "Склади речення зі словом «не тільки... але також»: Вона не лише знайшла проблему, а й виправила її.",
+      "after": "Вона не лише знайшла проблему, а й виправила її.",
+      "reasons": [
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotNarrativeTensesAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "nt-poly-a1-01",
+      "field": "question",
+      "before": "Я готував вечеря, коли задзвонив телефон",
+      "after": "Я готував вечерю, коли задзвонив телефон",
+      "reasons": [
+        "source_target_mismatch"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotNarrativeTensesAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "nt-poly-a1-01",
+      "field": "source_text_uk",
+      "before": "Я готував вечеря, коли задзвонив телефон",
+      "after": "Я готував вечерю, коли задзвонив телефон",
+      "reasons": [
+        "source_target_mismatch"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPastPerfectNegativesAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "pp-negatives-poly-a2-03",
+      "field": "question",
+      "before": "Клас не переглянула проект до понеділка",
+      "after": "Клас не переглянув проєкт до понеділка",
+      "reasons": [
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPastPerfectVsPastPerfectContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "pppcpast-poly-a2-01",
+      "field": "question",
+      "before": "до полудень вона вже завершений звіт (A2)",
+      "after": "До полудня вона вже закінчила звіт",
+      "reasons": [
+        "generated_context_label",
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPastPerfectVsPastPerfectContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "pppcpast-poly-a2-01",
+      "field": "source_text_uk",
+      "before": "до полудень вона вже завершений звіт (A2)",
+      "after": "До полудня вона вже закінчила звіт",
+      "reasons": [
+        "generated_context_label",
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPastSimpleVsPastContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "pspc-poly-a2-01",
+      "field": "question",
+      "before": "телефон задзвонив, поки я був готує (A2)",
+      "after": "Телефон задзвонив, поки я готував",
+      "reasons": [
+        "generated_context_label",
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPastSimpleVsPastContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "pspc-poly-a2-01",
+      "field": "source_text_uk",
+      "before": "телефон задзвонив, поки я був готує (A2)",
+      "after": "Телефон задзвонив, поки я готував",
+      "reasons": [
+        "generated_context_label",
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPresentPerfectContinuousTimeExpressionsAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "ppc-time-poly-a1-03",
+      "field": "question",
+      "before": "Весь ранок вона працює над проектом весь ранок",
+      "after": "Вона працює над проєктом весь ранок",
+      "reasons": [
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPresentPerfectVsPastSimpleAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "ppps-poly-a2-05",
+      "field": "question",
+      "before": "Він загубив ключовий, так він не може відкрити цей двері зараз (A2)",
+      "after": "Він загубив ключ, тому зараз не може відчинити двері",
+      "reasons": [
+        "generated_context_label",
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPresentPerfectVsPastSimpleAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "ppps-poly-a2-05",
+      "field": "source_text_uk",
+      "before": "Він загубив ключовий, так він не може відкрити цей двері зараз (A2)",
+      "after": "Він загубив ключ, тому зараз не може відчинити двері",
+      "reasons": [
+        "generated_context_label",
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPresentPerfectVsPresentPerfectContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "pppc-poly-a2-07",
+      "field": "question",
+      "before": "ми прибрав кухонний і це є прибрати зараз (A2)",
+      "after": "Ми прибрали кухню, тому тепер вона чиста",
+      "reasons": [
+        "generated_context_label"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPresentPerfectVsPresentPerfectContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "pppc-poly-a2-07",
+      "field": "source_text_uk",
+      "before": "ми прибрав кухонний і це є прибрати зараз (A2)",
+      "after": "Ми прибрали кухню, тому тепер вона чиста",
+      "reasons": [
+        "generated_context_label"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPresentSimpleVsPresentContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "psvc-poly-a1-03",
+      "field": "question",
+      "before": "Мої батьки постійно живуть у Львів",
+      "after": "Мої батьки постійно живуть у Львові",
+      "reasons": [
+        "source_target_mismatch"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotPresentSimpleVsPresentContinuousAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "psvc-poly-a1-03",
+      "field": "source_text_uk",
+      "before": "Мої батьки постійно живуть у Львів",
+      "after": "Мої батьки постійно живуть у Львові",
+      "reasons": [
+        "source_target_mismatch"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotStativeVerbsAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "sv-poly-a1-03",
+      "field": "question",
+      "before": "Ця сумка належить моєму брат",
+      "after": "Ця сумка належить моєму братові",
+      "reasons": [
+        "source_target_mismatch"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotStativeVerbsAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "sv-poly-a1-03",
+      "field": "source_text_uk",
+      "before": "Ця сумка належить моєму брат",
+      "after": "Ця сумка належить моєму братові",
+      "reasons": [
+        "source_target_mismatch"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotUsedToWouldAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "utw-poly-a1-01",
+      "field": "question",
+      "before": "Колись я жив біля річка у дитинстві",
+      "after": "У дитинстві я жив біля річки",
+      "reasons": [
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotUsedToWouldAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "utw-poly-a1-01",
+      "field": "source_text_uk",
+      "before": "Колись я жив біля річка у дитинстві",
+      "after": "У дитинстві я жив біля річки",
+      "reasons": [
+        "unnatural_ukrainian"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotWordOrderVerbsObjectsAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-wovo-b2-03",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Вона... Фразове дієслово нерозлучне.",
+      "after": "Вона натрапила на стару фотографію.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder",
+        "generated_context_label"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-02",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Це... хто дзвонив тобі вчора.",
+      "after": "Саме Том дзвонив тобі вчора.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-03",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Те, що мені потрібно... хороший відпочинок.",
+      "after": "Мені потрібен хороший відпочинок.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-04",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Мені... подобається твоя нова сукня!",
+      "after": "Мені подобається твоя нова сукня!",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-05",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Рідко... стільки снігу в квітні.",
+      "after": "Рідко буває так багато снігу в квітні.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-06",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Це... те, що я купив, а не спідницю.",
+      "after": "Я купила сукню, а не спідницю.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-07",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Вона... хоче прийти на вечірку.",
+      "after": "Вона хоче прийти на вечірку.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-08",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Найбільше я люблю... шоколадний торт.",
+      "after": "Найбільше я люблю шоколадний торт.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-09",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Рідко... запізнюється на заняття.",
+      "after": "Вона рідко запізнюється на уроки.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    },
+    {
+      "file": "database/seeders/V3/Polyglot/PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder/definition.json",
+      "question_uuid": "poly-woadv-a1-10",
+      "field": "question",
+      "before": "Склади пропущену частину речення: Це... в Лондоні я зустрів її.",
+      "after": "Саме в Лондоні я зустрів її.",
+      "reasons": [
+        "cloze_prompt",
+        "ellipsis_placeholder"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,727 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Non-defining Relative Clauses theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/clauses-and-linking-words/non-defining-relative-clauses",
+        "category_slug": "clauses-and-linking-words",
+        "slug": "non-defining-relative-clauses",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+        "title": "Non-defining Relative Clauses"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "forms": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 2,
+            "title": "Forms"
+        },
+        "usage": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 3,
+            "title": "Usage"
+        },
+        "details": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 4,
+            "title": "Details"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 5,
+            "title": "Typical mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 6,
+            "title": "Summary"
+        },
+        "extra_information": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 1,
+            "title": "Extra information"
+        },
+        "commas": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 2,
+            "title": "Commas"
+        },
+        "who_people": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 2,
+            "title": "Who for people"
+        },
+        "which_things": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 2,
+            "title": "Which for things"
+        },
+        "which_whole_clause": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 3,
+            "title": "Which for whole clause"
+        },
+        "where_places": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 2,
+            "title": "Where for places"
+        },
+        "whose_possession": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 2,
+            "title": "Whose possession"
+        },
+        "no_that": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 4,
+            "title": "No that"
+        },
+        "cannot_omit": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 4,
+            "title": "Cannot omit pronoun"
+        },
+        "defining_vs_non_defining": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "sort_order": 3,
+            "title": "Defining vs non-defining"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "extra_information": [
+            "extra_information",
+            "overview",
+            "summary"
+        ],
+        "commas": [
+            "commas",
+            "overview",
+            "summary"
+        ],
+        "who_people": [
+            "who_people",
+            "overview",
+            "summary"
+        ],
+        "which_things": [
+            "which_things",
+            "overview",
+            "summary"
+        ],
+        "which_whole_clause": [
+            "which_whole_clause",
+            "overview",
+            "summary"
+        ],
+        "where_places": [
+            "where_places",
+            "overview",
+            "summary"
+        ],
+        "whose_possession": [
+            "whose_possession",
+            "overview",
+            "summary"
+        ],
+        "no_that": [
+            "no_that",
+            "overview",
+            "summary"
+        ],
+        "cannot_omit": [
+            "cannot_omit",
+            "overview",
+            "summary"
+        ],
+        "defining_vs_non_defining": [
+            "defining_vs_non_defining",
+            "overview",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview",
+            "summary"
+        ]
+    },
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-non-defining-relative-clauses-all-levels",
+            "saved_test_name": "Sentence Builder: Non-defining Relative Clauses (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotNonDefiningRelativeClausesAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "ndrc-poly-a1-01": [
+                    "extra_information",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-02": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-03": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-04": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-05": [
+                    "which_whole_clause",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-06": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-07": [
+                    "whose_possession",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-08": [
+                    "no_that",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-09": [
+                    "cannot_omit",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-10": [
+                    "defining_vs_non_defining",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ndrc-poly-a1-12": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-01": [
+                    "extra_information",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-02": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-03": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-04": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-05": [
+                    "which_whole_clause",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-06": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-07": [
+                    "whose_possession",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-08": [
+                    "no_that",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-09": [
+                    "cannot_omit",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-10": [
+                    "defining_vs_non_defining",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ndrc-poly-a2-12": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-01": [
+                    "extra_information",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-02": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-03": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-04": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-05": [
+                    "which_whole_clause",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-06": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-07": [
+                    "whose_possession",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-08": [
+                    "no_that",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-09": [
+                    "cannot_omit",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-10": [
+                    "defining_vs_non_defining",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ndrc-poly-b1-12": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-01": [
+                    "extra_information",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-02": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-03": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-04": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-05": [
+                    "which_whole_clause",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-06": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-07": [
+                    "whose_possession",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-08": [
+                    "no_that",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-09": [
+                    "cannot_omit",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-10": [
+                    "defining_vs_non_defining",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ndrc-poly-b2-12": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-01": [
+                    "extra_information",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-02": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-03": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-04": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-05": [
+                    "which_whole_clause",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-06": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-07": [
+                    "whose_possession",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-08": [
+                    "no_that",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-09": [
+                    "cannot_omit",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-10": [
+                    "defining_vs_non_defining",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ndrc-poly-c1-12": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-01": [
+                    "extra_information",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-02": [
+                    "commas",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-03": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-04": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-05": [
+                    "which_whole_clause",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-06": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-07": [
+                    "whose_possession",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-08": [
+                    "no_that",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-09": [
+                    "cannot_omit",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-10": [
+                    "defining_vs_non_defining",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-11": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ndrc-poly-c2-12": [
+                    "commas",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "legacy_sentence_builder",
+            "saved_test_slug": "polyglot-non-defining-relative-clauses-b1",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotNonDefiningRelativeClausesLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "polyglot-non-defining-relative-clauses-b1-q01": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q02": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q03": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q04": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q05": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q06": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q07": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q08": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q09": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q10": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q11": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q12": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q13": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q14": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q15": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q16": [
+                    "who_people",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q17": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q18": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q19": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q20": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q21": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q22": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q23": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q24": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q25": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q26": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q27": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q28": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q29": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q30": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q31": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q32": [
+                    "which_things",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q33": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q34": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q35": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q36": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q37": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q38": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q39": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q40": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q41": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q42": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q43": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q44": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q45": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q46": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q47": [
+                    "where_places",
+                    "general_overview"
+                ],
+                "polyglot-non-defining-relative-clauses-b1-q48": [
+                    "where_places",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_standard_v3",
+            "saved_test_slug": "non-defining-relative-clauses-all-levels-v3",
+            "seeder_class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\NonDefiningRelativeClausesAllLevelsV3Seeder",
+            "strategy": "mapped_by_tags_answers_and_text",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\NonDefiningRelativeClausesAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "extra_information": "extra_information",
+                "commas": "commas",
+                "who_people": "who_people",
+                "which_things": "which_things",
+                "which_whole_clause": "which_whole_clause",
+                "where_places": "where_places",
+                "whose_possession": "whose_possession",
+                "no_that": "no_that",
+                "cannot_omit": "cannot_omit",
+                "defining_vs_non_defining": "defining_vs_non_defining",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {
+                "extra information": "extra_information",
+                "commas": "commas",
+                "who people": "who_people",
+                "which things": "which_things",
+                "which whole clause": "which_whole_clause",
+                "where places": "where_places",
+                "whose possession": "whose_possession",
+                "no that": "no_that",
+                "cannot omit": "cannot_omit",
+                "defining vs non defining": "defining_vs_non_defining",
+                "typical mistakes": "typical_mistakes"
+            },
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "seed_before_links": [
+            "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsNonDefiningRelativeClausesTheorySeeder",
+            "Database\\Seeders\\V3\\ClausesAndLinkingWords\\NonDefiningRelativeClausesAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotNonDefiningRelativeClausesAllLevelsLessonSeeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotNonDefiningRelativeClausesLessonSeeder"
+        ],
+        "question_counts": {
+            "standard_v3": 72,
+            "polyglot_direct": 72,
+            "legacy_polyglot": {
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotNonDefiningRelativeClausesLessonSeeder": 48
+            }
+        }
+    },
+    "qa": {
+        "expected_route_status": "OK",
+        "no_question_marker_tag": true,
+        "source_of_truth": "json_manifest",
+        "notes": [
+            "Polyglot questions use explicit uuid maps.",
+            "Standard V3 questions use tag and answer fallbacks."
+        ]
+    }
+}

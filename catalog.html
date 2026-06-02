@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linguasmart | Master English with Confidence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            steel: "#54677a",
+            night: "#14233b",
+            ocean: "#2f67b1",
+            amber: "#f59b2f",
+            mist: "#f5fbff",
+            shell: "#fffefd",
+            line: "#d8e2ee"
+          },
+          fontFamily: {
+            display: ["Archivo", "sans-serif"],
+            body: ["Manrope", "sans-serif"]
+          },
+          boxShadow: {
+            panel: "0 24px 60px rgba(17, 38, 63, 0.18)",
+            card: "0 12px 28px rgba(17, 38, 63, 0.10)"
+          },
+          backgroundImage: {
+            glow: "radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 30%), radial-gradient(circle at bottom right, rgba(16,44,82,0.12), transparent 26%), linear-gradient(180deg, #5b7083 0%, #526678 100%)"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-glow font-body text-slate-900 antialiased">
+  <div class="mx-auto max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
+    <main class="overflow-hidden rounded-[28px] border border-white/60 bg-mist shadow-panel">
+        <header class="border-b border-line/80 bg-shell/95 px-5 py-4 backdrop-blur sm:px-8">
+          <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div class="flex items-center gap-3">
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#f7b34c_0%,#fff0d7_50%,#2f67b1_100%)] shadow-card">
+                <svg class="h-7 w-7" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 10H20V35H11V10Z" fill="#2F67B1"/>
+                  <path d="M22 14H33C36.314 14 39 16.686 39 20V35H22V14Z" fill="#173152"/>
+                  <path d="M8 37H40" stroke="#173152" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M29 8L31.2 12.8L36 15L31.2 17.2L29 22L26.8 17.2L22 15L26.8 12.8L29 8Z" fill="#F59B2F"/>
+                </svg>
+              </div>
+              <p class="font-display text-[1.75rem] font-extrabold tracking-tight text-slate-900">LINGUASMART</p>
+            </div>
+            <nav class="flex flex-wrap items-center gap-x-6 gap-y-3 text-[15px] font-semibold text-slate-700">
+              <a href="#courses" class="transition hover:text-ocean">Courses</a>
+              <a href="#theory" class="transition hover:text-ocean">Grammar &amp; Theory</a>
+              <a href="#practice" class="transition hover:text-ocean">Practice &amp; Tests</a>
+              <a href="#vocabulary" class="transition hover:text-ocean">Vocabulary</a>
+              <a href="#community" class="transition hover:text-ocean">Community</a>
+              <a href="#pricing" class="transition hover:text-ocean">Pricing</a>
+              <a href="#login" class="transition hover:text-ocean">Log In</a>
+              <a href="#signup" class="rounded-xl bg-ocean px-4 py-2 text-white shadow-card transition hover:bg-[#255796]">Sign Up</a>
+            </nav>
+          </div>
+        </header>
+
+        <section class="relative overflow-hidden border-b border-line/80 bg-[radial-gradient(circle_at_left,_rgba(58,128,191,0.14),_transparent_26%),linear-gradient(180deg,_#f7fcff_0%,_#f4faff_100%)] px-5 py-8 sm:px-8 lg:px-10">
+          <div class="absolute left-[48%] top-0 h-48 w-48 -translate-x-1/2 rounded-full border-[24px] border-ocean"></div>
+          <div class="absolute right-5 top-10 h-20 w-20 rounded-full bg-slate-200/70"></div>
+          <div class="absolute -bottom-10 left-1/2 h-32 w-32 rounded-full border-[20px] border-slate-200/80"></div>
+          <div class="absolute right-0 top-20 h-56 w-16 rounded-l-[2.5rem] bg-amber"></div>
+          <div class="relative grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div class="max-w-xl py-6">
+              <h1 class="font-display text-4xl font-extrabold leading-[1.08] text-slate-900 sm:text-5xl">Master English with Confidence: Learn, Practice, Achieve.</h1>
+              <p class="mt-5 max-w-lg text-xl leading-8 text-slate-700">Personalized courses, comprehensive theory, and adaptive tests for all levels.</p>
+              <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a href="#courses" class="rounded-xl bg-ocean px-6 py-4 text-center text-lg font-semibold text-white shadow-card transition hover:bg-[#245592]">Explore Courses</a>
+                <a href="#practice" class="rounded-xl bg-amber px-6 py-4 text-center text-lg font-semibold text-white shadow-card transition hover:bg-[#e38c24]">Take Free Placement Test</a>
+              </div>
+            </div>
+            <div class="overflow-hidden rounded-[2rem] bg-white/70 shadow-card">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Students learning English together" class="h-[360px] w-full object-cover object-center sm:h-[420px]">
+            </div>
+          </div>
+        </section>
+
+        <section class="border-b border-line/80 bg-[radial-gradient(circle_at_top,_rgba(76,145,208,0.1),_transparent_28%),linear-gradient(180deg,_#f8fcff_0%,_#f7fbff_100%)] px-5 py-8 sm:px-8 lg:px-10">
+          <h2 class="text-center font-display text-[2.1rem] font-extrabold text-slate-900">HOW LINGUASMART WORKS</h2>
+          <div class="mt-8 grid gap-8 sm:grid-cols-3">
+            <article class="text-center">
+              <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-card">
+                <svg class="h-10 w-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 11H29C31.2 11 33 12.8 33 15V31C33 33.2 31.2 35 29 35H14C11.8 35 10 33.2 10 31V15C10 12.8 11.8 11 14 11Z" stroke="#173152" stroke-width="2.6"/>
+                  <path d="M16 18H27" stroke="#173152" stroke-width="2.6" stroke-linecap="round"/>
+                  <path d="M16 24H24" stroke="#173152" stroke-width="2.6" stroke-linecap="round"/>
+                  <path d="M17 30L20 33L26 26" stroke="#2F67B1" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="34.5" cy="33.5" r="4.5" stroke="#F59B2F" stroke-width="2.6"/>
+                  <path d="M37.5 36.5L41 40" stroke="#F59B2F" stroke-width="2.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="mt-5 text-[2rem] font-extrabold leading-none text-slate-900">1. Assess Your Level</h3>
+            </article>
+            <article class="text-center">
+              <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-card">
+                <svg class="h-10 w-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13 10H31L37 16V34C37 36.2 35.2 38 33 38H13C10.8 38 9 36.2 9 34V14C9 11.8 10.8 10 13 10Z" stroke="#173152" stroke-width="2.6"/>
+                  <path d="M31 10V17H37" stroke="#173152" stroke-width="2.6"/>
+                  <path d="M16 21H30" stroke="#F59B2F" stroke-width="2.8" stroke-linecap="round"/>
+                  <path d="M16 27H29" stroke="#173152" stroke-width="2.6" stroke-linecap="round"/>
+                  <circle cx="34.5" cy="32.5" r="4.5" stroke="#2F67B1" stroke-width="2.6"/>
+                  <path d="M37.5 35.5L41 39" stroke="#2F67B1" stroke-width="2.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="mt-5 text-[2rem] font-extrabold leading-none text-slate-900">2. Learn &amp; Practice</h3>
+              <p class="mt-2 text-lg font-semibold text-slate-700">Modules &amp; Quizzes</p>
+            </article>
+            <article class="text-center">
+              <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-card">
+                <svg class="h-10 w-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 9L29.2 13.2L36 14L34 20.2L36.6 26L31.3 29.4L29.5 36L24 33.2L18.5 36L16.7 29.4L11.4 26L14 20.2L12 14L18.8 13.2L24 9Z" stroke="#173152" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M19.5 23.5L22.5 26.5L29 20" stroke="#F59B2F" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20 33L18.5 40L24 37L29.5 40L28 33" stroke="#2F67B1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="mt-5 text-[2rem] font-extrabold leading-none text-slate-900">3. Track Progress</h3>
+              <p class="mt-2 text-lg font-semibold text-slate-700">Badges &amp; Certificates</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="courses" class="border-b border-line/80 bg-[radial-gradient(circle_at_top,_rgba(76,145,208,0.08),_transparent_24%),linear-gradient(180deg,_#fbfeff_0%,_#f6fbff_100%)] px-5 py-8 sm:px-8 lg:px-10">
+          <h2 class="text-center font-display text-[2.1rem] font-extrabold text-slate-900">FEATURED LEARNING MODULES</h2>
+          <div class="mt-8 grid gap-5 xl:grid-cols-3">
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="English Grammar" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] shadow-card">
+                  <svg class="h-8 w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 14C9 11.8 10.8 10 13 10H24V36H13C10.8 36 9 34.2 9 32V14Z" stroke="#173152" stroke-width="2.5"/>
+                    <path d="M24 10H35C37.2 10 39 11.8 39 14V32C39 34.2 37.2 36 35 36H24" stroke="#F59B2F" stroke-width="2.5"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.85rem] font-extrabold leading-tight text-slate-900">English Grammar A1-C1</h3>
+                <p class="mt-2 text-[1.35rem] leading-7 text-slate-700">Level Up, Tenses, Rules</p>
+                <div class="mt-5 flex items-center justify-between text-[1.2rem] font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-lg font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80" alt="Practice Quizzes" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] text-4xl font-extrabold text-[#7a5b2d] shadow-card">?</div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.85rem] font-extrabold leading-tight text-slate-900">Practice Quizzes &amp; Exercises</h3>
+                <p class="mt-2 text-[1.35rem] leading-7 text-slate-700">Improve Skills, Feedback</p>
+                <div class="mt-5 flex items-center justify-between text-[1.2rem] font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-lg font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+
+            <article id="vocabulary" class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80" alt="Vocabulary Builder" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] shadow-card">
+                  <svg class="h-8 w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="10" width="24" height="28" rx="3" stroke="#173152" stroke-width="2.5"/>
+                    <path d="M18 18H30" stroke="#F59B2F" stroke-width="2.8" stroke-linecap="round"/>
+                    <path d="M18 24H30" stroke="#173152" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M18 30H27" stroke="#173152" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.85rem] font-extrabold leading-tight text-slate-900">Vocabulary Builder</h3>
+                <p class="mt-2 text-[1.35rem] leading-7 text-slate-700">Essential Words, Topics</p>
+                <div class="mt-5 flex items-center justify-between text-[1.2rem] font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-lg font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="theory" class="bg-[linear-gradient(180deg,_#fbfdff_0%,_#f5fbff_100%)] px-5 py-8 sm:px-8 lg:px-10">
+          <h2 class="text-center font-display text-[2.1rem] font-extrabold text-slate-900">PRACTICE &amp; TESTS</h2>
+          <div class="mt-8 grid gap-5 xl:grid-cols-3">
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="Grammar test" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] shadow-card">
+                  <svg class="h-8 w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 14C9 11.8 10.8 10 13 10H24V36H13C10.8 36 9 34.2 9 32V14Z" stroke="#173152" stroke-width="2.5"/>
+                    <path d="M24 10H35C37.2 10 39 11.8 39 14V32C39 34.2 37.2 36 35 36H24" stroke="#F59B2F" stroke-width="2.5"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.8rem] font-extrabold leading-tight text-slate-900">English Grammar A1-C1</h3>
+                <p class="mt-2 text-[1.35rem] leading-7 text-slate-700">Level Up, Tenses, Rules</p>
+                <div class="mt-5 flex items-center justify-between text-[1.2rem] font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-lg font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80" alt="Practice quizzes" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] text-4xl font-extrabold text-[#7a5b2d] shadow-card">?</div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.8rem] font-extrabold leading-tight text-slate-900">Practice Quizzes &amp; Excicts</h3>
+                <p class="mt-2 text-[1.35rem] leading-7 text-slate-700">Improve Skills, Feedback</p>
+                <div class="mt-5 flex items-center justify-between text-[1.2rem] font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-lg font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80" alt="Vocabulary Builder" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] shadow-card">
+                  <svg class="h-8 w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="10" width="24" height="28" rx="3" stroke="#173152" stroke-width="2.5"/>
+                    <path d="M18 18H30" stroke="#F59B2F" stroke-width="2.8" stroke-linecap="round"/>
+                    <path d="M18 24H30" stroke="#173152" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M18 30H27" stroke="#173152" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.8rem] font-extrabold leading-tight text-slate-900">Vocabulary Builder</h3>
+                <p class="mt-2 text-[1.35rem] leading-7 text-slate-700">Essential Words, Topics</p>
+                <div class="mt-5 flex items-center justify-between text-[1.2rem] font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-lg font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section id="practice" class="border-t border-line/80 bg-[radial-gradient(circle_at_top,_rgba(76,145,208,0.11),_transparent_24%),linear-gradient(180deg,_#fbfeff_0%,_#f7fbff_100%)] px-5 py-8 sm:px-8 lg:px-10">
+          <h2 class="text-center font-display text-[2.1rem] font-extrabold text-slate-900">PRACTICE &amp; TESTS</h2>
+          <div class="mt-8 grid gap-5 xl:grid-cols-3">
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-40 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="Grammar module" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] shadow-card">
+                  <svg class="h-8 w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 14C9 11.8 10.8 10 13 10H24V36H13C10.8 36 9 34.2 9 32V14Z" stroke="#173152" stroke-width="2.5"/>
+                    <path d="M24 10H35C37.2 10 39 11.8 39 14V32C39 34.2 37.2 36 35 36H24" stroke="#F59B2F" stroke-width="2.5"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.45rem] font-extrabold leading-tight text-slate-900">English Grammar A1-C1</h3>
+                <p class="mt-1 text-[1.1rem] leading-6 text-slate-700">Level Up, Tenses, Rules</p>
+                <div class="mt-4 flex items-center justify-between text-lg font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-base font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-40 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80" alt="Practice quizzes" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] text-4xl font-extrabold text-[#7a5b2d] shadow-card">?</div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.45rem] font-extrabold leading-tight text-slate-900">Practice Quizzes &amp; Excicts</h3>
+                <p class="mt-1 text-[1.1rem] leading-6 text-slate-700">Improve Skills, Feedback</p>
+                <div class="mt-4 flex items-center justify-between text-lg font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-base font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="relative h-40 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80" alt="Vocabulary Builder" class="h-full w-full object-cover">
+                <div class="absolute bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-[#fff3e0] shadow-card">
+                  <svg class="h-8 w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="10" width="24" height="28" rx="3" stroke="#173152" stroke-width="2.5"/>
+                    <path d="M18 18H30" stroke="#F59B2F" stroke-width="2.8" stroke-linecap="round"/>
+                    <path d="M18 24H30" stroke="#173152" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M18 30H27" stroke="#173152" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.45rem] font-extrabold leading-tight text-slate-900">Vocabulary Builder</h3>
+                <p class="mt-1 text-[1.1rem] leading-6 text-slate-700">Essential Words, Topics</p>
+                <div class="mt-4 flex items-center justify-between text-lg font-bold text-slate-800"><span>Progress</span><span>25%</span></div>
+                <div class="mt-2 h-3 overflow-hidden rounded-full bg-slate-200"><div class="h-full w-1/4 rounded-full bg-ocean"></div></div>
+                <a href="#" class="mt-4 block rounded-xl bg-ocean px-4 py-3 text-center text-base font-semibold text-white transition hover:bg-[#245592]">Start Module</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="bg-[linear-gradient(180deg,_#fbfeff_0%,_#f6fbff_100%)] px-5 py-8 sm:px-8 lg:px-10">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <h3 class="text-[1.9rem] font-extrabold text-slate-900">Adaptive Tests</h3>
+            <h2 class="font-display text-[2.1rem] font-extrabold text-slate-900">PRACTICE &amp; TESTS</h2>
+          </div>
+          <div class="mt-8 grid gap-5 xl:grid-cols-3">
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="flex h-48 items-center justify-center bg-[linear-gradient(180deg,_#eef6ff_0%,_#f8fbff_100%)]">
+                <svg class="h-32 w-32" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="62" cy="84" r="34" fill="#D7E7FA" stroke="#2F67B1" stroke-width="5"/>
+                  <path d="M62 84L62 61" stroke="#173152" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M62 84L79 95" stroke="#F59B2F" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M40 37H84" stroke="#2F67B1" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M49 29V44" stroke="#2F67B1" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M75 29V44" stroke="#2F67B1" stroke-width="8" stroke-linecap="round"/>
+                  <circle cx="104" cy="68" r="26" fill="#F6A347" stroke="#8B5B20" stroke-width="4"/>
+                  <path d="M97 60C97.4 54.7 102 51 107.1 51C112.8 51 117 55 117 60.2C117 64.6 113.7 67.4 110.8 69.6C108 71.7 106 73.4 106 76.5" stroke="#173152" stroke-width="5" stroke-linecap="round"/>
+                  <circle cx="106" cy="86" r="3.8" fill="#173152"/>
+                  <path d="M20 92H34" stroke="#173152" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M27 106H38" stroke="#173152" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.5rem] font-extrabold leading-tight text-slate-900">Grammar Diagnostic Quiz</h3>
+                <p class="mt-2 text-[1.1rem] leading-6 text-slate-700">Test your level-specific rules</p>
+                <a href="#" class="mt-6 block rounded-xl bg-ocean px-4 py-3 text-center text-base font-semibold text-white transition hover:bg-[#245592]">Take Quiz</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="flex h-48 items-center justify-center bg-[linear-gradient(180deg,_#eef6ff_0%,_#f8fbff_100%)]">
+                <svg class="h-32 w-32" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="30" y="32" width="100" height="68" rx="6" fill="#F7C48E" stroke="#8C6538" stroke-width="5"/>
+                  <path d="M44 52H90" stroke="#173152" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M44 66H100" stroke="#173152" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M44 80H76" stroke="#173152" stroke-width="5" stroke-linecap="round"/>
+                  <circle cx="68" cy="96" r="14" fill="#F1D29B" stroke="#8C6538" stroke-width="4"/>
+                  <path d="M62 96L67 101L76 91" stroke="#173152" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M104 87C115 80 129 82 137 90C147 99 148 115 138 126C127 138 109 139 98 129C91 122 89 112 92 103" stroke="#173152" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M110 104L121 112L136 95" stroke="#7FBE61" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M99 120C94 112 95 101 102 93" stroke="#F6A347" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M121 88C128 88 134 90 139 95" stroke="#E45D3A" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.5rem] font-extrabold leading-tight text-slate-900">Level Assessment Test</h3>
+                <p class="mt-2 text-[1.1rem] leading-6 text-slate-700">Determine your CEFR level (A1-C1)</p>
+                <a href="#" class="mt-6 block rounded-xl bg-ocean px-4 py-3 text-center text-base font-semibold text-white transition hover:bg-[#245592]">Take Test</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-line bg-white shadow-card">
+              <div class="flex h-48 items-center justify-center bg-[linear-gradient(180deg,_#eef6ff_0%,_#f8fbff_100%)]">
+                <svg class="h-32 w-32" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M26 112H134" stroke="#8C6538" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M38 58H60V112H38V58Z" fill="#7B9ABD" stroke="#173152" stroke-width="4"/>
+                  <path d="M50 48H101" stroke="#173152" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M101 48V112" stroke="#173152" stroke-width="5" stroke-linecap="round"/>
+                  <rect x="79" y="34" width="50" height="72" rx="4" fill="#FFFFFF" stroke="#173152" stroke-width="4"/>
+                  <path d="M89 50H118" stroke="#173152" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M89 63H118" stroke="#173152" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M89 76H118" stroke="#173152" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M89 89H111" stroke="#173152" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="118" cy="97" r="7" fill="#F1D29B" stroke="#8C6538" stroke-width="3"/>
+                </svg>
+              </div>
+              <div class="p-5">
+                <h3 class="text-[1.5rem] font-extrabold leading-tight text-slate-900">IELTS Mock Speaking Test</h3>
+                <p class="mt-2 text-[1.1rem] leading-6 text-slate-700">Simulate the speaking exam experience</p>
+                <a href="#" class="mt-6 block rounded-xl bg-ocean px-4 py-3 text-center text-base font-semibold text-white transition hover:bg-[#245592]">Try Mock</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="relative bg-[linear-gradient(180deg,_#13233b_0%,_#0f1b31_100%)] px-5 py-8 text-white sm:px-8 lg:px-10">
+          <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr_0.9fr_0.9fr]">
+            <div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#f7b34c_0%,#fff0d7_50%,#2f67b1_100%)] shadow-card">
+                  <svg class="h-7 w-7" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 10H20V35H11V10Z" fill="#2F67B1"/>
+                    <path d="M22 14H33C36.314 14 39 16.686 39 20V35H22V14Z" fill="#173152"/>
+                    <path d="M8 37H40" stroke="#173152" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M29 8L31.2 12.8L36 15L31.2 17.2L29 22L26.8 17.2L22 15L26.8 12.8L29 8Z" fill="#F59B2F"/>
+                  </svg>
+                </div>
+                <p class="font-display text-[1.8rem] font-extrabold">LINGUASMART</p>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-[1.7rem] font-extrabold">Product</h4>
+              <ul class="mt-4 space-y-3 text-[1.2rem] text-white/80">
+                <li><a href="#" class="transition hover:text-white">About</a></li>
+                <li><a href="#courses" class="transition hover:text-white">Courses</a></li>
+                <li><a href="#" class="transition hover:text-white">Careers</a></li>
+                <li><a href="#" class="transition hover:text-white">Support</a></li>
+                <li><a href="#" class="transition hover:text-white">Vocabulas Today</a></li>
+              </ul>
+            </div>
+
+            <div id="community">
+              <h4 class="text-[1.7rem] font-extrabold">Company</h4>
+              <ul class="mt-4 space-y-3 text-[1.2rem] text-white/80">
+                <li><a href="#community" class="transition hover:text-white">Company</a></li>
+                <li><a href="#theory" class="transition hover:text-white">Grammar &amp; Theory</a></li>
+                <li><a href="#practice" class="transition hover:text-white">Practice &amp; Vocabulary</a></li>
+                <li><a href="#pricing" class="transition hover:text-white">Pricing</a></li>
+                <li><a href="#" class="transition hover:text-white">Contact</a></li>
+              </ul>
+            </div>
+
+            <div id="pricing">
+              <h4 class="text-[1.7rem] font-extrabold">Support</h4>
+              <ul class="mt-4 space-y-3 text-[1.2rem] text-white/80">
+                <li><a href="#" class="transition hover:text-white">Resential Support</a></li>
+                <li><a href="#" class="transition hover:text-white">Resources</a></li>
+              </ul>
+              <div class="mt-8">
+                <p class="text-[1.7rem] font-extrabold">Resources</p>
+                <div class="mt-4 flex gap-3">
+                  <a href="#" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-lg font-bold text-white transition hover:bg-white/20">f</a>
+                  <a href="#" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-lg font-bold text-white transition hover:bg-white/20">x</a>
+                  <a href="#" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-lg font-bold text-white transition hover:bg-white/20">in</a>
+                  <a href="#" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-lg font-bold text-white transition hover:bg-white/20">ig</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 border-t border-white/10 pt-5 text-[1.05rem] text-white/70">&copy; 2024 Linguasmart. All rights reserved.</div>
+
+          <div class="pointer-events-none absolute bottom-4 right-4 h-24 w-24 rotate-12 opacity-75">
+            <div class="absolute inset-0 rounded-[1.75rem] bg-white/10 blur-sm"></div>
+            <div class="absolute inset-4 rotate-45 rounded-[1.25rem] border border-white/50 bg-white/20"></div>
+          </div>
+        </footer>
+    </main>
+  </div>
+</body>
+</html>

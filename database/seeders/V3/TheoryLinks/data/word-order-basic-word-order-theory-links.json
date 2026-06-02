@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "content_type": "theory_test_links_manifest",
+  "purpose": "Describe curated links between Basic Word Order theory text blocks and theory-page tests so the public test UI can render Show theory.",
+  "page": {
+    "route": "/theory/word-order/theory-basic-word-order",
+    "category_slug": "word-order",
+    "slug": "theory-basic-word-order",
+    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+    "title": "Basic Word Order"
+  },
+  "target_pivot": {
+    "table": "question_theory_text_blocks",
+    "question_key": "question_uuid",
+    "block_key": "text_block_uuid",
+    "position_column": "position",
+    "legacy_question_column": "questions.theory_text_block_uuid",
+    "notes": [
+      "Seeder writes many-to-many links into question_theory_text_blocks.",
+      "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+      "Seeder is idempotent: it deletes existing links only for each covered question_uuid before inserting the resolved ordered block list."
+    ]
+  },
+  "theory_text_block_aliases": {
+    "overview": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 1,
+      "title": "Hero / overview"
+    },
+    "basic_rule": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 1,
+      "title": "Basic rule"
+    },
+    "subject": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 2,
+      "title": "Subject in SVO"
+    },
+    "verb": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 2,
+      "title": "Verb in SVO"
+    },
+    "object": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 2,
+      "title": "Object in SVO"
+    },
+    "frequency_adverbs": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 3,
+      "title": "Adverbs of frequency"
+    },
+    "time": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 4,
+      "title": "Time adverbials"
+    },
+    "place": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 5,
+      "title": "Place adverbials"
+    },
+    "place_time_order": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 6,
+      "title": "Full sentence order"
+    },
+    "svo_order": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 2,
+      "title": "SVO order"
+    },
+    "ukrainian_vs_english_order": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 7,
+      "title": "Ukrainian vs English order mistakes"
+    },
+    "typical_mistakes": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 7,
+      "title": "Typical mistakes"
+    },
+    "summary": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "sort_order": 8,
+      "title": "Summary"
+    }
+  },
+  "bundles": {
+    "general_overview": [
+      "overview",
+      "basic_rule",
+      "summary"
+    ],
+    "subject": [
+      "subject",
+      "svo_order",
+      "summary"
+    ],
+    "verb": [
+      "verb",
+      "svo_order",
+      "summary"
+    ],
+    "object": [
+      "object",
+      "svo_order",
+      "summary"
+    ],
+    "place": [
+      "place",
+      "place_time_order",
+      "summary"
+    ],
+    "time": [
+      "time",
+      "place_time_order",
+      "summary"
+    ],
+    "frequency_adverbs": [
+      "frequency_adverbs",
+      "summary"
+    ],
+    "svo_order": [
+      "svo_order",
+      "subject",
+      "verb",
+      "object",
+      "summary"
+    ],
+    "typical_mistakes": [
+      "typical_mistakes",
+      "ukrainian_vs_english_order",
+      "summary"
+    ]
+  },
+  "tests_on_page": [
+    {
+      "kind": "direct_sentence_builder",
+      "saved_test_slug": "polyglot-basic-word-order-all-levels",
+      "saved_test_name": "Sentence Builder: Basic Word Order (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotBasicWordOrderAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-bwo-a1-01": [
+          "time",
+          "general_overview"
+        ],
+        "poly-bwo-a1-02": [
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-a1-03": [
+          "time",
+          "general_overview"
+        ],
+        "poly-bwo-a1-04": [
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-a1-05": [
+          "frequency_adverbs",
+          "time",
+          "general_overview"
+        ],
+        "poly-bwo-a1-06": [
+          "frequency_adverbs",
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-a1-07": [
+          "frequency_adverbs",
+          "general_overview"
+        ],
+        "poly-bwo-a1-08": [
+          "time",
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-a1-09": [
+          "time",
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-a1-10": [
+          "object",
+          "general_overview"
+        ],
+        "poly-bwo-a1-11": [
+          "time",
+          "general_overview"
+        ],
+        "poly-bwo-a1-12": [
+          "time",
+          "general_overview"
+        ],
+        "poly-bwo-a2-01": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-a2-02": [
+          "frequency_adverbs",
+          "general_overview"
+        ],
+        "poly-bwo-a2-03": [
+          "object",
+          "general_overview"
+        ],
+        "poly-bwo-a2-04": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-a2-05": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-a2-06": [
+          "frequency_adverbs",
+          "general_overview"
+        ],
+        "poly-bwo-a2-07": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-a2-08": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-a2-09": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-a2-10": [
+          "object",
+          "general_overview"
+        ],
+        "poly-bwo-a2-11": [
+          "frequency_adverbs",
+          "general_overview"
+        ],
+        "poly-bwo-a2-12": [
+          "time",
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-b1-01": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b1-02": [
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b1-03": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b1-04": [
+          "frequency_adverbs",
+          "general_overview"
+        ],
+        "poly-bwo-b1-05": [
+          "object",
+          "general_overview"
+        ],
+        "poly-bwo-b1-06": [
+          "place",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b1-07": [
+          "frequency_adverbs",
+          "general_overview"
+        ],
+        "poly-bwo-b1-08": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b1-09": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b1-10": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b1-11": [
+          "frequency_adverbs",
+          "time",
+          "general_overview"
+        ],
+        "poly-bwo-b1-12": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-01": [
+          "typical_mistakes",
+          "general_overview"
+        ],
+        "poly-bwo-b2-02": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-03": [
+          "object",
+          "general_overview"
+        ],
+        "poly-bwo-b2-04": [
+          "object",
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-05": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-06": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-07": [
+          "time",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-08": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-09": [
+          "time",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-10": [
+          "frequency_adverbs",
+          "object",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-11": [
+          "place",
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-b2-12": [
+          "object",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-01": [
+          "frequency_adverbs",
+          "typical_mistakes",
+          "general_overview"
+        ],
+        "poly-bwo-c1-02": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-03": [
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-04": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-05": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-06": [
+          "time",
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-c1-07": [
+          "typical_mistakes",
+          "general_overview"
+        ],
+        "poly-bwo-c1-08": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-09": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-10": [
+          "frequency_adverbs",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-11": [
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c1-12": [
+          "place",
+          "object",
+          "general_overview"
+        ],
+        "poly-bwo-c2-01": [
+          "typical_mistakes",
+          "general_overview"
+        ],
+        "poly-bwo-c2-02": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c2-03": [
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c2-04": [
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c2-05": [
+          "time",
+          "place",
+          "general_overview"
+        ],
+        "poly-bwo-c2-06": [
+          "place",
+          "object",
+          "general_overview"
+        ],
+        "poly-bwo-c2-07": [
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c2-08": [
+          "time",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c2-09": [
+          "typical_mistakes",
+          "general_overview"
+        ],
+        "poly-bwo-c2-10": [
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c2-11": [
+          "frequency_adverbs",
+          "svo_order",
+          "general_overview"
+        ],
+        "poly-bwo-c2-12": [
+          "typical_mistakes",
+          "svo_order",
+          "general_overview"
+        ]
+      }
+    },
+    {
+      "kind": "virtual_mixed_test",
+      "saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+      "expected_seeder_classes": [
+        "Database\\Seeders\\V3\\BasicWordOrderAllLevelsV3Seeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotBasicWordOrderAllLevelsLessonSeeder"
+      ],
+      "strategy": "mapped_question_fallback",
+      "tag_key_to_bundle": {
+        "Affirmative Sentences": "svo_order",
+        "Adverbs of Frequency": "frequency_adverbs",
+        "Time Adverbials": "time",
+        "Place Adverbials": "place"
+      },
+      "answer_value_to_bundle_fallback": {
+        "always": "frequency_adverbs",
+        "usually": "frequency_adverbs",
+        "often": "frequency_adverbs",
+        "sometimes": "frequency_adverbs",
+        "rarely": "frequency_adverbs",
+        "never": "frequency_adverbs",
+        "at home yesterday": "place",
+        "in the park on Saturday": "place",
+        "in the library all afternoon": "place",
+        "did not": "typical_mistakes",
+        "Do you": "svo_order",
+        "Has": "svo_order",
+        "does she think": "svo_order"
+      },
+      "question_text_to_bundle_fallback": {
+        "every day": "time",
+        "in the morning": "time",
+        "at school": "place",
+        "on the sofa": "place",
+        "not only": "typical_mistakes",
+        "never before": "typical_mistakes",
+        "under no circumstances": "typical_mistakes",
+        "on no account": "typical_mistakes",
+        "seldom": "typical_mistakes",
+        "scarcely": "typical_mistakes"
+      },
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\BasicWordOrderAllLevelsV3Seeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotBasicWordOrderAllLevelsLessonSeeder"
+      ],
+      "source_saved_test_slug": "basic-word-order-all-levels-v3"
+    }
+  ],
+  "seeder_requirements": {
+    "page_seeders_must_run_first": [
+      "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarCategorySeeder",
+      "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderCategorySeeder",
+      "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder"
+    ],
+    "question_seeders_must_run_first": [
+      "Database\\Seeders\\V3\\BasicWordOrderAllLevelsV3Seeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotBasicWordOrderAllLevelsLessonSeeder"
+    ],
+    "json_is_source_of_truth": true,
+    "php_seeder_should_only_load_this_manifest": true,
+    "do_not_create_questions_or_saved_tests": true,
+    "do_not_use_question_marker_tag": true
+  },
+  "qa": {
+    "expected_routes_without_missing_theory_links": [
+      "/theory/word-order/theory-basic-word-order"
+    ],
+    "direct_polyglot_saved_test_slug": "polyglot-basic-word-order-all-levels",
+    "mixed_saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+    "standard_v3_strategy": "Use tag_key_to_bundle, answer_value_to_bundle_fallback, option values, question_text_to_bundle_fallback, then default_bundle.",
+    "polyglot_strategy": "Use explicit question_links first. If future Polyglot UUIDs are absent, fallback links them and prints a warning.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
+    ]
+  }
+}

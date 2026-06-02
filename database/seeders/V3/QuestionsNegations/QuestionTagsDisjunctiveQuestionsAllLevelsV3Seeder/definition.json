@@ -1,0 +1,1939 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\QuestionTagsDisjunctiveQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "QuestionTagsDisjunctiveQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_question_tags": {
+            "name": "Question Tags"
+        }
+    },
+    "tags": {
+        "question_tags_disjunctive_questions": {
+            "name": "Question Tags",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "positive_negative_tag": {
+            "name": "Positive Statement Negative Tag",
+            "category": "topic"
+        },
+        "negative_positive_tag": {
+            "name": "Negative Statement Positive Tag",
+            "category": "topic"
+        },
+        "matching_auxiliary": {
+            "name": "Matching Auxiliary",
+            "category": "topic"
+        },
+        "to_be_tags": {
+            "name": "To Be Tags",
+            "category": "topic"
+        },
+        "do_does_did_tags": {
+            "name": "Do Does Did Tags",
+            "category": "topic"
+        },
+        "modal_tags": {
+            "name": "Modal Tags",
+            "category": "topic"
+        },
+        "perfect_auxiliary_tags": {
+            "name": "Perfect Auxiliary Tags",
+            "category": "topic"
+        },
+        "imperative_tags": {
+            "name": "Imperative Tags",
+            "category": "topic"
+        },
+        "lets_shall_we": {
+            "name": "Lets Shall We",
+            "category": "topic"
+        },
+        "arent_i": {
+            "name": "Arent I",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "question_tags_disjunctive_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qtg-v3-a1-01",
+            "question": "She is ready, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "positive_negative_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "isn't she?",
+                    "options": [
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?",
+                        "can't they?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "qtg-v3-a1-02",
+            "question": "They aren't late, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "negative_positive_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are they?",
+                    "options": [
+                        "are they?",
+                        "isn't she?",
+                        "don't you?",
+                        "does he?",
+                        "can't they?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "qtg-v3-a1-03",
+            "question": "You like tea, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "don't you?",
+                    "options": [
+                        "don't you?",
+                        "isn't she?",
+                        "are they?",
+                        "does he?",
+                        "can't they?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "qtg-v3-a1-04",
+            "question": "He doesn't work here, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "does he?",
+                    "options": [
+                        "does he?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "can't they?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "qtg-v3-a1-05",
+            "question": "They can swim, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "modal_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "can't they?",
+                    "options": [
+                        "can't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "qtg-v3-a1-06",
+            "question": "We have finished, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "perfect_auxiliary_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "haven't we?",
+                    "options": [
+                        "haven't we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "qtg-v3-a1-07",
+            "question": "Close the door, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "imperative_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will you?",
+                    "options": [
+                        "will you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "qtg-v3-a1-08",
+            "question": "Let's go now, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "lets_shall_we"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "shall we?",
+                    "options": [
+                        "shall we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "qtg-v3-a1-09",
+            "question": "I am late, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "arent_i"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "aren't I?",
+                    "options": [
+                        "aren't I?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "qtg-v3-a1-10",
+            "question": "It was cold, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "to_be_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wasn't it?",
+                    "options": [
+                        "wasn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "qtg-v3-a1-11",
+            "question": "You didn't call, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did you?",
+                    "options": [
+                        "did you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "qtg-v3-a1-12",
+            "question": "This is correct, {a1}",
+            "level": "A1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a1",
+                "matching_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "isn't it?",
+                    "options": [
+                        "isn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "qtg-v3-a2-01",
+            "question": "The lesson starts at nine, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "positive_negative_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "qtg-v3-a2-02",
+            "question": "She doesn't drive, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "negative_positive_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "does she?",
+                    "options": [
+                        "does she?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "qtg-v3-a2-03",
+            "question": "They visited us yesterday, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "didn't they?",
+                    "options": [
+                        "didn't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "qtg-v3-a2-04",
+            "question": "Mark doesn't know the answer, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "does he?",
+                    "options": [
+                        "does he?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "can't they?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "qtg-v3-a2-05",
+            "question": "You will help me, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "modal_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "won't you?",
+                    "options": [
+                        "won't you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "qtg-v3-a2-06",
+            "question": "She has called him, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "perfect_auxiliary_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "hasn't she?",
+                    "options": [
+                        "hasn't she?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "qtg-v3-a2-07",
+            "question": "Please wait here, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "imperative_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will you?",
+                    "options": [
+                        "will you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "qtg-v3-a2-08",
+            "question": "Let's take a taxi, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "lets_shall_we"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "shall we?",
+                    "options": [
+                        "shall we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "qtg-v3-a2-09",
+            "question": "I am early, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "arent_i"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "aren't I?",
+                    "options": [
+                        "aren't I?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "qtg-v3-a2-10",
+            "question": "They were tired, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "to_be_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weren't they?",
+                    "options": [
+                        "weren't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "qtg-v3-a2-11",
+            "question": "You don't mind, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do you?",
+                    "options": [
+                        "do you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "qtg-v3-a2-12",
+            "question": "The keys are on the table, {a1}",
+            "level": "A2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_a2",
+                "matching_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "aren't they?",
+                    "options": [
+                        "aren't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "qtg-v3-b1-01",
+            "question": "The train leaves soon, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "positive_negative_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "qtg-v3-b1-02",
+            "question": "The documents weren't ready, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "negative_positive_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were they?",
+                    "options": [
+                        "were they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "qtg-v3-b1-03",
+            "question": "She explained the rule, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "didn't she?",
+                    "options": [
+                        "didn't she?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "qtg-v3-b1-04",
+            "question": "They don't need a receipt, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do they?",
+                    "options": [
+                        "do they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "qtg-v3-b1-05",
+            "question": "We should confirm the booking, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "modal_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't we?",
+                    "options": [
+                        "shouldn't we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "qtg-v3-b1-06",
+            "question": "He has sent the invoice, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "perfect_auxiliary_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "hasn't he?",
+                    "options": [
+                        "hasn't he?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "qtg-v3-b1-07",
+            "question": "Send me the address, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "imperative_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will you?",
+                    "options": [
+                        "will you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "qtg-v3-b1-08",
+            "question": "Let's review the plan, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "lets_shall_we"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "shall we?",
+                    "options": [
+                        "shall we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "qtg-v3-b1-09",
+            "question": "I am responsible for this, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "arent_i"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "aren't I?",
+                    "options": [
+                        "aren't I?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "qtg-v3-b1-10",
+            "question": "The meeting was useful, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "to_be_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wasn't it?",
+                    "options": [
+                        "wasn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "qtg-v3-b1-11",
+            "question": "You haven't forgotten, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have you?",
+                    "options": [
+                        "have you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "qtg-v3-b1-12",
+            "question": "The figures look accurate, {a1}",
+            "level": "B1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b1",
+                "matching_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "don't they?",
+                    "options": [
+                        "don't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "qtg-v3-b2-01",
+            "question": "The committee approved the budget, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "positive_negative_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "didn't it?",
+                    "options": [
+                        "didn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "qtg-v3-b2-02",
+            "question": "The proposal hasn't been rejected, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "negative_positive_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has it?",
+                    "options": [
+                        "has it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "qtg-v3-b2-03",
+            "question": "The software works offline, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "qtg-v3-b2-04",
+            "question": "The analysts didn't miss the trend, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did they?",
+                    "options": [
+                        "did they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "qtg-v3-b2-05",
+            "question": "The team could finish today, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "modal_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "couldn't it?",
+                    "options": [
+                        "couldn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "qtg-v3-b2-06",
+            "question": "They had warned us earlier, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "perfect_auxiliary_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "hadn't they?",
+                    "options": [
+                        "hadn't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "qtg-v3-b2-07",
+            "question": "Keep the original files, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "imperative_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will you?",
+                    "options": [
+                        "will you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "qtg-v3-b2-08",
+            "question": "Let's postpone the vote, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "lets_shall_we"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "shall we?",
+                    "options": [
+                        "shall we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "qtg-v3-b2-09",
+            "question": "I am interpreting this correctly, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "arent_i"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "aren't I?",
+                    "options": [
+                        "aren't I?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "qtg-v3-b2-10",
+            "question": "The assumptions were realistic, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "to_be_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "weren't they?",
+                    "options": [
+                        "weren't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "qtg-v3-b2-11",
+            "question": "You wouldn't object, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "would you?",
+                    "options": [
+                        "would you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "qtg-v3-b2-12",
+            "question": "The conclusion follows logically, {a1}",
+            "level": "B2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_b2",
+                "matching_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "qtg-v3-c1-01",
+            "question": "The witness contradicted herself, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "positive_negative_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "didn't she?",
+                    "options": [
+                        "didn't she?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "qtg-v3-c1-02",
+            "question": "The implications aren't obvious, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "negative_positive_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are they?",
+                    "options": [
+                        "are they?",
+                        "isn't she?",
+                        "don't you?",
+                        "does he?",
+                        "can't they?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "qtg-v3-c1-03",
+            "question": "The report underestimates the risk, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "qtg-v3-c1-04",
+            "question": "The board didn't disclose the figures, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it?",
+                    "options": [
+                        "did it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "qtg-v3-c1-05",
+            "question": "The ruling might be appealed, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "modal_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "mightn't it?",
+                    "options": [
+                        "mightn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "qtg-v3-c1-06",
+            "question": "The wording has been revised, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "perfect_auxiliary_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "hasn't it?",
+                    "options": [
+                        "hasn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "qtg-v3-c1-07",
+            "question": "Keep the discussion confidential, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "imperative_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will you?",
+                    "options": [
+                        "will you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "qtg-v3-c1-08",
+            "question": "Let's examine the evidence first, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "lets_shall_we"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "shall we?",
+                    "options": [
+                        "shall we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "qtg-v3-c1-09",
+            "question": "I am assuming the data is complete, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "arent_i"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "aren't I?",
+                    "options": [
+                        "aren't I?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "qtg-v3-c1-10",
+            "question": "The decision was controversial, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "to_be_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wasn't it?",
+                    "options": [
+                        "wasn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "qtg-v3-c1-11",
+            "question": "You wouldn't call that neutral, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "would you?",
+                    "options": [
+                        "would you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "qtg-v3-c1-12",
+            "question": "The argument relies on precedent, {a1}",
+            "level": "C1",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c1",
+                "matching_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "qtg-v3-c2-01",
+            "question": "The judgment narrows the doctrine, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "positive_negative_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "qtg-v3-c2-02",
+            "question": "The caveat shouldn't be ignored, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "negative_positive_tag"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should it?",
+                    "options": [
+                        "should it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "qtg-v3-c2-03",
+            "question": "The article conflates correlation and causation, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "qtg-v3-c2-04",
+            "question": "The panel didn't address jurisdiction, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "do_does_did_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did it?",
+                    "options": [
+                        "did it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "qtg-v3-c2-05",
+            "question": "The interpretation could be challenged, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "modal_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "couldn't it?",
+                    "options": [
+                        "couldn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "qtg-v3-c2-06",
+            "question": "The risks had been understated, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "perfect_auxiliary_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "hadn't they?",
+                    "options": [
+                        "hadn't they?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "qtg-v3-c2-07",
+            "question": "Preserve the original wording, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "imperative_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "will you?",
+                    "options": [
+                        "will you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "qtg-v3-c2-08",
+            "question": "Let's distinguish that precedent, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "lets_shall_we"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "shall we?",
+                    "options": [
+                        "shall we?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "qtg-v3-c2-09",
+            "question": "I am reading the clause narrowly, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "arent_i"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "aren't I?",
+                    "options": [
+                        "aren't I?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "qtg-v3-c2-10",
+            "question": "The objection was procedural, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "to_be_tags"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wasn't it?",
+                    "options": [
+                        "wasn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "qtg-v3-c2-11",
+            "question": "You wouldn't infer intent from that alone, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "would you?",
+                    "options": [
+                        "would you?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "qtg-v3-c2-12",
+            "question": "The distinction matters here, {a1}",
+            "level": "C2",
+            "source": "theory_page_question_tags",
+            "tag_keys": [
+                "question_tags_disjunctive_questions",
+                "level_c2",
+                "matching_auxiliary"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "doesn't it?",
+                    "options": [
+                        "doesn't it?",
+                        "isn't she?",
+                        "are they?",
+                        "don't you?",
+                        "does he?"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn2-qtg-v3-all",
+        "slug": "question-tags-disjunctive-questions-all-levels-v3",
+        "name": "Question Tags (All levels V3)",
+        "description": "Standard V3 package for Question Tags across A1-C2.",
+        "question_uuids": [
+            "qtg-v3-a1-01",
+            "qtg-v3-a1-02",
+            "qtg-v3-a1-03",
+            "qtg-v3-a1-04",
+            "qtg-v3-a1-05",
+            "qtg-v3-a1-06",
+            "qtg-v3-a1-07",
+            "qtg-v3-a1-08",
+            "qtg-v3-a1-09",
+            "qtg-v3-a1-10",
+            "qtg-v3-a1-11",
+            "qtg-v3-a1-12",
+            "qtg-v3-a2-01",
+            "qtg-v3-a2-02",
+            "qtg-v3-a2-03",
+            "qtg-v3-a2-04",
+            "qtg-v3-a2-05",
+            "qtg-v3-a2-06",
+            "qtg-v3-a2-07",
+            "qtg-v3-a2-08",
+            "qtg-v3-a2-09",
+            "qtg-v3-a2-10",
+            "qtg-v3-a2-11",
+            "qtg-v3-a2-12",
+            "qtg-v3-b1-01",
+            "qtg-v3-b1-02",
+            "qtg-v3-b1-03",
+            "qtg-v3-b1-04",
+            "qtg-v3-b1-05",
+            "qtg-v3-b1-06",
+            "qtg-v3-b1-07",
+            "qtg-v3-b1-08",
+            "qtg-v3-b1-09",
+            "qtg-v3-b1-10",
+            "qtg-v3-b1-11",
+            "qtg-v3-b1-12",
+            "qtg-v3-b2-01",
+            "qtg-v3-b2-02",
+            "qtg-v3-b2-03",
+            "qtg-v3-b2-04",
+            "qtg-v3-b2-05",
+            "qtg-v3-b2-06",
+            "qtg-v3-b2-07",
+            "qtg-v3-b2-08",
+            "qtg-v3-b2-09",
+            "qtg-v3-b2-10",
+            "qtg-v3-b2-11",
+            "qtg-v3-b2-12",
+            "qtg-v3-c1-01",
+            "qtg-v3-c1-02",
+            "qtg-v3-c1-03",
+            "qtg-v3-c1-04",
+            "qtg-v3-c1-05",
+            "qtg-v3-c1-06",
+            "qtg-v3-c1-07",
+            "qtg-v3-c1-08",
+            "qtg-v3-c1-09",
+            "qtg-v3-c1-10",
+            "qtg-v3-c1-11",
+            "qtg-v3-c1-12",
+            "qtg-v3-c2-01",
+            "qtg-v3-c2-02",
+            "qtg-v3-c2-03",
+            "qtg-v3-c2-04",
+            "qtg-v3-c2-05",
+            "qtg-v3-c2-06",
+            "qtg-v3-c2-07",
+            "qtg-v3-c2-08",
+            "qtg-v3-c2-09",
+            "qtg-v3-c2-10",
+            "qtg-v3-c2-11",
+            "qtg-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\QuestionTagsDisjunctiveQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "question-tags-disjunctive-questions-dont-you-isnt-it",
+                    "title": "Question Tags",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/question-tags-disjunctive-questions-dont-you-isnt-it"
+                }
+            }
+        }
+    }
+}

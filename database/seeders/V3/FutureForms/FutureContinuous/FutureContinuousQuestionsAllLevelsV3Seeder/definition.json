@@ -1,0 +1,2183 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FutureForms\\FutureContinuous\\FutureContinuousQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "FutureContinuousQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Future Forms"
+    },
+    "sources": {
+        "theory_page_future_continuous_questions": {
+            "name": "Future Continuous Questions"
+        }
+    },
+    "tags": {
+        "future_forms_future_continuous_questions": {
+            "name": "Future Continuous Questions",
+            "category": "future-forms"
+        },
+        "question_order": {
+            "name": "Question Order",
+            "category": "topic"
+        },
+        "yes_no_questions": {
+            "name": "Yes No Questions",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh Questions",
+            "category": "topic"
+        },
+        "what_doing_questions": {
+            "name": "What Doing Questions",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "future_forms_future_continuous_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "fcq-v3-a1-01",
+            "question": "{a1} at six tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be working",
+                    "options": [
+                        "Will you be working",
+                        "You will be working",
+                        "Will you work",
+                        "Have you been working"
+                    ],
+                    "verb_hint": "Put will before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} at six tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 2,
+            "uuid": "fcq-v3-a1-02",
+            "question": "{a1} for us at the station",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be waiting",
+                    "options": [
+                        "Will they be waiting",
+                        "They will be waiting",
+                        "Will they wait",
+                        "Have they waited"
+                    ],
+                    "verb_hint": "Use Will + subject + be + verb-ing.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} for us at the station"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 3,
+            "uuid": "fcq-v3-a1-03",
+            "question": "Where {a1} next week",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will she be staying",
+                    "options": [
+                        "will she be staying",
+                        "she will be staying",
+                        "will she stay",
+                        "has she stayed"
+                    ],
+                    "verb_hint": "Put the question word before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where {a1} next week"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 4,
+            "uuid": "fcq-v3-a1-04",
+            "question": "What {a1} at eight tonight",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will you be doing",
+                    "options": [
+                        "will you be doing",
+                        "you will be doing",
+                        "will you do",
+                        "have you done"
+                    ],
+                    "verb_hint": "Use What + will + subject + be doing.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} at eight tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 5,
+            "uuid": "fcq-v3-a1-05",
+            "question": "Will he be driving then Yes {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "he will",
+                    "options": [
+                        "he will",
+                        "he be",
+                        "he will be",
+                        "he does"
+                    ],
+                    "verb_hint": "Short answers use will, not be + -ing.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will he be driving then Yes {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 6,
+            "uuid": "fcq-v3-a1-06",
+            "question": "{a1} the new software tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be testing",
+                    "options": [
+                        "Will they be testing",
+                        "Will they testing",
+                        "They will be testing",
+                        "Will they test"
+                    ],
+                    "verb_hint": "Do not omit be in questions.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the new software tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 7,
+            "uuid": "fcq-v3-a1-07",
+            "question": "{a1} this time tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will Marta be travelling",
+                    "options": [
+                        "Will Marta be travelling",
+                        "Marta will be travelling",
+                        "Will Marta travel",
+                        "Has Marta travelled"
+                    ],
+                    "verb_hint": "Use Will + subject + be + -ing.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this time tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 8,
+            "uuid": "fcq-v3-a1-08",
+            "question": "{a1} the office later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be using",
+                    "options": [
+                        "Will you be using",
+                        "You will be using",
+                        "Will you use",
+                        "Have you used"
+                    ],
+                    "verb_hint": "Use Future Continuous for a planned future activity.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the office later"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 9,
+            "uuid": "fcq-v3-a1-09",
+            "question": "Why {a1} so late",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will he be working",
+                    "options": [
+                        "will he be working",
+                        "he will be working",
+                        "will he work",
+                        "has he worked"
+                    ],
+                    "verb_hint": "Wh-question word comes before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why {a1} so late"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 10,
+            "uuid": "fcq-v3-a1-10",
+            "question": "What {a1} when I arrive",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will they be doing",
+                    "options": [
+                        "will they be doing",
+                        "they will be doing",
+                        "will they do",
+                        "have they done"
+                    ],
+                    "verb_hint": "Ask about an action in progress at that future moment.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} when I arrive"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 11,
+            "uuid": "fcq-v3-a1-11",
+            "question": "Will we be meeting tomorrow No {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "we won't",
+                    "options": [
+                        "we won't",
+                        "we not",
+                        "we are not",
+                        "we do not"
+                    ],
+                    "verb_hint": "Negative short answer with will is won’t.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will we be meeting tomorrow No {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 12,
+            "uuid": "fcq-v3-a1-12",
+            "question": "{a1} at the hotel tonight",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Will she be staying",
+                    "options": [
+                        "Will she be staying",
+                        "Will she staying",
+                        "She will be staying",
+                        "Will she stay"
+                    ],
+                    "verb_hint": "Future Continuous questions need be.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} at the hotel tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 13,
+            "uuid": "fcq-v3-a2-01",
+            "question": "{a1} at six tomorrow",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be working",
+                    "options": [
+                        "Will you be working",
+                        "You will be working",
+                        "Will you work",
+                        "Have you been working"
+                    ],
+                    "verb_hint": "Put will before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} at six tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 14,
+            "uuid": "fcq-v3-a2-02",
+            "question": "{a1} for us at the station",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be waiting",
+                    "options": [
+                        "Will they be waiting",
+                        "They will be waiting",
+                        "Will they wait",
+                        "Have they waited"
+                    ],
+                    "verb_hint": "Use Will + subject + be + verb-ing.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} for us at the station"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 15,
+            "uuid": "fcq-v3-a2-03",
+            "question": "Where {a1} next week",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will she be staying",
+                    "options": [
+                        "will she be staying",
+                        "she will be staying",
+                        "will she stay",
+                        "has she stayed"
+                    ],
+                    "verb_hint": "Put the question word before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where {a1} next week"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 16,
+            "uuid": "fcq-v3-a2-04",
+            "question": "What {a1} at eight tonight",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will you be doing",
+                    "options": [
+                        "will you be doing",
+                        "you will be doing",
+                        "will you do",
+                        "have you done"
+                    ],
+                    "verb_hint": "Use What + will + subject + be doing.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} at eight tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 17,
+            "uuid": "fcq-v3-a2-05",
+            "question": "Will he be driving then Yes {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "he will",
+                    "options": [
+                        "he will",
+                        "he be",
+                        "he will be",
+                        "he does"
+                    ],
+                    "verb_hint": "Short answers use will, not be + -ing.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will he be driving then Yes {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 18,
+            "uuid": "fcq-v3-a2-06",
+            "question": "{a1} the new software tomorrow",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be testing",
+                    "options": [
+                        "Will they be testing",
+                        "Will they testing",
+                        "They will be testing",
+                        "Will they test"
+                    ],
+                    "verb_hint": "Do not omit be in questions.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the new software tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 19,
+            "uuid": "fcq-v3-a2-07",
+            "question": "{a1} this time tomorrow",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will Marta be travelling",
+                    "options": [
+                        "Will Marta be travelling",
+                        "Marta will be travelling",
+                        "Will Marta travel",
+                        "Has Marta travelled"
+                    ],
+                    "verb_hint": "Use Will + subject + be + -ing.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this time tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 20,
+            "uuid": "fcq-v3-a2-08",
+            "question": "{a1} the office later",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be using",
+                    "options": [
+                        "Will you be using",
+                        "You will be using",
+                        "Will you use",
+                        "Have you used"
+                    ],
+                    "verb_hint": "Use Future Continuous for a planned future activity.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the office later"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 21,
+            "uuid": "fcq-v3-a2-09",
+            "question": "Why {a1} so late",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will he be working",
+                    "options": [
+                        "will he be working",
+                        "he will be working",
+                        "will he work",
+                        "has he worked"
+                    ],
+                    "verb_hint": "Wh-question word comes before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why {a1} so late"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 22,
+            "uuid": "fcq-v3-a2-10",
+            "question": "What {a1} when I arrive",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will they be doing",
+                    "options": [
+                        "will they be doing",
+                        "they will be doing",
+                        "will they do",
+                        "have they done"
+                    ],
+                    "verb_hint": "Ask about an action in progress at that future moment.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} when I arrive"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 23,
+            "uuid": "fcq-v3-a2-11",
+            "question": "Will we be meeting tomorrow No {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "we won't",
+                    "options": [
+                        "we won't",
+                        "we not",
+                        "we are not",
+                        "we do not"
+                    ],
+                    "verb_hint": "Negative short answer with will is won’t.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will we be meeting tomorrow No {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 24,
+            "uuid": "fcq-v3-a2-12",
+            "question": "{a1} at the hotel tonight",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Will she be staying",
+                    "options": [
+                        "Will she be staying",
+                        "Will she staying",
+                        "She will be staying",
+                        "Will she stay"
+                    ],
+                    "verb_hint": "Future Continuous questions need be.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} at the hotel tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 25,
+            "uuid": "fcq-v3-b1-01",
+            "question": "{a1} at six tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be working",
+                    "options": [
+                        "Will you be working",
+                        "You will be working",
+                        "Will you work",
+                        "Have you been working"
+                    ],
+                    "verb_hint": "Put will before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} at six tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 26,
+            "uuid": "fcq-v3-b1-02",
+            "question": "{a1} for us at the station",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be waiting",
+                    "options": [
+                        "Will they be waiting",
+                        "They will be waiting",
+                        "Will they wait",
+                        "Have they waited"
+                    ],
+                    "verb_hint": "Use Will + subject + be + verb-ing.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} for us at the station"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 27,
+            "uuid": "fcq-v3-b1-03",
+            "question": "Where {a1} next week",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will she be staying",
+                    "options": [
+                        "will she be staying",
+                        "she will be staying",
+                        "will she stay",
+                        "has she stayed"
+                    ],
+                    "verb_hint": "Put the question word before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where {a1} next week"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 28,
+            "uuid": "fcq-v3-b1-04",
+            "question": "What {a1} at eight tonight",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will you be doing",
+                    "options": [
+                        "will you be doing",
+                        "you will be doing",
+                        "will you do",
+                        "have you done"
+                    ],
+                    "verb_hint": "Use What + will + subject + be doing.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} at eight tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 29,
+            "uuid": "fcq-v3-b1-05",
+            "question": "Will he be driving then Yes {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "he will",
+                    "options": [
+                        "he will",
+                        "he be",
+                        "he will be",
+                        "he does"
+                    ],
+                    "verb_hint": "Short answers use will, not be + -ing.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will he be driving then Yes {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 30,
+            "uuid": "fcq-v3-b1-06",
+            "question": "{a1} the new software tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be testing",
+                    "options": [
+                        "Will they be testing",
+                        "Will they testing",
+                        "They will be testing",
+                        "Will they test"
+                    ],
+                    "verb_hint": "Do not omit be in questions.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the new software tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 31,
+            "uuid": "fcq-v3-b1-07",
+            "question": "{a1} this time tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will Marta be travelling",
+                    "options": [
+                        "Will Marta be travelling",
+                        "Marta will be travelling",
+                        "Will Marta travel",
+                        "Has Marta travelled"
+                    ],
+                    "verb_hint": "Use Will + subject + be + -ing.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this time tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 32,
+            "uuid": "fcq-v3-b1-08",
+            "question": "{a1} the office later",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be using",
+                    "options": [
+                        "Will you be using",
+                        "You will be using",
+                        "Will you use",
+                        "Have you used"
+                    ],
+                    "verb_hint": "Use Future Continuous for a planned future activity.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the office later"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 33,
+            "uuid": "fcq-v3-b1-09",
+            "question": "Why {a1} so late",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will he be working",
+                    "options": [
+                        "will he be working",
+                        "he will be working",
+                        "will he work",
+                        "has he worked"
+                    ],
+                    "verb_hint": "Wh-question word comes before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why {a1} so late"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 34,
+            "uuid": "fcq-v3-b1-10",
+            "question": "What {a1} when I arrive",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will they be doing",
+                    "options": [
+                        "will they be doing",
+                        "they will be doing",
+                        "will they do",
+                        "have they done"
+                    ],
+                    "verb_hint": "Ask about an action in progress at that future moment.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} when I arrive"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 35,
+            "uuid": "fcq-v3-b1-11",
+            "question": "Will we be meeting tomorrow No {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "we won't",
+                    "options": [
+                        "we won't",
+                        "we not",
+                        "we are not",
+                        "we do not"
+                    ],
+                    "verb_hint": "Negative short answer with will is won’t.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will we be meeting tomorrow No {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 36,
+            "uuid": "fcq-v3-b1-12",
+            "question": "{a1} at the hotel tonight",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will she be staying",
+                    "options": [
+                        "Will she be staying",
+                        "Will she staying",
+                        "She will be staying",
+                        "Will she stay"
+                    ],
+                    "verb_hint": "Future Continuous questions need be.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} at the hotel tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 37,
+            "uuid": "fcq-v3-b2-01",
+            "question": "{a1} at six tomorrow",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be working",
+                    "options": [
+                        "Will you be working",
+                        "You will be working",
+                        "Will you work",
+                        "Have you been working"
+                    ],
+                    "verb_hint": "Put will before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} at six tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 38,
+            "uuid": "fcq-v3-b2-02",
+            "question": "{a1} for us at the station",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be waiting",
+                    "options": [
+                        "Will they be waiting",
+                        "They will be waiting",
+                        "Will they wait",
+                        "Have they waited"
+                    ],
+                    "verb_hint": "Use Will + subject + be + verb-ing.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} for us at the station"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 39,
+            "uuid": "fcq-v3-b2-03",
+            "question": "Where {a1} next week",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will she be staying",
+                    "options": [
+                        "will she be staying",
+                        "she will be staying",
+                        "will she stay",
+                        "has she stayed"
+                    ],
+                    "verb_hint": "Put the question word before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where {a1} next week"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 40,
+            "uuid": "fcq-v3-b2-04",
+            "question": "What {a1} at eight tonight",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will you be doing",
+                    "options": [
+                        "will you be doing",
+                        "you will be doing",
+                        "will you do",
+                        "have you done"
+                    ],
+                    "verb_hint": "Use What + will + subject + be doing.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} at eight tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 41,
+            "uuid": "fcq-v3-b2-05",
+            "question": "Will he be driving then Yes {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "he will",
+                    "options": [
+                        "he will",
+                        "he be",
+                        "he will be",
+                        "he does"
+                    ],
+                    "verb_hint": "Short answers use will, not be + -ing.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will he be driving then Yes {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 42,
+            "uuid": "fcq-v3-b2-06",
+            "question": "{a1} the new software tomorrow",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be testing",
+                    "options": [
+                        "Will they be testing",
+                        "Will they testing",
+                        "They will be testing",
+                        "Will they test"
+                    ],
+                    "verb_hint": "Do not omit be in questions.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the new software tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 43,
+            "uuid": "fcq-v3-b2-07",
+            "question": "{a1} this time tomorrow",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Will Marta be travelling",
+                    "options": [
+                        "Will Marta be travelling",
+                        "Marta will be travelling",
+                        "Will Marta travel",
+                        "Has Marta travelled"
+                    ],
+                    "verb_hint": "Use Will + subject + be + -ing.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this time tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 44,
+            "uuid": "fcq-v3-b2-08",
+            "question": "{a1} the office later",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be using",
+                    "options": [
+                        "Will you be using",
+                        "You will be using",
+                        "Will you use",
+                        "Have you used"
+                    ],
+                    "verb_hint": "Use Future Continuous for a planned future activity.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the office later"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 45,
+            "uuid": "fcq-v3-b2-09",
+            "question": "Why {a1} so late",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will he be working",
+                    "options": [
+                        "will he be working",
+                        "he will be working",
+                        "will he work",
+                        "has he worked"
+                    ],
+                    "verb_hint": "Wh-question word comes before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why {a1} so late"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 46,
+            "uuid": "fcq-v3-b2-10",
+            "question": "What {a1} when I arrive",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will they be doing",
+                    "options": [
+                        "will they be doing",
+                        "they will be doing",
+                        "will they do",
+                        "have they done"
+                    ],
+                    "verb_hint": "Ask about an action in progress at that future moment.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} when I arrive"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 47,
+            "uuid": "fcq-v3-b2-11",
+            "question": "Will we be meeting tomorrow No {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "we won't",
+                    "options": [
+                        "we won't",
+                        "we not",
+                        "we are not",
+                        "we do not"
+                    ],
+                    "verb_hint": "Negative short answer with will is won’t.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will we be meeting tomorrow No {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 48,
+            "uuid": "fcq-v3-b2-12",
+            "question": "{a1} at the hotel tonight",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Will she be staying",
+                    "options": [
+                        "Will she be staying",
+                        "Will she staying",
+                        "She will be staying",
+                        "Will she stay"
+                    ],
+                    "verb_hint": "Future Continuous questions need be.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} at the hotel tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 49,
+            "uuid": "fcq-v3-c1-01",
+            "question": "{a1} at six tomorrow",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be working",
+                    "options": [
+                        "Will you be working",
+                        "You will be working",
+                        "Will you work",
+                        "Have you been working"
+                    ],
+                    "verb_hint": "Put will before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} at six tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 50,
+            "uuid": "fcq-v3-c1-02",
+            "question": "{a1} for us at the station",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be waiting",
+                    "options": [
+                        "Will they be waiting",
+                        "They will be waiting",
+                        "Will they wait",
+                        "Have they waited"
+                    ],
+                    "verb_hint": "Use Will + subject + be + verb-ing.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} for us at the station"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 51,
+            "uuid": "fcq-v3-c1-03",
+            "question": "Where {a1} next week",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will she be staying",
+                    "options": [
+                        "will she be staying",
+                        "she will be staying",
+                        "will she stay",
+                        "has she stayed"
+                    ],
+                    "verb_hint": "Put the question word before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where {a1} next week"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 52,
+            "uuid": "fcq-v3-c1-04",
+            "question": "What {a1} at eight tonight",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will you be doing",
+                    "options": [
+                        "will you be doing",
+                        "you will be doing",
+                        "will you do",
+                        "have you done"
+                    ],
+                    "verb_hint": "Use What + will + subject + be doing.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} at eight tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 53,
+            "uuid": "fcq-v3-c1-05",
+            "question": "Will he be driving then Yes {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "he will",
+                    "options": [
+                        "he will",
+                        "he be",
+                        "he will be",
+                        "he does"
+                    ],
+                    "verb_hint": "Short answers use will, not be + -ing.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will he be driving then Yes {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 54,
+            "uuid": "fcq-v3-c1-06",
+            "question": "{a1} the new software tomorrow",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be testing",
+                    "options": [
+                        "Will they be testing",
+                        "Will they testing",
+                        "They will be testing",
+                        "Will they test"
+                    ],
+                    "verb_hint": "Do not omit be in questions.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the new software tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 55,
+            "uuid": "fcq-v3-c1-07",
+            "question": "{a1} this time tomorrow",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will Marta be travelling",
+                    "options": [
+                        "Will Marta be travelling",
+                        "Marta will be travelling",
+                        "Will Marta travel",
+                        "Has Marta travelled"
+                    ],
+                    "verb_hint": "Use Will + subject + be + -ing.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this time tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 56,
+            "uuid": "fcq-v3-c1-08",
+            "question": "{a1} the office later",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be using",
+                    "options": [
+                        "Will you be using",
+                        "You will be using",
+                        "Will you use",
+                        "Have you used"
+                    ],
+                    "verb_hint": "Use Future Continuous for a planned future activity.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the office later"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 57,
+            "uuid": "fcq-v3-c1-09",
+            "question": "Why {a1} so late",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will he be working",
+                    "options": [
+                        "will he be working",
+                        "he will be working",
+                        "will he work",
+                        "has he worked"
+                    ],
+                    "verb_hint": "Wh-question word comes before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why {a1} so late"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 58,
+            "uuid": "fcq-v3-c1-10",
+            "question": "What {a1} when I arrive",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will they be doing",
+                    "options": [
+                        "will they be doing",
+                        "they will be doing",
+                        "will they do",
+                        "have they done"
+                    ],
+                    "verb_hint": "Ask about an action in progress at that future moment.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} when I arrive"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 59,
+            "uuid": "fcq-v3-c1-11",
+            "question": "Will we be meeting tomorrow No {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "we won't",
+                    "options": [
+                        "we won't",
+                        "we not",
+                        "we are not",
+                        "we do not"
+                    ],
+                    "verb_hint": "Negative short answer with will is won’t.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will we be meeting tomorrow No {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 60,
+            "uuid": "fcq-v3-c1-12",
+            "question": "{a1} at the hotel tonight",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Will she be staying",
+                    "options": [
+                        "Will she be staying",
+                        "Will she staying",
+                        "She will be staying",
+                        "Will she stay"
+                    ],
+                    "verb_hint": "Future Continuous questions need be.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} at the hotel tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 61,
+            "uuid": "fcq-v3-c2-01",
+            "question": "{a1} at six tomorrow",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be working",
+                    "options": [
+                        "Will you be working",
+                        "You will be working",
+                        "Will you work",
+                        "Have you been working"
+                    ],
+                    "verb_hint": "Put will before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} at six tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 62,
+            "uuid": "fcq-v3-c2-02",
+            "question": "{a1} for us at the station",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be waiting",
+                    "options": [
+                        "Will they be waiting",
+                        "They will be waiting",
+                        "Will they wait",
+                        "Have they waited"
+                    ],
+                    "verb_hint": "Use Will + subject + be + verb-ing.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} for us at the station"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 63,
+            "uuid": "fcq-v3-c2-03",
+            "question": "Where {a1} next week",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will she be staying",
+                    "options": [
+                        "will she be staying",
+                        "she will be staying",
+                        "will she stay",
+                        "has she stayed"
+                    ],
+                    "verb_hint": "Put the question word before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Where {a1} next week"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 64,
+            "uuid": "fcq-v3-c2-04",
+            "question": "What {a1} at eight tonight",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will you be doing",
+                    "options": [
+                        "will you be doing",
+                        "you will be doing",
+                        "will you do",
+                        "have you done"
+                    ],
+                    "verb_hint": "Use What + will + subject + be doing.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} at eight tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 65,
+            "uuid": "fcq-v3-c2-05",
+            "question": "Will he be driving then Yes {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "he will",
+                    "options": [
+                        "he will",
+                        "he be",
+                        "he will be",
+                        "he does"
+                    ],
+                    "verb_hint": "Short answers use will, not be + -ing.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will he be driving then Yes {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 66,
+            "uuid": "fcq-v3-c2-06",
+            "question": "{a1} the new software tomorrow",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Will they be testing",
+                    "options": [
+                        "Will they be testing",
+                        "Will they testing",
+                        "They will be testing",
+                        "Will they test"
+                    ],
+                    "verb_hint": "Do not omit be in questions.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the new software tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 67,
+            "uuid": "fcq-v3-c2-07",
+            "question": "{a1} this time tomorrow",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Will Marta be travelling",
+                    "options": [
+                        "Will Marta be travelling",
+                        "Marta will be travelling",
+                        "Will Marta travel",
+                        "Has Marta travelled"
+                    ],
+                    "verb_hint": "Use Will + subject + be + -ing.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this time tomorrow"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 68,
+            "uuid": "fcq-v3-c2-08",
+            "question": "{a1} the office later",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Will you be using",
+                    "options": [
+                        "Will you be using",
+                        "You will be using",
+                        "Will you use",
+                        "Have you used"
+                    ],
+                    "verb_hint": "Use Future Continuous for a planned future activity.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the office later"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 69,
+            "uuid": "fcq-v3-c2-09",
+            "question": "Why {a1} so late",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will he be working",
+                    "options": [
+                        "will he be working",
+                        "he will be working",
+                        "will he work",
+                        "has he worked"
+                    ],
+                    "verb_hint": "Wh-question word comes before will.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "Why {a1} so late"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 70,
+            "uuid": "fcq-v3-c2-10",
+            "question": "What {a1} when I arrive",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will they be doing",
+                    "options": [
+                        "will they be doing",
+                        "they will be doing",
+                        "will they do",
+                        "have they done"
+                    ],
+                    "verb_hint": "Ask about an action in progress at that future moment.",
+                    "gap_tags": [
+                        "what_doing_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "what_doing_questions"
+            ],
+            "variants": [
+                "What {a1} when I arrive"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 71,
+            "uuid": "fcq-v3-c2-11",
+            "question": "Will we be meeting tomorrow No {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "we won't",
+                    "options": [
+                        "we won't",
+                        "we not",
+                        "we are not",
+                        "we do not"
+                    ],
+                    "verb_hint": "Negative short answer with will is won’t.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Will we be meeting tomorrow No {a1}"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        },
+        {
+            "id": 72,
+            "uuid": "fcq-v3-c2-12",
+            "question": "{a1} at the hotel tonight",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Will she be staying",
+                    "options": [
+                        "Will she be staying",
+                        "Will she staying",
+                        "She will be staying",
+                        "Will she stay"
+                    ],
+                    "verb_hint": "Future Continuous questions need be.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} at the hotel tonight"
+            ],
+            "source": "theory_page_future_continuous_questions"
+        }
+    ],
+    "saved_test": {
+        "uuid": "future-fcq-v3-all",
+        "slug": "future-continuous-questions-all-levels-v3",
+        "name": "Future Continuous Questions: V3 All Levels",
+        "description": "Page-local V3 package for Future Continuous Questions with A1-C2 coverage.",
+        "question_uuids": [
+            "fcq-v3-a1-01",
+            "fcq-v3-a1-02",
+            "fcq-v3-a1-03",
+            "fcq-v3-a1-04",
+            "fcq-v3-a1-05",
+            "fcq-v3-a1-06",
+            "fcq-v3-a1-07",
+            "fcq-v3-a1-08",
+            "fcq-v3-a1-09",
+            "fcq-v3-a1-10",
+            "fcq-v3-a1-11",
+            "fcq-v3-a1-12",
+            "fcq-v3-a2-01",
+            "fcq-v3-a2-02",
+            "fcq-v3-a2-03",
+            "fcq-v3-a2-04",
+            "fcq-v3-a2-05",
+            "fcq-v3-a2-06",
+            "fcq-v3-a2-07",
+            "fcq-v3-a2-08",
+            "fcq-v3-a2-09",
+            "fcq-v3-a2-10",
+            "fcq-v3-a2-11",
+            "fcq-v3-a2-12",
+            "fcq-v3-b1-01",
+            "fcq-v3-b1-02",
+            "fcq-v3-b1-03",
+            "fcq-v3-b1-04",
+            "fcq-v3-b1-05",
+            "fcq-v3-b1-06",
+            "fcq-v3-b1-07",
+            "fcq-v3-b1-08",
+            "fcq-v3-b1-09",
+            "fcq-v3-b1-10",
+            "fcq-v3-b1-11",
+            "fcq-v3-b1-12",
+            "fcq-v3-b2-01",
+            "fcq-v3-b2-02",
+            "fcq-v3-b2-03",
+            "fcq-v3-b2-04",
+            "fcq-v3-b2-05",
+            "fcq-v3-b2-06",
+            "fcq-v3-b2-07",
+            "fcq-v3-b2-08",
+            "fcq-v3-b2-09",
+            "fcq-v3-b2-10",
+            "fcq-v3-b2-11",
+            "fcq-v3-b2-12",
+            "fcq-v3-c1-01",
+            "fcq-v3-c1-02",
+            "fcq-v3-c1-03",
+            "fcq-v3-c1-04",
+            "fcq-v3-c1-05",
+            "fcq-v3-c1-06",
+            "fcq-v3-c1-07",
+            "fcq-v3-c1-08",
+            "fcq-v3-c1-09",
+            "fcq-v3-c1-10",
+            "fcq-v3-c1-11",
+            "fcq-v3-c1-12",
+            "fcq-v3-c2-01",
+            "fcq-v3-c2-02",
+            "fcq-v3-c2-03",
+            "fcq-v3-c2-04",
+            "fcq-v3-c2-05",
+            "fcq-v3-c2-06",
+            "fcq-v3-c2-07",
+            "fcq-v3-c2-08",
+            "fcq-v3-c2-09",
+            "fcq-v3-c2-10",
+            "fcq-v3-c2-11",
+            "fcq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\FutureForms\\FutureContinuous\\FutureContinuousQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "future-continuous-questions",
+                    "title": "Future Continuous Questions",
+                    "category_slug_path": "maibutni-formy/future-continuous",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureContinuous\\FutureContinuousQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/maibutni-formy/future-continuous/future-continuous-questions"
+                }
+            }
+        }
+    }
+}

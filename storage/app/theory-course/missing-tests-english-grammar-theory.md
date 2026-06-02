@@ -1,0 +1,669 @@
+# Theory Course Missing Tests
+
+- Course: `english-grammar-theory`
+- Total theory pages: 241
+- Pages with related tests: 111
+- Pages with no tests: 130
+- Pages with only Polyglot: 82
+- Pages with only standard: 7
+- Pages with both: 22
+
+## Missing / Partial Coverage
+
+- `basic-grammar/parts-of-speech` — standard: yes, polyglot: missing
+  - Standard seeder: `PartsOfSpeechTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPartsOfSpeechTheoryCourseLessonSeeder`
+- `basic-grammar/sentence-structure-svo` — standard: yes, polyglot: missing
+  - Standard seeder: `SentenceStructureSvoTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotSentenceStructureSvoTheoryCourseLessonSeeder`
+- `basic-grammar/sentence-types` — standard: yes, polyglot: missing
+  - Standard seeder: `SentenceTypesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotSentenceTypesTheoryCourseLessonSeeder`
+- `basic-grammar/imperatives-sit-down-dont-open-it` — standard: yes, polyglot: missing
+  - Standard seeder: `ImperativesSitDownDontOpenItTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotImperativesSitDownDontOpenItTheoryCourseLessonSeeder`
+- `basic-grammar/basic-conjunctions-and-but-or-because-so` — standard: yes, polyglot: missing
+  - Standard seeder: `BasicConjunctionsAndButOrBecauseSoTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotBasicConjunctionsAndButOrBecauseSoTheoryCourseLessonSeeder`
+- `basic-grammar/word-order/advanced-fronting-and-emphasis` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedFrontingAndEmphasisTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedFrontingAndEmphasisTheoryCourseLessonSeeder`
+- `basic-grammar/word-order/inversion-after-negative-adverbials` — standard: missing, polyglot: yes
+  - Standard seeder: `InversionAfterNegativeAdverbialsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotInversionAfterNegativeAdverbialsTheoryCourseLessonSeeder`
+- `basic-grammar/word-order/inversion-basics` — standard: missing, polyglot: yes
+  - Standard seeder: `InversionBasicsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotInversionBasicsTheoryCourseLessonSeeder`
+- `basic-grammar/a1-mixed-revision` — standard: missing, polyglot: yes
+  - Standard seeder: `A1MixedRevisionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotA1MixedRevisionTheoryCourseLessonSeeder`
+- `basic-grammar/a2-mixed-revision` — standard: missing, polyglot: yes
+  - Standard seeder: `A2MixedRevisionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotA2MixedRevisionTheoryCourseLessonSeeder`
+- `basic-grammar/b1-mixed-revision` — standard: missing, polyglot: yes
+  - Standard seeder: `B1MixedRevisionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotB1MixedRevisionTheoryCourseLessonSeeder`
+- `basic-grammar/b2-mixed-revision` — standard: missing, polyglot: yes
+  - Standard seeder: `B2MixedRevisionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotB2MixedRevisionTheoryCourseLessonSeeder`
+- `basic-grammar/c1-mixed-revision` — standard: missing, polyglot: yes
+  - Standard seeder: `C1MixedRevisionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotC1MixedRevisionTheoryCourseLessonSeeder`
+- `basic-grammar/c2-mixed-revision` — standard: missing, polyglot: yes
+  - Standard seeder: `C2MixedRevisionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotC2MixedRevisionTheoryCourseLessonSeeder`
+- `basic-grammar/have-got-has-got` — standard: missing, polyglot: yes
+  - Standard seeder: `HaveGotHasGotTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotHaveGotHasGotTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/countable-vs-uncountable-nouns` — standard: missing, polyglot: missing
+  - Standard seeder: `CountableVsUncountableNounsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotCountableVsUncountableNounsTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/articles-a-an-the` — standard: missing, polyglot: missing
+  - Standard seeder: `ArticlesAAnTheTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotArticlesAAnTheTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies` — standard: yes, polyglot: missing
+  - Standard seeder: `PluralNounsSEsIesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPluralNounsSEsIesTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/zero-article` — standard: missing, polyglot: missing
+  - Standard seeder: `ZeroArticleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotZeroArticleTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/quantifiers-much-many-a-lot-few-little` — standard: missing, polyglot: yes
+  - Standard seeder: `QuantifiersMuchManyALotFewLittleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotQuantifiersMuchManyALotFewLittleTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/partitives-with-uncountable-nouns-a-piece-of-a-cup-of` — standard: missing, polyglot: missing
+  - Standard seeder: `PartitivesWithUncountableNounsAPieceOfACupOfTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPartitivesWithUncountableNounsAPieceOfACupOfTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/no-none-neither-either` — standard: missing, polyglot: missing
+  - Standard seeder: `NoNoneNeitherEitherTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotNoNoneNeitherEitherTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/articles-with-geographical-names` — standard: missing, polyglot: missing
+  - Standard seeder: `ArticlesWithGeographicalNamesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotArticlesWithGeographicalNamesTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/advanced-articles-generic-reference-the-rich-a-tiger-people` — standard: missing, polyglot: missing
+  - Standard seeder: `AdvancedArticlesGenericReferenceTheRichATigerPeopleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedArticlesGenericReferenceTheRichATigerPeopleTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/another-other-the-other` — standard: missing, polyglot: missing
+  - Standard seeder: `AnotherOtherTheOtherTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAnotherOtherTheOtherTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/collective-nouns` — standard: missing, polyglot: missing
+  - Standard seeder: `CollectiveNounsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotCollectiveNounsTheoryCourseLessonSeeder`
+- `imennyky-artykli-ta-kilkist/irregular-plurals` — standard: missing, polyglot: missing
+  - Standard seeder: `IrregularPluralsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotIrregularPluralsTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/personal-object-pronouns` — standard: missing, polyglot: missing
+  - Standard seeder: `PersonalObjectPronounsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPersonalObjectPronounsTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/possessive-adjectives-vs-pronouns-my-mine-your-yours` — standard: missing, polyglot: missing
+  - Standard seeder: `PossessiveAdjectivesVsPronounsMyMineYourYoursTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPossessiveAdjectivesVsPronounsMyMineYourYoursTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/indefinite-pronouns-someone-anyone-nobody-nothing` — standard: missing, polyglot: missing
+  - Standard seeder: `IndefinitePronounsSomeoneAnyoneNobodyNothingTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotIndefinitePronounsSomeoneAnyoneNobodyNothingTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/reflexive-pronouns-myself-yourself-themselves` — standard: missing, polyglot: missing
+  - Standard seeder: `ReflexivePronounsMyselfYourselfThemselvesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotReflexivePronounsMyselfYourselfThemselvesTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/relative-pronouns-who-which-that-whose` — standard: missing, polyglot: missing
+  - Standard seeder: `RelativePronounsWhoWhichThatWhoseTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotRelativePronounsWhoWhichThatWhoseTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/each-every-all` — standard: missing, polyglot: missing
+  - Standard seeder: `EachEveryAllTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotEachEveryAllTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/reciprocal-pronouns-each-other-one-another` — standard: missing, polyglot: missing
+  - Standard seeder: `ReciprocalPronounsEachOtherOneAnotherTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotReciprocalPronounsEachOtherOneAnotherTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/one-ones` — standard: missing, polyglot: missing
+  - Standard seeder: `OneOnesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotOneOnesTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/demonstratives-this-that-these-those` — standard: missing, polyglot: missing
+  - Standard seeder: `DemonstrativesThisThatTheseThoseTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotDemonstrativesThisThatTheseThoseTheoryCourseLessonSeeder`
+- `zaimennyky-ta-vkazivni-slova/pronouns-theory` — standard: yes, polyglot: missing
+  - Standard seeder: `PronounsTheoryTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPronounsTheoryTheoryCourseLessonSeeder`
+- `maibutni-formy/future-continuous-vs-future-perfect-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `FutureContinuousVsFuturePerfectContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFutureContinuousVsFuturePerfectContinuousTheoryCourseLessonSeeder`
+- `maibutni-formy/choosing-the-right-future-form` — standard: missing, polyglot: missing
+  - Standard seeder: `ChoosingTheRightFutureFormTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotChoosingTheRightFutureFormTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect/future-perfect-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `FuturePerfectFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectFormsTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect/future-perfect-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectNegativesTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect/future-perfect-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectQuestionsTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect/future-perfect-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectTimeExpressionsTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect-continuous/future-perfect-continuous-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `FuturePerfectContinuousFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectContinuousFormsTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect-continuous/future-perfect-continuous-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectContinuousNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectContinuousNegativesTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect-continuous/future-perfect-continuous-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectContinuousQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectContinuousQuestionsTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect-continuous/future-perfect-continuous-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectContinuousTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectContinuousTimeExpressionsTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect-vs-future-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectVsFutureContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectVsFutureContinuousTheoryCourseLessonSeeder`
+- `maibutni-formy/future-perfect-vs-future-perfect-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `FuturePerfectVsFuturePerfectContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFuturePerfectVsFuturePerfectContinuousTheoryCourseLessonSeeder`
+- `maibutni-formy/present-continuous-for-future` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentContinuousForFutureTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentContinuousForFutureTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/yesno-questions-general-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `YesnoQuestionsGeneralQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotYesnoQuestionsGeneralQuestionsTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/answers-to-questions-yes-i-do-no-i-dont` — standard: missing, polyglot: missing
+  - Standard seeder: `AnswersToQuestionsYesIDoNoIDontTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAnswersToQuestionsYesIDoNoIDontTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/alternative-questions-coffee-or-tea` — standard: missing, polyglot: missing
+  - Standard seeder: `AlternativeQuestionsCoffeeOrTeaTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAlternativeQuestionsCoffeeOrTeaTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/question-tags-disjunctive-questions-dont-you-isnt-it` — standard: missing, polyglot: yes
+  - Standard seeder: `QuestionTagsDisjunctiveQuestionsDontYouIsntItTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotQuestionTagsDisjunctiveQuestionsDontYouIsntItTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/negative-questions-dont-you-know` — standard: missing, polyglot: missing
+  - Standard seeder: `NegativeQuestionsDontYouKnowTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotNegativeQuestionsDontYouKnowTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/indirect-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `IndirectQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotIndirectQuestionsTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/embedded-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `EmbeddedQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotEmbeddedQuestionsTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/subject-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `SubjectQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotSubjectQuestionsTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/types-of-questions/wh-questions-special-questions-who-what-where-when-why-how` — standard: missing, polyglot: missing
+  - Standard seeder: `WhQuestionsSpecialQuestionsWhoWhatWhereWhenWhyHowTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotWhQuestionsSpecialQuestionsWhoWhatWhereWhenWhyHowTheoryCourseLessonSeeder`
+- `pytalni-rechennia-ta-zaperechennia/question-forms` — standard: missing, polyglot: missing
+  - Standard seeder: `QuestionFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotQuestionFormsTheoryCourseLessonSeeder`
+- `tenses/present-perfect-vs-present-perfect-continuous` — standard: missing, polyglot: yes
+  - Standard seeder: `PresentPerfectVsPresentPerfectContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectVsPresentPerfectContinuousTheoryCourseLessonSeeder`
+- `tenses/narrative-tenses` — standard: missing, polyglot: yes
+  - Standard seeder: `NarrativeTensesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotNarrativeTensesTheoryCourseLessonSeeder`
+- `tenses/past-perfect-vs-past-perfect-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `PastPerfectVsPastPerfectContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectVsPastPerfectContinuousTheoryCourseLessonSeeder`
+- `tenses/past-simple-vs-past-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `PastSimpleVsPastContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastSimpleVsPastContinuousTheoryCourseLessonSeeder`
+- `tenses/present-perfect-vs-past-simple` — standard: missing, polyglot: yes
+  - Standard seeder: `PresentPerfectVsPastSimpleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectVsPastSimpleTheoryCourseLessonSeeder`
+- `tenses/present-simple-vs-present-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentSimpleVsPresentContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentSimpleVsPresentContinuousTheoryCourseLessonSeeder`
+- `tenses/stative-verbs` — standard: missing, polyglot: missing
+  - Standard seeder: `StativeVerbsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotStativeVerbsTheoryCourseLessonSeeder`
+- `tenses/used-to-would` — standard: missing, polyglot: yes
+  - Standard seeder: `UsedToWouldTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotUsedToWouldTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-phrasal-verbs` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePhrasalVerbsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePhrasalVerbsTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-tenses/theory-passive-voice-present-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePresentContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePresentContinuousTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-tenses/theory-passive-voice-present-perfect` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePresentPerfectTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePresentPerfectTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-tenses/theory-passive-voice-past-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePastContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePastContinuousTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-tenses/theory-passive-voice-past-perfect` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePastPerfectTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePastPerfectTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-tenses/theory-passive-voice-future-simple` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceFutureSimpleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceFutureSimpleTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-tenses/theory-passive-voice-future-continuous` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceFutureContinuousTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceFutureContinuousTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-tenses/theory-passive-voice-future-perfect` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceFuturePerfectTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceFuturePerfectTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-present-simple` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePresentSimpleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePresentSimpleTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-past-simple` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePastSimpleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePastSimpleTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-infinitives-gerund/theory-passive-voice-passive-gerund` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePassiveGerundTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePassiveGerundTheoryCourseLessonSeeder`
+- `passive-voice/passive-voice-infinitives-gerund/theory-passive-voice-passive-infinitive` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoicePassiveInfinitiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoicePassiveInfinitiveTheoryCourseLessonSeeder`
+- `passive-voice/advanced-passive-voice` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedPassiveVoiceTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedPassiveVoiceTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-by-phrase` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceByPhraseTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceByPhraseTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-causative` — standard: missing, polyglot: yes
+  - Standard seeder: `TheoryPassiveVoiceCausativeTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceCausativeTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-common-mistakes` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceCommonMistakesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceCommonMistakesTheoryCourseLessonSeeder`
+- `passive-voice/complex-passive-and-causative` — standard: missing, polyglot: yes
+  - Standard seeder: `ComplexPassiveAndCausativeTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotComplexPassiveAndCausativeTheoryCourseLessonSeeder`
+- `passive-voice/complex-passive-impersonal-style` — standard: missing, polyglot: yes
+  - Standard seeder: `ComplexPassiveImpersonalStyleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotComplexPassiveImpersonalStyleTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-formality-style` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceFormalityStyleTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceFormalityStyleTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-formation-rules` — standard: missing, polyglot: yes
+  - Standard seeder: `TheoryPassiveVoiceFormationRulesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceFormationRulesTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-get-passive` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceGetPassiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceGetPassiveTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-impersonal-passive` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceImpersonalPassiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceImpersonalPassiveTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-negatives-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceNegativesQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceNegativesQuestionsTheoryCourseLessonSeeder`
+- `passive-voice/passive-reporting-structures` — standard: missing, polyglot: yes
+  - Standard seeder: `PassiveReportingStructuresTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPassiveReportingStructuresTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-modal-verbs` — standard: missing, polyglot: yes
+  - Standard seeder: `TheoryPassiveVoiceModalVerbsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceModalVerbsTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-restrictions` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceRestrictionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceRestrictionsTheoryCourseLessonSeeder`
+- `passive-voice/theory-passive-voice-two-object-verbs` — standard: missing, polyglot: missing
+  - Standard seeder: `TheoryPassiveVoiceTwoObjectVerbsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTheoryPassiveVoiceTwoObjectVerbsTheoryCourseLessonSeeder`
+- `modal-verbs/can-could` — standard: missing, polyglot: yes
+  - Standard seeder: `CanCouldTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotCanCouldTheoryCourseLessonSeeder`
+- `modal-verbs/may-might` — standard: missing, polyglot: missing
+  - Standard seeder: `MayMightTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotMayMightTheoryCourseLessonSeeder`
+- `modal-verbs/must-have-to` — standard: missing, polyglot: yes
+  - Standard seeder: `MustHaveToTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotMustHaveToTheoryCourseLessonSeeder`
+- `modal-verbs/should-ought-to` — standard: missing, polyglot: yes
+  - Standard seeder: `ShouldOughtToTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotShouldOughtToTheoryCourseLessonSeeder`
+- `modal-verbs/need-neednt-dont-have-to` — standard: missing, polyglot: missing
+  - Standard seeder: `NeedNeedntDontHaveToTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotNeedNeedntDontHaveToTheoryCourseLessonSeeder`
+- `modal-verbs/modals-of-deduction` — standard: missing, polyglot: yes
+  - Standard seeder: `ModalsOfDeductionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotModalsOfDeductionTheoryCourseLessonSeeder`
+- `modal-verbs/past-modals` — standard: missing, polyglot: yes
+  - Standard seeder: `PastModalsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastModalsTheoryCourseLessonSeeder`
+- `modal-verbs/requests-offers-suggestions` — standard: missing, polyglot: missing
+  - Standard seeder: `RequestsOffersSuggestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotRequestsOffersSuggestionsTheoryCourseLessonSeeder`
+- `modal-verbs/modal-perfect-and-deduction` — standard: missing, polyglot: yes
+  - Standard seeder: `ModalPerfectAndDeductionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotModalPerfectAndDeductionTheoryCourseLessonSeeder`
+- `modal-verbs/subtle-modal-meanings` — standard: missing, polyglot: yes
+  - Standard seeder: `SubtleModalMeaningsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotSubtleModalMeaningsTheoryCourseLessonSeeder`
+- `conditionals/zero-conditional` — standard: missing, polyglot: missing
+  - Standard seeder: `ZeroConditionalTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotZeroConditionalTheoryCourseLessonSeeder`
+- `conditionals/first-conditional` — standard: missing, polyglot: yes
+  - Standard seeder: `FirstConditionalTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFirstConditionalTheoryCourseLessonSeeder`
+- `conditionals/second-conditional` — standard: missing, polyglot: yes
+  - Standard seeder: `SecondConditionalTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotSecondConditionalTheoryCourseLessonSeeder`
+- `conditionals/third-conditional` — standard: missing, polyglot: yes
+  - Standard seeder: `ThirdConditionalTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotThirdConditionalTheoryCourseLessonSeeder`
+- `conditionals/mixed-conditionals` — standard: missing, polyglot: yes
+  - Standard seeder: `MixedConditionalsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotMixedConditionalsTheoryCourseLessonSeeder`
+- `conditionals/unless-provided-as-long-as` — standard: missing, polyglot: missing
+  - Standard seeder: `UnlessProvidedAsLongAsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotUnlessProvidedAsLongAsTheoryCourseLessonSeeder`
+- `conditionals/in-case` — standard: missing, polyglot: missing
+  - Standard seeder: `InCaseTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotInCaseTheoryCourseLessonSeeder`
+- `conditionals/wish-if-only` — standard: missing, polyglot: yes
+  - Standard seeder: `WishIfOnlyTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotWishIfOnlyTheoryCourseLessonSeeder`
+- `conditionals/would-rather` — standard: missing, polyglot: missing
+  - Standard seeder: `WouldRatherTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotWouldRatherTheoryCourseLessonSeeder`
+- `conditionals/had-better` — standard: missing, polyglot: missing
+  - Standard seeder: `HadBetterTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotHadBetterTheoryCourseLessonSeeder`
+- `conditionals/advanced-conditionals` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedConditionalsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedConditionalsTheoryCourseLessonSeeder`
+- `conditionals/conditional-alternatives-and-nuance` — standard: missing, polyglot: yes
+  - Standard seeder: `ConditionalAlternativesAndNuanceTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotConditionalAlternativesAndNuanceTheoryCourseLessonSeeder`
+- `conditionals/conditionals-with-unless-provided-as-long-as` — standard: missing, polyglot: yes
+  - Standard seeder: `ConditionalsWithUnlessProvidedAsLongAsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotConditionalsWithUnlessProvidedAsLongAsTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/relative-clauses` — standard: missing, polyglot: yes
+  - Standard seeder: `RelativeClausesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotRelativeClausesTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/defining-relative-clauses` — standard: missing, polyglot: missing
+  - Standard seeder: `DefiningRelativeClausesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotDefiningRelativeClausesTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/non-defining-relative-clauses` — standard: missing, polyglot: yes
+  - Standard seeder: `NonDefiningRelativeClausesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotNonDefiningRelativeClausesTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/omitting-relative-pronouns` — standard: missing, polyglot: missing
+  - Standard seeder: `OmittingRelativePronounsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotOmittingRelativePronounsTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/linking-words` — standard: missing, polyglot: yes
+  - Standard seeder: `LinkingWordsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotLinkingWordsTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/reason-because-since-as` — standard: missing, polyglot: missing
+  - Standard seeder: `ReasonBecauseSinceAsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotReasonBecauseSinceAsTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/result-so-therefore-as-a-result` — standard: missing, polyglot: missing
+  - Standard seeder: `ResultSoThereforeAsAResultTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotResultSoThereforeAsAResultTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/contrast-although-though-however` — standard: missing, polyglot: missing
+  - Standard seeder: `ContrastAlthoughThoughHoweverTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotContrastAlthoughThoughHoweverTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/purpose-to-in-order-to-so-that` — standard: missing, polyglot: missing
+  - Standard seeder: `PurposeToInOrderToSoThatTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPurposeToInOrderToSoThatTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/advanced-linking-devices` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedLinkingDevicesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedLinkingDevicesTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/advanced-participle-and-absolute-clauses` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedParticipleAndAbsoluteClausesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedParticipleAndAbsoluteClausesTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/concessive-and-contrastive-structures` — standard: missing, polyglot: yes
+  - Standard seeder: `ConcessiveAndContrastiveStructuresTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotConcessiveAndContrastiveStructuresTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/discourse-markers-and-cohesion` — standard: missing, polyglot: yes
+  - Standard seeder: `DiscourseMarkersAndCohesionTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotDiscourseMarkersAndCohesionTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/linking-words-reason-result-contrast` — standard: missing, polyglot: yes
+  - Standard seeder: `LinkingWordsReasonResultContrastTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotLinkingWordsReasonResultContrastTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/participle-clauses` — standard: missing, polyglot: yes
+  - Standard seeder: `ParticipleClausesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotParticipleClausesTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/participle-clauses-basics` — standard: missing, polyglot: yes
+  - Standard seeder: `ParticipleClausesBasicsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotParticipleClausesBasicsTheoryCourseLessonSeeder`
+- `clauses-and-linking-words/relative-clauses-with-whose-and-which` — standard: missing, polyglot: yes
+  - Standard seeder: `RelativeClausesWithWhoseAndWhichTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotRelativeClausesWithWhoseAndWhichTheoryCourseLessonSeeder`
+- `prepositions-and-phrasal-verbs/prepositions-of-time` — standard: missing, polyglot: missing
+  - Standard seeder: `PrepositionsOfTimeTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPrepositionsOfTimeTheoryCourseLessonSeeder`
+- `prepositions-and-phrasal-verbs/prepositions-of-place` — standard: missing, polyglot: missing
+  - Standard seeder: `PrepositionsOfPlaceTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPrepositionsOfPlaceTheoryCourseLessonSeeder`
+- `prepositions-and-phrasal-verbs/prepositions-of-movement` — standard: missing, polyglot: missing
+  - Standard seeder: `PrepositionsOfMovementTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPrepositionsOfMovementTheoryCourseLessonSeeder`
+- `prepositions-and-phrasal-verbs/dependent-prepositions` — standard: missing, polyglot: missing
+  - Standard seeder: `DependentPrepositionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotDependentPrepositionsTheoryCourseLessonSeeder`
+- `prepositions-and-phrasal-verbs/phrasal-verbs-basics` — standard: missing, polyglot: missing
+  - Standard seeder: `PhrasalVerbsBasicsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPhrasalVerbsBasicsTheoryCourseLessonSeeder`
+- `prepositions-and-phrasal-verbs/separable-and-inseparable-phrasal-verbs` — standard: missing, polyglot: missing
+  - Standard seeder: `SeparableAndInseparablePhrasalVerbsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotSeparableAndInseparablePhrasalVerbsTheoryCourseLessonSeeder`
+- `prepositions-and-phrasal-verbs/common-phrasal-verbs-by-topic` — standard: missing, polyglot: missing
+  - Standard seeder: `CommonPhrasalVerbsByTopicTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotCommonPhrasalVerbsByTopicTheoryCourseLessonSeeder`
+- `common-mistakes/articles-common-mistakes` — standard: missing, polyglot: yes
+  - Standard seeder: `ArticlesCommonMistakesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotArticlesCommonMistakesTheoryCourseLessonSeeder`
+- `common-mistakes/word-order-common-mistakes` — standard: missing, polyglot: missing
+  - Standard seeder: `WordOrderCommonMistakesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotWordOrderCommonMistakesTheoryCourseLessonSeeder`
+- `common-mistakes/present-perfect-common-mistakes` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentPerfectCommonMistakesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectCommonMistakesTheoryCourseLessonSeeder`
+- `common-mistakes/countable-vs-uncountable-nouns-common-mistakes` — standard: missing, polyglot: missing
+  - Standard seeder: `CountableVsUncountableNounsCommonMistakesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotCountableVsUncountableNounsCommonMistakesTheoryCourseLessonSeeder`
+- `common-mistakes/prepositions-common-mistakes` — standard: missing, polyglot: missing
+  - Standard seeder: `PrepositionsCommonMistakesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPrepositionsCommonMistakesTheoryCourseLessonSeeder`
+- `common-mistakes/b1-b2-grammar-traps` — standard: missing, polyglot: missing
+  - Standard seeder: `B1B2GrammarTrapsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotB1B2GrammarTrapsTheoryCourseLessonSeeder`
+- `sentence-transformations/tenses` — standard: missing, polyglot: missing
+  - Standard seeder: `TensesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotTensesTheoryCourseLessonSeeder`
+- `sentence-transformations/modals` — standard: missing, polyglot: missing
+  - Standard seeder: `ModalsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotModalsTheoryCourseLessonSeeder`
+- `sentence-transformations/passive` — standard: missing, polyglot: missing
+  - Standard seeder: `PassiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPassiveTheoryCourseLessonSeeder`
+- `sentence-transformations/reported-speech` — standard: missing, polyglot: missing
+  - Standard seeder: `ReportedSpeechTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotReportedSpeechTheoryCourseLessonSeeder`
+- `sentence-transformations/conditionals` — standard: missing, polyglot: missing
+  - Standard seeder: `ConditionalsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotConditionalsTheoryCourseLessonSeeder`
+- `sentence-transformations/relative-clauses-linking-words` — standard: missing, polyglot: missing
+  - Standard seeder: `RelativeClausesLinkingWordsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotRelativeClausesLinkingWordsTheoryCourseLessonSeeder`
+- `sentence-transformations/articles-quantifiers` — standard: missing, polyglot: missing
+  - Standard seeder: `ArticlesQuantifiersTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotArticlesQuantifiersTheoryCourseLessonSeeder`
+- `sentence-transformations/word-order-emphasis` — standard: missing, polyglot: missing
+  - Standard seeder: `WordOrderEmphasisTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotWordOrderEmphasisTheoryCourseLessonSeeder`
+- `verb-patterns/gerund` — standard: missing, polyglot: missing
+  - Standard seeder: `GerundTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotGerundTheoryCourseLessonSeeder`
+- `verb-patterns/to-infinitive` — standard: missing, polyglot: missing
+  - Standard seeder: `ToInfinitiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotToInfinitiveTheoryCourseLessonSeeder`
+- `verb-patterns/bare-infinitive` — standard: missing, polyglot: missing
+  - Standard seeder: `BareInfinitiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotBareInfinitiveTheoryCourseLessonSeeder`
+- `verb-patterns/gerund-vs-infinitive` — standard: missing, polyglot: yes
+  - Standard seeder: `GerundVsInfinitiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotGerundVsInfinitiveTheoryCourseLessonSeeder`
+- `verb-patterns/verbs-plus-gerund` — standard: missing, polyglot: missing
+  - Standard seeder: `VerbsPlusGerundTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotVerbsPlusGerundTheoryCourseLessonSeeder`
+- `verb-patterns/verbs-plus-infinitive` — standard: missing, polyglot: missing
+  - Standard seeder: `VerbsPlusInfinitiveTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotVerbsPlusInfinitiveTheoryCourseLessonSeeder`
+- `verb-patterns/stop-remember-forget-try-regret` — standard: missing, polyglot: missing
+  - Standard seeder: `StopRememberForgetTryRegretTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotStopRememberForgetTryRegretTheoryCourseLessonSeeder`
+- `verb-patterns/be-used-to-get-used-to-used-to` — standard: missing, polyglot: missing
+  - Standard seeder: `BeUsedToGetUsedToUsedToTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotBeUsedToGetUsedToUsedToTheoryCourseLessonSeeder`
+- `verb-patterns/advanced-gerund-infinitive-patterns` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedGerundInfinitivePatternsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedGerundInfinitivePatternsTheoryCourseLessonSeeder`
+- `academic-english/argumentation-and-academic-tone` — standard: missing, polyglot: yes
+  - Standard seeder: `ArgumentationAndAcademicToneTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotArgumentationAndAcademicToneTheoryCourseLessonSeeder`
+- `academic-english/hedging-and-cautious-language` — standard: missing, polyglot: yes
+  - Standard seeder: `HedgingAndCautiousLanguageTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotHedgingAndCautiousLanguageTheoryCourseLessonSeeder`
+- `academic-english/hedging-and-cautious-language-basics` — standard: missing, polyglot: yes
+  - Standard seeder: `HedgingAndCautiousLanguageBasicsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotHedgingAndCautiousLanguageBasicsTheoryCourseLessonSeeder`
+- `academic-english/stance-register-and-evaluation` — standard: missing, polyglot: yes
+  - Standard seeder: `StanceRegisterAndEvaluationTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotStanceRegisterAndEvaluationTheoryCourseLessonSeeder`
+- `articles-and-quantifiers/advanced-article-and-quantifier-nuance` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedArticleAndQuantifierNuanceTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedArticleAndQuantifierNuanceTheoryCourseLessonSeeder`
+- `articles-and-quantifiers/precision-with-articles-and-determiners` — standard: missing, polyglot: yes
+  - Standard seeder: `PrecisionWithArticlesAndDeterminersTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPrecisionWithArticlesAndDeterminersTheoryCourseLessonSeeder`
+- `formal-english/formal-register-and-nominalisation-basics` — standard: missing, polyglot: yes
+  - Standard seeder: `FormalRegisterAndNominalisationBasicsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFormalRegisterAndNominalisationBasicsTheoryCourseLessonSeeder`
+- `formal-english/nominal-style-and-information-density` — standard: missing, polyglot: yes
+  - Standard seeder: `NominalStyleAndInformationDensityTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotNominalStyleAndInformationDensityTheoryCourseLessonSeeder`
+- `formal-english/nominalisation-formal-register` — standard: missing, polyglot: yes
+  - Standard seeder: `NominalisationFormalRegisterTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotNominalisationFormalRegisterTheoryCourseLessonSeeder`
+- `formal-english/paraphrase-and-reformulation` — standard: missing, polyglot: yes
+  - Standard seeder: `ParaphraseAndReformulationTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotParaphraseAndReformulationTheoryCourseLessonSeeder`
+- `formal-english/register-tone-and-paraphrase` — standard: missing, polyglot: yes
+  - Standard seeder: `RegisterToneAndParaphraseTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotRegisterToneAndParaphraseTheoryCourseLessonSeeder`
+- `formal-english/subjunctive-and-formal-structures` — standard: missing, polyglot: yes
+  - Standard seeder: `SubjunctiveAndFormalStructuresTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotSubjunctiveAndFormalStructuresTheoryCourseLessonSeeder`
+- `future-continuous/future-continuous-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `FutureContinuousFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFutureContinuousFormsTheoryCourseLessonSeeder`
+- `future-continuous/future-continuous-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `FutureContinuousNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFutureContinuousNegativesTheoryCourseLessonSeeder`
+- `future-continuous/future-continuous-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `FutureContinuousQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFutureContinuousQuestionsTheoryCourseLessonSeeder`
+- `future-continuous/future-continuous-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `FutureContinuousTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotFutureContinuousTimeExpressionsTheoryCourseLessonSeeder`
+- `past-continuous/past-continuous-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `PastContinuousFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastContinuousFormsTheoryCourseLessonSeeder`
+- `past-continuous/past-continuous-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PastContinuousNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastContinuousNegativesTheoryCourseLessonSeeder`
+- `past-continuous/past-continuous-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastContinuousQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastContinuousQuestionsTheoryCourseLessonSeeder`
+- `past-continuous/past-continuous-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastContinuousTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastContinuousTimeExpressionsTheoryCourseLessonSeeder`
+- `past-perfect/past-perfect-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `PastPerfectFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectFormsTheoryCourseLessonSeeder`
+- `past-perfect/past-perfect-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PastPerfectNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectNegativesTheoryCourseLessonSeeder`
+- `past-perfect/past-perfect-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastPerfectQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectQuestionsTheoryCourseLessonSeeder`
+- `past-perfect/past-perfect-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastPerfectTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectTimeExpressionsTheoryCourseLessonSeeder`
+- `past-perfect-continuous/past-perfect-continuous-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `PastPerfectContinuousFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectContinuousFormsTheoryCourseLessonSeeder`
+- `past-perfect-continuous/past-perfect-continuous-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PastPerfectContinuousNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectContinuousNegativesTheoryCourseLessonSeeder`
+- `past-perfect-continuous/past-perfect-continuous-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastPerfectContinuousQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectContinuousQuestionsTheoryCourseLessonSeeder`
+- `past-perfect-continuous/past-perfect-continuous-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastPerfectContinuousTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastPerfectContinuousTimeExpressionsTheoryCourseLessonSeeder`
+- `past-simple/past-simple-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `PastSimpleFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastSimpleFormsTheoryCourseLessonSeeder`
+- `past-simple/past-simple-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PastSimpleNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastSimpleNegativesTheoryCourseLessonSeeder`
+- `past-simple/past-simple-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastSimpleQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastSimpleQuestionsTheoryCourseLessonSeeder`
+- `past-simple/past-simple-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `PastSimpleTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPastSimpleTimeExpressionsTheoryCourseLessonSeeder`
+- `present-continuous/present-continuous-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `PresentContinuousFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentContinuousFormsTheoryCourseLessonSeeder`
+- `present-continuous/present-continuous-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentContinuousNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentContinuousNegativesTheoryCourseLessonSeeder`
+- `present-continuous/present-continuous-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentContinuousQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentContinuousQuestionsTheoryCourseLessonSeeder`
+- `present-continuous/present-continuous-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentContinuousTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentContinuousTimeExpressionsTheoryCourseLessonSeeder`
+- `present-perfect/present-perfect-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `PresentPerfectFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectFormsTheoryCourseLessonSeeder`
+- `present-perfect/present-perfect-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentPerfectNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectNegativesTheoryCourseLessonSeeder`
+- `present-perfect/present-perfect-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentPerfectQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectQuestionsTheoryCourseLessonSeeder`
+- `present-perfect/present-perfect-time-expressions` — standard: missing, polyglot: yes
+  - Standard seeder: `PresentPerfectTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectTimeExpressionsTheoryCourseLessonSeeder`
+- `present-perfect-continuous/present-perfect-continuous-forms` — standard: missing, polyglot: yes
+  - Standard seeder: `PresentPerfectContinuousFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectContinuousFormsTheoryCourseLessonSeeder`
+- `present-perfect-continuous/present-perfect-continuous-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentPerfectContinuousNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectContinuousNegativesTheoryCourseLessonSeeder`
+- `present-perfect-continuous/present-perfect-continuous-questions` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentPerfectContinuousQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectContinuousQuestionsTheoryCourseLessonSeeder`
+- `present-perfect-continuous/present-perfect-continuous-time-expressions` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentPerfectContinuousTimeExpressionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentPerfectContinuousTimeExpressionsTheoryCourseLessonSeeder`
+- `present-simple/present-simple-forms` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentSimpleFormsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentSimpleFormsTheoryCourseLessonSeeder`
+- `present-simple/present-simple-negatives` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentSimpleNegativesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentSimpleNegativesTheoryCourseLessonSeeder`
+- `present-simple/present-simple-questions` — standard: missing, polyglot: yes
+  - Standard seeder: `PresentSimpleQuestionsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentSimpleQuestionsTheoryCourseLessonSeeder`
+- `present-simple/present-simple-adverbs-of-frequency` — standard: missing, polyglot: missing
+  - Standard seeder: `PresentSimpleAdverbsOfFrequencyTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotPresentSimpleAdverbsOfFrequencyTheoryCourseLessonSeeder`
+- `relative-clauses/complex-relative-clauses` — standard: missing, polyglot: yes
+  - Standard seeder: `ComplexRelativeClausesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotComplexRelativeClausesTheoryCourseLessonSeeder`
+- `sentence-structure/cleft-sentences-emphasis` — standard: missing, polyglot: yes
+  - Standard seeder: `CleftSentencesEmphasisTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotCleftSentencesEmphasisTheoryCourseLessonSeeder`
+- `sentence-structure/cleft-sentences-basics` — standard: missing, polyglot: yes
+  - Standard seeder: `CleftSentencesBasicsTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotCleftSentencesBasicsTheoryCourseLessonSeeder`
+- `sentence-structure/complex-noun-phrases` — standard: missing, polyglot: yes
+  - Standard seeder: `ComplexNounPhrasesTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotComplexNounPhrasesTheoryCourseLessonSeeder`
+- `sentence-structure/ellipsis-substitution-and-reference` — standard: missing, polyglot: yes
+  - Standard seeder: `EllipsisSubstitutionAndReferenceTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotEllipsisSubstitutionAndReferenceTheoryCourseLessonSeeder`
+- `vocabulary-and-collocations/advanced-collocation-and-lexical-choice` — standard: missing, polyglot: yes
+  - Standard seeder: `AdvancedCollocationAndLexicalChoiceTheoryCourseV3Seeder`
+  - Polyglot seeder: `PolyglotAdvancedCollocationAndLexicalChoiceTheoryCourseLessonSeeder`

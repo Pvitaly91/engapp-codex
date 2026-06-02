@@ -1,0 +1,2222 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\ModalsOfDeductionAllLevelsV3Seeder",
+        "uuid_namespace": "ModalsOfDeductionAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "mv-ded-v3-all",
+        "slug": "modals-of-deduction-all-levels-v3",
+        "name": "Modals of Deduction: V3 All Levels",
+        "description": "Page-local V3 package for Modals of Deduction with A1-C2 coverage.",
+        "question_uuids": [
+            "mv-ded-v3-a1-01",
+            "mv-ded-v3-a1-02",
+            "mv-ded-v3-a1-03",
+            "mv-ded-v3-a1-04",
+            "mv-ded-v3-a1-05",
+            "mv-ded-v3-a1-06",
+            "mv-ded-v3-a1-07",
+            "mv-ded-v3-a1-08",
+            "mv-ded-v3-a1-09",
+            "mv-ded-v3-a1-10",
+            "mv-ded-v3-a1-11",
+            "mv-ded-v3-a1-12",
+            "mv-ded-v3-a2-01",
+            "mv-ded-v3-a2-02",
+            "mv-ded-v3-a2-03",
+            "mv-ded-v3-a2-04",
+            "mv-ded-v3-a2-05",
+            "mv-ded-v3-a2-06",
+            "mv-ded-v3-a2-07",
+            "mv-ded-v3-a2-08",
+            "mv-ded-v3-a2-09",
+            "mv-ded-v3-a2-10",
+            "mv-ded-v3-a2-11",
+            "mv-ded-v3-a2-12",
+            "mv-ded-v3-b1-01",
+            "mv-ded-v3-b1-02",
+            "mv-ded-v3-b1-03",
+            "mv-ded-v3-b1-04",
+            "mv-ded-v3-b1-05",
+            "mv-ded-v3-b1-06",
+            "mv-ded-v3-b1-07",
+            "mv-ded-v3-b1-08",
+            "mv-ded-v3-b1-09",
+            "mv-ded-v3-b1-10",
+            "mv-ded-v3-b1-11",
+            "mv-ded-v3-b1-12",
+            "mv-ded-v3-b2-01",
+            "mv-ded-v3-b2-02",
+            "mv-ded-v3-b2-03",
+            "mv-ded-v3-b2-04",
+            "mv-ded-v3-b2-05",
+            "mv-ded-v3-b2-06",
+            "mv-ded-v3-b2-07",
+            "mv-ded-v3-b2-08",
+            "mv-ded-v3-b2-09",
+            "mv-ded-v3-b2-10",
+            "mv-ded-v3-b2-11",
+            "mv-ded-v3-b2-12",
+            "mv-ded-v3-c1-01",
+            "mv-ded-v3-c1-02",
+            "mv-ded-v3-c1-03",
+            "mv-ded-v3-c1-04",
+            "mv-ded-v3-c1-05",
+            "mv-ded-v3-c1-06",
+            "mv-ded-v3-c1-07",
+            "mv-ded-v3-c1-08",
+            "mv-ded-v3-c1-09",
+            "mv-ded-v3-c1-10",
+            "mv-ded-v3-c1-11",
+            "mv-ded-v3-c1-12",
+            "mv-ded-v3-c2-01",
+            "mv-ded-v3-c2-02",
+            "mv-ded-v3-c2-03",
+            "mv-ded-v3-c2-04",
+            "mv-ded-v3-c2-05",
+            "mv-ded-v3-c2-06",
+            "mv-ded-v3-c2-07",
+            "mv-ded-v3-c2-08",
+            "mv-ded-v3-c2-09",
+            "mv-ded-v3-c2-10",
+            "mv-ded-v3-c2-11",
+            "mv-ded-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ModalVerbs\\ModalsOfDeductionAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "modal-verbs",
+                "page_slug": "modals-of-deduction",
+                "page_route": "/theory/modal-verbs/modals-of-deduction",
+                "theory_page": {
+                    "slug": "modals-of-deduction",
+                    "title": "Modals of Deduction",
+                    "category_slug_path": "modal-verbs",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsDeductionTheorySeeder",
+                    "url": "https://gramlyze.com/theory/modal-verbs/modals-of-deduction"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mv-ded-v3-a1-01",
+            "question": "The lights are on. He {a1} be at home.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "The lights are on. He {a1} be at home."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 2,
+            "uuid": "mv-ded-v3-a1-02",
+            "question": "He is in Paris today, so he {a1} be in Kyiv now.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must not",
+                        "might",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "He is in Paris today, so he {a1} be in Kyiv now."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 3,
+            "uuid": "mv-ded-v3-a1-03",
+            "question": "She is not answering. She {a1} be in a meeting.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must not",
+                        "cannot",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possible_deduction"
+            ],
+            "variants": [
+                "She is not answering. She {a1} be in a meeting."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 4,
+            "uuid": "mv-ded-v3-a1-04",
+            "question": "That noise {a1} be the washing machine.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "must not",
+                        "should have",
+                        "need not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "be_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_deduction"
+            ],
+            "variants": [
+                "That noise {a1} be the washing machine."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 5,
+            "uuid": "mv-ded-v3-a1-05",
+            "question": "He looks upset; something {a1} have happened.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "can",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "past_deduction_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_deduction_intro"
+            ],
+            "variants": [
+                "He looks upset; something {a1} have happened."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 6,
+            "uuid": "mv-ded-v3-a1-06",
+            "question": "The floor is wet. Someone {a1} have spilled water.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "shall"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "evidence_based"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "evidence_based"
+            ],
+            "variants": [
+                "The floor is wet. Someone {a1} have spilled water."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 7,
+            "uuid": "mv-ded-v3-a1-07",
+            "question": "For a present conclusion, use modal + {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "have + V3",
+                        "to + verb",
+                        "past simple"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "present_past_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_past_deduction"
+            ],
+            "variants": [
+                "For a present conclusion, use modal + {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 8,
+            "uuid": "mv-ded-v3-a1-08",
+            "question": "For logical impossibility, do not use {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must not",
+                    "options": [
+                        "must not",
+                        "cannot",
+                        "can't",
+                        "could not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "mustnt_mistake"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_mistake"
+            ],
+            "variants": [
+                "For logical impossibility, do not use {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 9,
+            "uuid": "mv-ded-v3-a1-09",
+            "question": "Must shows a high degree of {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "certainty",
+                    "options": [
+                        "certainty",
+                        "permission",
+                        "request",
+                        "advice"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "certainty_degree"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "certainty_degree"
+            ],
+            "variants": [
+                "Must shows a high degree of {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 10,
+            "uuid": "mv-ded-v3-a1-10",
+            "question": "\"He mustn't be home\" for deduction is a {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "polite request",
+                        "strong conclusion",
+                        "formal rule"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"He mustn't be home\" for deduction is a {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 11,
+            "uuid": "mv-ded-v3-a1-11",
+            "question": "She knows every answer. She {a1} understand the topic.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "cannot",
+                        "may not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "She knows every answer. She {a1} understand the topic."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 12,
+            "uuid": "mv-ded-v3-a1-12",
+            "question": "This story {a1} be true; the dates do not match.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "This story {a1} be true; the dates do not match."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 13,
+            "uuid": "mv-ded-v3-a2-01",
+            "question": "The lights are on. He {a1} be at home.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "The lights are on. He {a1} be at home."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 14,
+            "uuid": "mv-ded-v3-a2-02",
+            "question": "He is in Paris today, so he {a1} be in Kyiv now.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must not",
+                        "might",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "He is in Paris today, so he {a1} be in Kyiv now."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 15,
+            "uuid": "mv-ded-v3-a2-03",
+            "question": "She is not answering. She {a1} be in a meeting.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must not",
+                        "cannot",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possible_deduction"
+            ],
+            "variants": [
+                "She is not answering. She {a1} be in a meeting."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 16,
+            "uuid": "mv-ded-v3-a2-04",
+            "question": "That noise {a1} be the washing machine.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "must not",
+                        "should have",
+                        "need not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "be_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_deduction"
+            ],
+            "variants": [
+                "That noise {a1} be the washing machine."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 17,
+            "uuid": "mv-ded-v3-a2-05",
+            "question": "He looks upset; something {a1} have happened.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "can",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "past_deduction_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_deduction_intro"
+            ],
+            "variants": [
+                "He looks upset; something {a1} have happened."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 18,
+            "uuid": "mv-ded-v3-a2-06",
+            "question": "The floor is wet. Someone {a1} have spilled water.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "shall"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "evidence_based"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "evidence_based"
+            ],
+            "variants": [
+                "The floor is wet. Someone {a1} have spilled water."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 19,
+            "uuid": "mv-ded-v3-a2-07",
+            "question": "For a present conclusion, use modal + {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "have + V3",
+                        "to + verb",
+                        "past simple"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "present_past_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_past_deduction"
+            ],
+            "variants": [
+                "For a present conclusion, use modal + {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 20,
+            "uuid": "mv-ded-v3-a2-08",
+            "question": "For logical impossibility, do not use {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must not",
+                    "options": [
+                        "must not",
+                        "cannot",
+                        "can't",
+                        "could not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "mustnt_mistake"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_mistake"
+            ],
+            "variants": [
+                "For logical impossibility, do not use {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 21,
+            "uuid": "mv-ded-v3-a2-09",
+            "question": "Must shows a high degree of {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "certainty",
+                    "options": [
+                        "certainty",
+                        "permission",
+                        "request",
+                        "advice"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "certainty_degree"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "certainty_degree"
+            ],
+            "variants": [
+                "Must shows a high degree of {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 22,
+            "uuid": "mv-ded-v3-a2-10",
+            "question": "\"He mustn't be home\" for deduction is a {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "polite request",
+                        "strong conclusion",
+                        "formal rule"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"He mustn't be home\" for deduction is a {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 23,
+            "uuid": "mv-ded-v3-a2-11",
+            "question": "She knows every answer. She {a1} understand the topic.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "cannot",
+                        "may not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "She knows every answer. She {a1} understand the topic."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 24,
+            "uuid": "mv-ded-v3-a2-12",
+            "question": "This story {a1} be true; the dates do not match.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "This story {a1} be true; the dates do not match."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 25,
+            "uuid": "mv-ded-v3-b1-01",
+            "question": "The lights are on. He {a1} be at home.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "The lights are on. He {a1} be at home."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 26,
+            "uuid": "mv-ded-v3-b1-02",
+            "question": "He is in Paris today, so he {a1} be in Kyiv now.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must not",
+                        "might",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "He is in Paris today, so he {a1} be in Kyiv now."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 27,
+            "uuid": "mv-ded-v3-b1-03",
+            "question": "She is not answering. She {a1} be in a meeting.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must not",
+                        "cannot",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possible_deduction"
+            ],
+            "variants": [
+                "She is not answering. She {a1} be in a meeting."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 28,
+            "uuid": "mv-ded-v3-b1-04",
+            "question": "That noise {a1} be the washing machine.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "must not",
+                        "should have",
+                        "need not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "be_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_deduction"
+            ],
+            "variants": [
+                "That noise {a1} be the washing machine."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 29,
+            "uuid": "mv-ded-v3-b1-05",
+            "question": "He looks upset; something {a1} have happened.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "can",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "past_deduction_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_deduction_intro"
+            ],
+            "variants": [
+                "He looks upset; something {a1} have happened."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 30,
+            "uuid": "mv-ded-v3-b1-06",
+            "question": "The floor is wet. Someone {a1} have spilled water.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "shall"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "evidence_based"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "evidence_based"
+            ],
+            "variants": [
+                "The floor is wet. Someone {a1} have spilled water."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 31,
+            "uuid": "mv-ded-v3-b1-07",
+            "question": "For a present conclusion, use modal + {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "have + V3",
+                        "to + verb",
+                        "past simple"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "present_past_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_past_deduction"
+            ],
+            "variants": [
+                "For a present conclusion, use modal + {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 32,
+            "uuid": "mv-ded-v3-b1-08",
+            "question": "For logical impossibility, do not use {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must not",
+                    "options": [
+                        "must not",
+                        "cannot",
+                        "can't",
+                        "could not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "mustnt_mistake"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_mistake"
+            ],
+            "variants": [
+                "For logical impossibility, do not use {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 33,
+            "uuid": "mv-ded-v3-b1-09",
+            "question": "Must shows a high degree of {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "certainty",
+                    "options": [
+                        "certainty",
+                        "permission",
+                        "request",
+                        "advice"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "certainty_degree"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "certainty_degree"
+            ],
+            "variants": [
+                "Must shows a high degree of {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 34,
+            "uuid": "mv-ded-v3-b1-10",
+            "question": "\"He mustn't be home\" for deduction is a {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "polite request",
+                        "strong conclusion",
+                        "formal rule"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"He mustn't be home\" for deduction is a {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 35,
+            "uuid": "mv-ded-v3-b1-11",
+            "question": "She knows every answer. She {a1} understand the topic.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "cannot",
+                        "may not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "She knows every answer. She {a1} understand the topic."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 36,
+            "uuid": "mv-ded-v3-b1-12",
+            "question": "This story {a1} be true; the dates do not match.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "This story {a1} be true; the dates do not match."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 37,
+            "uuid": "mv-ded-v3-b2-01",
+            "question": "The lights are on. He {a1} be at home.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "The lights are on. He {a1} be at home."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 38,
+            "uuid": "mv-ded-v3-b2-02",
+            "question": "He is in Paris today, so he {a1} be in Kyiv now.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must not",
+                        "might",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "He is in Paris today, so he {a1} be in Kyiv now."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 39,
+            "uuid": "mv-ded-v3-b2-03",
+            "question": "She is not answering. She {a1} be in a meeting.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must not",
+                        "cannot",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possible_deduction"
+            ],
+            "variants": [
+                "She is not answering. She {a1} be in a meeting."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 40,
+            "uuid": "mv-ded-v3-b2-04",
+            "question": "That noise {a1} be the washing machine.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "must not",
+                        "should have",
+                        "need not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "be_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_deduction"
+            ],
+            "variants": [
+                "That noise {a1} be the washing machine."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 41,
+            "uuid": "mv-ded-v3-b2-05",
+            "question": "He looks upset; something {a1} have happened.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "can",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "past_deduction_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_deduction_intro"
+            ],
+            "variants": [
+                "He looks upset; something {a1} have happened."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 42,
+            "uuid": "mv-ded-v3-b2-06",
+            "question": "The floor is wet. Someone {a1} have spilled water.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "shall"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "evidence_based"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "evidence_based"
+            ],
+            "variants": [
+                "The floor is wet. Someone {a1} have spilled water."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 43,
+            "uuid": "mv-ded-v3-b2-07",
+            "question": "For a present conclusion, use modal + {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "have + V3",
+                        "to + verb",
+                        "past simple"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "present_past_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_past_deduction"
+            ],
+            "variants": [
+                "For a present conclusion, use modal + {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 44,
+            "uuid": "mv-ded-v3-b2-08",
+            "question": "For logical impossibility, do not use {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must not",
+                    "options": [
+                        "must not",
+                        "cannot",
+                        "can't",
+                        "could not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "mustnt_mistake"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_mistake"
+            ],
+            "variants": [
+                "For logical impossibility, do not use {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 45,
+            "uuid": "mv-ded-v3-b2-09",
+            "question": "Must shows a high degree of {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "certainty",
+                    "options": [
+                        "certainty",
+                        "permission",
+                        "request",
+                        "advice"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "certainty_degree"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "certainty_degree"
+            ],
+            "variants": [
+                "Must shows a high degree of {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 46,
+            "uuid": "mv-ded-v3-b2-10",
+            "question": "\"He mustn't be home\" for deduction is a {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "polite request",
+                        "strong conclusion",
+                        "formal rule"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"He mustn't be home\" for deduction is a {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 47,
+            "uuid": "mv-ded-v3-b2-11",
+            "question": "She knows every answer. She {a1} understand the topic.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "cannot",
+                        "may not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "She knows every answer. She {a1} understand the topic."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 48,
+            "uuid": "mv-ded-v3-b2-12",
+            "question": "This story {a1} be true; the dates do not match.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "This story {a1} be true; the dates do not match."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 49,
+            "uuid": "mv-ded-v3-c1-01",
+            "question": "The lights are on. He {a1} be at home.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "The lights are on. He {a1} be at home."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 50,
+            "uuid": "mv-ded-v3-c1-02",
+            "question": "He is in Paris today, so he {a1} be in Kyiv now.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must not",
+                        "might",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "He is in Paris today, so he {a1} be in Kyiv now."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 51,
+            "uuid": "mv-ded-v3-c1-03",
+            "question": "She is not answering. She {a1} be in a meeting.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must not",
+                        "cannot",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possible_deduction"
+            ],
+            "variants": [
+                "She is not answering. She {a1} be in a meeting."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 52,
+            "uuid": "mv-ded-v3-c1-04",
+            "question": "That noise {a1} be the washing machine.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "must not",
+                        "should have",
+                        "need not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "be_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_deduction"
+            ],
+            "variants": [
+                "That noise {a1} be the washing machine."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 53,
+            "uuid": "mv-ded-v3-c1-05",
+            "question": "He looks upset; something {a1} have happened.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "can",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "past_deduction_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_deduction_intro"
+            ],
+            "variants": [
+                "He looks upset; something {a1} have happened."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 54,
+            "uuid": "mv-ded-v3-c1-06",
+            "question": "The floor is wet. Someone {a1} have spilled water.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "shall"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "evidence_based"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "evidence_based"
+            ],
+            "variants": [
+                "The floor is wet. Someone {a1} have spilled water."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 55,
+            "uuid": "mv-ded-v3-c1-07",
+            "question": "For a present conclusion, use modal + {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "have + V3",
+                        "to + verb",
+                        "past simple"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "present_past_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_past_deduction"
+            ],
+            "variants": [
+                "For a present conclusion, use modal + {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 56,
+            "uuid": "mv-ded-v3-c1-08",
+            "question": "For logical impossibility, do not use {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must not",
+                    "options": [
+                        "must not",
+                        "cannot",
+                        "can't",
+                        "could not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "mustnt_mistake"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_mistake"
+            ],
+            "variants": [
+                "For logical impossibility, do not use {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 57,
+            "uuid": "mv-ded-v3-c1-09",
+            "question": "Must shows a high degree of {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "certainty",
+                    "options": [
+                        "certainty",
+                        "permission",
+                        "request",
+                        "advice"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "certainty_degree"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "certainty_degree"
+            ],
+            "variants": [
+                "Must shows a high degree of {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 58,
+            "uuid": "mv-ded-v3-c1-10",
+            "question": "\"He mustn't be home\" for deduction is a {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "polite request",
+                        "strong conclusion",
+                        "formal rule"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"He mustn't be home\" for deduction is a {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 59,
+            "uuid": "mv-ded-v3-c1-11",
+            "question": "She knows every answer. She {a1} understand the topic.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "cannot",
+                        "may not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "She knows every answer. She {a1} understand the topic."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 60,
+            "uuid": "mv-ded-v3-c1-12",
+            "question": "This story {a1} be true; the dates do not match.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "This story {a1} be true; the dates do not match."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 61,
+            "uuid": "mv-ded-v3-c2-01",
+            "question": "The lights are on. He {a1} be at home.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "The lights are on. He {a1} be at home."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 62,
+            "uuid": "mv-ded-v3-c2-02",
+            "question": "He is in Paris today, so he {a1} be in Kyiv now.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must not",
+                        "might",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "He is in Paris today, so he {a1} be in Kyiv now."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 63,
+            "uuid": "mv-ded-v3-c2-03",
+            "question": "She is not answering. She {a1} be in a meeting.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "must not",
+                        "cannot",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "possible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possible_deduction"
+            ],
+            "variants": [
+                "She is not answering. She {a1} be in a meeting."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 64,
+            "uuid": "mv-ded-v3-c2-04",
+            "question": "That noise {a1} be the washing machine.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "must not",
+                        "should have",
+                        "need not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "be_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_deduction"
+            ],
+            "variants": [
+                "That noise {a1} be the washing machine."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 65,
+            "uuid": "mv-ded-v3-c2-05",
+            "question": "He looks upset; something {a1} have happened.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "should",
+                        "can",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "past_deduction_intro"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_deduction_intro"
+            ],
+            "variants": [
+                "He looks upset; something {a1} have happened."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 66,
+            "uuid": "mv-ded-v3-c2-06",
+            "question": "The floor is wet. Someone {a1} have spilled water.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "may not",
+                        "must not",
+                        "shall"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "evidence_based"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "evidence_based"
+            ],
+            "variants": [
+                "The floor is wet. Someone {a1} have spilled water."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 67,
+            "uuid": "mv-ded-v3-c2-07",
+            "question": "For a present conclusion, use modal + {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "base verb",
+                    "options": [
+                        "base verb",
+                        "have + V3",
+                        "to + verb",
+                        "past simple"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "present_past_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_past_deduction"
+            ],
+            "variants": [
+                "For a present conclusion, use modal + {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 68,
+            "uuid": "mv-ded-v3-c2-08",
+            "question": "For logical impossibility, do not use {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must not",
+                    "options": [
+                        "must not",
+                        "cannot",
+                        "can't",
+                        "could not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "mustnt_mistake"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_mistake"
+            ],
+            "variants": [
+                "For logical impossibility, do not use {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 69,
+            "uuid": "mv-ded-v3-c2-09",
+            "question": "Must shows a high degree of {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "certainty",
+                    "options": [
+                        "certainty",
+                        "permission",
+                        "request",
+                        "advice"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "certainty_degree"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "certainty_degree"
+            ],
+            "variants": [
+                "Must shows a high degree of {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 70,
+            "uuid": "mv-ded-v3-c2-10",
+            "question": "\"He mustn't be home\" for deduction is a {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "polite request",
+                        "strong conclusion",
+                        "formal rule"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"He mustn't be home\" for deduction is a {a1}."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 71,
+            "uuid": "mv-ded-v3-c2-11",
+            "question": "She knows every answer. She {a1} understand the topic.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "cannot",
+                        "may not",
+                        "should have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_present_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_present_deduction"
+            ],
+            "variants": [
+                "She knows every answer. She {a1} understand the topic."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        },
+        {
+            "id": 72,
+            "uuid": "mv-ded-v3-c2-12",
+            "question": "This story {a1} be true; the dates do not match.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot",
+                    "options": [
+                        "cannot",
+                        "must",
+                        "should",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_impossible_deduction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_impossible_deduction"
+            ],
+            "variants": [
+                "This story {a1} be true; the dates do not match."
+            ],
+            "source": "theory_page_modals_of_deduction"
+        }
+    ],
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "theory_page_modals_of_deduction": {
+            "name": "Modals of Deduction"
+        }
+    },
+    "tags": {
+        "must_present_deduction": {
+            "name": "must present deduction",
+            "category": "topic"
+        },
+        "cant_impossible_deduction": {
+            "name": "cant impossible deduction",
+            "category": "topic"
+        },
+        "possible_deduction": {
+            "name": "possible deduction",
+            "category": "topic"
+        },
+        "be_deduction": {
+            "name": "be deduction",
+            "category": "topic"
+        },
+        "past_deduction_intro": {
+            "name": "past deduction intro",
+            "category": "topic"
+        },
+        "evidence_based": {
+            "name": "evidence based",
+            "category": "topic"
+        },
+        "present_past_deduction": {
+            "name": "present past deduction",
+            "category": "topic"
+        },
+        "mustnt_mistake": {
+            "name": "mustnt mistake",
+            "category": "topic"
+        },
+        "certainty_degree": {
+            "name": "certainty degree",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "theory_page_modals_of_deduction"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}

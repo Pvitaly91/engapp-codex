@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\Copilot\\Opus46\\WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "copilot-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Frequency adverbs (always, never, usually) go before the main verb in Present Simple.",
+        "The verb `goes` is the main verb — `always` must come directly before it."
+      ],
+      "explanations": {
+        "a1": {
+          "always": "Correct: `always` goes before the main verb `goes`.",
+          "goes always": "Incorrect: frequency adverbs do not go after the main verb in Present Simple.",
+          "always goes to": "Incorrect: the gap needs only the adverb `always`, not extra words."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "After the verb `be` (am/is/are), frequency adverbs come after it.",
+        "The structure is `I am ___` — `never` goes after `am`."
+      ],
+      "explanations": {
+        "a2": {
+          "never": "Correct: after `be`, frequency adverbs follow: `I am never late`.",
+          "late never": "Incorrect: frequency adverbs do not go after the adjective.",
+          "not never": "Incorrect: `not never` is a double negative, which is non-standard in English."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Manner adverbs go after the verb or after the object.",
+        "The verb `plays` has the object `football`, so the manner adverb `well` goes after the object."
+      ],
+      "explanations": {
+        "a3": {
+          "well": "Correct: `well` is a manner adverb placed after the object `football`.",
+          "good": "Incorrect: `good` is an adjective, not an adverb. Use `well` to describe how someone plays.",
+          "well plays": "Incorrect: manner adverbs typically do not go before the verb."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Place adverbs (here, there, outside) go after the verb.",
+        "The verb `live` has no object, so the place adverb `here` goes right after it."
+      ],
+      "explanations": {
+        "a4": {
+          "here": "Correct: `here` is a place adverb after the verb `live`.",
+          "here live": "Incorrect: the place adverb should follow the verb, not precede it.",
+          "live here they": "Incorrect: the subject cannot go after the adverb in a standard declarative sentence."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Time adverbials usually go at the end of the sentence.",
+        "After the verb `eat` and the object `breakfast`, the time adverbial `every morning` takes the final position."
+      ],
+      "explanations": {
+        "a5": {
+          "every morning": "Correct: the time adverbial `every morning` goes at the end of the sentence.",
+          "every morning eat": "Incorrect: time adverbials do not split the verb and object this way.",
+          "morning every": "Incorrect: the word order in the time phrase is fixed: `every morning`."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Degree adverbs (very, too, really) go before the adjective they modify.",
+        "The adjective `small` needs the degree adverb before it: `very small`."
+      ],
+      "explanations": {
+        "a6": {
+          "very": "Correct: `very` goes before the adjective `small`.",
+          "small very": "Incorrect: degree adverbs do not go after the adjective.",
+          "much": "Incorrect: `much` is not used before a simple adjective. Use `very` before `small`."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Frequency adverbs go before the main verb.",
+        "The main verb is `eats` — `sometimes` must come before it."
+      ],
+      "explanations": {
+        "a7": {
+          "sometimes": "Correct: `sometimes` goes before the main verb `eats`.",
+          "eats sometimes": "Incorrect: in this gap position, the adverb must precede the verb.",
+          "sometime": "Incorrect: `sometime` (without -s) means 'at some point in the future', not 'occasionally'."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "After `be`, frequency adverbs go after the verb.",
+        "In the structure `He is ___ happy`, `always` goes after `is`."
+      ],
+      "explanations": {
+        "a8": {
+          "always": "Correct: after `is`, the frequency adverb goes before the adjective: `is always happy`.",
+          "happy always": "Incorrect: the frequency adverb does not go after the adjective.",
+          "always is": "Incorrect: the frequency adverb goes after `be`, not before it in a positive sentence."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Frequency adverbs go before the main verb in a declarative sentence.",
+        "The main verb is `watch` — `usually` goes right before it."
+      ],
+      "explanations": {
+        "a9": {
+          "usually": "Correct: `usually` goes before the main verb `watch`.",
+          "watch usually": "Incorrect: frequency adverbs do not go between the main verb and its object.",
+          "usual": "Incorrect: `usual` is an adjective. The adverb form is `usually`."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Manner adverbs go after the verb and its object.",
+        "After `speaks English`, the manner adverb `slowly` takes the final position."
+      ],
+      "explanations": {
+        "a10": {
+          "slowly": "Correct: `slowly` is a manner adverb after the object `English`.",
+          "slow": "Incorrect: `slow` is an adjective. Use the adverb `slowly` to describe the action.",
+          "slowly speaks": "Incorrect: manner adverbs typically do not precede the verb."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Degree adverbs go before the adjective.",
+        "In the structure `is ___ tired`, the degree adverb `really` goes before `tired`."
+      ],
+      "explanations": {
+        "a11": {
+          "really": "Correct: `really` goes before the adjective `tired` as a degree adverb.",
+          "tired really": "Incorrect: degree adverbs do not go after the adjective.",
+          "real": "Incorrect: `real` is an adjective. Use the adverb `really`."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Place adverbs go after the verb.",
+        "The verb `play` has no object, so `outside` goes right after it."
+      ],
+      "explanations": {
+        "a12": {
+          "outside": "Correct: `outside` is a place adverb after the verb `play`.",
+          "outside play": "Incorrect: place adverbs go after the verb, not before it.",
+          "the outside": "Incorrect: `the outside` is a noun phrase; the adverb `outside` is needed here."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Time adverbs go at the end of the sentence.",
+        "After `go to bed`, the time adverb `early` takes the final position."
+      ],
+      "explanations": {
+        "a13": {
+          "early": "Correct: `early` is a time adverb at the end of the sentence.",
+          "early go": "Incorrect: `early` does not go before the verb in this sentence type.",
+          "earlily": "Incorrect: the form `earlily` does not exist. `Early` is both an adjective and adverb."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Frequency adverbs go before the main verb.",
+        "Before `drinks`, the frequency adverb `often` indicates regularity."
+      ],
+      "explanations": {
+        "a14": {
+          "often": "Correct: `often` goes before the main verb `drinks`.",
+          "drinks often": "Incorrect: in this gap, the adverb must go before the verb.",
+          "oftenly": "Incorrect: the form `oftenly` does not exist. `Often` is already an adverb."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Manner adverbs go after the verb when there is no object.",
+        "The verb `sings` has no object, so `beautifully` goes right after it."
+      ],
+      "explanations": {
+        "a15": {
+          "beautifully": "Correct: `beautifully` is a manner adverb after the verb `sings`.",
+          "beautiful": "Incorrect: `beautiful` is an adjective. Use the adverb `beautifully`.",
+          "beautifully sings": "Incorrect: manner adverbs typically go after the verb."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "The degree adverb `too` goes before the adjective and means 'excessively'.",
+        "In `is ___ hot`, `too` goes before `hot`."
+      ],
+      "explanations": {
+        "a16": {
+          "too": "Correct: `too` goes before the adjective `hot`, meaning 'excessively hot'.",
+          "hot too": "Incorrect: `too` meaning 'excessively' does not go after the adjective.",
+          "to": "Incorrect: `to` is a preposition, not a degree adverb. The adverb is `too` (with double 'o')."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Frequency adverbs go before the main verb.",
+        "Before `forget`, the frequency adverb `sometimes` is needed."
+      ],
+      "explanations": {
+        "a17": {
+          "sometimes": "Correct: `sometimes` goes before the main verb `forget`.",
+          "forget sometimes": "Incorrect: in this gap, the adverb must precede the verb.",
+          "some times": "Incorrect: `some times` (two words) means 'a few occasions', not 'occasionally'. Use `sometimes`."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Time adverbials usually go at the end of the sentence.",
+        "After `went to the park`, the time adverbial `yesterday` takes the final position."
+      ],
+      "explanations": {
+        "a18": {
+          "yesterday": "Correct: `yesterday` is a time adverbial at the end of the sentence.",
+          "yesterday went": "Incorrect: in a declarative sentence, `yesterday` typically goes at the end.",
+          "the yesterday": "Incorrect: `yesterday` is not used with the article `the`."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Adverbs go between a modal verb and the main verb.",
+        "In `can ___ speak`, `already` goes between `can` and `speak`."
+      ],
+      "explanations": {
+        "a19": {
+          "already": "Correct: `already` goes between the modal `can` and the main verb `speak`.",
+          "can already speak": "Incorrect: the gap needs only the adverb `already`, not surrounding words.",
+          "already can": "Incorrect: `already` does not go before the modal `can` in a positive sentence."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Manner adverbs go after the verb or between the verb and a prepositional phrase.",
+        "After `walked`, `quickly` describes the manner of walking."
+      ],
+      "explanations": {
+        "a20": {
+          "quickly": "Correct: `quickly` is a manner adverb after the verb `walked`.",
+          "quick": "Incorrect: `quick` is an adjective. Use the adverb `quickly`.",
+          "quickly walked": "Incorrect: in this gap, the adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "In the Perfect tenses, adverbs go between the auxiliary `has/have` and the past participle.",
+        "In `has ___ been`, `never` goes between `has` and `been`."
+      ],
+      "explanations": {
+        "a21": {
+          "never": "Correct: `never` goes between `has` and `been` in the Present Perfect.",
+          "been never": "Incorrect: the adverb does not go after the past participle `been`.",
+          "never has": "Incorrect: `never has` at the beginning requires subject-verb inversion, which is not needed here."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "When multiple adverbials are present, follow the order: Manner–Place–Time.",
+        "After `played`, the manner adverb `happily` goes first, then place `in the garden`, then time `yesterday`."
+      ],
+      "explanations": {
+        "a22": {
+          "happily": "Correct: `happily` is a manner adverb that goes first after the verb in the MPT order.",
+          "happy": "Incorrect: `happy` is an adjective. Use the adverb `happily`.",
+          "happily played": "Incorrect: the manner adverb goes after the verb, not before it."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Frequency adverbs go before the main verb.",
+        "Before `finishes`, `usually` indicates regularity."
+      ],
+      "explanations": {
+        "a23": {
+          "usually": "Correct: `usually` goes before the main verb `finishes`.",
+          "finishes usually": "Incorrect: frequency adverbs do not go after the verb in mid-position.",
+          "usual": "Incorrect: `usual` is an adjective. Use the adverb `usually`."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Degree adverbs go before the adjective.",
+        "In `was ___ interesting`, `quite` goes before `interesting`."
+      ],
+      "explanations": {
+        "a24": {
+          "quite": "Correct: `quite` goes before the adjective `interesting`.",
+          "interesting quite": "Incorrect: degree adverbs do not go after the adjective.",
+          "quit": "Incorrect: `quit` is a verb meaning 'to stop'. The degree adverb is `quite`."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Adverbs go between the auxiliary and the main verb.",
+        "In `will ___ call`, `definitely` goes between `will` and `call`."
+      ],
+      "explanations": {
+        "a25": {
+          "definitely": "Correct: `definitely` goes between the auxiliary `will` and the main verb `call`.",
+          "will definitely call": "Incorrect: the gap needs only the adverb, not the surrounding words.",
+          "definite": "Incorrect: `definite` is an adjective. Use the adverb `definitely`."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "After `be`, frequency adverbs go after the verb.",
+        "In `are ___ late`, `often` goes between `are` and `late`."
+      ],
+      "explanations": {
+        "a26": {
+          "often": "Correct: after `are`, the frequency adverb goes before the adjective: `are often late`.",
+          "late often": "Incorrect: frequency adverbs do not go after the adjective.",
+          "oftenly": "Incorrect: the form `oftenly` does not exist. `Often` is already an adverb."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Manner adverbs go after the verb when there is no object.",
+        "After `drives`, `carefully` describes how she drives."
+      ],
+      "explanations": {
+        "a27": {
+          "carefully": "Correct: `carefully` is a manner adverb after the verb `drives`.",
+          "careful": "Incorrect: `careful` is an adjective. Use the adverb `carefully`.",
+          "carefully drives": "Incorrect: the manner adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "The place adverb `there` goes after the verb.",
+        "After `stayed`, `there` goes before the time adverbial `for two weeks`."
+      ],
+      "explanations": {
+        "a28": {
+          "there": "Correct: `there` is a place adverb after the verb `stayed`.",
+          "there stayed": "Incorrect: place adverbs do not go before the verb in a declarative sentence.",
+          "their": "Incorrect: `their` is a possessive pronoun meaning 'belonging to them', not the place adverb `there`."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "`enough` goes after the adjective or adverb, not before it.",
+        "In `old ___ to drive`, `enough` goes after the adjective `old`."
+      ],
+      "explanations": {
+        "a29": {
+          "enough": "Correct: `enough` goes after the adjective `old`: `old enough to drive`.",
+          "enough old": "Incorrect: `enough` goes after the adjective, not before it.",
+          "enoughly": "Incorrect: the form `enoughly` does not exist."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "With multiple adverbials, follow the order: Manner–Place–Time.",
+        "After `danced`, manner `gracefully` goes first, then place `at the party`, then time `last night`."
+      ],
+      "explanations": {
+        "a30": {
+          "gracefully": "Correct: `gracefully` is a manner adverb placed first after the verb in MPT order.",
+          "graceful": "Incorrect: `graceful` is an adjective. Use the adverb `gracefully`.",
+          "gracefully danced": "Incorrect: the manner adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Comment adverbs (unfortunately, fortunately) go at the beginning of the sentence with a comma.",
+        "The gap is at the beginning before a comma — the typical position for a comment adverb."
+      ],
+      "explanations": {
+        "a31": {
+          "Unfortunately": "Correct: `Unfortunately` is a comment adverb at the beginning of the sentence.",
+          "Unfortunate": "Incorrect: `unfortunate` is an adjective. The adverb `Unfortunately` is needed.",
+          "Unfortunately we missed": "Incorrect: the gap needs only the adverb, not extra words."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "In Perfect tenses, `just` goes between the auxiliary and the past participle.",
+        "In `has ___ finished`, `just` goes between `has` and `finished`."
+      ],
+      "explanations": {
+        "a32": {
+          "just": "Correct: `just` goes between `has` and `finished` in Present Perfect.",
+          "finished just": "Incorrect: `just` does not go after the past participle in Present Perfect.",
+          "just has": "Incorrect: `just` goes after the auxiliary `has`, not before it."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Manner adverbs go after the verb; `enough` goes after the adverb.",
+        "After `speaks`, `clearly` describes the manner, and `enough` follows it."
+      ],
+      "explanations": {
+        "a33": {
+          "clearly": "Correct: `clearly` is a manner adverb after `speaks`, with `enough` following.",
+          "clear": "Incorrect: `clear` is an adjective. Use the adverb `clearly`.",
+          "enough clearly": "Incorrect: `enough` goes after the adverb, not before it."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Time adverbs go at the end of the sentence.",
+        "After `will see you`, `soon` takes the final position."
+      ],
+      "explanations": {
+        "a34": {
+          "soon": "Correct: `soon` is a time adverb at the end of the sentence.",
+          "soon will": "Incorrect: `soon` does not go before the modal `will` in this sentence.",
+          "soonly": "Incorrect: the form `soonly` does not exist. `Soon` is already an adverb."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "`How often` is used at the beginning to ask about frequency.",
+        "The question phrase `How often` goes before the auxiliary `do`."
+      ],
+      "explanations": {
+        "a35": {
+          "How often": "Correct: `How often` is the question phrase for asking about frequency.",
+          "Often how": "Incorrect: the word order is fixed: `How often`, not the reverse.",
+          "How much often": "Incorrect: `How much often` has a redundant `much`. The correct form is `How often`."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "The frequency adverb `rarely` goes before the main verb.",
+        "Before `argue`, `rarely` indicates very low frequency."
+      ],
+      "explanations": {
+        "a36": {
+          "rarely": "Correct: `rarely` goes before the main verb `argue`.",
+          "argue rarely": "Incorrect: in mid-position, frequency adverbs go before the main verb.",
+          "rare": "Incorrect: `rare` is an adjective. Use the adverb `rarely`."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "With multiple adverbials, follow Manner–Place–Time (MPT) order.",
+        "After `spoke`, manner `confidently` goes first, then place `at the conference`, then time `last week`."
+      ],
+      "explanations": {
+        "a37": {
+          "confidently": "Correct: `confidently` goes first after the verb in the MPT chain.",
+          "confident": "Incorrect: `confident` is an adjective. Use the adverb `confidently`.",
+          "confidently spoke": "Incorrect: the manner adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "In Present Perfect, adverbs go between the auxiliary and the past participle.",
+        "In `has ___ visited`, `already` goes between `has` and `visited`."
+      ],
+      "explanations": {
+        "a38": {
+          "already": "Correct: `already` between `has` and `visited` in Present Perfect.",
+          "visited already": "Incorrect: `already` typically does not go after the past participle.",
+          "already has": "Incorrect: `already` goes after `has`, not before it in a positive sentence."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Comment adverbs go at the beginning of the sentence with a comma.",
+        "The position before the comma at the beginning is typical for `Fortunately`."
+      ],
+      "explanations": {
+        "a39": {
+          "Fortunately": "Correct: `Fortunately` is a comment adverb expressing a positive evaluation.",
+          "Fortunate": "Incorrect: `fortunate` is an adjective. Use the adverb `Fortunately`.",
+          "Fortunately was": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Degree adverbs go between the auxiliary and the main verb.",
+        "In `would ___ like`, `really` goes between `would` and `like`."
+      ],
+      "explanations": {
+        "a40": {
+          "really": "Correct: `really` between `would` and `like` intensifies the desire.",
+          "would really like": "Incorrect: the gap needs only `really`.",
+          "real": "Incorrect: `real` is an adjective. Use the adverb `really`."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "`How often` asks about frequency and goes at the beginning of the question.",
+        "Before `does`, the question phrase `How often` is needed."
+      ],
+      "explanations": {
+        "a41": {
+          "How often": "Correct: `How often` asks about the frequency of an action.",
+          "How many times often": "Incorrect: `How many times` and `How often` are separate constructions; do not combine them.",
+          "Often how": "Incorrect: the word order is fixed: `How often`."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Degree adverbs go before the adjective they modify.",
+        "In `were ___ excited`, `extremely` goes before `excited`."
+      ],
+      "explanations": {
+        "a42": {
+          "extremely": "Correct: `extremely` goes before the adjective `excited`.",
+          "excited extremely": "Incorrect: degree adverbs do not go after the adjective.",
+          "extreme": "Incorrect: `extreme` is an adjective. Use the adverb `extremely`."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "With multiple adverbials: Manner–Place–Time.",
+        "After `waited`, manner `patiently` goes first, then place `at the bus stop`, then time `for an hour`."
+      ],
+      "explanations": {
+        "a43": {
+          "patiently": "Correct: `patiently` goes first after the verb in the MPT order.",
+          "patient": "Incorrect: `patient` is an adjective/noun. Use the adverb `patiently`.",
+          "patiently waited": "Incorrect: the manner adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "The focusing adverb `almost` goes before the word it limits.",
+        "In the sentence, `almost` focuses on `only eats` — it goes before this phrase."
+      ],
+      "explanations": {
+        "a44": {
+          "almost": "Correct: `almost` goes before `only eats`, limiting the scope.",
+          "eats almost": "Incorrect: `almost` does not go after the verb when focusing on `only`.",
+          "almost eats only": "Incorrect: the gap needs only `almost`."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "An adverb can go between `to` and the verb (split infinitive).",
+        "In `to ___ check`, `carefully` goes between `to` and `check`."
+      ],
+      "explanations": {
+        "a45": {
+          "carefully": "Correct: `carefully` in a split infinitive between `to` and `check`.",
+          "careful": "Incorrect: `careful` is an adjective. Use the adverb `carefully`.",
+          "carefully to check": "Incorrect: the adverb goes between `to` and the verb, not before `to`."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "`enough` goes after the adverb or adjective, not before.",
+        "In `fast ___ to win`, `enough` goes after `fast`."
+      ],
+      "explanations": {
+        "a46": {
+          "enough": "Correct: `enough` after the adverb `fast`: `fast enough to win`.",
+          "enough fast": "Incorrect: `enough` goes after the adverb, not before it.",
+          "enoughly": "Incorrect: the form `enoughly` does not exist."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "With a chain of auxiliaries, the adverb can go after the last auxiliary.",
+        "In `have been ___ working`, `steadily` goes between `been` and `working`."
+      ],
+      "explanations": {
+        "a47": {
+          "steadily": "Correct: `steadily` goes between `been` and `working` in Present Perfect Continuous.",
+          "steady": "Incorrect: `steady` is an adjective. Use the adverb `steadily`.",
+          "steadily been": "Incorrect: the adverb does not go before `been` in this construction."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Viewpoint adverbs (Personally, Frankly) go at the beginning of the sentence with a comma.",
+        "The position before the comma at the beginning is for a viewpoint adverb."
+      ],
+      "explanations": {
+        "a48": {
+          "Personally": "Correct: `Personally` is a viewpoint adverb at the beginning of the sentence.",
+          "Personal": "Incorrect: `personal` is an adjective. Use the adverb `Personally`.",
+          "Personally I think": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "The focusing adverb `only` goes before the element it restricts.",
+        "In `I ___ just wanted`, `only` goes before `just`, restricting the purpose."
+      ],
+      "explanations": {
+        "a49": {
+          "only": "Correct: `only` before `just wanted` restricts the action.",
+          "just only": "Incorrect: `just only` is redundant; only `only` is needed.",
+          "only just wanted": "Incorrect: the gap needs only the adverb `only`."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "Manner adverbs go after the object.",
+        "After `read the instructions`, `thoroughly` describes the quality of reading."
+      ],
+      "explanations": {
+        "a50": {
+          "thoroughly": "Correct: `thoroughly` is a manner adverb after the object `the instructions`.",
+          "thorough": "Incorrect: `thorough` is an adjective. Use the adverb `thoroughly`.",
+          "thoroughly read": "Incorrect: the manner adverb goes after the object."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "After `be`, adverbs go after the verb.",
+        "In `is ___ the best`, `probably` goes after `is`."
+      ],
+      "explanations": {
+        "a51": {
+          "probably": "Correct: `probably` after `is` and before `the best student`.",
+          "the probably best": "Incorrect: `probably` does not go between the article and adjective.",
+          "probable": "Incorrect: `probable` is an adjective. Use the adverb `probably`."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Adverbs go between the modal and the main verb.",
+        "In `should ___ leave`, `probably` goes between `should` and `leave`."
+      ],
+      "explanations": {
+        "a52": {
+          "probably": "Correct: `probably` between `should` and `leave`.",
+          "should probably leave": "Incorrect: the gap needs only `probably`.",
+          "probable": "Incorrect: `probable` is an adjective. Use the adverb `probably`."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "`absolutely` goes before extreme adjectives like `amazing`.",
+        "The adjective `amazing` is extreme, so use `absolutely`, not `very`."
+      ],
+      "explanations": {
+        "a53": {
+          "absolutely": "Correct: `absolutely` intensifies the extreme adjective `amazing`.",
+          "amazing absolutely": "Incorrect: degree adverbs do not go after the adjective.",
+          "absolute": "Incorrect: `absolute` is an adjective. Use the adverb `absolutely`."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Adverbial order: Manner–Place–Time.",
+        "After `practised`, manner `diligently` goes first, then place `in the studio`, then time `all afternoon`."
+      ],
+      "explanations": {
+        "a54": {
+          "diligently": "Correct: `diligently` — manner adverb first after the verb.",
+          "diligent": "Incorrect: `diligent` is an adjective. Use the adverb `diligently`.",
+          "diligently practised": "Incorrect: the manner adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Comment adverbs go at the beginning of the sentence expressing the speaker's evaluation.",
+        "The position before the comma at the beginning is for `Surprisingly`."
+      ],
+      "explanations": {
+        "a55": {
+          "Surprisingly": "Correct: `Surprisingly` is a comment adverb at the beginning.",
+          "Surprising": "Incorrect: `surprising` is an adjective. Use the adverb `Surprisingly`.",
+          "Surprisingly produced": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Adverbs go between the auxiliary and the main verb or next auxiliary.",
+        "In `would ___ have accepted`, `gladly` goes between `would` and `have`."
+      ],
+      "explanations": {
+        "a56": {
+          "gladly": "Correct: `gladly` goes between `would` and `have`.",
+          "glad": "Incorrect: `glad` is an adjective. Use the adverb `gladly`.",
+          "gladly would": "Incorrect: the adverb does not go before the modal `would`."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "The focusing adverb `hardly` means 'barely' and goes before the verb.",
+        "In the sentence, `hardly` goes before `even noticed`, emphasising the minimal action."
+      ],
+      "explanations": {
+        "a57": {
+          "hardly": "Correct: `hardly` before `even noticed` means 'barely even noticed'.",
+          "hard": "Incorrect: `hard` as an adverb means 'with great effort', not 'barely'. Use `hardly`.",
+          "hardly even noticed": "Incorrect: the gap needs only `hardly`."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "Split infinitive: an adverb goes between `to` and the verb.",
+        "In `to ___ reform`, `gradually` splits the infinitive."
+      ],
+      "explanations": {
+        "a58": {
+          "gradually": "Correct: `gradually` in a split infinitive between `to` and `reform`.",
+          "gradual": "Incorrect: `gradual` is an adjective. Use the adverb `gradually`.",
+          "gradually to reform": "Incorrect: the adverb goes between `to` and the verb, not before `to`."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Adverbial order after the verb: Manner–Place–Time.",
+        "After `performed`, manner `brilliantly` goes first, then place `on stage`, then time `last Saturday`."
+      ],
+      "explanations": {
+        "a59": {
+          "brilliantly": "Correct: `brilliantly` goes first in the MPT chain.",
+          "brilliant": "Incorrect: `brilliant` is an adjective. Use the adverb `brilliantly`.",
+          "brilliantly performed": "Incorrect: the manner adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "Degree adverbs go before the adjective.",
+        "In `were ___ different`, `significantly` goes before `different`."
+      ],
+      "explanations": {
+        "a60": {
+          "significantly": "Correct: `significantly` goes before the adjective `different`.",
+          "significant": "Incorrect: `significant` is an adjective. Use the adverb `significantly`.",
+          "significantly were": "Incorrect: the degree adverb does not go before `were`."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "The focusing adverb `barely` goes between the modal and the main verb.",
+        "In `can ___ understand`, `barely` goes between `can` and `understand`."
+      ],
+      "explanations": {
+        "a61": {
+          "barely": "Correct: `barely` between `can` and `understand`.",
+          "bare": "Incorrect: `bare` is an adjective meaning 'naked'. Use the adverb `barely`.",
+          "barely can": "Incorrect: `barely` does not go before the modal `can` in a positive sentence."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "A time adverbial can be fronted for emphasis.",
+        "The position before the comma at the beginning is for the fronted time adverbial `Eventually`."
+      ],
+      "explanations": {
+        "a62": {
+          "Eventually": "Correct: `Eventually` is a fronted time adverbial.",
+          "Eventual": "Incorrect: `eventual` is an adjective. Use the adverb `Eventually`.",
+          "Eventually decided": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Frequency adverbs go before the main verb.",
+        "Before `only reads`, `generally` indicates a general tendency."
+      ],
+      "explanations": {
+        "a63": {
+          "generally": "Correct: `generally` before `only reads` as a frequency adverb.",
+          "general": "Incorrect: `general` is an adjective. Use the adverb `generally`.",
+          "generally only reads": "Incorrect: the gap needs only `generally`."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Adverbial order: Manner–Place–Time.",
+        "After `discussed the matter`, manner `privately` goes first, then place, then time."
+      ],
+      "explanations": {
+        "a64": {
+          "privately": "Correct: `privately` — manner adverb after the object, before place and time.",
+          "private": "Incorrect: `private` is an adjective. Use the adverb `privately`.",
+          "privately discussed": "Incorrect: the manner adverb goes after the verb/object."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Adverbs go after the auxiliary chain before the main verb.",
+        "In `must have ___ forgotten`, `completely` goes after `have`."
+      ],
+      "explanations": {
+        "a65": {
+          "completely": "Correct: `completely` goes between `have` and `forgotten`.",
+          "complete": "Incorrect: `complete` is an adjective. Use the adverb `completely`.",
+          "completely must": "Incorrect: the adverb does not go before the modal `must`."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "A degree/scope adverb goes before the adjective.",
+        "In `is ___ well-known`, `internationally` defines the scope."
+      ],
+      "explanations": {
+        "a66": {
+          "internationally": "Correct: `internationally` before `well-known` indicates the scope.",
+          "international": "Incorrect: `international` is an adjective. Use the adverb `internationally`.",
+          "internationally is": "Incorrect: the adverb does not go before `is` in this order."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "When a restrictive adverb (Only later, Only then) is fronted, inversion follows.",
+        "After `Only later`, inversion is needed: auxiliary before the subject."
+      ],
+      "explanations": {
+        "a67": {
+          "Only later": "Correct: `Only later` at the beginning triggers inversion `did they realise`.",
+          "Later only": "Incorrect: the fixed order is `Only later`, not the reverse.",
+          "Only later they": "Incorrect: the gap needs only `Only later`; inversion `did they` already follows."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "`enough` goes after the adjective.",
+        "In `strong ___ to lift`, `enough` goes after `strong`."
+      ],
+      "explanations": {
+        "a68": {
+          "enough": "Correct: `enough` after `strong`: `strong enough to lift`.",
+          "enough strong": "Incorrect: `enough` goes after the adjective, not before it.",
+          "enoughly": "Incorrect: the form `enoughly` does not exist."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "`hardly` means 'almost not' and goes before `ever` in the phrase `hardly ever`.",
+        "In the sentence, `hardly ever` means 'almost never' — `hardly` goes before `ever`."
+      ],
+      "explanations": {
+        "a69": {
+          "hardly": "Correct: `hardly ever` is a fixed phrase where `hardly` precedes `ever`.",
+          "hard": "Incorrect: `hard` means 'with effort', not 'barely'.",
+          "ever hardly": "Incorrect: the fixed order is `hardly ever`, not the reverse."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Degree adverbs go after `be` and before the adjective.",
+        "In `were ___ aware`, `fully` goes before `aware`."
+      ],
+      "explanations": {
+        "a70": {
+          "fully": "Correct: `fully` goes after `were` and before `aware`.",
+          "full": "Incorrect: `full` is an adjective. Use the adverb `fully`.",
+          "fully were": "Incorrect: the adverb does not go before `were` in a positive sentence."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Split infinitive: an adverb goes between `to` and the verb.",
+        "In `to ___ consider`, `thoroughly` splits the infinitive."
+      ],
+      "explanations": {
+        "a71": {
+          "thoroughly": "Correct: `thoroughly` in a split infinitive between `to` and `consider`.",
+          "thorough": "Incorrect: `thorough` is an adjective. Use the adverb `thoroughly`.",
+          "thoroughly to": "Incorrect: the adverb goes between `to` and the verb, not before `to`."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Comment adverbs go at the beginning with a comma.",
+        "The position at the beginning with a comma is for `Remarkably`."
+      ],
+      "explanations": {
+        "a72": {
+          "Remarkably": "Correct: `Remarkably` is a comment adverb expressing surprise.",
+          "Remarkable": "Incorrect: `remarkable` is an adjective. Use the adverb `Remarkably`.",
+          "Remarkably managed": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "After the negative adverb `Never` at the beginning, subject-auxiliary inversion is required.",
+        "After `Never`, the correct order is: `have I seen` (auxiliary + subject + past participle)."
+      ],
+      "explanations": {
+        "a73": {
+          "have I seen": "Correct: inversion after `Never` — `have I seen`.",
+          "I have seen": "Incorrect: `Never` at the beginning requires inversion, not normal word order.",
+          "I seen have": "Incorrect: both the inversion and Present Perfect structure are wrong."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "After `Rarely` at the beginning, inversion is required.",
+        "The correct order: auxiliary `does` + subject `the media` + main verb `pay`."
+      ],
+      "explanations": {
+        "a74": {
+          "does the media pay": "Correct: inversion after `Rarely` — `does the media pay`.",
+          "the media pays": "Incorrect: `Rarely` at the beginning requires inversion.",
+          "the media does pay": "Incorrect: in inversion, the subject goes between the auxiliary and main verb."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "In a passive with a modal, the adverb can go after the last auxiliary before the main verb.",
+        "In `should be ___ interpreted`, `always` goes after `be`."
+      ],
+      "explanations": {
+        "a75": {
+          "always": "Correct: `always` between `be` and `interpreted` in the passive construction.",
+          "interpreted always": "Incorrect: the adverb does not go after the past participle in the passive.",
+          "always should": "Incorrect: the adverb does not go before the modal `should`."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Viewpoint adverbs go at the beginning with a comma.",
+        "`Arguably` means 'it can be argued' and goes at the beginning."
+      ],
+      "explanations": {
+        "a76": {
+          "Arguably": "Correct: `Arguably` is a viewpoint adverb at the beginning.",
+          "Arguable": "Incorrect: `arguable` is an adjective. Use the adverb `Arguably`.",
+          "Arguably has": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "After `Seldom` at the beginning, inversion is required.",
+        "The correct order: `is there` — inversion in the existential construction."
+      ],
+      "explanations": {
+        "a77": {
+          "is there": "Correct: inversion after `Seldom` — `is there`.",
+          "there is": "Incorrect: `Seldom` at the beginning requires inversion.",
+          "there are": "Incorrect: no inversion, and `vote` is singular, so `are` does not agree."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Focusing adverbs go before the element they focus on.",
+        "`specifically` before `highlights` focuses attention on the particular action."
+      ],
+      "explanations": {
+        "a78": {
+          "specifically": "Correct: `specifically` before `highlights` as a focusing adverb.",
+          "specific": "Incorrect: `specific` is an adjective. Use the adverb `specifically`.",
+          "specifically highlights the": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Adverbs go after the auxiliary chain before the main verb.",
+        "In `could have ___ avoided`, `easily` goes after `have`."
+      ],
+      "explanations": {
+        "a79": {
+          "easily": "Correct: `easily` between `have` and `avoided` in the modal perfect.",
+          "easy": "Incorrect: `easy` is an adjective. Use the adverb `easily`.",
+          "easily could": "Incorrect: the adverb does not go before the modal `could`."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "The correlative `Not only … but also` structure: after inversion in the first clause, the second starts with `but also`.",
+        "After `Not only did she …`, the second clause starts with `but also`."
+      ],
+      "explanations": {
+        "a80": {
+          "but also": "Correct: `but also` is the second part of `Not only … but also`.",
+          "and also": "Incorrect: the correlative requires `but also`, not `and also`.",
+          "but as well": "Incorrect: the standard pair is `Not only … but also`."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "In the passive, adverbial order: Manner–Place–Time.",
+        "After `were handled`, manner `discreetly` goes first, then place and time."
+      ],
+      "explanations": {
+        "a81": {
+          "discreetly": "Correct: `discreetly` — manner adverb after `handled`, before place and time.",
+          "discreet": "Incorrect: `discreet` is an adjective. Use the adverb `discreetly`.",
+          "discreetly handled": "Incorrect: the manner adverb goes after the verb."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "After `Little` at the beginning, inversion is required.",
+        "The correct order: `did they know` — auxiliary + subject + main verb."
+      ],
+      "explanations": {
+        "a82": {
+          "did they know": "Correct: inversion after `Little` — `did they know`.",
+          "they knew": "Incorrect: `Little` at the beginning requires inversion.",
+          "they did know": "Incorrect: the subject goes between the auxiliary and main verb."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Split infinitive: an adverb between `to` and the verb.",
+        "In `to ___ increase`, `significantly` splits the infinitive."
+      ],
+      "explanations": {
+        "a83": {
+          "significantly": "Correct: `significantly` in a split infinitive between `to` and `increase`.",
+          "significant": "Incorrect: `significant` is an adjective. Use the adverb `significantly`.",
+          "significantly to": "Incorrect: the adverb goes between `to` and the verb."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Comment adverbs go at the beginning with a comma.",
+        "The position before the comma at the beginning is for `Interestingly`."
+      ],
+      "explanations": {
+        "a84": {
+          "Interestingly": "Correct: `Interestingly` is a comment adverb at the beginning.",
+          "Interesting": "Incorrect: `interesting` is an adjective. Use the adverb `Interestingly`.",
+          "Interestingly suggests": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "In the passive, manner adverbs go between the auxiliary and the past participle.",
+        "In `was ___ rejected`, `unanimously` goes between `was` and `rejected`."
+      ],
+      "explanations": {
+        "a85": {
+          "unanimously": "Correct: `unanimously` between `was` and `rejected` in the passive.",
+          "unanimous": "Incorrect: `unanimous` is an adjective. Use the adverb `unanimously`.",
+          "unanimously was": "Incorrect: the adverb does not go before `was`."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Manner adverbs go after the verb; `enough` goes after the adverb.",
+        "After `speaks`, `fluently` describes the manner, with `enough` following."
+      ],
+      "explanations": {
+        "a86": {
+          "fluently": "Correct: `fluently` is a manner adverb after `speaks`, followed by `enough`.",
+          "fluent": "Incorrect: `fluent` is an adjective. Use the adverb `fluently`.",
+          "enough fluently": "Incorrect: `enough` goes after the adverb, not before it."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "After `Only after …`, inversion is required: auxiliary before the subject.",
+        "After `Only after the audit`, the auxiliary `did` is needed for Past Simple inversion."
+      ],
+      "explanations": {
+        "a87": {
+          "did": "Correct: `did` is the auxiliary for Past Simple inversion after `Only after …`.",
+          "were": "Incorrect: `become` requires `did` for Past Simple, not `were`.",
+          "had": "Incorrect: `had` is for Past Perfect, but the sentence is in Past Simple."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "`scarcely` means 'barely' and goes before `ever`.",
+        "The phrase `scarcely ever` means 'almost never' — `scarcely` precedes `ever`."
+      ],
+      "explanations": {
+        "a88": {
+          "scarcely": "Correct: `scarcely ever` — `scarcely` before `ever`.",
+          "scarce": "Incorrect: `scarce` is an adjective. Use the adverb `scarcely`.",
+          "ever scarcely": "Incorrect: the fixed order is `scarcely ever`."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Manner adverbs can go before the main verb for emphasis.",
+        "In `The study ___ suggests`, `convincingly` before `suggests` adds emphasis."
+      ],
+      "explanations": {
+        "a89": {
+          "convincingly": "Correct: `convincingly` before `suggests` emphasises the strength of the suggestion.",
+          "convincing": "Incorrect: `convincing` is an adjective. Use the adverb `convincingly`.",
+          "convincingly study": "Incorrect: the gap needs only the adverb."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Adverbs go between the modal and the main verb.",
+        "In `must ___ reconsider`, `urgently` goes between `must` and `reconsider`."
+      ],
+      "explanations": {
+        "a90": {
+          "urgently": "Correct: `urgently` between `must` and `reconsider`.",
+          "urgent": "Incorrect: `urgent` is an adjective. Use the adverb `urgently`.",
+          "urgently must": "Incorrect: the adverb does not go before the modal `must`."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "`Not until …` at the beginning requires inversion in the main clause.",
+        "After `Not until the final chapter`, the auxiliary `does` is needed for Present Simple inversion."
+      ],
+      "explanations": {
+        "a91": {
+          "does": "Correct: `does` for Present Simple inversion after `Not until …`.",
+          "did": "Incorrect: the sentence is in Present Simple (`reveal`), so `does` is needed.",
+          "the author does": "Incorrect: the gap needs only `does`; the subject already follows."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "After `Nowhere else`, inversion is required: auxiliary + subject + main verb.",
+        "The correct order: `will you find`."
+      ],
+      "explanations": {
+        "a92": {
+          "will you find": "Correct: inversion after `Nowhere else` — `will you find`.",
+          "you will find": "Incorrect: `Nowhere else` requires inversion.",
+          "you find will": "Incorrect: the word order is completely wrong."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "In the passive, a comment adverb can go between the auxiliary and the main verb.",
+        "In `was ___ meticulously proofread`, `reportedly` goes after `was`."
+      ],
+      "explanations": {
+        "a93": {
+          "reportedly": "Correct: `reportedly` is a comment adverb between `was` and `meticulously proofread`.",
+          "reported": "Incorrect: `reported` is a past participle, not a comment adverb.",
+          "reportedly was": "Incorrect: the adverb does not go before `was` in a positive passive."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "After `Under no circumstances`, inversion is required: modal + subject + verb.",
+        "The correct order: `should you share`."
+      ],
+      "explanations": {
+        "a94": {
+          "should you share": "Correct: inversion after `Under no circumstances`.",
+          "you should share": "Incorrect: a negative adverbial at the beginning requires inversion.",
+          "you share should": "Incorrect: the sentence structure is completely wrong."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "`So + adverb + inversion` expresses consequence/result.",
+        "After `So`, with an adverb, inversion is needed: `brilliantly did she perform`."
+      ],
+      "explanations": {
+        "a95": {
+          "brilliantly did she perform": "Correct: `So brilliantly did she perform` — inversion for emphasis.",
+          "brilliantly she performed": "Incorrect: `So + adverb` requires inversion.",
+          "she performed brilliantly": "Incorrect: no inversion after `So`."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "A comparative adverb can go in a split infinitive.",
+        "In `to ___ redistribute`, the comparative adverb `more equitably` is needed."
+      ],
+      "explanations": {
+        "a96": {
+          "more equitably": "Correct: `more equitably` is a comparative adverb in a split infinitive.",
+          "equitable more": "Incorrect: in the comparative, `more` goes before the adverb.",
+          "more equitable": "Incorrect: `equitable` is an adjective. Use the adverb `equitably`."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "After `Only by …`, inversion is required: modal + subject.",
+        "The correct order: `can we`."
+      ],
+      "explanations": {
+        "a97": {
+          "can we": "Correct: inversion after `Only by …` — `can we arrive`.",
+          "we can": "Incorrect: `Only by …` requires inversion.",
+          "we are able to": "Incorrect: inversion requires a modal verb, not `be able to`."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "`Hardly … when` requires inversion with Past Perfect in the first clause.",
+        "After `Hardly`, the correct order: `had we sat down` (Past Perfect inversion)."
+      ],
+      "explanations": {
+        "a98": {
+          "had we sat down": "Correct: `Hardly had we sat down when …` — Past Perfect inversion.",
+          "we had sat down": "Incorrect: `Hardly` requires inversion.",
+          "we sat down": "Incorrect: `Hardly … when` requires Past Perfect, not Past Simple."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "`scarcely` goes between the modal and the next auxiliary.",
+        "In `can ___ be attributed`, `scarcely` goes between `can` and `be`."
+      ],
+      "explanations": {
+        "a99": {
+          "scarcely": "Correct: `scarcely` between `can` and `be`.",
+          "scarce": "Incorrect: `scarce` is an adjective. Use the adverb `scarcely`.",
+          "scarcely can": "Incorrect: the adverb does not go before the modal `can`."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "`Needless to say` is a fixed comment phrase at the beginning with a comma.",
+        "The expression `Needless to say` means 'it goes without saying'."
+      ],
+      "explanations": {
+        "a100": {
+          "Needless to say": "Correct: `Needless to say` is a fixed comment phrase at the beginning.",
+          "Needlessly to say": "Incorrect: the fixed expression is `Needless to say`, not `Needlessly`.",
+          "Needless saying": "Incorrect: the correct form is `Needless to say`."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "`No sooner … than` requires inversion with Past Perfect.",
+        "After `No sooner`, the correct order: `had she arrived` (Past Perfect inversion)."
+      ],
+      "explanations": {
+        "a101": {
+          "had she arrived": "Correct: `No sooner had she arrived than …` — Past Perfect inversion.",
+          "she had arrived": "Incorrect: `No sooner` requires inversion.",
+          "she arrived": "Incorrect: `No sooner … than` requires Past Perfect, not Past Simple."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "The auxiliary goes before the manner adverb in compound tenses.",
+        "Before `painstakingly recreated`, the auxiliary `had` is needed for Past Perfect."
+      ],
+      "explanations": {
+        "a102": {
+          "had": "Correct: `had` — Past Perfect auxiliary before the manner adverb `painstakingly`.",
+          "has": "Incorrect: the context (over several months — past) requires Past Perfect `had`, not `has`.",
+          "was": "Incorrect: `was` forms Past Continuous/Passive, but `recreated` needs `had`."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "After `In no way`, inversion is required: auxiliary + subject + verb.",
+        "The correct order: `does this diminish`."
+      ],
+      "explanations": {
+        "a103": {
+          "does this diminish": "Correct: inversion after `In no way` — `does this diminish`.",
+          "this diminishes": "Incorrect: the negative adverbial requires inversion.",
+          "this does diminish": "Incorrect: the subject goes between auxiliary and main verb in inversion."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "In the passive with an auxiliary chain, adverbs go after the last auxiliary.",
+        "In `has been ___ praised`, `widely` goes after `been`."
+      ],
+      "explanations": {
+        "a104": {
+          "widely": "Correct: `widely` after `been` and before `praised` in Present Perfect Passive.",
+          "wide": "Incorrect: for abstract meaning, use `widely`, not `wide`.",
+          "widely been": "Incorrect: the adverb goes after `been`, not before it."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "After `At no point`, inversion is required: verb/auxiliary + subject.",
+        "The correct order: `was it` — inversion of the verb `be`."
+      ],
+      "explanations": {
+        "a105": {
+          "was it": "Correct: inversion after `At no point` — `was it my intention`.",
+          "it was": "Incorrect: the negative adverbial requires inversion.",
+          "it had been": "Incorrect: no inversion, and the tense does not match."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Degree adverbs go after the auxiliary chain before the past participle.",
+        "In `has been ___ challenged`, `increasingly` goes after `been`."
+      ],
+      "explanations": {
+        "a106": {
+          "increasingly": "Correct: `increasingly` between `been` and `challenged`.",
+          "increasing": "Incorrect: `increasing` is an adjective. Use the adverb `increasingly`.",
+          "increasingly has": "Incorrect: the adverb does not go before `has`."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "After `Only when …`, inversion is required in the main clause.",
+        "The correct order: `can researchers` — modal + subject."
+      ],
+      "explanations": {
+        "a107": {
+          "can researchers": "Correct: inversion after `Only when …` — `can researchers draw`.",
+          "researchers can": "Incorrect: `Only when …` requires inversion.",
+          "researchers are able to": "Incorrect: inversion requires a modal, not `be able to`."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "After `Not for a moment`, inversion is required: auxiliary + subject + verb.",
+        "The correct order: `did we suspect` — Past Simple inversion."
+      ],
+      "explanations": {
+        "a108": {
+          "did we suspect": "Correct: inversion after `Not for a moment` — `did we suspect`.",
+          "we suspected": "Incorrect: the negative adverbial requires inversion.",
+          "we did suspect": "Incorrect: the subject goes between auxiliary and main verb."
+        }
+      }
+    }
+  ]
+}

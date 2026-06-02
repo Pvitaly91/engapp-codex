@@ -1,0 +1,4617 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder",
+        "uuid_namespace": "st-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1065": {
+            "name": "Sentence Types — Види речень"
+        }
+    },
+    "tags": {
+        "sentence_type_structure": {
+            "name": "Sentence type structure",
+            "category": "topic"
+        },
+        "affirmative_structure": {
+            "name": "Affirmative sentence structure",
+            "category": "pattern"
+        },
+        "negative_with_do_does": {
+            "name": "Negation with do/does + not",
+            "category": "pattern"
+        },
+        "negative_with_did": {
+            "name": "Negation with did + not",
+            "category": "pattern"
+        },
+        "negative_with_be": {
+            "name": "Negation with am/is/are + not",
+            "category": "pattern"
+        },
+        "negative_with_be_past": {
+            "name": "Negation with was/were + not",
+            "category": "pattern"
+        },
+        "negative_with_modal": {
+            "name": "Negation with modal verbs",
+            "category": "pattern"
+        },
+        "negative_present_perfect": {
+            "name": "Negation in Present Perfect",
+            "category": "pattern"
+        },
+        "yes_no_question_do": {
+            "name": "Yes/No question with do/does",
+            "category": "pattern"
+        },
+        "yes_no_question_be": {
+            "name": "Yes/No question with am/is/are",
+            "category": "pattern"
+        },
+        "yes_no_question_be_past": {
+            "name": "Yes/No question with was/were",
+            "category": "pattern"
+        },
+        "yes_no_question_past": {
+            "name": "Yes/No question with did",
+            "category": "pattern"
+        },
+        "yes_no_question_modal": {
+            "name": "Yes/No question with modal verbs",
+            "category": "pattern"
+        },
+        "yes_no_question_present_perfect": {
+            "name": "Yes/No question in Present Perfect",
+            "category": "pattern"
+        },
+        "wh_question_structure": {
+            "name": "WH question structure",
+            "category": "pattern"
+        },
+        "wh_question_present_perfect": {
+            "name": "WH question in Present Perfect",
+            "category": "pattern"
+        },
+        "imperative_affirmative": {
+            "name": "Affirmative imperative",
+            "category": "pattern"
+        },
+        "imperative_negative": {
+            "name": "Negative imperative (Don't + verb)",
+            "category": "pattern"
+        },
+        "tag_question_formation": {
+            "name": "Tag question formation",
+            "category": "pattern"
+        },
+        "tag_question_i_am": {
+            "name": "Tag question for I am (aren't I)",
+            "category": "usage"
+        },
+        "tag_question_imperative": {
+            "name": "Tag question for imperatives (shall we)",
+            "category": "usage"
+        },
+        "tag_question_nobody": {
+            "name": "Tag question with nobody/nothing",
+            "category": "usage"
+        },
+        "tag_question_would_rather": {
+            "name": "Tag question with would rather",
+            "category": "usage"
+        },
+        "tag_question_must": {
+            "name": "Tag question with must (deduction)",
+            "category": "usage"
+        },
+        "indirect_question_order": {
+            "name": "Word order in indirect questions",
+            "category": "pattern"
+        },
+        "negative_question_formation": {
+            "name": "Negative question formation",
+            "category": "pattern"
+        },
+        "inverted_conditional_sentence": {
+            "name": "Inverted conditional sentence (Should/Were/Had)",
+            "category": "pattern"
+        },
+        "negative_fronting_inversion": {
+            "name": "Subject-auxiliary inversion after negative/restrictive adverbials",
+            "category": "pattern"
+        },
+        "emphatic_do_affirmative": {
+            "name": "Emphatic do/does/did in affirmative sentences",
+            "category": "usage"
+        },
+        "rhetorical_question_formation": {
+            "name": "Rhetorical question formation",
+            "category": "usage"
+        }
+    },
+    "default_tag_keys": [
+        "sentence_type_structure"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "She {a1} to the gym every morning.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "goes",
+                    "options": [
+                        "goes",
+                        "go",
+                        "goed"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У стверджувальному реченні теперішнього часу (Present Simple) дієслово для третьої особи однини (she/he/it) отримує закінчення -s або -es.",
+                        "Підмет `She` — третя особа однини, отже правильна форма дієслова відрізняється від базової форми."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "goes": "«Goes» — правильна форма: дієслово «go» у Present Simple для «she» (3-тя особа однини) набуває закінчення -es, утворюючи «goes».",
+                            "go": "«Go» — базова форма дієслова; вона вживається лише з I/you/we/they, але не з «she».",
+                            "goed": "«Goed» не існує в англійській: дієслово «go» є неправильним і не утворює форм додаванням -ed."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "affirmative_structure"
+            ],
+            "variants": [
+                "She {a1} to the gym every morning."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "They {a1} like spicy food.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "don't",
+                    "options": [
+                        "don't",
+                        "doesn't",
+                        "not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У заперечному реченні Present Simple з підметами I/you/we/they вживається допоміжне дієслово «do» + «not» (скорочено «don't»).",
+                        "Підмет «They» — множина, а отже допоміжне дієслово — «do», а не «does»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "don't": "«Don't» — правильна заперечна форма для «they»: do + not = don't, далі базова форма головного дієслова.",
+                            "doesn't": "«Doesn't» вживається лише для he/she/it, але підмет тут «they» — множина.",
+                            "not": "«Not» не може стояти самостійно перед смисловим дієсловом без допоміжного «do»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_do_does"
+            ],
+            "variants": [
+                "They {a1} like spicy food."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "{a1} you speak English?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання у Present Simple утворюється за схемою: Do/Does + підмет + базова форма дієслова.",
+                        "Підмет «you» вимагає допоміжного «Do», а не «Does» (яке вживається для he/she/it)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Do": "«Do» — правильне допоміжне дієслово для питань з «you» у Present Simple.",
+                            "Does": "«Does» вживається у питаннях для he/she/it, але не для «you».",
+                            "Are": "«Are» — це дієслово «to be», яке тут не підходить, бо присудок «speak» — смислове дієслово, а не стан/ознака."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_do"
+            ],
+            "variants": [
+                "{a1} you speak English?"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "Please {a1} the window.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "close",
+                    "options": [
+                        "close",
+                        "closes",
+                        "closing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Стверджувальний наказовий спосіб (imperative) утворюється з базової форми дієслова без будь-яких закінчень.",
+                        "Слово «Please» перед пропуском вказує на ввічливу команду — саме наказовий спосіб."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "close": "«Close» — правильна базова форма для наказового способу; imperativ не змінюється за особами.",
+                            "closes": "«Closes» — форма Present Simple для 3-ї особи однини; наказовий спосіб не приймає -s/-es.",
+                            "closing": "«Closing» — дієприкметник теперішнього часу (Present Participle); він не вживається як присудок наказового речення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "imperative_affirmative"
+            ],
+            "variants": [
+                "Please {a1} the window."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "{a1} run in the corridor!",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Doesn't",
+                        "No"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечний наказовий спосіб утворюється за схемою: Don't + базова форма дієслова.",
+                        "Окличний знак та контекст заборони підтверджують наказовий спосіб; допоміжне слово — «Don't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Don't": "«Don't» — стандартна форма заперечного наказового способу для будь-якого підмета.",
+                            "Doesn't": "«Doesn't» вживається у стверджувальних/заперечних реченнях Present Simple для 3-ї особи, але не в наказовому способі.",
+                            "No": "«No» перед дієсловом у наказовому реченні не є граматичною конструкцією англійської мови; потрібне «Don't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "imperative_negative"
+            ],
+            "variants": [
+                "{a1} run in the corridor!"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a1",
+                "q06"
+            ],
+            "question": "The keys {a1} on the table.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "be"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Дієслово «to be» узгоджується з підметом: для множини (they/the keys) вживається «are».",
+                        "«The keys» — іменник у множині, тому форма дієслова «to be» — «are»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "«Are» — правильна форма «to be» для множини; «the keys» — підмет у множині.",
+                            "is": "«Is» вживається для однини (he/she/it/the key), але «keys» — множина.",
+                            "be": "«Be» — інфінітив або наказовий спосіб; у стверджувальному реченні Present Simple його не вживають."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "affirmative_structure"
+            ],
+            "variants": [
+                "The keys {a1} on the table."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a1",
+                "q07"
+            ],
+            "question": "He {a1} tired after work today.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "doesn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення з дієсловом «to be» у Present Simple утворюється додаванням «not»: is not = isn't, are not = aren't.",
+                        "Підмет «He» — третя особа однини, тому використовується «is», а заперечна форма — «isn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«Isn't» — правильна заперечна форма «to be» для he/she/it у Present Simple.",
+                            "aren't": "«Aren't» вживається для you/we/they; підмет «He» — 3-тя особа однини, тому потрібне «isn't».",
+                            "doesn't": "«Doesn't» — заперечення для смислових дієслів (he doesn't do); тут присудок — «to be», а не смислове дієслово."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_be"
+            ],
+            "variants": [
+                "He {a1} tired after work today."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a1",
+                "q08"
+            ],
+            "question": "{a1} they your classmates?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання з дієсловом «to be» утворюється інверсією: Are/Is + підмет.",
+                        "Підмет «they» — множина, тому на початку питання стоїть «Are»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are": "«Are» — правильна форма «to be» для «they» у питанні.",
+                            "Is": "«Is» використовується для he/she/it або однини, а не для «they».",
+                            "Do": "«Do» — допоміжне дієслово для смислових дієслів у Present Simple; але тут присудок — «to be» (classmates)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_be"
+            ],
+            "variants": [
+                "{a1} they your classmates?"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a1",
+                "q09"
+            ],
+            "question": "My brother {a1} play football.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "doesn't",
+                    "options": [
+                        "doesn't",
+                        "don't",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У заперечному реченні Present Simple для he/she/it вживається «doesn't» + базова форма дієслова.",
+                        "«My brother» — третя особа однини (= he), отже допоміжне дієслово заперечення — «doesn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "doesn't": "«Doesn't» — правильне заперечення для «my brother» (he): does + not, далі базова форма «play».",
+                            "don't": "«Don't» вживається для I/you/we/they; «my brother» — 3-тя особа однини.",
+                            "isn't": "«Isn't» — заперечення «to be»; тут «play» — смислове дієслово, тому потрібне «doesn't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_do_does"
+            ],
+            "variants": [
+                "My brother {a1} play football."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a1",
+                "q10"
+            ],
+            "question": "What {a1} you want for dinner?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання у Present Simple будується за схемою: WH-слово + do/does + підмет + базова форма.",
+                        "Підмет «you» вимагає «do», а не «does» (яке використовується для he/she/it)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "«Do» — правильне допоміжне для «you» у WH-питанні Present Simple.",
+                            "does": "«Does» вживається у питаннях для he/she/it, але не для «you».",
+                            "are": "«Are» — форма «to be»; тут смислове дієслово «want» вимагає «do», а не «are»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "What {a1} you want for dinner?"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "a1",
+                "q11"
+            ],
+            "question": "We {a1} lunch at noon every day.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "eat",
+                    "options": [
+                        "eat",
+                        "eats",
+                        "ate"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У стверджувальному реченні Present Simple з підметом «we» дієслово стоїть у базовій формі без закінчення -s.",
+                        "Маркер «every day» вказує на Present Simple; підмет «We» — 1-ша особа множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "eat": "«Eat» — базова форма для «we» у Present Simple; закінчення -s не потрібне.",
+                            "eats": "«Eats» — форма 3-ї особи однини (he/she/it); підмет «we» вимагає базову форму.",
+                            "ate": "«Ate» — форма Past Simple; маркер «every day» вказує на теперішній час."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "affirmative_structure"
+            ],
+            "variants": [
+                "We {a1} lunch at noon every day."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "a1",
+                "q12"
+            ],
+            "question": "{a1} open the fridge without asking.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Doesn't",
+                        "Not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечний наказовий спосіб формується через «Don't» + базова форма дієслова.",
+                        "Відсутність явного підмета та наявність дієслова «open» у початковій позиції вказують на наказовий спосіб."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Don't": "«Don't» — єдина правильна форма для заперечного imperative в англійській мові.",
+                            "Doesn't": "«Doesn't» — заперечна форма Present Simple для 3-ї особи однини; у наказовому реченні її не вживають.",
+                            "Not": "«Not» самостійно перед дієсловом не утворює заперечного наказового способу; потрібне «Don't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "imperative_negative"
+            ],
+            "variants": [
+                "{a1} open the fridge without asking."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "a1",
+                "q13"
+            ],
+            "question": "Does she {a1} the guitar?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "play",
+                    "options": [
+                        "play",
+                        "plays",
+                        "played"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після допоміжного дієслова «does» у питанні завжди стоїть базова форма смислового дієслова без -s.",
+                        "«Does» вже містить граматичну ознаку 3-ї особи, тому «play» залишається без закінчення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "play": "«Play» — правильна базова форма після «does»; закінчення -s вже \"виражено\" в самому «does».",
+                            "plays": "«Plays» помилкова: у питанні з «does» смислове дієслово не отримує -s.",
+                            "played": "«Played» — форма Past Simple; питання стосується теперішнього (does)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_do"
+            ],
+            "variants": [
+                "Does she {a1} the guitar?"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "a1",
+                "q14"
+            ],
+            "question": "{a1} a seat, everyone.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Take",
+                    "options": [
+                        "Take",
+                        "Takes",
+                        "Taking"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Стверджувальний наказовий спосіб будується з базової форми дієслова; жодних закінчень не додається.",
+                        "Звертання «everyone» підтверджує, що перед нами наказове речення без явного підмета."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Take": "«Take» — правильна базова форма для imperative; команда звернена до «everyone».",
+                            "Takes": "«Takes» — форма Present Simple для 3-ї особи однини; у наказовому способі вона не вживається.",
+                            "Taking": "«Taking» — дієприкметник Present Participle; він не може бути присудком наказового речення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "imperative_affirmative"
+            ],
+            "variants": [
+                "{a1} a seat, everyone."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "a1",
+                "q15"
+            ],
+            "question": "I {a1} watch TV in the morning.",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "don't",
+                    "options": [
+                        "don't",
+                        "doesn't",
+                        "not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечне речення Present Simple з підметом «I» будується через «don't» + базова форма дієслова.",
+                        "Підмет «I» — 1-ша особа, тому допоміжне заперечне — «don't», а не «doesn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "don't": "«Don't» — правильна форма для «I»: do + not, після чого стоїть базова форма «watch».",
+                            "doesn't": "«Doesn't» вживається для he/she/it; підмет «I» вимагає «don't».",
+                            "not": "«Not» без допоміжного «do» не утворює граматичного заперечення смислового дієслова."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_do_does"
+            ],
+            "variants": [
+                "I {a1} watch TV in the morning."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "a1",
+                "q16"
+            ],
+            "question": "Where {a1} your parents live?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання з «where» у Present Simple: Where + do/does + підмет + базова форма.",
+                        "«Your parents» — множина (= they), тому допоміжне — «do», а не «does»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "«Do» — правильне допоміжне для «your parents» (множина) у WH-питанні.",
+                            "does": "«Does» вживається у питаннях для he/she/it; «parents» — множина.",
+                            "are": "«Are» — форма «to be»; дієслово «live» — смислове, і вимагає «do» як допоміжного."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "Where {a1} your parents live?"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "a1",
+                "q17"
+            ],
+            "question": "{a1} this your bag?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання з «to be» у Present Simple: Is/Are + підмет.",
+                        "«This» — займенник однини, тому питання починається з «Is»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Is": "«Is» — правильна форма «to be» для «this» (однина) у питанні.",
+                            "Are": "«Are» вживається для «these/those» або «you/they»; «this» — однина.",
+                            "Do": "«Do» — допоміжне для смислових дієслів, а не для «to be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_be"
+            ],
+            "variants": [
+                "{a1} this your bag?"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "a1",
+                "q18"
+            ],
+            "question": "Who {a1} your English teacher?",
+            "source": "theory_page_1065",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У WH-питанні, де «who» є підметом або питається про одну особу, вживається «is».",
+                        "«Who» тут вказує на одну особу (ваш учитель — одна людина), тому «is»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "«Is» — правильна форма «to be» для однини; питання стосується однієї особи (teacher).",
+                            "are": "«Are» вживалося б для множини (Who are your teachers?); тут мається на увазі одна людина.",
+                            "does": "«Does» — допоміжне для смислових дієслів у Present Simple; тут присудок — «to be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "Who {a1} your English teacher?"
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "She {a1} come to school yesterday.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "doesn't",
+                        "wasn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення у Past Simple з смисловими дієсловами будується через «didn't» + базова форма.",
+                        "Слово «yesterday» вказує на минулий час; підмет «She» — 3-тя особа однини, але форма «didn't» однакова для всіх осіб."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "didn't": "«Didn't» — правильна форма заперечення Past Simple (did + not) для будь-якого підмета; після неї — базова форма «come».",
+                            "doesn't": "«Doesn't» — заперечення Present Simple; слово «yesterday» вказує на минулий час.",
+                            "wasn't": "«Wasn't» — заперечення «to be» у Past Simple; «come» — смислове дієслово, тому потрібне «didn't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_did"
+            ],
+            "variants": [
+                "She {a1} come to school yesterday."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "{a1} you finish the homework?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання у Past Simple будується за схемою: Did + підмет + базова форма дієслова.",
+                        "Запитання стосується завершеної дії в минулому (finish the homework) — це Past Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Did": "«Did» — правильне допоміжне для питань Past Simple; після нього — базова форма «finish».",
+                            "Do": "«Do» вживається для питань Present Simple, а не минулого часу.",
+                            "Were": "«Were» — форма «to be» у Past Simple; «finish» — смислове дієслово, яке вимагає «did»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_past"
+            ],
+            "variants": [
+                "{a1} you finish the homework?"
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "What {a1} you do last weekend?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання у Past Simple: WH-слово + did + підмет + базова форма дієслова.",
+                        "«Last weekend» — маркер минулого часу, що вимагає допоміжного «did»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "«Did» — правильне допоміжне для WH-питання Past Simple; базова форма «do» стоїть після підмета.",
+                            "do": "«Do» вживається у питаннях Present Simple; «last weekend» вказує на минуле.",
+                            "were": "«Were» — форма «to be» для минулого часу; смислове «do» вимагає «did»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "What {a1} you do last weekend?"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "The film {a1} very interesting.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "wasn't",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "didn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення дієслова «to be» у Past Simple: was not = wasn't (однина), were not = weren't (множина).",
+                        "«The film» — іменник в однині (= it), тому форма заперечення — «wasn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wasn't": "«Wasn't» — правильна заперечна форма «to be» для «the film» (однина) у Past Simple.",
+                            "weren't": "«Weren't» вживається для множини (they/the films); «the film» — однина.",
+                            "didn't": "«Didn't» — заперечення смислових дієслів у Past Simple; тут присудок — «to be» (interesting)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_be_past"
+            ],
+            "variants": [
+                "The film {a1} very interesting."
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "{a1} she at the party last night?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання з «to be» у Past Simple: Was/Were + підмет.",
+                        "Підмет «she» — 3-тя особа однини; Past Simple форма «to be» для неї — «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Was": "«Was» — правильна форма «to be» у Past Simple для «she» (3-тя особа однини).",
+                            "Were": "«Were» використовується для you/we/they або множини; «she» вимагає «was».",
+                            "Did": "«Did» — допоміжне для смислових дієслів; тут присудок — «to be» (at the party)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_be_past"
+            ],
+            "variants": [
+                "{a1} she at the party last night?"
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "He {a1} swim very well yet.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "doesn't",
+                        "isn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Модальне дієслово «can» у заперечній формі — «can't» (cannot); воно виражає нездатність.",
+                        "Слово «yet» підсилює ідею поточної нездатності виконати дію — саме значення «can't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "can't": "«Can't» (= cannot) — правильна заперечна форма модального дієслова «can», що означає «не вміє/не може».",
+                            "doesn't": "«Doesn't» заперечує смислові дієслова у Present Simple; тут потрібна модальна форма «can't».",
+                            "isn't": "«Isn't» — заперечення «to be»; «swim» — смислове дієслово, а здатність виражається через «can»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_modal"
+            ],
+            "variants": [
+                "He {a1} swim very well yet."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "{a1} you play the piano?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Do",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання про здатність утворюється з модального дієслова «Can» + підмет + базова форма.",
+                        "Запитання «Can you play...?» стосується вміння, а не звичайної дії у Present Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Can": "«Can» — правильне модальне для питань про вміння/здатність.",
+                            "Do": "«Do» вживається для питань Present Simple зі смисловими дієсловами, але не для вираження здатності.",
+                            "Are": "«Are» — форма «to be»; питання про вміння будується через «can», а не «to be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_modal"
+            ],
+            "variants": [
+                "{a1} you play the piano?"
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "When {a1} you arrive?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання «when» у Past Simple: When + did + підмет + базова форма.",
+                        "Питання про час прибуття в минулому вимагає «did»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "«Did» — правильне допоміжне для WH-питання у Past Simple.",
+                            "do": "«Do» вживається у питаннях Present Simple; прибуття — завершена дія в минулому.",
+                            "were": "«Were» — форма «to be»; «arrive» — смислове дієслово, яке вимагає «did»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "When {a1} you arrive?"
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "{a1} your sister study at university?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання Present Simple для he/she/it: Does + підмет + базова форма.",
+                        "«Your sister» — 3-тя особа однини; питання теперішнього часу починається з «Does»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Does": "«Does» — правильне допоміжне для «your sister» (= she) у питанні Present Simple.",
+                            "Do": "«Do» вживається для I/you/we/they; «your sister» — 3-тя особа однини.",
+                            "Is": "«Is» — форма «to be»; «study» — смислове дієслово, яке вимагає «does»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_do"
+            ],
+            "variants": [
+                "{a1} your sister study at university?"
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "They {a1} go to the cinema last Saturday.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "don't",
+                        "weren't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення смислового дієслова в Past Simple будується через «didn't» + базова форма дієслова.",
+                        "«Last Saturday» — маркер минулого часу; підмет «They» вимагає «didn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "didn't": "«Didn't» — правильна форма заперечення Past Simple для «they»; після неї — базова форма «go».",
+                            "don't": "«Don't» — заперечення Present Simple; «last Saturday» вказує на минуле.",
+                            "weren't": "«Weren't» — заперечення «to be» у Past Simple; «go» — смислове дієслово."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_did"
+            ],
+            "variants": [
+                "They {a1} go to the cinema last Saturday."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "a2",
+                "q11"
+            ],
+            "question": "How many students {a1} in your class?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання з «how many» + іменник у множині вимагає дієслова «are» (to be, множина).",
+                        "«How many students» — підмет у множині; форма «to be» для нього — «are»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "«Are» — правильна форма «to be» для підмета у множині «how many students».",
+                            "is": "«Is» вживається для однини; «how many students» — множина.",
+                            "do": "«Do» — допоміжне для смислових дієслів; тут присудок — «to be» (students are in class)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "How many students {a1} in your class?"
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "a2",
+                "q12"
+            ],
+            "question": "Who {a1} you meet at the conference?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання «who» у Past Simple, де «who» — додаток: Who + did + підмет + базова форма.",
+                        "«At the conference» — типовий минулий контекст; «did» вказує на Past Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "«Did» — правильне допоміжне для WH-питання Past Simple; «meet» стоїть у базовій формі.",
+                            "do": "«Do» вживається у питаннях Present Simple, а конференція — минуле.",
+                            "were": "«Were» — форма «to be»; «meet» — смислове дієслово, що вимагає «did»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "Who {a1} you meet at the conference?"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid_segments": [
+                "a2",
+                "q13"
+            ],
+            "question": "{a1} be so noisy, please.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Don't",
+                    "options": [
+                        "Don't",
+                        "Doesn't",
+                        "Not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечний наказовий спосіб утворюється через «Don't» + базова форма; слово «please» робить прохання ввічливим.",
+                        "Відсутність явного підмета та дієслово «be» після пропуску — ознаки наказового способу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Don't": "«Don't» — правильне заперечення для imperative; «Don't be noisy» — стандартна ввічлива заборона.",
+                            "Doesn't": "«Doesn't» — заперечення Present Simple для 3-ї особи; у наказовому способі не вживається.",
+                            "Not": "«Not be» — не граматична конструкція наказового способу; потрібне «Don't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "imperative_negative"
+            ],
+            "variants": [
+                "{a1} be so noisy, please."
+            ]
+        },
+        {
+            "id": 32,
+            "uuid_segments": [
+                "a2",
+                "q14"
+            ],
+            "question": "{a1} the children playing in the garden?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання у Past Continuous: Was/Were + підмет + дієслово-ing.",
+                        "«The children» — множина (= they); Past Continuous для множини починається з «Were»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Were": "«Were» — правильна форма «to be» у Past Continuous для «the children» (множина).",
+                            "Was": "«Was» вживається в Past Continuous для однини (he/she/it); «the children» — множина.",
+                            "Did": "«Did» — допоміжне Past Simple для смислових дієслів; Past Continuous потребує «were/was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_be_past"
+            ],
+            "variants": [
+                "{a1} the children playing in the garden?"
+            ]
+        },
+        {
+            "id": 33,
+            "uuid_segments": [
+                "a2",
+                "q15"
+            ],
+            "question": "Sorry, I {a1} stay late today.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can't",
+                    "options": [
+                        "can't",
+                        "couldn't",
+                        "don't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Модальне «can't» виражає нездатність у теперішньому/майбутньому; «couldn't» — нездатність у минулому.",
+                        "Слово «today» вказує на теперішній/майбутній момент, тому вживається «can't», а не «couldn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "can't": "«Can't» — правильна форма для нинішньої неможливості залишитися пізно сьогодні.",
+                            "couldn't": "«Couldn't» вживається для неможливості у минулому; «today» вказує на теперішній або майбутній час.",
+                            "don't": "«Don't stay» мало б бути формою наказового способу або іншої конструкції; тут потрібна модальна нездатність «can't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_modal"
+            ],
+            "variants": [
+                "Sorry, I {a1} stay late today."
+            ]
+        },
+        {
+            "id": 34,
+            "uuid_segments": [
+                "a2",
+                "q16"
+            ],
+            "question": "Why {a1} she crying?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання у Present Continuous: WH-слово + is/are + підмет + дієслово-ing.",
+                        "Підмет «she» — 3-тя особа однини; Present Continuous вимагає «is» + -ing."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "«Is» — правильна форма «to be» для «she» у Present Continuous питанні.",
+                            "are": "«Are» вживається для you/we/they; «she» вимагає «is».",
+                            "does": "«Does» — допоміжне Present Simple для смислових дієслів; у Continuous вживається «is/are»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "Why {a1} she crying?"
+            ]
+        },
+        {
+            "id": 35,
+            "uuid_segments": [
+                "a2",
+                "q17"
+            ],
+            "question": "We {a1} see anything from the back row.",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "couldn't",
+                    "options": [
+                        "couldn't",
+                        "can't",
+                        "didn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Couldn't» — заперечна форма «could», що означає нездатність у минулому.",
+                        "Оповідь у минулому часі («from the back row» — ситуація, що вже відбулась) підказує «couldn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "couldn't": "«Couldn't» — правильна форма: нездатність бачити у конкретній минулій ситуації.",
+                            "can't": "«Can't» виражає нездатність у теперішньому часі; тут мова йде про минулу ситуацію.",
+                            "didn't": "«Didn't see» також можливо граматично, але «couldn't see» точніше передає значення нездатності (неможливості), а не просто факту."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_modal"
+            ],
+            "variants": [
+                "We {a1} see anything from the back row."
+            ]
+        },
+        {
+            "id": 36,
+            "uuid_segments": [
+                "a2",
+                "q18"
+            ],
+            "question": "How often {a1} you visit your grandparents?",
+            "source": "theory_page_1065",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "does",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання «how often» у Present Simple: How often + do/does + підмет + базова форма.",
+                        "Підмет «you» вимагає допоміжного «do», а не «does»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "«Do» — правильне допоміжне для «you» у WH-питанні Present Simple.",
+                            "does": "«Does» вживається для he/she/it; підмет тут — «you».",
+                            "are": "«Are» — форма «to be»; «visit» — смислове дієслово, яке потребує «do»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "How often {a1} you visit your grandparents?"
+            ]
+        },
+        {
+            "id": 37,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "I {a1} finished my report yet.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "haven't",
+                    "options": [
+                        "haven't",
+                        "hasn't",
+                        "didn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення Present Perfect будується через «haven't/hasn't» + Past Participle.",
+                        "Слово «yet» — типовий маркер Present Perfect заперечення; підмет «I» вимагає «haven't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "haven't": "«Haven't» — правильна форма заперечення Present Perfect для «I»; «finished» — Past Participle.",
+                            "hasn't": "«Hasn't» вживається для he/she/it; підмет «I» вимагає «haven't».",
+                            "didn't": "«Didn't» — заперечення Past Simple; «yet» вказує на Present Perfect, а не Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_present_perfect"
+            ],
+            "variants": [
+                "I {a1} finished my report yet."
+            ]
+        },
+        {
+            "id": 38,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "{a1} you ever tried sushi?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Has",
+                        "Did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання Present Perfect: Have/Has + підмет + ever + Past Participle.",
+                        "«Ever» — маркер Present Perfect; підмет «you» вимагає «Have»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Have": "«Have» — правильне допоміжне Present Perfect для «you»; далі йде «ever tried».",
+                            "Has": "«Has» вживається для he/she/it; підмет «you» вимагає «Have».",
+                            "Did": "«Did» — допоміжне Past Simple; «ever» і «tried» вказують на Present Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_present_perfect"
+            ],
+            "variants": [
+                "{a1} you ever tried sushi?"
+            ]
+        },
+        {
+            "id": 39,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "How long {a1} you been waiting?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання «how long» у Present Perfect Continuous: How long + have/has + підмет + been + дієслово-ing.",
+                        "Підмет «you» вимагає «have» у Present Perfect."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have": "«Have» — правильне допоміжне для «you» у питанні Present Perfect Continuous.",
+                            "has": "«Has» вживається для he/she/it; «you» вимагає «have».",
+                            "did": "«Did» — допоміжне Past Simple; конструкція «been waiting» вказує на Present Perfect Continuous."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_present_perfect"
+            ],
+            "variants": [
+                "How long {a1} you been waiting?"
+            ]
+        },
+        {
+            "id": 40,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "You {a1} drink so much coffee before bed.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't",
+                    "options": [
+                        "shouldn't",
+                        "can't",
+                        "don't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Shouldn't» (should not) виражає заперечну пораду або рекомендацію.",
+                        "Контекст «before bed» підкреслює шкідливу звичку — саме значення «shouldn't» (не варто)."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shouldn't": "«Shouldn't» — правильна форма для вираження поради не робити чогось; «you shouldn't drink» = тобі не слід пити.",
+                            "can't": "«Can't» виражає неможливість/заборону, а не пораду; тут мова йде про рекомендацію.",
+                            "don't": "«Don't drink» — наказовий спосіб або Present Simple заперечення; тут потрібна модальна порада «shouldn't»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_modal"
+            ],
+            "variants": [
+                "You {a1} drink so much coffee before bed."
+            ]
+        },
+        {
+            "id": 41,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "{a1} you join us for dinner tonight?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Would",
+                        "Do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Will you...?» — запит або пропозиція щодо майбутнього; «tonight» — маркер майбутнього.",
+                        "«Will» виражає пряме запрошення або прохання, що доречно для запрошення на вечерю."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Will": "«Will» — правильне модальне для прямого запрошення на майбутню дію.",
+                            "Would": "«Would you...?» — більш ввічлива форма, але без контексту формальної ввічливості «will» є стандартним запрошенням.",
+                            "Do": "«Do» — допоміжне Present Simple; «tonight» вказує на майбутнє, яке потребує «will»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_modal"
+            ],
+            "variants": [
+                "{a1} you join us for dinner tonight?"
+            ]
+        },
+        {
+            "id": 42,
+            "uuid_segments": [
+                "b1",
+                "q06"
+            ],
+            "question": "When {a1} the results be announced?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will",
+                    "options": [
+                        "will",
+                        "would",
+                        "do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання про майбутнє у Future Simple: When + will + підмет + базова форма.",
+                        "«Be announced» — пасивна форма майбутнього; допоміжне — «will»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "«Will» — правильне допоміжне для питання про майбутнє; «the results will be announced».",
+                            "would": "«Would» виражає умовний або ввічливий запит, а не просте питання про майбутній факт.",
+                            "do": "«Do» — допоміжне Present Simple; пасивна конструкція «be announced» вимагає «will»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "When {a1} the results be announced?"
+            ]
+        },
+        {
+            "id": 43,
+            "uuid_segments": [
+                "b1",
+                "q07"
+            ],
+            "question": "{a1} he working on the new project?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання у Present Continuous: Is/Are + підмет + дієслово-ing.",
+                        "Підмет «he» — 3-тя особа однини; Present Continuous питання для нього починається з «Is»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Is": "«Is» — правильна форма «to be» для «he» у питанні Present Continuous.",
+                            "Are": "«Are» вживається для you/we/they або множини; «he» — 3-тя особа однини.",
+                            "Does": "«Does» — допоміжне Present Simple для смислових дієслів; у Continuous вживається «is/are»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_be"
+            ],
+            "variants": [
+                "{a1} he working on the new project?"
+            ]
+        },
+        {
+            "id": 44,
+            "uuid_segments": [
+                "b1",
+                "q08"
+            ],
+            "question": "She {a1} spoken to him since last week.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "hasn't",
+                    "options": [
+                        "hasn't",
+                        "haven't",
+                        "didn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення Present Perfect для she/he/it будується через «hasn't» + Past Participle.",
+                        "«Since last week» — маркер Present Perfect; підмет «She» (3-тя особа однини) вимагає «hasn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hasn't": "«Hasn't» — правильна форма заперечення Present Perfect для «she»; «spoken» — Past Participle.",
+                            "haven't": "«Haven't» вживається для I/you/we/they; «she» вимагає «hasn't».",
+                            "didn't": "«Didn't» — заперечення Past Simple; «since last week» вказує на Present Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_present_perfect"
+            ],
+            "variants": [
+                "She {a1} spoken to him since last week."
+            ]
+        },
+        {
+            "id": 45,
+            "uuid_segments": [
+                "b1",
+                "q09"
+            ],
+            "question": "What should we {a1} about this problem?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "doing",
+                        "done"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після модального дієслова «should» завжди стоїть базова форма смислового дієслова.",
+                        "«Should we do» — правильна структура; «doing» та «done» після «should» граматично неможливі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "«Do» — правильна базова форма після «should»; модальні дієслова завжди поєднуються з інфінітивом без «to».",
+                            "doing": "«Doing» (Present Participle) не вживається після «should»; після модального потрібна базова форма.",
+                            "done": "«Done» (Past Participle) вживається у Perfect конструкціях, але не після «should»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "What should we {a1} about this problem?"
+            ]
+        },
+        {
+            "id": 46,
+            "uuid_segments": [
+                "b1",
+                "q10"
+            ],
+            "question": "You {a1} use your phone during the exam.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "shouldn't",
+                        "can't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Mustn't» виражає суворе заперечення обов'язку або заборону (не можна, заборонено).",
+                        "«During the exam» вказує на офіційну заборону — саме значення «mustn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "mustn't": "«Mustn't» — правильна форма: офіційна заборона не використовувати телефон на іспиті.",
+                            "shouldn't": "«Shouldn't» — порада або рекомендація, але «mustn't» сильніше і виражає правило/заборону.",
+                            "can't": "«Can't» — нездатність або неможливість; тут мова про заборону, а не нездатність."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_modal"
+            ],
+            "variants": [
+                "You {a1} use your phone during the exam."
+            ]
+        },
+        {
+            "id": 47,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "{a1} you working when I called?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Was",
+                        "Did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання у Past Continuous: Was/Were + підмет + дієслово-ing.",
+                        "Підмет «you» вимагає «Were» у Past Continuous."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Were": "«Were» — правильна форма «to be» для «you» у питанні Past Continuous.",
+                            "Was": "«Was» вживається для he/she/it або I в Past Continuous; «you» вимагає «were».",
+                            "Did": "«Did» — допоміжне Past Simple для смислових дієслів; Past Continuous потребує «was/were»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_be_past"
+            ],
+            "variants": [
+                "{a1} you working when I called?"
+            ]
+        },
+        {
+            "id": 48,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "Whose jacket {a1} this?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання «whose» з іменником у однині вживає «is» як дієслово-зв'язку.",
+                        "«This» — займенник однини; форма «to be» для нього — «is»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "«Is» — правильна форма «to be» для однини «this jacket».",
+                            "are": "«Are» вживалося б для множини («Whose jackets are these?»); «this» — однина.",
+                            "does": "«Does» — допоміжне для смислових дієслів; тут присудок — «to be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "Whose jacket {a1} this?"
+            ]
+        },
+        {
+            "id": 49,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "Has she {a1} her passport?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "lost",
+                    "options": [
+                        "lost",
+                        "lose",
+                        "losing"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У Present Perfect після «has/have» стоїть Past Participle смислового дієслова.",
+                        "«Lost» — Past Participle неправильного дієслова «lose»; «Has she lost...?» — правильна конструкція."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "lost": "«Lost» — правильний Past Participle для «lose»; використовується після «has» у Present Perfect.",
+                            "lose": "«Lose» — базова форма (інфінітив); після «has» у Present Perfect потрібен Past Participle.",
+                            "losing": "«Losing» — Present Participle; вживається у Continuous, а не у Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_present_perfect"
+            ],
+            "variants": [
+                "Has she {a1} her passport?"
+            ]
+        },
+        {
+            "id": 50,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "He {a1} talking to the manager right now.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "doesn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення Present Continuous для he/she/it: isn't + дієслово-ing.",
+                        "«Right now» — маркер Present Continuous; підмет «He» вимагає «isn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't": "«Isn't» — правильна форма заперечення Present Continuous для «he».",
+                            "aren't": "«Aren't» вживається для you/we/they; «he» вимагає «isn't».",
+                            "doesn't": "«Doesn't» — заперечення Present Simple; «talking... right now» вказує на Continuous."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_with_be"
+            ],
+            "variants": [
+                "He {a1} talking to the manager right now."
+            ]
+        },
+        {
+            "id": 51,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "How many times {a1} you been to Paris?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання «how many times» у Present Perfect: How many times + have/has + підмет + Past Participle.",
+                        "Підмет «you» вимагає «have» у Present Perfect; «been» — Past Participle дієслова «be»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have": "«Have» — правильне допоміжне Present Perfect для «you»; «been to» = відвідували.",
+                            "has": "«Has» вживається для he/she/it; підмет «you» вимагає «have».",
+                            "did": "«Did» — допоміжне Past Simple; «been to» у поєднанні з «how many times» вказує на Present Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_present_perfect"
+            ],
+            "variants": [
+                "How many times {a1} you been to Paris?"
+            ]
+        },
+        {
+            "id": 52,
+            "uuid_segments": [
+                "b1",
+                "q16"
+            ],
+            "question": "{a1} you like to see the menu?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Will",
+                        "Do"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Would you like...?» — ввічлива пропозиція або запрошення; це стандартна формула в англійській.",
+                        "Ресторанний контекст «see the menu» підтверджує ввічливу форму «would»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Would": "«Would» — правильне модальне для ввічливої пропозиції: «Would you like to see the menu?»",
+                            "Will": "«Will you like...?» граматично некоректне для пропозиції; «would» є стандартом ввічливості.",
+                            "Do": "«Do you like...?» питає про загальне вподобання (Present Simple), а не про пропозицію переглянути меню."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "yes_no_question_modal"
+            ],
+            "variants": [
+                "{a1} you like to see the menu?"
+            ]
+        },
+        {
+            "id": 53,
+            "uuid_segments": [
+                "b1",
+                "q17"
+            ],
+            "question": "They {a1} decided where to go yet.",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "haven't",
+                    "options": [
+                        "haven't",
+                        "hasn't",
+                        "didn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечення Present Perfect для they/we/you/I будується через «haven't» + Past Participle.",
+                        "«Yet» — маркер Present Perfect заперечення; підмет «They» вимагає «haven't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "haven't": "«Haven't» — правильна форма заперечення Present Perfect для «they»; «decided» — Past Participle.",
+                            "hasn't": "«Hasn't» вживається для he/she/it; «they» вимагає «haven't».",
+                            "didn't": "«Didn't» — заперечення Past Simple; «yet» вказує на Present Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_present_perfect"
+            ],
+            "variants": [
+                "They {a1} decided where to go yet."
+            ]
+        },
+        {
+            "id": 54,
+            "uuid_segments": [
+                "b1",
+                "q18"
+            ],
+            "question": "Why {a1} I have to wait so long?",
+            "source": "theory_page_1065",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "did",
+                        "should"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "WH-питання «why» у Present Simple: Why + do/does + підмет + базова форма.",
+                        "«Have to wait» — смислова конструкція у Present Simple; підмет «I» вимагає «do»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "«Do» — правильне допоміжне для «I» у WH-питанні Present Simple: «Why do I have to...?»",
+                            "did": "«Did» — допоміжне Past Simple; «have to wait» описує поточну ситуацію, а не минулу.",
+                            "should": "«Should» — модальне дієслово, що виражає бажаність; тут просте питання про вимогу Present Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "wh_question_structure"
+            ],
+            "variants": [
+                "Why {a1} I have to wait so long?"
+            ]
+        },
+        {
+            "id": 55,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "She's a teacher, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "isn't she",
+                    "options": [
+                        "isn't she",
+                        "is she",
+                        "doesn't she"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Розмовне питання-хвіст (tag question) формується так: якщо основне речення стверджувальне, хвіст — заперечний.",
+                        "«She's» = «she is»; допоміжне — «is», тому хвіст — «isn't she»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "isn't she": "«Isn't she» — правильний хвіст: основне речення стверджувальне → хвіст заперечний, використовуючи допоміжне «is» з підметом «she».",
+                            "is she": "«Is she» — хвіст був би стверджувальним, але для ствердження потрібен заперечний хвіст.",
+                            "doesn't she": "«Doesn't she» вживалося б, якби основне присудкове дієслово було смисловим (she teaches...); тут — «to be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "She's a teacher, {a1}?"
+            ]
+        },
+        {
+            "id": 56,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "You've met him before, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "haven't you",
+                    "options": [
+                        "haven't you",
+                        "have you",
+                        "didn't you"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«You've met» = Present Perfect (you have met); хвіст до стверджувального Present Perfect — заперечний «haven't you».",
+                        "Допоміжне у реченні — «have»; у хвості воно стає «haven't you»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "haven't you": "«Haven't you» — правильний заперечний хвіст до стверджувального Present Perfect «you've met».",
+                            "have you": "«Have you» — стверджувальний хвіст; але для ствердженного речення хвіст має бути заперечним.",
+                            "didn't you": "«Didn't you» використовувалося б для Past Simple; «you've met» — Present Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "You've met him before, {a1}?"
+            ]
+        },
+        {
+            "id": 57,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "Could you tell me where {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the station is",
+                    "options": [
+                        "the station is",
+                        "is the station",
+                        "the station does"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В непрямих питаннях (indirect questions) після запитального слова порядок слів — як у стверджувальному реченні: підмет + дієслово.",
+                        "«Where» тут вводить непряме питання після «Could you tell me»; тому «the station is», а не «is the station»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "the station is": "«The station is» — правильний порядок у непрямому питанні: підмет + дієслово, без інверсії.",
+                            "is the station": "«Is the station» — порядок прямого питання; у непрямому питанні інверсія неприпустима.",
+                            "the station does": "«The station does» помилкова: «to be» не вимагає допоміжного «does»; правильно «the station is»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "Could you tell me where {a1}?"
+            ]
+        },
+        {
+            "id": 58,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "It never rains here, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "does it",
+                    "options": [
+                        "does it",
+                        "doesn't it",
+                        "is it"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коли основне речення містить заперечний прислівник «never», воно вважається семантично заперечним; хвіст — стверджувальний.",
+                        "Дієслово «rains» — Present Simple для «it»; стверджувальний хвіст для «it» — «does it»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "does it": "«Does it» — правильний стверджувальний хвіст, бо «never» робить речення семантично заперечним; для «it» вживається «does».",
+                            "doesn't it": "«Doesn't it» — заперечний хвіст; але після «never» потрібен стверджувальний.",
+                            "is it": "«Is it» вживалося б з дієсловом «to be»; тут «rains» — смислове, тому «does it»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "It never rains here, {a1}?"
+            ]
+        },
+        {
+            "id": 59,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "Do you know when {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the train leaves",
+                    "options": [
+                        "the train leaves",
+                        "does the train leave",
+                        "the train does leave"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Після «do you know when» йде непряме питання зі стверджувальним порядком слів: підмет + дієслово.",
+                        "«When the train leaves» — правильний порядок: без інверсії та без допоміжного «does»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "the train leaves": "«The train leaves» — правильно: у непрямому питанні порядок слів стверджувальний.",
+                            "does the train leave": "«Does the train leave» — порядок прямого питання; в непрямому не вживається.",
+                            "the train does leave": "«The train does leave» помилкова: «does» тут зайвий; у непрямому питанні допоміжне не вживається."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "Do you know when {a1}?"
+            ]
+        },
+        {
+            "id": 60,
+            "uuid_segments": [
+                "b2",
+                "q06"
+            ],
+            "question": "{a1} that strange?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Isn't",
+                    "options": [
+                        "Isn't",
+                        "Is",
+                        "Doesn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечне питання «Isn't it strange?» висловлює здивування або підтвердження думки.",
+                        "Присудок «strange» — прикметник після «to be»; заперечне питання будується через «Isn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Isn't": "«Isn't» — правильна форма заперечного питання «to be» для «that» (однина); виражає риторичне здивування.",
+                            "Is": "«Is that strange?» — звичайне питання, яке не передає риторичного або підтверджуючого відтінку.",
+                            "Doesn't": "«Doesn't» вживається для смислових дієслів; «strange» — предикатний прикметник після «to be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_question_formation"
+            ],
+            "variants": [
+                "{a1} that strange?"
+            ]
+        },
+        {
+            "id": 61,
+            "uuid_segments": [
+                "b2",
+                "q07"
+            ],
+            "question": "They moved abroad last year, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't they",
+                    "options": [
+                        "didn't they",
+                        "did they",
+                        "weren't they"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Стверджувальне речення у Past Simple → заперечний хвіст «didn't».",
+                        "Допоміжне «did» (вжите в «moved» Past Simple) стає «didn't they» у хвості."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "didn't they": "«Didn't they» — правильний хвіст: Past Simple стверджувальне → заперечний «didn't» + підмет «they».",
+                            "did they": "«Did they» — стверджувальний хвіст; але для ствердженого речення потрібен заперечний.",
+                            "weren't they": "«Weren't they» вживалося б для «to be» у Past («They were...»); «moved» — смислове дієслово."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "They moved abroad last year, {a1}?"
+            ]
+        },
+        {
+            "id": 62,
+            "uuid_segments": [
+                "b2",
+                "q08"
+            ],
+            "question": "I wonder what time {a1}.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the show starts",
+                    "options": [
+                        "the show starts",
+                        "does the show start",
+                        "the show does start"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«I wonder what time» вводить непряме питання: після нього порядок слів — стверджувальний (підмет + дієслово).",
+                        "«The show starts» — підмет + дієслово Present Simple; ніякої інверсії у непрямому питанні."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "the show starts": "«The show starts» — правильно: у непрямому питанні зберігається стверджувальний порядок.",
+                            "does the show start": "«Does the show start» — порядок прямого питання; після «I wonder» інверсія неприпустима.",
+                            "the show does start": "«The show does start» помилкова: «does» зайвий в непрямому питанні без особливого наголосу."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "I wonder what time {a1}."
+            ]
+        },
+        {
+            "id": 63,
+            "uuid_segments": [
+                "b2",
+                "q09"
+            ],
+            "question": "You can speak German, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can't you",
+                    "options": [
+                        "can't you",
+                        "can you",
+                        "don't you"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Стверджувальне речення з модальним «can» → заперечний хвіст «can't you».",
+                        "Допоміжне «can» стає «can't» у хвості; підмет «you»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "can't you": "«Can't you» — правильний хвіст: «can» (стверджув.) → «can't you» (заперечний).",
+                            "can you": "«Can you» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+                            "don't you": "«Don't you» вживалося б для смислових дієслів Present Simple; тут «can» — модальне."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "You can speak German, {a1}?"
+            ]
+        },
+        {
+            "id": 64,
+            "uuid_segments": [
+                "b2",
+                "q10"
+            ],
+            "question": "Let's go for a walk, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "shall we",
+                    "options": [
+                        "shall we",
+                        "will we",
+                        "do we"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Хвіст до речень з «Let's» завжди — «shall we»; це стандартна формула в англійській.",
+                        "«Let's» скорочення від «Let us»; запитальний хвіст для пропозиції — «shall we»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall we": "«Shall we» — правильний стандартний хвіст для «Let's...» конструкції.",
+                            "will we": "«Will we» не є стандартним хвостом для «Let's»; правильно «shall we».",
+                            "do we": "«Do we» — допоміжне смислових дієслів Present Simple; для «Let's» потрібно «shall we»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_imperative"
+            ],
+            "variants": [
+                "Let's go for a walk, {a1}?"
+            ]
+        },
+        {
+            "id": 65,
+            "uuid_segments": [
+                "b2",
+                "q11"
+            ],
+            "question": "She asked how long {a1}.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "we had been waiting",
+                    "options": [
+                        "we had been waiting",
+                        "had we been waiting",
+                        "we have been waiting"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "В непрямій мові після «she asked how long» порядок слів — стверджувальний; час зміщується назад (backshift).",
+                        "Після «she asked» (Past Simple) Present Perfect Continuous змінюється на Past Perfect Continuous: «we had been waiting»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "we had been waiting": "«We had been waiting» — правильно: непряме питання зі стверджувальним порядком і backshift у Past Perfect Continuous.",
+                            "had we been waiting": "«Had we been waiting» — порядок прямого питання; у непрямому інверсія не вживається.",
+                            "we have been waiting": "«We have been waiting» — Present Perfect Continuous; але після «asked» (Past) потрібен backshift — Past Perfect Continuous."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "She asked how long {a1}."
+            ]
+        },
+        {
+            "id": 66,
+            "uuid_segments": [
+                "b2",
+                "q12"
+            ],
+            "question": "Nobody called while I was out, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did they",
+                    "options": [
+                        "did they",
+                        "didn't they",
+                        "had they"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «Nobody» є заперечним; хвіст до нього — стверджувальний, а займенник замінюється на «they».",
+                        "«Nobody called» — Past Simple з «nobody»; стверджувальний хвіст із заміненим займенником: «did they»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did they": "«Did they» — правильно: «nobody» = заперечний підмет → стверджувальний хвіст «did they».",
+                            "didn't they": "«Didn't they» — заперечний хвіст; але «nobody» вже надає реченню заперечного сенсу, тому хвіст — стверджувальний.",
+                            "had they": "«Had they» вживалося б для Past Perfect; «called» — Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_nobody"
+            ],
+            "variants": [
+                "Nobody called while I was out, {a1}?"
+            ]
+        },
+        {
+            "id": 67,
+            "uuid_segments": [
+                "b2",
+                "q13"
+            ],
+            "question": "He wants to know why {a1}.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "you were late",
+                    "options": [
+                        "you were late",
+                        "were you late",
+                        "you are late"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Непряме питання після «wants to know why» зберігає стверджувальний порядок слів.",
+                        "Контекст вказує на минулу запізненість; після головного дієслова у теперішньому часі backshift не є обов'язковим, але у конкретному контексті минулого — «you were late»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "you were late": "«You were late» — правильно: стверджувальний порядок у непрямому питанні, минулий час.",
+                            "were you late": "«Were you late» — порядок прямого питання; в непрямому не вживається.",
+                            "you are late": "«You are late» — теперішній час; але ситуація запізнення — вже минула подія."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "He wants to know why {a1}."
+            ]
+        },
+        {
+            "id": 68,
+            "uuid_segments": [
+                "b2",
+                "q14"
+            ],
+            "question": "We should leave now, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "shouldn't we",
+                    "options": [
+                        "shouldn't we",
+                        "should we",
+                        "mustn't we"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Стверджувальне речення з модальним «should» → заперечний хвіст «shouldn't we».",
+                        "«Should» (стверджув.) стає «shouldn't» у хвості; підмет — «we»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shouldn't we": "«Shouldn't we» — правильний хвіст: «should» (стверджув.) → «shouldn't we» (заперечний).",
+                            "should we": "«Should we» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+                            "mustn't we": "«Mustn't we» неправильне: у хвості повторюється саме допоміжне основного речення, а не замінюється іншим."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "We should leave now, {a1}?"
+            ]
+        },
+        {
+            "id": 69,
+            "uuid_segments": [
+                "b2",
+                "q15"
+            ],
+            "question": "{a1} they supposed to be here already?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Aren't",
+                    "options": [
+                        "Aren't",
+                        "Don't",
+                        "Haven't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечне питання «Aren't they supposed to...?» виражає здивування або очікування.",
+                        "«Supposed to be» — конструкція з «to be»; заперечне питання будується через «Aren't» для «they»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Aren't": "«Aren't» — правильна форма заперечного питання «to be» для «they»; «supposed to» вимагає «to be».",
+                            "Don't": "«Don't» вживається для смислових дієслів; «supposed to be» — конструкція з «to be».",
+                            "Haven't": "«Haven't» — заперечення Present Perfect; «supposed to be» не є Present Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_question_formation"
+            ],
+            "variants": [
+                "{a1} they supposed to be here already?"
+            ]
+        },
+        {
+            "id": 70,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "I'm not sure whether {a1} true.",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "it is",
+                    "options": [
+                        "it is",
+                        "is it",
+                        "that is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Whether» вводить непряме питання; після нього порядок слів — стверджувальний: підмет + дієслово.",
+                        "«It is true» — стверджувальний порядок; «is it» — порядок прямого питання, тут неприпустимий."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "it is": "«It is» — правильно: непряме питання після «whether» зберігає стверджувальний порядок.",
+                            "is it": "«Is it» — порядок прямого питання; у непрямому питанні після «whether» інверсія не вживається.",
+                            "that is": "«That is» може вживатись у деяких контекстах, але «it is» є стандартним для «whether it is true»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "I'm not sure whether {a1} true."
+            ]
+        },
+        {
+            "id": 71,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "Everyone enjoyed the concert, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't they",
+                    "options": [
+                        "didn't they",
+                        "did they",
+                        "hadn't they"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Everyone» граматично — однина (everyone enjoyed), але у хвості займенник — «they» (загальноприйнятий нейтральний займенник).",
+                        "«Enjoyed» — Past Simple стверджувальне → хвіст заперечний «didn't they»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "didn't they": "«Didn't they» — правильно: стверджувальне Past Simple → заперечний хвіст; «everyone» → «they».",
+                            "did they": "«Did they» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+                            "hadn't they": "«Hadn't they» вживалося б для Past Perfect; «enjoyed» — Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "Everyone enjoyed the concert, {a1}?"
+            ]
+        },
+        {
+            "id": 72,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "Nothing went wrong, {a1}?",
+            "source": "theory_page_1065",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did it",
+                    "options": [
+                        "did it",
+                        "didn't it",
+                        "was it"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Nothing» — заперечний займенник; хвіст до нього — стверджувальний, займенник замінюється на «it».",
+                        "«Went» — Past Simple смислового дієслова → стверджувальний хвіст «did it»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did it": "«Did it» — правильно: «nothing» = заперечний → стверджувальний хвіст «did it» (Past Simple).",
+                            "didn't it": "«Didn't it» — заперечний хвіст; але «nothing» вже надає заперечного сенсу, тому хвіст — стверджувальний.",
+                            "was it": "«Was it» вживалося б для «to be»; «went» — смислове дієслово Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "Nothing went wrong, {a1}?"
+            ]
+        },
+        {
+            "id": 73,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "{a1} you require further information, please contact us.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Would",
+                        "Were"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертований умовний спосіб I типу: замість «If you should require», можна сказати «Should you require» (допоміжне виноситься на початок).",
+                        "Модальне «Should» на початку речення без «if» — ознака формальної умовної конструкції 1-го типу."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Should": "«Should» — правильна інверсія умовного I типу: «Should you require» = «If you should require» (формальний реєстр).",
+                            "Would": "«Would you require» не є стандартною інвертованою умовою; «would» вживається у головному реченні умовного II типу.",
+                            "Were": "«Were you require» — граматично некоректна форма; «Were» вживається для інверсії II типу: «Were you to require» або «Were you in a situation»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inverted_conditional_sentence"
+            ],
+            "variants": [
+                "{a1} you require further information, please contact us."
+            ]
+        },
+        {
+            "id": 74,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "Hardly {a1} she arrived when the arguments started.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Hardly» на початку речення викликає інверсію підмета і допоміжного; «Hardly had + підмет + Past Participle... when...».",
+                        "Конструкція «Hardly had she arrived when» відповідає Past Perfect + past action."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had": "«Had» — правильна інверсія Past Perfect: «Hardly had she arrived when...» (вона ледь прибула, як...).",
+                            "has": "«Has» — Present Perfect; контекст минулий (arguments started), тому потрібен Past Perfect.",
+                            "did": "«Did» не вживається в конструкції «Hardly + did» у значенні «ледь»; потрібне Past Perfect з «had»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Hardly {a1} she arrived when the arguments started."
+            ]
+        },
+        {
+            "id": 75,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "Not only {a1} she win the competition, but she broke the record too.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Not only» на початку викликає інверсію: «Not only + did + підмет + базова форма».",
+                        "«Win» — базова форма після «did»; обидва дієслова в Past Simple вказують на допоміжне «did»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "«Did» — правильна інверсія Past Simple після «Not only»; базова форма «win» стоїть після підмета.",
+                            "had": "«Had» утворювало б Past Perfect; «broke the record» у Past Simple вказує на паралельний Past Simple.",
+                            "was": "«Was she win» граматично некоректне; «win» вимагає допоміжного «did», а не «was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Not only {a1} she win the competition, but she broke the record too."
+            ]
+        },
+        {
+            "id": 76,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "I'm correct, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't I",
+                    "options": [
+                        "aren't I",
+                        "am I",
+                        "am I not"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Хвіст до «I am/I'm» — особливий виняток: замість «amn't I» вживається «aren't I».",
+                        "«I'm correct» — Present Simple з «to be»; стверджувальне → заперечний хвіст, але форма — «aren't I», не «amn't I»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "aren't I": "«Aren't I» — правильний хвіст до «I'm» (стверджувальне «am»); «amn't I» не вживається в стандартній англійській.",
+                            "am I": "«Am I» — стверджувальний хвіст; для ствердженого речення хвіст має бути заперечним.",
+                            "am I not": "«Am I not» — формально можливо, але дуже архаїчно; «aren't I» — стандартна розмовна форма."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_i_am"
+            ],
+            "variants": [
+                "I'm correct, {a1}?"
+            ]
+        },
+        {
+            "id": 77,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "No sooner {a1} the concert begun than it started raining.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«No sooner...than» — конструкція Past Perfect з інверсією: «No sooner had + підмет + Past Participle than...».",
+                        "«Begun» — Past Participle дієслова «begin»; це ознака Past Perfect після «had»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had": "«Had» — правильна інверсія Past Perfect: «No sooner had the concert begun than...».",
+                            "has": "«Has» — Present Perfect; «started raining» (Past Simple) вказує на минулий контекст Past Perfect.",
+                            "did": "«Did» + «begun» граматично некоректно: «begun» — Past Participle, що вимагає «had»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "No sooner {a1} the concert begun than it started raining."
+            ]
+        },
+        {
+            "id": 78,
+            "uuid_segments": [
+                "c1",
+                "q06"
+            ],
+            "question": "She {a1} study hard, which is why she succeeded.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "does",
+                    "options": [
+                        "does",
+                        "is",
+                        "has"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Емфатичне «does» додається до стверджувального речення для підсилення: «She does study» означає «вона справді/дійсно навчається».",
+                        "Підмет «She» — 3-та особа однини; емфатичне допоміжне для неї — «does» + базова форма."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "does": "«Does» — правильна емфатична форма для «she» у Present Simple; підсилює факт навчання.",
+                            "is": "«Is» — форма «to be»; тут «study» — смислове дієслово, а не стан.",
+                            "has": "«Has» утворило б Present Perfect («has studied»); тут потрібне емфатичне Present Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "emphatic_do_affirmative"
+            ],
+            "variants": [
+                "She {a1} study hard, which is why she succeeded."
+            ]
+        },
+        {
+            "id": 79,
+            "uuid_segments": [
+                "c1",
+                "q07"
+            ],
+            "question": "{a1} it not been for the rescue team, the situation would have been fatal.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Were",
+                        "Should"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертований умовний III типу: замість «If it had not been for...» → «Had it not been for...».",
+                        "«Would have been» у головному реченні — ознака умовного III типу; «Had» виноситься на початок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Had": "«Had» — правильна інверсія умовного III типу; «Had it not been for» = «If it had not been for».",
+                            "Were": "«Were» — інверсія умовного II типу; «would have been» вказує на III тип з «had».",
+                            "Should": "«Should» — інверсія умовного I типу; III тип (would have been) вимагає «Had»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inverted_conditional_sentence"
+            ],
+            "variants": [
+                "{a1} it not been for the rescue team, the situation would have been fatal."
+            ]
+        },
+        {
+            "id": 80,
+            "uuid_segments": [
+                "c1",
+                "q08"
+            ],
+            "question": "Seldom {a1} we see such generosity in the modern world.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "have",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Seldom» на початку речення викликає інверсію; у Present Simple: «Seldom do + підмет + базова форма».",
+                        "«See» — базова форма дієслова; контекст теперішнього часу вимагає «do»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "do": "«Do» — правильна інверсія Present Simple після «Seldom»; «Seldom do we see» = «We seldom see».",
+                            "have": "«Have» утворило б Present Perfect; «see» у базовій формі вказує на Present Simple.",
+                            "did": "«Did» — Past Simple; речення стосується загальної теперішньої тенденції."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Seldom {a1} we see such generosity in the modern world."
+            ]
+        },
+        {
+            "id": 81,
+            "uuid_segments": [
+                "c1",
+                "q09"
+            ],
+            "question": "{a1} I in your position, I would think twice about this.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Would",
+                        "Had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Інвертований умовний II типу: замість «If I were in your position» → «Were I in your position».",
+                        "«Would think» у головному реченні — ознака умовного II типу; «Were» виноситься на початок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Were": "«Were» — правильна інверсія умовного II типу: «Were I in your position» = «If I were in your position».",
+                            "Would": "«Would I in your position» — граматично некоректна конструкція; «would» стоїть у головному реченні.",
+                            "Had": "«Had» — інверсія умовного III типу; «would think» (не «would have thought») вказує на II тип."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inverted_conditional_sentence"
+            ],
+            "variants": [
+                "{a1} I in your position, I would think twice about this."
+            ]
+        },
+        {
+            "id": 82,
+            "uuid_segments": [
+                "c1",
+                "q10"
+            ],
+            "question": "Everyone must follow the rules, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't they",
+                    "options": [
+                        "mustn't they",
+                        "must they",
+                        "shouldn't they"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Стверджувальне речення з «must» → заперечний хвіст «mustn't»; «everyone» у хвості замінюється на «they».",
+                        "«Must» (стверджув.) → «mustn't they»; підмет «everyone» стає «they» у хвості."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "mustn't they": "«Mustn't they» — правильний заперечний хвіст до «must» + займенник «they» для «everyone».",
+                            "must they": "«Must they» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+                            "shouldn't they": "«Shouldn't they» помилкове: у хвості повторюється саме допоміжне основного речення — «must», а не «should»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "Everyone must follow the rules, {a1}?"
+            ]
+        },
+        {
+            "id": 83,
+            "uuid_segments": [
+                "c1",
+                "q11"
+            ],
+            "question": "Never {a1} I felt so embarrassed in my entire life.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "did"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Never» на початку речення викликає інверсію; у Present Perfect: «Never have + підмет + Past Participle».",
+                        "«Felt» — Past Participle дієслова «feel»; «in my entire life» — маркер Present Perfect."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "have": "«Have» — правильна інверсія Present Perfect після «Never»; «Never have I felt».",
+                            "had": "«Had» утворило б Past Perfect; «in my entire life» вказує на Present Perfect.",
+                            "did": "«Did» не вживається з Past Participle «felt»; конструкція «Never did I feel» можлива, але «felt» вказує на Perfect."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Never {a1} I felt so embarrassed in my entire life."
+            ]
+        },
+        {
+            "id": 84,
+            "uuid_segments": [
+                "c1",
+                "q12"
+            ],
+            "question": "{a1} it obvious what the solution is?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Isn't",
+                    "options": [
+                        "Isn't",
+                        "Doesn't",
+                        "Wasn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечне питання «Isn't it obvious?» виражає риторичне підтвердження очевидного.",
+                        "«Obvious» — прикметник; присудок — «to be», тому питання будується через «Isn't»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Isn't": "«Isn't» — правильне заперечне питання «to be» для «it»; «Isn't it obvious?» = хіба це не очевидно?",
+                            "Doesn't": "«Doesn't» вживається для смислових дієслів; тут присудок — «to be» (obvious).",
+                            "Wasn't": "«Wasn't» — Past Simple заперечення; речення стосується теперішньої очевидності."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_question_formation"
+            ],
+            "variants": [
+                "{a1} it obvious what the solution is?"
+            ]
+        },
+        {
+            "id": 85,
+            "uuid_segments": [
+                "c1",
+                "q13"
+            ],
+            "question": "She used to live in Paris, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "didn't she",
+                    "options": [
+                        "didn't she",
+                        "wouldn't she",
+                        "used she"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Used to» — особлива форма; хвіст до неї в стандартній розмовній англійській — «didn't she» (Past Simple).",
+                        "«Used to» описує минулу звичку; хвіст для стверджувального Past — «didn't she»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "didn't she": "«Didn't she» — правильний стандартний хвіст до «used to»: стверджув. минула → «didn't she».",
+                            "wouldn't she": "«Wouldn't she» використовувалося б для «would»; «used to» не пов'язане з «would» у хвості.",
+                            "used she": "«Used she» — архаїчний і нестандартний варіант; сучасна англійська вживає «didn't she»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "She used to live in Paris, {a1}?"
+            ]
+        },
+        {
+            "id": 86,
+            "uuid_segments": [
+                "c1",
+                "q14"
+            ],
+            "question": "Only then {a1} we understand the true cost of the decision.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "could"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Only then» на початку речення викликає інверсію Past Simple: «Only then did + підмет + базова форма».",
+                        "«Understand» — базова форма після «did»; обидва компоненти Past Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "«Did» — правильна інверсія Past Simple після «Only then»; «Only then did we understand».",
+                            "had": "«Had» утворило б Past Perfect; «understand» у базовій формі вказує на Past Simple.",
+                            "could": "«Could we understand» — модальна інверсія; «Only then» тут описує конкретний момент усвідомлення в Past Simple."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Only then {a1} we understand the true cost of the decision."
+            ]
+        },
+        {
+            "id": 87,
+            "uuid_segments": [
+                "c1",
+                "q15"
+            ],
+            "question": "They asked whether {a1} interested in the position.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "I was",
+                    "options": [
+                        "I was",
+                        "was I",
+                        "I am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Непряме питання після «they asked whether» зберігає стверджувальний порядок слів із backshift.",
+                        "«Asked» (Past Simple) → backshift: Present Simple «I am» → Past Simple «I was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "I was": "«I was» — правильно: стверджувальний порядок у непрямому питанні + backshift у Past Simple.",
+                            "was I": "«Was I» — порядок прямого питання; у непрямому після «whether» інверсія не вживається.",
+                            "I am": "«I am» — Present Simple без backshift; після «asked» (Past) потрібне «I was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "They asked whether {a1} interested in the position."
+            ]
+        },
+        {
+            "id": 88,
+            "uuid_segments": [
+                "c1",
+                "q16"
+            ],
+            "question": "So complicated {a1} the problem that nobody could solve it.",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«So + прикметник + was/were + підмет + that...» — інверсія для вираження ступеня ознаки.",
+                        "«The problem» — підмет в однині; Past Simple форма «to be» для однини — «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "«Was» — правильна форма «to be» у Past Simple для «the problem» (однина); «So complicated was the problem that...».",
+                            "were": "«Were» вживається для множини; «the problem» — однина.",
+                            "had": "«Had» утворило б Past Perfect або конструкцію з «had + Past Participle»; тут потрібна форма «to be»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "So complicated {a1} the problem that nobody could solve it."
+            ]
+        },
+        {
+            "id": 89,
+            "uuid_segments": [
+                "c1",
+                "q17"
+            ],
+            "question": "She'd rather stay in, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "wouldn't she",
+                    "options": [
+                        "wouldn't she",
+                        "would she",
+                        "hadn't she"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«She'd rather» = «she would rather»; хвіст до стверджувального «would» — «wouldn't she».",
+                        "«Would» (стверджув.) → «wouldn't she» у хвості."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't she": "«Wouldn't she» — правильний хвіст: «she'd rather» = «she would rather» (стверджув. «would») → «wouldn't she».",
+                            "would she": "«Would she» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+                            "hadn't she": "«Hadn't she» вживалося б для Past Perfect; «would rather» — не Perfect конструкція."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_would_rather"
+            ],
+            "variants": [
+                "She'd rather stay in, {a1}?"
+            ]
+        },
+        {
+            "id": 90,
+            "uuid_segments": [
+                "c1",
+                "q18"
+            ],
+            "question": "{a1} we reconsider this decision before it's too late?",
+            "source": "theory_page_1065",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Shouldn't",
+                    "options": [
+                        "Shouldn't",
+                        "Wouldn't",
+                        "Couldn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Заперечне питання «Shouldn't we...?» виражає пропозицію або рекомендацію переглянути рішення.",
+                        "«Reconsider» — смислове дієслово; порада «shouldn't we?» доречна для пропозиції."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Shouldn't": "«Shouldn't we reconsider?» — правильно: заперечне питання-пропозиція, що означає «Хіба нам не варто переглянути?»",
+                            "Wouldn't": "«Wouldn't we reconsider?» — нетипова конструкція для пропозиції; «shouldn't» є стандартним.",
+                            "Couldn't": "«Couldn't we reconsider?» означає «Хіба ми не могли б?» — запит про можливість, а не рекомендація."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_question_formation"
+            ],
+            "variants": [
+                "{a1} we reconsider this decision before it's too late?"
+            ]
+        },
+        {
+            "id": 91,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "{a1} the situation to deteriorate further, immediate intervention would be necessary.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Should",
+                        "Had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Were + підмет + to + інфінітив» — формальна інверсія умовного II типу для майбутнього припущення.",
+                        "«Would be necessary» у головному реченні вказує на умовний II тип; «Were» виноситься на початок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Were": "«Were» — правильна інверсія умовного II типу: «Were the situation to deteriorate» = «If the situation were to deteriorate».",
+                            "Should": "«Should» — інверсія умовного I типу; «would be» у головному реченні вказує на II тип.",
+                            "Had": "«Had» — інверсія умовного III типу (would have been); тут «would be» — II тип."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inverted_conditional_sentence"
+            ],
+            "variants": [
+                "{a1} the situation to deteriorate further, immediate intervention would be necessary."
+            ]
+        },
+        {
+            "id": 92,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "Let's start the meeting, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shall we",
+                    "options": [
+                        "shall we",
+                        "will we",
+                        "should we"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Хвіст до «Let's» — незмінно «shall we»; це граматичне правило без винятків.",
+                        "«Let's» = «Let us»; для пропозиції «shall we» є стандартним хвостом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall we": "«Shall we» — єдиний стандартний хвіст для «Let's...» конструкції в англійській.",
+                            "will we": "«Will we» не є стандартним хвостом для «Let's»; правило вимагає «shall we».",
+                            "should we": "«Should we» — запит про доцільність, але не хвіст у конструкції «Let's...»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_imperative"
+            ],
+            "variants": [
+                "Let's start the meeting, {a1}?"
+            ]
+        },
+        {
+            "id": 93,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "Little {a1} we suspect that the company was on the verge of bankruptcy.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "could"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Little» з обмежувальним значенням на початку речення викликає інверсію Past Simple: «Little did + підмет + базова форма».",
+                        "«Suspect» — базова форма дієслова після «did»; минулий контекст (was on the verge) підтверджує Past Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "«Did» — правильна інверсія Past Simple після «Little»; «Little did we suspect».",
+                            "had": "«Had» утворило б Past Perfect; «suspect» у базовій формі вказує на Past Simple.",
+                            "could": "«Could we suspect» — модальна конструкція; «Little did» є стандартною формулою для цього значення."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Little {a1} we suspect that the company was on the verge of bankruptcy."
+            ]
+        },
+        {
+            "id": 94,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "Who {a1} not want to live in a peaceful world?",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "could",
+                        "should"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Риторичне питання «Who would not want...?» висловлює загальнолюдське бажання, яке неможливо заперечити.",
+                        "«Would» у риторичному питанні виражає гіпотетичне бажання або загальнолюдський стан."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would": "«Would» — правильне модальне для риторичного питання про загальне бажання; «Who would not want...?»",
+                            "could": "«Could» означає «міг би»; риторика тут — про бажання, а не про здатність.",
+                            "should": "«Should» — рекомендація/обов'язок; риторика тут — про бажання, а не про обов'язок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "rhetorical_question_formation"
+            ],
+            "variants": [
+                "Who {a1} not want to live in a peaceful world?"
+            ]
+        },
+        {
+            "id": 95,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "Not until the final chapter {a1} the truth finally revealed.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Not until» на початку викликає інверсію; у пасивному реченні: «Not until... was + підмет + Past Participle».",
+                        "«The truth revealed» — пасивна конструкція; «the truth» — однина → «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "«Was» — правильна форма: «Not until the final chapter was the truth revealed» — пасив Past Simple, однина.",
+                            "is": "«Is» — теперішній час; «the final chapter» описує минулу подію у книзі.",
+                            "had": "«Had» утворило б Past Perfect; але тут — Past Simple пасив із інверсією «was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Not until the final chapter {a1} the truth finally revealed."
+            ]
+        },
+        {
+            "id": 96,
+            "uuid_segments": [
+                "c2",
+                "q06"
+            ],
+            "question": "You must be exhausted after such a long journey, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't you",
+                    "options": [
+                        "mustn't you",
+                        "aren't you",
+                        "must you"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Хвіст до «must» у значенні логічного висновку (deduction) — «mustn't».",
+                        "«Must be exhausted» виражає висновок, а не обов'язок; хвіст — «mustn't you»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "mustn't you": "«Mustn't you» — правильний хвіст до «must» (deduction); стверджув. «must» → заперечний «mustn't you».",
+                            "aren't you": "«Aren't you» вживалося б у хвості до «you are»; тут допоміжне — «must».",
+                            "must you": "«Must you» — стверджувальний хвіст; для ствердженого речення потрібен заперечний."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_must"
+            ],
+            "variants": [
+                "You must be exhausted after such a long journey, {a1}?"
+            ]
+        },
+        {
+            "id": 97,
+            "uuid_segments": [
+                "c2",
+                "q07"
+            ],
+            "question": "The committee has yet to establish what {a1} the most effective course of action.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would be",
+                    "options": [
+                        "would be",
+                        "is",
+                        "was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Непряме питання після «establish what» зберігає стверджувальний порядок; «would be» виражає гіпотетичний характер ще не прийнятого рішення.",
+                        "Контекст невизначеності («has yet to establish») передбачає умовне «would be», а не фактичне «is/was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would be": "«Would be» — правильно: непряме питання зі стверджувальним порядком; «would be» передає гіпотетичний статус рішення.",
+                            "is": "«Is» — теперішній час; але рішення ще не прийнято, тому гіпотетичне «would be» точніше.",
+                            "was": "«Was» — Past Simple; рішення ще шукається, тому «would be» є граматично та семантично точнішим."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "The committee has yet to establish what {a1} the most effective course of action."
+            ]
+        },
+        {
+            "id": 98,
+            "uuid_segments": [
+                "c2",
+                "q08"
+            ],
+            "question": "Under no circumstances {a1} the confidential files be shared externally.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Under no circumstances» викликає інверсію: «Under no circumstances should + підмет + базова форма».",
+                        "Модальне «should» у заперечному контексті «Under no circumstances» виражає суворе правило."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "should": "«Should» — правильна інверсія після «Under no circumstances»; «the files should be shared» → «should the files be shared».",
+                            "must": "«Must the files be shared» граматично можливе в питанні, але не є стандартною конструкцією після «Under no circumstances».",
+                            "are": "«Are» — форма «to be» Present Simple; пасивна конструкція «be shared» вимагає модального «should»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Under no circumstances {a1} the confidential files be shared externally."
+            ]
+        },
+        {
+            "id": 99,
+            "uuid_segments": [
+                "c2",
+                "q09"
+            ],
+            "question": "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Were",
+                        "Should"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Had it not been for» — інверсія умовного III типу: замість «If it had not been for».",
+                        "«Would have been unavoidable» у головному реченні — ознака умовного III типу; «Had» виноситься на початок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Had": "«Had» — правильна інверсія умовного III типу; «Had it not been for» = «If it had not been for».",
+                            "Were": "«Were» — інверсія II типу; «would have been» вказує на III тип із «Had».",
+                            "Should": "«Should» — інверсія I типу; «would have been» у головному реченні підтверджує III тип із «Had»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inverted_conditional_sentence"
+            ],
+            "variants": [
+                "{a1} it not been for the quick thinking of the pilot, the disaster would have been unavoidable."
+            ]
+        },
+        {
+            "id": 100,
+            "uuid_segments": [
+                "c2",
+                "q10"
+            ],
+            "question": "Such {a1} the chaos that the event had to be cancelled entirely.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Such was + підмет» — інверсія «to be» для підсилення ступеня стану або явища.",
+                        "«The chaos» — підмет в однині; Past Simple форма «to be» для однини — «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "«Was» — правильна форма: «Such was the chaos» (однина); підкреслює надзвичайний масштаб хаосу.",
+                            "were": "«Were» вживається для множини; «the chaos» — абстрактний іменник у однині.",
+                            "had": "«Had» утворило б Past Perfect або конструкцію з «have»; тут потрібна форма «to be» — «was»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Such {a1} the chaos that the event had to be cancelled entirely."
+            ]
+        },
+        {
+            "id": 101,
+            "uuid_segments": [
+                "c2",
+                "q11"
+            ],
+            "question": "She'd have told me if she knew, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "wouldn't she",
+                    "options": [
+                        "wouldn't she",
+                        "would she",
+                        "hadn't she"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«She'd have told» = «she would have told»; хвіст до стверджувального «would» — «wouldn't she».",
+                        "«Would» (стверджув.) → «wouldn't she» у хвості."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't she": "«Wouldn't she» — правильний хвіст: «she'd have» = «she would have» (стверджув.) → «wouldn't she».",
+                            "would she": "«Would she» — стверджувальний хвіст; для ствердженого речення потрібен заперечний.",
+                            "hadn't she": "«Hadn't she» вживалося б для Past Perfect як основне допоміжне; тут — «would have»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "She'd have told me if she knew, {a1}?"
+            ]
+        },
+        {
+            "id": 102,
+            "uuid_segments": [
+                "c2",
+                "q12"
+            ],
+            "question": "At no time {a1} the suspect given a chance to speak.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«At no time» — заперечний вираз, що викликає інверсію: «At no time was + підмет + Past Participle».",
+                        "«The suspect» — однина в пасивній конструкції Past Simple → «was»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "was": "«Was» — правильна форма пасиву Past Simple для «the suspect» (однина) після «At no time».",
+                            "were": "«Were» вживається для множини; «the suspect» — однина.",
+                            "had": "«Had» утворило б Past Perfect; тут пасив Past Simple «was given»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "At no time {a1} the suspect given a chance to speak."
+            ]
+        },
+        {
+            "id": 103,
+            "uuid_segments": [
+                "c2",
+                "q13"
+            ],
+            "question": "Rarely {a1} such a talented composer been so underappreciated.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Rarely» викликає інверсію; у Present Perfect: «Rarely has + підмет + Past Participle».",
+                        "«Such a talented composer» — підмет в однині; Present Perfect для однини вимагає «has»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "has": "«Has» — правильна інверсія Present Perfect після «Rarely»; «Rarely has such a composer been...»",
+                            "have": "«Have» вживається для множини або I/you/they; підмет «a composer» — однина.",
+                            "had": "«Had» утворило б Past Perfect; «Rarely» тут вводить Present Perfect про загальний факт."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Rarely {a1} such a talented composer been so underappreciated."
+            ]
+        },
+        {
+            "id": 104,
+            "uuid_segments": [
+                "c2",
+                "q14"
+            ],
+            "question": "What remained unclear was whether {a1} intentional.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "it had been",
+                    "options": [
+                        "it had been",
+                        "had it been",
+                        "it was"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Непряме питання після «whether» зберігає стверджувальний порядок; backshift у Past Perfect для дії, що передувала основній.",
+                        "«Remained» — Past Simple; «whether it had been» — Past Perfect для більш ранньої дії."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "it had been": "«It had been» — правильно: стверджувальний порядок + Past Perfect (backshift після «remained»).",
+                            "had it been": "«Had it been» — порядок прямого питання або умовна конструкція; у непрямому після «whether» інверсія неприпустима.",
+                            "it was": "«It was» — Past Simple без додаткового backshift; «it had been» точніше передає попередність дії."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "indirect_question_order"
+            ],
+            "variants": [
+                "What remained unclear was whether {a1} intentional."
+            ]
+        },
+        {
+            "id": 105,
+            "uuid_segments": [
+                "c2",
+                "q15"
+            ],
+            "question": "He needn't worry about the deadline, {a1}?",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "need he",
+                    "options": [
+                        "need he",
+                        "does he",
+                        "should he"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Needn't» — модальне/напівмодальне заперечення; хвіст до нього — стверджувальний «need he».",
+                        "«Needn't» (заперечне) → стверджувальний хвіст «need he»; займенник «he»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "need he": "«Need he» — правильний стверджувальний хвіст до «needn't»; «needn't» (заперечне) → «need he».",
+                            "does he": "«Does he» вживалося б для смислового «need» (He doesn't need to...); тут «needn't» — модальна форма.",
+                            "should he": "«Should he» помилкове: у хвості повторюється саме допоміжне речення — «need», а не «should»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "tag_question_formation"
+            ],
+            "variants": [
+                "He needn't worry about the deadline, {a1}?"
+            ]
+        },
+        {
+            "id": 106,
+            "uuid_segments": [
+                "c2",
+                "q16"
+            ],
+            "question": "{a1} the board see fit to approve this proposal, we will proceed without delay.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Were",
+                        "Had"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Should + підмет + базова форма» — формальна інверсія умовного I типу (якщо..., то...).",
+                        "«We will proceed» у головному реченні — Future Simple, ознака умовного I типу; «Should» виноситься на початок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Should": "«Should» — правильна інверсія умовного I типу: «Should the board see fit» = «If the board should see fit».",
+                            "Were": "«Were» — інверсія II типу; «will proceed» у головному реченні вказує на I тип.",
+                            "Had": "«Had» — інверсія III типу; «will proceed» (не «would have») підтверджує I тип із «Should»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "inverted_conditional_sentence"
+            ],
+            "variants": [
+                "{a1} the board see fit to approve this proposal, we will proceed without delay."
+            ]
+        },
+        {
+            "id": 107,
+            "uuid_segments": [
+                "c2",
+                "q17"
+            ],
+            "question": "Only after the meeting ended {a1} she allow herself to relax.",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "would"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Only after + підрядне» на початку речення викликає інверсію Past Simple: «Only after... did + підмет + базова форма».",
+                        "«Allow» — базова форма після «did»; обидва часи Past Simple."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "did": "«Did» — правильна інверсія Past Simple після «Only after»; «Only after the meeting ended did she allow».",
+                            "had": "«Had» утворило б Past Perfect; «allow» у базовій формі вказує на Past Simple.",
+                            "would": "«Would she allow» — умовна форма; «Only after» тут описує конкретний минулий момент."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "negative_fronting_inversion"
+            ],
+            "variants": [
+                "Only after the meeting ended {a1} she allow herself to relax."
+            ]
+        },
+        {
+            "id": 108,
+            "uuid_segments": [
+                "c2",
+                "q18"
+            ],
+            "question": "{a1} we all strive to make the world a better place?",
+            "source": "theory_page_1065",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Shouldn't",
+                    "options": [
+                        "Shouldn't",
+                        "Wouldn't",
+                        "Couldn't"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Риторичне заперечне питання «Shouldn't we all...?» апелює до морального обов'язку, очевидного для всіх.",
+                        "«Strive» — смислове дієслово; «Shouldn't» підкреслює риторичний обов'язок."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Shouldn't": "«Shouldn't we all strive?» — правильно: риторична апеляція до обов'язку, відповідь на яку очевидна — «Так, повинні».",
+                            "Wouldn't": "«Wouldn't» — умовний характер, а не риторичний обов'язок; «shouldn't» точніше передає моральний заклик.",
+                            "Couldn't": "«Couldn't» означає «Хіба ми не могли б?» — питання про здатність, а не про обов'язок."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "rhetorical_question_formation"
+            ],
+            "variants": [
+                "{a1} we all strive to make the world a better place?"
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "st-cp-sn-saved-test",
+        "slug": "sentence-types-sonate-v3-test",
+        "name": "Sentence Types — Sonate V3 Test",
+        "filters": {
+            "num_questions": 30,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\SentenceTypesVidiRecenV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1065,
+                "theory_page_ids": [
+                    1065
+                ],
+                "theory_page": {
+                    "id": 1065,
+                    "slug": "sentence-types",
+                    "title": "Sentence Types — Види речень",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceTypesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-types"
+                }
+            }
+        }
+    }
+}

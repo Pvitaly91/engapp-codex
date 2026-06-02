@@ -1,0 +1,152 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
+
+class AuthController extends Controller
+{
+    public function showLoginForm(Request $request)
+    {
+        if (class_exists(Debugbar::class)) {
+            Debugbar::disable();
+        }
+
+        if ($request->session()->get('admin_authenticated', false)) {
+            return Redirect::route('admin.dashboard');
+        }
+
+        if ($request->hasCookie('admin_remember_token') && $request->cookie('admin_remember_token') === $this->rememberToken()) {
+            $request->session()->put('admin_authenticated', true);
+            $this->attachAdminUserToSession($request);
+
+            return Redirect::route('admin.dashboard');
+        }
+
+        return View::make('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only(['username', 'password']);
+
+        $validator = Validator::make($credentials, [
+            'username' => ['required', 'string'],
+            'password' => ['required', 'string'],
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput($request->except('password'));
+        }
+
+        $expectedUsername = config('admin.username');
+        $expectedPasswordHash = config('admin.password_hash');
+
+        if ($credentials['username'] !== $expectedUsername || ! password_verify($credentials['password'], $expectedPasswordHash)) {
+            return Redirect::back()
+                ->withErrors(['username' => __('auth.failed')])
+                ->withInput($request->except('password'));
+        }
+
+        $request->session()->regenerate();
+        $request->session()->put('admin_authenticated', true);
+        $this->attachAdminUserToSession($request);
+
+        if ($request->boolean('remember')) {
+            Cookie::queue(
+                Cookie::make(
+                    'admin_remember_token',
+                    $this->rememberToken(),
+                    60 * 24 * 30,
+                    null,
+                    null,
+                    false,
+                    true,
+                    false,
+                    'lax'
+                )
+            );
+        } else {
+            Cookie::queue(Cookie::forget('admin_remember_token'));
+        }
+
+        return Redirect::intended(route('admin.dashboard'));
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->forget([
+            'admin_authenticated',
+            'admin_user_id',
+        ]);
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        Cookie::queue(Cookie::forget('admin_remember_token'));
+
+        return Redirect::route('login.show');
+    }
+
+    private function rememberToken(): string
+    {
+        return hash('sha256', config('admin.username') . '|' . config('admin.password_hash'));
+    }
+
+    private function attachAdminUserToSession(Request $request): void
+    {
+        $adminUser = $this->resolveAdminUser();
+        if (! $adminUser) {
+            return;
+        }
+
+        $request->session()->put('admin_user_id', $adminUser->id);
+        Auth::login($adminUser);
+    }
+
+    private function resolveAdminUser(): ?User
+    {
+        if (! Schema::hasTable('users')) {
+            return null;
+        }
+
+        $candidates = array_values(array_filter(array_unique([
+            trim((string) config('admin.user_email', '')),
+            trim((string) config('admin.username', '')),
+        ])));
+
+        foreach ($candidates as $candidate) {
+            $user = User::query()
+                ->where('email', $candidate)
+                ->orWhere('name', $candidate)
+                ->first();
+
+            if ($user) {
+                return $user;
+            }
+        }
+
+        $username = trim((string) config('admin.username', 'admin')) ?: 'admin';
+        $email = $candidates[0] ?? $username;
+
+        return User::query()->firstOrCreate(
+            ['email' => $email],
+            [
+                'name' => $username,
+                'password' => Str::random(40),
+            ]
+        );
+    }
+}

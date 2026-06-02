@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 20,
+        "uuid": "pos-cp-sn-a1-q02",
+        "question": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:57.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 36,
+                "name": "Verb identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "tag_id": 36,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 137,
+                "option": "noun",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 137,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 138,
+                "option": "verb",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 138,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 140,
+                "option": "adverb",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 140,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 130,
+                "question_id": 20,
+                "marker": "a1",
+                "option_id": 138,
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "option": {
+                "id": 138,
+                "option": "verb",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 2,
+            "question_id": 20,
+            "text": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+            "created_at": "2026-05-26T14:30:52.000000Z",
+            "updated_at": "2026-05-26T14:30:52.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 2,
+            "question_id": 20,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Дієслово (verb) — це слово, яке показує дію або стан суб'єкта.\nСлово `runs` показує, що вона робить. Запитайте себе: що вона робить? — Вона бігає.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 11,
+            "question": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+            "wrong_answer": "adverb",
+            "correct_answer": "verb",
+            "language": "ua",
+            "explanation": "«Runs» не є прислівником. Прислівник описує дієслово або прикметник — наприклад, 'every morning' вказує *коли*.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 12,
+            "question": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+            "wrong_answer": "adverb",
+            "correct_answer": "verb",
+            "language": "uk",
+            "explanation": "«Runs» не є прислівником. Прислівник описує дієслово або прикметник — наприклад, 'every morning' вказує *коли*.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 9,
+            "question": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+            "wrong_answer": "noun",
+            "correct_answer": "verb",
+            "language": "ua",
+            "explanation": "«Runs» у цьому контексті не є іменником. Іменник — це назва особи, місця або речі.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 10,
+            "question": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+            "wrong_answer": "noun",
+            "correct_answer": "verb",
+            "language": "uk",
+            "explanation": "«Runs» у цьому контексті не є іменником. Іменник — це назва особи, місця або речі.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 7,
+            "question": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+            "wrong_answer": "verb",
+            "correct_answer": "verb",
+            "language": "ua",
+            "explanation": "«Runs» є дієсловом, бо показує дію — те, що вона виконує щоранку.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 8,
+            "question": "The word 'runs' in 'She runs every morning.' is a {a1}.",
+            "wrong_answer": "verb",
+            "correct_answer": "verb",
+            "language": "uk",
+            "explanation": "«Runs» є дієсловом, бо показує дію — те, що вона виконує щоранку.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ]
+}

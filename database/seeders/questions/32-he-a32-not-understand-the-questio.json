@@ -1,0 +1,310 @@
+{
+    "question": {
+        "id": 50,
+        "uuid": "32-he-a32-not-understand-the-questio",
+        "question": "He {a32} not understand the question.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-26T14:31:55.000000Z",
+        "updated_at": "2026-05-26T14:32:03.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:31:54.000000Z",
+        "updated_at": "2026-05-26T14:31:54.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:31:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-26T14:31:50.000000Z",
+                "updated_at": "2026-05-26T14:31:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 41,
+                "name": "Negation in SVO structure",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "tag_id": 41,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 43,
+                "name": "Subject-verb agreement in SVO",
+                "category": "usage",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "tag_id": 43,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 10,
+                "option": "do",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 10,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 11,
+                "option": "does",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 11,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 26,
+                "option": "is",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 50,
+                "option_id": 26,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 50,
+                "question_id": 50,
+                "marker": "a32",
+                "option_id": 11,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 11,
+                "option": "does",
+                "created_at": "2026-05-26T14:31:53.000000Z",
+                "updated_at": "2026-05-26T14:31:53.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 32,
+                "question_id": 50,
+                "marker": "a32",
+                "option_id": 145,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 145,
+                "option": "auxiliary for he + negation",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 50,
+            "question_id": 50,
+            "text": "He {a32} not understand the question.",
+            "created_at": "2026-05-26T14:31:55.000000Z",
+            "updated_at": "2026-05-26T14:31:55.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 112,
+            "question_id": 50,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "For negation with `He` (3rd person singular), use `does`.\nAfter 'does not', the main verb is in base form: `understand`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 113,
+            "question_id": 50,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "For negation with `He` (3rd person singular), use `does`.\nAfter 'does not', the main verb is in base form: `understand`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 114,
+            "question_id": 50,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Для заперечення з `He` (третя особа однини) потрібне допоміжне `does`.\nПісля `does not` основне дієслово стоїть у базовій формі: `understand`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 482,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "do",
+            "correct_answer": "does",
+            "language": "en",
+            "explanation": "Incorrect: 'do' is for I/you/we/they.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 485,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "do",
+            "correct_answer": "does",
+            "language": "pl",
+            "explanation": "Incorrect: 'do' is for I/you/we/they.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 489,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "do",
+            "correct_answer": "does",
+            "language": "ua",
+            "explanation": "Неправильно: «do» вживається з I/you/we/they, а не з `He`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 490,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "do",
+            "correct_answer": "does",
+            "language": "uk",
+            "explanation": "Неправильно: «do» вживається з I/you/we/they, а не з `He`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 481,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "en",
+            "explanation": "Correct: 'does' is the auxiliary for 'He'. He does not understand.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 484,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "pl",
+            "explanation": "Correct: 'does' is the auxiliary for 'He'. He does not understand.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 487,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "ua",
+            "explanation": "Правильно: «does» — допоміжне для третьої особи однини `He`. He does not understand.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 488,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "does",
+            "correct_answer": "does",
+            "language": "uk",
+            "explanation": "Правильно: «does» — допоміжне для третьої особи однини `He`. He does not understand.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 483,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "en",
+            "explanation": "Incorrect: 'is' is a form of 'to be', wrong for negation with 'understand'.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 486,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "pl",
+            "explanation": "Incorrect: 'is' is a form of 'to be', wrong for negation with 'understand'.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 491,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "ua",
+            "explanation": "Неправильно: «is» — форма `to be`, яка не підходить для заперечення з `understand`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 492,
+            "question": "He {a32} not understand the question.",
+            "wrong_answer": "is",
+            "correct_answer": "does",
+            "language": "uk",
+            "explanation": "Неправильно: «is» — форма `to be`, яка не підходить для заперечення з `understand`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        }
+    ]
+}

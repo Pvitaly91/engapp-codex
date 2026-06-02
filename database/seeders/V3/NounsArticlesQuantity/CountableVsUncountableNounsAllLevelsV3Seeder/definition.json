@@ -1,0 +1,3059 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\CountableVsUncountableNounsAllLevelsV3Seeder",
+        "uuid_namespace": "CountableVsUncountableNounsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "theory_page_countable_vs_uncountable_nouns": {
+            "name": "Countable Vs Uncountable Nouns"
+        }
+    },
+    "tags": {
+        "countable_vs_uncountable_nouns": {
+            "name": "Countable Vs Uncountable Nouns",
+            "category": "nouns_articles_quantity"
+        },
+        "countable_singular": {
+            "name": "Countable Singular",
+            "category": "topic"
+        },
+        "countable_plural": {
+            "name": "Countable Plural",
+            "category": "topic"
+        },
+        "uncountable_no_plural": {
+            "name": "Uncountable No Plural",
+            "category": "topic"
+        },
+        "uncountable_singular_verb": {
+            "name": "Uncountable Singular Verb",
+            "category": "topic"
+        },
+        "article_determiner_needed": {
+            "name": "Article Determiner Needed",
+            "category": "topic"
+        },
+        "much_many": {
+            "name": "Much Many",
+            "category": "topic"
+        },
+        "few_little": {
+            "name": "Few Little",
+            "category": "topic"
+        },
+        "common_uncountables": {
+            "name": "Common Uncountables",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "countable_vs_uncountable_nouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cvu-v3-a1-01",
+            "question": "She bought {a1} apple",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a with a singular countable noun.",
+                    "gap_tags": [
+                        "countable_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_singular"
+            ],
+            "variants": [
+                "She bought {a1} apple"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 2,
+            "uuid": "cvu-v3-a1-02",
+            "question": "I need {a1} chair",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "A singular countable noun needs an article or determiner.",
+                    "gap_tags": [
+                        "article_determiner_needed"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "article_determiner_needed"
+            ],
+            "variants": [
+                "I need {a1} chair"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 3,
+            "uuid": "cvu-v3-a1-03",
+            "question": "There are three {a1} on the table",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "apples",
+                    "options": [
+                        "apples",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use the plural form after a number.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "There are three {a1} on the table"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 4,
+            "uuid": "cvu-v3-a1-04",
+            "question": "Several {a1} arrived today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "books",
+                    "options": [
+                        "books",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use a plural countable noun after several.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "Several {a1} arrived today"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 5,
+            "uuid": "cvu-v3-a1-05",
+            "question": "We need some {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "water",
+                    "options": [
+                        "water",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Uncountable nouns do not take a regular plural.",
+                    "gap_tags": [
+                        "uncountable_no_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_no_plural"
+            ],
+            "variants": [
+                "We need some {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 6,
+            "uuid": "cvu-v3-a1-06",
+            "question": "She gave me useful {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "advice",
+                    "options": [
+                        "advice",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "This noun is commonly uncountable in English.",
+                    "gap_tags": [
+                        "common_uncountables"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "common_uncountables"
+            ],
+            "variants": [
+                "She gave me useful {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 7,
+            "uuid": "cvu-v3-a1-07",
+            "question": "This water {a1} fresh",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a singular verb with an uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "This water {a1} fresh"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 8,
+            "uuid": "cvu-v3-a1-08",
+            "question": "The advice {a1} useful",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use is with this uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "The advice {a1} useful"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 9,
+            "uuid": "cvu-v3-a1-09",
+            "question": "How {a1} books do you have?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use many with plural countable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} books do you have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 10,
+            "uuid": "cvu-v3-a1-10",
+            "question": "How {a1} time do we have?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use much with uncountable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} time do we have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 11,
+            "uuid": "cvu-v3-a1-11",
+            "question": "We have a {a1} friends here",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "few",
+                    "options": [
+                        "few",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a few with plural countable nouns.",
+                    "gap_tags": [
+                        "few_little"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "few_little"
+            ],
+            "variants": [
+                "We have a {a1} friends here"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 12,
+            "uuid": "cvu-v3-a1-12",
+            "question": "There is a {a1} milk left",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a little with uncountable nouns.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "There is a {a1} milk left"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 13,
+            "uuid": "cvu-v3-a2-01",
+            "question": "She bought {a1} sandwich",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a with a singular countable noun.",
+                    "gap_tags": [
+                        "countable_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_singular"
+            ],
+            "variants": [
+                "She bought {a1} sandwich"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 14,
+            "uuid": "cvu-v3-a2-02",
+            "question": "I need {a1} notebook",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "A singular countable noun needs an article or determiner.",
+                    "gap_tags": [
+                        "article_determiner_needed"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "article_determiner_needed"
+            ],
+            "variants": [
+                "I need {a1} notebook"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 15,
+            "uuid": "cvu-v3-a2-03",
+            "question": "There are three {a1} on the table",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "sandwiches",
+                    "options": [
+                        "sandwiches",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use the plural form after a number.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "There are three {a1} on the table"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 16,
+            "uuid": "cvu-v3-a2-04",
+            "question": "Several {a1} arrived today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "emails",
+                    "options": [
+                        "emails",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use a plural countable noun after several.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "Several {a1} arrived today"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 17,
+            "uuid": "cvu-v3-a2-05",
+            "question": "We need some {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "rice",
+                    "options": [
+                        "rice",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Uncountable nouns do not take a regular plural.",
+                    "gap_tags": [
+                        "uncountable_no_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_no_plural"
+            ],
+            "variants": [
+                "We need some {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 18,
+            "uuid": "cvu-v3-a2-06",
+            "question": "She gave me useful {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "homework",
+                    "options": [
+                        "homework",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "luggage"
+                    ],
+                    "verb_hint": "This noun is commonly uncountable in English.",
+                    "gap_tags": [
+                        "common_uncountables"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "common_uncountables"
+            ],
+            "variants": [
+                "She gave me useful {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 19,
+            "uuid": "cvu-v3-a2-07",
+            "question": "This rice {a1} fresh",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a singular verb with an uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "This rice {a1} fresh"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 20,
+            "uuid": "cvu-v3-a2-08",
+            "question": "The homework {a1} useful",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use is with this uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "The homework {a1} useful"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 21,
+            "uuid": "cvu-v3-a2-09",
+            "question": "How {a1} emails do you have?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use many with plural countable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} emails do you have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 22,
+            "uuid": "cvu-v3-a2-10",
+            "question": "How {a1} money do we have?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use much with uncountable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} money do we have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 23,
+            "uuid": "cvu-v3-a2-11",
+            "question": "We have a {a1} mistakes here",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "few",
+                    "options": [
+                        "few",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a few with plural countable nouns.",
+                    "gap_tags": [
+                        "few_little"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "few_little"
+            ],
+            "variants": [
+                "We have a {a1} mistakes here"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 24,
+            "uuid": "cvu-v3-a2-12",
+            "question": "There is a {a1} sugar left",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a little with uncountable nouns.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "There is a {a1} sugar left"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 25,
+            "uuid": "cvu-v3-b1-01",
+            "question": "She bought {a1} ticket",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a with a singular countable noun.",
+                    "gap_tags": [
+                        "countable_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_singular"
+            ],
+            "variants": [
+                "She bought {a1} ticket"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 26,
+            "uuid": "cvu-v3-b1-02",
+            "question": "I need {a1} camera",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "A singular countable noun needs an article or determiner.",
+                    "gap_tags": [
+                        "article_determiner_needed"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "article_determiner_needed"
+            ],
+            "variants": [
+                "I need {a1} camera"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 27,
+            "uuid": "cvu-v3-b1-03",
+            "question": "There are three {a1} on the table",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "tickets",
+                    "options": [
+                        "tickets",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use the plural form after a number.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "There are three {a1} on the table"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 28,
+            "uuid": "cvu-v3-b1-04",
+            "question": "Several {a1} arrived today",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "projects",
+                    "options": [
+                        "projects",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use a plural countable noun after several.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "Several {a1} arrived today"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 29,
+            "uuid": "cvu-v3-b1-05",
+            "question": "We need some {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "furniture",
+                    "options": [
+                        "furniture",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Uncountable nouns do not take a regular plural.",
+                    "gap_tags": [
+                        "uncountable_no_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_no_plural"
+            ],
+            "variants": [
+                "We need some {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 30,
+            "uuid": "cvu-v3-b1-06",
+            "question": "She gave me useful {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "luggage",
+                    "options": [
+                        "luggage",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "This noun is commonly uncountable in English.",
+                    "gap_tags": [
+                        "common_uncountables"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "common_uncountables"
+            ],
+            "variants": [
+                "She gave me useful {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 31,
+            "uuid": "cvu-v3-b1-07",
+            "question": "This furniture {a1} fresh",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a singular verb with an uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "This furniture {a1} fresh"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 32,
+            "uuid": "cvu-v3-b1-08",
+            "question": "The luggage {a1} useful",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use is with this uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "The luggage {a1} useful"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 33,
+            "uuid": "cvu-v3-b1-09",
+            "question": "How {a1} projects do you have?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use many with plural countable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} projects do you have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 34,
+            "uuid": "cvu-v3-b1-10",
+            "question": "How {a1} experience do we have?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use much with uncountable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} experience do we have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 35,
+            "uuid": "cvu-v3-b1-11",
+            "question": "We have a {a1} errors here",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "few",
+                    "options": [
+                        "few",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a few with plural countable nouns.",
+                    "gap_tags": [
+                        "few_little"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "few_little"
+            ],
+            "variants": [
+                "We have a {a1} errors here"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 36,
+            "uuid": "cvu-v3-b1-12",
+            "question": "There is a {a1} hope left",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a little with uncountable nouns.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "There is a {a1} hope left"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 37,
+            "uuid": "cvu-v3-b2-01",
+            "question": "She bought {a1} proposal",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a with a singular countable noun.",
+                    "gap_tags": [
+                        "countable_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_singular"
+            ],
+            "variants": [
+                "She bought {a1} proposal"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 38,
+            "uuid": "cvu-v3-b2-02",
+            "question": "I need {a1} contract",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "A singular countable noun needs an article or determiner.",
+                    "gap_tags": [
+                        "article_determiner_needed"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "article_determiner_needed"
+            ],
+            "variants": [
+                "I need {a1} contract"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 39,
+            "uuid": "cvu-v3-b2-03",
+            "question": "There are three {a1} on the table",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "proposals",
+                    "options": [
+                        "proposals",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use the plural form after a number.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "There are three {a1} on the table"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 40,
+            "uuid": "cvu-v3-b2-04",
+            "question": "Several {a1} arrived today",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "participants",
+                    "options": [
+                        "participants",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use a plural countable noun after several.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "Several {a1} arrived today"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 41,
+            "uuid": "cvu-v3-b2-05",
+            "question": "We need some {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "equipment",
+                    "options": [
+                        "equipment",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Uncountable nouns do not take a regular plural.",
+                    "gap_tags": [
+                        "uncountable_no_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_no_plural"
+            ],
+            "variants": [
+                "We need some {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 42,
+            "uuid": "cvu-v3-b2-06",
+            "question": "She gave me useful {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "research",
+                    "options": [
+                        "research",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "This noun is commonly uncountable in English.",
+                    "gap_tags": [
+                        "common_uncountables"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "common_uncountables"
+            ],
+            "variants": [
+                "She gave me useful {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 43,
+            "uuid": "cvu-v3-b2-07",
+            "question": "This equipment {a1} fresh",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a singular verb with an uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "This equipment {a1} fresh"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 44,
+            "uuid": "cvu-v3-b2-08",
+            "question": "The research {a1} useful",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use is with this uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "The research {a1} useful"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 45,
+            "uuid": "cvu-v3-b2-09",
+            "question": "How {a1} participants do you have?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use many with plural countable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} participants do you have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 46,
+            "uuid": "cvu-v3-b2-10",
+            "question": "How {a1} progress do we have?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use much with uncountable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} progress do we have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 47,
+            "uuid": "cvu-v3-b2-11",
+            "question": "We have a {a1} responses here",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "few",
+                    "options": [
+                        "few",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a few with plural countable nouns.",
+                    "gap_tags": [
+                        "few_little"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "few_little"
+            ],
+            "variants": [
+                "We have a {a1} responses here"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 48,
+            "uuid": "cvu-v3-b2-12",
+            "question": "There is a {a1} patience left",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a little with uncountable nouns.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "There is a {a1} patience left"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 49,
+            "uuid": "cvu-v3-c1-01",
+            "question": "She bought {a1} argument",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a with a singular countable noun.",
+                    "gap_tags": [
+                        "countable_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_singular"
+            ],
+            "variants": [
+                "She bought {a1} argument"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 50,
+            "uuid": "cvu-v3-c1-02",
+            "question": "I need {a1} briefing",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "A singular countable noun needs an article or determiner.",
+                    "gap_tags": [
+                        "article_determiner_needed"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "article_determiner_needed"
+            ],
+            "variants": [
+                "I need {a1} briefing"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 51,
+            "uuid": "cvu-v3-c1-03",
+            "question": "There are three {a1} on the table",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "arguments",
+                    "options": [
+                        "arguments",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use the plural form after a number.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "There are three {a1} on the table"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 52,
+            "uuid": "cvu-v3-c1-04",
+            "question": "Several {a1} arrived today",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "hypotheses",
+                    "options": [
+                        "hypotheses",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use a plural countable noun after several.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "Several {a1} arrived today"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 53,
+            "uuid": "cvu-v3-c1-05",
+            "question": "We need some {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "data",
+                    "options": [
+                        "data",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Uncountable nouns do not take a regular plural.",
+                    "gap_tags": [
+                        "uncountable_no_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_no_plural"
+            ],
+            "variants": [
+                "We need some {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 54,
+            "uuid": "cvu-v3-c1-06",
+            "question": "She gave me useful {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "software",
+                    "options": [
+                        "software",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "This noun is commonly uncountable in English.",
+                    "gap_tags": [
+                        "common_uncountables"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "common_uncountables"
+            ],
+            "variants": [
+                "She gave me useful {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 55,
+            "uuid": "cvu-v3-c1-07",
+            "question": "This data {a1} fresh",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a singular verb with an uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "This data {a1} fresh"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 56,
+            "uuid": "cvu-v3-c1-08",
+            "question": "The software {a1} useful",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use is with this uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "The software {a1} useful"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 57,
+            "uuid": "cvu-v3-c1-09",
+            "question": "How {a1} hypotheses do you have?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use many with plural countable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} hypotheses do you have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 58,
+            "uuid": "cvu-v3-c1-10",
+            "question": "How {a1} funding do we have?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use much with uncountable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} funding do we have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 59,
+            "uuid": "cvu-v3-c1-11",
+            "question": "We have a {a1} assumptions here",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "few",
+                    "options": [
+                        "few",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a few with plural countable nouns.",
+                    "gap_tags": [
+                        "few_little"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "few_little"
+            ],
+            "variants": [
+                "We have a {a1} assumptions here"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 60,
+            "uuid": "cvu-v3-c1-12",
+            "question": "There is a {a1} certainty left",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a little with uncountable nouns.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "There is a {a1} certainty left"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 61,
+            "uuid": "cvu-v3-c2-01",
+            "question": "She bought {a1} criterion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a with a singular countable noun.",
+                    "gap_tags": [
+                        "countable_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_singular"
+            ],
+            "variants": [
+                "She bought {a1} criterion"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 62,
+            "uuid": "cvu-v3-c2-02",
+            "question": "I need {a1} mandate",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "a",
+                    "options": [
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "A singular countable noun needs an article or determiner.",
+                    "gap_tags": [
+                        "article_determiner_needed"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "article_determiner_needed"
+            ],
+            "variants": [
+                "I need {a1} mandate"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 63,
+            "uuid": "cvu-v3-c2-03",
+            "question": "There are three {a1} on the table",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "criteria",
+                    "options": [
+                        "criteria",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use the plural form after a number.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "There are three {a1} on the table"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 64,
+            "uuid": "cvu-v3-c2-04",
+            "question": "Several {a1} arrived today",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "precedents",
+                    "options": [
+                        "precedents",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Use a plural countable noun after several.",
+                    "gap_tags": [
+                        "countable_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "countable_plural"
+            ],
+            "variants": [
+                "Several {a1} arrived today"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 65,
+            "uuid": "cvu-v3-c2-05",
+            "question": "We need some {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "legislation",
+                    "options": [
+                        "legislation",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "Uncountable nouns do not take a regular plural.",
+                    "gap_tags": [
+                        "uncountable_no_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_no_plural"
+            ],
+            "variants": [
+                "We need some {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 66,
+            "uuid": "cvu-v3-c2-06",
+            "question": "She gave me useful {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "knowledge",
+                    "options": [
+                        "knowledge",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework"
+                    ],
+                    "verb_hint": "This noun is commonly uncountable in English.",
+                    "gap_tags": [
+                        "common_uncountables"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "common_uncountables"
+            ],
+            "variants": [
+                "She gave me useful {a1}"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 67,
+            "uuid": "cvu-v3-c2-07",
+            "question": "This legislation {a1} fresh",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a singular verb with an uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "This legislation {a1} fresh"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 68,
+            "uuid": "cvu-v3-c2-08",
+            "question": "The knowledge {a1} useful",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "a",
+                        "an",
+                        "some",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use is with this uncountable noun.",
+                    "gap_tags": [
+                        "uncountable_singular_verb"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uncountable_singular_verb"
+            ],
+            "variants": [
+                "The knowledge {a1} useful"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 69,
+            "uuid": "cvu-v3-c2-09",
+            "question": "How {a1} precedents do you have?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "much",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use many with plural countable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} precedents do you have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 70,
+            "uuid": "cvu-v3-c2-10",
+            "question": "How {a1} leverage do we have?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "few",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use much with uncountable nouns.",
+                    "gap_tags": [
+                        "much_many"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "much_many"
+            ],
+            "variants": [
+                "How {a1} leverage do we have?"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 71,
+            "uuid": "cvu-v3-c2-11",
+            "question": "We have a {a1} objections here",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "few",
+                    "options": [
+                        "few",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "little",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a few with plural countable nouns.",
+                    "gap_tags": [
+                        "few_little"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "few_little"
+            ],
+            "variants": [
+                "We have a {a1} objections here"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        },
+        {
+            "id": 72,
+            "uuid": "cvu-v3-c2-12",
+            "question": "There is a {a1} consensus left",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "a",
+                        "an",
+                        "some",
+                        "is",
+                        "are",
+                        "many",
+                        "much",
+                        "few",
+                        "a few",
+                        "a little",
+                        "information",
+                        "advice",
+                        "furniture",
+                        "homework",
+                        "luggage"
+                    ],
+                    "verb_hint": "Use a little with uncountable nouns.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "There is a {a1} consensus left"
+            ],
+            "source": "theory_page_countable_vs_uncountable_nouns"
+        }
+    ],
+    "saved_test": {
+        "uuid": "naq-cvu-v3-all",
+        "slug": "countable-vs-uncountable-nouns-all-levels-v3",
+        "name": "Countable Vs Uncountable Nouns (All levels V3)",
+        "description": "Standard V3 package for Countable Vs Uncountable Nouns across A1-C2.",
+        "question_uuids": [
+            "cvu-v3-a1-01",
+            "cvu-v3-a1-02",
+            "cvu-v3-a1-03",
+            "cvu-v3-a1-04",
+            "cvu-v3-a1-05",
+            "cvu-v3-a1-06",
+            "cvu-v3-a1-07",
+            "cvu-v3-a1-08",
+            "cvu-v3-a1-09",
+            "cvu-v3-a1-10",
+            "cvu-v3-a1-11",
+            "cvu-v3-a1-12",
+            "cvu-v3-a2-01",
+            "cvu-v3-a2-02",
+            "cvu-v3-a2-03",
+            "cvu-v3-a2-04",
+            "cvu-v3-a2-05",
+            "cvu-v3-a2-06",
+            "cvu-v3-a2-07",
+            "cvu-v3-a2-08",
+            "cvu-v3-a2-09",
+            "cvu-v3-a2-10",
+            "cvu-v3-a2-11",
+            "cvu-v3-a2-12",
+            "cvu-v3-b1-01",
+            "cvu-v3-b1-02",
+            "cvu-v3-b1-03",
+            "cvu-v3-b1-04",
+            "cvu-v3-b1-05",
+            "cvu-v3-b1-06",
+            "cvu-v3-b1-07",
+            "cvu-v3-b1-08",
+            "cvu-v3-b1-09",
+            "cvu-v3-b1-10",
+            "cvu-v3-b1-11",
+            "cvu-v3-b1-12",
+            "cvu-v3-b2-01",
+            "cvu-v3-b2-02",
+            "cvu-v3-b2-03",
+            "cvu-v3-b2-04",
+            "cvu-v3-b2-05",
+            "cvu-v3-b2-06",
+            "cvu-v3-b2-07",
+            "cvu-v3-b2-08",
+            "cvu-v3-b2-09",
+            "cvu-v3-b2-10",
+            "cvu-v3-b2-11",
+            "cvu-v3-b2-12",
+            "cvu-v3-c1-01",
+            "cvu-v3-c1-02",
+            "cvu-v3-c1-03",
+            "cvu-v3-c1-04",
+            "cvu-v3-c1-05",
+            "cvu-v3-c1-06",
+            "cvu-v3-c1-07",
+            "cvu-v3-c1-08",
+            "cvu-v3-c1-09",
+            "cvu-v3-c1-10",
+            "cvu-v3-c1-11",
+            "cvu-v3-c1-12",
+            "cvu-v3-c2-01",
+            "cvu-v3-c2-02",
+            "cvu-v3-c2-03",
+            "cvu-v3-c2-04",
+            "cvu-v3-c2-05",
+            "cvu-v3-c2-06",
+            "cvu-v3-c2-07",
+            "cvu-v3-c2-08",
+            "cvu-v3-c2-09",
+            "cvu-v3-c2-10",
+            "cvu-v3-c2-11",
+            "cvu-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\NounsArticlesQuantity\\CountableVsUncountableNounsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "countable-vs-uncountable-nouns",
+                    "title": "Countable / Uncountable Nouns — Злічувані й незлічувані",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityCountableUncountableNounsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/countable-vs-uncountable-nouns"
+                }
+            }
+        }
+    }
+}

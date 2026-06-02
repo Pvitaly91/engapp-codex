@@ -1,0 +1,385 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Passive Voice By Phrase theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/passive-voice/theory-passive-voice-by-phrase",
+        "category_slug": "passive-voice",
+        "slug": "theory-passive-voice-by-phrase",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+        "title": "Passive Voice By Phrase"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "include_by": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+            "sort_order": 2,
+            "title": "Include By"
+        },
+        "omit_by": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+            "sort_order": 3,
+            "title": "Omit By"
+        },
+        "by_with": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+            "sort_order": 4,
+            "title": "By With"
+        },
+        "comparison": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+            "sort_order": 5,
+            "title": "Comparison"
+        },
+        "mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+            "sort_order": 6,
+            "title": "Mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\SpecialCases\\PassiveVoiceByPhraseTheorySeeder",
+            "sort_order": 7,
+            "title": "Summary"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "by_agent": [
+            "overview",
+            "include_by",
+            "summary"
+        ],
+        "include_by_phrase": [
+            "include_by",
+            "summary"
+        ],
+        "omit_by_phrase": [
+            "omit_by",
+            "summary"
+        ],
+        "agent_relevance": [
+            "include_by",
+            "omit_by",
+            "summary"
+        ],
+        "agent_types": [
+            "include_by",
+            "by_with",
+            "summary"
+        ],
+        "instrument_vs_agent": [
+            "by_with",
+            "comparison",
+            "summary"
+        ],
+        "by_overuse": [
+            "omit_by",
+            "mistakes",
+            "summary"
+        ],
+        "active_passive_agent": [
+            "include_by",
+            "comparison",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "mistakes",
+            "summary"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceByPhraseAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceByPhraseAllLevelsLessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-passive-voice-by-phrase-all-levels",
+            "saved_test_name": "Sentence Builder: Passive Voice By Phrase (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceByPhraseAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "pvbp-poly-a1-01": [
+                    "by_agent"
+                ],
+                "pvbp-poly-a1-02": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-a1-03": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-a1-04": [
+                    "agent_relevance"
+                ],
+                "pvbp-poly-a1-05": [
+                    "agent_types"
+                ],
+                "pvbp-poly-a1-06": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-a1-07": [
+                    "by_overuse"
+                ],
+                "pvbp-poly-a1-08": [
+                    "active_passive_agent"
+                ],
+                "pvbp-poly-a1-09": [
+                    "typical_mistakes"
+                ],
+                "pvbp-poly-a1-10": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-a1-11": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-a1-12": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-a2-01": [
+                    "by_agent"
+                ],
+                "pvbp-poly-a2-02": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-a2-03": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-a2-04": [
+                    "agent_relevance"
+                ],
+                "pvbp-poly-a2-05": [
+                    "agent_types"
+                ],
+                "pvbp-poly-a2-06": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-a2-07": [
+                    "by_overuse"
+                ],
+                "pvbp-poly-a2-08": [
+                    "active_passive_agent"
+                ],
+                "pvbp-poly-a2-09": [
+                    "typical_mistakes"
+                ],
+                "pvbp-poly-a2-10": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-a2-11": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-a2-12": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-b1-01": [
+                    "by_agent"
+                ],
+                "pvbp-poly-b1-02": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-b1-03": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-b1-04": [
+                    "agent_relevance"
+                ],
+                "pvbp-poly-b1-05": [
+                    "agent_types"
+                ],
+                "pvbp-poly-b1-06": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-b1-07": [
+                    "by_overuse"
+                ],
+                "pvbp-poly-b1-08": [
+                    "active_passive_agent"
+                ],
+                "pvbp-poly-b1-09": [
+                    "typical_mistakes"
+                ],
+                "pvbp-poly-b1-10": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-b1-11": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-b1-12": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-b2-01": [
+                    "by_agent"
+                ],
+                "pvbp-poly-b2-02": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-b2-03": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-b2-04": [
+                    "agent_relevance"
+                ],
+                "pvbp-poly-b2-05": [
+                    "agent_types"
+                ],
+                "pvbp-poly-b2-06": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-b2-07": [
+                    "by_overuse"
+                ],
+                "pvbp-poly-b2-08": [
+                    "active_passive_agent"
+                ],
+                "pvbp-poly-b2-09": [
+                    "typical_mistakes"
+                ],
+                "pvbp-poly-b2-10": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-b2-11": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-b2-12": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-c1-01": [
+                    "by_agent"
+                ],
+                "pvbp-poly-c1-02": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-c1-03": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-c1-04": [
+                    "agent_relevance"
+                ],
+                "pvbp-poly-c1-05": [
+                    "agent_types"
+                ],
+                "pvbp-poly-c1-06": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-c1-07": [
+                    "by_overuse"
+                ],
+                "pvbp-poly-c1-08": [
+                    "active_passive_agent"
+                ],
+                "pvbp-poly-c1-09": [
+                    "typical_mistakes"
+                ],
+                "pvbp-poly-c1-10": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-c1-11": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-c1-12": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-c2-01": [
+                    "by_agent"
+                ],
+                "pvbp-poly-c2-02": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-c2-03": [
+                    "omit_by_phrase"
+                ],
+                "pvbp-poly-c2-04": [
+                    "agent_relevance"
+                ],
+                "pvbp-poly-c2-05": [
+                    "agent_types"
+                ],
+                "pvbp-poly-c2-06": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-c2-07": [
+                    "by_overuse"
+                ],
+                "pvbp-poly-c2-08": [
+                    "active_passive_agent"
+                ],
+                "pvbp-poly-c2-09": [
+                    "typical_mistakes"
+                ],
+                "pvbp-poly-c2-10": [
+                    "include_by_phrase"
+                ],
+                "pvbp-poly-c2-11": [
+                    "instrument_vs_agent"
+                ],
+                "pvbp-poly-c2-12": [
+                    "omit_by_phrase"
+                ]
+            }
+        },
+        {
+            "kind": "standard_v3",
+            "saved_test_slug": "passive-voice-by-phrase-all-levels-v3",
+            "saved_test_name": "Passive Voice By Phrase (All levels V3)",
+            "strategy": "mapped_by_tags_and_fallbacks",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceByPhraseAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "by_agent": "by_agent",
+                "include_by_phrase": "include_by_phrase",
+                "omit_by_phrase": "omit_by_phrase",
+                "agent_relevance": "agent_relevance",
+                "agent_types": "agent_types",
+                "instrument_vs_agent": "instrument_vs_agent",
+                "by_overuse": "by_overuse",
+                "active_passive_agent": "active_passive_agent",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {},
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "standard_questions_per_page": 72,
+        "polyglot_questions_per_page": 72,
+        "levels": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "questions_per_level": 12,
+        "json_source_of_truth": true,
+        "do_not_use_question_marker_tag": true
+    },
+    "qa": {
+        "direct_sentence_builder_slug": "polyglot-passive-voice-by-phrase-all-levels",
+        "mixed_test": "theory-page-{page_id}-mixed-a1-c2",
+        "expected_show_theory": true
+    }
+}

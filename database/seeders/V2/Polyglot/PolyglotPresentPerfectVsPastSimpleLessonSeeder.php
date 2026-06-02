@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotPresentPerfectVsPastSimpleLessonSeeder as V3PolyglotPresentPerfectVsPastSimpleLessonSeeder;
+
+class PolyglotPresentPerfectVsPastSimpleLessonSeeder extends V3PolyglotPresentPerfectVsPastSimpleLessonSeeder
+{
+}

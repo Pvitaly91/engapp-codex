@@ -1,0 +1,1855 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePresentPerfectAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveVoicePresentPerfectAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_voice_present_perfect": {
+            "name": "Passive Voice Present Perfect"
+        }
+    },
+    "tags": {
+        "passive_voice_present_perfect": {
+            "name": "Passive Voice Present Perfect",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "has_have_been_v3": {
+            "name": "Has Have Been V3",
+            "category": "topic"
+        },
+        "completed_result": {
+            "name": "Completed Result",
+            "category": "topic"
+        },
+        "recent_result": {
+            "name": "Recent Result",
+            "category": "topic"
+        },
+        "unknown_agent": {
+            "name": "Unknown Agent",
+            "category": "topic"
+        },
+        "already_just_yet": {
+            "name": "Already Just Yet",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "agreement": {
+            "name": "Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_voice_present_perfect"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvpp-v3-a1-01",
+            "question": "The report {a1} already.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been checked",
+                    "options": [
+                        "has been checked",
+                        "have been checked",
+                        "was checked",
+                        "has checked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvpp-v3-a1-02",
+            "question": "The rooms {a1} cleaned.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "has_have_been_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvpp-v3-a1-03",
+            "question": "A new rule {a1} introduced.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvpp-v3-a1-04",
+            "question": "The files {a1} just uploaded.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "recent_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvpp-v3-a1-05",
+            "question": "The problem {a1} solved.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "solved"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvpp-v3-a1-06",
+            "question": "Several mistakes {a1} found.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvpp-v3-a1-07",
+            "question": "The decision {a1} made by the board.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "made"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvpp-v3-a1-08",
+            "question": "The window {a1} repaired, so the room is warm now.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvpp-v3-a1-09",
+            "question": "The tickets {a1} not been sent yet.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvpp-v3-a1-10",
+            "question": "The active sentence becomes present perfect passive with has or have {a1} V3.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "active_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvpp-v3-a1-11",
+            "question": "A singular result subject {a1} has been.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "uses",
+                    "options": [
+                        "uses",
+                        "use",
+                        "used",
+                        "using"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvpp-v3-a1-12",
+            "question": "The correct form is: The task {a1} finished.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "has",
+                        "was been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvpp-v3-a2-01",
+            "question": "The report {a1} already.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been checked",
+                    "options": [
+                        "has been checked",
+                        "have been checked",
+                        "was checked",
+                        "has checked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvpp-v3-a2-02",
+            "question": "The rooms {a1} cleaned.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "has_have_been_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvpp-v3-a2-03",
+            "question": "A new rule {a1} introduced.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvpp-v3-a2-04",
+            "question": "The files {a1} just uploaded.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "recent_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvpp-v3-a2-05",
+            "question": "The problem {a1} solved.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "solved"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvpp-v3-a2-06",
+            "question": "Several mistakes {a1} found.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvpp-v3-a2-07",
+            "question": "The decision {a1} made by the board.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "made"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvpp-v3-a2-08",
+            "question": "The window {a1} repaired, so the room is warm now.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvpp-v3-a2-09",
+            "question": "The tickets {a1} not been sent yet.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvpp-v3-a2-10",
+            "question": "The active sentence becomes present perfect passive with has or have {a1} V3.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "active_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvpp-v3-a2-11",
+            "question": "A singular result subject {a1} has been.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "uses",
+                    "options": [
+                        "uses",
+                        "use",
+                        "used",
+                        "using"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvpp-v3-a2-12",
+            "question": "The correct form is: The task {a1} finished.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "has",
+                        "was been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvpp-v3-b1-01",
+            "question": "The report {a1} already in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been checked",
+                    "options": [
+                        "has been checked",
+                        "have been checked",
+                        "was checked",
+                        "has checked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvpp-v3-b1-02",
+            "question": "The rooms {a1} cleaned in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "has_have_been_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvpp-v3-b1-03",
+            "question": "A new rule {a1} introduced in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvpp-v3-b1-04",
+            "question": "The files {a1} just uploaded in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "recent_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvpp-v3-b1-05",
+            "question": "The problem {a1} solved in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "solved"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvpp-v3-b1-06",
+            "question": "Several mistakes {a1} found in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvpp-v3-b1-07",
+            "question": "The decision {a1} made by the board in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "made"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvpp-v3-b1-08",
+            "question": "The window {a1} repaired, so the room is warm now in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvpp-v3-b1-09",
+            "question": "The tickets {a1} not been sent yet in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvpp-v3-b1-10",
+            "question": "The active sentence becomes present perfect passive with has or have {a1} V3 in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "active_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvpp-v3-b1-11",
+            "question": "A singular result subject {a1} has been in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "uses",
+                    "options": [
+                        "uses",
+                        "use",
+                        "used",
+                        "using"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvpp-v3-b1-12",
+            "question": "The correct form is: The task {a1} finished in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "has",
+                        "was been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvpp-v3-b2-01",
+            "question": "The report {a1} already in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been checked",
+                    "options": [
+                        "has been checked",
+                        "have been checked",
+                        "was checked",
+                        "has checked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvpp-v3-b2-02",
+            "question": "The rooms {a1} cleaned in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "has_have_been_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvpp-v3-b2-03",
+            "question": "A new rule {a1} introduced in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvpp-v3-b2-04",
+            "question": "The files {a1} just uploaded in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "recent_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvpp-v3-b2-05",
+            "question": "The problem {a1} solved in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "solved"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvpp-v3-b2-06",
+            "question": "Several mistakes {a1} found in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvpp-v3-b2-07",
+            "question": "The decision {a1} made by the board in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "made"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvpp-v3-b2-08",
+            "question": "The window {a1} repaired, so the room is warm now in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvpp-v3-b2-09",
+            "question": "The tickets {a1} not been sent yet in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvpp-v3-b2-10",
+            "question": "The active sentence becomes present perfect passive with has or have {a1} V3 in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "active_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvpp-v3-b2-11",
+            "question": "A singular result subject {a1} has been in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "uses",
+                    "options": [
+                        "uses",
+                        "use",
+                        "used",
+                        "using"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvpp-v3-b2-12",
+            "question": "The correct form is: The task {a1} finished in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "has",
+                        "was been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvpp-v3-c1-01",
+            "question": "The report {a1} already when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been checked",
+                    "options": [
+                        "has been checked",
+                        "have been checked",
+                        "was checked",
+                        "has checked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvpp-v3-c1-02",
+            "question": "The rooms {a1} cleaned when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "has_have_been_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvpp-v3-c1-03",
+            "question": "A new rule {a1} introduced when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvpp-v3-c1-04",
+            "question": "The files {a1} just uploaded when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "recent_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvpp-v3-c1-05",
+            "question": "The problem {a1} solved when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "solved"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvpp-v3-c1-06",
+            "question": "Several mistakes {a1} found when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvpp-v3-c1-07",
+            "question": "The decision {a1} made by the board when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "made"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvpp-v3-c1-08",
+            "question": "The window {a1} repaired, so the room is warm now when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvpp-v3-c1-09",
+            "question": "The tickets {a1} not been sent yet when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvpp-v3-c1-10",
+            "question": "The active sentence becomes present perfect passive with has or have {a1} V3 when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "active_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvpp-v3-c1-11",
+            "question": "A singular result subject {a1} has been when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "uses",
+                    "options": [
+                        "uses",
+                        "use",
+                        "used",
+                        "using"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvpp-v3-c1-12",
+            "question": "The correct form is: The task {a1} finished when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "has",
+                        "was been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvpp-v3-c2-01",
+            "question": "The report {a1} already in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been checked",
+                    "options": [
+                        "has been checked",
+                        "have been checked",
+                        "was checked",
+                        "has checked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvpp-v3-c2-02",
+            "question": "The rooms {a1} cleaned in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "has_have_been_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvpp-v3-c2-03",
+            "question": "A new rule {a1} introduced in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is been"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvpp-v3-c2-04",
+            "question": "The files {a1} just uploaded in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "recent_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvpp-v3-c2-05",
+            "question": "The problem {a1} solved in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "solved"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvpp-v3-c2-06",
+            "question": "Several mistakes {a1} found in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have been",
+                    "options": [
+                        "have been",
+                        "has been",
+                        "were been",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvpp-v3-c2-07",
+            "question": "The decision {a1} made by the board in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "made"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvpp-v3-c2-08",
+            "question": "The window {a1} repaired, so the room is warm now in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "completed_result"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "was been",
+                        "is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvpp-v3-c2-09",
+            "question": "The tickets {a1} not been sent yet in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "already_just_yet"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvpp-v3-c2-10",
+            "question": "The active sentence becomes present perfect passive with has or have {a1} V3 in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "active_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "been",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "was"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvpp-v3-c2-11",
+            "question": "A singular result subject {a1} has been in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "uses",
+                    "options": [
+                        "uses",
+                        "use",
+                        "used",
+                        "using"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvpp-v3-c2-12",
+            "question": "The correct form is: The task {a1} finished in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_present_perfect",
+            "tag_keys": [
+                "passive_voice_present_perfect",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "has",
+                        "was been"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-pp-v3-all",
+        "slug": "passive-voice-present-perfect-all-levels-v3",
+        "name": "Passive Voice Present Perfect (All levels V3)",
+        "description": "Standard V3 package for Passive Voice Present Perfect across A1-C2.",
+        "question_uuids": [
+            "pvpp-v3-a1-01",
+            "pvpp-v3-a1-02",
+            "pvpp-v3-a1-03",
+            "pvpp-v3-a1-04",
+            "pvpp-v3-a1-05",
+            "pvpp-v3-a1-06",
+            "pvpp-v3-a1-07",
+            "pvpp-v3-a1-08",
+            "pvpp-v3-a1-09",
+            "pvpp-v3-a1-10",
+            "pvpp-v3-a1-11",
+            "pvpp-v3-a1-12",
+            "pvpp-v3-a2-01",
+            "pvpp-v3-a2-02",
+            "pvpp-v3-a2-03",
+            "pvpp-v3-a2-04",
+            "pvpp-v3-a2-05",
+            "pvpp-v3-a2-06",
+            "pvpp-v3-a2-07",
+            "pvpp-v3-a2-08",
+            "pvpp-v3-a2-09",
+            "pvpp-v3-a2-10",
+            "pvpp-v3-a2-11",
+            "pvpp-v3-a2-12",
+            "pvpp-v3-b1-01",
+            "pvpp-v3-b1-02",
+            "pvpp-v3-b1-03",
+            "pvpp-v3-b1-04",
+            "pvpp-v3-b1-05",
+            "pvpp-v3-b1-06",
+            "pvpp-v3-b1-07",
+            "pvpp-v3-b1-08",
+            "pvpp-v3-b1-09",
+            "pvpp-v3-b1-10",
+            "pvpp-v3-b1-11",
+            "pvpp-v3-b1-12",
+            "pvpp-v3-b2-01",
+            "pvpp-v3-b2-02",
+            "pvpp-v3-b2-03",
+            "pvpp-v3-b2-04",
+            "pvpp-v3-b2-05",
+            "pvpp-v3-b2-06",
+            "pvpp-v3-b2-07",
+            "pvpp-v3-b2-08",
+            "pvpp-v3-b2-09",
+            "pvpp-v3-b2-10",
+            "pvpp-v3-b2-11",
+            "pvpp-v3-b2-12",
+            "pvpp-v3-c1-01",
+            "pvpp-v3-c1-02",
+            "pvpp-v3-c1-03",
+            "pvpp-v3-c1-04",
+            "pvpp-v3-c1-05",
+            "pvpp-v3-c1-06",
+            "pvpp-v3-c1-07",
+            "pvpp-v3-c1-08",
+            "pvpp-v3-c1-09",
+            "pvpp-v3-c1-10",
+            "pvpp-v3-c1-11",
+            "pvpp-v3-c1-12",
+            "pvpp-v3-c2-01",
+            "pvpp-v3-c2-02",
+            "pvpp-v3-c2-03",
+            "pvpp-v3-c2-04",
+            "pvpp-v3-c2-05",
+            "pvpp-v3-c2-06",
+            "pvpp-v3-c2-07",
+            "pvpp-v3-c2-08",
+            "pvpp-v3-c2-09",
+            "pvpp-v3-c2-10",
+            "pvpp-v3-c2-11",
+            "pvpp-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePresentPerfectAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-passive-voice-present-perfect",
+                    "title": "Passive Voice Present Perfect",
+                    "category_slug_path": "passive-voice/passive-voice-tenses",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePresentPerfectTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/passive-voice-tenses/theory-passive-voice-present-perfect"
+                }
+            }
+        }
+    }
+}

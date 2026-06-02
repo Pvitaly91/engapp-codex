@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 333,
+        "uuid": "5-a1-robbed-a-bank-yesterday-they-to",
+        "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 3,
+        "source_id": 6,
+        "flag": 2,
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:23.000000Z"
+    },
+    "category": {
+        "id": 3,
+        "name": "Pronouns",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "source": {
+        "id": 6,
+        "name": "Custom: Indefinite Pronouns Practice V2 (Page 1)",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Indefinite Pronoun Compounds",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 4,
+                "name": "Indefinite Pronouns Practice",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "tag_id": 4,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 5,
+                "name": "Something / Anything / Nothing Exercises",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 123,
+                "option": "Anybody",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 123,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 124,
+                "option": "Nobody",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 124,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 125,
+                "option": "somebody",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 333,
+                "option_id": 125,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 334,
+                "question_id": 333,
+                "marker": "a1",
+                "option_id": 125,
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "option": {
+                "id": 125,
+                "option": "somebody",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 333,
+            "question_id": 333,
+            "text": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "created_at": "2026-05-26T11:13:04.000000Z",
+            "updated_at": "2026-05-26T11:13:04.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 14,
+            "question_id": 333,
+            "provider": "chatgpt",
+            "locale": "en",
+            "hint": "An event definitely happened, but the person is unknown → we use a some-word.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 15,
+            "question_id": 333,
+            "provider": "chatgpt",
+            "locale": "pl",
+            "hint": "Zdarzenie na pewno miało miejsce, ale osoba jest nieznana → używamy some-słowa.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 13,
+            "question_id": 333,
+            "provider": "chatgpt",
+            "locale": "uk",
+            "hint": "Подія точно сталася, але особа невідома → використовуємо some-слово.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 56,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "somebody",
+            "language": "en",
+            "explanation": "❌ *Anybody* is more often found in questions or negations.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 59,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "somebody",
+            "language": "pl",
+            "explanation": "❌ *Ktokolwiek* częściej występuje w pytaniach lub zaprzeczeniach.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 51,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "somebody",
+            "language": "ua",
+            "explanation": "❌ *Anybody* частіше стоїть у питаннях або запереченнях.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 52,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "somebody",
+            "language": "uk",
+            "explanation": "❌ *Anybody* частіше стоїть у питаннях або запереченнях.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 57,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "somebody",
+            "language": "en",
+            "explanation": "❌ *Nobody* contradicts the fact of the robbery.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 60,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "somebody",
+            "language": "pl",
+            "explanation": "❌ *Nikt* zaprzecza faktowi rabunku.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 53,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "somebody",
+            "language": "ua",
+            "explanation": "❌ *Nobody* суперечить факту пограбування.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 54,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "somebody",
+            "language": "uk",
+            "explanation": "❌ *Nobody* суперечить факту пограбування.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 55,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Somebody",
+            "correct_answer": "somebody",
+            "language": "en",
+            "explanation": "✅ **Somebody** is suitable for a statement about an unknown criminal.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 58,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Somebody",
+            "correct_answer": "somebody",
+            "language": "pl",
+            "explanation": "✅ **Ktoś** nadaje się do twierdzenia o nieznanym przestępcy.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 49,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Somebody",
+            "correct_answer": "somebody",
+            "language": "ua",
+            "explanation": "✅ **Somebody** підходить для ствердження про невідомого злочинця.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 50,
+            "question": "{a1} robbed a bank yesterday. They took a lot of money.",
+            "wrong_answer": "Somebody",
+            "correct_answer": "somebody",
+            "language": "uk",
+            "explanation": "✅ **Somebody** підходить для ствердження про невідомого злочинця.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ]
+}

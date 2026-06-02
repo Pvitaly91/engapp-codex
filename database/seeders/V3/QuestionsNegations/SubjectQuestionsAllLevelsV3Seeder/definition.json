@@ -1,0 +1,1859 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\SubjectQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "SubjectQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_subject_questions": {
+            "name": "Subject Questions"
+        }
+    },
+    "tags": {
+        "subject_questions": {
+            "name": "Subject Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "who_what_subject": {
+            "name": "Who What Subject",
+            "category": "topic"
+        },
+        "no_do_does_did": {
+            "name": "No Do Does Did",
+            "category": "topic"
+        },
+        "affirmative_word_order": {
+            "name": "Affirmative Word Order",
+            "category": "topic"
+        },
+        "who_called": {
+            "name": "Who Called",
+            "category": "topic"
+        },
+        "what_happened": {
+            "name": "What Happened",
+            "category": "topic"
+        },
+        "who_knows": {
+            "name": "Who Knows",
+            "category": "topic"
+        },
+        "subject_vs_object_question": {
+            "name": "Subject Vs Object Question",
+            "category": "topic"
+        },
+        "third_person_singular": {
+            "name": "Third Person Singular",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "subject_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "subq-v3-a1-01",
+            "question": "{a1} called you?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Who did",
+                        "Where",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "subq-v3-a1-02",
+            "question": "Correct subject question: Who {a1} you?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "does call",
+                        "call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "subq-v3-a1-03",
+            "question": "Who {a1} coffee?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "who_knows"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "wants",
+                    "options": [
+                        "wants",
+                        "does want",
+                        "want",
+                        "did want"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "subq-v3-a1-04",
+            "question": "Who {a1} you?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "calls",
+                        "does call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "subq-v3-a1-05",
+            "question": "What {a1}?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "affirmative_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "happens",
+                        "does happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "subq-v3-a1-06",
+            "question": "Who {a1} the answer?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "who_called"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "knows",
+                    "options": [
+                        "knows",
+                        "does know",
+                        "know",
+                        "did know"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "subq-v3-a1-07",
+            "question": "Subject question: Who {a1} you?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "no_do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "you called",
+                        "calls"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "subq-v3-a1-08",
+            "question": "Who {a1} here?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lives",
+                    "options": [
+                        "lives",
+                        "live",
+                        "does live",
+                        "did live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "subq-v3-a1-09",
+            "question": "Correct form: Who {a1} you?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "does call",
+                        "call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "subq-v3-a1-10",
+            "question": "A subject question asks who or what performs the {a1}.",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "action",
+                    "options": [
+                        "action",
+                        "object",
+                        "place",
+                        "time"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "subq-v3-a1-11",
+            "question": "Who {a1} the door?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "subject_vs_object_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "opened",
+                    "options": [
+                        "opened",
+                        "did open",
+                        "does open",
+                        "open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "subq-v3-a1-12",
+            "question": "Subject question: What {a1} this noise?",
+            "level": "A1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "subq-v3-a2-01",
+            "question": "{a1} happened?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "What did",
+                        "Where",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "subq-v3-a2-02",
+            "question": "Correct subject question: What {a1}?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "does happen",
+                        "happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "subq-v3-a2-03",
+            "question": "What {a1} this sound?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "who_knows"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "does make",
+                        "make",
+                        "did make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "subq-v3-a2-04",
+            "question": "Who {a1} me last night?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "calls",
+                        "does call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "subq-v3-a2-05",
+            "question": "What {a1} after lunch?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "affirmative_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "happens",
+                        "does happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "subq-v3-a2-06",
+            "question": "Who {a1} your address?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "who_called"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "knows",
+                    "options": [
+                        "knows",
+                        "does know",
+                        "know",
+                        "did know"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "subq-v3-a2-07",
+            "question": "Object question: Who {a1} you call?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "no_do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "called",
+                        "does",
+                        "call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "subq-v3-a2-08",
+            "question": "What {a1} you happy?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "make",
+                        "does make",
+                        "did make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "subq-v3-a2-09",
+            "question": "Correct form: What {a1}?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "does happen",
+                        "happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "subq-v3-a2-10",
+            "question": "In \"Who called?\", who is the {a1}.",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "object",
+                        "auxiliary",
+                        "answer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "subq-v3-a2-11",
+            "question": "What {a1} the glass?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "subject_vs_object_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broke",
+                    "options": [
+                        "broke",
+                        "did break",
+                        "does break",
+                        "break"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "subq-v3-a2-12",
+            "question": "Subject question: Who {a1} the milk?",
+            "level": "A2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "drank",
+                    "options": [
+                        "drank",
+                        "did drink",
+                        "does drink",
+                        "drink"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "subq-v3-b1-01",
+            "question": "{a1} lives here?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Who does",
+                        "Where",
+                        "When"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "subq-v3-b1-02",
+            "question": "Correct subject question: Who {a1} the answer?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "knows",
+                    "options": [
+                        "knows",
+                        "does know",
+                        "know",
+                        "did know"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "subq-v3-b1-03",
+            "question": "Who {a1} in that office?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "who_knows"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "does work",
+                        "work",
+                        "did work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "subq-v3-b1-04",
+            "question": "Who {a1} the teacher yesterday?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "calls",
+                        "does call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "subq-v3-b1-05",
+            "question": "What {a1} at the station?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "affirmative_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "happens",
+                        "does happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "subq-v3-b1-06",
+            "question": "Who {a1} the truth?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "who_called"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "knows",
+                    "options": [
+                        "knows",
+                        "does know",
+                        "know",
+                        "did know"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "subq-v3-b1-07",
+            "question": "Subject question: What {a1} the window?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "no_do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "broke",
+                    "options": [
+                        "broke",
+                        "did break",
+                        "break",
+                        "does break"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "subq-v3-b1-08",
+            "question": "Who {a1} this machine?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "uses",
+                    "options": [
+                        "uses",
+                        "use",
+                        "does use",
+                        "did use"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "subq-v3-b1-09",
+            "question": "Correct form: Who {a1} here?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "lives",
+                    "options": [
+                        "lives",
+                        "does live",
+                        "live",
+                        "do live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "subq-v3-b1-10",
+            "question": "In \"What happened?\", what is the {a1}.",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "object",
+                        "auxiliary",
+                        "answer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "subq-v3-b1-11",
+            "question": "Who {a1} first?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "subject_vs_object_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "did arrive",
+                        "does arrive",
+                        "arrive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "subq-v3-b1-12",
+            "question": "Subject question: Who {a1} my pen?",
+            "level": "B1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "took",
+                    "options": [
+                        "took",
+                        "did take",
+                        "does take",
+                        "take"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "subq-v3-b2-01",
+            "question": "{a1} caused the delay?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "What did",
+                        "Where",
+                        "Why"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "subq-v3-b2-02",
+            "question": "Correct subject question: What {a1} the problem?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "caused",
+                    "options": [
+                        "caused",
+                        "did cause",
+                        "does cause",
+                        "cause"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "subq-v3-b2-03",
+            "question": "What {a1} the door open?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "who_knows"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "keeps",
+                    "options": [
+                        "keeps",
+                        "does keep",
+                        "keep",
+                        "did keep"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "subq-v3-b2-04",
+            "question": "Who {a1} the support desk first?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "calls",
+                        "does call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "subq-v3-b2-05",
+            "question": "What {a1} during the meeting?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "affirmative_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "happens",
+                        "does happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "subq-v3-b2-06",
+            "question": "Who {a1} how to fix this?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "who_called"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "knows",
+                    "options": [
+                        "knows",
+                        "does know",
+                        "know",
+                        "did know"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "subq-v3-b2-07",
+            "question": "Object question: What {a1} you break?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "no_do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "broke",
+                        "does",
+                        "breaks"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "subq-v3-b2-08",
+            "question": "What {a1} the problem worse?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "make",
+                        "does make",
+                        "did make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "subq-v3-b2-09",
+            "question": "Correct form: What {a1} the fire?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "caused",
+                    "options": [
+                        "caused",
+                        "did cause",
+                        "does cause",
+                        "cause"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "subq-v3-b2-10",
+            "question": "Subject questions usually need no {a1}.",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "do-support",
+                    "options": [
+                        "do-support",
+                        "subject",
+                        "verb",
+                        "meaning"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "subq-v3-b2-11",
+            "question": "What {a1} the lights go out?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "subject_vs_object_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "subq-v3-b2-12",
+            "question": "Subject question: What {a1} him angry?",
+            "level": "B2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "subq-v3-c1-01",
+            "question": "{a1} approved the final version?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Who did",
+                        "What did",
+                        "Where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "subq-v3-c1-02",
+            "question": "Correct subject question: Who {a1} the announcement?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "subq-v3-c1-03",
+            "question": "Who {a1} the revised schedule?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "who_knows"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "manages",
+                    "options": [
+                        "manages",
+                        "does manage",
+                        "manage",
+                        "did manage"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "subq-v3-c1-04",
+            "question": "Who {a1} the emergency number before the alarm stopped?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "calls",
+                        "does call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "subq-v3-c1-05",
+            "question": "What {a1} after the system update?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "affirmative_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "happens",
+                        "does happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "subq-v3-c1-06",
+            "question": "Who {a1} where the archive is stored?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "who_called"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "knows",
+                    "options": [
+                        "knows",
+                        "does know",
+                        "know",
+                        "did know"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "subq-v3-c1-07",
+            "question": "Subject question: Who {a1} the proposal?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "no_do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "rejected",
+                    "options": [
+                        "rejected",
+                        "did reject",
+                        "does reject",
+                        "reject"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "subq-v3-c1-08",
+            "question": "Who {a1} access to the account?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "does have",
+                        "did have"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "subq-v3-c1-09",
+            "question": "Correct form: Who {a1} the documents?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "signed",
+                    "options": [
+                        "signed",
+                        "did sign",
+                        "does sign",
+                        "sign"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "subq-v3-c1-10",
+            "question": "If who is the object, we normally need {a1}.",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "called",
+                        "who",
+                        "what"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "subq-v3-c1-11",
+            "question": "Who {a1} the revised clause?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "subject_vs_object_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "drafted",
+                    "options": [
+                        "drafted",
+                        "did draft",
+                        "does draft",
+                        "draft"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "subq-v3-c1-12",
+            "question": "Subject question: Who {a1} the final vote?",
+            "level": "C1",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "won",
+                    "options": [
+                        "won",
+                        "did win",
+                        "does win",
+                        "win"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "subq-v3-c2-01",
+            "question": "{a1} triggered the market reaction?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "options": [
+                        "What",
+                        "What did",
+                        "Who did",
+                        "Where"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "subq-v3-c2-02",
+            "question": "Correct subject question: What {a1} the algorithm fail?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "subq-v3-c2-03",
+            "question": "What {a1} the theory persuasive?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "who_knows"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "does make",
+                        "make",
+                        "did make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "subq-v3-c2-04",
+            "question": "Who {a1} the witness after the hearing?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "called",
+                    "options": [
+                        "called",
+                        "did call",
+                        "calls",
+                        "does call"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "subq-v3-c2-05",
+            "question": "What {a1} once the evidence was disclosed?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "affirmative_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "happened",
+                    "options": [
+                        "happened",
+                        "did happen",
+                        "happens",
+                        "does happen"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "subq-v3-c2-06",
+            "question": "Who {a1} whether the claim is admissible?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "who_called"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "knows",
+                    "options": [
+                        "knows",
+                        "does know",
+                        "know",
+                        "did know"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "subq-v3-c2-07",
+            "question": "Object question: Who {a1} the committee reject?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "no_do_does_did"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "rejected",
+                        "does",
+                        "has"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "subq-v3-c2-08",
+            "question": "What {a1} this interpretation plausible?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "third_person_singular"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "make",
+                        "does make",
+                        "did make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "subq-v3-c2-09",
+            "question": "Correct form: What {a1} the model unstable?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "who_what_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "subq-v3-c2-10",
+            "question": "If what performs the action, keep {a1} word order.",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "what_happened"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "inverted",
+                        "negative",
+                        "passive"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "subq-v3-c2-11",
+            "question": "What {a1} the committee change its mind?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "subject_vs_object_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "did make",
+                        "does make",
+                        "make"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "subq-v3-c2-12",
+            "question": "Subject question: What {a1} the discrepancy?",
+            "level": "C2",
+            "source": "theory_page_subject_questions",
+            "tag_keys": [
+                "subject_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "explained",
+                    "options": [
+                        "explained",
+                        "did explain",
+                        "does explain",
+                        "explain"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn-sq-v3-all",
+        "slug": "subject-questions-all-levels-v3",
+        "name": "Subject Questions (All levels V3)",
+        "description": "Standard V3 package for Subject Questions across A1-C2.",
+        "question_uuids": [
+            "subq-v3-a1-01",
+            "subq-v3-a1-02",
+            "subq-v3-a1-03",
+            "subq-v3-a1-04",
+            "subq-v3-a1-05",
+            "subq-v3-a1-06",
+            "subq-v3-a1-07",
+            "subq-v3-a1-08",
+            "subq-v3-a1-09",
+            "subq-v3-a1-10",
+            "subq-v3-a1-11",
+            "subq-v3-a1-12",
+            "subq-v3-a2-01",
+            "subq-v3-a2-02",
+            "subq-v3-a2-03",
+            "subq-v3-a2-04",
+            "subq-v3-a2-05",
+            "subq-v3-a2-06",
+            "subq-v3-a2-07",
+            "subq-v3-a2-08",
+            "subq-v3-a2-09",
+            "subq-v3-a2-10",
+            "subq-v3-a2-11",
+            "subq-v3-a2-12",
+            "subq-v3-b1-01",
+            "subq-v3-b1-02",
+            "subq-v3-b1-03",
+            "subq-v3-b1-04",
+            "subq-v3-b1-05",
+            "subq-v3-b1-06",
+            "subq-v3-b1-07",
+            "subq-v3-b1-08",
+            "subq-v3-b1-09",
+            "subq-v3-b1-10",
+            "subq-v3-b1-11",
+            "subq-v3-b1-12",
+            "subq-v3-b2-01",
+            "subq-v3-b2-02",
+            "subq-v3-b2-03",
+            "subq-v3-b2-04",
+            "subq-v3-b2-05",
+            "subq-v3-b2-06",
+            "subq-v3-b2-07",
+            "subq-v3-b2-08",
+            "subq-v3-b2-09",
+            "subq-v3-b2-10",
+            "subq-v3-b2-11",
+            "subq-v3-b2-12",
+            "subq-v3-c1-01",
+            "subq-v3-c1-02",
+            "subq-v3-c1-03",
+            "subq-v3-c1-04",
+            "subq-v3-c1-05",
+            "subq-v3-c1-06",
+            "subq-v3-c1-07",
+            "subq-v3-c1-08",
+            "subq-v3-c1-09",
+            "subq-v3-c1-10",
+            "subq-v3-c1-11",
+            "subq-v3-c1-12",
+            "subq-v3-c2-01",
+            "subq-v3-c2-02",
+            "subq-v3-c2-03",
+            "subq-v3-c2-04",
+            "subq-v3-c2-05",
+            "subq-v3-c2-06",
+            "subq-v3-c2-07",
+            "subq-v3-c2-08",
+            "subq-v3-c2-09",
+            "subq-v3-c2-10",
+            "subq-v3-c2-11",
+            "subq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\SubjectQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "subject-questions",
+                    "title": "Subject Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsSubjectQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/subject-questions"
+                }
+            }
+        }
+    }
+}

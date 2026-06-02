@@ -1,0 +1,4537 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBePresentFormsV3QuestionsOnlySeeder",
+        "uuid_namespace": "vtbp-cp-sn"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "theory_page_1121": {
+            "name": "Verb to Be: Present Forms"
+        }
+    },
+    "tags": {
+        "verb_to_be_am": {
+            "name": "Subject–verb agreement: I + am",
+            "category": "pattern"
+        },
+        "verb_to_be_is": {
+            "name": "Subject–verb agreement: he/she/it + is",
+            "category": "pattern"
+        },
+        "verb_to_be_are": {
+            "name": "Subject–verb agreement: you/we/they + are",
+            "category": "pattern"
+        },
+        "verb_to_be_question": {
+            "name": "Question form of verb to be",
+            "category": "usage"
+        },
+        "verb_to_be_expletive": {
+            "name": "Existential there is / there are",
+            "category": "usage"
+        },
+        "verb_to_be_collective_noun": {
+            "name": "Collective noun agreement with to be",
+            "category": "pattern"
+        },
+        "verb_to_be_uncountable": {
+            "name": "Uncountable or -ics noun treated as singular with to be",
+            "category": "pattern"
+        },
+        "verb_to_be_plural_only": {
+            "name": "Plural-only noun agreement with to be",
+            "category": "pattern"
+        },
+        "verb_to_be_latin_plural": {
+            "name": "Latin or Greek plural agreement with to be",
+            "category": "pattern"
+        },
+        "verb_to_be_subject_agreement": {
+            "name": "Complex subject–verb agreement with to be",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_subject_agreement"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid_segments": [
+                "a1",
+                "q01"
+            ],
+            "question": "I {a1} tired after the long walk.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Дієслово to be після займенника «I» завжди вживається у формі am — це єдина правильна форма для першої особи однини.",
+                        "Підмет у реченні — займенник `I`, і саме він визначає форму дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am": "Форма «am» правильна: займенник «I» вимагає виключно форми am — жодна інша форма дієслова to be з «I» не вживається.",
+                            "is": "Форма «is» помилкова: вона вживається лише з підметами третьої особи однини (he, she, it), а не з «I».",
+                            "are": "Форма «are» помилкова: вона вживається з «you», «we», «they» або іменниками у множині, але не з «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_am"
+            ],
+            "variants": [
+                "I {a1} tired after the long walk."
+            ]
+        },
+        {
+            "id": 2,
+            "uuid_segments": [
+                "a1",
+                "q02"
+            ],
+            "question": "She {a1} my best friend.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "З займенниками третьої особи однини (he, she, it) дієслово to be набуває форми is.",
+                        "Підмет «she» належить до третьої особи однини, тому потрібна відповідна форма дієслова."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: займенник «she» є третьою особою однини, і саме форма is вживається з he, she, it у теперішньому часі.",
+                            "am": "Форма «am» помилкова: вона закріплена виключно за займенником «I» і не може вживатися з «she».",
+                            "are": "Форма «are» помилкова: вона вживається з «you», «we», «they» або іменниками у множині — не з однинним «she»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "She {a1} my best friend."
+            ]
+        },
+        {
+            "id": 3,
+            "uuid_segments": [
+                "a1",
+                "q03"
+            ],
+            "question": "They {a1} in the park right now.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «they» вживається з формою are дієслова to be.",
+                        "Слово «they» позначає третю особу множини, тому потрібна форма множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «they» є займенником третьої особи множини, а форма are відповідає множині у теперішньому часі.",
+                            "is": "Форма «is» помилкова: вона вживається з однинними підметами третьої особи (he, she, it), а «they» — це множина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I» і ніколи не поєднується з «they»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "They {a1} in the park right now."
+            ]
+        },
+        {
+            "id": 4,
+            "uuid_segments": [
+                "a1",
+                "q04"
+            ],
+            "question": "He {a1} a good student.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «he» є третьою особою однини, яка вимагає форми is.",
+                        "Підмет `he` — однина чоловічого роду, яка завжди поєднується з is у теперішньому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «he» — займенник третьої особи однини, і to be набуває форми is саме з такими підметами.",
+                            "am": "Форма «am» помилкова: am закріплена тільки за «I» і не вживається з «he».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множинними підметами — не з однинним «he»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "He {a1} a good student."
+            ]
+        },
+        {
+            "id": 5,
+            "uuid_segments": [
+                "a1",
+                "q05"
+            ],
+            "question": "We {a1} very happy today.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «we» вживається з формою are.",
+                        "«We» позначає першу особу множини, а форма are — це форма множини дієслова to be."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «we» є займенником першої особи множини, і to be вживається у формі are.",
+                            "am": "Форма «am» помилкова: am вживається тільки з «I» (першою особою однини), а не з «we».",
+                            "is": "Форма «is» помилкова: is — форма однини третьої особи, а «we» вимагає форми множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "We {a1} very happy today."
+            ]
+        },
+        {
+            "id": 6,
+            "uuid_segments": [
+                "a1",
+                "q06"
+            ],
+            "question": "It {a1} a cold morning.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «it» позначає неживий предмет або явище природи і вживається з формою is.",
+                        "«It» — третя особа однини середнього роду; форма дієслова to be в цьому випадку — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «it» — займенник третьої особи однини, тому to be набуває форми is.",
+                            "am": "Форма «am» помилкова: am вживається виключно з займенником «I».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множиною, але «it» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "It {a1} a cold morning."
+            ]
+        },
+        {
+            "id": 7,
+            "uuid_segments": [
+                "a1",
+                "q07"
+            ],
+            "question": "You {a1} right about that.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «you» (і в однині, і в множині) завжди вживається з формою are.",
+                        "Незалежно від того, чи «you» означає одну людину чи кількох, дієслово to be після нього завжди are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «you» у будь-якому числі вимагає форми are дієслова to be у теперішньому часі.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I», але не після «you».",
+                            "is": "Форма «is» помилкова: is вживається з третьою особою однини (he, she, it) — не з «you»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "You {a1} right about that."
+            ]
+        },
+        {
+            "id": 8,
+            "uuid_segments": [
+                "a1",
+                "q08"
+            ],
+            "question": "I {a1} eight years old.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«I» вимагає єдиної форми am у теперішньому часі.",
+                        "Підмет речення — займенник `I`, перша особа однини; форма am не змінюється залежно від контексту."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am": "Форма «am» правильна: «I» завжди вживається з am у теперішньому часі — це базове правило англійської граматики.",
+                            "is": "Форма «is» помилкова: is вживається після he, she, it або однинного іменника, але не після «I».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множинними іменниками, а не з «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_am"
+            ],
+            "variants": [
+                "I {a1} eight years old."
+            ]
+        },
+        {
+            "id": 9,
+            "uuid_segments": [
+                "a1",
+                "q09"
+            ],
+            "question": "The cat {a1} under the chair.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Іменник «cat» в однині заміщується займенником it і вживається з формою is.",
+                        "«The cat» — однинний підмет третьої особи; to be приймає форму is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the cat» — однинний іменник, еквівалентний займеннику it, тому to be вживається у формі is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I».",
+                            "are": "Форма «are» помилкова: are вживається з множинними або «you/we/they» підметами, а «the cat» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "The cat {a1} under the chair."
+            ]
+        },
+        {
+            "id": 10,
+            "uuid_segments": [
+                "a1",
+                "q10"
+            ],
+            "question": "My parents {a1} at work.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Parents» — іменник у множині, і to be після нього приймає форму are.",
+                        "Слово «parents» позначає двох людей, тобто множину; форма дієслова відповідно — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «parents» — іменник у множині, тому to be вживається у формі are.",
+                            "is": "Форма «is» помилкова: is вживається з однинними підметами, а «parents» — це множина.",
+                            "am": "Форма «am» помилкова: am закріплена лише за першою особою однини (I)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "My parents {a1} at work."
+            ]
+        },
+        {
+            "id": 11,
+            "uuid_segments": [
+                "a1",
+                "q11"
+            ],
+            "question": "My name {a1} Anna.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«My name» — це однинний підмет, еквівалентний займеннику it, тому вживається форма is.",
+                        "Іменник «name» в однині вимагає форми is після to be."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «my name» — однинний іменник (третя особа), і to be після нього набуває форми is.",
+                            "am": "Форма «am» помилкова: am ніколи не вживається з іменниками — лише з займенником «I».",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами або «you/we/they», але «name» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "My name {a1} Anna."
+            ]
+        },
+        {
+            "id": 12,
+            "uuid_segments": [
+                "a1",
+                "q12"
+            ],
+            "question": "I {a1} from Ukraine.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «I» вимагає форми am — це правило без винятків.",
+                        "«I» — перша особа однини; лише форма am поєднується з цим займенником."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am": "Форма «am» правильна: «I» є займенником першої особи однини, і am — єдина форма to be, яка вживається з ним.",
+                            "is": "Форма «is» помилкова: is — форма третьої особи однини (he, she, it), яка не поєднується з «I».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або іменниками у множині."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_am"
+            ],
+            "variants": [
+                "I {a1} from Ukraine."
+            ]
+        },
+        {
+            "id": 13,
+            "uuid_segments": [
+                "a1",
+                "q13"
+            ],
+            "question": "The apple {a1} red and sweet.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The apple» — однинний іменник, тому to be вживається у формі is.",
+                        "Один предмет — «apple» — відповідає займеннику it і вимагає форми is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the apple» — однинний підмет, еквівалентний it, тому to be набуває форми is.",
+                            "am": "Форма «am» помилкова: am вживається виключно з «I» і не може стояти після іменника.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «the apple» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "The apple {a1} red and sweet."
+            ]
+        },
+        {
+            "id": 14,
+            "uuid_segments": [
+                "a1",
+                "q14"
+            ],
+            "question": "We {a1} brothers.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «we» вимагає форми are.",
+                        "«We» — перша особа множини; форма дієслова to be завжди are для цього займенника."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «we» є займенником першої особи множини, тому to be вживається у формі are.",
+                            "am": "Форма «am» помилкова: am закріплена лише за «I» (першою особою однини).",
+                            "is": "Форма «is» помилкова: is — форма третьої особи однини; «we» вимагає множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "We {a1} brothers."
+            ]
+        },
+        {
+            "id": 15,
+            "uuid_segments": [
+                "a1",
+                "q15"
+            ],
+            "question": "She {a1} a nurse at the hospital.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«She» — займенник третьої особи однини, що вимагає форми is.",
+                        "«She» відноситься до однієї жінки — третя особа однини; to be приймає форму is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «she» — займенник третьої особи однини жіночого роду, і to be вживається у формі is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множинними підметами."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "She {a1} a nurse at the hospital."
+            ]
+        },
+        {
+            "id": 16,
+            "uuid_segments": [
+                "a1",
+                "q16"
+            ],
+            "question": "You {a1} my favourite teacher.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Займенник «you» — і в однині, і в множині — завжди поєднується з are.",
+                        "Форма are є єдиним правильним варіантом для «you» у теперішньому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «you» у будь-якому числі вимагає форми are дієслова to be.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I».",
+                            "is": "Форма «is» помилкова: is — форма для третьої особи однини, але «you» — друга особа."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "You {a1} my favourite teacher."
+            ]
+        },
+        {
+            "id": 17,
+            "uuid_segments": [
+                "a1",
+                "q17"
+            ],
+            "question": "It {a1} sunny outside.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«It» вживається для опису погоди та вимагає форми is.",
+                        "Займенник «it» — третя особа однини середнього роду; to be після нього завжди is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «it» — займенник третьої особи однини, і to be набуває форми is для опису погоди чи стану.",
+                            "am": "Форма «am» помилкова: am вживається виключно з «I».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множинними підметами; «it» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "It {a1} sunny outside."
+            ]
+        },
+        {
+            "id": 18,
+            "uuid_segments": [
+                "a1",
+                "q18"
+            ],
+            "question": "The children {a1} very loud today.",
+            "source": "theory_page_1121",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Children» — нестандартна множина іменника «child»; множинні підмети вимагають форми are.",
+                        "Слово «children» позначає кількох дітей — це множина, і форма to be відповідно are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «children» — множина іменника «child», і to be вживається у формі are.",
+                            "is": "Форма «is» помилкова: is вживається з однинними підметами; «children» — це множина.",
+                            "am": "Форма «am» помилкова: am закріплена за займенником «I» і ніколи не вживається з іменниками."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "The children {a1} very loud today."
+            ]
+        },
+        {
+            "id": 19,
+            "uuid_segments": [
+                "a2",
+                "q01"
+            ],
+            "question": "I {a1} not sure what to do next.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У заперечній конструкції «I am not» форма am залишається незмінною.",
+                        "Підмет речення — «I»; форма to be для першої особи однини — am, незалежно від наявності заперечення."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "am": "Форма «am» правильна: у конструкції «I am not» to be завжди am, оскільки «I» — перша особа однини.",
+                            "is": "Форма «is» помилкова: is вживається після he, she, it або однинного іменника — але не після «I».",
+                            "are": "Форма «are» помилкова: are вживається після you, we, they або множинних іменників."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_am"
+            ],
+            "variants": [
+                "I {a1} not sure what to do next."
+            ]
+        },
+        {
+            "id": 20,
+            "uuid_segments": [
+                "a2",
+                "q02"
+            ],
+            "question": "She {a1} from Spain, not from Italy.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«She» — займенник третьої особи однини; форма to be після нього — is.",
+                        "Заперечне уточнення «not from Italy» не змінює підмет: «she» залишається третьою особою однини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «she» — третя особа однини, тому to be набуває форми is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I», а не після «she».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множинними підметами."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "She {a1} from Spain, not from Italy."
+            ]
+        },
+        {
+            "id": 21,
+            "uuid_segments": [
+                "a2",
+                "q03"
+            ],
+            "question": "{a1} you ready to start the lesson?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Am",
+                        "Is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У загальному питанні дієслово to be ставиться на початок речення перед підметом.",
+                        "Підмет цього питання — «you»; питальна форма to be для «you» — Are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are": "Форма «Are» правильна: загальне питання до «you» утворюється інверсією Are + you, оскільки «you» вимагає are.",
+                            "Am": "Форма «Am» помилкова: Am I...? — питання лише до першої особи однини (I), а не до «you».",
+                            "Is": "Форма «Is» помилкова: Is...? — питання до третьої особи однини (he, she, it)."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "{a1} you ready to start the lesson?"
+            ]
+        },
+        {
+            "id": 22,
+            "uuid_segments": [
+                "a2",
+                "q04"
+            ],
+            "question": "{a1} he at the office right now?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Am",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання до «he» починається з форми Is.",
+                        "«He» — третя особа однини; питальна форма to be для неї — Is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Is": "Форма «Is» правильна: питання до підмета «he» (третя особа однини) утворюється шляхом постановки Is на початок речення.",
+                            "Am": "Форма «Am» помилкова: Am I...? вживається тільки для питань, де підметом є «I».",
+                            "Are": "Форма «Are» помилкова: Are...? — питання до «you», «we» або «they», але не до «he»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "{a1} he at the office right now?"
+            ]
+        },
+        {
+            "id": 23,
+            "uuid_segments": [
+                "a2",
+                "q05"
+            ],
+            "question": "We {a1} not late, I promise.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«We» вимагає форми are — це правило не змінюється у заперечних реченнях.",
+                        "Заперечна конструкція «we are not» утворюється з are, яке відповідає займеннику «we»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «we» — перша особа множини, і to be завжди набуває форми are.",
+                            "am": "Форма «am» помилкова: am закріплена тільки за «I» (першою особою однини).",
+                            "is": "Форма «is» помилкова: is — форма третьої особи однини; «we» вимагає форми множини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "We {a1} not late, I promise."
+            ]
+        },
+        {
+            "id": 24,
+            "uuid_segments": [
+                "a2",
+                "q06"
+            ],
+            "question": "The weather {a1} really nice today.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The weather» — незлічуваний іменник, що вживається як підмет однини з формою is.",
+                        "Слово «weather» — незлічуваний іменник (без множини); to be після нього — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the weather» — незлічуваний іменник, що граматично відповідає однині; to be вживається у формі is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I».",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами, але «weather» — незлічуваний іменник однини."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_uncountable"
+            ],
+            "variants": [
+                "The weather {a1} really nice today."
+            ]
+        },
+        {
+            "id": 25,
+            "uuid_segments": [
+                "a2",
+                "q07"
+            ],
+            "question": "My parents {a1} both doctors.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Parents» — множина іменника «parent»; підмети у множині вимагають форми are.",
+                        "«Both doctors» — додатковий сигнал множини; підмет «my parents» також стоїть у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «parents» — іменник у множині, тому to be набуває форми are.",
+                            "is": "Форма «is» помилкова: is вживається лише з однинними підметами третьої особи.",
+                            "am": "Форма «am» помилкова: am закріплена тільки за займенником «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "My parents {a1} both doctors."
+            ]
+        },
+        {
+            "id": 26,
+            "uuid_segments": [
+                "a2",
+                "q08"
+            ],
+            "question": "{a1} I speaking too fast for you?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Am",
+                    "options": [
+                        "Am",
+                        "Is",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання до «I» (першої особи однини) починається з форми Am.",
+                        "«I» вимагає форми am, тому інвертована питальна форма — Am I."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Am": "Форма «Am» правильна: загальне питання до «I» утворюється з Am I...?, оскільки to be для першої особи однини — am.",
+                            "Is": "Форма «Is» помилкова: Is I...? — граматично неправильна комбінація; Is вживається перед he, she, it.",
+                            "Are": "Форма «Are» помилкова: Are I...? — граматично неправильна; Are вживається перед you, we, they."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "{a1} I speaking too fast for you?"
+            ]
+        },
+        {
+            "id": 27,
+            "uuid_segments": [
+                "a2",
+                "q09"
+            ],
+            "question": "The information {a1} correct.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Information» — незлічуваний іменник, що не має форми множини; to be після нього завжди is.",
+                        "Незлічувані іменники граматично поводяться як однина і вимагають форми is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «information» — незлічуваний іменник, що граматично є однинним; to be набуває форми is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I».",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами, але «information» — незлічувана однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_uncountable"
+            ],
+            "variants": [
+                "The information {a1} correct."
+            ]
+        },
+        {
+            "id": 28,
+            "uuid_segments": [
+                "a2",
+                "q10"
+            ],
+            "question": "These boots {a1} too big for me.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«These» — вказівний займенник множини; він вживається тільки з іменниками у множині.",
+                        "«Boots» — іменник у множині; to be після множинного підмета набуває форми are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «these boots» — підмет у множині, тому to be вживається у формі are.",
+                            "is": "Форма «is» помилкова: is — форма однини; «boots» — множина, а «these» підтверджує це.",
+                            "am": "Форма «am» помилкова: am закріплена тільки за займенником «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "These boots {a1} too big for me."
+            ]
+        },
+        {
+            "id": 29,
+            "uuid_segments": [
+                "a2",
+                "q11"
+            ],
+            "question": "Your plan {a1} really clever!",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Your plan» — однинний підмет; слово «plan» — злічуваний іменник в однині.",
+                        "Один іменник без ознак множини вимагає форми is дієслова to be."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «your plan» — однинний іменник, що граматично відповідає третій особі однини; to be набуває форми is.",
+                            "am": "Форма «am» помилкова: am вживається виключно після займенника «I».",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «plan» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "Your plan {a1} really clever!"
+            ]
+        },
+        {
+            "id": 30,
+            "uuid_segments": [
+                "a2",
+                "q12"
+            ],
+            "question": "{a1} they coming to the party tonight?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Загальне питання до «they» починається з форми Are.",
+                        "«They» — займенник третьої особи множини; to be для нього — are, тому питальна форма Are they...?"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Are": "Форма «Are» правильна: питання до «they» (множина) утворюється з Are they...?, оскільки to be для множини — are.",
+                            "Is": "Форма «Is» помилкова: Is they...? — граматично неправильно; Is вживається перед he, she, it.",
+                            "Am": "Форма «Am» помилкова: Am they...? — граматично неправильно; Am вживається тільки перед «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "{a1} they coming to the party tonight?"
+            ]
+        },
+        {
+            "id": 31,
+            "uuid_segments": [
+                "a2",
+                "q13"
+            ],
+            "question": "He {a1} not my teacher; he is my private tutor.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«He» — займенник третьої особи однини; to be після нього — is, навіть у заперечному реченні.",
+                        "Заперечна конструкція «he is not» містить форму is, яка відповідає займеннику «he»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «he» — третя особа однини, і to be набуває форми is, у тому числі в заперечних реченнях.",
+                            "am": "Форма «am» помилкова: am закріплена за «I»; вживати її після «he» — граматична помилка.",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множинними підметами."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_is"
+            ],
+            "variants": [
+                "He {a1} not my teacher; he is my private tutor."
+            ]
+        },
+        {
+            "id": 32,
+            "uuid_segments": [
+                "a2",
+                "q14"
+            ],
+            "question": "Mathematics {a1} my favourite subject at school.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Назви навчальних дисциплін, що закінчуються на -ics (mathematics, physics тощо), граматично є однинними і вживаються з is.",
+                        "«Mathematics» — назва дисципліни, яка, попри закінчення -s, є однинним підметом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «mathematics» — назва науки, що граматично поводиться як однина; to be після неї — is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I».",
+                            "are": "Форма «are» помилкова: закінчення -s у «mathematics» не робить слово множиною — це назва дисципліни в однині."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_uncountable"
+            ],
+            "variants": [
+                "Mathematics {a1} my favourite subject at school."
+            ]
+        },
+        {
+            "id": 33,
+            "uuid_segments": [
+                "a2",
+                "q15"
+            ],
+            "question": "The traffic {a1} terrible this morning.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Traffic» — незлічуваний іменник без форми множини; to be після нього — is.",
+                        "Незлічувані іменники, такі як «traffic», граматично функціонують як однина."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «traffic» — незлічуваний іменник, що є однинним підметом; to be набуває форми is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I».",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами, але «traffic» — незлічуваний іменник у граматичній однині."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_uncountable"
+            ],
+            "variants": [
+                "The traffic {a1} terrible this morning."
+            ]
+        },
+        {
+            "id": 34,
+            "uuid_segments": [
+                "a2",
+                "q16"
+            ],
+            "question": "We {a1} really excited about the upcoming trip.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«We» — перша особа множини; to be після нього — are.",
+                        "Займенник «we» завжди поєднується з формою are у теперішньому часі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «we» — займенник першої особи множини, і to be вживається у формі are.",
+                            "is": "Форма «is» помилкова: is — форма однини третьої особи; «we» вимагає форми множини.",
+                            "am": "Форма «am» помилкова: am закріплена тільки за «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_are"
+            ],
+            "variants": [
+                "We {a1} really excited about the upcoming trip."
+            ]
+        },
+        {
+            "id": 35,
+            "uuid_segments": [
+                "a2",
+                "q17"
+            ],
+            "question": "{a1} the museum open on Sundays?",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Am",
+                        "Are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Питання про однинний підмет «the museum» утворюється з Is.",
+                        "«The museum» — однинний іменник (третя особа однини); питальна форма to be — Is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "Is": "Форма «Is» правильна: «the museum» — однинний підмет третьої особи; питання утворюється з Is the museum...?",
+                            "Am": "Форма «Am» помилкова: Am I...? вживається тільки для питань про «I».",
+                            "Are": "Форма «Are» помилкова: Are...? — питання до «you», «we», «they» або множинних підметів; «the museum» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "{a1} the museum open on Sundays?"
+            ]
+        },
+        {
+            "id": 36,
+            "uuid_segments": [
+                "a2",
+                "q18"
+            ],
+            "question": "There {a1} a problem with the internet connection.",
+            "source": "theory_page_1121",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції «there is» йдеться про один предмет в однині; is вживається з однинним іменником.",
+                        "«A problem» — однинний іменник (indefinite article «a»); конструкція there + is вживається саме з однинним підметом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «there is a problem» — стандартна конструкція для опису одного предмета; is відповідає однинному «a problem».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I» і не поєднується з конструкцією there.",
+                            "are": "Форма «are» помилкова: «there are» вживається для множини, але тут «a problem» — однина."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_expletive"
+            ],
+            "variants": [
+                "There {a1} a problem with the internet connection."
+            ]
+        },
+        {
+            "id": 37,
+            "uuid_segments": [
+                "b1",
+                "q01"
+            ],
+            "question": "There {a1} a lot of people waiting outside the venue.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції «there are» йдеться про множину; «a lot of people» — це множинний підмет.",
+                        "«People» — множина іменника «person»; конструкція there + are вживається з множинними підметами."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «a lot of people» — множинний підмет; конструкція «there are» вживається саме для позначення множини.",
+                            "is": "Форма «is» помилкова: «there is» вживається з однинним підметом; «a lot of people» — це множина.",
+                            "am": "Форма «am» помилкова: am не вживається в конструкції there + be."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_expletive"
+            ],
+            "variants": [
+                "There {a1} a lot of people waiting outside the venue."
+            ]
+        },
+        {
+            "id": 38,
+            "uuid_segments": [
+                "b1",
+                "q02"
+            ],
+            "question": "The committee {a1} meeting again this afternoon.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Збірні іменники на кшталт «committee», «team», «jury» зазвичай вживаються як одиниця з формою is.",
+                        "«The committee» розглядається як єдина установа, що діє злагоджено; to be у цьому значенні — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «committee» — збірний іменник; коли акцент робиться на групі як єдиному цілому, to be вживається у формі is.",
+                            "are": "Форма «are» можлива у британському варіанті, але тут committee виступає як єдиний орган, тому is є більш точним.",
+                            "am": "Форма «am» помилкова: am закріплена за займенником «I» і не вживається зі збірними іменниками."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The committee {a1} meeting again this afternoon."
+            ]
+        },
+        {
+            "id": 39,
+            "uuid_segments": [
+                "b1",
+                "q03"
+            ],
+            "question": "Physics {a1} often considered one of the most challenging school subjects.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Назви наукових дисциплін, що закінчуються на -ics (physics, economics, linguistics тощо), граматично є однинними.",
+                        "«Physics» — незважаючи на закінчення -s, це одна дисципліна, яка граматично є однинною."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «physics» — назва науки, яка, попри закінчення -s, є граматичною одниною і вимагає форми is.",
+                            "are": "Форма «are» помилкова: закінчення -s у «physics» не робить слово множиною — це назва дисципліни.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_uncountable"
+            ],
+            "variants": [
+                "Physics {a1} often considered one of the most challenging school subjects."
+            ]
+        },
+        {
+            "id": 40,
+            "uuid_segments": [
+                "b1",
+                "q04"
+            ],
+            "question": "The scissors {a1} on the kitchen counter, next to the knife.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Scissors» — іменник, що вживається лише у формі множини (plural-only noun); to be після нього — are.",
+                        "«Scissors» завжди стоїть у формі множини, навіть якщо мова йде про один предмет."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «scissors» — іменник pluralia tantum (тільки множина); to be після нього завжди are.",
+                            "is": "Форма «is» помилкова: «scissors» завжди вживається у множині; is — форма однини.",
+                            "am": "Форма «am» помилкова: am закріплена за «I» і не вживається з іменниками."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The scissors {a1} on the kitchen counter, next to the knife."
+            ]
+        },
+        {
+            "id": 41,
+            "uuid_segments": [
+                "b1",
+                "q05"
+            ],
+            "question": "Neither of the candidates {a1} fully qualified for the role.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Neither of the...» — займенниковий підмет, що граматично є однинним і вимагає is.",
+                        "«Neither» означає «жоден із двох» і граматично поводиться як однина: to be після нього — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «neither of...» — займенниковий підмет, що граматично є однинним; to be набуває форми is.",
+                            "are": "Форма «are» помилкова: незважаючи на наявність «of the candidates» (множина), граматичним ядром підмета є «neither» (однина).",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Neither of the candidates {a1} fully qualified for the role."
+            ]
+        },
+        {
+            "id": 42,
+            "uuid_segments": [
+                "b1",
+                "q06"
+            ],
+            "question": "The results of the final test {a1} available on the school website.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Узгодження дієслова визначається головним іменником підмета; тут це «results» (множина).",
+                        "Попри прийменникову групу «of the final test», граматичне ядро підмета — «the results» — стоїть у множині."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: ядерний іменник підмета «results» стоїть у множині, тому to be набуває форми are.",
+                            "is": "Форма «is» помилкова: is відповідало б однинному ядру, але «results» — множина; прийменникова група «of the test» не змінює узгодження.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The results of the final test {a1} available on the school website."
+            ]
+        },
+        {
+            "id": 43,
+            "uuid_segments": [
+                "b1",
+                "q07"
+            ],
+            "question": "The news {a1} not encouraging today.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«News» — незлічуваний іменник, що завжди вживається як граматична однина, незважаючи на закінчення -s.",
+                        "«The news» вимагає однинного дієслова: to be у формі is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «news» — незлічуваний іменник, який граматично функціонує як однина; to be вживається у формі is.",
+                            "are": "Форма «are» помилкова: закінчення -s у «news» не робить його множиною — це незлічуваний іменник у граматичній однині.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_uncountable"
+            ],
+            "variants": [
+                "The news {a1} not encouraging today."
+            ]
+        },
+        {
+            "id": 44,
+            "uuid_segments": [
+                "b1",
+                "q08"
+            ],
+            "question": "There {a1} many reasons for the unexpected delay.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції there + be форма дієслова узгоджується з іменником, що стоїть після неї.",
+                        "«Many reasons» — множина; конструкція there + are вживається з множинними іменниками."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «there are many reasons» — конструкція існування для множини; «reasons» (множина) визначає форму are.",
+                            "is": "Форма «is» помилкова: «there is» вживається з однинними підметами; «many reasons» — множина.",
+                            "am": "Форма «am» помилкова: am не вживається в конструкції there + be."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_expletive"
+            ],
+            "variants": [
+                "There {a1} many reasons for the unexpected delay."
+            ]
+        },
+        {
+            "id": 45,
+            "uuid_segments": [
+                "b1",
+                "q09"
+            ],
+            "question": "Everyone {a1} welcome at the community event.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Everyone», «someone», «anyone», «no one» — займенники на -one/-body; граматично вони є однинними і вживаються з is.",
+                        "«Everyone» = «кожна людина окремо»; це займенник-однина, тому to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «everyone» — займенник, що граматично є однинним; to be набуває форми is.",
+                            "are": "Форма «are» помилкова: незважаючи на множинне значення (усі люди), «everyone» граматично є однинним займенником.",
+                            "am": "Форма «am» помилкова: am закріплена за займенником «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Everyone {a1} welcome at the community event."
+            ]
+        },
+        {
+            "id": 46,
+            "uuid_segments": [
+                "b1",
+                "q10"
+            ],
+            "question": "The glasses {a1} on the table over there.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Glasses» (окуляри) — іменник, що вживається тільки у формі множини; to be після нього — are.",
+                        "«Glasses» як предмет, що складається з двох лінз, завжди стоїть у множині, навіть якщо мова про один предмет."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «glasses» (окуляри) — pluralia tantum; to be після нього завжди are.",
+                            "is": "Форма «is» помилкова: «glasses» у значенні «окуляри» ніколи не вживається в однині — це виключно форма множини.",
+                            "am": "Форма «am» помилкова: am закріплена за «I» і не поєднується з іменниками."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The glasses {a1} on the table over there."
+            ]
+        },
+        {
+            "id": 47,
+            "uuid_segments": [
+                "b1",
+                "q11"
+            ],
+            "question": "Each of the students {a1} expected to bring a notebook to class.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Each of...» — займенниковий підмет однини; to be після нього — is.",
+                        "«Each» завжди означає кожного окремо, тому граматично є однинним."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «each of the students» — підмет, ядром якого є займенник «each» (однина); to be набуває форми is.",
+                            "are": "Форма «are» помилкова: незважаючи на наявність «of the students» (множина), ядровий займенник «each» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Each of the students {a1} expected to bring a notebook to class."
+            ]
+        },
+        {
+            "id": 48,
+            "uuid_segments": [
+                "b1",
+                "q12"
+            ],
+            "question": "What {a1} the current status of the project?",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У питанні «What is...?» форма is вживається, коли підмет — однинний іменник, такий як «status».",
+                        "«The current status» — однинний підмет; питальна форма to be для однини — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the current status» — однинний підмет; «What is the status?» — стандартне питання про одну характеристику.",
+                            "are": "Форма «are» помилкова: «What are...?» вживається з множинними підметами; «status» — однина.",
+                            "am": "Форма «am» помилкова: am у питаннях вживається тільки з «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "What {a1} the current status of the project?"
+            ]
+        },
+        {
+            "id": 49,
+            "uuid_segments": [
+                "b1",
+                "q13"
+            ],
+            "question": "The police {a1} investigating the theft at the local bank.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Police» — збірний іменник, що в англійській завжди вживається з формою множини are.",
+                        "На відміну від інших збірних іменників, «police» граматично завжди множина і завжди вживається з are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «police» — збірний іменник, який в англійській мові завжди вимагає множинного дієслова are.",
+                            "is": "Форма «is» помилкова: «police» є винятком серед збірних іменників — воно завжди вживається з are, а не з is.",
+                            "am": "Форма «am» помилкова: am закріплена за «I» і не вживається зі збірними іменниками."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The police {a1} investigating the theft at the local bank."
+            ]
+        },
+        {
+            "id": 50,
+            "uuid_segments": [
+                "b1",
+                "q14"
+            ],
+            "question": "Neither the manager nor the staff {a1} aware of the sudden policy change.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції «neither...nor» дієслово узгоджується з підметом, що стоїть ближче до нього (правило ближнього погодження).",
+                        "Ближчим підметом є «the staff» — збірний іменник, що тут означає групу людей; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: за правилом ближнього погодження дієслово узгоджується з «staff» — ближчим підметом, який означає групу людей.",
+                            "is": "Форма «is» помилкова: is узгоджувалося б з «the manager» (однина), але в цьому реченні ближчим є «the staff».",
+                            "am": "Форма «am» помилкова: am закріплена за «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Neither the manager nor the staff {a1} aware of the sudden policy change."
+            ]
+        },
+        {
+            "id": 51,
+            "uuid_segments": [
+                "b1",
+                "q15"
+            ],
+            "question": "My family {a1} very supportive of my decision to study abroad.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Family» — збірний іменник; коли вся родина діє як одне ціле, to be — is.",
+                        "Якщо «family» розглядається як єдина одиниця (а не окремі люди), вживається форма is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «my family» — збірний іменник у значенні єдиного цілого; to be набуває форми is.",
+                            "are": "Форма «are» можлива у контексті, де акцент робиться на окремих членах родини, але тут родина виступає як єдина підтримуюча одиниця.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "My family {a1} very supportive of my decision to study abroad."
+            ]
+        },
+        {
+            "id": 52,
+            "uuid_segments": [
+                "b1",
+                "q16"
+            ],
+            "question": "Why {a1} he always so nervous before his presentations?",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У спеціальному питанні до «he» (третя особа однини) вживається is.",
+                        "Питальне слово «Why» не змінює форму дієслова: узгодження залежить від підмета «he»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: у питанні «Why is he...?» to be узгоджується з «he» (третя особа однини) і набуває форми is.",
+                            "are": "Форма «are» помилкова: «Why are he...?» — граматично неправильно; are вживається з «you», «we», «they».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "Why {a1} he always so nervous before his presentations?"
+            ]
+        },
+        {
+            "id": 53,
+            "uuid_segments": [
+                "b1",
+                "q17"
+            ],
+            "question": "The trousers {a1} hanging on the door of the wardrobe.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Trousers» — іменник pluralia tantum (тільки множина); to be після нього — are.",
+                        "«Trousers», «jeans», «shorts» — завжди у формі множини, навіть якщо мова про один предмет."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «trousers» — pluralia tantum; to be після таких іменників завжди are.",
+                            "is": "Форма «is» помилкова: «trousers» у значенні одного предмета одягу все одно граматично є множиною.",
+                            "am": "Форма «am» помилкова: am закріплена за «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The trousers {a1} hanging on the door of the wardrobe."
+            ]
+        },
+        {
+            "id": 54,
+            "uuid_segments": [
+                "b1",
+                "q18"
+            ],
+            "question": "Not all of the evidence {a1} reliable in cases of this type.",
+            "source": "theory_page_1121",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Коли «evidence» (незлічуваний іменник) є ядром підмета, to be набуває форми is.",
+                        "«Evidence» — незлічуваний іменник; «not all of the evidence» граматично є однинним підметом."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «evidence» — незлічуваний іменник, що граматично є однинним; to be набуває форми is навіть у конструкції «not all of the...».",
+                            "are": "Форма «are» помилкова: «are» вживалося б, якби ядром підмета був злічуваний іменник у множині; «evidence» — незлічувана однина.",
+                            "am": "Форма «am» помилкова: am закріплена за «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Not all of the evidence {a1} reliable in cases of this type."
+            ]
+        },
+        {
+            "id": 55,
+            "uuid_segments": [
+                "b2",
+                "q01"
+            ],
+            "question": "The number of applicants {a1} rising significantly every year.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The number of...» — підмет, ядром якого є «number» (однина); to be — is.",
+                        "Конструкція «the number of + plural noun» вимагає однинного дієслова, оскільки ядро підмета — «number»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the number of applicants» — підмет із ядром «number» (однина); to be набуває форми is.",
+                            "are": "Форма «are» помилкова: are відповідало б конструкції «a number of applicants»; «the number» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The number of applicants {a1} rising significantly every year."
+            ]
+        },
+        {
+            "id": 56,
+            "uuid_segments": [
+                "b2",
+                "q02"
+            ],
+            "question": "A number of concerns {a1} raised at the board meeting.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«A number of...» — підмет із значенням множини; to be — are.",
+                        "На відміну від «the number of», конструкція «a number of» означає «кілька» і вимагає форми множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «a number of concerns» = «кілька проблем»; «a number of» функціонує як множинний підмет і вимагає are.",
+                            "is": "Форма «is» помилкова: is відповідало б «the number of concerns»; конструкція «a number of» вимагає are.",
+                            "am": "Форма «am» помилкова: am закріплена за «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "A number of concerns {a1} raised at the board meeting."
+            ]
+        },
+        {
+            "id": 57,
+            "uuid_segments": [
+                "b2",
+                "q03"
+            ],
+            "question": "The United States {a1} a founding member of the United Nations.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Назви країн, що мають форму множини (the United States, the Netherlands), граматично вживаються як однина.",
+                        "«The United States» — власна назва, що виступає як єдина країна; to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the United States», попри форму множини, є назвою однієї держави і вимагає однинного дієслова is.",
+                            "are": "Форма «are» помилкова: незважаючи на «States» у множині, «the United States» — єдина країна; to be — is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The United States {a1} a founding member of the United Nations."
+            ]
+        },
+        {
+            "id": 58,
+            "uuid_segments": [
+                "b2",
+                "q04"
+            ],
+            "question": "The media {a1} often biased in its reporting of political events.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The media» у значенні медіаіндустрії як єдиного цілого вживається з однинним дієсловом is.",
+                        "Коли «media» розглядається як єдина галузь, to be — is; займенник «its» у реченні підтверджує однину."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the media» як збірний іменник у значенні єдиної галузі вживається з is; «its» підтверджує однину.",
+                            "are": "Форма «are» можлива, коли «media» розглядається як окремі видання, але «its reporting» вказує на однинне трактування.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The media {a1} often biased in its reporting of political events."
+            ]
+        },
+        {
+            "id": 59,
+            "uuid_segments": [
+                "b2",
+                "q05"
+            ],
+            "question": "Either the director or the producers {a1} responsible for the final cut.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції «either...or» дієслово узгоджується з ближчим підметом (правило ближнього погодження).",
+                        "Ближчим підметом є «the producers» — іменник у множині; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: за правилом ближнього погодження to be узгоджується з «the producers» (множина), яке стоїть ближче до дієслова.",
+                            "is": "Форма «is» помилкова: is узгоджувалося б з «the director» (однина), але ближчим підметом є «the producers» (множина).",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Either the director or the producers {a1} responsible for the final cut."
+            ]
+        },
+        {
+            "id": 60,
+            "uuid_segments": [
+                "b2",
+                "q06"
+            ],
+            "question": "The acoustics in this concert hall {a1} outstanding.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Acoustics» у значенні «акустичні властивості приміщення» вживається як іменник множини з are.",
+                        "«Acoustics» як властивості (а не наука) завжди стоїть у формі множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «acoustics» у значенні звукових якостей простору — pluralia tantum; to be після нього — are.",
+                            "is": "Форма «is» помилкова: is вживається, коли «acoustics» означає «акустика» як наукову дисципліну; тут мова про якість звуку в приміщенні.",
+                            "am": "Форма «am» помилкова: am закріплена за «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The acoustics in this concert hall {a1} outstanding."
+            ]
+        },
+        {
+            "id": 61,
+            "uuid_segments": [
+                "b2",
+                "q07"
+            ],
+            "question": "All the evidence {a1} pointing toward one key suspect.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Evidence» — незлічуваний іменник; «all the evidence» граматично є однинним підметом і вимагає is.",
+                        "Навіть зі словом «all», ядро підмета «evidence» залишається незлічуваним і вимагає форми is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «evidence» — незлічуваний іменник; «all the evidence» — однинний підмет; to be — is.",
+                            "are": "Форма «are» помилкова: are вживалося б, якби ядром підмета був злічуваний іменник у множині; «evidence» — незлічуваний.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "All the evidence {a1} pointing toward one key suspect."
+            ]
+        },
+        {
+            "id": 62,
+            "uuid_segments": [
+                "b2",
+                "q08"
+            ],
+            "question": "The staff at the clinic {a1} fully trained and dedicated.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The staff» у значенні окремих працівників вживається з формою are.",
+                        "Коли «staff» позначає окремих людей-членів колективу, to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «the staff» у значенні «окремі співробітники» — збірний іменник у значенні множини; to be — are.",
+                            "is": "Форма «is» вживалася б, якщо «staff» розглядається як єдиний орган; тут акцент на кваліфікації кожного окремого члена.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The staff at the clinic {a1} fully trained and dedicated."
+            ]
+        },
+        {
+            "id": 63,
+            "uuid_segments": [
+                "b2",
+                "q09"
+            ],
+            "question": "The cattle {a1} grazing peacefully in the open meadow.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Cattle» — збірний іменник, що завжди вживається у формі множини; to be — are.",
+                        "«Cattle» не має однинної форми і завжди поєднується з формою множини."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «cattle» — pluralia tantum; to be після нього завжди are.",
+                            "is": "Форма «is» помилкова: «cattle» не вживається як однина — це завжди форма множини.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The cattle {a1} grazing peacefully in the open meadow."
+            ]
+        },
+        {
+            "id": 64,
+            "uuid_segments": [
+                "b2",
+                "q10"
+            ],
+            "question": "Both the cause and the effect {a1} well documented in the report.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Both...and» поєднує два підмети й утворює складений підмет множини; to be — are.",
+                        "Конструкція «both X and Y» завжди утворює множинний підмет, незалежно від числа кожного з X та Y."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «both the cause and the effect» — складений підмет з двох частин; to be набуває форми are.",
+                            "is": "Форма «is» помилкова: is вживалося б для одного підмета; «both...and» поєднує два підмети й вимагає are.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Both the cause and the effect {a1} well documented in the report."
+            ]
+        },
+        {
+            "id": 65,
+            "uuid_segments": [
+                "b2",
+                "q11"
+            ],
+            "question": "None of the proposed solutions {a1} satisfactory in the long run.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«None of...» у формальному стилі вживається з однинним дієсловом is.",
+                        "У формальному академічному або діловому тексті «none» = «not one» і вимагає форми is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: у формальному мовленні «none of» трактується як «not one of» і вимагає однинного дієслова is.",
+                            "are": "Форма «are» поширена в розмовному мовленні, але у формальному контексті перевагу надають is.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "None of the proposed solutions {a1} satisfactory in the long run."
+            ]
+        },
+        {
+            "id": 66,
+            "uuid_segments": [
+                "b2",
+                "q12"
+            ],
+            "question": "The whereabouts of the missing documents {a1} still unknown.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Whereabouts» — іменник, що завжди вживається у формі множини; to be — are.",
+                        "«Whereabouts» закінчується на -s і граматично є множиною, навіть якщо мова про одне місцезнаходження."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «whereabouts» — pluralia tantum; to be після нього завжди are.",
+                            "is": "Форма «is» помилкова: «whereabouts» граматично є множиною, навіть якщо позначає одне місце.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The whereabouts of the missing documents {a1} still unknown."
+            ]
+        },
+        {
+            "id": 67,
+            "uuid_segments": [
+                "b2",
+                "q13"
+            ],
+            "question": "The audience {a1} completely absorbed in the performance.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The audience» як єдине ціле (натовп, що реагує злагоджено) вживається з is.",
+                        "Коли «audience» виступає як єдиний організм — наприклад, реагує однаково — to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the audience» розглядається як єдиний організм, який реагує злагоджено; to be — is.",
+                            "are": "Форма «are» можлива, коли акцентуються дії окремих глядачів, але тут аудиторія описується як ціле.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The audience {a1} completely absorbed in the performance."
+            ]
+        },
+        {
+            "id": 68,
+            "uuid_segments": [
+                "b2",
+                "q14"
+            ],
+            "question": "Economics {a1} taught as a compulsory subject at this university.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Economics» — назва академічної дисципліни; назви наук на -ics граматично є однинними.",
+                        "«Economics», як «physics», «linguistics», «ethics», поводиться як однина; to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «economics» — назва науки на -ics, яка граматично є однинною і вимагає is.",
+                            "are": "Форма «are» помилкова: закінчення -s у «economics» не вказує на множину — це назва дисципліни.",
+                            "am": "Форма «am» помилкова: am вживається тільки після займенника «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_uncountable"
+            ],
+            "variants": [
+                "Economics {a1} taught as a compulsory subject at this university."
+            ]
+        },
+        {
+            "id": 69,
+            "uuid_segments": [
+                "b2",
+                "q15"
+            ],
+            "question": "The majority of the work {a1} already finished ahead of schedule.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The majority of» + незлічуваний іменник = однинний підмет; to be — is.",
+                        "Ядром підмета є «the majority» (однина) + «work» (незлічуваний); обидва сигналізують про is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the majority of the work» — підмет, де «work» — незлічуваний іменник; to be — is.",
+                            "are": "Форма «are» вживалася б, якби після «the majority of» стояв злічуваний іменник у множині.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The majority of the work {a1} already finished ahead of schedule."
+            ]
+        },
+        {
+            "id": 70,
+            "uuid_segments": [
+                "b2",
+                "q16"
+            ],
+            "question": "Neither the CEO nor the board members {a1} informed of the last-minute change.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції «neither...nor» дієслово узгоджується з ближчим підметом.",
+                        "Ближчий підмет — «the board members» (множина); to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: ближчим підметом є «the board members» (множина); за правилом ближнього погодження to be — are.",
+                            "is": "Форма «is» помилкова: is узгоджувалося б з «the CEO» (однина), але ближчим підметом є «board members» (множина).",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Neither the CEO nor the board members {a1} informed of the last-minute change."
+            ]
+        },
+        {
+            "id": 71,
+            "uuid_segments": [
+                "b2",
+                "q17"
+            ],
+            "question": "The ethics of this decision {a1} being questioned by leading professionals.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Ethics» у значенні «моральні принципи» (а не наука) вживається як іменник множини з are.",
+                        "Коли «ethics» = «моральні аспекти конкретної ситуації», воно поводиться як множина."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «ethics» у значенні «моральні засади» — іменник множини; to be — are.",
+                            "is": "Форма «is» вживалася б, якби «ethics» означало «етика» як наукову дисципліну; тут мова про конкретні моральні аспекти.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The ethics of this decision {a1} being questioned by leading professionals."
+            ]
+        },
+        {
+            "id": 72,
+            "uuid_segments": [
+                "b2",
+                "q18"
+            ],
+            "question": "The crowd {a1} cheering loudly as the athletes walk out onto the field.",
+            "source": "theory_page_1121",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The crowd» як єдина маса, що реагує злагоджено, вживається з однинним is.",
+                        "Коли натовп діє як єдине ціле (кричить разом), «the crowd» є однинним збірним іменником."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the crowd» виступає як єдина маса, що реагує злагоджено; to be — is.",
+                            "are": "Форма «are» можлива в британському варіанті або коли акцентуються дії окремих людей, але тут натовп діє як одне ціле.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The crowd {a1} cheering loudly as the athletes walk out onto the field."
+            ]
+        },
+        {
+            "id": 73,
+            "uuid_segments": [
+                "c1",
+                "q01"
+            ],
+            "question": "The criteria for admission to the programme {a1} clearly outlined in the prospectus.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Criteria» — латинська множина іменника «criterion»; to be після неї — are.",
+                        "«Criteria» є множиною і не може вживатися з is — однина — «criterion»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «criteria» — латинська множина від «criterion»; to be після неї — are.",
+                            "is": "Форма «is» помилкова: «criteria» — множина; is вживалося б тільки після однинного «criterion».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The criteria for admission to the programme {a1} clearly outlined in the prospectus."
+            ]
+        },
+        {
+            "id": 74,
+            "uuid_segments": [
+                "c1",
+                "q02"
+            ],
+            "question": "The phenomenon of rising social inequality {a1} well documented in recent academic literature.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядром підмета є «the phenomenon» — однинний іменник; прийменникова група не змінює узгодження.",
+                        "«The phenomenon» — однина; to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: ядро підмета «the phenomenon» — однинний іменник; to be — is, незалежно від прийменникового розширення.",
+                            "are": "Форма «are» помилкова: are відповідало б «the phenomena» (множині); «phenomenon» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The phenomenon of rising social inequality {a1} well documented in recent academic literature."
+            ]
+        },
+        {
+            "id": 75,
+            "uuid_segments": [
+                "c1",
+                "q03"
+            ],
+            "question": "It {a1} widely acknowledged that transparency is the cornerstone of good governance.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "У конструкції «It is widely acknowledged that...» підмет — займенник «it» (однина); to be — is.",
+                        "«It» — формальний підмет однини у безособових конструкціях; to be після нього — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «it» — займенник третьої особи однини; to be набуває форми is у безособових конструкціях «It is + adj + that».",
+                            "are": "Форма «are» помилкова: are вживається з «you», «we», «they» або множинними підметами; «it» — однина.",
+                            "am": "Форма «am» помилкова: am закріплена за «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "It {a1} widely acknowledged that transparency is the cornerstone of good governance."
+            ]
+        },
+        {
+            "id": 76,
+            "uuid_segments": [
+                "c1",
+                "q04"
+            ],
+            "question": "The species listed in the annexe {a1} all endangered due to habitat destruction.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Species» може бути і однинною, і множинною формою; тут «all» і контекст сигналізують про множину.",
+                        "Контекст «all endangered» і «the species listed» (кілька видів) вказують на множину; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «the species» тут вживається у множинному значенні (кілька видів), підтверджуючи це словом «all»; to be — are.",
+                            "is": "Форма «is» підходила б для однини — «the species is...» (один вид), але «all» вказує на множину.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The species listed in the annexe {a1} all endangered due to habitat destruction."
+            ]
+        },
+        {
+            "id": 77,
+            "uuid_segments": [
+                "c1",
+                "q05"
+            ],
+            "question": "The appendices to the original report {a1} available upon request from the editor.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Appendices» — латинська множина від «appendix»; to be після неї — are.",
+                        "«Appendices» — множина (один — appendix, кілька — appendices); to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «appendices» — множина від «appendix»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «the appendix».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The appendices to the original report {a1} available upon request from the editor."
+            ]
+        },
+        {
+            "id": 78,
+            "uuid_segments": [
+                "c1",
+                "q06"
+            ],
+            "question": "The data gathered from the three independent surveys {a1} consistent with the working hypothesis.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Data» — латинська множина від «datum»; у формальному науковому тексті to be після «data» — are.",
+                        "У наукових та академічних текстах «data» вживається як множина: to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «data» — латинська множина від «datum»; у формальному академічному контексті to be — are.",
+                            "is": "Форма «is» поширена в розмовному мовленні (де «data» трактується як незлічуваний іменник), але в академічному тексті are є нормативним.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The data gathered from the three independent surveys {a1} consistent with the working hypothesis."
+            ]
+        },
+        {
+            "id": 79,
+            "uuid_segments": [
+                "c1",
+                "q07"
+            ],
+            "question": "The onus {a1} squarely on the management to provide a safe working environment.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The onus» — однинний іменник (від латинського «onus»); to be — is.",
+                        "«Onus» не має стандартної множини у сучасному вжитку; вживається як однина."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the onus» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «onus» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The onus {a1} squarely on the management to provide a safe working environment."
+            ]
+        },
+        {
+            "id": 80,
+            "uuid_segments": [
+                "c1",
+                "q08"
+            ],
+            "question": "The premises of the philosophical argument {a1} logically sound and well structured.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Premises» у логічному значенні — множина від «premise»; to be — are.",
+                        "«The premises» як логічні твердження (а не будівля) стоять у множині; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «premises» у значенні «логічні передумови» — множина від «premise»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «the premise».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The premises of the philosophical argument {a1} logically sound and well structured."
+            ]
+        },
+        {
+            "id": 81,
+            "uuid_segments": [
+                "c1",
+                "q09"
+            ],
+            "question": "None of the hypotheses put forward in the study {a1} fully supported by the available evidence.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«None of the hypotheses» — підмет із множинним іменником «hypotheses»; у сучасному академічному мовленні are є природним вибором.",
+                        "Коли «none of» передує явному іменнику множини («hypotheses»), are є нормативним у більшості сучасних контекстів."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «none of the hypotheses» — підмет із «hypotheses» (множина); у сучасному академічному мовленні are є нормативним після «none of + plural noun».",
+                            "is": "Форма «is» допустима у строго формальному стилі (none = not one), але менш природна після явного множинного іменника.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "None of the hypotheses put forward in the study {a1} fully supported by the available evidence."
+            ]
+        },
+        {
+            "id": 82,
+            "uuid_segments": [
+                "c1",
+                "q10"
+            ],
+            "question": "The proceeds from the annual charity auction {a1} donated to a local children's hospital.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Proceeds» — іменник pluralia tantum, що вживається тільки у формі множини; to be — are.",
+                        "«The proceeds» завжди стоїть у множині; однинної форми «proceed» у значенні «виручка» не існує."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «proceeds» — pluralia tantum (кошти від заходу); to be — are.",
+                            "is": "Форма «is» помилкова: «proceeds» не вживається в однині у цьому значенні.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The proceeds from the annual charity auction {a1} donated to a local children's hospital."
+            ]
+        },
+        {
+            "id": 83,
+            "uuid_segments": [
+                "c1",
+                "q11"
+            ],
+            "question": "The odds of a successful outcome {a1} better than initially anticipated.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Odds» — іменник pluralia tantum у значенні «шанси»; to be після нього — are.",
+                        "«The odds» завжди вживається у множині; однинна форма «odd» не вживається у цьому значенні."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «odds» у значенні «шанси» — pluralia tantum; to be — are.",
+                            "is": "Форма «is» помилкова: «odds» не вживається з is у значенні «шанси».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_plural_only"
+            ],
+            "variants": [
+                "The odds of a successful outcome {a1} better than initially anticipated."
+            ]
+        },
+        {
+            "id": 84,
+            "uuid_segments": [
+                "c1",
+                "q12"
+            ],
+            "question": "The corpus of contemporary literature on this subject {a1} vast and constantly growing.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The corpus» — однинний іменник (від латинського «corpus», тіло знань); to be — is.",
+                        "Ядро підмета — «corpus» (однина); прийменникова група не змінює узгодження."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the corpus» — однинний іменник, що позначає сукупність текстів як єдине ціле; to be — is.",
+                            "are": "Форма «are» помилкова: are вживалося б з «corpora» (латинська множина від corpus).",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The corpus of contemporary literature on this subject {a1} vast and constantly growing."
+            ]
+        },
+        {
+            "id": 85,
+            "uuid_segments": [
+                "c1",
+                "q13"
+            ],
+            "question": "The strata of volcanic rock visible in the cliff face {a1} millions of years old.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Strata» — латинська множина від «stratum»; to be після неї — are.",
+                        "«Strata» — завжди множина; однина — «stratum»; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «strata» — латинська множина від «stratum»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «the stratum».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The strata of volcanic rock visible in the cliff face {a1} millions of years old."
+            ]
+        },
+        {
+            "id": 86,
+            "uuid_segments": [
+                "c1",
+                "q14"
+            ],
+            "question": "Each phenomenon described in the study {a1} supported by robust empirical evidence.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Each phenomenon» — підмет, ядром якого є «each» (займенник однини); to be — is.",
+                        "«Each» означає «кожне окремо» і вимагає однинного дієслова is, навіть якщо описується кілька явищ."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «each» граматично є однинним займенником; «each phenomenon» — однинний підмет; to be — is.",
+                            "are": "Форма «are» помилкова: are вживалося б, якби підметом було «all phenomena» або «the phenomena».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "Each phenomenon described in the study {a1} supported by robust empirical evidence."
+            ]
+        },
+        {
+            "id": 87,
+            "uuid_segments": [
+                "c1",
+                "q15"
+            ],
+            "question": "The locus of decision-making power {a1} a key factor in any organisational analysis.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The locus» — однинний латинський іменник; to be — is.",
+                        "«Locus» (однина, латинське «місце») вимагає форми is; множина — «loci»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the locus» — однинний іменник латинського походження; to be — is.",
+                            "are": "Форма «are» помилкова: are вживалося б з «the loci» (множина від locus).",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The locus of decision-making power {a1} a key factor in any organisational analysis."
+            ]
+        },
+        {
+            "id": 88,
+            "uuid_segments": [
+                "c1",
+                "q16"
+            ],
+            "question": "The media coverage of the international summit {a1} extensive and largely positive.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The media coverage» — однинна група з ядром «coverage» (незлічуваний іменник); to be — is.",
+                        "«Coverage» — незлічуваний іменник; to be після нього — is, незважаючи на «media» у підметі."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the media coverage» — підмет з ядром «coverage» (незлічуваний іменник однини); to be — is.",
+                            "are": "Форма «are» помилкова: are відповідало б підмету «the media» без «coverage»; тут ядро — «coverage» (однина).",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The media coverage of the international summit {a1} extensive and largely positive."
+            ]
+        },
+        {
+            "id": 89,
+            "uuid_segments": [
+                "c1",
+                "q17"
+            ],
+            "question": "What {a1} the broader implications of this finding for public health policy?",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«What are the implications?» — питання до підмета «implications» (множина); to be — are.",
+                        "«Implications» — множина; «What are + plural noun?» — стандартна конструкція."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «the implications» — множина; «What are the implications?» — питання до множинного підмета.",
+                            "is": "Форма «is» помилкова: «What is the implication?» вживалося б для однини; тут «implications» — множина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_question"
+            ],
+            "variants": [
+                "What {a1} the broader implications of this finding for public health policy?"
+            ]
+        },
+        {
+            "id": 90,
+            "uuid_segments": [
+                "c1",
+                "q18"
+            ],
+            "question": "The consensus among leading researchers {a1} that further longitudinal study is needed.",
+            "source": "theory_page_1121",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The consensus» — однинний іменник; to be — is.",
+                        "Ядро підмета — «consensus» (однина); прийменникова група не змінює узгодження."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the consensus» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «consensus» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The consensus among leading researchers {a1} that further longitudinal study is needed."
+            ]
+        },
+        {
+            "id": 91,
+            "uuid_segments": [
+                "c2",
+                "q01"
+            ],
+            "question": "The means by which this objective {a1} achieved remains a point of debate.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "Ядром підмета відносного речення є «this objective» (однина); to be — is.",
+                        "«By which this objective is achieved» — підрядне відносне речення зі однинним підметом «this objective»."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: підметом відносного речення є «this objective» (однина); to be — is.",
+                            "are": "Форма «are» помилкова: are вживалося б, якби підмет відносного речення був у множині.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The means by which this objective {a1} achieved remains a point of debate."
+            ]
+        },
+        {
+            "id": 92,
+            "uuid_segments": [
+                "c2",
+                "q02"
+            ],
+            "question": "A series of unforeseen setbacks {a1} now threatening the viability of the entire initiative.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«A series of...» — підмет, ядром якого є «a series» (однина); to be — is.",
+                        "«Series» вживається і в однині, і в множині, але «a series» = одна серія, тому is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «a series» — однинний підмет; to be — is, незважаючи на «of setbacks» (множина).",
+                            "are": "Форма «are» помилкова: are вживалося б з «several series» або якщо ядро підмета було б множинним іменником.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "A series of unforeseen setbacks {a1} now threatening the viability of the entire initiative."
+            ]
+        },
+        {
+            "id": 93,
+            "uuid_segments": [
+                "c2",
+                "q03"
+            ],
+            "question": "The nexus between socioeconomic deprivation and chronic illness {a1} well established in epidemiological research.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The nexus» — однинний латинський іменник (зв'язок, вузол); to be — is.",
+                        "«Nexus» (однина) + прийменникова група; ядро підмета — однина; to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the nexus» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживалося б з «nexuses» або якщо ядро підмета було б множиною.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The nexus between socioeconomic deprivation and chronic illness {a1} well established in epidemiological research."
+            ]
+        },
+        {
+            "id": 94,
+            "uuid_segments": [
+                "c2",
+                "q04"
+            ],
+            "question": "The minutiae of the contractual obligations {a1} currently under scrutiny by independent auditors.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Minutiae» — латинська множина від «minutia» (дрібна деталь); to be — are.",
+                        "«Minutiae» — завжди множина; однина — «minutia»; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «minutiae» — латинська множина від «minutia»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «minutia».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The minutiae of the contractual obligations {a1} currently under scrutiny by independent auditors."
+            ]
+        },
+        {
+            "id": 95,
+            "uuid_segments": [
+                "c2",
+                "q05"
+            ],
+            "question": "The alumni of this distinguished institution {a1} renowned for their remarkable professional achievements.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Alumni» — латинська множина від «alumnus» (випускник); to be — are.",
+                        "«Alumni» — множина; однина — «alumnus» (ч.р.) або «alumna» (ж.р.); to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «alumni» — латинська множина від «alumnus»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «the alumnus» або «the alumna».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The alumni of this distinguished institution {a1} renowned for their remarkable professional achievements."
+            ]
+        },
+        {
+            "id": 96,
+            "uuid_segments": [
+                "c2",
+                "q06"
+            ],
+            "question": "The plethora of competing theoretical frameworks {a1} making it increasingly difficult to reach a consensus.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The plethora» — однинний іменник (від грецького «надмір»); to be — is.",
+                        "Ядро підмета — «plethora» (однина); прийменникова група «of frameworks» не змінює узгодження."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «a plethora» — однинний іменник; to be — is, незважаючи на «of frameworks» (множина) у прийменниковій групі.",
+                            "are": "Форма «are» помилкова: are відповідало б множинному ядру підмета; «plethora» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The plethora of competing theoretical frameworks {a1} making it increasingly difficult to reach a consensus."
+            ]
+        },
+        {
+            "id": 97,
+            "uuid_segments": [
+                "c2",
+                "q07"
+            ],
+            "question": "The paparazzi {a1} always present outside high-profile celebrity events.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Paparazzi» — італійська множина (запозичена в англійську); to be — are.",
+                        "«Paparazzi» — множинна форма, вживана в англійській; однина — «paparazzo»; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «paparazzi» — множина від «paparazzo» (запозичення з італійської); to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «a paparazzo».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The paparazzi {a1} always present outside high-profile celebrity events."
+            ]
+        },
+        {
+            "id": 98,
+            "uuid_segments": [
+                "c2",
+                "q08"
+            ],
+            "question": "The crux of the entire controversy {a1} whether both parties can agree on the fundamental terms.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The crux» — однинний іменник (від латинського «суть»); to be — is.",
+                        "Ядро підмета — «crux» (однина); to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the crux» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «crux» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The crux of the entire controversy {a1} whether both parties can agree on the fundamental terms."
+            ]
+        },
+        {
+            "id": 99,
+            "uuid_segments": [
+                "c2",
+                "q09"
+            ],
+            "question": "The subtext of the minister's carefully worded remarks {a1} unmistakable to experienced political analysts.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The subtext» — однинний іменник; to be — is.",
+                        "Ядро підмета — «subtext» (однина); прийменникова група не змінює узгодження."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the subtext» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «subtext» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The subtext of the minister's carefully worded remarks {a1} unmistakable to experienced political analysts."
+            ]
+        },
+        {
+            "id": 100,
+            "uuid_segments": [
+                "c2",
+                "q10"
+            ],
+            "question": "The electorate {a1} increasingly disillusioned with the performance of mainstream political parties.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The electorate» — збірний іменник, що позначає виборців як єдиний орган; to be — is.",
+                        "Коли «electorate» виступає як єдина сила (настрій суспільства), вживається is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the electorate» — збірний іменник у значенні єдиного соціального організму; to be — is.",
+                            "are": "Форма «are» можлива у контексті, де акцентуються дії окремих виборців, але тут вся маса виборців виступає як ціле.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_collective_noun"
+            ],
+            "variants": [
+                "The electorate {a1} increasingly disillusioned with the performance of mainstream political parties."
+            ]
+        },
+        {
+            "id": 101,
+            "uuid_segments": [
+                "c2",
+                "q11"
+            ],
+            "question": "The impetus for fundamental institutional reform {a1} coming from within civil society itself.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The impetus» — однинний іменник (від латинського «поштовх»); to be — is.",
+                        "Ядро підмета — «impetus» (однина); to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the impetus» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «impetus» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The impetus for fundamental institutional reform {a1} coming from within civil society itself."
+            ]
+        },
+        {
+            "id": 102,
+            "uuid_segments": [
+                "c2",
+                "q12"
+            ],
+            "question": "The addenda attached to the original proposal {a1} included verbatim in the final published document.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Addenda» — латинська множина від «addendum»; to be — are.",
+                        "«Addenda» — множина; однина — «addendum»; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «addenda» — латинська множина від «addendum»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «the addendum».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The addenda attached to the original proposal {a1} included verbatim in the final published document."
+            ]
+        },
+        {
+            "id": 103,
+            "uuid_segments": [
+                "c2",
+                "q13"
+            ],
+            "question": "The loci of neurological activity during the task {a1} identified through high-resolution brain imaging.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Loci» — латинська множина від «locus»; to be — are.",
+                        "«Loci» — множина; однина — «locus»; to be — are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «loci» — латинська множина від «locus»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «the locus».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The loci of neurological activity during the task {a1} identified through high-resolution brain imaging."
+            ]
+        },
+        {
+            "id": 104,
+            "uuid_segments": [
+                "c2",
+                "q14"
+            ],
+            "question": "The status quo in the region {a1} no longer tenable given the rapidly shifting geopolitical landscape.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The status quo» — латинський вираз-однина («поточний стан»); to be — is.",
+                        "«Status quo» — фіксоване латинське словосполучення, що функціонує як однинний підмет."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the status quo» — однинний латинський вираз; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «status quo» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The status quo in the region {a1} no longer tenable given the rapidly shifting geopolitical landscape."
+            ]
+        },
+        {
+            "id": 105,
+            "uuid_segments": [
+                "c2",
+                "q15"
+            ],
+            "question": "The stigma surrounding mental illness {a1} gradually fading as public awareness continues to grow.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The stigma» — однинний іменник; to be — is.",
+                        "Ядро підмета — «stigma» (однина); to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the stigma» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «stigma» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The stigma surrounding mental illness {a1} gradually fading as public awareness continues to grow."
+            ]
+        },
+        {
+            "id": 106,
+            "uuid_segments": [
+                "c2",
+                "q16"
+            ],
+            "question": "The cognoscenti {a1} deeply divided on the artistic merit and cultural significance of his final retrospective.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«Cognoscenti» — італійська множина (знавці мистецтва); to be — are.",
+                        "«Cognoscenti» — множинний іменник (однина «cognoscente»); завжди вживається з are."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "are": "Форма «are» правильна: «cognoscenti» — множина від «cognoscente»; to be — are.",
+                            "is": "Форма «is» помилкова: is вживалося б з однинним «a cognoscente».",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_latin_plural"
+            ],
+            "variants": [
+                "The cognoscenti {a1} deeply divided on the artistic merit and cultural significance of his final retrospective."
+            ]
+        },
+        {
+            "id": 107,
+            "uuid_segments": [
+                "c2",
+                "q17"
+            ],
+            "question": "The apparatus used across all four experimental conditions {a1} identical in every measurable respect.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The apparatus» — однинний іменник (від латинського «apparatus»); to be — is.",
+                        "«Apparatus» вживається і в однині, і в множині без зміни форми; тут «the apparatus» = один набір обладнання; to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the apparatus» — однинний іменник у цьому контексті (один набір обладнання); to be — is.",
+                            "are": "Форма «are» вживалося б, якби «apparatus» розглядалося як множина (кілька наборів).",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The apparatus used across all four experimental conditions {a1} identical in every measurable respect."
+            ]
+        },
+        {
+            "id": 108,
+            "uuid_segments": [
+                "c2",
+                "q18"
+            ],
+            "question": "The impasse between the two negotiating parties {a1} preventing any meaningful dialogue from taking place.",
+            "source": "theory_page_1121",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ]
+                }
+            },
+            "localizations": {
+                "uk": {
+                    "hints": [
+                        "«The impasse» — однинний іменник (від французького «глухий кут»); to be — is.",
+                        "Ядро підмета — «impasse» (однина); to be — is."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "Форма «is» правильна: «the impasse» — однинний іменник; to be — is.",
+                            "are": "Форма «are» помилкова: are вживається з множинними підметами; «impasse» — однина.",
+                            "am": "Форма «am» помилкова: am вживається тільки після «I»."
+                        }
+                    }
+                }
+            },
+            "tag_keys": [
+                "verb_to_be_subject_agreement"
+            ],
+            "variants": [
+                "The impasse between the two negotiating parties {a1} preventing any meaningful dialogue from taking place."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "vtbp-cp-sn-saved-test",
+        "slug": "verb-to-be-present-sonate-v3-test",
+        "name": "Verb to Be: Present Forms — Sonate V3 Questions Test",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\VerbToBePresentFormsV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 1121,
+                "theory_page_ids": [
+                    1121
+                ],
+                "theory_page": {
+                    "id": 1121,
+                    "slug": "verb-to-be-present",
+                    "title": "Verb to Be: Present Forms",
+                    "category_slug_path": "basic-grammar/verb-to-be",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePresentTheorySeeder",
+                    "url": "https://gramlyze.com/theory/verb-to-be/verb-to-be-present"
+                }
+            }
+        }
+    }
+}

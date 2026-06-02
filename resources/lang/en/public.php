@@ -1,0 +1,276 @@
+<?php
+
+return [
+    // Meta / Title / Description
+    'meta' => [
+        'title' => 'Gramlyze — Platform for English Teachers',
+        'description' => 'Gramlyze helps you create tests, analyze answers, and coordinate your English teaching team.',
+    ],
+
+    // Navigation
+    'nav' => [
+        'catalog' => 'Catalog',
+        'theory' => 'Theory',
+        'courses' => 'Courses',
+        'polyglot_course' => 'Sentence Builder course',
+        'words_test' => 'Words Test',
+        'verbs_test' => 'Verbs Test',
+        'explore' => 'Explore',
+        'practice' => 'Practice',
+        'menu' => 'Menu',
+        'open_menu' => 'Open menu',
+        'close_menu' => 'Close menu',
+    ],
+
+    // Search
+    'search' => [
+        'placeholder' => 'Search materials',
+        'button' => 'Search',
+        'title' => 'Search — Gramlyze',
+        'results_title' => 'Search Results',
+        'found_for' => 'Found for query:',
+        'nothing_found' => 'Nothing found',
+        'try_another' => 'Try a different query or browse the test catalog',
+        'to_catalog' => 'To Catalog',
+        'pages' => 'Theory Pages',
+        'tests' => 'Tests',
+        'results_count' => ':count results',
+    ],
+
+    // Footer
+    'footer' => [
+        'description' => 'A platform for English language teachers and methodologists: tests, AI analysis, knowledge base, and team collaboration.',
+        'links' => 'Shortcuts',
+        'contact' => 'Contact',
+        'support' => 'Help & feedback',
+        'theme' => 'Theme',
+    ],
+
+    // Common
+    'common' => [
+        'home' => 'Home',
+        'breadcrumb' => 'Breadcrumb',
+        'go_to' => 'Go to',
+        'collapse' => 'Collapse',
+        'expand' => 'Expand',
+        'level' => 'Level',
+        'type_theory' => 'Theory',
+        'type_test' => 'Test',
+        'no_lessons' => 'No lessons yet',
+        'no_categories' => 'No topics yet',
+        'categories' => 'Topics',
+        'select_category' => 'Choose a topic',
+        'section_pages' => 'Lessons in this topic',
+        'page_tags' => 'Page Tags',
+        'category_tags' => 'Category Tags',
+        'tests_on_topic' => 'Tests on this topic',
+        'related_tests' => 'Related Tests',
+        'quick_links' => 'Quick links',
+    ],
+
+    // Slider (JS aria-labels)
+    'slider' => [
+        'go_to_slide' => 'Go to slide',
+    ],
+
+    // Pages section
+    'pages' => [
+        'title' => 'Theory',
+        'materials_section' => 'Section materials',
+        'select_category_hint' => 'Choose a topic to see its lessons.',
+        'no_pages_in_category' => 'There are no lessons in this topic yet.',
+    ],
+
+    // Theory section
+    'theory' => [
+        'section_badge' => 'Grammar guide',
+        'categories_count' => 'categories',
+        'lessons_count' => 'lessons',
+        'title' => 'English Grammar',
+        'description' => 'Learn English grammar from basic concepts to advanced topics. Structured lessons, clear explanations, and practical examples will help you master the language from A1 to B2 level.',
+        'start_learning' => 'Start Learning',
+        'all_categories' => 'All topics',
+        'topics_to_learn' => 'Topics to Learn',
+        'topics_hint' => 'Choose a topic and open the first lesson.',
+        'no_categories_title' => 'No topics yet',
+        'no_categories_hint' => 'Lessons will appear here when they are ready.',
+        'recommended_path' => 'Where to start',
+        'how_to_learn' => 'How to move through grammar',
+        'how_to_learn_desc' => 'Start with basic topics and gradually move to more complex ones. Each lesson includes theoretical material, examples, and practical exercises to reinforce your knowledge.',
+        'step1' => 'Start with basic grammar',
+        'step1_desc' => 'parts of speech and sentence structure',
+        'step2' => 'Learn articles and nouns',
+        'step2_desc' => 'a/an/the, countable/uncountable',
+        'step3' => 'Master comparisons',
+        'step3_desc' => 'degrees of comparison of adjectives',
+        'step4' => 'Deepen your knowledge',
+        'step4_desc' => 'word order, inversion, complex structures',
+        'theory_categories' => 'Grammar topics',
+        'lesson_pages' => 'Lessons',
+        'difficulty_levels' => 'Difficulty Levels',
+        'in_ukrainian' => 'In English',
+        'mobile_categories' => 'Topics',
+        'theory_categories_mobile' => 'Grammar topics',
+        'sections' => 'Topics',
+    ],
+
+    // Courses section
+    'courses' => [
+        'title' => 'Courses — Gramlyze',
+        'breadcrumb' => 'Courses',
+        'badge' => 'Course catalog',
+        'heading' => 'Choose a course or study level',
+        'description' => 'The general courses section keeps available learning paths in one place. Start with English Sentence Builder and open the level you need from A1-C2.',
+        'available_courses' => 'Available courses',
+        'available_levels' => 'Levels',
+        'course_count' => '{1}:count path|[2,*]:count paths',
+        'level_count' => '{1}:count level|[2,*]:count levels',
+        'catalog_label' => 'Learning paths',
+        'catalog_heading' => 'Course catalog',
+        'catalog_hint' => 'Each card shows available levels and links to the existing course page.',
+        'polyglot_description' => 'A practical grammar course built around composing sentences.',
+        'course_card_badge' => 'First path',
+        'theory_course_badge' => 'New path',
+        'theory_course_label' => 'Grammar course',
+        'theory_course_title' => 'English Grammar Theory Course',
+        'theory_course_description' => 'A full grammar course built from the structure of the theory section.',
+        'theory_course_catalog_hint' => 'Lessons come from Page_V3 theory pages, with local progress and unlock flow on this device.',
+        'theory_driven_course_badge' => 'Theory-driven',
+        'theory_driven_course_label' => 'Theory-driven course',
+        'theory_driven_course_title' => 'Full Theory Course',
+        'theory_driven_course_description' => 'A course that uses existing theory pages as the syllabus and mixed V3 / Sentence Builder content for practice.',
+        'theory_driven_course_catalog_hint' => 'Opens the existing /courses/theory-driven runtime with course-td-* lessons and the Sentence Builder unlock flow.',
+        'open_course' => 'Open course',
+        'levels_title' => 'Course levels',
+        'choose_level' => 'Choose a level',
+        'levels_hint' => 'A1-C2 open the existing Sentence Builder course pages.',
+        'open_level' => 'Open level',
+    ],
+
+    // Home page
+    'home' => [
+        'title' => 'Gramlyze — English Practice Platform',
+        'badge' => 'Public grammar hub',
+        'hero_title' => 'Learn, test and explore English',
+        'hero_title_accent' => 'with Gramylyze',
+        'hero_description' => 'Catalog of grammar tests, theory pages, verb drills and word trainers. Modern layout, fast search, light and dark themes.',
+        'to_catalog' => 'Open test catalog',
+        'explore_theory' => 'Explore theory',
+        'stat_categories' => 'Grammar areas',
+        'stat_ai_hints' => 'AI hints',
+        'stat_tags' => 'Linked tags',
+        'stat_access' => 'Access anytime',
+        'quick_search' => 'Quick dictionary',
+        'quick_search_hint' => 'Look up a word and its forms without leaving the page.',
+        'dictionary_cta' => 'Supports many languages — start typing to see translations.',
+        'sections' => 'Navigation',
+        'pick_path' => 'Pick your path',
+        'catalog_title' => 'Test collections',
+        'catalog_desc' => 'Browse curated test cards grouped by topic and difficulty.',
+        'courses_title' => 'Courses',
+        'courses_desc' => 'Open the course catalog and choose English Sentence Builder A1-C2.',
+        'theory_title' => 'Grammar by topic',
+        'theory_desc' => 'Structured explanations for grammar topics with friendly URLs.',
+        'polyglot_title' => 'English Sentence Builder A1',
+        'polyglot_desc' => 'A guided course with compose-token lessons, progress tracking and unlock flow.',
+        'polyglot_a2_title' => 'English Sentence Builder A2',
+        'polyglot_a2_desc' => 'The new A2 track starts with Present Perfect and a 16-lesson roadmap for conditionals, modal verbs, and mixed revision.',
+        'polyglot_b1_title' => 'English Sentence Builder B1',
+        'polyglot_b1_desc' => 'The B1 roadmap starts with Present Perfect Continuous and opens a 16-lesson track for reported speech, complex tenses, and a final drill.',
+        'polyglot_b2_title' => 'English Sentence Builder B2',
+        'polyglot_b2_desc' => 'The B2 roadmap starts with Past Perfect Continuous, mixed conditionals, and modal perfect while the next lessons stay planned.',
+        'polyglot_c1_title' => 'English Sentence Builder C1',
+        'polyglot_c1_desc' => 'The C1 roadmap starts with advanced conditionals, inversion after adverbials, and passive reporting structures.',
+        'polyglot_c2_title' => 'English Sentence Builder C2',
+        'polyglot_c2_desc' => 'The C2 roadmap starts with conditional alternatives, discourse cohesion, and ellipsis/substitution/reference.',
+        'words_title' => 'Vocabulary trainer',
+        'words_desc' => 'Train vocabulary with adaptive difficulty levels.',
+        'verbs_title' => 'Verb form practice',
+        'verbs_desc' => 'Polish irregular verbs with focused practice.',
+        'how_it_works' => 'How it works',
+        'steps_title' => 'Study flow',
+        'steps_intro' => 'Move between catalog, theory and trainers without losing context.',
+        'new_design' => 'Home',
+        'step_find' => 'Search the library',
+        'step_find_desc' => 'Use the global search to jump to theory or tests.',
+        'step_start' => 'Start practising',
+        'step_start_desc' => 'Launch a test or open a theory card directly from the header.',
+        'step_share' => 'Continue anywhere',
+        'step_share_desc' => 'Light/dark themes and responsive layout keep everything readable.',
+        'search_block_title' => 'Search the site',
+        'search_block_heading' => 'Find a topic or test',
+        'search_block_desc' => 'Find tests, grammar pages and cards with one query.',
+        'search_block_hint' => 'Suggestions appear after two characters.',
+    ],
+
+    // Language switcher
+    'language' => [
+        'uk' => 'UK',
+        'en' => 'EN',
+        'pl' => 'PL',
+        'ukrainian' => 'Ukrainian',
+        'english' => 'English',
+        'polish' => 'Polish',
+        'search' => 'Find language',
+        'current' => 'Current',
+    ],
+
+    'theme' => [
+        'light' => 'Switch to light mode',
+        'dark' => 'Switch to dark mode',
+    ],
+
+    // Beta
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'This is a beta version',
+        'banner_text' => 'The site is under development, some sections may be unavailable.',
+    ],
+
+    // Coming Soon
+    'coming_soon' => [
+        'title' => 'Coming soon',
+        'text' => 'This section is under development. Please try again later.',
+        'home' => 'Go to home',
+        'back' => 'Go back',
+        'bug_report' => 'If you noticed a bug — let us know',
+    ],
+
+    // Errors
+    'errors' => [
+        'home' => 'Go to home',
+        'back' => 'Go back',
+        '403' => [
+            'title' => 'Access Forbidden',
+            'text' => 'You do not have permission to view this page.',
+        ],
+        '404' => [
+            'title' => 'Page Not Found',
+            'text' => 'The page you are looking for does not exist or has been moved.',
+        ],
+        '419' => [
+            'title' => 'Page Expired',
+            'text' => 'Your session has expired. Please refresh the page and try again.',
+        ],
+        '429' => [
+            'title' => 'Too Many Requests',
+            'text' => 'You have sent too many requests. Please wait a moment and try again.',
+        ],
+        '500' => [
+            'title' => 'Server Error',
+            'text' => 'Something went wrong on our end. We are already working on a fix.',
+        ],
+        '503' => [
+            'title' => 'Service Unavailable',
+            'text' => 'The service is temporarily unavailable. Please try again later.',
+        ],
+        '4xx' => [
+            'title' => 'Request Error',
+            'text' => 'There was an error with your request. Please check the URL and try again.',
+        ],
+        '5xx' => [
+            'title' => 'Server Error',
+            'text' => 'A server error occurred. Please try again later.',
+        ],
+    ],
+];

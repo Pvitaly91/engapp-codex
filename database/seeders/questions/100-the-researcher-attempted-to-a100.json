@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 148,
+        "uuid": "100-the-researcher-attempted-to-a100",
+        "question": "The researcher attempted to {a100} the apparent contradictions.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-26T14:30:56.000000Z",
+        "updated_at": "2026-05-26T14:30:59.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:48.000000Z",
+                "updated_at": "2026-05-26T14:30:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 148,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 45,
+                "name": "Verb recognition",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 148,
+                "tag_id": 45,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 393,
+                "option": "reconcile",
+                "created_at": "2026-05-26T14:30:56.000000Z",
+                "updated_at": "2026-05-26T14:30:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 148,
+                "option_id": 393,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 394,
+                "option": "reconciliation",
+                "created_at": "2026-05-26T14:30:56.000000Z",
+                "updated_at": "2026-05-26T14:30:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 148,
+                "option_id": 394,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 395,
+                "option": "reconcilable",
+                "created_at": "2026-05-26T14:30:56.000000Z",
+                "updated_at": "2026-05-26T14:30:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 148,
+                "option_id": 395,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 258,
+                "question_id": 148,
+                "marker": "a100",
+                "option_id": 393,
+                "created_at": "2026-05-26T14:30:56.000000Z",
+                "updated_at": "2026-05-26T14:30:56.000000Z"
+            },
+            "option": {
+                "id": 393,
+                "option": "reconcile",
+                "created_at": "2026-05-26T14:30:56.000000Z",
+                "updated_at": "2026-05-26T14:30:56.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 100,
+                "question_id": 148,
+                "marker": "a100",
+                "option_id": 313,
+                "created_at": "2026-05-26T14:30:56.000000Z",
+                "updated_at": "2026-05-26T14:30:56.000000Z"
+            },
+            "option": {
+                "id": 313,
+                "option": "formal verb",
+                "created_at": "2026-05-26T14:30:55.000000Z",
+                "updated_at": "2026-05-26T14:30:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 130,
+            "question_id": 148,
+            "text": "The researcher attempted to {a100} the apparent contradictions.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 328,
+            "question_id": 148,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Choose the word that best completes the sentence grammatically.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 329,
+            "question_id": 148,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Formalny czasownik oznaczający 'pogodzić'.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 330,
+            "question_id": 148,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Після конструкції 'attempted to' потрібна базова форма формального дієслова узгодження.\nСлово 'reconcile' (узгодити, примирити) — формальне дієслово для вирішення протиріч.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1371,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcilable",
+            "correct_answer": "reconcile",
+            "language": "en",
+            "explanation": "Incorrect. 'reconcilable' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1374,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcilable",
+            "correct_answer": "reconcile",
+            "language": "pl",
+            "explanation": "'Reconcilable' to przymiotnik (dający się pogodzić), nie czasownik.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1379,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcilable",
+            "correct_answer": "reconcile",
+            "language": "ua",
+            "explanation": "Прикметник 'reconcilable' (сумісний) описує можливість узгодження, але граматично не підходить.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1380,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcilable",
+            "correct_answer": "reconcile",
+            "language": "uk",
+            "explanation": "Прикметник 'reconcilable' (сумісний) описує можливість узгодження, але граматично не підходить.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1369,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcile",
+            "correct_answer": "reconcile",
+            "language": "en",
+            "explanation": "Correct. 'reconcile' is the appropriate choice in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1372,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcile",
+            "correct_answer": "reconcile",
+            "language": "pl",
+            "explanation": "Poprawnie! 'Reconcile' to czasownik (pogodzić, uzgodnić).",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1375,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcile",
+            "correct_answer": "reconcile",
+            "language": "ua",
+            "explanation": "Дієслово 'reconcile' правильно виражає спробу усунути очевидні протиріччя.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1376,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconcile",
+            "correct_answer": "reconcile",
+            "language": "uk",
+            "explanation": "Дієслово 'reconcile' правильно виражає спробу усунути очевидні протиріччя.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1370,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconciliation",
+            "correct_answer": "reconcile",
+            "language": "en",
+            "explanation": "Incorrect. 'reconciliation' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1373,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconciliation",
+            "correct_answer": "reconcile",
+            "language": "pl",
+            "explanation": "'Reconciliation' to rzeczownik (pojednanie), nie czasownik.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1377,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconciliation",
+            "correct_answer": "reconcile",
+            "language": "ua",
+            "explanation": "Іменник 'reconciliation' (примирення) називає процес, але не може бути дієсловом.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1378,
+            "question": "The researcher attempted to {a100} the apparent contradictions.",
+            "wrong_answer": "reconciliation",
+            "correct_answer": "reconcile",
+            "language": "uk",
+            "explanation": "Іменник 'reconciliation' (примирення) називає процес, але не може бути дієсловом.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ]
+}

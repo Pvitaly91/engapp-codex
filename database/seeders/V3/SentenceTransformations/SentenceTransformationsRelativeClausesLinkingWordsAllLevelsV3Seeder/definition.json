@@ -1,0 +1,1866 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsAllLevelsV3Seeder",
+        "uuid_namespace": "SentenceTransformationsRelativeClausesLinkingWordsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "theory_page_sentence_transformations_relative_clauses_linking_words": {
+            "name": "Sentence Transformations — Relative Clauses / Linking Words"
+        }
+    },
+    "tags": {
+        "sentence_transformations_relative_clauses_linking_words_all_levels": {
+            "name": "sentence transformations relative clauses linking words all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "relative_pronouns": {
+            "name": "Relative Pronouns",
+            "category": "topic"
+        },
+        "defining_relative": {
+            "name": "Defining Relative",
+            "category": "topic"
+        },
+        "non_defining_relative": {
+            "name": "Non Defining Relative",
+            "category": "topic"
+        },
+        "omitted_relative_pronoun": {
+            "name": "Omitted Relative Pronoun",
+            "category": "topic"
+        },
+        "reduced_relative": {
+            "name": "Reduced Relative",
+            "category": "topic"
+        },
+        "reason_links": {
+            "name": "Reason Links",
+            "category": "topic"
+        },
+        "contrast_links": {
+            "name": "Contrast Links",
+            "category": "topic"
+        },
+        "result_links": {
+            "name": "Result Links",
+            "category": "topic"
+        },
+        "purpose_links": {
+            "name": "Purpose Links",
+            "category": "topic"
+        },
+        "preserve_relation": {
+            "name": "Preserve Relation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "strcl-v3-a1-01",
+            "question": "Combine with who: This is the teacher. She helped me. This is the teacher {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who helped me",
+                    "options": [
+                        "who helped me",
+                        "which helped me",
+                        "whose helped me",
+                        "who help me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "strcl-v3-a1-02",
+            "question": "Combine with that: I bought a phone. It works offline. I bought a phone {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that works offline",
+                    "options": [
+                        "that works offline",
+                        "who works offline",
+                        "that work offline",
+                        "which it works offline"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "strcl-v3-a1-03",
+            "question": "Add a non-defining clause: My sister is a doctor. She lives in Lviv. My sister, {a1}, lives in Lviv.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "non_defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who is a doctor",
+                    "options": [
+                        "who is a doctor",
+                        "that is a doctor",
+                        "who she is a doctor",
+                        "which is a doctor"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "strcl-v3-a1-04",
+            "question": "Omit the relative pronoun where possible: The book that I borrowed was useful. The book {a1} was useful.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "omitted_relative_pronoun"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I borrowed",
+                    "options": [
+                        "I borrowed",
+                        "borrowed I",
+                        "which I borrowed it",
+                        "who I borrowed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "strcl-v3-a1-05",
+            "question": "Reduce the clause: The man who is standing near the door is my uncle. The man {a1} is my uncle.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "reduced_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "standing near the door",
+                    "options": [
+                        "standing near the door",
+                        "stands near the door",
+                        "who standing near the door",
+                        "stood near the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "strcl-v3-a1-06",
+            "question": "Rewrite with because: It was cold, so we stayed inside. We stayed inside {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "reason_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "because it was cold",
+                    "options": [
+                        "because it was cold",
+                        "although it was cold",
+                        "because of it was cold",
+                        "so it was cold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "strcl-v3-a1-07",
+            "question": "Rewrite with although: It rained, but we went out. {a1}, we went out.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "contrast_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although it rained",
+                    "options": [
+                        "Although it rained",
+                        "Because it rained",
+                        "Despite it rained",
+                        "So it rained"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "strcl-v3-a1-08",
+            "question": "Rewrite with so: The road was icy. We drove slowly. The road was icy, {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "result_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "so we drove slowly",
+                    "options": [
+                        "so we drove slowly",
+                        "because we drove slowly",
+                        "although we drove slowly",
+                        "so slowly drove we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "strcl-v3-a1-09",
+            "question": "Rewrite with to: I called him because I wanted to ask a question. I called him {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "purpose_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to ask a question",
+                    "options": [
+                        "to ask a question",
+                        "for ask a question",
+                        "so ask a question",
+                        "because ask a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "strcl-v3-a1-10",
+            "question": "Choose the link that preserves the relation: She was tired, but she finished the work. {a1}, she finished the work.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "preserve_relation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although she was tired",
+                    "options": [
+                        "Although she was tired",
+                        "Because she was tired",
+                        "So she was tired",
+                        "Therefore she was tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "strcl-v3-a1-11",
+            "question": "Avoid the mistake: This is the house {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I grew up",
+                    "options": [
+                        "where I grew up",
+                        "where I grew up there",
+                        "which I grew up",
+                        "who I grew up"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "strcl-v3-a1-12",
+            "question": "Combine with whose: I met a girl. Her brother is a pilot. I met a girl {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a1",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose brother is a pilot",
+                    "options": [
+                        "whose brother is a pilot",
+                        "who brother is a pilot",
+                        "which brother is a pilot",
+                        "whose brother he is a pilot"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "strcl-v3-a2-01",
+            "question": "Combine with who: This is the teacher. She helped me. This is the teacher {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who helped me",
+                    "options": [
+                        "who helped me",
+                        "which helped me",
+                        "whose helped me",
+                        "who help me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "strcl-v3-a2-02",
+            "question": "Combine with that: I bought a phone. It works offline. I bought a phone {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that works offline",
+                    "options": [
+                        "that works offline",
+                        "who works offline",
+                        "that work offline",
+                        "which it works offline"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "strcl-v3-a2-03",
+            "question": "Add a non-defining clause: My sister is a doctor. She lives in Lviv. My sister, {a1}, lives in Lviv.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "non_defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who is a doctor",
+                    "options": [
+                        "who is a doctor",
+                        "that is a doctor",
+                        "who she is a doctor",
+                        "which is a doctor"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "strcl-v3-a2-04",
+            "question": "Omit the relative pronoun where possible: The book that I borrowed was useful. The book {a1} was useful.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "omitted_relative_pronoun"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I borrowed",
+                    "options": [
+                        "I borrowed",
+                        "borrowed I",
+                        "which I borrowed it",
+                        "who I borrowed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "strcl-v3-a2-05",
+            "question": "Reduce the clause: The man who is standing near the door is my uncle. The man {a1} is my uncle.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "reduced_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "standing near the door",
+                    "options": [
+                        "standing near the door",
+                        "stands near the door",
+                        "who standing near the door",
+                        "stood near the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "strcl-v3-a2-06",
+            "question": "Rewrite with because: It was cold, so we stayed inside. We stayed inside {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "reason_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "because it was cold",
+                    "options": [
+                        "because it was cold",
+                        "although it was cold",
+                        "because of it was cold",
+                        "so it was cold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "strcl-v3-a2-07",
+            "question": "Rewrite with although: It rained, but we went out. {a1}, we went out.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "contrast_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although it rained",
+                    "options": [
+                        "Although it rained",
+                        "Because it rained",
+                        "Despite it rained",
+                        "So it rained"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "strcl-v3-a2-08",
+            "question": "Rewrite with so: The road was icy. We drove slowly. The road was icy, {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "result_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "so we drove slowly",
+                    "options": [
+                        "so we drove slowly",
+                        "because we drove slowly",
+                        "although we drove slowly",
+                        "so slowly drove we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "strcl-v3-a2-09",
+            "question": "Rewrite with to: I called him because I wanted to ask a question. I called him {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "purpose_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to ask a question",
+                    "options": [
+                        "to ask a question",
+                        "for ask a question",
+                        "so ask a question",
+                        "because ask a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "strcl-v3-a2-10",
+            "question": "Choose the link that preserves the relation: She was tired, but she finished the work. {a1}, she finished the work.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "preserve_relation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although she was tired",
+                    "options": [
+                        "Although she was tired",
+                        "Because she was tired",
+                        "So she was tired",
+                        "Therefore she was tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "strcl-v3-a2-11",
+            "question": "Avoid the mistake: This is the house {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I grew up",
+                    "options": [
+                        "where I grew up",
+                        "where I grew up there",
+                        "which I grew up",
+                        "who I grew up"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "strcl-v3-a2-12",
+            "question": "Combine with whose: I met a girl. Her brother is a pilot. I met a girl {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_a2",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose brother is a pilot",
+                    "options": [
+                        "whose brother is a pilot",
+                        "who brother is a pilot",
+                        "which brother is a pilot",
+                        "whose brother he is a pilot"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "strcl-v3-b1-01",
+            "question": "Combine with who: This is the teacher. She helped me. This is the teacher {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who helped me",
+                    "options": [
+                        "who helped me",
+                        "which helped me",
+                        "whose helped me",
+                        "who help me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "strcl-v3-b1-02",
+            "question": "Combine with that: I bought a phone. It works offline. I bought a phone {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that works offline",
+                    "options": [
+                        "that works offline",
+                        "who works offline",
+                        "that work offline",
+                        "which it works offline"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "strcl-v3-b1-03",
+            "question": "Add a non-defining clause: My sister is a doctor. She lives in Lviv. My sister, {a1}, lives in Lviv.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "non_defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who is a doctor",
+                    "options": [
+                        "who is a doctor",
+                        "that is a doctor",
+                        "who she is a doctor",
+                        "which is a doctor"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "strcl-v3-b1-04",
+            "question": "Omit the relative pronoun where possible: The book that I borrowed was useful. The book {a1} was useful.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "omitted_relative_pronoun"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I borrowed",
+                    "options": [
+                        "I borrowed",
+                        "borrowed I",
+                        "which I borrowed it",
+                        "who I borrowed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "strcl-v3-b1-05",
+            "question": "Reduce the clause: The man who is standing near the door is my uncle. The man {a1} is my uncle.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "reduced_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "standing near the door",
+                    "options": [
+                        "standing near the door",
+                        "stands near the door",
+                        "who standing near the door",
+                        "stood near the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "strcl-v3-b1-06",
+            "question": "Rewrite with because: It was cold, so we stayed inside. We stayed inside {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "reason_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "because it was cold",
+                    "options": [
+                        "because it was cold",
+                        "although it was cold",
+                        "because of it was cold",
+                        "so it was cold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "strcl-v3-b1-07",
+            "question": "Rewrite with although: It rained, but we went out. {a1}, we went out.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "contrast_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although it rained",
+                    "options": [
+                        "Although it rained",
+                        "Because it rained",
+                        "Despite it rained",
+                        "So it rained"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "strcl-v3-b1-08",
+            "question": "Rewrite with so: The road was icy. We drove slowly. The road was icy, {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "result_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "so we drove slowly",
+                    "options": [
+                        "so we drove slowly",
+                        "because we drove slowly",
+                        "although we drove slowly",
+                        "so slowly drove we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "strcl-v3-b1-09",
+            "question": "Rewrite with to: I called him because I wanted to ask a question. I called him {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "purpose_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to ask a question",
+                    "options": [
+                        "to ask a question",
+                        "for ask a question",
+                        "so ask a question",
+                        "because ask a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "strcl-v3-b1-10",
+            "question": "Choose the link that preserves the relation: She was tired, but she finished the work. {a1}, she finished the work.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "preserve_relation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although she was tired",
+                    "options": [
+                        "Although she was tired",
+                        "Because she was tired",
+                        "So she was tired",
+                        "Therefore she was tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "strcl-v3-b1-11",
+            "question": "Avoid the mistake: This is the house {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I grew up",
+                    "options": [
+                        "where I grew up",
+                        "where I grew up there",
+                        "which I grew up",
+                        "who I grew up"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "strcl-v3-b1-12",
+            "question": "Combine with whose: I met a girl. Her brother is a pilot. I met a girl {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b1",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose brother is a pilot",
+                    "options": [
+                        "whose brother is a pilot",
+                        "who brother is a pilot",
+                        "which brother is a pilot",
+                        "whose brother he is a pilot"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "strcl-v3-b2-01",
+            "question": "Combine with who: This is the teacher. She helped me. This is the teacher {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who helped me",
+                    "options": [
+                        "who helped me",
+                        "which helped me",
+                        "whose helped me",
+                        "who help me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "strcl-v3-b2-02",
+            "question": "Combine with that: I bought a phone. It works offline. I bought a phone {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that works offline",
+                    "options": [
+                        "that works offline",
+                        "who works offline",
+                        "that work offline",
+                        "which it works offline"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "strcl-v3-b2-03",
+            "question": "Add a non-defining clause: My sister is a doctor. She lives in Lviv. My sister, {a1}, lives in Lviv.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "non_defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who is a doctor",
+                    "options": [
+                        "who is a doctor",
+                        "that is a doctor",
+                        "who she is a doctor",
+                        "which is a doctor"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "strcl-v3-b2-04",
+            "question": "Omit the relative pronoun where possible: The book that I borrowed was useful. The book {a1} was useful.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "omitted_relative_pronoun"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I borrowed",
+                    "options": [
+                        "I borrowed",
+                        "borrowed I",
+                        "which I borrowed it",
+                        "who I borrowed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "strcl-v3-b2-05",
+            "question": "Reduce the clause: The man who is standing near the door is my uncle. The man {a1} is my uncle.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "reduced_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "standing near the door",
+                    "options": [
+                        "standing near the door",
+                        "stands near the door",
+                        "who standing near the door",
+                        "stood near the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "strcl-v3-b2-06",
+            "question": "Rewrite with because: It was cold, so we stayed inside. We stayed inside {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "reason_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "because it was cold",
+                    "options": [
+                        "because it was cold",
+                        "although it was cold",
+                        "because of it was cold",
+                        "so it was cold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "strcl-v3-b2-07",
+            "question": "Rewrite with although: It rained, but we went out. {a1}, we went out.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "contrast_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although it rained",
+                    "options": [
+                        "Although it rained",
+                        "Because it rained",
+                        "Despite it rained",
+                        "So it rained"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "strcl-v3-b2-08",
+            "question": "Rewrite with so: The road was icy. We drove slowly. The road was icy, {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "result_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "so we drove slowly",
+                    "options": [
+                        "so we drove slowly",
+                        "because we drove slowly",
+                        "although we drove slowly",
+                        "so slowly drove we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "strcl-v3-b2-09",
+            "question": "Rewrite with to: I called him because I wanted to ask a question. I called him {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "purpose_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to ask a question",
+                    "options": [
+                        "to ask a question",
+                        "for ask a question",
+                        "so ask a question",
+                        "because ask a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "strcl-v3-b2-10",
+            "question": "Choose the link that preserves the relation: She was tired, but she finished the work. {a1}, she finished the work.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "preserve_relation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although she was tired",
+                    "options": [
+                        "Although she was tired",
+                        "Because she was tired",
+                        "So she was tired",
+                        "Therefore she was tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "strcl-v3-b2-11",
+            "question": "Avoid the mistake: This is the house {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I grew up",
+                    "options": [
+                        "where I grew up",
+                        "where I grew up there",
+                        "which I grew up",
+                        "who I grew up"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "strcl-v3-b2-12",
+            "question": "Combine with whose: I met a girl. Her brother is a pilot. I met a girl {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_b2",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose brother is a pilot",
+                    "options": [
+                        "whose brother is a pilot",
+                        "who brother is a pilot",
+                        "which brother is a pilot",
+                        "whose brother he is a pilot"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "strcl-v3-c1-01",
+            "question": "Combine with who: This is the teacher. She helped me. This is the teacher {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who helped me",
+                    "options": [
+                        "who helped me",
+                        "which helped me",
+                        "whose helped me",
+                        "who help me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "strcl-v3-c1-02",
+            "question": "Combine with that: I bought a phone. It works offline. I bought a phone {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that works offline",
+                    "options": [
+                        "that works offline",
+                        "who works offline",
+                        "that work offline",
+                        "which it works offline"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "strcl-v3-c1-03",
+            "question": "Add a non-defining clause: My sister is a doctor. She lives in Lviv. My sister, {a1}, lives in Lviv.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "non_defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who is a doctor",
+                    "options": [
+                        "who is a doctor",
+                        "that is a doctor",
+                        "who she is a doctor",
+                        "which is a doctor"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "strcl-v3-c1-04",
+            "question": "Omit the relative pronoun where possible: The book that I borrowed was useful. The book {a1} was useful.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "omitted_relative_pronoun"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I borrowed",
+                    "options": [
+                        "I borrowed",
+                        "borrowed I",
+                        "which I borrowed it",
+                        "who I borrowed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "strcl-v3-c1-05",
+            "question": "Reduce the clause: The man who is standing near the door is my uncle. The man {a1} is my uncle.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "reduced_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "standing near the door",
+                    "options": [
+                        "standing near the door",
+                        "stands near the door",
+                        "who standing near the door",
+                        "stood near the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "strcl-v3-c1-06",
+            "question": "Rewrite with because: It was cold, so we stayed inside. We stayed inside {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "reason_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "because it was cold",
+                    "options": [
+                        "because it was cold",
+                        "although it was cold",
+                        "because of it was cold",
+                        "so it was cold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "strcl-v3-c1-07",
+            "question": "Rewrite with although: It rained, but we went out. {a1}, we went out.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "contrast_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although it rained",
+                    "options": [
+                        "Although it rained",
+                        "Because it rained",
+                        "Despite it rained",
+                        "So it rained"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "strcl-v3-c1-08",
+            "question": "Rewrite with so: The road was icy. We drove slowly. The road was icy, {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "result_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "so we drove slowly",
+                    "options": [
+                        "so we drove slowly",
+                        "because we drove slowly",
+                        "although we drove slowly",
+                        "so slowly drove we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "strcl-v3-c1-09",
+            "question": "Rewrite with to: I called him because I wanted to ask a question. I called him {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "purpose_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to ask a question",
+                    "options": [
+                        "to ask a question",
+                        "for ask a question",
+                        "so ask a question",
+                        "because ask a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "strcl-v3-c1-10",
+            "question": "Choose the link that preserves the relation: She was tired, but she finished the work. {a1}, she finished the work.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "preserve_relation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although she was tired",
+                    "options": [
+                        "Although she was tired",
+                        "Because she was tired",
+                        "So she was tired",
+                        "Therefore she was tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "strcl-v3-c1-11",
+            "question": "Avoid the mistake: This is the house {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I grew up",
+                    "options": [
+                        "where I grew up",
+                        "where I grew up there",
+                        "which I grew up",
+                        "who I grew up"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "strcl-v3-c1-12",
+            "question": "Combine with whose: I met a girl. Her brother is a pilot. I met a girl {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c1",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose brother is a pilot",
+                    "options": [
+                        "whose brother is a pilot",
+                        "who brother is a pilot",
+                        "which brother is a pilot",
+                        "whose brother he is a pilot"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "strcl-v3-c2-01",
+            "question": "Combine with who: This is the teacher. She helped me. This is the teacher {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who helped me",
+                    "options": [
+                        "who helped me",
+                        "which helped me",
+                        "whose helped me",
+                        "who help me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "strcl-v3-c2-02",
+            "question": "Combine with that: I bought a phone. It works offline. I bought a phone {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that works offline",
+                    "options": [
+                        "that works offline",
+                        "who works offline",
+                        "that work offline",
+                        "which it works offline"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "strcl-v3-c2-03",
+            "question": "Add a non-defining clause: My sister is a doctor. She lives in Lviv. My sister, {a1}, lives in Lviv.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "non_defining_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who is a doctor",
+                    "options": [
+                        "who is a doctor",
+                        "that is a doctor",
+                        "who she is a doctor",
+                        "which is a doctor"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "strcl-v3-c2-04",
+            "question": "Omit the relative pronoun where possible: The book that I borrowed was useful. The book {a1} was useful.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "omitted_relative_pronoun"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "I borrowed",
+                    "options": [
+                        "I borrowed",
+                        "borrowed I",
+                        "which I borrowed it",
+                        "who I borrowed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "strcl-v3-c2-05",
+            "question": "Reduce the clause: The man who is standing near the door is my uncle. The man {a1} is my uncle.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "reduced_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "standing near the door",
+                    "options": [
+                        "standing near the door",
+                        "stands near the door",
+                        "who standing near the door",
+                        "stood near the door"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "strcl-v3-c2-06",
+            "question": "Rewrite with because: It was cold, so we stayed inside. We stayed inside {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "reason_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "because it was cold",
+                    "options": [
+                        "because it was cold",
+                        "although it was cold",
+                        "because of it was cold",
+                        "so it was cold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "strcl-v3-c2-07",
+            "question": "Rewrite with although: It rained, but we went out. {a1}, we went out.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "contrast_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although it rained",
+                    "options": [
+                        "Although it rained",
+                        "Because it rained",
+                        "Despite it rained",
+                        "So it rained"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "strcl-v3-c2-08",
+            "question": "Rewrite with so: The road was icy. We drove slowly. The road was icy, {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "result_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "so we drove slowly",
+                    "options": [
+                        "so we drove slowly",
+                        "because we drove slowly",
+                        "although we drove slowly",
+                        "so slowly drove we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "strcl-v3-c2-09",
+            "question": "Rewrite with to: I called him because I wanted to ask a question. I called him {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "purpose_links"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to ask a question",
+                    "options": [
+                        "to ask a question",
+                        "for ask a question",
+                        "so ask a question",
+                        "because ask a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "strcl-v3-c2-10",
+            "question": "Choose the link that preserves the relation: She was tired, but she finished the work. {a1}, she finished the work.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "preserve_relation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Although she was tired",
+                    "options": [
+                        "Although she was tired",
+                        "Because she was tired",
+                        "So she was tired",
+                        "Therefore she was tired"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "strcl-v3-c2-11",
+            "question": "Avoid the mistake: This is the house {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where I grew up",
+                    "options": [
+                        "where I grew up",
+                        "where I grew up there",
+                        "which I grew up",
+                        "who I grew up"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "strcl-v3-c2-12",
+            "question": "Combine with whose: I met a girl. Her brother is a pilot. I met a girl {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_relative_clauses_linking_words",
+            "tag_keys": [
+                "sentence_transformations_relative_clauses_linking_words_all_levels",
+                "level_c2",
+                "relative_pronouns"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose brother is a pilot",
+                    "options": [
+                        "whose brother is a pilot",
+                        "who brother is a pilot",
+                        "which brother is a pilot",
+                        "whose brother he is a pilot"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "strcl-v3-all",
+        "slug": "sentence-transformations-relative-clauses-linking-words-all-levels-v3",
+        "name": "Sentence Transformations — Relative Clauses / Linking Words (All levels V3)",
+        "description": "Standard V3 package for Sentence Transformations — Relative Clauses / Linking Words across A1-C2.",
+        "question_uuids": [
+            "strcl-v3-a1-01",
+            "strcl-v3-a1-02",
+            "strcl-v3-a1-03",
+            "strcl-v3-a1-04",
+            "strcl-v3-a1-05",
+            "strcl-v3-a1-06",
+            "strcl-v3-a1-07",
+            "strcl-v3-a1-08",
+            "strcl-v3-a1-09",
+            "strcl-v3-a1-10",
+            "strcl-v3-a1-11",
+            "strcl-v3-a1-12",
+            "strcl-v3-a2-01",
+            "strcl-v3-a2-02",
+            "strcl-v3-a2-03",
+            "strcl-v3-a2-04",
+            "strcl-v3-a2-05",
+            "strcl-v3-a2-06",
+            "strcl-v3-a2-07",
+            "strcl-v3-a2-08",
+            "strcl-v3-a2-09",
+            "strcl-v3-a2-10",
+            "strcl-v3-a2-11",
+            "strcl-v3-a2-12",
+            "strcl-v3-b1-01",
+            "strcl-v3-b1-02",
+            "strcl-v3-b1-03",
+            "strcl-v3-b1-04",
+            "strcl-v3-b1-05",
+            "strcl-v3-b1-06",
+            "strcl-v3-b1-07",
+            "strcl-v3-b1-08",
+            "strcl-v3-b1-09",
+            "strcl-v3-b1-10",
+            "strcl-v3-b1-11",
+            "strcl-v3-b1-12",
+            "strcl-v3-b2-01",
+            "strcl-v3-b2-02",
+            "strcl-v3-b2-03",
+            "strcl-v3-b2-04",
+            "strcl-v3-b2-05",
+            "strcl-v3-b2-06",
+            "strcl-v3-b2-07",
+            "strcl-v3-b2-08",
+            "strcl-v3-b2-09",
+            "strcl-v3-b2-10",
+            "strcl-v3-b2-11",
+            "strcl-v3-b2-12",
+            "strcl-v3-c1-01",
+            "strcl-v3-c1-02",
+            "strcl-v3-c1-03",
+            "strcl-v3-c1-04",
+            "strcl-v3-c1-05",
+            "strcl-v3-c1-06",
+            "strcl-v3-c1-07",
+            "strcl-v3-c1-08",
+            "strcl-v3-c1-09",
+            "strcl-v3-c1-10",
+            "strcl-v3-c1-11",
+            "strcl-v3-c1-12",
+            "strcl-v3-c2-01",
+            "strcl-v3-c2-02",
+            "strcl-v3-c2-03",
+            "strcl-v3-c2-04",
+            "strcl-v3-c2-05",
+            "strcl-v3-c2-06",
+            "strcl-v3-c2-07",
+            "strcl-v3-c2-08",
+            "strcl-v3-c2-09",
+            "strcl-v3-c2-10",
+            "strcl-v3-c2-11",
+            "strcl-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "page_slug": "relative-clauses-linking-words",
+                "page_route": "/theory/sentence-transformations/relative-clauses-linking-words",
+                "theory_page": {
+                    "slug": "relative-clauses-linking-words",
+                    "title": "Sentence Transformations — Relative Clauses / Linking Words",
+                    "category_slug_path": "sentence-transformations",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/sentence-transformations/relative-clauses-linking-words"
+                }
+            }
+        }
+    }
+}

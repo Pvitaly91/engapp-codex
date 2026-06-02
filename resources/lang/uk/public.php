@@ -1,0 +1,277 @@
+<?php
+
+return [
+    // Meta / Title / Description
+    'meta' => [
+        'title' => 'Gramlyze — Платформа для викладачів англійської',
+        'description' => 'Gramlyze допомагає збирати тести, аналізувати відповіді та координувати команду викладачів англійської.',
+    ],
+
+    // Navigation
+    'nav' => [
+        'catalog' => 'Каталог',
+        'theory' => 'Теорія',
+        'courses' => 'Курси',
+        'polyglot_course' => 'Sentence Builder курс',
+        'words_test' => 'Слова',
+        'verbs_test' => 'Дієслова',
+        'explore' => 'Дослідження',
+        'practice' => 'Практика',
+        'menu' => 'Меню',
+        'open_menu' => 'Відкрити меню',
+        'close_menu' => 'Закрити меню',
+    ],
+
+    // Search
+    'search' => [
+        'placeholder' => 'Пошук матеріалів',
+        'button' => 'Пошук',
+        'title' => 'Пошук — Gramlyze',
+        'results_title' => 'Результати пошуку',
+        'found_for' => 'Знайдено для запиту:',
+        'nothing_found' => 'Нічого не знайдено',
+        'try_another' => 'Спробуйте інший запит або перегляньте каталог тестів',
+        'to_catalog' => 'До каталогу',
+        'pages' => 'Сторінки теорії',
+        'tests' => 'Тести',
+        'results_count' => ':count результатів',
+    ],
+
+    // Footer
+    'footer' => [
+        'description' => 'Платформа для викладачів та методистів англійської мови: тести, AI-аналіз, база знань і спільна робота команди.',
+        'links' => 'Посилання',
+        'contact' => 'Контакти',
+        'support' => 'Зворотний зв’язок',
+        'theme' => 'Тема',
+    ],
+
+    // Common
+    'common' => [
+        'home' => 'Головна',
+        'breadcrumb' => 'Навігаційний ланцюжок',
+        'go_to' => 'Перейти',
+        'collapse' => 'Згорнути',
+        'expand' => 'Розгорнути',
+        'level' => 'Рівень',
+        'type_theory' => 'Теорія',
+        'type_test' => 'Тест',
+        'no_lessons' => 'Уроків поки немає',
+        'no_categories' => 'Тем поки немає',
+        'categories' => 'Теми',
+        'select_category' => 'Оберіть тему',
+        'section_pages' => 'Уроки в цій темі',
+        'page_tags' => 'Теги сторінки',
+        'category_tags' => 'Теги категорії',
+        'tests_on_topic' => 'Тести по темі',
+        'related_tests' => 'Пов\'язані тести',
+        'quick_links' => 'Швидкі посилання',
+    ],
+
+    // Slider (JS aria-labels)
+    'slider' => [
+        'go_to_slide' => 'Перейти до слайда',
+    ],
+
+    // Pages section
+    'pages' => [
+        'title' => 'Теорія',
+        'materials_section' => 'Матеріали розділу',
+        'select_category_hint' => 'Оберіть тему, щоб переглянути уроки.',
+        'no_pages_in_category' => 'У цій темі поки немає уроків.',
+    ],
+
+    // Theory section
+    'theory' => [
+        'section_badge' => 'Граматичний гід',
+        'categories_count' => 'категорій',
+        'lessons_count' => 'уроків',
+        'title' => 'Граматика англійської мови',
+        'description' => 'Вивчай граматику англійської мови від базових понять до просунутих тем. Структуровані уроки, зрозумілі пояснення та практичні приклади допоможуть тобі опанувати мову на рівні від A1 до B2.',
+        'start_learning' => 'Почати навчання',
+        'all_categories' => 'Усі теми',
+        'topics_to_learn' => 'Теми для вивчення',
+        'topics_hint' => 'Обери тему й відкрий перший урок.',
+        'no_categories_title' => 'Тем поки немає',
+        'no_categories_hint' => 'Ми додамо уроки, щойно вони будуть готові.',
+        'recommended_path' => 'З чого почати',
+        'how_to_learn' => 'Як рухатися по граматиці?',
+        'how_to_learn_desc' => 'Почни з базових тем і поступово переходь до складніших. Кожен урок включає теоретичний матеріал, приклади та практичні вправи для закріплення знань.',
+        'step1' => 'Почни з базової граматики',
+        'step1_desc' => 'частини мови та структура речення',
+        'step2' => 'Вивчи артиклі та іменники',
+        'step2_desc' => 'a/an/the, злічувані/незлічувані',
+        'step3' => 'Опануй порівняння',
+        'step3_desc' => 'ступені порівняння прикметників',
+        'step4' => 'Поглиби знання',
+        'step4_desc' => 'порядок слів, інверсія, складні структури',
+        'theory_categories' => 'Тем граматики',
+        'lesson_pages' => 'Уроків',
+        'difficulty_levels' => 'Рівні складності',
+        'in_ukrainian' => 'Українською',
+        'mobile_categories' => 'Теми',
+        'theory_categories_mobile' => 'Теми граматики',
+        'sections' => 'Теми',
+    ],
+
+    // Courses section
+    'courses' => [
+        'title' => 'Курси — Gramlyze',
+        'breadcrumb' => 'Курси',
+        'badge' => 'Каталог курсів',
+        'heading' => 'Оберіть курс або рівень навчання',
+        'description' => 'Загальний розділ курсів збирає доступні напрями в одному місці. Почніть з English Sentence Builder і перейдіть на потрібний рівень A1-C2.',
+        'available_courses' => 'Доступні курси',
+        'available_levels' => 'Рівні',
+        'course_count' => '{1}:count напрям|[2,*]:count напрями',
+        'level_count' => '{1}:count рівень|[2,*]:count рівнів',
+        'catalog_label' => 'Напрями',
+        'catalog_heading' => 'Каталог курсів',
+        'catalog_hint' => 'Кожна картка показує доступні рівні й веде на вже існуючу сторінку курсу.',
+        'polyglot_description' => 'Sentence Builder — конструктор англійських речень для покрокового тренування граматики.',
+        'course_card_badge' => 'Перший напрям',
+        'theory_course_badge' => 'Новий напрям',
+        'theory_course_label' => 'Курс граматики',
+        'theory_course_title' => 'English Grammar Theory Course',
+        'theory_course_description' => 'Повний курс граматики, побудований за структурою розділу теорії.',
+        'theory_course_catalog_hint' => 'Уроки беруться з Page_V3 theory pages, а прогрес і розблокування працюють на цьому пристрої.',
+        'theory_driven_course_badge' => 'Theory-driven',
+        'theory_driven_course_label' => 'Theory-driven курс',
+        'theory_driven_course_title' => 'Повний курс по теорії',
+        'theory_driven_course_description' => 'Курс, що використовує існуючі сторінки теорії як програму та змішані тести з наявного контенту V3 / Sentence Builder.',
+        'theory_driven_course_catalog_hint' => 'Відкриває існуючий runtime /courses/theory-driven з lesson slug course-td-* та Sentence Builder unlock flow.',
+        'open_course' => 'Відкрити курс',
+        'levels_title' => 'Рівні курсу',
+        'choose_level' => 'Оберіть рівень',
+        'levels_hint' => 'A1-C2 відкривають існуючі Sentence Builder course pages.',
+        'open_level' => 'Відкрити рівень',
+    ],
+
+    // Home page
+    'home' => [
+        'title' => 'Gramlyze — платформа англійської практики',
+        'badge' => 'Публічний грамар-хаб',
+        'hero_title' => 'Вчися, тренуйся й досліджуй англійську',
+        'hero_title_accent' => 'разом з Gramylyze',
+        'hero_description' => 'Каталог граматичних тестів, сторінки теорії, тренажери дієслів і слів. Сучасний layout, швидкий пошук, світла й темна теми.',
+        'to_catalog' => 'Відкрити каталог тестів',
+        'explore_theory' => 'Переглянути теорію',
+        'stat_categories' => 'Граматичні напрями',
+        'stat_ai_hints' => 'AI-підказок',
+        'stat_tags' => 'Зв’язаних тегів',
+        'stat_access' => 'Доступ будь-коли',
+        'quick_search' => 'Швидкий словник',
+        'quick_search_hint' => 'Шукайте слово й форми без переходів по сторінках.',
+        'dictionary_cta' => 'Працює з багатьма мовами — почніть вводити переклад.',
+        'sections' => 'Навігація',
+        'pick_path' => 'Обери напрям',
+        'catalog_title' => 'Добірки тестів',
+        'catalog_desc' => 'Готові картки тестів за темами та складністю.',
+        'courses_title' => 'Курси',
+        'courses_desc' => 'Відкрийте каталог курсів і оберіть English Sentence Builder A1-C2.',
+        'theory_title' => 'Граматика по темах',
+        'theory_desc' => 'Структуровані пояснення граматики з дружніми URL.',
+        'polyglot_title' => 'English Sentence Builder A1',
+        'polyglot_desc' => 'Покроковий курс з compose-token уроками, прогресом і розблокуванням наступних lesson.',
+        'polyglot_a2_title' => 'English Sentence Builder A2',
+        'polyglot_a2_desc' => 'Новий A2 курс стартує з Present Perfect і має 16-урочний roadmap для conditionals, modal verbs та mixed revision.',
+        'polyglot_b1_title' => 'English Sentence Builder B1',
+        'polyglot_b1_desc' => 'B1 roadmap стартує з Present Perfect Continuous і відкриває 16-урочний трек для reported speech, complex tenses та final drill.',
+        'polyglot_b2_title' => 'English Sentence Builder B2',
+        'polyglot_b2_desc' => 'B2 roadmap стартує з Past Perfect Continuous, mixed conditionals і modal perfect, а наступні уроки лишаються у planned треку.',
+        'polyglot_c1_title' => 'English Sentence Builder C1',
+        'polyglot_c1_desc' => 'C1 roadmap стартує з advanced conditionals, inversion after adverbials і passive reporting structures.',
+        'polyglot_c2_title' => 'English Sentence Builder C2',
+        'polyglot_c2_desc' => 'C2 roadmap стартує з conditional alternatives, discourse cohesion та ellipsis/substitution/reference.',
+        'words_title' => 'Лексичний тренажер',
+        'words_desc' => 'Тренуйте лексику з адаптивною складністю.',
+        'verbs_title' => 'Практика форм',
+        'verbs_desc' => 'Прокачайте неправильні дієслова у фокусі.',
+        'how_it_works' => 'Як це працює',
+        'steps_title' => 'Потік навчання',
+        'steps_intro' => 'Переходьте між каталогом, теорією та тренажерами без втрати контексту.',
+        'new_design' => 'Головна',
+        'step_find' => 'Пошук у бібліотеці',
+        'step_find_desc' => 'Глобальний пошук веде до теорії чи тестів.',
+        'step_start' => 'Почати практику',
+        'step_start_desc' => 'Запускайте тест або відкривайте теорію прямо з хедера.',
+        'step_share' => 'Продовжуйте будь-де',
+        'step_share_desc' => 'Світла/темна тема та адаптивність тримають сторінки читабельними.',
+        'search_block_title' => 'Пошук по сайту',
+        'search_block_heading' => 'Знайдіть тему або тест',
+        'search_block_desc' => 'Знаходьте тести, граматичні сторінки й картки одним запитом.',
+        'search_block_hint' => 'Підказки з’являються після двох символів.',
+    ],
+
+
+    // Language switcher
+    'language' => [
+        'uk' => 'UK',
+        'en' => 'EN',
+        'pl' => 'PL',
+        'ukrainian' => 'Українська',
+        'english' => 'Англійська',
+        'polish' => 'Польська',
+        'search' => 'Знайти мову',
+        'current' => 'Поточна',
+    ],
+
+    'theme' => [
+        'light' => 'Увімкнути світлу тему',
+        'dark' => 'Увімкнути темну тему',
+    ],
+
+    // Beta
+    'beta' => [
+        'badge' => 'BETA',
+        'banner_title' => 'Це beta-версія',
+        'banner_text' => 'Сайт у розробці, деякі розділи можуть бути недоступні.',
+    ],
+
+    // Coming Soon
+    'coming_soon' => [
+        'title' => 'Скоро буде доступно',
+        'text' => 'Розділ у розробці. Спробуйте пізніше.',
+        'home' => 'На головну',
+        'back' => 'Назад',
+        'bug_report' => 'Якщо помітили баг — напишіть нам',
+    ],
+
+    // Errors
+    'errors' => [
+        'home' => 'На головну',
+        'back' => 'Назад',
+        '403' => [
+            'title' => 'Доступ заборонено',
+            'text' => 'У вас немає дозволу для перегляду цієї сторінки.',
+        ],
+        '404' => [
+            'title' => 'Сторінку не знайдено',
+            'text' => 'Сторінка, яку ви шукаєте, не існує або була переміщена.',
+        ],
+        '419' => [
+            'title' => 'Сторінка застаріла',
+            'text' => 'Сесія закінчилась. Будь ласка, оновіть сторінку та спробуйте знову.',
+        ],
+        '429' => [
+            'title' => 'Забагато запитів',
+            'text' => 'Ви надіслали занадто багато запитів. Зачекайте трохи та спробуйте знову.',
+        ],
+        '500' => [
+            'title' => 'Помилка сервера',
+            'text' => 'Щось пішло не так на нашому боці. Ми вже працюємо над виправленням.',
+        ],
+        '503' => [
+            'title' => 'Сервіс недоступний',
+            'text' => 'Сервіс тимчасово недоступний. Спробуйте пізніше.',
+        ],
+        '4xx' => [
+            'title' => 'Помилка запиту',
+            'text' => 'Виникла помилка з вашим запитом. Перевірте URL та спробуйте знову.',
+        ],
+        '5xx' => [
+            'title' => 'Помилка сервера',
+            'text' => 'На сервері виникла помилка. Спробуйте пізніше.',
+        ],
+    ],
+];

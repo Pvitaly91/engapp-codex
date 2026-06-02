@@ -1,0 +1,232 @@
+<?php
+
+namespace Tests\Feature\Admin;
+
+use App\Models\Page;
+use App\Models\PageCategory;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
+
+class PageV3PromptGeneratorTest extends TestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $viewsPath = storage_path('framework/views');
+        if (! is_dir($viewsPath)) {
+            mkdir($viewsPath, 0777, true);
+        }
+        config(['view.compiled' => $viewsPath]);
+
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('pages');
+        Schema::dropIfExists('page_categories');
+        Schema::enableForeignKeyConstraints();
+
+        Schema::create('page_categories', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('parent_id')->nullable()->index();
+            $table->string('slug')->unique();
+            $table->string('title');
+            $table->string('language', 8)->default('uk');
+            $table->string('type')->nullable();
+            $table->string('seeder')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('pages', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('page_category_id')->nullable()->index();
+            $table->string('slug')->unique();
+            $table->string('title');
+            $table->text('text')->nullable();
+            $table->string('type')->nullable();
+            $table->string('seeder')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function test_admin_can_view_page_v3_prompt_generator_page(): void
+    {
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->get(route('page-v3-prompt-generator.index'));
+
+        $response->assertOk();
+        $response->assertSee('Page_V3 Prompt Generator');
+        $response->assertSee('/admin/page-v3-prompt-generator');
+        $response->assertSee('Mode A1 / repository-connected');
+        $response->assertSee('Mode A2 / no-repository fallback');
+    }
+
+    public function test_generates_single_mode_prompt_for_existing_category(): void
+    {
+        $category = $this->createTheoryCategory([
+            'title' => 'Passive Voice',
+            'slug' => 'passive-voice',
+            'seeder' => 'Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveVoiceCategorySeeder',
+        ]);
+
+        Page::create([
+            'title' => 'Existing passive voice page',
+            'slug' => 'existing-passive-voice-page',
+            'type' => 'theory',
+            'page_category_id' => $category->id,
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post(route('page-v3-prompt-generator.generate'), [
+                'source_type' => 'manual_topic',
+                'manual_topic' => 'Passive Voice Causative',
+                'category_mode' => 'existing',
+                'existing_category_id' => $category->id,
+                'generation_mode' => 'single',
+            ]);
+
+        $response->assertOk();
+        $response->assertSee('Prompt for Codex');
+        $response->assertSee('Passive Voice Causative');
+        $response->assertSee('Passive Voice');
+        $response->assertSee('Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveVoiceCategorySeeder');
+        $response->assertSee('database/seeders/Page_V3/PassiveVoice/PassiveVoiceCausativeTheorySeeder.php');
+        $response->assertSee('database/seeders/Page_V3/PassiveVoice/PassiveVoiceCausativeTheorySeeder/definition.json');
+
+        $content = str_replace("\r\n", "\n", $response->getContent());
+        $this->assertPromptCardEnvelope($content, 'page-v3-single', '/^CODEX PROMPT ID: PAGE-V3-PROMPT-[A-F0-9]{8}$/');
+    }
+
+    public function test_generates_split_mode_prompts_for_new_category_from_external_url_even_when_fetch_fails(): void
+    {
+        Http::fake([
+            '*' => Http::response('Server error', 500),
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post(route('page-v3-prompt-generator.generate'), [
+                'source_type' => 'external_url',
+                'external_url' => 'https://93.184.216.34/grammar/alternative-questions',
+                'category_mode' => 'new',
+                'new_category_title' => 'Types of Questions',
+                'generation_mode' => 'split',
+                'prompt_a_mode' => 'repository_connected',
+            ]);
+
+        $response->assertOk();
+        $response->assertSee('Prompt for LLM JSON generation');
+        $response->assertSee('Prompt for Codex seeder generation');
+        $response->assertSee('Prompt буде згенеровано тільки на основі URL');
+        $response->assertSee('separate downloadable `.json` file');
+        $response->assertSee('Attachment filenames may be arbitrary');
+        $response->assertSee('Selected Prompt A mode: Mode A1 / repository-connected');
+        $response->assertSee('This prompt assumes the repository is connected. Inspect the real Page_V3 files first and follow the live project contract.');
+        $response->assertSee('Primary live repository references to inspect before generating JSON:');
+        $response->assertSee('database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsCategorySeeder/definition.json');
+        $response->assertSee('database/seeders/Page_V3/QuestionsNegations/TypesOfQuestions/TypesOfQuestionsAlternativeQuestionsTheorySeeder/definition.json');
+
+        $content = str_replace("\r\n", "\n", $response->getContent());
+        $llmPromptIdLine = $this->assertPromptCardEnvelope($content, 'page-v3-llm_json_pack', '/^CODEX PROMPT ID: PAGE-V3-PROMPT-[A-F0-9]{8}$/');
+        $codexPromptIdLine = $this->assertPromptCardEnvelope($content, 'page-v3-codex_page_v3', '/^CODEX PROMPT ID: PAGE-V3-PROMPT-[A-F0-9]{8}$/');
+
+        $this->assertNotSame($llmPromptIdLine, $codexPromptIdLine);
+    }
+
+    public function test_ai_category_mode_includes_current_category_catalog(): void
+    {
+        $this->createTheoryCategory([
+            'title' => 'Word Order',
+            'slug' => 'word-order',
+            'seeder' => 'Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderCategorySeeder',
+        ]);
+        $this->createTheoryCategory([
+            'title' => 'Questions Negations',
+            'slug' => 'questions-negations',
+            'seeder' => 'Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsCategorySeeder',
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post(route('page-v3-prompt-generator.generate'), [
+                'source_type' => 'manual_topic',
+                'manual_topic' => 'Alternative Questions',
+                'category_mode' => 'ai_select',
+                'generation_mode' => 'single',
+            ]);
+
+        $response->assertOk();
+        $response->assertSee('Current theory category catalog');
+        $response->assertSee('slug=word-order');
+        $response->assertSee('slug=questions-negations');
+    }
+
+    public function test_rejects_unsafe_external_url_hosts(): void
+    {
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->from(route('page-v3-prompt-generator.index'))
+            ->post(route('page-v3-prompt-generator.generate'), [
+                'source_type' => 'external_url',
+                'external_url' => 'http://127.0.0.1/internal/theory',
+                'category_mode' => 'ai_select',
+                'generation_mode' => 'split',
+            ]);
+
+        $response->assertRedirect(route('page-v3-prompt-generator.index'));
+        $response->assertSessionHasErrors(['external_url']);
+    }
+
+    /**
+     * @param  array<string, mixed>  $attributes
+     */
+    private function createTheoryCategory(array $attributes): PageCategory
+    {
+        return PageCategory::create(array_merge([
+            'title' => 'Basic Grammar',
+            'slug' => 'basic-grammar',
+            'language' => 'uk',
+            'type' => 'theory',
+            'seeder' => null,
+        ], $attributes));
+    }
+
+    private function assertPromptCardEnvelope(string $content, string $prefix, string $promptIdPattern): string
+    {
+        $topPromptId = $this->extractInputValue($content, $prefix . '-prompt-id-top');
+        $bottomPromptId = $this->extractInputValue($content, $prefix . '-prompt-id-bottom');
+        $summaryTop = $this->extractTextareaValue($content, $prefix . '-summary-top');
+        $summaryBottom = $this->extractTextareaValue($content, $prefix . '-summary-bottom');
+        $promptText = $this->extractTextareaValue($content, $prefix . '-text');
+
+        $this->assertMatchesRegularExpression($promptIdPattern, $topPromptId);
+        $this->assertSame($topPromptId, $bottomPromptId);
+        $this->assertStringStartsWith($topPromptId, $promptText);
+        $this->assertStringEndsWith("\n\n" . $topPromptId, $promptText);
+        $this->assertStringContainsString('Codex Summary (Top):' . "\n" . $topPromptId, $summaryTop);
+        $this->assertStringContainsString('Codex Summary (Bottom):' . "\n" . $topPromptId, $summaryBottom);
+        $this->assertStringContainsString($summaryTop, $promptText);
+        $this->assertStringContainsString($summaryBottom, $promptText);
+
+        return $topPromptId;
+    }
+
+    private function extractInputValue(string $content, string $id): string
+    {
+        $this->assertMatchesRegularExpression(
+            '/id="' . preg_quote($id, '/') . '"[^>]*value="([^"]*)"/s',
+            $content
+        );
+        preg_match('/id="' . preg_quote($id, '/') . '"[^>]*value="([^"]*)"/s', $content, $matches);
+
+        return html_entity_decode($matches[1] ?? '', ENT_QUOTES);
+    }
+
+    private function extractTextareaValue(string $content, string $id): string
+    {
+        $this->assertMatchesRegularExpression(
+            '/<textarea[^>]*id="' . preg_quote($id, '/') . '"[^>]*>(.*?)<\/textarea>/s',
+            $content
+        );
+        preg_match('/<textarea[^>]*id="' . preg_quote($id, '/') . '"[^>]*>(.*?)<\/textarea>/s', $content, $matches);
+
+        return str_replace("\r\n", "\n", html_entity_decode($matches[1] ?? '', ENT_QUOTES));
+    }
+}

@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotAdvancedFrontingAndEmphasisC2LessonSeeder as V3PolyglotAdvancedFrontingAndEmphasisC2LessonSeeder;
+
+class PolyglotAdvancedFrontingAndEmphasisC2LessonSeeder extends V3PolyglotAdvancedFrontingAndEmphasisC2LessonSeeder
+{
+}

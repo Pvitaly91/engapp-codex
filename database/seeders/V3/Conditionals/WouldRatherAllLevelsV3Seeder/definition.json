@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\WouldRatherAllLevelsV3Seeder",
+        "uuid_namespace": "WouldRatherAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_would_rather": {
+            "name": "Would rather"
+        }
+    },
+    "tags": {
+        "conditionals_would_rather": {
+            "name": "Would rather",
+            "category": "conditionals"
+        },
+        "would_rather_base": {
+            "name": "Would Rather Base",
+            "category": "topic"
+        },
+        "would_rather_not": {
+            "name": "Would Rather Not",
+            "category": "topic"
+        },
+        "would_rather_subject_past": {
+            "name": "Would Rather Subject Past",
+            "category": "topic"
+        },
+        "would_rather_subject_past_perfect": {
+            "name": "Would Rather Subject Past Perfect",
+            "category": "topic"
+        },
+        "present_future_preference": {
+            "name": "Present Future Preference",
+            "category": "topic"
+        },
+        "past_regret": {
+            "name": "Past Regret",
+            "category": "topic"
+        },
+        "would_rather_vs_prefer": {
+            "name": "Would Rather Vs Prefer",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_would_rather"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "wr-v3-a1-01",
+            "question": "I {a1} home",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather walk",
+                    "options": [
+                        "would rather walk",
+                        "will would rather walk",
+                        "would would rather walk",
+                        "did would rather walk"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "I {a1} home"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 2,
+            "uuid": "wr-v3-a1-02",
+            "question": "I {a1} go tonight",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "I {a1} go tonight"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 3,
+            "uuid": "wr-v3-a1-03",
+            "question": "I would rather you {a1} now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "left",
+                    "options": [
+                        "left",
+                        "will left",
+                        "would left",
+                        "did left"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "I would rather you {a1} now"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 4,
+            "uuid": "wr-v3-a1-04",
+            "question": "I would rather you {a1} me earlier",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had told",
+                    "options": [
+                        "had told",
+                        "will had told",
+                        "would had told",
+                        "did had told"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "I would rather you {a1} me earlier"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 5,
+            "uuid": "wr-v3-a1-05",
+            "question": "I {a1} eat at home tonight",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Present Future Preference.",
+                    "gap_tags": [
+                        "present_future_preference"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_future_preference"
+            ],
+            "variants": [
+                "I {a1} eat at home tonight"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 6,
+            "uuid": "wr-v3-a1-06",
+            "question": "I would rather you {a1} the receipt",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had kept",
+                    "options": [
+                        "had kept",
+                        "will had kept",
+                        "would had kept",
+                        "did had kept"
+                    ],
+                    "verb_hint": "Focus on Past Regret.",
+                    "gap_tags": [
+                        "past_regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_regret"
+            ],
+            "variants": [
+                "I would rather you {a1} the receipt"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 7,
+            "uuid": "wr-v3-a1-07",
+            "question": "I {a1} stay here than move",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Vs Prefer.",
+                    "gap_tags": [
+                        "would_rather_vs_prefer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_vs_prefer"
+            ],
+            "variants": [
+                "I {a1} stay here than move"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 8,
+            "uuid": "wr-v3-a1-08",
+            "question": "Use {a1} not would rather to stay",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather stay",
+                    "options": [
+                        "would rather stay",
+                        "will would rather stay",
+                        "would would rather stay",
+                        "did would rather stay"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} not would rather to stay"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 9,
+            "uuid": "wr-v3-a1-09",
+            "question": "I {a1} now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather read",
+                    "options": [
+                        "would rather read",
+                        "will would rather read",
+                        "would would rather read",
+                        "did would rather read"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "I {a1} now"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 10,
+            "uuid": "wr-v3-a1-10",
+            "question": "I {a1} sit here",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "I {a1} sit here"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 11,
+            "uuid": "wr-v3-a1-11",
+            "question": "I would rather you {a1} outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "waited",
+                    "options": [
+                        "waited",
+                        "will waited",
+                        "would waited",
+                        "did waited"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "I would rather you {a1} outside"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 12,
+            "uuid": "wr-v3-a1-12",
+            "question": "I would rather you {a1} home",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had stayed",
+                    "options": [
+                        "had stayed",
+                        "will had stayed",
+                        "would had stayed",
+                        "did had stayed"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "I would rather you {a1} home"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 13,
+            "uuid": "wr-v3-a2-01",
+            "question": "She {a1} take the train",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "She {a1} take the train"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 14,
+            "uuid": "wr-v3-a2-02",
+            "question": "She {a1} answer now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "She {a1} answer now"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 15,
+            "uuid": "wr-v3-a2-03",
+            "question": "She {a1} he called later",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "She {a1} he called later"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 16,
+            "uuid": "wr-v3-a2-04",
+            "question": "She {a1} they had warned her",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "She {a1} they had warned her"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 17,
+            "uuid": "wr-v3-a2-05",
+            "question": "She {a1} meet on Friday",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Present Future Preference.",
+                    "gap_tags": [
+                        "present_future_preference"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_future_preference"
+            ],
+            "variants": [
+                "She {a1} meet on Friday"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 18,
+            "uuid": "wr-v3-a2-06",
+            "question": "She {a1} he had not sold the car",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Past Regret.",
+                    "gap_tags": [
+                        "past_regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_regret"
+            ],
+            "variants": [
+                "She {a1} he had not sold the car"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 19,
+            "uuid": "wr-v3-a2-07",
+            "question": "She {a1} drink tea than coffee",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Vs Prefer.",
+                    "gap_tags": [
+                        "would_rather_vs_prefer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_vs_prefer"
+            ],
+            "variants": [
+                "She {a1} drink tea than coffee"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 20,
+            "uuid": "wr-v3-a2-08",
+            "question": "Use {a1} not go for the negative form",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} not go for the negative form"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 21,
+            "uuid": "wr-v3-a2-09",
+            "question": "She {a1} cook dinner",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "She {a1} cook dinner"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 22,
+            "uuid": "wr-v3-a2-10",
+            "question": "She {a1} drive at night",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "She {a1} drive at night"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 23,
+            "uuid": "wr-v3-a2-11",
+            "question": "She {a1} we arrived early",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "She {a1} we arrived early"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 24,
+            "uuid": "wr-v3-a2-12",
+            "question": "She {a1} they had chosen another route",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "She {a1} they had chosen another route"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 25,
+            "uuid": "wr-v3-b1-01",
+            "question": "We {a1} stay inside",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "We {a1} stay inside"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 26,
+            "uuid": "wr-v3-b1-02",
+            "question": "We {a1} wait outside",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "We {a1} wait outside"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 27,
+            "uuid": "wr-v3-b1-03",
+            "question": "We {a1} they came tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "We {a1} they came tomorrow"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 28,
+            "uuid": "wr-v3-b1-04",
+            "question": "We {a1} he had checked the map",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "We {a1} he had checked the map"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 29,
+            "uuid": "wr-v3-b1-05",
+            "question": "We {a1} start early tomorrow",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Present Future Preference.",
+                    "gap_tags": [
+                        "present_future_preference"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_future_preference"
+            ],
+            "variants": [
+                "We {a1} start early tomorrow"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 30,
+            "uuid": "wr-v3-b1-06",
+            "question": "We {a1} they had called before leaving",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Past Regret.",
+                    "gap_tags": [
+                        "past_regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_regret"
+            ],
+            "variants": [
+                "We {a1} they had called before leaving"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 31,
+            "uuid": "wr-v3-b1-07",
+            "question": "We {a1} rent a flat than buy one",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Vs Prefer.",
+                    "gap_tags": [
+                        "would_rather_vs_prefer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_vs_prefer"
+            ],
+            "variants": [
+                "We {a1} rent a flat than buy one"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 32,
+            "uuid": "wr-v3-b1-08",
+            "question": "{a1} past simple after a different subject",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Use",
+                    "options": [
+                        "Use",
+                        "will Use",
+                        "would Use",
+                        "did Use"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} past simple after a different subject"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 33,
+            "uuid": "wr-v3-b1-09",
+            "question": "We {a1} travel by bus",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "We {a1} travel by bus"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 34,
+            "uuid": "wr-v3-b1-10",
+            "question": "We {a1} change the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "We {a1} change the plan"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 35,
+            "uuid": "wr-v3-b1-11",
+            "question": "We {a1} he spoke first",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "We {a1} he spoke first"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 36,
+            "uuid": "wr-v3-b1-12",
+            "question": "We {a1} he had asked first",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "We {a1} he had asked first"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 37,
+            "uuid": "wr-v3-b2-01",
+            "question": "He {a1} discuss it tomorrow",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "He {a1} discuss it tomorrow"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 38,
+            "uuid": "wr-v3-b2-02",
+            "question": "He {a1} sign the draft yet",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "He {a1} sign the draft yet"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 39,
+            "uuid": "wr-v3-b2-03",
+            "question": "He {a1} the manager handled the complaint",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "He {a1} the manager handled the complaint"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 40,
+            "uuid": "wr-v3-b2-04",
+            "question": "He {a1} the team had saved the backup",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "He {a1} the team had saved the backup"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 41,
+            "uuid": "wr-v3-b2-05",
+            "question": "He {a1} speak after the presentation",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Present Future Preference.",
+                    "gap_tags": [
+                        "present_future_preference"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_future_preference"
+            ],
+            "variants": [
+                "He {a1} speak after the presentation"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 42,
+            "uuid": "wr-v3-b2-06",
+            "question": "He {a1} the editor had removed the error",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Past Regret.",
+                    "gap_tags": [
+                        "past_regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_regret"
+            ],
+            "variants": [
+                "He {a1} the editor had removed the error"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 43,
+            "uuid": "wr-v3-b2-07",
+            "question": "He {a1} negotiate than litigate",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Vs Prefer.",
+                    "gap_tags": [
+                        "would_rather_vs_prefer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_vs_prefer"
+            ],
+            "variants": [
+                "He {a1} negotiate than litigate"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 44,
+            "uuid": "wr-v3-b2-08",
+            "question": "{a1} past perfect for a past regret",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Use",
+                    "options": [
+                        "Use",
+                        "will Use",
+                        "would Use",
+                        "did Use"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} past perfect for a past regret"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 45,
+            "uuid": "wr-v3-b2-09",
+            "question": "He {a1} settle the matter quietly",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "He {a1} settle the matter quietly"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 46,
+            "uuid": "wr-v3-b2-10",
+            "question": "He {a1} confront the client",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "He {a1} confront the client"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 47,
+            "uuid": "wr-v3-b2-11",
+            "question": "He {a1} the assistant sent the invoice",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "He {a1} the assistant sent the invoice"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 48,
+            "uuid": "wr-v3-b2-12",
+            "question": "He {a1} the analyst had flagged the anomaly",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "He {a1} the analyst had flagged the anomaly"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 49,
+            "uuid": "wr-v3-c1-01",
+            "question": "The team {a1} delay the launch",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "The team {a1} delay the launch"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 50,
+            "uuid": "wr-v3-c1-02",
+            "question": "The company {a1} disclose the figures today",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "The company {a1} disclose the figures today"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 51,
+            "uuid": "wr-v3-c1-03",
+            "question": "The board {a1} the auditor reviewed the figures",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "The board {a1} the auditor reviewed the figures"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 52,
+            "uuid": "wr-v3-c1-04",
+            "question": "The council {a1} the consultant had disclosed the risk",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "The council {a1} the consultant had disclosed the risk"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 53,
+            "uuid": "wr-v3-c1-05",
+            "question": "The team {a1} test the update next week",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Present Future Preference.",
+                    "gap_tags": [
+                        "present_future_preference"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_future_preference"
+            ],
+            "variants": [
+                "The team {a1} test the update next week"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 54,
+            "uuid": "wr-v3-c1-06",
+            "question": "The regulator {a1} the bank had reported the breach sooner",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Past Regret.",
+                    "gap_tags": [
+                        "past_regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_regret"
+            ],
+            "variants": [
+                "The regulator {a1} the bank had reported the breach sooner"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 55,
+            "uuid": "wr-v3-c1-07",
+            "question": "The board {a1} restructure the debt than sell assets",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Vs Prefer.",
+                    "gap_tags": [
+                        "would_rather_vs_prefer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_vs_prefer"
+            ],
+            "variants": [
+                "The board {a1} restructure the debt than sell assets"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 56,
+            "uuid": "wr-v3-c1-08",
+            "question": "{a1} prefer to when you choose the prefer pattern",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Use",
+                    "options": [
+                        "Use",
+                        "will Use",
+                        "would Use",
+                        "did Use"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} prefer to when you choose the prefer pattern"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 57,
+            "uuid": "wr-v3-c1-09",
+            "question": "The board {a1} postpone the vote",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "The board {a1} postpone the vote"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 58,
+            "uuid": "wr-v3-c1-10",
+            "question": "The firm {a1} admit liability",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "The firm {a1} admit liability"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 59,
+            "uuid": "wr-v3-c1-11",
+            "question": "The auditors {a1} management disclosed the estimates",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "The auditors {a1} management disclosed the estimates"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 60,
+            "uuid": "wr-v3-c1-12",
+            "question": "The committee {a1} the ministry had consulted the regions",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "The committee {a1} the ministry had consulted the regions"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 61,
+            "uuid": "wr-v3-c2-01",
+            "question": "The panel {a1} examine the evidence privately",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "The panel {a1} examine the evidence privately"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 62,
+            "uuid": "wr-v3-c2-02",
+            "question": "The minister {a1} reopen the negotiations",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "The minister {a1} reopen the negotiations"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 63,
+            "uuid": "wr-v3-c2-03",
+            "question": "The judge {a1} the witness answered directly",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "The judge {a1} the witness answered directly"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 64,
+            "uuid": "wr-v3-c2-04",
+            "question": "The committee {a1} the agency had corrected the record",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "The committee {a1} the agency had corrected the record"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 65,
+            "uuid": "wr-v3-c2-05",
+            "question": "The delegation {a1} vote after the final review",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Present Future Preference.",
+                    "gap_tags": [
+                        "present_future_preference"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_future_preference"
+            ],
+            "variants": [
+                "The delegation {a1} vote after the final review"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 66,
+            "uuid": "wr-v3-c2-06",
+            "question": "The mediator {a1} both sides had accepted the draft",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Past Regret.",
+                    "gap_tags": [
+                        "past_regret"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_regret"
+            ],
+            "variants": [
+                "The mediator {a1} both sides had accepted the draft"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 67,
+            "uuid": "wr-v3-c2-07",
+            "question": "The researchers {a1} publish cautiously than overstate the findings",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Vs Prefer.",
+                    "gap_tags": [
+                        "would_rather_vs_prefer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_vs_prefer"
+            ],
+            "variants": [
+                "The researchers {a1} publish cautiously than overstate the findings"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 68,
+            "uuid": "wr-v3-c2-08",
+            "question": "Do not add to after {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Do not add to after {a1}"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 69,
+            "uuid": "wr-v3-c2-09",
+            "question": "The court {a1} hear the parties separately",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Base.",
+                    "gap_tags": [
+                        "would_rather_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_base"
+            ],
+            "variants": [
+                "The court {a1} hear the parties separately"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 70,
+            "uuid": "wr-v3-c2-10",
+            "question": "The panel {a1} infer intent without evidence",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather not",
+                    "options": [
+                        "would rather not",
+                        "will would rather not",
+                        "would would rather not",
+                        "did would rather not"
+                    ],
+                    "verb_hint": "Focus on Would Rather Not.",
+                    "gap_tags": [
+                        "would_rather_not"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_not"
+            ],
+            "variants": [
+                "The panel {a1} infer intent without evidence"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 71,
+            "uuid": "wr-v3-c2-11",
+            "question": "The prosecutor {a1} the expert clarified the method",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past.",
+                    "gap_tags": [
+                        "would_rather_subject_past"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past"
+            ],
+            "variants": [
+                "The prosecutor {a1} the expert clarified the method"
+            ],
+            "source": "theory_page_would_rather"
+        },
+        {
+            "id": 72,
+            "uuid": "wr-v3-c2-12",
+            "question": "The tribunal {a1} the parties had preserved the correspondence",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would rather",
+                    "options": [
+                        "would rather",
+                        "will would rather",
+                        "would would rather",
+                        "did would rather"
+                    ],
+                    "verb_hint": "Focus on Would Rather Subject Past Perfect.",
+                    "gap_tags": [
+                        "would_rather_subject_past_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_rather_subject_past_perfect"
+            ],
+            "variants": [
+                "The tribunal {a1} the parties had preserved the correspondence"
+            ],
+            "source": "theory_page_would_rather"
+        }
+    ],
+    "saved_test": {
+        "uuid": "cond-extra-wr-v3-all",
+        "slug": "would-rather-all-levels-v3",
+        "name": "Would rather: V3 All Levels",
+        "description": "Page-local V3 package for Would rather with A1-C2 coverage.",
+        "question_uuids": [
+            "wr-v3-a1-01",
+            "wr-v3-a1-02",
+            "wr-v3-a1-03",
+            "wr-v3-a1-04",
+            "wr-v3-a1-05",
+            "wr-v3-a1-06",
+            "wr-v3-a1-07",
+            "wr-v3-a1-08",
+            "wr-v3-a1-09",
+            "wr-v3-a1-10",
+            "wr-v3-a1-11",
+            "wr-v3-a1-12",
+            "wr-v3-a2-01",
+            "wr-v3-a2-02",
+            "wr-v3-a2-03",
+            "wr-v3-a2-04",
+            "wr-v3-a2-05",
+            "wr-v3-a2-06",
+            "wr-v3-a2-07",
+            "wr-v3-a2-08",
+            "wr-v3-a2-09",
+            "wr-v3-a2-10",
+            "wr-v3-a2-11",
+            "wr-v3-a2-12",
+            "wr-v3-b1-01",
+            "wr-v3-b1-02",
+            "wr-v3-b1-03",
+            "wr-v3-b1-04",
+            "wr-v3-b1-05",
+            "wr-v3-b1-06",
+            "wr-v3-b1-07",
+            "wr-v3-b1-08",
+            "wr-v3-b1-09",
+            "wr-v3-b1-10",
+            "wr-v3-b1-11",
+            "wr-v3-b1-12",
+            "wr-v3-b2-01",
+            "wr-v3-b2-02",
+            "wr-v3-b2-03",
+            "wr-v3-b2-04",
+            "wr-v3-b2-05",
+            "wr-v3-b2-06",
+            "wr-v3-b2-07",
+            "wr-v3-b2-08",
+            "wr-v3-b2-09",
+            "wr-v3-b2-10",
+            "wr-v3-b2-11",
+            "wr-v3-b2-12",
+            "wr-v3-c1-01",
+            "wr-v3-c1-02",
+            "wr-v3-c1-03",
+            "wr-v3-c1-04",
+            "wr-v3-c1-05",
+            "wr-v3-c1-06",
+            "wr-v3-c1-07",
+            "wr-v3-c1-08",
+            "wr-v3-c1-09",
+            "wr-v3-c1-10",
+            "wr-v3-c1-11",
+            "wr-v3-c1-12",
+            "wr-v3-c2-01",
+            "wr-v3-c2-02",
+            "wr-v3-c2-03",
+            "wr-v3-c2-04",
+            "wr-v3-c2-05",
+            "wr-v3-c2-06",
+            "wr-v3-c2-07",
+            "wr-v3-c2-08",
+            "wr-v3-c2-09",
+            "wr-v3-c2-10",
+            "wr-v3-c2-11",
+            "wr-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\WouldRatherAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "would-rather",
+                    "title": "Would rather",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsWouldRatherTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/would-rather"
+                }
+            }
+        }
+    }
+}

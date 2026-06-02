@@ -1,0 +1,48 @@
+{
+    "locale": "pl",
+    "seeder": {
+        "class": "Database\\Seeders\\Page_V3\\Localizations\\Pl\\VerbToBePastTheoryLocalizationSeeder"
+    },
+    "target": {
+        "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\VerbToBe\\VerbToBePastTheorySeeder",
+        "definition_path": "../definition.json"
+    },
+    "blocks": [
+        {
+            "reference": "subtitle",
+            "body": "<p><strong>Verb to Be: formy czasu przeszłego</strong> — was i were w prostych zdaniach twierdzących, przeczeniach i pytaniach o przeszłość.</p>"
+        },
+        {
+            "index": 1,
+            "body": "{\n    \"level\": \"A1–A2\",\n    \"intro\": \"W czasie przeszłym czasownik <strong>to be</strong> ma formy <strong>was / were</strong>. Używamy ich, gdy mówimy, <strong>jaki ktoś był</strong>, <strong>gdzie ktoś był</strong> albo <strong>co było prawdą wcześniej</strong>.\",\n    \"rules\": [\n        {\n            \"label\": \"was\",\n            \"color\": \"emerald\",\n            \"text\": \"Z <strong>I / he / she / it</strong> używaj <strong>was</strong>.\",\n            \"example\": \"I was tired. / She was at home.\"\n        },\n        {\n            \"label\": \"were\",\n            \"color\": \"blue\",\n            \"text\": \"Z <strong>you / we / they</strong> używaj <strong>were</strong>.\",\n            \"example\": \"You were right. / They were late.\"\n        },\n        {\n            \"label\": \"Pytania bez did\",\n            \"color\": \"amber\",\n            \"text\": \"W pytaniach z <strong>to be</strong> nie potrzebujesz <strong>did</strong>.\",\n            \"example\": \"Was he busy? / Were they ready?\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 2,
+            "body": "{\n    \"title\": \"1. Formy was / were\",\n    \"intro\": \"Zacznij od dwóch głównych form i zapamiętaj, z jakimi podmiotami występują.\",\n    \"items\": [\n        {\n            \"label\": \"I / He / She / It\",\n            \"title\": \"was\",\n            \"subtitle\": \"I was happy. / It was cold.\"\n        },\n        {\n            \"label\": \"You / We / They\",\n            \"title\": \"were\",\n            \"subtitle\": \"You were late. / They were happy.\"\n        },\n        {\n            \"label\": \"Przeczenie\",\n            \"title\": \"was not / were not\",\n            \"subtitle\": \"wasn't / weren't to formy skrócone.\"\n        },\n        {\n            \"label\": \"Model\",\n            \"title\": \"Subject + was / were\",\n            \"subtitle\": \"She was at home. / We were ready.\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 3,
+            "body": "{\n    \"title\": \"2. Przeczenia\",\n    \"intro\": \"Aby utworzyć przeczenie, dodaj <strong>not</strong> po <strong>was / were</strong>.\",\n    \"rows\": [\n        {\n            \"en\": \"I was at home.\",\n            \"ua\": \"I wasn't at home.\",\n            \"note\": \"wasn't = was not\"\n        },\n        {\n            \"en\": \"She was tired.\",\n            \"ua\": \"She was not tired.\",\n            \"note\": \"Pełna forma brzmi wyraźniej albo mocniej.\"\n        },\n        {\n            \"en\": \"They were late.\",\n            \"ua\": \"They weren't late.\",\n            \"note\": \"weren't = were not\"\n        }\n    ],\n    \"warning\": \"📌 Z <strong>to be</strong> w przeszłości nie dodawaj <strong>didn't</strong>.\"\n}"
+        },
+        {
+            "index": 4,
+                "body": "{\n    \"title\": \"3. Pytania\",\n    \"sections\": [\n        {\n            \"label\": \"Was + I / he / she / it\",\n            \"color\": \"emerald\",\n            \"description\": \"Z <strong>I / he / she / it</strong> zaczynaj pytanie od <strong>was</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"Was he at work yesterday?\",\n                    \"ua\": \"Czy on był wczoraj w pracy?\"\n                },\n                {\n                    \"en\": \"Was it difficult?\",\n                    \"ua\": \"Czy to było trudne?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Were + you / we / they\",\n            \"color\": \"blue\",\n            \"description\": \"Z <strong>you / we / they</strong> postaw <strong>were</strong> przed podmiotem.\",\n            \"examples\": [\n                {\n                    \"en\": \"Were you busy?\",\n                    \"ua\": \"Czy byłeś zajęty?\"\n                },\n                {\n                    \"en\": \"Were they ready?\",\n                    \"ua\": \"Czy oni byli gotowi?\"\n                }\n            ]\n        },\n        {\n            \"label\": \"Bez did\",\n            \"color\": \"amber\",\n            \"description\": \"Z <strong>to be</strong> po prostu robimy inwersję: <strong>was / were + subject</strong>.\",\n            \"examples\": [\n                {\n                    \"en\": \"She was at home. → Was she at home?\",\n                    \"ua\": \"Zmień zdanie twierdzące w pytanie bez did.\"\n                },\n                {\n                    \"en\": \"Where were you yesterday?\",\n                    \"ua\": \"W pytaniach z where, when, why też zostaje was / were przed podmiotem.\"\n                }\n            ]\n        }\n    ]\n}"
+        },
+        {
+            "index": 5,
+            "body": "{\n    \"title\": \"4. Krótkie odpowiedzi\",\n    \"intro\": \"W krótkiej odpowiedzi powtórz <strong>was</strong> albo <strong>were</strong>.\",\n    \"rows\": [\n        {\n            \"en\": \"Were you at home?\",\n            \"ua\": \"Yes, I was. / No, I wasn't.\",\n            \"note\": \"Po Were you...? odpowiadamy I was / I wasn't.\"\n        },\n        {\n            \"en\": \"Was she ready?\",\n            \"ua\": \"Yes, she was. / No, she wasn't.\",\n            \"note\": \"was → she was / she wasn't\"\n        },\n        {\n            \"en\": \"Were they late?\",\n            \"ua\": \"Yes, they were. / No, they weren't.\",\n            \"note\": \"were → they were / they weren't\"\n        }\n    ],\n    \"warning\": \"📌 W krótkiej odpowiedzi powtarzamy <strong>was / were</strong>, a nie <strong>did</strong>.\"\n}"
+        },
+        {
+            "index": 6,
+            "body": "{\n    \"title\": \"5. Typowe błędy\",\n    \"items\": [\n        {\n            \"label\": \"Błąd 1\",\n            \"color\": \"rose\",\n            \"title\": \"Mylenie was i were.\",\n            \"wrong\": \"❌ They was late.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">They were late.</span>\"\n        },\n        {\n            \"label\": \"Błąd 2\",\n            \"color\": \"amber\",\n            \"title\": \"Dodawanie did do to be.\",\n            \"wrong\": \"❌ Did she was at home?\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Was she at home?</span>\"\n        },\n        {\n            \"label\": \"Błąd 3\",\n            \"color\": \"sky\",\n            \"title\": \"Zła krótka odpowiedź.\",\n            \"wrong\": \"❌ Yes, they was.\",\n            \"right\": \"✅ <span class=\\\"font-mono\\\">Yes, they were.</span>\"\n        }\n    ]\n}"
+        },
+        {
+            "index": 7,
+            "body": "{\n    \"title\": \"6. Krótkie podsumowanie\",\n    \"items\": [\n        \"Forma przeszła <strong>to be</strong> = <strong>was / were</strong>.\",\n        \"Z <strong>I / he / she / it</strong> używaj <strong>was</strong>.\",\n        \"Z <strong>you / we / they</strong> używaj <strong>were</strong>.\",\n        \"Przeczenia: <strong>wasn't / weren't</strong>.\",\n        \"Pytania: <strong>Was...?</strong> / <strong>Were...?</strong>\",\n        \"W krótkich odpowiedziach powtarzaj <strong>was / were</strong>: <strong>Yes, I was. / No, they weren't.</strong>\"\n    ]\n}"
+        },
+        {
+            "index": 8,
+            "body": "{\n    \"title\": \"Lekcje Verb to Be\",\n    \"items\": [\n        {\n            \"label\": \"Formy czasu teraźniejszego\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-present\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Przeczenia\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-negatives\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Pytania i krótkie odpowiedzi\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-questions\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Formy czasu przeszłego\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-past\",\n            \"current\": true\n        },\n        {\n            \"label\": \"Czas przyszły\",\n            \"url\": \"/pl/theory/verb-to-be/verb-to-be-future\",\n            \"current\": false\n        },\n        {\n            \"label\": \"Konstrukcje there is / there are\",\n            \"url\": \"/pl/theory/verb-to-be/there-is-there-are\",\n            \"current\": false\n        }\n    ]\n}"
+        }
+    ]
+}

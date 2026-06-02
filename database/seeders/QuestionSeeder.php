@@ -1,0 +1,171 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Tag;
+use App\Services\QuestionMetaSyncService;
+use App\Services\QuestionSeedingService;
+use App\Support\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+abstract class QuestionSeeder extends Seeder
+{
+    protected const UUID_LENGTH = 36;
+
+    protected function generateQuestionUuid(int|string ...$segments): string
+    {
+        $base = Str::slug(class_basename(static::class));
+
+        $normalizedSegments = [];
+        foreach ($segments as $segment) {
+            $segment = Str::slug((string) $segment);
+            if ($segment === '') {
+                continue;
+            }
+
+            $normalizedSegments[] = $segment;
+        }
+
+        $suffix = '';
+        if ($normalizedSegments) {
+            $suffix = '-'.implode('-', $normalizedSegments);
+        }
+
+        $maxLength = self::UUID_LENGTH - strlen($suffix);
+
+        if ($maxLength <= 0) {
+            return substr(ltrim($suffix, '-'), 0, self::UUID_LENGTH);
+        }
+
+        $base = substr($base, 0, $maxLength);
+
+        if ($base === '') {
+            return substr(ltrim($suffix, '-'), 0, self::UUID_LENGTH);
+        }
+
+        return $base.$suffix;
+    }
+
+    protected function seedQuestionData(array $items, array $meta, bool $allowQuestionTextFallback = true): void
+    {
+        if (empty($items)) {
+            return;
+        }
+
+        $items = array_map(function (array $item) {
+            $item['seeder'] = $item['seeder'] ?? static::class;
+
+            return $item;
+        }, $items);
+
+        $service = new QuestionSeedingService;
+        $service->seed($items, $allowQuestionTextFallback);
+        app(QuestionMetaSyncService::class)->sync($meta, static::class, 'uk');
+    }
+
+    /**
+     * Sync marker tags for a question.
+     *
+     * @param  array  $gapTags  Map of marker => array of tag names
+     */
+    protected function syncMarkerTags(int $questionId, array $gapTags): void
+    {
+        // Clear existing marker tags for this question
+        DB::table('question_marker_tag')
+            ->where('question_id', $questionId)
+            ->delete();
+
+        $now = now();
+
+        foreach ($gapTags as $marker => $tagNames) {
+            if (! is_array($tagNames)) {
+                continue;
+            }
+
+            foreach ($tagNames as $tagName) {
+                if (! is_string($tagName) || trim($tagName) === '') {
+                    continue;
+                }
+
+                // Find or create the tag
+                $tag = Tag::where('name', trim($tagName))->first();
+
+                if (! $tag) {
+                    // Try to find by normalized name (lowercase)
+                    $tag = Tag::whereRaw('LOWER(name) = ?', [strtolower(trim($tagName))])->first();
+                }
+
+                if ($tag) {
+                    DB::table('question_marker_tag')->insertOrIgnore([
+                        'question_id' => $questionId,
+                        'marker' => $marker,
+                        'tag_id' => $tag->id,
+                        'created_at' => $now,
+                        'updated_at' => $now,
+                    ]);
+                }
+            }
+        }
+    }
+
+    protected function normalizeHint(?string $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        return trim($value, "() \t\n\r");
+    }
+
+    protected function formatHints(array $hints): ?string
+    {
+        if (empty($hints)) {
+            return null;
+        }
+
+        $parts = [];
+        foreach ($hints as $text) {
+            $clean = trim((string) $text);
+
+            if ($clean === '') {
+                continue;
+            }
+
+            $parts[] = $clean;
+        }
+
+        if (empty($parts)) {
+            return null;
+        }
+
+        return implode("\n", $parts);
+    }
+
+    protected function formatExample(string $question, array|string $answer): string
+    {
+        $replacements = is_array($answer) ? $answer : ['a1' => $answer];
+
+        foreach ($replacements as $marker => $value) {
+            $placeholder = '{'.$marker.'}';
+            $question = str_replace($placeholder, (string) $value, $question);
+        }
+
+        $sentence = $question;
+        $sentence = preg_replace_callback('/^[a-zа-яёіїєґ]/iu', fn ($m) => mb_strtoupper($m[0], 'UTF-8'), $sentence);
+
+        return $sentence;
+    }
+
+    protected function titleCase(string $value): string
+    {
+        if ($value === '') {
+            return $value;
+        }
+
+        $first = mb_substr($value, 0, 1, 'UTF-8');
+        $rest = mb_substr($value, 1, null, 'UTF-8');
+
+        return mb_strtoupper($first, 'UTF-8').$rest;
+    }
+}

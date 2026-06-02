@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\AI\\Copilot\\NewV3Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\NewV3Opus46\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "copilot-new-v3-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Większość policzalnych rzeczowników tworzy liczbę mnogą przez dodanie **-s**."
+      ],
+      "explanations": {
+        "a1": {
+          "dog": "Niepoprawnie. «Dog» to liczba pojedyncza. Liczebnik «two» wymaga liczby mnogiej: **dogs**.",
+          "dogs": "Poprawnie. «Dogs» to standardowa liczba mnoga z końcówką **-s** dla rzeczownika «dog».",
+          "doges": "Niepoprawnie. Końcówka **-es** jest dodawana tylko po syczących (s, sh, ch, x, z). «Dog» kończy się zwykłą spółgłoską, więc dodajemy **-s**: **dogs**."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Rzeczowniki kończące się zwykłą spółgłoską lub samogłoską przyjmują **-s** w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a2": {
+          "egg": "Niepoprawnie. «Egg» to liczba pojedyncza. Po «six» potrzebna jest liczba mnoga: **eggs**.",
+          "eggs": "Poprawnie. «Eggs» — standardowa liczba mnoga z **-s**. Słowo «egg» nie kończy się syczącą.",
+          "egges": "Niepoprawnie. Dodanie **-es** jest tu zbędne, bo «egg» nie kończy się głoską syczącą."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Po **s, ss, x, z, ch, sh** dodajemy **-es**, aby utworzyć liczbę mnogą."
+      ],
+      "explanations": {
+        "a3": {
+          "boxs": "Niepoprawnie. Po literze **x** nie dodajemy samego **-s**. Poprawna forma to **boxes** (-es po x).",
+          "boxes": "Poprawnie. «Boxes» — po **x** dodajemy **-es** dla łatwiejszej wymowy.",
+          "boxies": "Niepoprawnie. Końcówka **-ies** dotyczy tylko słów kończących się na spółgłoskę + **y**. «Box» kończy się na **x**, więc: **boxes**."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Rzeczowniki kończące się na **s** tworzą liczbę mnogą przez dodanie **-es**."
+      ],
+      "explanations": {
+        "a4": {
+          "buss": "Niepoprawnie. Podwojenie końcowego «s» nie tworzy liczby mnogiej. Po **s** dodajemy **-es**: **buses**.",
+          "buses": "Poprawnie. «Buses» — po końcowym **s** w «bus» dodajemy **-es**.",
+          "busies": "Niepoprawnie. Końcówka **-ies** jest przeznaczona dla słów na spółgłoskę + **y**, nie dla słów kończących się na **s**."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Po syczącej końcówce **sh** dodajemy **-es** do rzeczownika."
+      ],
+      "explanations": {
+        "a5": {
+          "dishs": "Niepoprawnie. Grupa «shs» jest trudna do wymówienia. Po **sh** dodajemy **-es**: **dishes**.",
+          "dishes": "Poprawnie. «Dishes» — liczba mnoga z **-es** po syczącej końcówce **sh**.",
+          "dishies": "Niepoprawnie. Końcówka **-ies** dotyczy słów na spółgłoskę + **y**. «Dish» kończy się na **sh**, więc: **dishes**."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Gdy przed **y** stoi spółgłoska, zamieniamy **y** na **-ies**."
+      ],
+      "explanations": {
+        "a6": {
+          "citys": "Niepoprawnie. Spółgłoska **t** przed **y** wymaga zamiany **y** na **-ies**: **cities**.",
+          "cities": "Poprawnie. «Cities» — spółgłoska **t** przed **y** uruchamia regułę **y → ies**.",
+          "cityes": "Niepoprawnie. Końcówka «-yes» nie istnieje. Przed **y** stoi spółgłoska, więc: **cities**."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Rzeczowniki kończące się na spółgłoskę + **y** zamieniają **y** na **-ies**."
+      ],
+      "explanations": {
+        "a7": {
+          "butterflys": "Niepoprawnie. Spółgłoska **l** przed **y** uruchamia regułę **y → ies**: **butterflies**.",
+          "butterflies": "Poprawnie. «Butterflies» — **l** przed **y** wymaga zamiany na **-ies**.",
+          "butterflyes": "Niepoprawnie. Końcówka «-yes» nie jest standardowa. Przy spółgłosce + **y** zamieniamy **y** na **-ies**."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Niektóre rzeczowniki na **-fe** tworzą liczbę mnogą przez zamianę **-fe** na **-ves**."
+      ],
+      "explanations": {
+        "a8": {
+          "knifes": "Niepoprawnie jako rzeczownik. «Knife» zamienia **-fe** na **-ves**: **knives**.",
+          "knives": "Poprawnie. «Knives» — końcówka **-fe** zmienia się na **-ves**. Porównaj: *life → lives*.",
+          "knifs": "Niepoprawnie. Nie można po prostu odrzucić **e** i dodać **-s**. Reguła wymaga: **-fe → -ves**."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Rzeczowniki kończące się na **-f** często zamieniają **f** na **-ves** w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a9": {
+          "leafs": "Niepoprawnie. «Leaf» należy do grupy, gdzie **-f** zmienia się na **-ves**: **leaves**.",
+          "leaves": "Poprawnie. «Leaves» — **f** w «leaf» zmienia się na **-ves**. Porównaj: *half → halves*.",
+          "leafes": "Niepoprawnie. Dodanie **-es** bez zamiany **f** na **v** nie jest poprawne: **leaves**."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Niektóre rzeczowniki na **-o** dodają **-es** w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a10": {
+          "tomatos": "Niepoprawnie. «Tomato» należy do grupy **-o → -oes**: **tomatoes**. Porównaj: *potato → potatoes*.",
+          "tomatoes": "Poprawnie. «Tomatoes» — niektóre rzeczowniki na **-o** dodają **-es**: tomato, potato, hero.",
+          "tomatoies": "Niepoprawnie. Końcówka **-ies** dotyczy słów na spółgłoskę + **y**. Poprawna forma: **tomatoes**."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "«Woman» to rzeczownik nieregularny — nie podlega standardowym regułom."
+      ],
+      "explanations": {
+        "a11": {
+          "womans": "Niepoprawnie. «Woman» jest nieregularny. Zmienia samogłoskę wewnątrz: *woman → women*.",
+          "women": "Poprawnie. «Women» — nieregularna liczba mnoga ze zmianą samogłoski: *a → e*.",
+          "womens": "Niepoprawnie. «Women» to już liczba mnoga. Dodanie **-s** tworzy podwójną liczbę mnogą."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "«Foot» to nieregularny rzeczownik ze zmianą samogłoski w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a12": {
+          "foots": "Niepoprawnie. «Foot» jest nieregularny: **oo → ee**: *foot → feet*.",
+          "feet": "Poprawnie. «Feet» — zmiana samogłoski **oo → ee**. Porównaj: *tooth → teeth*.",
+          "feets": "Niepoprawnie. «Feet» to już liczba mnoga. Dodanie **-s** jest zbędne."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "«Mouse» to nieregularny rzeczownik z całkowicie inną formą liczby mnogiej."
+      ],
+      "explanations": {
+        "a13": {
+          "mouses": "Niepoprawnie. «Mouse» ma nieregularną liczbę mnogą: **mice**.",
+          "mice": "Poprawnie. «Mice» — historyczna nieregularna forma liczby mnogiej od «mouse».",
+          "mices": "Niepoprawnie. «Mice» to już liczba mnoga. Dodanie **-s** jest zbędne."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Niektóre rzeczowniki mają zerową liczbę mnogą — ta sama forma dla jednego i wielu."
+      ],
+      "explanations": {
+        "a14": {
+          "sheeps": "Niepoprawnie. «Sheep» ma zerową liczbę mnogą: forma nie zmienia się. *One sheep → a hundred sheep.*",
+          "sheep": "Poprawnie. «Sheep» — zerowa liczba mnoga. Forma jest taka sama w obu liczbach.",
+          "sheepes": "Niepoprawnie. Żadna końcówka nie jest potrzebna. «Sheep» nie zmienia się."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "«Deer» to kolejny rzeczownik z zerową liczbą mnogą."
+      ],
+      "explanations": {
+        "a15": {
+          "deers": "Niepoprawnie. «Deer» ma zerową liczbę mnogą: forma nigdy się nie zmienia.",
+          "deer": "Poprawnie. «Deer» — zerowa liczba mnoga. Niezależnie od ilości: **deer**.",
+          "deeres": "Niepoprawnie. Dodanie **-es** nie jest potrzebne. «Deer» zawsze brzmi tak samo."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Niektóre rzeczowniki istnieją tylko w liczbie mnogiej (pluralia tantum)."
+      ],
+      "explanations": {
+        "a16": {
+          "glass": "Niepoprawnie w tym kontekście. «Glass» bez **-es** to «szkło» lub «szklanka». Okulary to zawsze **glasses**.",
+          "glasses": "Poprawnie. «Glasses» (okulary) to pluralia tantum — zawsze w liczbie mnogiej.",
+          "glassies": "Niepoprawnie. Końcówka **-ies** tu nie pasuje. Poprawna forma: **glasses**."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "«Trousers» to rzeczownik istniejący tylko w liczbie mnogiej (pluralia tantum)."
+      ],
+      "explanations": {
+        "a17": {
+          "trouser": "Niepoprawnie. «Trouser» bez **-s** nie jest samodzielnym rzeczownikiem. Zawsze: **trousers**.",
+          "trousers": "Poprawnie. «Trousers» to pluralia tantum — jak *scissors*, *jeans*.",
+          "trouserses": "Niepoprawnie. «Trousers» to już liczba mnoga. Dodanie **-es** jest błędne."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "W złożonych rzeczownikach z przyimkiem liczbę mnogą otrzymuje główny rzeczownik."
+      ],
+      "explanations": {
+        "a18": {
+          "mother-in-laws": "Niepoprawnie. **-s** stoi przy złym elemencie. Liczbę mnogą dostaje główny rzeczownik: **mothers**-in-law.",
+          "mothers-in-law": "Poprawnie. «Mothers-in-law» — główny rzeczownik «mother» otrzymuje **-s**.",
+          "mothers-in-laws": "Niepoprawnie. Podwójne oznaczenie liczby mnogiej jest błędne. Tylko «mother» dostaje **-s**."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "«News» wygląda na liczbę mnogą, ale gramatycznie jest niepoliczalny i łączy się z czasownikiem w liczbie pojedynczej."
+      ],
+      "explanations": {
+        "a19": {
+          "news": "Poprawnie. «News» to rzeczownik niepoliczalny, zawsze z czasownikiem w l. poj.: *The news was shocking.*",
+          "newses": "Niepoprawnie. «News» nie ma odrębnej formy liczby mnogiej. Jest niepoliczalny i nie zmienia się.",
+          "newes": "Niepoprawnie. Forma «newes» nie istnieje. Słowo to zawsze brzmi **news**."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Nazwy dziedzin akademickich kończące się na **-ics** są gramatycznie w liczbie pojedynczej."
+      ],
+      "explanations": {
+        "a20": {
+          "is": "Poprawnie. «Economics is» — nazwy dziedzin na **-ics** łączą się z czasownikiem w l. poj.",
+          "are": "Niepoprawnie. Mimo końcówki **-s**, «Economics» jako dyscyplina jest w l. poj.: *Economics is*.",
+          "were": "Niepoprawnie. Zdanie opisuje fakt ogólny (czas teraźniejszy), a «Economics» łączy się z *is*."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Rzeczowniki greckie na **-sis** zamieniają końcówkę na **-ses** w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a21": {
+          "thesises": "Niepoprawnie. «Thesis» podlega greckiej regule: **-sis → -ses**: *thesis → theses*.",
+          "theses": "Poprawnie. «Theses» — grecka liczba mnoga: **-sis → -ses**. Porównaj: *crisis → crises*.",
+          "thesies": "Niepoprawnie. Końcówka **-ies** nie dotyczy greckich rzeczowników na **-sis**."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "«Crisis» podlega greckiej regule **-sis → -ses**."
+      ],
+      "explanations": {
+        "a22": {
+          "crisises": "Niepoprawnie. Nie dodajemy **-es** do całego słowa. Zamieniamy **-sis** na **-ses**: **crises**.",
+          "crises": "Poprawnie. «Crises» — grecka reguła **-sis → -ses**. Porównaj: *basis → bases*.",
+          "crisies": "Niepoprawnie. Końcówka **-ies** nie stosuje się do greckich **-sis**. Poprawnie: **crises**."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Łacińskie rzeczowniki na **-us** zmieniają końcówkę na **-i** w formalnej liczbie mnogiej."
+      ],
+      "explanations": {
+        "a23": {
+          "funguses": "Dopuszczalne potocznie, ale w tekstach naukowych preferowana jest łacińska forma **fungi**.",
+          "fungi": "Poprawnie. «Fungi» — łacińska liczba mnoga od «fungus» (**-us → -i**).",
+          "fungies": "Niepoprawnie. Końcówka **-ies** nie dotyczy łacińskich rzeczowników na **-us**."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Łacińskie rzeczowniki na **-ix** zmieniają końcówkę na **-ices** w stylu formalnym."
+      ],
+      "explanations": {
+        "a24": {
+          "appendixs": "Niepoprawnie. Po **x** nie dodajemy samego **-s**. Łacińska forma: **appendices** (**-ix → -ices**).",
+          "appendices": "Poprawnie. «Appendices» — łacińska reguła **-ix → -ices**. Porównaj: *index → indices*.",
+          "appendixes": "Dopuszczalne potocznie, ale w piśmie akademickim preferujemy **appendices**."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "«Syllabus» to łaciński rzeczownik: formalna liczba mnoga zmienia **-us** na **-i**."
+      ],
+      "explanations": {
+        "a25": {
+          "syllabuses": "Dopuszczalne potocznie, ale w kontekście akademickim preferujemy łacińską formę **syllabi**.",
+          "syllabi": "Poprawnie. «Syllabi» — łacińska reguła **-us → -i**, standardowa w akademii.",
+          "syllabies": "Niepoprawnie. Końcówka **-ies** nie dotyczy łacińskich rzeczowników na **-us**."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "«Matrix» podlega łacińskiej regule **-ix → -ices** w kontekście naukowym."
+      ],
+      "explanations": {
+        "a26": {
+          "matrixes": "Spotykane potocznie, ale w matematyce i inżynierii standardem jest **matrices**.",
+          "matrices": "Poprawnie. «Matrices» — łacińska reguła **-ix → -ices**, obowiązująca w nauce.",
+          "matrixs": "Niepoprawnie. Po **x** nie dodajemy samego **-s**. Poprawna forma: **matrices**."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "W piśmie naukowym «nucleus» przyjmuje łacińską liczbę mnogą **-us → -i**."
+      ],
+      "explanations": {
+        "a27": {
+          "nucleuses": "Spotykane potocznie, ale w tekstach naukowych standardem jest **nuclei**.",
+          "nuclei": "Poprawnie. «Nuclei» — łacińska reguła **-us → -i**, obowiązkowa w nauce.",
+          "nucleis": "Niepoprawnie. «Nuclei» to już liczba mnoga. Dodanie **-s** jest zbędne."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Łacińskie rzeczowniki na **-um** zamieniają końcówkę na **-a** w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a28": {
+          "stratums": "Niepoprawnie. «Stratum» to łaciński rzeczownik: **-um → -a**: *stratum → strata*.",
+          "strata": "Poprawnie. «Strata» — łacińska reguła **-um → -a**. Porównaj: *datum → data*.",
+          "stratas": "Niepoprawnie. «Strata» to już liczba mnoga. Dodanie **-s** tworzy podwójną l. mn."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "«Index» podlega łacińskiej regule **-ex → -ices** w piśmie akademickim."
+      ],
+      "explanations": {
+        "a29": {
+          "indexs": "Niepoprawnie. Po **x** nie dodajemy samego **-s**. Łacińska forma: **indices**.",
+          "indices": "Poprawnie. «Indices» — łacińska reguła **-ex → -ices**, standard w tekstach formalnych.",
+          "indexes": "Dopuszczalne w języku codziennym, ale w piśmie akademickim preferujemy **indices**."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Łacińskie rzeczowniki I deklinacji na **-a** tworzą l. mn. przez dodanie **-e** (dając **-ae**)."
+      ],
+      "explanations": {
+        "a30": {
+          "vertebras": "Spotykane potocznie, ale w literaturze medycznej standard to łacińska forma **vertebrae**.",
+          "vertebrae": "Poprawnie. «Vertebrae» — łacińska reguła **-a → -ae**, obowiązkowa w medycynie.",
+          "vertebraes": "Niepoprawnie. «Vertebrae» to już liczba mnoga. Dodanie **-s** jest zbędne."
+        }
+      }
+    }
+  ]
+}

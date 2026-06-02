@@ -1,0 +1,1979 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\RelativePronounsAllLevelsV3Seeder",
+        "uuid_namespace": "RelativePronounsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "theory_page_relative_pronouns": {
+            "name": "Relative Pronouns"
+        }
+    },
+    "tags": {
+        "relative_pronouns_page": {
+            "name": "Relative Pronouns",
+            "category": "pronouns_demonstratives"
+        },
+        "who_people": {
+            "name": "Who People",
+            "category": "topic"
+        },
+        "which_things": {
+            "name": "Which Things",
+            "category": "topic"
+        },
+        "that_defining": {
+            "name": "That Defining",
+            "category": "topic"
+        },
+        "whose_possession": {
+            "name": "Whose Possession",
+            "category": "topic"
+        },
+        "whom_formal_object": {
+            "name": "Whom Formal Object",
+            "category": "topic"
+        },
+        "subject_relative": {
+            "name": "Subject Relative",
+            "category": "topic"
+        },
+        "object_relative": {
+            "name": "Object Relative",
+            "category": "topic"
+        },
+        "pronoun_choice_contrast": {
+            "name": "Pronoun Choice Contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "relative_pronouns_page"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rlp-v3-a1-01",
+            "question": "For a person, choose: The teacher {a1} helped me is kind",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "rlp-v3-a1-02",
+            "question": "For a thing, choose: The book {a1} I bought is useful",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "which_things"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which for things.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "rlp-v3-a1-03",
+            "question": "After all, choose: This is all {a1} I know",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after all in a defining clause.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "rlp-v3-a1-04",
+            "question": "For possession, choose: The student {a1} bag is missing is upset",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose before a noun for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "rlp-v3-a1-05",
+            "question": "Choose the subject pronoun: The woman {a1} called yesterday is my aunt",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of called.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "rlp-v3-a1-06",
+            "question": "Choose the object pronoun for a thing: The book {a1} I lost was new",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun refers to a thing as object.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "rlp-v3-a1-07",
+            "question": "Do not use who for things: The book {a1} broke is old",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "pronoun_choice_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which, not who, for things.",
+                    "gap_tags": [
+                        "pronoun_choice_contrast"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "rlp-v3-a1-08",
+            "question": "For a person after a comma, choose: My brother, {a1} lives nearby, is a doctor",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for a person in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "rlp-v3-a1-09",
+            "question": "Do not write who is for possession: The man {a1} car was stolen called us",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "rlp-v3-a1-10",
+            "question": "In formal style after a preposition, choose: The person to {a1} I spoke was polite",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use whom after a preposition in formal style.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "rlp-v3-a1-11",
+            "question": "After a superlative, choose: It is the best film {a1} I have seen",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after a superlative.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "rlp-v3-a1-12",
+            "question": "Do not add an extra subject: The man {a1} called is my boss",
+            "level": "A1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who as the subject without another subject pronoun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "rlp-v3-a2-01",
+            "question": "For a person, choose: The nurse {a1} helped me is kind",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "rlp-v3-a2-02",
+            "question": "For a thing, choose: The phone {a1} I bought is useful",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "which_things"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which for things.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "rlp-v3-a2-03",
+            "question": "After all, choose: This is all {a1} I know",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after all in a defining clause.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "rlp-v3-a2-04",
+            "question": "For possession, choose: The student {a1} bag is missing is upset",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose before a noun for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "rlp-v3-a2-05",
+            "question": "Choose the subject pronoun: The woman {a1} called yesterday is my aunt",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of called.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "rlp-v3-a2-06",
+            "question": "Choose the object pronoun for a thing: The phone {a1} I lost was new",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun refers to a thing as object.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "rlp-v3-a2-07",
+            "question": "Do not use who for things: The phone {a1} broke is old",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "pronoun_choice_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which, not who, for things.",
+                    "gap_tags": [
+                        "pronoun_choice_contrast"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "rlp-v3-a2-08",
+            "question": "For a person after a comma, choose: My brother, {a1} lives nearby, is a doctor",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for a person in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "rlp-v3-a2-09",
+            "question": "Do not write who is for possession: The man {a1} car was stolen called us",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "rlp-v3-a2-10",
+            "question": "In formal style after a preposition, choose: The person to {a1} I spoke was polite",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use whom after a preposition in formal style.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "rlp-v3-a2-11",
+            "question": "After a superlative, choose: It is the best film {a1} I have seen",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after a superlative.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "rlp-v3-a2-12",
+            "question": "Do not add an extra subject: The man {a1} called is my boss",
+            "level": "A2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who as the subject without another subject pronoun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "rlp-v3-b1-01",
+            "question": "For a person, choose: The engineer {a1} helped me is kind",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "rlp-v3-b1-02",
+            "question": "For a thing, choose: The camera {a1} I bought is useful",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "which_things"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which for things.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "rlp-v3-b1-03",
+            "question": "After all, choose: This is all {a1} I know",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after all in a defining clause.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "rlp-v3-b1-04",
+            "question": "For possession, choose: The student {a1} bag is missing is upset",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose before a noun for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "rlp-v3-b1-05",
+            "question": "Choose the subject pronoun: The woman {a1} called yesterday is my aunt",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of called.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "rlp-v3-b1-06",
+            "question": "Choose the object pronoun for a thing: The camera {a1} I lost was new",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun refers to a thing as object.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "rlp-v3-b1-07",
+            "question": "Do not use who for things: The camera {a1} broke is old",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "pronoun_choice_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which, not who, for things.",
+                    "gap_tags": [
+                        "pronoun_choice_contrast"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "rlp-v3-b1-08",
+            "question": "For a person after a comma, choose: My brother, {a1} lives nearby, is a doctor",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for a person in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "rlp-v3-b1-09",
+            "question": "Do not write who is for possession: The man {a1} car was stolen called us",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "rlp-v3-b1-10",
+            "question": "In formal style after a preposition, choose: The person to {a1} I spoke was polite",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use whom after a preposition in formal style.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "rlp-v3-b1-11",
+            "question": "After a superlative, choose: It is the best film {a1} I have seen",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after a superlative.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "rlp-v3-b1-12",
+            "question": "Do not add an extra subject: The man {a1} called is my boss",
+            "level": "B1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who as the subject without another subject pronoun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "rlp-v3-b2-01",
+            "question": "For a person, choose: The lawyer {a1} helped me is kind",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "rlp-v3-b2-02",
+            "question": "For a thing, choose: The report {a1} I bought is useful",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "which_things"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which for things.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "rlp-v3-b2-03",
+            "question": "After all, choose: This is all {a1} I know",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after all in a defining clause.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "rlp-v3-b2-04",
+            "question": "For possession, choose: The student {a1} bag is missing is upset",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose before a noun for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "rlp-v3-b2-05",
+            "question": "Choose the subject pronoun: The woman {a1} called yesterday is my aunt",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of called.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "rlp-v3-b2-06",
+            "question": "Choose the object pronoun for a thing: The report {a1} I lost was new",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun refers to a thing as object.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "rlp-v3-b2-07",
+            "question": "Do not use who for things: The report {a1} broke is old",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "pronoun_choice_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which, not who, for things.",
+                    "gap_tags": [
+                        "pronoun_choice_contrast"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "rlp-v3-b2-08",
+            "question": "For a person after a comma, choose: My brother, {a1} lives nearby, is a doctor",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for a person in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "rlp-v3-b2-09",
+            "question": "Do not write who is for possession: The man {a1} car was stolen called us",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "rlp-v3-b2-10",
+            "question": "In formal style after a preposition, choose: The person to {a1} I spoke was polite",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use whom after a preposition in formal style.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "rlp-v3-b2-11",
+            "question": "After a superlative, choose: It is the best film {a1} I have seen",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after a superlative.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "rlp-v3-b2-12",
+            "question": "Do not add an extra subject: The man {a1} called is my boss",
+            "level": "B2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who as the subject without another subject pronoun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "rlp-v3-c1-01",
+            "question": "For a person, choose: The researcher {a1} helped me is kind",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "rlp-v3-c1-02",
+            "question": "For a thing, choose: The device {a1} I bought is useful",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "which_things"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which for things.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "rlp-v3-c1-03",
+            "question": "After all, choose: This is all {a1} I know",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after all in a defining clause.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "rlp-v3-c1-04",
+            "question": "For possession, choose: The student {a1} bag is missing is upset",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose before a noun for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "rlp-v3-c1-05",
+            "question": "Choose the subject pronoun: The woman {a1} called yesterday is my aunt",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of called.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "rlp-v3-c1-06",
+            "question": "Choose the object pronoun for a thing: The device {a1} I lost was new",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun refers to a thing as object.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "rlp-v3-c1-07",
+            "question": "Do not use who for things: The device {a1} broke is old",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "pronoun_choice_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which, not who, for things.",
+                    "gap_tags": [
+                        "pronoun_choice_contrast"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "rlp-v3-c1-08",
+            "question": "For a person after a comma, choose: My brother, {a1} lives nearby, is a doctor",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for a person in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "rlp-v3-c1-09",
+            "question": "Do not write who is for possession: The man {a1} car was stolen called us",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "rlp-v3-c1-10",
+            "question": "In formal style after a preposition, choose: The person to {a1} I spoke was polite",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use whom after a preposition in formal style.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "rlp-v3-c1-11",
+            "question": "After a superlative, choose: It is the best film {a1} I have seen",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after a superlative.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "rlp-v3-c1-12",
+            "question": "Do not add an extra subject: The man {a1} called is my boss",
+            "level": "C1",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who as the subject without another subject pronoun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "rlp-v3-c2-01",
+            "question": "For a person, choose: The consultant {a1} helped me is kind",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for people.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "rlp-v3-c2-02",
+            "question": "For a thing, choose: The proposal {a1} I bought is useful",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "which_things"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which for things.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "rlp-v3-c2-03",
+            "question": "After all, choose: This is all {a1} I know",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after all in a defining clause.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "rlp-v3-c2-04",
+            "question": "For possession, choose: The student {a1} bag is missing is upset",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose before a noun for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "rlp-v3-c2-05",
+            "question": "Choose the subject pronoun: The woman {a1} called yesterday is my aunt",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of called.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "rlp-v3-c2-06",
+            "question": "Choose the object pronoun for a thing: The proposal {a1} I lost was new",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "The relative pronoun refers to a thing as object.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "rlp-v3-c2-07",
+            "question": "Do not use who for things: The proposal {a1} broke is old",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "pronoun_choice_contrast"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use which, not who, for things.",
+                    "gap_tags": [
+                        "pronoun_choice_contrast"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "rlp-v3-c2-08",
+            "question": "For a person after a comma, choose: My brother, {a1} lives nearby, is a doctor",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "who_people"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who for a person in a non-defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "rlp-v3-c2-09",
+            "question": "Do not write who is for possession: The man {a1} car was stolen called us",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who's",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "rlp-v3-c2-10",
+            "question": "In formal style after a preposition, choose: The person to {a1} I spoke was polite",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "object_relative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use whom after a preposition in formal style.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "rlp-v3-c2-11",
+            "question": "After a superlative, choose: It is the best film {a1} I have seen",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "that_defining"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Use that after a superlative.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "rlp-v3-c2-12",
+            "question": "Do not add an extra subject: The man {a1} called is my boss",
+            "level": "C2",
+            "source": "theory_page_relative_pronouns",
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Use who as the subject without another subject pronoun.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pd-rlp-v3-all",
+        "slug": "relative-pronouns-all-levels-v3",
+        "name": "Relative Pronouns (All levels V3)",
+        "description": "Standard V3 package for Relative Pronouns across A1-C2.",
+        "question_uuids": [
+            "rlp-v3-a1-01",
+            "rlp-v3-a1-02",
+            "rlp-v3-a1-03",
+            "rlp-v3-a1-04",
+            "rlp-v3-a1-05",
+            "rlp-v3-a1-06",
+            "rlp-v3-a1-07",
+            "rlp-v3-a1-08",
+            "rlp-v3-a1-09",
+            "rlp-v3-a1-10",
+            "rlp-v3-a1-11",
+            "rlp-v3-a1-12",
+            "rlp-v3-a2-01",
+            "rlp-v3-a2-02",
+            "rlp-v3-a2-03",
+            "rlp-v3-a2-04",
+            "rlp-v3-a2-05",
+            "rlp-v3-a2-06",
+            "rlp-v3-a2-07",
+            "rlp-v3-a2-08",
+            "rlp-v3-a2-09",
+            "rlp-v3-a2-10",
+            "rlp-v3-a2-11",
+            "rlp-v3-a2-12",
+            "rlp-v3-b1-01",
+            "rlp-v3-b1-02",
+            "rlp-v3-b1-03",
+            "rlp-v3-b1-04",
+            "rlp-v3-b1-05",
+            "rlp-v3-b1-06",
+            "rlp-v3-b1-07",
+            "rlp-v3-b1-08",
+            "rlp-v3-b1-09",
+            "rlp-v3-b1-10",
+            "rlp-v3-b1-11",
+            "rlp-v3-b1-12",
+            "rlp-v3-b2-01",
+            "rlp-v3-b2-02",
+            "rlp-v3-b2-03",
+            "rlp-v3-b2-04",
+            "rlp-v3-b2-05",
+            "rlp-v3-b2-06",
+            "rlp-v3-b2-07",
+            "rlp-v3-b2-08",
+            "rlp-v3-b2-09",
+            "rlp-v3-b2-10",
+            "rlp-v3-b2-11",
+            "rlp-v3-b2-12",
+            "rlp-v3-c1-01",
+            "rlp-v3-c1-02",
+            "rlp-v3-c1-03",
+            "rlp-v3-c1-04",
+            "rlp-v3-c1-05",
+            "rlp-v3-c1-06",
+            "rlp-v3-c1-07",
+            "rlp-v3-c1-08",
+            "rlp-v3-c1-09",
+            "rlp-v3-c1-10",
+            "rlp-v3-c1-11",
+            "rlp-v3-c1-12",
+            "rlp-v3-c2-01",
+            "rlp-v3-c2-02",
+            "rlp-v3-c2-03",
+            "rlp-v3-c2-04",
+            "rlp-v3-c2-05",
+            "rlp-v3-c2-06",
+            "rlp-v3-c2-07",
+            "rlp-v3-c2-08",
+            "rlp-v3-c2-09",
+            "rlp-v3-c2-10",
+            "rlp-v3-c2-11",
+            "rlp-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PronounsDemonstratives\\RelativePronounsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "relative-pronouns-who-which-that-whose",
+                    "title": "Relative Pronouns",
+                    "category_slug_path": "zaimennyky-ta-vkazivni-slova",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesRelativePronounsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/zaimennyky-ta-vkazivni-slova/relative-pronouns-who-which-that-whose"
+                }
+            }
+        }
+    }
+}

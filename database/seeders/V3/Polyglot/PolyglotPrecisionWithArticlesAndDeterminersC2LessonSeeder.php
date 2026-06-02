@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotPrecisionWithArticlesAndDeterminersC2LessonSeeder/PolyglotPrecisionWithArticlesAndDeterminersC2LessonSeeder.php';

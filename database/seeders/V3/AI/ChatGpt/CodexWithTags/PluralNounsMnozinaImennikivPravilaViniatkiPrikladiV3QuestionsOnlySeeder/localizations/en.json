@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\En\\AI\\ChatGpt\\CodexWithTags\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\ChatGpt\\CodexWithTags\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "en",
+  "hint_provider": "chatgpt-codex-with-tags",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Rule: most regular countable nouns form the plural with `-s`.",
+        "Clue: the quantity word `two` shows that the gap needs a plural noun."
+      ],
+      "explanations": {
+        "a1": {
+          "book": "`book` is incorrect because it is singular. The sentence needs a plural noun after `two`.",
+          "books": "`books` is correct because this regular noun forms the plural by adding `-s`. That matches the quantity cue `two`.",
+          "bookes": "`bookes` is incorrect because `-es` is not needed here. This noun takes the regular plural with `-s`."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Rule: nouns ending in sibilant sounds such as `-s` usually take `-es` in the plural.",
+        "Clue: `three` signals a plural, and the base noun already ends in `-s`."
+      ],
+      "explanations": {
+        "a1": {
+          "buses": "`buses` is correct because `bus` forms the plural with `-es`. That is the form required after `three`.",
+          "bus": "`bus` is incorrect because it is singular. The sentence needs a plural noun.",
+          "buss": "`buss` is incorrect because doubling the final letter does not form the plural here. The noun needs `-es`."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Rule: after a consonant + `y`, the plural changes `y` to `-ies`.",
+        "Clue: the phrase `two other` shows that the noun after the gap must be plural."
+      ],
+      "explanations": {
+        "a1": {
+          "baby": "`baby` is incorrect because it is singular. The sentence needs a plural form after `two other`.",
+          "babies": "`babies` is correct because `baby` changes `y` to `-ies` in the plural. That is the correct spelling here.",
+          "babys": "`babys` is incorrect because this noun cannot take a simple `-s` after a consonant + `y`."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Rule: after a vowel + `y`, the plural keeps `y` and adds `-s`.",
+        "Clue: `many` requires a plural noun, and the letter before `y` in this word is a vowel."
+      ],
+      "explanations": {
+        "a1": {
+          "toies": "`toies` is incorrect because the `y -> ies` change happens after a consonant, not after a vowel.",
+          "toys": "`toys` is correct because this noun keeps `y` and adds `-s` in the plural.",
+          "toyes": "`toyes` is incorrect because this noun does not need `-es`. A simple `-s` is enough."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Rule: some nouns ending in `-f` or `-fe` change to `-ves` in the plural.",
+        "Clue: the phrase `several fresh` shows that the noun after the gap must be plural."
+      ],
+      "explanations": {
+        "a1": {
+          "loafes": "`loafes` is incorrect because this noun does not form the plural by adding `-es` to the whole base.",
+          "loaves": "`loaves` is correct because `loaf` changes `-f` to `-ves` in the plural.",
+          "loafs": "`loafs` is incorrect because this noun does not take a simple `-s` in the plural."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Rule: `child` has an irregular plural form.",
+        "Clue: `Two` and `are drawing` show that the noun in the gap must be plural."
+      ],
+      "explanations": {
+        "a1": {
+          "childs": "`childs` is incorrect because `child` does not form the plural regularly with `-s`.",
+          "children": "`children` is correct because it is the irregular plural of `child`.",
+          "childrens": "`childrens` is incorrect because `children` is already plural and cannot take another plural ending."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Rule: many nouns ending in consonant + `o` form the plural with `-es`.",
+        "Clue: `many` signals that the noun after the gap must be plural."
+      ],
+      "explanations": {
+        "a1": {
+          "tomatoes": "`tomatoes` is correct because `tomato` forms the plural with `-es`.",
+          "tomatos": "`tomatos` is incorrect because this noun normally needs `-es`, not a simple `-s`.",
+          "tomato": "`tomato` is incorrect because it is singular, but the sentence needs a plural noun."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Rule: some `-o` nouns are exceptions and take a simple `-s` in the plural.",
+        "Clue: `several` shows that the noun must be plural, but this word is an exception to the `-es` pattern."
+      ],
+      "explanations": {
+        "a1": {
+          "photoes": "`photoes` is incorrect because `photo` is an exception and does not take `-es`.",
+          "photos": "`photos` is correct because `photo` forms the plural with a simple `-s`.",
+          "photo": "`photo` is incorrect because it is singular. The sentence needs a plural form."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Rule: some nouns have the same form in the singular and the plural.",
+        "Clue: `six` clearly requires a plural meaning, but this noun does not change its shape."
+      ],
+      "explanations": {
+        "a1": {
+          "deers": "`deers` is incorrect because this noun does not take `-s` in the plural.",
+          "deer": "`deer` is correct because this noun keeps the same form in the singular and the plural.",
+          "deeres": "`deeres` is incorrect because this noun does not form the plural with `-es`."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Rule: some nouns are uncountable and do not use a regular plural or `a/an`.",
+        "Clue: `useful ... before the exam` refers to general guidance, not separate countable items."
+      ],
+      "explanations": {
+        "a1": {
+          "advices": "`advices` is incorrect because `advice` is usually uncountable in this meaning.",
+          "advice": "`advice` is correct because this noun stays uncountable here and does not need a plural ending.",
+          "an advice": "`an advice` is incorrect because this noun is uncountable in this sentence and does not take `an`."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Rule: a plural subject needs a plural verb form.",
+        "Clue: the head noun in the subject is `figures`, so the verb must agree with a plural noun."
+      ],
+      "explanations": {
+        "a1": {
+          "is": "`is` is incorrect because it agrees with a singular subject, but `figures` is plural.",
+          "are": "`are` is correct because it agrees with the plural subject `The latest figures`.",
+          "be": "`be` is incorrect because the sentence needs a finite verb, not the base form."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Rule: some formal nouns use a classical Greek or Latin plural form.",
+        "Clue: `were published` shows that the noun in the gap must be plural."
+      ],
+      "explanations": {
+        "a1": {
+          "criterions": "`criterions` is not the expected form in this formal context. The exercise targets the classical plural.",
+          "criteria": "`criteria` is correct because it is the expected plural of `criterion` in formal usage.",
+          "criterion": "`criterion` is incorrect because it is singular, while the sentence requires a plural noun."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Rule: some nouns are normally used only in the plural form.",
+        "Clue: the verb `make` and the phrase `of the village` show that the sentence refers to the village's environment as a plural-form noun."
+      ],
+      "explanations": {
+        "a1": {
+          "surrounding": "`surrounding` is incorrect because this sentence needs the plural-form noun used for a setting or environment.",
+          "surroundings": "`surroundings` is correct because this meaning is normally expressed with a plural-form noun.",
+          "surroundingses": "`surroundingses` is incorrect because `surroundings` is already the needed plural form."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Rule: not every noun ending in `-f` changes to `-ves`; some are exceptions and take simple `-s`.",
+        "Clue: `were repaired` shows that the noun after the gap must be plural."
+      ],
+      "explanations": {
+        "a1": {
+          "rooves": "`rooves` is incorrect because `roof` is an exception and does not change to `-ves` here.",
+          "roofs": "`roofs` is correct because `roof` forms the plural with a simple `-s`.",
+          "roofes": "`roofes` is incorrect because this noun does not take `-es` in the plural."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Rule: some formal nouns use a classical Greek or Latin plural form.",
+        "Clue: `several social` shows that the noun after the gap must be plural."
+      ],
+      "explanations": {
+        "a1": {
+          "phenomena": "`phenomena` is correct because it is the classical plural of `phenomenon`.",
+          "phenomenon": "`phenomenon` is incorrect because it is singular, but the sentence needs a plural noun.",
+          "phenomenons": "`phenomenons` is incorrect in this formal context because the exercise expects the classical plural form."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Rule: some nouns ending in `-is` change to `-es` in the plural.",
+        "Clue: the research context and the verb `repeated` suggest more than one analysis."
+      ],
+      "explanations": {
+        "a1": {
+          "analysis": "`analysis` is incorrect because it is singular. The sentence refers to more than one analysis.",
+          "analyses": "`analyses` is correct because `analysis` changes from `-is` to `-es` in the plural.",
+          "analysises": "`analysises` is incorrect because this noun does not form the plural by adding `-es` to the whole word."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Rule: sometimes the plural depends on meaning, not just on quantity.",
+        "Clue: `many indigenous ... of the region` refers to distinct nations or ethnic groups, not just people in general."
+      ],
+      "explanations": {
+        "a1": {
+          "people": "`people` is incorrect here because the sentence refers to distinct nations or ethnic groups.",
+          "peoples": "`peoples` is correct because this meaning refers to different peoples or communities.",
+          "peopleses": "`peopleses` is incorrect because `peoples` is already the required plural form for this meaning."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Agreement rule: `trousers` behaves as a plural-form noun, but `pair` makes the verb singular.",
+        "Clue: compare the subjects `These trousers` and `that pair by the mirror`; each one controls a different verb form."
+      ],
+      "explanations": {
+        "a1": {
+          "is": "`is` is incorrect for the first gap because `These trousers` takes a plural verb.",
+          "are": "`are` is correct for the first gap because `These trousers` is treated as plural.",
+          "am": "`am` is incorrect because it only works with `I`."
+        },
+        "a2": {
+          "is": "`is` is correct for the second gap because the subject is `that pair`, which is singular.",
+          "are": "`are` is incorrect for the second gap because the verb must agree with `pair`, not with the clothing item inside the phrase.",
+          "be": "`be` is incorrect because the sentence needs a finite verb form, not the base form."
+        }
+      }
+    }
+  ]
+}

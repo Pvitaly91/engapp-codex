@@ -1,0 +1,680 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder",
+        "uuid_namespace": "PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "theory_page_parts_of_speech": {
+            "name": "Parts of Speech"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_parts_of_speech": {
+            "name": "Parts of Speech",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_parts_of_speech"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "poly-pos-a1-01",
+            "question": "Склади речення: Я читаю цікаву книгу.",
+            "level": "A1",
+            "answers": {
+                "a1": "I",
+                "a2": "read",
+                "a3": "an",
+                "a4": "interesting",
+                "a5": "book"
+            },
+            "options": [
+                "I",
+                "read",
+                "an",
+                "interesting",
+                "book",
+                "quickly",
+                "happy"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_a1"
+            ]
+        },
+        {
+            "id": 2,
+            "uuid": "poly-pos-a1-02",
+            "question": "Склади речення: Вона швидко біжить.",
+            "level": "A1",
+            "answers": {
+                "a1": "She",
+                "a2": "runs",
+                "a3": "quickly"
+            },
+            "options": [
+                "She",
+                "runs",
+                "quickly",
+                "run",
+                "quick"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_a1"
+            ]
+        },
+        {
+            "id": 3,
+            "uuid": "poly-pos-a1-03",
+            "question": "Склади речення: Ми в школі.",
+            "level": "A1",
+            "answers": {
+                "a1": "We",
+                "a2": "are",
+                "a3": "at",
+                "a4": "school"
+            },
+            "options": [
+                "We",
+                "are",
+                "at",
+                "school",
+                "they",
+                "in"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_a1"
+            ]
+        },
+        {
+            "id": 4,
+            "uuid": "poly-pos-a2-01",
+            "question": "Склади речення: Мій друг часто допомагає мені.",
+            "level": "A2",
+            "answers": {
+                "a1": "My",
+                "a2": "friend",
+                "a3": "often",
+                "a4": "helps",
+                "a5": "me"
+            },
+            "options": [
+                "My",
+                "friend",
+                "often",
+                "helps",
+                "me",
+                "help",
+                "friendly"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_a2"
+            ]
+        },
+        {
+            "id": 5,
+            "uuid": "poly-pos-a2-02",
+            "question": "Склади речення: Вони купили червоні яблука вчора.",
+            "level": "A2",
+            "answers": {
+                "a1": "They",
+                "a2": "bought",
+                "a3": "red",
+                "a4": "apples",
+                "a5": "yesterday"
+            },
+            "options": [
+                "They",
+                "bought",
+                "red",
+                "apples",
+                "yesterday",
+                "buy",
+                "redly"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_a2"
+            ]
+        },
+        {
+            "id": 6,
+            "uuid": "poly-pos-a2-03",
+            "question": "Склади речення: Після уроку ми пішли додому.",
+            "level": "A2",
+            "answers": {
+                "a1": "After",
+                "a2": "the",
+                "a3": "lesson",
+                "a4": "we",
+                "a5": "went",
+                "a6": "home"
+            },
+            "options": [
+                "After",
+                "the",
+                "lesson",
+                "we",
+                "went",
+                "home",
+                "because",
+                "go"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_a2"
+            ]
+        },
+        {
+            "id": 7,
+            "uuid": "poly-pos-b1-01",
+            "question": "Склади речення: Хоча тест був складний, студенти відповідали впевнено.",
+            "level": "B1",
+            "answers": {
+                "a1": "Although",
+                "a2": "the",
+                "a3": "test",
+                "a4": "was",
+                "a5": "difficult",
+                "a6": "the",
+                "a7": "students",
+                "a8": "answered",
+                "a9": "confidently"
+            },
+            "options": [
+                "Although",
+                "the",
+                "test",
+                "was",
+                "difficult",
+                "students",
+                "answered",
+                "confidently",
+                "confident",
+                "because"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_b1"
+            ]
+        },
+        {
+            "id": 8,
+            "uuid": "poly-pos-b1-02",
+            "question": "Склади речення: Її порада здалася дуже корисною.",
+            "level": "B1",
+            "answers": {
+                "a1": "Her",
+                "a2": "advice",
+                "a3": "seemed",
+                "a4": "very",
+                "a5": "useful"
+            },
+            "options": [
+                "Her",
+                "advice",
+                "seemed",
+                "very",
+                "useful",
+                "usefully",
+                "advise"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_b1"
+            ]
+        },
+        {
+            "id": 9,
+            "uuid": "poly-pos-b1-03",
+            "question": "Склади речення: Якщо ти прийдеш раніше, ми почнемо одразу.",
+            "level": "B1",
+            "answers": {
+                "a1": "If",
+                "a2": "you",
+                "a3": "arrive",
+                "a4": "earlier",
+                "a5": "we",
+                "a6": "will",
+                "a7": "start",
+                "a8": "immediately"
+            },
+            "options": [
+                "If",
+                "you",
+                "arrive",
+                "earlier",
+                "we",
+                "will",
+                "start",
+                "immediately",
+                "early",
+                "and"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_b1"
+            ]
+        },
+        {
+            "id": 10,
+            "uuid": "poly-pos-b2-01",
+            "question": "Склади речення: Команда ретельно переглянула остаточний звіт перед зустріччю.",
+            "level": "B2",
+            "answers": {
+                "a1": "The",
+                "a2": "team",
+                "a3": "carefully",
+                "a4": "reviewed",
+                "a5": "the",
+                "a6": "final",
+                "a7": "report",
+                "a8": "before",
+                "a9": "the",
+                "a10": "meeting"
+            },
+            "options": [
+                "The",
+                "team",
+                "carefully",
+                "reviewed",
+                "the",
+                "final",
+                "report",
+                "before",
+                "meeting",
+                "careful",
+                "review"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_b2"
+            ]
+        },
+        {
+            "id": 11,
+            "uuid": "poly-pos-b2-02",
+            "question": "Склади речення: Книга, яку ти рекомендував, була напрочуд практичною.",
+            "level": "B2",
+            "answers": {
+                "a1": "The",
+                "a2": "book",
+                "a3": "that",
+                "a4": "you",
+                "a5": "recommended",
+                "a6": "was",
+                "a7": "surprisingly",
+                "a8": "practical"
+            },
+            "options": [
+                "The",
+                "book",
+                "that",
+                "you",
+                "recommended",
+                "was",
+                "surprisingly",
+                "practical",
+                "surprising",
+                "practically"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_b2"
+            ]
+        },
+        {
+            "id": 12,
+            "uuid": "poly-pos-b2-03",
+            "question": "Склади речення: Незважаючи на затримку, поїзд прибув безпечно.",
+            "level": "B2",
+            "answers": {
+                "a1": "Despite",
+                "a2": "the",
+                "a3": "delay",
+                "a4": "the",
+                "a5": "train",
+                "a6": "arrived",
+                "a7": "safely"
+            },
+            "options": [
+                "Despite",
+                "the",
+                "delay",
+                "train",
+                "arrived",
+                "safely",
+                "safe",
+                "although"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_b2"
+            ]
+        },
+        {
+            "id": 13,
+            "uuid": "poly-pos-c1-01",
+            "question": "Склади речення: Ретельне планування значно зменшує непотрібні витрати.",
+            "level": "C1",
+            "answers": {
+                "a1": "Careful",
+                "a2": "planning",
+                "a3": "significantly",
+                "a4": "reduces",
+                "a5": "unnecessary",
+                "a6": "costs"
+            },
+            "options": [
+                "Careful",
+                "planning",
+                "significantly",
+                "reduces",
+                "unnecessary",
+                "costs",
+                "carefully",
+                "reduction"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_c1"
+            ]
+        },
+        {
+            "id": 14,
+            "uuid": "poly-pos-c1-02",
+            "question": "Склади речення: Оскільки докази були переконливими, комітет схвалив пропозицію.",
+            "level": "C1",
+            "answers": {
+                "a1": "Since",
+                "a2": "the",
+                "a3": "evidence",
+                "a4": "was",
+                "a5": "convincing",
+                "a6": "the",
+                "a7": "committee",
+                "a8": "approved",
+                "a9": "the",
+                "a10": "proposal"
+            },
+            "options": [
+                "Since",
+                "the",
+                "evidence",
+                "was",
+                "convincing",
+                "committee",
+                "approved",
+                "proposal",
+                "convincingly",
+                "approve"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_c1"
+            ]
+        },
+        {
+            "id": 15,
+            "uuid": "poly-pos-c1-03",
+            "question": "Склади речення: Його навмисно обережна відповідь здивувала аудиторію.",
+            "level": "C1",
+            "answers": {
+                "a1": "His",
+                "a2": "deliberately",
+                "a3": "careful",
+                "a4": "answer",
+                "a5": "surprised",
+                "a6": "the",
+                "a7": "audience"
+            },
+            "options": [
+                "His",
+                "deliberately",
+                "careful",
+                "answer",
+                "surprised",
+                "the",
+                "audience",
+                "carefully",
+                "surprising"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_c1"
+            ]
+        },
+        {
+            "id": 16,
+            "uuid": "poly-pos-c2-01",
+            "question": "Склади речення: Навіть найпереконливіші аргументи можуть звучати слабко без точного формулювання.",
+            "level": "C2",
+            "answers": {
+                "a1": "Even",
+                "a2": "the",
+                "a3": "most",
+                "a4": "persuasive",
+                "a5": "arguments",
+                "a6": "can",
+                "a7": "sound",
+                "a8": "weak",
+                "a9": "without",
+                "a10": "precise",
+                "a11": "wording"
+            },
+            "options": [
+                "Even",
+                "the",
+                "most",
+                "persuasive",
+                "arguments",
+                "can",
+                "sound",
+                "weak",
+                "without",
+                "precise",
+                "wording",
+                "persuasively",
+                "weakly"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_c2"
+            ]
+        },
+        {
+            "id": 17,
+            "uuid": "poly-pos-c2-02",
+            "question": "Склади речення: Те, що здавалося другорядною деталлю, фактично змінило весь висновок.",
+            "level": "C2",
+            "answers": {
+                "a1": "What",
+                "a2": "seemed",
+                "a3": "a",
+                "a4": "minor",
+                "a5": "detail",
+                "a6": "actually",
+                "a7": "changed",
+                "a8": "the",
+                "a9": "entire",
+                "a10": "conclusion"
+            },
+            "options": [
+                "What",
+                "seemed",
+                "a",
+                "minor",
+                "detail",
+                "actually",
+                "changed",
+                "the",
+                "entire",
+                "conclusion",
+                "minorly",
+                "change"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_c2"
+            ]
+        },
+        {
+            "id": 18,
+            "uuid": "poly-pos-c2-03",
+            "question": "Склади речення: На відміну від простих прикметників, прислівники часто змінюють ціле речення.",
+            "level": "C2",
+            "answers": {
+                "a1": "Unlike",
+                "a2": "simple",
+                "a3": "adjectives",
+                "a4": "adverbs",
+                "a5": "often",
+                "a6": "modify",
+                "a7": "the",
+                "a8": "whole",
+                "a9": "sentence"
+            },
+            "options": [
+                "Unlike",
+                "simple",
+                "adjectives",
+                "adverbs",
+                "often",
+                "modify",
+                "the",
+                "whole",
+                "sentence",
+                "because",
+                "adverbial"
+            ],
+            "variants": [],
+            "source": "theory_page_parts_of_speech",
+            "tag_keys": [
+                "level_c2"
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "poly-pos-all-levels",
+        "slug": "polyglot-parts-of-speech-all-levels",
+        "name": "Sentence Builder: Parts of Speech (All levels)",
+        "description": "Page-local compose_tokens package for Parts of Speech with A1-C2 coverage.",
+        "filters": {
+            "mode": "compose_tokens",
+            "question_type": 4,
+            "lesson_type": "polyglot",
+            "payload_version": 2,
+            "import_format": "gramlyze_v3_polyglot",
+            "supports_duplicate_tokens": true,
+            "course_slug": "polyglot-theory-pages",
+            "lesson_order": 0,
+            "previous_lesson_slug": null,
+            "next_lesson_slug": null,
+            "completion": {
+                "rolling_window": 100,
+                "min_rating": 4.5
+            },
+            "interface_locale": "uk",
+            "study_locale": "uk",
+            "target_locale": "en",
+            "topic": "parts of speech",
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "tags": [
+                "Sentence Builder",
+                "Compose Tokens",
+                "Parts of Speech",
+                "All levels"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+            ],
+            "num_questions": 18,
+            "randomize_filtered": false,
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "parts-of-speech",
+                    "title": "Parts of Speech — Частини мови",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/parts-of-speech"
+                }
+            }
+        }
+    }
+}

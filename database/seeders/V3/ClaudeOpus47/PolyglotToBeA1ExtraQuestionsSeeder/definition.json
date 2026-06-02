@@ -1,0 +1,441 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClaudeOpus47\\PolyglotToBeA1ExtraQuestionsSeeder",
+        "uuid_namespace": "PolyglotToBeA1ExtraQuestionsSeeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder A1"
+    },
+    "sources": {
+        "theory_page_verb_to_be_present": {
+            "name": "Verb to Be: Present Forms"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "to_be": {
+            "name": "to be",
+            "category": "topic"
+        },
+        "present_simple": {
+            "name": "present simple",
+            "category": "tense"
+        },
+        "affirmative": {
+            "name": "affirmative",
+            "category": "pattern"
+        },
+        "a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "identity": {
+            "name": "identity",
+            "category": "pattern"
+        },
+        "negative": {
+            "name": "negative",
+            "category": "pattern"
+        },
+        "question": {
+            "name": "question",
+            "category": "pattern"
+        },
+        "wh_question": {
+            "name": "wh question",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "present_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "polyglot-to-be-a1-x-co47-001",
+            "question": "Я голодний.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "I", "a2": "am", "a3": "hungry"},
+            "options": ["I", "am", "hungry", "is", "are", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["I → am"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 2,
+            "uuid": "polyglot-to-be-a1-x-co47-002",
+            "question": "Ти мій друг.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "You", "a2": "are", "a3": "my", "a4": "friend"},
+            "options": ["You", "are", "my", "friend", "is", "am", "his"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["you → are"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "identity", "a1"]
+        },
+        {
+            "id": 3,
+            "uuid": "polyglot-to-be-a1-x-co47-003",
+            "question": "Вона вчителька.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "She", "a2": "is", "a3": "a", "a4": "teacher"},
+            "options": ["She", "is", "a", "teacher", "are", "am", "the"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["she → is"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "identity", "a1"]
+        },
+        {
+            "id": 4,
+            "uuid": "polyglot-to-be-a1-x-co47-004",
+            "question": "Він не лікар.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "He", "a2": "is", "a3": "not", "a4": "a", "a5": "doctor"},
+            "options": ["He", "is", "not", "a", "doctor", "are", "am", "the"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["he → is + not"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "negative", "identity", "a1"]
+        },
+        {
+            "id": 5,
+            "uuid": "polyglot-to-be-a1-x-co47-005",
+            "question": "Ми готові.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "We", "a2": "are", "a3": "ready"},
+            "options": ["We", "are", "ready", "is", "am", "she"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["we → are"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 6,
+            "uuid": "polyglot-to-be-a1-x-co47-006",
+            "question": "Вони не зайняті.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "They", "a2": "are", "a3": "not", "a4": "busy"},
+            "options": ["They", "are", "not", "busy", "is", "am", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["they → are + not"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "negative", "a1"]
+        },
+        {
+            "id": 7,
+            "uuid": "polyglot-to-be-a1-x-co47-007",
+            "question": "Це легко.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "It", "a2": "is", "a3": "easy"},
+            "options": ["It", "is", "easy", "are", "am", "they"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["it → is"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 8,
+            "uuid": "polyglot-to-be-a1-x-co47-008",
+            "question": "Я не втомлений.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "I", "a2": "am", "a3": "not", "a4": "tired"},
+            "options": ["I", "am", "not", "tired", "is", "are", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["I → am + not"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "negative", "a1"]
+        },
+        {
+            "id": 9,
+            "uuid": "polyglot-to-be-a1-x-co47-009",
+            "question": "Ти щасливий?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "Are", "a2": "you", "a3": "happy"},
+            "options": ["Are", "you", "happy", "Is", "Am", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["Are + you (питання)"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "question", "a1"]
+        },
+        {
+            "id": 10,
+            "uuid": "polyglot-to-be-a1-x-co47-010",
+            "question": "Вона вдома?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "Is", "a2": "she", "a3": "at", "a4": "home"},
+            "options": ["Is", "she", "at", "home", "Are", "Am", "they"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["Is + she (питання)"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "question", "a1"]
+        },
+        {
+            "id": 11,
+            "uuid": "polyglot-to-be-a1-x-co47-011",
+            "question": "Ми студенти?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "Are", "a2": "we", "a3": "students"},
+            "options": ["Are", "we", "students", "Is", "Am", "she"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["Are + we (питання)"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "question", "identity", "a1"]
+        },
+        {
+            "id": 12,
+            "uuid": "polyglot-to-be-a1-x-co47-012",
+            "question": "Вони з України.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "They", "a2": "are", "a3": "from", "a4": "Ukraine"},
+            "options": ["They", "are", "from", "Ukraine", "is", "am", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["they → are"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 13,
+            "uuid": "polyglot-to-be-a1-x-co47-013",
+            "question": "Де вона?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "Where", "a2": "is", "a3": "she"},
+            "options": ["Where", "is", "she", "are", "am", "they"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["Wh- + is + she"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "wh_question", "a1"]
+        },
+        {
+            "id": 14,
+            "uuid": "polyglot-to-be-a1-x-co47-014",
+            "question": "Хто він?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "Who", "a2": "is", "a3": "he"},
+            "options": ["Who", "is", "he", "are", "am", "they"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["Wh- + is + he"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "wh_question", "a1"]
+        },
+        {
+            "id": 15,
+            "uuid": "polyglot-to-be-a1-x-co47-015",
+            "question": "Що це?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "What", "a2": "is", "a3": "it"},
+            "options": ["What", "is", "it", "are", "am", "they"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["Wh- + is + it"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "wh_question", "a1"]
+        },
+        {
+            "id": 16,
+            "uuid": "polyglot-to-be-a1-x-co47-016",
+            "question": "Скільки тобі років?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "How", "a2": "old", "a3": "are", "a4": "you"},
+            "options": ["How", "old", "are", "you", "is", "am", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["How old + are + you"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "wh_question", "a1"]
+        },
+        {
+            "id": 17,
+            "uuid": "polyglot-to-be-a1-x-co47-017",
+            "question": "Мені десять років.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "I", "a2": "am", "a3": "ten", "a4": "years", "a5": "old"},
+            "options": ["I", "am", "ten", "years", "old", "is", "are"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["I → am"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 18,
+            "uuid": "polyglot-to-be-a1-x-co47-018",
+            "question": "Йому холодно.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "He", "a2": "is", "a3": "cold"},
+            "options": ["He", "is", "cold", "are", "am", "they"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["he → is"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 19,
+            "uuid": "polyglot-to-be-a1-x-co47-019",
+            "question": "Їй жарко.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "She", "a2": "is", "a3": "hot"},
+            "options": ["She", "is", "hot", "are", "am", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["she → is"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 20,
+            "uuid": "polyglot-to-be-a1-x-co47-020",
+            "question": "Нам не пізно.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "We", "a2": "are", "a3": "not", "a4": "late"},
+            "options": ["We", "are", "not", "late", "is", "am", "she"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["we → are + not"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "negative", "a1"]
+        },
+        {
+            "id": 21,
+            "uuid": "polyglot-to-be-a1-x-co47-021",
+            "question": "Вони в школі?",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "Are", "a2": "they", "a3": "at", "a4": "school"},
+            "options": ["Are", "they", "at", "school", "Is", "Am", "he"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["Are + they (питання)"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "question", "a1"]
+        },
+        {
+            "id": 22,
+            "uuid": "polyglot-to-be-a1-x-co47-022",
+            "question": "Мій брат лікар.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "My", "a2": "brother", "a3": "is", "a4": "a", "a5": "doctor"},
+            "options": ["My", "brother", "is", "a", "doctor", "are", "am", "the"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["brother (he) → is"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "identity", "a1"]
+        },
+        {
+            "id": 23,
+            "uuid": "polyglot-to-be-a1-x-co47-023",
+            "question": "Мої батьки вдома.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "My", "a2": "parents", "a3": "are", "a4": "at", "a5": "home"},
+            "options": ["My", "parents", "are", "at", "home", "is", "am", "the"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["parents (they) → are"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        },
+        {
+            "id": 24,
+            "uuid": "polyglot-to-be-a1-x-co47-024",
+            "question": "Ця кімната чиста.",
+            "level": "A1",
+            "type": 4,
+            "answers": {"a1": "This", "a2": "room", "a3": "is", "a4": "clean"},
+            "options": ["This", "room", "is", "clean", "are", "am", "the"],
+            "variants": [],
+            "source": "theory_page_verb_to_be_present",
+            "hint_provider": "polyglot-v3",
+            "hints": ["room (it) → is"],
+            "tag_keys": ["polyglot_compose_tokens", "to_be", "present_simple", "affirmative", "a1"]
+        }
+    ],
+    "saved_test": {
+        "uuid": "ef3b6d0d-333c-4f61-b244-58ca14daad60",
+        "slug": "polyglot-to-be-a1",
+        "name": "Sentence Builder: To Be (A1)",
+        "description": "Урок у форматі конструктора речень на Present Simple дієслова to be: am / is / are.",
+        "question_uuids": [
+            "polyglot-to-be-a1-x-co47-001",
+            "polyglot-to-be-a1-x-co47-002",
+            "polyglot-to-be-a1-x-co47-003",
+            "polyglot-to-be-a1-x-co47-004",
+            "polyglot-to-be-a1-x-co47-005",
+            "polyglot-to-be-a1-x-co47-006",
+            "polyglot-to-be-a1-x-co47-007",
+            "polyglot-to-be-a1-x-co47-008",
+            "polyglot-to-be-a1-x-co47-009",
+            "polyglot-to-be-a1-x-co47-010",
+            "polyglot-to-be-a1-x-co47-011",
+            "polyglot-to-be-a1-x-co47-012",
+            "polyglot-to-be-a1-x-co47-013",
+            "polyglot-to-be-a1-x-co47-014",
+            "polyglot-to-be-a1-x-co47-015",
+            "polyglot-to-be-a1-x-co47-016",
+            "polyglot-to-be-a1-x-co47-017",
+            "polyglot-to-be-a1-x-co47-018",
+            "polyglot-to-be-a1-x-co47-019",
+            "polyglot-to-be-a1-x-co47-020",
+            "polyglot-to-be-a1-x-co47-021",
+            "polyglot-to-be-a1-x-co47-022",
+            "polyglot-to-be-a1-x-co47-023",
+            "polyglot-to-be-a1-x-co47-024"
+        ],
+        "extends_existing_saved_test": true
+    }
+}

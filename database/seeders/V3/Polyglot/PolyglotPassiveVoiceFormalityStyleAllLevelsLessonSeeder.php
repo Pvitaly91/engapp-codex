@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotPassiveVoiceFormalityStyleAllLevelsLessonSeeder/PolyglotPassiveVoiceFormalityStyleAllLevelsLessonSeeder.php';

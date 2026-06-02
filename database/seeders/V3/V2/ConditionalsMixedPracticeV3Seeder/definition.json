@@ -1,0 +1,569 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\ConditionalsMixedPracticeV3Seeder",
+        "uuid_namespace": "ConditionalsMixedPracticeV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "custom_mixed_conditionals_practice_v2": {
+            "name": "Custom: Mixed Conditionals Practice V2"
+        }
+    },
+    "tags": {
+        "mixed_conditional_sentence_completion": {
+            "name": "Mixed Conditional Sentence Completion",
+            "category": "English Grammar Detail"
+        },
+        "conditional_sentences_type13": {
+            "name": "Conditional Sentences Type 1-3",
+            "category": "English Grammar Structure"
+        },
+        "second_conditional": {
+            "name": "Second Conditional",
+            "category": "English Grammar Tense"
+        },
+        "mixed_conditionals_practice": {
+            "name": "Mixed Conditionals Practice",
+            "category": "English Grammar Theme"
+        },
+        "first_conditional": {
+            "name": "First Conditional",
+            "category": "Tenses"
+        },
+        "third_conditional": {
+            "name": "Third Conditional",
+            "category": "Tenses"
+        }
+    },
+    "default_tag_keys": [
+        "conditional_sentences_type13",
+        "mixed_conditional_sentence_completion",
+        "mixed_conditionals_practice"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "1-if-you-a1-to-my-birthday-party-ton",
+            "question": "If you {a1} to my birthday party tonight, I {a2} very upset. I want you to come!",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "don't come",
+                "a2": "will be"
+            },
+            "options": [
+                "am",
+                "will be",
+                "won't come",
+                "would be",
+                "would have been",
+                "don't come",
+                "didn't come",
+                "hadn't come"
+            ],
+            "verb_hints": {
+                "a1": "not come",
+                "a2": "be"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.\nФормула: **if + Present Simple** (для заперечення використовуємо do/does + not).\nПояснення: умовна частина описує можливу ситуацію, тому дієслово «come» ставимо в Present Simple для займенника «you».\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*\nЧас: First Conditional.\nФормула: **will + base verb**.\nПояснення: результат у First Conditional виражаємо через will + початкову форму дієслова «be».\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "don't come": "✅ «don't come» правильно, бо в if-клаузі First Conditional для займенника «you» використовуємо Present Simple дієслова «come».\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*",
+                            "didn't come": "❌ «didn't come» — Past Simple. У First Conditional в if-клаузі потрібен Present Simple.\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*",
+                            "hadn't come": "❌ «hadn't come» — Past Perfect. Для можливої умови в теперішньому вживаємо Present Simple.\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*",
+                            "won't come": "❌ «won't come» містить will, але will уживаємо лише в головній частині, не після if.\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*"
+                        },
+                        "a2": {
+                            "will be": "✅ «will be» правильно, бо результат First Conditional утворюємо як will + базова форма дієслова «be».\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*",
+                            "would be": "❌ «would be» — модель Second Conditional з would. Нам потрібне will для реальної майбутньої ситуації.\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*",
+                            "would have been": "❌ «would have been» належить до Third Conditional (would have). У First Conditional використовуємо will + V1.\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*",
+                            "am": "❌ «am» — Present Simple. Результат First Conditional має містити will.\nПриклад: *If you don't come to my birthday party tonight, I will be very upset. I want you to come!*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "2-i-a1-emmas-29-years-old-if-you-a2-",
+            "question": "I {a1} Emma’s 29 years old if you {a2} me. She looks much older! Thank God you told me!",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "wouldn't say",
+                "a2": "hadn't told"
+            },
+            "options": [
+                "don't tell",
+                "didn't tell",
+                "wouldn't say",
+                "hadn't told",
+                "won't say",
+                "wouldn't have said",
+                "don't say",
+                "wouldn't tell"
+            ],
+            "verb_hints": {
+                "a1": "not say",
+                "a2": "not tell"
+            },
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second Conditional.\nФормула: **would + base verb**.\nПояснення: у другому умовному результат виражаємо через would + початкову форму дієслова «say».\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*\nЧас: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «tell».\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wouldn't say": "✅ «wouldn't say» правильно, бо у Second Conditional результат виражаємо через would + базову форму «say».\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*",
+                            "won't say": "❌ «won't say» використовує will, що характерно для First Conditional. Тут потрібне would.\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*",
+                            "wouldn't have said": "❌ «wouldn't have said» — Third Conditional (would have). У Second Conditional беремо would + V1.\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*",
+                            "don't say": "❌ «don't say» — Present Simple. Результат Second Conditional формується за допомогою would.\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*"
+                        },
+                        "a2": {
+                            "hadn't told": "✅ «hadn't told» правильно, бо в if-клаузі Third Conditional для займенника «you» потрібна форма **had + V3** (або had not + V3).\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*",
+                            "didn't tell": "❌ «didn't tell» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*",
+                            "don't tell": "❌ «don't tell» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*",
+                            "wouldn't tell": "❌ «wouldn't tell» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *I wouldn't say Emma’s 29 years old if you hadn't told me. She looks much older! Thank God you told me!*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "3-i-dont-think-hell-phone-you-but-if",
+            "question": "I don’t think he’ll phone you but if he {a1}, {a2} to him?",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "does",
+                "a2": "will you talk"
+            },
+            "options": [
+                "does",
+                "did",
+                "had done",
+                "will do",
+                "will you talk",
+                "would you talk",
+                "would you have talked",
+                "do you talk"
+            ],
+            "verb_hints": {
+                "a1": "do",
+                "a2": "talk"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.\nФормула: **if + Present Simple** (для заперечення використовуємо do/does + not).\nПояснення: умовна частина описує можливу ситуацію, тому дієслово «do» ставимо в Present Simple для займенника «he».\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*\nЧас: First Conditional.\nФормула: **will + subject + base verb** у питальному реченні.\nПояснення: у запитанні результату потрібно використати will перед підметом та базову форму «talk».\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "does": "✅ «does» правильно, бо в if-клаузі First Conditional для займенника «he» використовуємо Present Simple дієслова «do».\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*",
+                            "did": "❌ «did» — Past Simple. У First Conditional в if-клаузі потрібен Present Simple.\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*",
+                            "had done": "❌ «had done» — Past Perfect. Для можливої умови в теперішньому вживаємо Present Simple.\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*",
+                            "will do": "❌ «will do» містить will, але will уживаємо лише в головній частині, не після if.\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*"
+                        },
+                        "a2": {
+                            "will you talk": "✅ «will you talk» правильно, бо у питальній формі First Conditional ставимо will перед підметом «займенника «you»» та вживаємо базову форму «talk».\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*",
+                            "would you talk": "❌ «would you talk» — Second Conditional з would. Для ймовірного майбутнього запитання потрібне will.\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*",
+                            "would you have talked": "❌ «would you have talked» — Third Conditional (would have). У First Conditional питання будуємо з will.\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*",
+                            "do you talk": "❌ «do you talk» — Present Simple. Питання результату First Conditional потребує will + підмет.\nПриклад: *I don’t think he’ll phone you but if he does, will you talk to him?*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "4-you-a1-weight-if-you-a2-to-the-die",
+            "question": "You {a1} weight if you {a2} to the diet the doctor has told you to follow.",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will lose",
+                "a2": "stick"
+            },
+            "options": [
+                "lose",
+                "will lose",
+                "stick",
+                "would lose",
+                "would have lost",
+                "stuck",
+                "had stuck",
+                "are sticking"
+            ],
+            "verb_hints": {
+                "a1": "lose",
+                "a2": "stick"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.\nФормула: **will + base verb**.\nПояснення: результат у First Conditional виражаємо через will + початкову форму дієслова «lose».\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*\nЧас: First Conditional.\nФормула: **if + Present Simple** (для заперечення використовуємо do/does + not).\nПояснення: умовна частина описує можливу ситуацію, тому дієслово «stick» ставимо в Present Simple для займенника «you».\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will lose": "✅ «will lose» правильно, бо результат First Conditional утворюємо як will + базова форма дієслова «lose».\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*",
+                            "would lose": "❌ «would lose» — модель Second Conditional з would. Нам потрібне will для реальної майбутньої ситуації.\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*",
+                            "would have lost": "❌ «would have lost» належить до Third Conditional (would have). У First Conditional використовуємо will + V1.\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*",
+                            "lose": "❌ «lose» — Present Simple. Результат First Conditional має містити will.\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*"
+                        },
+                        "a2": {
+                            "stick": "✅ «stick» правильно, бо в if-клаузі First Conditional для займенника «you» використовуємо Present Simple дієслова «stick».\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*",
+                            "stuck": "❌ «stuck» — Past Simple. У First Conditional в if-клаузі потрібен Present Simple.\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*",
+                            "had stuck": "❌ «had stuck» — Past Perfect. Для можливої умови в теперішньому вживаємо Present Simple.\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*",
+                            "are sticking": "❌ «are sticking» — форма Continuous, а First Conditional потребує простого Present Simple.\nПриклад: *You will lose weight if you stick to the diet the doctor has told you to follow.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "5-if-i-a1-more-i-a2-the-exam-now-its",
+            "question": "If I {a1} more, I {a2} the exam. Now it’s too late! I got a D!",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "had studied",
+                "a2": "would have passed"
+            },
+            "options": [
+                "passed",
+                "studied",
+                "study",
+                "had studied",
+                "will pass",
+                "would pass",
+                "would have passed",
+                "would study"
+            ],
+            "verb_hints": {
+                "a1": "study",
+                "a2": "pass"
+            },
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «study».\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*\nЧас: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «pass».\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had studied": "✅ «had studied» правильно, бо в if-клаузі Third Conditional для займенника «I» потрібна форма **had + V3** (або had not + V3).\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*",
+                            "studied": "❌ «studied» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*",
+                            "study": "❌ «study» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*",
+                            "would study": "❌ «would study» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*"
+                        },
+                        "a2": {
+                            "would have passed": "✅ «would have passed» правильно, бо результат Third Conditional будується як would have + V3 для займенника «I».\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*",
+                            "would pass": "❌ «would pass» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*",
+                            "will pass": "❌ «will pass» — це модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*",
+                            "passed": "❌ «passed» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *If I had studied more, I would have passed the exam. Now it’s too late! I got a D!*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "co-6-i-a1-more-healthily-if-i-a2-you",
+            "question": "I {a1} more healthily if I {a2} you.",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "would eat",
+                "a2": "Were"
+            },
+            "options": [
+                "am",
+                "was",
+                "Were",
+                "eat",
+                "will eat",
+                "had been",
+                "would eat",
+                "would have eaten"
+            ],
+            "verb_hints": {
+                "a1": "eat",
+                "a2": "be"
+            },
+            "variants": [],
+            "tag_keys": [
+                "second_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Second Conditional.\nФормула: **would + base verb**.\nПояснення: у другому умовному результат виражаємо через would + початкову форму дієслова «eat».\nПриклад: *I would eat more healthily if I were you.*\nЧас: Second Conditional.\nФормула: **if + Past Simple** (для to be використовуємо were з усіма особами).\nПояснення: умовна частина описує нереальну теперішню ситуацію, тож дієслово «be» ставимо в Past Simple / were.\nПриклад: *I would eat more healthily if I were you.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "would eat": "✅ «would eat» правильно, бо у Second Conditional результат виражаємо через would + базову форму «eat».\nПриклад: *I would eat more healthily if I were you.*",
+                            "will eat": "❌ «will eat» використовує will, що характерно для First Conditional. Тут потрібне would.\nПриклад: *I would eat more healthily if I were you.*",
+                            "would have eaten": "❌ «would have eaten» — Third Conditional (would have). У Second Conditional беремо would + V1.\nПриклад: *I would eat more healthily if I were you.*",
+                            "eat": "❌ «eat» — Present Simple. Результат Second Conditional формується за допомогою would.\nПриклад: *I would eat more healthily if I were you.*",
+                            "were": "✅ «were» правильно, бо в Second Conditional для дієслова to be після if використовуємо were з усіма особами.\nПриклад: *I would eat more healthily if I were you.*",
+                            "was": "❌ «was» виглядає граматично, але в гіпотетичному if-реченні потрібно were навіть із I/he/she/it.\nПриклад: *I would eat more healthily if I were you.*",
+                            "had been": "❌ «had been» — Past Perfect. Для теперішньої нереальної умови потрібен Past Simple (were).\nПриклад: *I would eat more healthily if I were you.*",
+                            "am": "❌ «am» — Present Simple. Другий умовний вимагає Past Simple (were).\nПриклад: *I would eat more healthily if I were you.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "7-weve-been-married-for-10-years-if-",
+            "question": "We’ve been married for 10 years. If I {a1} to that party, I {a2} him.",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "hadn't gone",
+                "a2": "would never have met"
+            },
+            "options": [
+                "don't go",
+                "hadn't gone",
+                "didn't go",
+                "never met",
+                "wouldn't go",
+                "would never have met",
+                "would never meet",
+                "will never meet"
+            ],
+            "verb_hints": {
+                "a1": "not go",
+                "a2": "never meet"
+            },
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «go».\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*\nЧас: Third Conditional.\nФормула: **would not have + V3** (wouldn't have + V3).\nПояснення: заперечний результат утворюємо через would not have + третю форму дієслова «meet».\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "hadn't gone": "✅ «hadn't gone» правильно, бо в if-клаузі Third Conditional для займенника «I» потрібна форма **had + V3** (або had not + V3).\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*",
+                            "didn't go": "❌ «didn't go» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*",
+                            "don't go": "❌ «don't go» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*",
+                            "wouldn't go": "❌ «wouldn't go» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*"
+                        },
+                        "a2": {
+                            "would never have met": "✅ «would never have met» правильно, бо заперечення третього умовного утворюємо як would not have + V3.\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*",
+                            "would never meet": "❌ Неправильна форма.\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*",
+                            "will never meet": "❌ «will never meet» — це Future/First Conditional із will not. Для минулого результату потрібне would not have + V3.\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*",
+                            "never met": "❌ «never met» — Past Simple. Третій умовний вимагає would not have + V3.\nПриклад: *We’ve been married for 10 years. If I hadn't gone to that party, I would never have met him.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "8-you-a1-your-final-exams-next-week-",
+            "question": "You {a1} your final exams next week if you {a2} harder.",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "will fail",
+                "a2": "don't study"
+            },
+            "options": [
+                "fail",
+                "won't study",
+                "will fail",
+                "would fail",
+                "don't study",
+                "would have failed",
+                "didn't study",
+                "hadn't studied"
+            ],
+            "verb_hints": {
+                "a1": "fail",
+                "a2": "not study"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.\nФормула: **will + base verb**.\nПояснення: результат у First Conditional виражаємо через will + початкову форму дієслова «fail».\nПриклад: *You will fail your final exams next week if you don't study harder.*\nЧас: First Conditional.\nФормула: **if + Present Simple** (для заперечення використовуємо do/does + not).\nПояснення: умовна частина описує можливу ситуацію, тому дієслово «study» ставимо в Present Simple для займенника «you».\nПриклад: *You will fail your final exams next week if you don't study harder.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will fail": "✅ «will fail» правильно, бо результат First Conditional утворюємо як will + базова форма дієслова «fail».\nПриклад: *You will fail your final exams next week if you don't study harder.*",
+                            "would fail": "❌ «would fail» — модель Second Conditional з would. Нам потрібне will для реальної майбутньої ситуації.\nПриклад: *You will fail your final exams next week if you don't study harder.*",
+                            "would have failed": "❌ «would have failed» належить до Third Conditional (would have). У First Conditional використовуємо will + V1.\nПриклад: *You will fail your final exams next week if you don't study harder.*",
+                            "fail": "❌ «fail» — Present Simple. Результат First Conditional має містити will.\nПриклад: *You will fail your final exams next week if you don't study harder.*"
+                        },
+                        "a2": {
+                            "don't study": "✅ «don't study» правильно, бо в if-клаузі First Conditional для займенника «you» використовуємо Present Simple дієслова «study».\nПриклад: *You will fail your final exams next week if you don't study harder.*",
+                            "didn't study": "❌ «didn't study» — Past Simple. У First Conditional в if-клаузі потрібен Present Simple.\nПриклад: *You will fail your final exams next week if you don't study harder.*",
+                            "hadn't studied": "❌ «hadn't studied» — Past Perfect. Для можливої умови в теперішньому вживаємо Present Simple.\nПриклад: *You will fail your final exams next week if you don't study harder.*",
+                            "won't study": "❌ «won't study» містить will, але will уживаємо лише в головній частині, не після if.\nПриклад: *You will fail your final exams next week if you don't study harder.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "9-if-i-a1-about-this-i-a2-you-but-i-",
+            "question": "If I {a1} about this, I {a2} you, but I promise I didn’t know Robert was coming to the party.",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "had known",
+                "a2": "would have told"
+            },
+            "options": [
+                "will tell",
+                "told",
+                "know",
+                "knew",
+                "had known",
+                "would tell",
+                "would have told",
+                "would know"
+            ],
+            "verb_hints": {
+                "a1": "know",
+                "a2": "tell"
+            },
+            "variants": [],
+            "tag_keys": [
+                "third_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «know».\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*\nЧас: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «tell».\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "had known": "✅ «had known» правильно, бо в if-клаузі Third Conditional для займенника «I» потрібна форма **had + V3** (або had not + V3).\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*",
+                            "knew": "❌ «knew» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*",
+                            "know": "❌ «know» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*",
+                            "would know": "❌ «would know» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*"
+                        },
+                        "a2": {
+                            "would have told": "✅ «would have told» правильно, бо результат Third Conditional будується як would have + V3 для займенника «I».\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*",
+                            "would tell": "❌ «would tell» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*",
+                            "will tell": "❌ «will tell» — це модель First Conditional з will. Нам потрібна форма would have + V3 про минулий результат.\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*",
+                            "told": "❌ «told» — Past Simple. У головній частині Third Conditional слід ужити would have + V3.\nПриклад: *If I had known about this, I would have told you, but I promise I didn’t know Robert was coming to the party.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "10-richard-a1-these-sneakers-if-they",
+            "question": "Richard {a1} these sneakers if they {a2} on sale. He will only get them for an affordable price.",
+            "source": "custom_mixed_conditionals_practice_v2",
+            "level": "B1",
+            "answers": {
+                "a1": "won't buy",
+                "a2": "aren't"
+            },
+            "options": [
+                "weren't",
+                "aren't",
+                "haven't been",
+                "won't be",
+                "won't buy",
+                "wouldn't buy",
+                "wouldn't have bought",
+                "doesn't buy"
+            ],
+            "verb_hints": {
+                "a1": "not buy",
+                "a2": "not be"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.\nФормула: **will not / won't + base verb**.\nПояснення: заперечення у головній частині First Conditional утворюємо через will not (won't) + базову форму «buy».\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*\nЧас: First Conditional.\nФормула: **if + Present Simple** (для заперечення використовуємо do/does + not).\nПояснення: умовна частина описує можливу ситуацію, тому дієслово «be» ставимо в Present Simple для займенника «they».\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*"
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "won't buy": "✅ «won't buy» правильно, бо заперечення у головній частині First Conditional будується як will not / won't + базова форма «buy».\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*",
+                            "wouldn't buy": "❌ «wouldn't buy» — Second Conditional з would. Для реальної майбутньої ситуації потрібне will not / won't.\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*",
+                            "wouldn't have bought": "❌ «wouldn't have bought» — Third Conditional (would not have). У First Conditional використовуємо просту форму will not + V1.\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*",
+                            "doesn't buy": "❌ «doesn't buy» — Present Simple. Результат First Conditional має містити will (not).\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*"
+                        },
+                        "a2": {
+                            "aren't": "✅ «aren't» правильно, бо в if-клаузі First Conditional для займенника «they» використовуємо Present Simple дієслова «be».\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*",
+                            "weren't": "❌ «weren't» — Past Simple. У First Conditional в if-клаузі потрібен Present Simple.\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*",
+                            "won't be": "❌ «won't be» містить will, але will уживаємо лише в головній частині, не після if.\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*",
+                            "haven't been": "❌ «haven't been» — Present Perfect. Умовна частина First Conditional вимагає простого Present Simple.\nПриклад: *Richard won't buy these sneakers if they aren't on sale. He will only get them for an affordable price.*"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PolyglotArgumentationAndAcademicToneC2LessonSeeder/PolyglotArgumentationAndAcademicToneC2LessonSeeder.php';

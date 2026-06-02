@@ -1,0 +1,276 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\Modals\\ModalDeductionPossibilityPracticeV22Dialogue1V3Seeder",
+        "uuid_namespace": "ModalDeductionPossibilityPracticeV22Dialogue1Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "2",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Deduction & Possibility Practice V2-2"
+    },
+    "sources": {
+        "custom_modal_deduction_possibility_v22_dialogue1": {
+            "name": "Custom: Modal Deduction Possibility V2.2 - Dialogue 1"
+        }
+    },
+    "tags": {
+        "modal_verbs_practice": {
+            "name": "Modal Verbs Practice",
+            "category": "English Grammar Theme"
+        },
+        "modal_verbs": {
+            "name": "Modal Verbs",
+            "category": "Modals"
+        }
+    },
+    "default_tag_keys": [
+        "modal_verbs",
+        "modal_verbs_practice"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "dialogue1-1-oh-dear-whats-that-noise",
+            "question": "Oh dear, what's that noise? Here it comes again. Sophia, {a1} you hear it?",
+            "source": "custom_modal_deduction_possibility_v22_dialogue1",
+            "level": "A2",
+            "answers": {
+                "a1": "can"
+            },
+            "options": [
+                "can"
+            ],
+            "verb_hints": {
+                "a1": "ability / possibility"
+            },
+            "variants": [
+                "Oh dear, what's that noise? Here it comes again. Sophia, {a1} you hear it?"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Використовуємо \"can\" для запитання про здатність почути щось."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "can": "\"Can you hear it?\" запитує про здатність почути шум у цей момент."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "dialogue1-2-no-i-a1-hear-anything-it",
+            "question": "No, I {a1} hear anything. It {a2} be the wind. It's very windy tonight. {a3} you please shut the door?",
+            "source": "custom_modal_deduction_possibility_v22_dialogue1",
+            "level": "B1",
+            "answers": {
+                "a1": "Can't",
+                "a2": "must",
+                "a3": "Will"
+            },
+            "options": [
+                "Can't",
+                "Will",
+                "must"
+            ],
+            "verb_hints": {
+                "a1": "inability / impossibility",
+                "a2": "deduction / certainty",
+                "a3": "polite request"
+            },
+            "variants": [
+                "No, I {a1} hear anything. It {a2} be the wind. It's very windy tonight. {a3} you please shut the door?"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Використовуємо \"can't\" щоб сказати, що не можу почути.\nВикористовуємо \"must\" для логічного висновку або впевненості.\nДля ввічливого прохання можна використати \"will\" або \"can\"."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "can't": "\"Can't hear\" виражає неможливість почути щось.",
+                            "will": "\"Will you\" або \"Can you please\" - це ввічливе прохання зачинити двері."
+                        },
+                        "a2": {
+                            "must": "\"Must be\" виражає впевнене припущення, що це вітер."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "dialogue1-3-yeah-sure-a1-we-play-mon",
+            "question": "Yeah, sure... {a1} we play Monopoly? We {a2} call our neighbours.",
+            "source": "custom_modal_deduction_possibility_v22_dialogue1",
+            "level": "B1",
+            "answers": {
+                "a1": "shall",
+                "a2": "could"
+            },
+            "options": [
+                "shall",
+                "could"
+            ],
+            "verb_hints": {
+                "a1": "suggestion / offer",
+                "a2": "possibility / suggestion"
+            },
+            "variants": [
+                "Yeah, sure... {a1} we play Monopoly? We {a2} call our neighbours."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Використовуємо \"shall\" для пропозиції зробити щось разом.\nВикористовуємо \"could\" для вираження можливості або пропозиції."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "shall": "\"Shall we\" пропонує грати в Монополію разом."
+                        },
+                        "a2": {
+                            "could": "\"Could call\" виражає можливість або пропозицію подзвонити сусідам."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "dialogue1-4-yeah-good-idea-a1-you-ca",
+            "question": "Yeah, good idea! {a1} you call them or {a2} I? I'm not sure my mum {a3}...",
+            "source": "custom_modal_deduction_possibility_v22_dialogue1",
+            "level": "B1",
+            "answers": {
+                "a1": "Will",
+                "a2": "shall",
+                "a3": "Will"
+            },
+            "options": [
+                "Will",
+                "shall"
+            ],
+            "verb_hints": {
+                "a1": "willingness / question",
+                "a2": "offer (first person)",
+                "a3": "future prediction"
+            },
+            "variants": [
+                "Yeah, good idea! {a1} you call them or {a2} I? I'm not sure my mum {a3}..."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Використовуємо \"will\" для питання про готовність зробити щось.\nВикористовуємо \"shall I\" для пропозиції зробити щось самому.\nВикористовуємо \"will\" для припущення про майбутню дію."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will": "\"Will\" виражає невпевненість щодо того, що мама дозволить."
+                        },
+                        "a2": {
+                            "shall": "\"Shall I\" пропонує зробити це самому."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "dialogue1-5-you-a1-do-it-while-i-loo",
+            "question": "You {a1} do it while I look for the game. I {a2} find it. I {a3} have left it at grandma's. Why didn't I listen to mum? She said I {a4} take my books instead.",
+            "source": "custom_modal_deduction_possibility_v22_dialogue1",
+            "level": "B2",
+            "answers": {
+                "a1": "can",
+                "a2": "Can't",
+                "a3": "must",
+                "a4": "should"
+            },
+            "options": [
+                "can",
+                "Can't",
+                "must",
+                "should"
+            ],
+            "verb_hints": {
+                "a1": "ability / permission",
+                "a2": "inability (present)",
+                "a3": "deduction / possibility (past)",
+                "a4": "advice / recommendation"
+            },
+            "variants": [
+                "You {a1} do it while I look for the game. I {a2} find it. I {a3} have left it at grandma's. Why didn't I listen to mum? She said I {a4} take my books instead."
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Використовуємо \"can\" для вираження можливості зробити щось.\nВикористовуємо \"can't\" для неможливості знайти щось зараз.\nВикористовуємо \"must\" для впевненого припущення або \"might\" для можливості.\nВикористовуємо \"should\" для поради або рекомендації."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "can": "\"Can do\" означає, що є можливість зателефонувати.",
+                            "can't": "\"Can't find\" виражає неможливість знайти гру."
+                        },
+                        "a3": {
+                            "must": "\"Must have left\" або \"might have left\" виражає припущення про те, що гра залишилася у бабусі."
+                        },
+                        "a4": {
+                            "should": "\"Should take\" виражає пораду мами взяти книжки."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "dialogue1-6-its-ok-we-a1-make-some-p",
+            "question": "It's OK! We {a1} make some popcorn and watch a movie!",
+            "source": "custom_modal_deduction_possibility_v22_dialogue1",
+            "level": "A2",
+            "answers": {
+                "a1": "can"
+            },
+            "options": [
+                "can"
+            ],
+            "verb_hints": {
+                "a1": "ability / suggestion"
+            },
+            "variants": [
+                "It's OK! We {a1} make some popcorn and watch a movie!"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Використовуємо \"can\" для вираження можливості або пропозиції."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "can": "\"Can make\" пропонує зробити попкорн і подивитися фільм."
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

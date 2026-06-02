@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotModalPerfectAndDeductionC1LessonSeeder as V3PolyglotModalPerfectAndDeductionC1LessonSeeder;
+
+class PolyglotModalPerfectAndDeductionC1LessonSeeder extends V3PolyglotModalPerfectAndDeductionC1LessonSeeder
+{
+}

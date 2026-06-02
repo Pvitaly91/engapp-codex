@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\InCaseAllLevelsV3Seeder",
+        "uuid_namespace": "InCaseAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_in_case": {
+            "name": "In case"
+        }
+    },
+    "tags": {
+        "conditionals_in_case": {
+            "name": "In case",
+            "category": "conditionals"
+        },
+        "precaution": {
+            "name": "Precaution",
+            "category": "topic"
+        },
+        "in_case_present_simple": {
+            "name": "In Case Present Simple",
+            "category": "topic"
+        },
+        "take_precaution": {
+            "name": "Take Precaution",
+            "category": "topic"
+        },
+        "in_case_vs_if": {
+            "name": "In Case Vs If",
+            "category": "topic"
+        },
+        "just_in_case": {
+            "name": "Just In Case",
+            "category": "topic"
+        },
+        "in_case_of_noun": {
+            "name": "In Case Of Noun",
+            "category": "topic"
+        },
+        "negative_forms": {
+            "name": "Negative Forms",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_in_case"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ic-v3-a1-01",
+            "question": "Take a coat {a1} it gets cold",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Take a coat {a1} it gets cold"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 2,
+            "uuid": "ic-v3-a1-02",
+            "question": "Take an umbrella in case it {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "rains",
+                    "options": [
+                        "rains",
+                        "will rains",
+                        "would rains",
+                        "did rains"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Take an umbrella in case it {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 3,
+            "uuid": "ic-v3-a1-03",
+            "question": "Bring water {a1} the walk is long",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Take Precaution.",
+                    "gap_tags": [
+                        "take_precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "take_precaution"
+            ],
+            "variants": [
+                "Bring water {a1} the walk is long"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 4,
+            "uuid": "ic-v3-a1-04",
+            "question": "Call me {a1} you need help",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "if",
+                    "options": [
+                        "if",
+                        "will if",
+                        "would if",
+                        "did if"
+                    ],
+                    "verb_hint": "Focus on In Case Vs If.",
+                    "gap_tags": [
+                        "in_case_vs_if"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_vs_if"
+            ],
+            "variants": [
+                "Call me {a1} you need help"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 5,
+            "uuid": "ic-v3-a1-05",
+            "question": "I packed extra socks {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "I packed extra socks {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 6,
+            "uuid": "ic-v3-a1-06",
+            "question": "{a1} fire use the stairs",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "In case of",
+                    "options": [
+                        "In case of",
+                        "will In case of",
+                        "would In case of",
+                        "did In case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "{a1} fire use the stairs"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 7,
+            "uuid": "ic-v3-a1-07",
+            "question": "Take notes in case the guide {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "does not arrive",
+                    "options": [
+                        "does not arrive",
+                        "will does not arrive",
+                        "would does not arrive",
+                        "did does not arrive"
+                    ],
+                    "verb_hint": "Focus on Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "Take notes in case the guide {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 8,
+            "uuid": "ic-v3-a1-08",
+            "question": "Use {a1} for a precaution",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} for a precaution"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 9,
+            "uuid": "ic-v3-a1-09",
+            "question": "Close the window {a1} it rains tonight",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Close the window {a1} it rains tonight"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 10,
+            "uuid": "ic-v3-a1-10",
+            "question": "Take a snack in case he {a1} hungry",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "gets",
+                    "options": [
+                        "gets",
+                        "will gets",
+                        "would gets",
+                        "did gets"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Take a snack in case he {a1} hungry"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 11,
+            "uuid": "ic-v3-a1-11",
+            "question": "Keep this map {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "Keep this map {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 12,
+            "uuid": "ic-v3-a1-12",
+            "question": "Press this button {a1} danger",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in case of",
+                    "options": [
+                        "in case of",
+                        "will in case of",
+                        "would in case of",
+                        "did in case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "Press this button {a1} danger"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 13,
+            "uuid": "ic-v3-a2-01",
+            "question": "Save the file {a1} the computer crashes",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Save the file {a1} the computer crashes"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 14,
+            "uuid": "ic-v3-a2-02",
+            "question": "Keep the phone on in case she {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "calls",
+                    "options": [
+                        "calls",
+                        "will calls",
+                        "would calls",
+                        "did calls"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Keep the phone on in case she {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 15,
+            "uuid": "ic-v3-a2-03",
+            "question": "Take cash {a1} the card machine is broken",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Take Precaution.",
+                    "gap_tags": [
+                        "take_precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "take_precaution"
+            ],
+            "variants": [
+                "Take cash {a1} the card machine is broken"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 16,
+            "uuid": "ic-v3-a2-04",
+            "question": "Open the door {a1} the bell rings",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "if",
+                    "options": [
+                        "if",
+                        "will if",
+                        "would if",
+                        "did if"
+                    ],
+                    "verb_hint": "Focus on In Case Vs If.",
+                    "gap_tags": [
+                        "in_case_vs_if"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_vs_if"
+            ],
+            "variants": [
+                "Open the door {a1} the bell rings"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 17,
+            "uuid": "ic-v3-a2-05",
+            "question": "She brought another key {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "She brought another key {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 18,
+            "uuid": "ic-v3-a2-06",
+            "question": "{a1} rain meet inside",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "In case of",
+                    "options": [
+                        "In case of",
+                        "will In case of",
+                        "would In case of",
+                        "did In case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "{a1} rain meet inside"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 19,
+            "uuid": "ic-v3-a2-07",
+            "question": "Keep a copy in case the email {a1} send",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "does not",
+                    "options": [
+                        "does not",
+                        "will does not",
+                        "would does not",
+                        "did does not"
+                    ],
+                    "verb_hint": "Focus on Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "Keep a copy in case the email {a1} send"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 20,
+            "uuid": "ic-v3-a2-08",
+            "question": "Do not use {a1} when you simply mean if",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Do not use {a1} when you simply mean if"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 21,
+            "uuid": "ic-v3-a2-09",
+            "question": "Write my number down {a1} you get lost",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Write my number down {a1} you get lost"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 22,
+            "uuid": "ic-v3-a2-10",
+            "question": "Text me in case she {a1} the time",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "forgets",
+                    "options": [
+                        "forgets",
+                        "will forgets",
+                        "would forgets",
+                        "did forgets"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Text me in case she {a1} the time"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 23,
+            "uuid": "ic-v3-a2-11",
+            "question": "I saved the password {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "I saved the password {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 24,
+            "uuid": "ic-v3-a2-12",
+            "question": "Use this exit {a1} smoke",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in case of",
+                    "options": [
+                        "in case of",
+                        "will in case of",
+                        "would in case of",
+                        "did in case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "Use this exit {a1} smoke"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 25,
+            "uuid": "ic-v3-b1-01",
+            "question": "Write down the address {a1} your phone dies",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Write down the address {a1} your phone dies"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 26,
+            "uuid": "ic-v3-b1-02",
+            "question": "Check the timetable in case it {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "changes",
+                    "options": [
+                        "changes",
+                        "will changes",
+                        "would changes",
+                        "did changes"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Check the timetable in case it {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 27,
+            "uuid": "ic-v3-b1-03",
+            "question": "Leave early {a1} the roads are busy",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Take Precaution.",
+                    "gap_tags": [
+                        "take_precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "take_precaution"
+            ],
+            "variants": [
+                "Leave early {a1} the roads are busy"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 28,
+            "uuid": "ic-v3-b1-04",
+            "question": "Email us {a1} the price changes",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "if",
+                    "options": [
+                        "if",
+                        "will if",
+                        "would if",
+                        "did if"
+                    ],
+                    "verb_hint": "Focus on In Case Vs If.",
+                    "gap_tags": [
+                        "in_case_vs_if"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_vs_if"
+            ],
+            "variants": [
+                "Email us {a1} the price changes"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 29,
+            "uuid": "ic-v3-b1-05",
+            "question": "We printed the tickets {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "We printed the tickets {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 30,
+            "uuid": "ic-v3-b1-06",
+            "question": "{a1} delay call this number",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "In case of",
+                    "options": [
+                        "In case of",
+                        "will In case of",
+                        "would In case of",
+                        "did In case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "{a1} delay call this number"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 31,
+            "uuid": "ic-v3-b1-07",
+            "question": "Prepare a short version in case the projector {a1} work",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "does not",
+                    "options": [
+                        "does not",
+                        "will does not",
+                        "would does not",
+                        "did does not"
+                    ],
+                    "verb_hint": "Focus on Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "Prepare a short version in case the projector {a1} work"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 32,
+            "uuid": "ic-v3-b1-08",
+            "question": "Use present simple after {a1} for a future possibility",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use present simple after {a1} for a future possibility"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 33,
+            "uuid": "ic-v3-b1-09",
+            "question": "Keep the receipt {a1} you need a refund",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Keep the receipt {a1} you need a refund"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 34,
+            "uuid": "ic-v3-b1-10",
+            "question": "Bring your passport in case it {a1} needed",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "will is",
+                        "would is",
+                        "did is"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Bring your passport in case it {a1} needed"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 35,
+            "uuid": "ic-v3-b1-11",
+            "question": "We reserved two rooms {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "We reserved two rooms {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 36,
+            "uuid": "ic-v3-b1-12",
+            "question": "Contact security {a1} theft",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in case of",
+                    "options": [
+                        "in case of",
+                        "will in case of",
+                        "would in case of",
+                        "did in case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "Contact security {a1} theft"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 37,
+            "uuid": "ic-v3-b2-01",
+            "question": "Charge the radio {a1} the power goes out",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Charge the radio {a1} the power goes out"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 38,
+            "uuid": "ic-v3-b2-02",
+            "question": "Prepare a backup in case the main system {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "fails",
+                    "options": [
+                        "fails",
+                        "will fails",
+                        "would fails",
+                        "did fails"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Prepare a backup in case the main system {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 39,
+            "uuid": "ic-v3-b2-03",
+            "question": "Store the samples twice {a1} one container leaks",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Take Precaution.",
+                    "gap_tags": [
+                        "take_precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "take_precaution"
+            ],
+            "variants": [
+                "Store the samples twice {a1} one container leaks"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 40,
+            "uuid": "ic-v3-b2-04",
+            "question": "Inform the board {a1} the risk becomes material",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "if",
+                    "options": [
+                        "if",
+                        "will if",
+                        "would if",
+                        "did if"
+                    ],
+                    "verb_hint": "Focus on In Case Vs If.",
+                    "gap_tags": [
+                        "in_case_vs_if"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_vs_if"
+            ],
+            "variants": [
+                "Inform the board {a1} the risk becomes material"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 41,
+            "uuid": "ic-v3-b2-05",
+            "question": "The engineer duplicated the logs {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "The engineer duplicated the logs {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 42,
+            "uuid": "ic-v3-b2-06",
+            "question": "{a1} a data breach notify the officer",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "In case of",
+                    "options": [
+                        "In case of",
+                        "will In case of",
+                        "would In case of",
+                        "did In case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "{a1} a data breach notify the officer"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 43,
+            "uuid": "ic-v3-b2-07",
+            "question": "Arrange a courier in case the package {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "does not arrive",
+                    "options": [
+                        "does not arrive",
+                        "will does not arrive",
+                        "would does not arrive",
+                        "did does not arrive"
+                    ],
+                    "verb_hint": "Focus on Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "Arrange a courier in case the package {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 44,
+            "uuid": "ic-v3-b2-08",
+            "question": "Use {a1} of before a noun",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use {a1} of before a noun"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 45,
+            "uuid": "ic-v3-b2-09",
+            "question": "Encrypt the backup {a1} the device is stolen",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Encrypt the backup {a1} the device is stolen"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 46,
+            "uuid": "ic-v3-b2-10",
+            "question": "Prepare evidence in case the insurer {a1} questions",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "raises",
+                    "options": [
+                        "raises",
+                        "will raises",
+                        "would raises",
+                        "did raises"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Prepare evidence in case the insurer {a1} questions"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 47,
+            "uuid": "ic-v3-b2-11",
+            "question": "The clinic kept an extra dose {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "The clinic kept an extra dose {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 48,
+            "uuid": "ic-v3-b2-12",
+            "question": "Follow the protocol {a1} contamination",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in case of",
+                    "options": [
+                        "in case of",
+                        "will in case of",
+                        "would in case of",
+                        "did in case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "Follow the protocol {a1} contamination"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 49,
+            "uuid": "ic-v3-c1-01",
+            "question": "Keep a printed copy {a1} the server becomes unavailable",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Keep a printed copy {a1} the server becomes unavailable"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 50,
+            "uuid": "ic-v3-c1-02",
+            "question": "Brief the deputy in case the chair {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "resigns",
+                    "options": [
+                        "resigns",
+                        "will resigns",
+                        "would resigns",
+                        "did resigns"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Brief the deputy in case the chair {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 51,
+            "uuid": "ic-v3-c1-03",
+            "question": "Notify the legal team {a1} the claim expands",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Take Precaution.",
+                    "gap_tags": [
+                        "take_precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "take_precaution"
+            ],
+            "variants": [
+                "Notify the legal team {a1} the claim expands"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 52,
+            "uuid": "ic-v3-c1-04",
+            "question": "Revise the brief {a1} the precedent is overturned",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "if",
+                    "options": [
+                        "if",
+                        "will if",
+                        "would if",
+                        "did if"
+                    ],
+                    "verb_hint": "Focus on In Case Vs If.",
+                    "gap_tags": [
+                        "in_case_vs_if"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_vs_if"
+            ],
+            "variants": [
+                "Revise the brief {a1} the precedent is overturned"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 53,
+            "uuid": "ic-v3-c1-05",
+            "question": "The adviser prepared a public statement {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "The adviser prepared a public statement {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 54,
+            "uuid": "ic-v3-c1-06",
+            "question": "{a1} a procedural error request a review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "In case of",
+                    "options": [
+                        "In case of",
+                        "will In case of",
+                        "would In case of",
+                        "did In case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "{a1} a procedural error request a review"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 55,
+            "uuid": "ic-v3-c1-07",
+            "question": "Prepare a written objection in case the witness {a1} appear",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "does not",
+                    "options": [
+                        "does not",
+                        "will does not",
+                        "would does not",
+                        "did does not"
+                    ],
+                    "verb_hint": "Focus on Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "Prepare a written objection in case the witness {a1} appear"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 56,
+            "uuid": "ic-v3-c1-08",
+            "question": "Use just {a1} for an extra precaution",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use just {a1} for an extra precaution"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 57,
+            "uuid": "ic-v3-c1-09",
+            "question": "Prepare a second witness {a1} the first one withdraws",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Prepare a second witness {a1} the first one withdraws"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 58,
+            "uuid": "ic-v3-c1-10",
+            "question": "Draft alternatives in case the committee {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "objects",
+                    "options": [
+                        "objects",
+                        "will objects",
+                        "would objects",
+                        "did objects"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Draft alternatives in case the committee {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 59,
+            "uuid": "ic-v3-c1-11",
+            "question": "The mediator booked a second date {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "The mediator booked a second date {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 60,
+            "uuid": "ic-v3-c1-12",
+            "question": "Invoke the clause {a1} breach",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in case of",
+                    "options": [
+                        "in case of",
+                        "will in case of",
+                        "would in case of",
+                        "did in case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "Invoke the clause {a1} breach"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 61,
+            "uuid": "ic-v3-c2-01",
+            "question": "Record the interview {a1} the transcript is challenged",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Record the interview {a1} the transcript is challenged"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 62,
+            "uuid": "ic-v3-c2-02",
+            "question": "Draft a response in case the dispute {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "escalates",
+                    "options": [
+                        "escalates",
+                        "will escalates",
+                        "would escalates",
+                        "did escalates"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Draft a response in case the dispute {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 63,
+            "uuid": "ic-v3-c2-03",
+            "question": "Secure an alternative venue {a1} negotiations break down",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Take Precaution.",
+                    "gap_tags": [
+                        "take_precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "take_precaution"
+            ],
+            "variants": [
+                "Secure an alternative venue {a1} negotiations break down"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 64,
+            "uuid": "ic-v3-c2-04",
+            "question": "Suspend the procedure {a1} consent is withdrawn",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "if",
+                    "options": [
+                        "if",
+                        "will if",
+                        "would if",
+                        "did if"
+                    ],
+                    "verb_hint": "Focus on In Case Vs If.",
+                    "gap_tags": [
+                        "in_case_vs_if"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_vs_if"
+            ],
+            "variants": [
+                "Suspend the procedure {a1} consent is withdrawn"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 65,
+            "uuid": "ic-v3-c2-05",
+            "question": "The delegation drafted a fallback clause {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "The delegation drafted a fallback clause {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 66,
+            "uuid": "ic-v3-c2-06",
+            "question": "{a1} noncompliance trigger the suspension clause",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "In case of",
+                    "options": [
+                        "In case of",
+                        "will In case of",
+                        "would In case of",
+                        "did In case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "{a1} noncompliance trigger the suspension clause"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 67,
+            "uuid": "ic-v3-c2-07",
+            "question": "Set a fallback trigger in case the primary safeguard {a1} activate",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "does not",
+                    "options": [
+                        "does not",
+                        "will does not",
+                        "would does not",
+                        "did does not"
+                    ],
+                    "verb_hint": "Focus on Negative Forms.",
+                    "gap_tags": [
+                        "negative_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_forms"
+            ],
+            "variants": [
+                "Set a fallback trigger in case the primary safeguard {a1} activate"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 68,
+            "uuid": "ic-v3-c2-08",
+            "question": "Keep if for the real condition and {a1} for preparation",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Keep if for the real condition and {a1} for preparation"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 69,
+            "uuid": "ic-v3-c2-09",
+            "question": "Preserve the metadata {a1} authenticity is questioned",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in case",
+                    "options": [
+                        "in case",
+                        "will in case",
+                        "would in case",
+                        "did in case"
+                    ],
+                    "verb_hint": "Focus on Precaution.",
+                    "gap_tags": [
+                        "precaution"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "precaution"
+            ],
+            "variants": [
+                "Preserve the metadata {a1} authenticity is questioned"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 70,
+            "uuid": "ic-v3-c2-10",
+            "question": "Check the footnotes in case the source {a1} the claim",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "contradicts",
+                    "options": [
+                        "contradicts",
+                        "will contradicts",
+                        "would contradicts",
+                        "did contradicts"
+                    ],
+                    "verb_hint": "Focus on In Case Present Simple.",
+                    "gap_tags": [
+                        "in_case_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_present_simple"
+            ],
+            "variants": [
+                "Check the footnotes in case the source {a1} the claim"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 71,
+            "uuid": "ic-v3-c2-11",
+            "question": "The archive retained the raw files {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "just in case",
+                    "options": [
+                        "just in case",
+                        "will just in case",
+                        "would just in case",
+                        "did just in case"
+                    ],
+                    "verb_hint": "Focus on Just In Case.",
+                    "gap_tags": [
+                        "just_in_case"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "just_in_case"
+            ],
+            "variants": [
+                "The archive retained the raw files {a1}"
+            ],
+            "source": "theory_page_in_case"
+        },
+        {
+            "id": 72,
+            "uuid": "ic-v3-c2-12",
+            "question": "Escalate the review {a1} systemic failure",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in case of",
+                    "options": [
+                        "in case of",
+                        "will in case of",
+                        "would in case of",
+                        "did in case of"
+                    ],
+                    "verb_hint": "Focus on In Case Of Noun.",
+                    "gap_tags": [
+                        "in_case_of_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "in_case_of_noun"
+            ],
+            "variants": [
+                "Escalate the review {a1} systemic failure"
+            ],
+            "source": "theory_page_in_case"
+        }
+    ],
+    "saved_test": {
+        "uuid": "cond-extra-ic-v3-all",
+        "slug": "in-case-all-levels-v3",
+        "name": "In case: V3 All Levels",
+        "description": "Page-local V3 package for In case with A1-C2 coverage.",
+        "question_uuids": [
+            "ic-v3-a1-01",
+            "ic-v3-a1-02",
+            "ic-v3-a1-03",
+            "ic-v3-a1-04",
+            "ic-v3-a1-05",
+            "ic-v3-a1-06",
+            "ic-v3-a1-07",
+            "ic-v3-a1-08",
+            "ic-v3-a1-09",
+            "ic-v3-a1-10",
+            "ic-v3-a1-11",
+            "ic-v3-a1-12",
+            "ic-v3-a2-01",
+            "ic-v3-a2-02",
+            "ic-v3-a2-03",
+            "ic-v3-a2-04",
+            "ic-v3-a2-05",
+            "ic-v3-a2-06",
+            "ic-v3-a2-07",
+            "ic-v3-a2-08",
+            "ic-v3-a2-09",
+            "ic-v3-a2-10",
+            "ic-v3-a2-11",
+            "ic-v3-a2-12",
+            "ic-v3-b1-01",
+            "ic-v3-b1-02",
+            "ic-v3-b1-03",
+            "ic-v3-b1-04",
+            "ic-v3-b1-05",
+            "ic-v3-b1-06",
+            "ic-v3-b1-07",
+            "ic-v3-b1-08",
+            "ic-v3-b1-09",
+            "ic-v3-b1-10",
+            "ic-v3-b1-11",
+            "ic-v3-b1-12",
+            "ic-v3-b2-01",
+            "ic-v3-b2-02",
+            "ic-v3-b2-03",
+            "ic-v3-b2-04",
+            "ic-v3-b2-05",
+            "ic-v3-b2-06",
+            "ic-v3-b2-07",
+            "ic-v3-b2-08",
+            "ic-v3-b2-09",
+            "ic-v3-b2-10",
+            "ic-v3-b2-11",
+            "ic-v3-b2-12",
+            "ic-v3-c1-01",
+            "ic-v3-c1-02",
+            "ic-v3-c1-03",
+            "ic-v3-c1-04",
+            "ic-v3-c1-05",
+            "ic-v3-c1-06",
+            "ic-v3-c1-07",
+            "ic-v3-c1-08",
+            "ic-v3-c1-09",
+            "ic-v3-c1-10",
+            "ic-v3-c1-11",
+            "ic-v3-c1-12",
+            "ic-v3-c2-01",
+            "ic-v3-c2-02",
+            "ic-v3-c2-03",
+            "ic-v3-c2-04",
+            "ic-v3-c2-05",
+            "ic-v3-c2-06",
+            "ic-v3-c2-07",
+            "ic-v3-c2-08",
+            "ic-v3-c2-09",
+            "ic-v3-c2-10",
+            "ic-v3-c2-11",
+            "ic-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\InCaseAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "in-case",
+                    "title": "In case",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsInCaseTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/in-case"
+                }
+            }
+        }
+    }
+}

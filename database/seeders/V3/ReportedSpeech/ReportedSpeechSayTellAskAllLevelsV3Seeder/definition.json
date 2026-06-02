@@ -1,0 +1,1864 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechSayTellAskAllLevelsV3Seeder",
+        "uuid_namespace": "ReportedSpeechSayTellAskAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "theory_page_reported_speech_say_tell_ask": {
+            "name": "Say / Tell / Ask"
+        }
+    },
+    "tags": {
+        "reported_speech_say_tell_ask_all_levels": {
+            "name": "reported speech say tell ask all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "say_something": {
+            "name": "Say Something",
+            "category": "topic"
+        },
+        "say_to_someone": {
+            "name": "Say To Someone",
+            "category": "topic"
+        },
+        "tell_someone_something": {
+            "name": "Tell Someone Something",
+            "category": "topic"
+        },
+        "tell_someone_that": {
+            "name": "Tell Someone That",
+            "category": "topic"
+        },
+        "ask_someone_question": {
+            "name": "Ask Someone Question",
+            "category": "topic"
+        },
+        "ask_if_whether": {
+            "name": "Ask If Whether",
+            "category": "topic"
+        },
+        "ask_someone_to_do": {
+            "name": "Ask Someone To Do",
+            "category": "topic"
+        },
+        "tell_vs_say": {
+            "name": "Tell Vs Say",
+            "category": "topic"
+        },
+        "ask_vs_tell": {
+            "name": "Ask Vs Tell",
+            "category": "topic"
+        },
+        "object_after_tell": {
+            "name": "Object After Tell",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rssay-v3-a1-01",
+            "question": "Choose the correct verb pattern: She {a1} that she was tired.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "say_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked",
+                        "said me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "rssay-v3-a1-02",
+            "question": "Choose the natural form with a listener: He {a1} me that the train was late.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "say_to_someone"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said to",
+                    "options": [
+                        "said to",
+                        "said",
+                        "asked to",
+                        "told to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "rssay-v3-a1-03",
+            "question": "Choose the correct pattern: He {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "tell_someone_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me the truth",
+                    "options": [
+                        "told me the truth",
+                        "said me the truth",
+                        "asked me the truth",
+                        "told the truth me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "rssay-v3-a1-04",
+            "question": "Choose the correct reported statement: Anna {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "tell_someone_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told us that she was busy",
+                    "options": [
+                        "told us that she was busy",
+                        "said us that she was busy",
+                        "asked us that she was busy",
+                        "told that she was busy us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "rssay-v3-a1-05",
+            "question": "Choose the correct reporting verb: The officer {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "ask_someone_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me a question",
+                    "options": [
+                        "asked me a question",
+                        "told me a question",
+                        "said me a question",
+                        "asked to me a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "rssay-v3-a1-06",
+            "question": "Report a yes/no question: She {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "ask_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked if I was ready",
+                    "options": [
+                        "asked if I was ready",
+                        "told if I was ready",
+                        "asked was I ready",
+                        "said if I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "rssay-v3-a1-07",
+            "question": "Choose the request pattern: The teacher {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "ask_someone_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked us to open our books",
+                    "options": [
+                        "asked us to open our books",
+                        "said us to open our books",
+                        "asked that we to open",
+                        "told to us open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "rssay-v3-a1-08",
+            "question": "Avoid the common mistake: Marta {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me that she agreed",
+                    "options": [
+                        "told me that she agreed",
+                        "said me that she agreed",
+                        "told that she agreed me",
+                        "asked me that she agreed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "rssay-v3-a1-09",
+            "question": "Choose the correct verb for a question: He {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "ask_vs_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked where I lived",
+                    "options": [
+                        "asked where I lived",
+                        "told where I lived",
+                        "said where I lived",
+                        "asked where did I live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "rssay-v3-a1-10",
+            "question": "Choose the correct sentence: The manager {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "object_after_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told them to wait",
+                    "options": [
+                        "told them to wait",
+                        "told to wait",
+                        "said them to wait",
+                        "asked that them wait"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "rssay-v3-a1-11",
+            "question": "Correct the reporting verb mistake: She {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me not to leave",
+                    "options": [
+                        "asked me not to leave",
+                        "said me not to leave",
+                        "asked that not leave",
+                        "told not to leave me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "rssay-v3-a1-12",
+            "question": "Choose the natural statement without a listener: He {a1}.",
+            "level": "A1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a1",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said that he was sorry",
+                    "options": [
+                        "said that he was sorry",
+                        "told that he was sorry",
+                        "asked that he was sorry",
+                        "said me that he was sorry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "rssay-v3-a2-01",
+            "question": "Choose the correct verb pattern: She {a1} that she was tired.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "say_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked",
+                        "said me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "rssay-v3-a2-02",
+            "question": "Choose the natural form with a listener: He {a1} me that the train was late.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "say_to_someone"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said to",
+                    "options": [
+                        "said to",
+                        "said",
+                        "asked to",
+                        "told to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "rssay-v3-a2-03",
+            "question": "Choose the correct pattern: He {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "tell_someone_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me the truth",
+                    "options": [
+                        "told me the truth",
+                        "said me the truth",
+                        "asked me the truth",
+                        "told the truth me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "rssay-v3-a2-04",
+            "question": "Choose the correct reported statement: Anna {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "tell_someone_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told us that she was busy",
+                    "options": [
+                        "told us that she was busy",
+                        "said us that she was busy",
+                        "asked us that she was busy",
+                        "told that she was busy us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "rssay-v3-a2-05",
+            "question": "Choose the correct reporting verb: The officer {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "ask_someone_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me a question",
+                    "options": [
+                        "asked me a question",
+                        "told me a question",
+                        "said me a question",
+                        "asked to me a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "rssay-v3-a2-06",
+            "question": "Report a yes/no question: She {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "ask_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked if I was ready",
+                    "options": [
+                        "asked if I was ready",
+                        "told if I was ready",
+                        "asked was I ready",
+                        "said if I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "rssay-v3-a2-07",
+            "question": "Choose the request pattern: The teacher {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "ask_someone_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked us to open our books",
+                    "options": [
+                        "asked us to open our books",
+                        "said us to open our books",
+                        "asked that we to open",
+                        "told to us open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "rssay-v3-a2-08",
+            "question": "Avoid the common mistake: Marta {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me that she agreed",
+                    "options": [
+                        "told me that she agreed",
+                        "said me that she agreed",
+                        "told that she agreed me",
+                        "asked me that she agreed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "rssay-v3-a2-09",
+            "question": "Choose the correct verb for a question: He {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "ask_vs_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked where I lived",
+                    "options": [
+                        "asked where I lived",
+                        "told where I lived",
+                        "said where I lived",
+                        "asked where did I live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "rssay-v3-a2-10",
+            "question": "Choose the correct sentence: The manager {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "object_after_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told them to wait",
+                    "options": [
+                        "told them to wait",
+                        "told to wait",
+                        "said them to wait",
+                        "asked that them wait"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "rssay-v3-a2-11",
+            "question": "Correct the reporting verb mistake: She {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me not to leave",
+                    "options": [
+                        "asked me not to leave",
+                        "said me not to leave",
+                        "asked that not leave",
+                        "told not to leave me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "rssay-v3-a2-12",
+            "question": "Choose the natural statement without a listener: He {a1}.",
+            "level": "A2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_a2",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said that he was sorry",
+                    "options": [
+                        "said that he was sorry",
+                        "told that he was sorry",
+                        "asked that he was sorry",
+                        "said me that he was sorry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "rssay-v3-b1-01",
+            "question": "Choose the correct verb pattern: She {a1} that she was tired.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "say_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked",
+                        "said me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "rssay-v3-b1-02",
+            "question": "Choose the natural form with a listener: He {a1} me that the train was late.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "say_to_someone"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said to",
+                    "options": [
+                        "said to",
+                        "said",
+                        "asked to",
+                        "told to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "rssay-v3-b1-03",
+            "question": "Choose the correct pattern: He {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "tell_someone_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me the truth",
+                    "options": [
+                        "told me the truth",
+                        "said me the truth",
+                        "asked me the truth",
+                        "told the truth me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "rssay-v3-b1-04",
+            "question": "Choose the correct reported statement: Anna {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "tell_someone_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told us that she was busy",
+                    "options": [
+                        "told us that she was busy",
+                        "said us that she was busy",
+                        "asked us that she was busy",
+                        "told that she was busy us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "rssay-v3-b1-05",
+            "question": "Choose the correct reporting verb: The officer {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "ask_someone_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me a question",
+                    "options": [
+                        "asked me a question",
+                        "told me a question",
+                        "said me a question",
+                        "asked to me a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "rssay-v3-b1-06",
+            "question": "Report a yes/no question: She {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "ask_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked if I was ready",
+                    "options": [
+                        "asked if I was ready",
+                        "told if I was ready",
+                        "asked was I ready",
+                        "said if I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "rssay-v3-b1-07",
+            "question": "Choose the request pattern: The teacher {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "ask_someone_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked us to open our books",
+                    "options": [
+                        "asked us to open our books",
+                        "said us to open our books",
+                        "asked that we to open",
+                        "told to us open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "rssay-v3-b1-08",
+            "question": "Avoid the common mistake: Marta {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me that she agreed",
+                    "options": [
+                        "told me that she agreed",
+                        "said me that she agreed",
+                        "told that she agreed me",
+                        "asked me that she agreed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "rssay-v3-b1-09",
+            "question": "Choose the correct verb for a question: He {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "ask_vs_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked where I lived",
+                    "options": [
+                        "asked where I lived",
+                        "told where I lived",
+                        "said where I lived",
+                        "asked where did I live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "rssay-v3-b1-10",
+            "question": "Choose the correct sentence: The manager {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "object_after_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told them to wait",
+                    "options": [
+                        "told them to wait",
+                        "told to wait",
+                        "said them to wait",
+                        "asked that them wait"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "rssay-v3-b1-11",
+            "question": "Correct the reporting verb mistake: She {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me not to leave",
+                    "options": [
+                        "asked me not to leave",
+                        "said me not to leave",
+                        "asked that not leave",
+                        "told not to leave me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "rssay-v3-b1-12",
+            "question": "Choose the natural statement without a listener: He {a1}.",
+            "level": "B1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b1",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said that he was sorry",
+                    "options": [
+                        "said that he was sorry",
+                        "told that he was sorry",
+                        "asked that he was sorry",
+                        "said me that he was sorry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "rssay-v3-b2-01",
+            "question": "Choose the correct verb pattern: She {a1} that she was tired.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "say_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked",
+                        "said me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "rssay-v3-b2-02",
+            "question": "Choose the natural form with a listener: He {a1} me that the train was late.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "say_to_someone"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said to",
+                    "options": [
+                        "said to",
+                        "said",
+                        "asked to",
+                        "told to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "rssay-v3-b2-03",
+            "question": "Choose the correct pattern: He {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "tell_someone_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me the truth",
+                    "options": [
+                        "told me the truth",
+                        "said me the truth",
+                        "asked me the truth",
+                        "told the truth me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "rssay-v3-b2-04",
+            "question": "Choose the correct reported statement: Anna {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "tell_someone_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told us that she was busy",
+                    "options": [
+                        "told us that she was busy",
+                        "said us that she was busy",
+                        "asked us that she was busy",
+                        "told that she was busy us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "rssay-v3-b2-05",
+            "question": "Choose the correct reporting verb: The officer {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "ask_someone_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me a question",
+                    "options": [
+                        "asked me a question",
+                        "told me a question",
+                        "said me a question",
+                        "asked to me a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "rssay-v3-b2-06",
+            "question": "Report a yes/no question: She {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "ask_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked if I was ready",
+                    "options": [
+                        "asked if I was ready",
+                        "told if I was ready",
+                        "asked was I ready",
+                        "said if I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "rssay-v3-b2-07",
+            "question": "Choose the request pattern: The teacher {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "ask_someone_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked us to open our books",
+                    "options": [
+                        "asked us to open our books",
+                        "said us to open our books",
+                        "asked that we to open",
+                        "told to us open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "rssay-v3-b2-08",
+            "question": "Avoid the common mistake: Marta {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me that she agreed",
+                    "options": [
+                        "told me that she agreed",
+                        "said me that she agreed",
+                        "told that she agreed me",
+                        "asked me that she agreed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "rssay-v3-b2-09",
+            "question": "Choose the correct verb for a question: He {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "ask_vs_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked where I lived",
+                    "options": [
+                        "asked where I lived",
+                        "told where I lived",
+                        "said where I lived",
+                        "asked where did I live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "rssay-v3-b2-10",
+            "question": "Choose the correct sentence: The manager {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "object_after_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told them to wait",
+                    "options": [
+                        "told them to wait",
+                        "told to wait",
+                        "said them to wait",
+                        "asked that them wait"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "rssay-v3-b2-11",
+            "question": "Correct the reporting verb mistake: She {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me not to leave",
+                    "options": [
+                        "asked me not to leave",
+                        "said me not to leave",
+                        "asked that not leave",
+                        "told not to leave me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "rssay-v3-b2-12",
+            "question": "Choose the natural statement without a listener: He {a1}.",
+            "level": "B2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_b2",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said that he was sorry",
+                    "options": [
+                        "said that he was sorry",
+                        "told that he was sorry",
+                        "asked that he was sorry",
+                        "said me that he was sorry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "rssay-v3-c1-01",
+            "question": "Choose the correct verb pattern: She {a1} that she was tired.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "say_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked",
+                        "said me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "rssay-v3-c1-02",
+            "question": "Choose the natural form with a listener: He {a1} me that the train was late.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "say_to_someone"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said to",
+                    "options": [
+                        "said to",
+                        "said",
+                        "asked to",
+                        "told to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "rssay-v3-c1-03",
+            "question": "Choose the correct pattern: He {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "tell_someone_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me the truth",
+                    "options": [
+                        "told me the truth",
+                        "said me the truth",
+                        "asked me the truth",
+                        "told the truth me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "rssay-v3-c1-04",
+            "question": "Choose the correct reported statement: Anna {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "tell_someone_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told us that she was busy",
+                    "options": [
+                        "told us that she was busy",
+                        "said us that she was busy",
+                        "asked us that she was busy",
+                        "told that she was busy us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "rssay-v3-c1-05",
+            "question": "Choose the correct reporting verb: The officer {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "ask_someone_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me a question",
+                    "options": [
+                        "asked me a question",
+                        "told me a question",
+                        "said me a question",
+                        "asked to me a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "rssay-v3-c1-06",
+            "question": "Report a yes/no question: She {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "ask_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked if I was ready",
+                    "options": [
+                        "asked if I was ready",
+                        "told if I was ready",
+                        "asked was I ready",
+                        "said if I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "rssay-v3-c1-07",
+            "question": "Choose the request pattern: The teacher {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "ask_someone_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked us to open our books",
+                    "options": [
+                        "asked us to open our books",
+                        "said us to open our books",
+                        "asked that we to open",
+                        "told to us open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "rssay-v3-c1-08",
+            "question": "Avoid the common mistake: Marta {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me that she agreed",
+                    "options": [
+                        "told me that she agreed",
+                        "said me that she agreed",
+                        "told that she agreed me",
+                        "asked me that she agreed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "rssay-v3-c1-09",
+            "question": "Choose the correct verb for a question: He {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "ask_vs_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked where I lived",
+                    "options": [
+                        "asked where I lived",
+                        "told where I lived",
+                        "said where I lived",
+                        "asked where did I live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "rssay-v3-c1-10",
+            "question": "Choose the correct sentence: The manager {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "object_after_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told them to wait",
+                    "options": [
+                        "told them to wait",
+                        "told to wait",
+                        "said them to wait",
+                        "asked that them wait"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "rssay-v3-c1-11",
+            "question": "Correct the reporting verb mistake: She {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me not to leave",
+                    "options": [
+                        "asked me not to leave",
+                        "said me not to leave",
+                        "asked that not leave",
+                        "told not to leave me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "rssay-v3-c1-12",
+            "question": "Choose the natural statement without a listener: He {a1}.",
+            "level": "C1",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c1",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said that he was sorry",
+                    "options": [
+                        "said that he was sorry",
+                        "told that he was sorry",
+                        "asked that he was sorry",
+                        "said me that he was sorry"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "rssay-v3-c2-01",
+            "question": "Choose the correct verb pattern: She {a1} that she was tired.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "say_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "told",
+                        "asked",
+                        "said me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "rssay-v3-c2-02",
+            "question": "Choose the natural form with a listener: He {a1} me that the train was late.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "say_to_someone"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said to",
+                    "options": [
+                        "said to",
+                        "said",
+                        "asked to",
+                        "told to"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "rssay-v3-c2-03",
+            "question": "Choose the correct pattern: He {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "tell_someone_something"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me the truth",
+                    "options": [
+                        "told me the truth",
+                        "said me the truth",
+                        "asked me the truth",
+                        "told the truth me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "rssay-v3-c2-04",
+            "question": "Choose the correct reported statement: Anna {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "tell_someone_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told us that she was busy",
+                    "options": [
+                        "told us that she was busy",
+                        "said us that she was busy",
+                        "asked us that she was busy",
+                        "told that she was busy us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "rssay-v3-c2-05",
+            "question": "Choose the correct reporting verb: The officer {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "ask_someone_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me a question",
+                    "options": [
+                        "asked me a question",
+                        "told me a question",
+                        "said me a question",
+                        "asked to me a question"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "rssay-v3-c2-06",
+            "question": "Report a yes/no question: She {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "ask_if_whether"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked if I was ready",
+                    "options": [
+                        "asked if I was ready",
+                        "told if I was ready",
+                        "asked was I ready",
+                        "said if I was ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "rssay-v3-c2-07",
+            "question": "Choose the request pattern: The teacher {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "ask_someone_to_do"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked us to open our books",
+                    "options": [
+                        "asked us to open our books",
+                        "said us to open our books",
+                        "asked that we to open",
+                        "told to us open"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "rssay-v3-c2-08",
+            "question": "Avoid the common mistake: Marta {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told me that she agreed",
+                    "options": [
+                        "told me that she agreed",
+                        "said me that she agreed",
+                        "told that she agreed me",
+                        "asked me that she agreed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "rssay-v3-c2-09",
+            "question": "Choose the correct verb for a question: He {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "ask_vs_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked where I lived",
+                    "options": [
+                        "asked where I lived",
+                        "told where I lived",
+                        "said where I lived",
+                        "asked where did I live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "rssay-v3-c2-10",
+            "question": "Choose the correct sentence: The manager {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "object_after_tell"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "told them to wait",
+                    "options": [
+                        "told them to wait",
+                        "told to wait",
+                        "said them to wait",
+                        "asked that them wait"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "rssay-v3-c2-11",
+            "question": "Correct the reporting verb mistake: She {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "asked me not to leave",
+                    "options": [
+                        "asked me not to leave",
+                        "said me not to leave",
+                        "asked that not leave",
+                        "told not to leave me"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "rssay-v3-c2-12",
+            "question": "Choose the natural statement without a listener: He {a1}.",
+            "level": "C2",
+            "source": "theory_page_reported_speech_say_tell_ask",
+            "tag_keys": [
+                "reported_speech_say_tell_ask_all_levels",
+                "level_c2",
+                "tell_vs_say"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "said that he was sorry",
+                    "options": [
+                        "said that he was sorry",
+                        "told that he was sorry",
+                        "asked that he was sorry",
+                        "said me that he was sorry"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "rssay-v3-all",
+        "slug": "reported-speech-say-tell-ask-all-levels-v3",
+        "name": "Say / Tell / Ask (All levels V3)",
+        "description": "Standard V3 package for Say / Tell / Ask across A1-C2.",
+        "question_uuids": [
+            "rssay-v3-a1-01",
+            "rssay-v3-a1-02",
+            "rssay-v3-a1-03",
+            "rssay-v3-a1-04",
+            "rssay-v3-a1-05",
+            "rssay-v3-a1-06",
+            "rssay-v3-a1-07",
+            "rssay-v3-a1-08",
+            "rssay-v3-a1-09",
+            "rssay-v3-a1-10",
+            "rssay-v3-a1-11",
+            "rssay-v3-a1-12",
+            "rssay-v3-a2-01",
+            "rssay-v3-a2-02",
+            "rssay-v3-a2-03",
+            "rssay-v3-a2-04",
+            "rssay-v3-a2-05",
+            "rssay-v3-a2-06",
+            "rssay-v3-a2-07",
+            "rssay-v3-a2-08",
+            "rssay-v3-a2-09",
+            "rssay-v3-a2-10",
+            "rssay-v3-a2-11",
+            "rssay-v3-a2-12",
+            "rssay-v3-b1-01",
+            "rssay-v3-b1-02",
+            "rssay-v3-b1-03",
+            "rssay-v3-b1-04",
+            "rssay-v3-b1-05",
+            "rssay-v3-b1-06",
+            "rssay-v3-b1-07",
+            "rssay-v3-b1-08",
+            "rssay-v3-b1-09",
+            "rssay-v3-b1-10",
+            "rssay-v3-b1-11",
+            "rssay-v3-b1-12",
+            "rssay-v3-b2-01",
+            "rssay-v3-b2-02",
+            "rssay-v3-b2-03",
+            "rssay-v3-b2-04",
+            "rssay-v3-b2-05",
+            "rssay-v3-b2-06",
+            "rssay-v3-b2-07",
+            "rssay-v3-b2-08",
+            "rssay-v3-b2-09",
+            "rssay-v3-b2-10",
+            "rssay-v3-b2-11",
+            "rssay-v3-b2-12",
+            "rssay-v3-c1-01",
+            "rssay-v3-c1-02",
+            "rssay-v3-c1-03",
+            "rssay-v3-c1-04",
+            "rssay-v3-c1-05",
+            "rssay-v3-c1-06",
+            "rssay-v3-c1-07",
+            "rssay-v3-c1-08",
+            "rssay-v3-c1-09",
+            "rssay-v3-c1-10",
+            "rssay-v3-c1-11",
+            "rssay-v3-c1-12",
+            "rssay-v3-c2-01",
+            "rssay-v3-c2-02",
+            "rssay-v3-c2-03",
+            "rssay-v3-c2-04",
+            "rssay-v3-c2-05",
+            "rssay-v3-c2-06",
+            "rssay-v3-c2-07",
+            "rssay-v3-c2-08",
+            "rssay-v3-c2-09",
+            "rssay-v3-c2-10",
+            "rssay-v3-c2-11",
+            "rssay-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ReportedSpeech\\ReportedSpeechSayTellAskAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "say-tell-ask",
+                    "title": "Say / Tell / Ask",
+                    "category_slug_path": "reported-speech",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ReportedSpeech\\ReportedSpeechSayTellAskTheorySeeder",
+                    "url": "https://gramlyze.com/theory/reported-speech/say-tell-ask"
+                }
+            }
+        }
+    }
+}

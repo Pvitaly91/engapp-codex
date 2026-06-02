@@ -1,0 +1,293 @@
+{
+    "question": {
+        "id": 355,
+        "uuid": "27-a1-was-there-when-i-arrived-i-was",
+        "question": "{a1} was there when I arrived. I was the only person there.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 3,
+        "source_id": 8,
+        "flag": 2,
+        "created_at": "2026-05-26T11:13:05.000000Z",
+        "updated_at": "2026-05-26T11:13:23.000000Z"
+    },
+    "category": {
+        "id": 3,
+        "name": "Pronouns",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "source": {
+        "id": 8,
+        "name": "Custom: Indefinite Pronouns Practice V2 (Page 3)",
+        "created_at": "2026-05-26T11:13:04.000000Z",
+        "updated_at": "2026-05-26T11:13:04.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 3,
+                "name": "Indefinite Pronoun Compounds",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 355,
+                "tag_id": 3,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 4,
+                "name": "Indefinite Pronouns Practice",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 355,
+                "tag_id": 4,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 5,
+                "name": "Something / Anything / Nothing Exercises",
+                "category": null,
+                "created_at": "2026-05-26T11:12:45.000000Z",
+                "updated_at": "2026-05-26T11:12:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 355,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 123,
+                "option": "Anybody",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 355,
+                "option_id": 123,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 124,
+                "option": "Nobody",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 355,
+                "option_id": 124,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 131,
+                "option": "everyone",
+                "created_at": "2026-05-26T11:13:05.000000Z",
+                "updated_at": "2026-05-26T11:13:05.000000Z"
+            },
+            "pivot": {
+                "question_id": 355,
+                "option_id": 131,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 358,
+                "question_id": 355,
+                "marker": "a1",
+                "option_id": 124,
+                "created_at": "2026-05-26T11:13:05.000000Z",
+                "updated_at": "2026-05-26T11:13:05.000000Z"
+            },
+            "option": {
+                "id": 124,
+                "option": "Nobody",
+                "created_at": "2026-05-26T11:13:04.000000Z",
+                "updated_at": "2026-05-26T11:13:04.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 355,
+            "question_id": 355,
+            "text": "{a1} was there when I arrived. I was the only person there.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 80,
+            "question_id": 355,
+            "provider": "chatgpt",
+            "locale": "en",
+            "hint": "I was alone → **Nobody**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 81,
+            "question_id": 355,
+            "provider": "chatgpt",
+            "locale": "pl",
+            "hint": "Byłem sam → **Nikt**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 79,
+            "question_id": 355,
+            "provider": "chatgpt",
+            "locale": "uk",
+            "hint": "Я був сам → **Nobody**.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 344,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "Nobody",
+            "language": "en",
+            "explanation": "❌ *Anybody* does not give a clear sense that no one was there.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 347,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "Nobody",
+            "language": "pl",
+            "explanation": "❌ *Ktokolwiek* nie daje wyraźnego poczucia, że nikogo nie było.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 339,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "Nobody",
+            "language": "ua",
+            "explanation": "❌ *Anybody* не дає чіткого відчуття, що нікого не було.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 340,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Anybody",
+            "correct_answer": "Nobody",
+            "language": "uk",
+            "explanation": "❌ *Anybody* не дає чіткого відчуття, що нікого не було.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 345,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Everyone",
+            "correct_answer": "Nobody",
+            "language": "en",
+            "explanation": "❌ *Everyone* contradicts the statement.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 348,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Everyone",
+            "correct_answer": "Nobody",
+            "language": "pl",
+            "explanation": "❌ *Wszyscy* stoi w sprzeczności z twierdzeniem.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 341,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Everyone",
+            "correct_answer": "Nobody",
+            "language": "ua",
+            "explanation": "❌ *Everyone* суперечить твердженню.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 342,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Everyone",
+            "correct_answer": "Nobody",
+            "language": "uk",
+            "explanation": "❌ *Everyone* суперечить твердженню.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 343,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "Nobody",
+            "language": "en",
+            "explanation": "✅ **Nobody** means a complete absence of people.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 346,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "Nobody",
+            "language": "pl",
+            "explanation": "✅ **Nikt** oznacza całkowity brak ludzi.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 337,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "Nobody",
+            "language": "ua",
+            "explanation": "✅ **Nobody** означає повну відсутність людей.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        },
+        {
+            "id": 338,
+            "question": "{a1} was there when I arrived. I was the only person there.",
+            "wrong_answer": "Nobody",
+            "correct_answer": "Nobody",
+            "language": "uk",
+            "explanation": "✅ **Nobody** означає повну відсутність людей.",
+            "created_at": "2026-05-26T11:13:05.000000Z",
+            "updated_at": "2026-05-26T11:13:05.000000Z"
+        }
+    ]
+}

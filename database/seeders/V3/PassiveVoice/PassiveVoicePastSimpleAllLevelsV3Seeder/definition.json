@@ -1,0 +1,1855 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePastSimpleAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveVoicePastSimpleAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_voice_past_simple": {
+            "name": "Passive Voice Past Simple"
+        }
+    },
+    "tags": {
+        "passive_voice_past_simple": {
+            "name": "Passive Voice Past Simple",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "was_were_v3": {
+            "name": "Was Were V3",
+            "category": "topic"
+        },
+        "completed_past_passive": {
+            "name": "Completed Past Passive",
+            "category": "topic"
+        },
+        "unknown_agent": {
+            "name": "Unknown Agent",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "agreement": {
+            "name": "Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_voice_past_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvpa-v3-a1-01",
+            "question": "The bridge {a1} in 1998.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "were built",
+                        "is built",
+                        "built"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvpa-v3-a1-02",
+            "question": "The windows {a1} yesterday.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were washed",
+                    "options": [
+                        "were washed",
+                        "was washed",
+                        "are washed",
+                        "washed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvpa-v3-a1-03",
+            "question": "The book {a1} by a young writer.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "were written",
+                        "is written",
+                        "wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvpa-v3-a1-04",
+            "question": "The keys {a1} after the meeting.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were found",
+                    "options": [
+                        "were found",
+                        "was found",
+                        "are found",
+                        "found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvpa-v3-a1-05",
+            "question": "The old school {a1} last year.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was closed",
+                    "options": [
+                        "was closed",
+                        "were closed",
+                        "is closed",
+                        "closed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvpa-v3-a1-06",
+            "question": "Several emails {a1} by mistake.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were deleted",
+                    "options": [
+                        "were deleted",
+                        "was deleted",
+                        "are deleted",
+                        "deleted"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvpa-v3-a1-07",
+            "question": "The window {a1} during the storm.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was broken",
+                    "options": [
+                        "was broken",
+                        "were broken",
+                        "is broken",
+                        "broke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvpa-v3-a1-08",
+            "question": "The meal {a1} by my father.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was cooked",
+                    "options": [
+                        "was cooked",
+                        "were cooked",
+                        "is cooked",
+                        "cooked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvpa-v3-a1-09",
+            "question": "The invitations {a1} on Monday.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were sent",
+                    "options": [
+                        "were sent",
+                        "was sent",
+                        "are sent",
+                        "sent"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvpa-v3-a1-10",
+            "question": "In the passive, the old object {a1} the subject.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "became",
+                    "options": [
+                        "became",
+                        "becomes",
+                        "was become",
+                        "become"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvpa-v3-a1-11",
+            "question": "A plural subject in past passive {a1} with were.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was used",
+                    "options": [
+                        "was used",
+                        "were used",
+                        "is used",
+                        "use"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvpa-v3-a1-12",
+            "question": "The correct form is: The house {a1} in 2005.",
+            "level": "A1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was sold",
+                    "options": [
+                        "was sold",
+                        "were sold",
+                        "sold",
+                        "is sold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvpa-v3-a2-01",
+            "question": "The bridge {a1} in 1998.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "were built",
+                        "is built",
+                        "built"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvpa-v3-a2-02",
+            "question": "The windows {a1} yesterday.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were washed",
+                    "options": [
+                        "were washed",
+                        "was washed",
+                        "are washed",
+                        "washed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvpa-v3-a2-03",
+            "question": "The book {a1} by a young writer.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "were written",
+                        "is written",
+                        "wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvpa-v3-a2-04",
+            "question": "The keys {a1} after the meeting.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were found",
+                    "options": [
+                        "were found",
+                        "was found",
+                        "are found",
+                        "found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvpa-v3-a2-05",
+            "question": "The old school {a1} last year.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was closed",
+                    "options": [
+                        "was closed",
+                        "were closed",
+                        "is closed",
+                        "closed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvpa-v3-a2-06",
+            "question": "Several emails {a1} by mistake.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were deleted",
+                    "options": [
+                        "were deleted",
+                        "was deleted",
+                        "are deleted",
+                        "deleted"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvpa-v3-a2-07",
+            "question": "The window {a1} during the storm.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was broken",
+                    "options": [
+                        "was broken",
+                        "were broken",
+                        "is broken",
+                        "broke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvpa-v3-a2-08",
+            "question": "The meal {a1} by my father.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was cooked",
+                    "options": [
+                        "was cooked",
+                        "were cooked",
+                        "is cooked",
+                        "cooked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvpa-v3-a2-09",
+            "question": "The invitations {a1} on Monday.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were sent",
+                    "options": [
+                        "were sent",
+                        "was sent",
+                        "are sent",
+                        "sent"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvpa-v3-a2-10",
+            "question": "In the passive, the old object {a1} the subject.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "became",
+                    "options": [
+                        "became",
+                        "becomes",
+                        "was become",
+                        "become"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvpa-v3-a2-11",
+            "question": "A plural subject in past passive {a1} with were.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was used",
+                    "options": [
+                        "was used",
+                        "were used",
+                        "is used",
+                        "use"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvpa-v3-a2-12",
+            "question": "The correct form is: The house {a1} in 2005.",
+            "level": "A2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was sold",
+                    "options": [
+                        "was sold",
+                        "were sold",
+                        "sold",
+                        "is sold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvpa-v3-b1-01",
+            "question": "The bridge {a1} in 1998 in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "were built",
+                        "is built",
+                        "built"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvpa-v3-b1-02",
+            "question": "The windows {a1} yesterday in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were washed",
+                    "options": [
+                        "were washed",
+                        "was washed",
+                        "are washed",
+                        "washed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvpa-v3-b1-03",
+            "question": "The book {a1} by a young writer in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "were written",
+                        "is written",
+                        "wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvpa-v3-b1-04",
+            "question": "The keys {a1} after the meeting in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were found",
+                    "options": [
+                        "were found",
+                        "was found",
+                        "are found",
+                        "found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvpa-v3-b1-05",
+            "question": "The old school {a1} last year in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was closed",
+                    "options": [
+                        "was closed",
+                        "were closed",
+                        "is closed",
+                        "closed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvpa-v3-b1-06",
+            "question": "Several emails {a1} by mistake in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were deleted",
+                    "options": [
+                        "were deleted",
+                        "was deleted",
+                        "are deleted",
+                        "deleted"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvpa-v3-b1-07",
+            "question": "The window {a1} during the storm in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was broken",
+                    "options": [
+                        "was broken",
+                        "were broken",
+                        "is broken",
+                        "broke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvpa-v3-b1-08",
+            "question": "The meal {a1} by my father in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was cooked",
+                    "options": [
+                        "was cooked",
+                        "were cooked",
+                        "is cooked",
+                        "cooked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvpa-v3-b1-09",
+            "question": "The invitations {a1} on Monday in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were sent",
+                    "options": [
+                        "were sent",
+                        "was sent",
+                        "are sent",
+                        "sent"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvpa-v3-b1-10",
+            "question": "In the passive, the old object {a1} the subject in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "became",
+                    "options": [
+                        "became",
+                        "becomes",
+                        "was become",
+                        "become"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvpa-v3-b1-11",
+            "question": "A plural subject in past passive {a1} with were in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was used",
+                    "options": [
+                        "was used",
+                        "were used",
+                        "is used",
+                        "use"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvpa-v3-b1-12",
+            "question": "The correct form is: The house {a1} in 2005 in this context.",
+            "level": "B1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was sold",
+                    "options": [
+                        "was sold",
+                        "were sold",
+                        "sold",
+                        "is sold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvpa-v3-b2-01",
+            "question": "The bridge {a1} in 1998 in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "were built",
+                        "is built",
+                        "built"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvpa-v3-b2-02",
+            "question": "The windows {a1} yesterday in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were washed",
+                    "options": [
+                        "were washed",
+                        "was washed",
+                        "are washed",
+                        "washed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvpa-v3-b2-03",
+            "question": "The book {a1} by a young writer in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "were written",
+                        "is written",
+                        "wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvpa-v3-b2-04",
+            "question": "The keys {a1} after the meeting in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were found",
+                    "options": [
+                        "were found",
+                        "was found",
+                        "are found",
+                        "found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvpa-v3-b2-05",
+            "question": "The old school {a1} last year in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was closed",
+                    "options": [
+                        "was closed",
+                        "were closed",
+                        "is closed",
+                        "closed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvpa-v3-b2-06",
+            "question": "Several emails {a1} by mistake in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were deleted",
+                    "options": [
+                        "were deleted",
+                        "was deleted",
+                        "are deleted",
+                        "deleted"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvpa-v3-b2-07",
+            "question": "The window {a1} during the storm in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was broken",
+                    "options": [
+                        "was broken",
+                        "were broken",
+                        "is broken",
+                        "broke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvpa-v3-b2-08",
+            "question": "The meal {a1} by my father in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was cooked",
+                    "options": [
+                        "was cooked",
+                        "were cooked",
+                        "is cooked",
+                        "cooked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvpa-v3-b2-09",
+            "question": "The invitations {a1} on Monday in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were sent",
+                    "options": [
+                        "were sent",
+                        "was sent",
+                        "are sent",
+                        "sent"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvpa-v3-b2-10",
+            "question": "In the passive, the old object {a1} the subject in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "became",
+                    "options": [
+                        "became",
+                        "becomes",
+                        "was become",
+                        "become"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvpa-v3-b2-11",
+            "question": "A plural subject in past passive {a1} with were in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was used",
+                    "options": [
+                        "was used",
+                        "were used",
+                        "is used",
+                        "use"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvpa-v3-b2-12",
+            "question": "The correct form is: The house {a1} in 2005 in the grammar exercise.",
+            "level": "B2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was sold",
+                    "options": [
+                        "was sold",
+                        "were sold",
+                        "sold",
+                        "is sold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvpa-v3-c1-01",
+            "question": "The bridge {a1} in 1998 when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "were built",
+                        "is built",
+                        "built"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvpa-v3-c1-02",
+            "question": "The windows {a1} yesterday when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were washed",
+                    "options": [
+                        "were washed",
+                        "was washed",
+                        "are washed",
+                        "washed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvpa-v3-c1-03",
+            "question": "The book {a1} by a young writer when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "were written",
+                        "is written",
+                        "wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvpa-v3-c1-04",
+            "question": "The keys {a1} after the meeting when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were found",
+                    "options": [
+                        "were found",
+                        "was found",
+                        "are found",
+                        "found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvpa-v3-c1-05",
+            "question": "The old school {a1} last year when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was closed",
+                    "options": [
+                        "was closed",
+                        "were closed",
+                        "is closed",
+                        "closed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvpa-v3-c1-06",
+            "question": "Several emails {a1} by mistake when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were deleted",
+                    "options": [
+                        "were deleted",
+                        "was deleted",
+                        "are deleted",
+                        "deleted"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvpa-v3-c1-07",
+            "question": "The window {a1} during the storm when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was broken",
+                    "options": [
+                        "was broken",
+                        "were broken",
+                        "is broken",
+                        "broke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvpa-v3-c1-08",
+            "question": "The meal {a1} by my father when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was cooked",
+                    "options": [
+                        "was cooked",
+                        "were cooked",
+                        "is cooked",
+                        "cooked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvpa-v3-c1-09",
+            "question": "The invitations {a1} on Monday when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were sent",
+                    "options": [
+                        "were sent",
+                        "was sent",
+                        "are sent",
+                        "sent"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvpa-v3-c1-10",
+            "question": "In the passive, the old object {a1} the subject when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "became",
+                    "options": [
+                        "became",
+                        "becomes",
+                        "was become",
+                        "become"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvpa-v3-c1-11",
+            "question": "A plural subject in past passive {a1} with were when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was used",
+                    "options": [
+                        "was used",
+                        "were used",
+                        "is used",
+                        "use"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvpa-v3-c1-12",
+            "question": "The correct form is: The house {a1} in 2005 when the agent is not central.",
+            "level": "C1",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was sold",
+                    "options": [
+                        "was sold",
+                        "were sold",
+                        "sold",
+                        "is sold"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvpa-v3-c2-01",
+            "question": "The bridge {a1} in 1998 in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was built",
+                    "options": [
+                        "was built",
+                        "were built",
+                        "is built",
+                        "built"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvpa-v3-c2-02",
+            "question": "The windows {a1} yesterday in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were washed",
+                    "options": [
+                        "were washed",
+                        "was washed",
+                        "are washed",
+                        "washed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvpa-v3-c2-03",
+            "question": "The book {a1} by a young writer in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "were written",
+                        "is written",
+                        "wrote"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvpa-v3-c2-04",
+            "question": "The keys {a1} after the meeting in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were found",
+                    "options": [
+                        "were found",
+                        "was found",
+                        "are found",
+                        "found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvpa-v3-c2-05",
+            "question": "The old school {a1} last year in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "completed_past_passive"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was closed",
+                    "options": [
+                        "was closed",
+                        "were closed",
+                        "is closed",
+                        "closed"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvpa-v3-c2-06",
+            "question": "Several emails {a1} by mistake in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were deleted",
+                    "options": [
+                        "were deleted",
+                        "was deleted",
+                        "are deleted",
+                        "deleted"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvpa-v3-c2-07",
+            "question": "The window {a1} during the storm in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "unknown_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was broken",
+                    "options": [
+                        "was broken",
+                        "were broken",
+                        "is broken",
+                        "broke"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvpa-v3-c2-08",
+            "question": "The meal {a1} by my father in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "by_agent"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was cooked",
+                    "options": [
+                        "was cooked",
+                        "were cooked",
+                        "is cooked",
+                        "cooked"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvpa-v3-c2-09",
+            "question": "The invitations {a1} on Monday in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "was_were_v3"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were sent",
+                    "options": [
+                        "were sent",
+                        "was sent",
+                        "are sent",
+                        "sent"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvpa-v3-c2-10",
+            "question": "In the passive, the old object {a1} the subject in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "object_subject"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "became",
+                    "options": [
+                        "became",
+                        "becomes",
+                        "was become",
+                        "become"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvpa-v3-c2-11",
+            "question": "A plural subject in past passive {a1} with were in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "agreement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was used",
+                    "options": [
+                        "was used",
+                        "were used",
+                        "is used",
+                        "use"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvpa-v3-c2-12",
+            "question": "The correct form is: The house {a1} in 2005 in a formal passive sentence.",
+            "level": "C2",
+            "source": "theory_page_passive_voice_past_simple",
+            "tag_keys": [
+                "passive_voice_past_simple",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "was sold",
+                    "options": [
+                        "was sold",
+                        "were sold",
+                        "sold",
+                        "is sold"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-past-v3-all",
+        "slug": "passive-voice-past-simple-all-levels-v3",
+        "name": "Passive Voice Past Simple (All levels V3)",
+        "description": "Standard V3 package for Passive Voice Past Simple across A1-C2.",
+        "question_uuids": [
+            "pvpa-v3-a1-01",
+            "pvpa-v3-a1-02",
+            "pvpa-v3-a1-03",
+            "pvpa-v3-a1-04",
+            "pvpa-v3-a1-05",
+            "pvpa-v3-a1-06",
+            "pvpa-v3-a1-07",
+            "pvpa-v3-a1-08",
+            "pvpa-v3-a1-09",
+            "pvpa-v3-a1-10",
+            "pvpa-v3-a1-11",
+            "pvpa-v3-a1-12",
+            "pvpa-v3-a2-01",
+            "pvpa-v3-a2-02",
+            "pvpa-v3-a2-03",
+            "pvpa-v3-a2-04",
+            "pvpa-v3-a2-05",
+            "pvpa-v3-a2-06",
+            "pvpa-v3-a2-07",
+            "pvpa-v3-a2-08",
+            "pvpa-v3-a2-09",
+            "pvpa-v3-a2-10",
+            "pvpa-v3-a2-11",
+            "pvpa-v3-a2-12",
+            "pvpa-v3-b1-01",
+            "pvpa-v3-b1-02",
+            "pvpa-v3-b1-03",
+            "pvpa-v3-b1-04",
+            "pvpa-v3-b1-05",
+            "pvpa-v3-b1-06",
+            "pvpa-v3-b1-07",
+            "pvpa-v3-b1-08",
+            "pvpa-v3-b1-09",
+            "pvpa-v3-b1-10",
+            "pvpa-v3-b1-11",
+            "pvpa-v3-b1-12",
+            "pvpa-v3-b2-01",
+            "pvpa-v3-b2-02",
+            "pvpa-v3-b2-03",
+            "pvpa-v3-b2-04",
+            "pvpa-v3-b2-05",
+            "pvpa-v3-b2-06",
+            "pvpa-v3-b2-07",
+            "pvpa-v3-b2-08",
+            "pvpa-v3-b2-09",
+            "pvpa-v3-b2-10",
+            "pvpa-v3-b2-11",
+            "pvpa-v3-b2-12",
+            "pvpa-v3-c1-01",
+            "pvpa-v3-c1-02",
+            "pvpa-v3-c1-03",
+            "pvpa-v3-c1-04",
+            "pvpa-v3-c1-05",
+            "pvpa-v3-c1-06",
+            "pvpa-v3-c1-07",
+            "pvpa-v3-c1-08",
+            "pvpa-v3-c1-09",
+            "pvpa-v3-c1-10",
+            "pvpa-v3-c1-11",
+            "pvpa-v3-c1-12",
+            "pvpa-v3-c2-01",
+            "pvpa-v3-c2-02",
+            "pvpa-v3-c2-03",
+            "pvpa-v3-c2-04",
+            "pvpa-v3-c2-05",
+            "pvpa-v3-c2-06",
+            "pvpa-v3-c2-07",
+            "pvpa-v3-c2-08",
+            "pvpa-v3-c2-09",
+            "pvpa-v3-c2-10",
+            "pvpa-v3-c2-11",
+            "pvpa-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePastSimpleAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "theory-passive-voice-past-simple",
+                    "title": "Passive Voice Past Simple",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePastSimpleTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/theory-passive-voice-past-simple"
+                }
+            }
+        }
+    }
+}

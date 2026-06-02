@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\ResultSoThereforeAsAResultAllLevelsV3Seeder",
+        "uuid_namespace": "ResultSoThereforeAsAResultAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_result_so_therefore_as_a_result": {
+            "name": "Result: so / therefore / as a result"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_result": {
+            "name": "Result: so / therefore / as a result",
+            "category": "clauses_and_linking_words"
+        },
+        "so_result": {
+            "name": "So Result",
+            "category": "topic"
+        },
+        "therefore": {
+            "name": "Therefore",
+            "category": "topic"
+        },
+        "as_a_result": {
+            "name": "As A Result",
+            "category": "topic"
+        },
+        "consequently": {
+            "name": "Consequently",
+            "category": "topic"
+        },
+        "result_vs_reason": {
+            "name": "Result Vs Reason",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "formal_result_linkers": {
+            "name": "Formal Result Linkers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_result"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "res-v3-a1-01",
+            "question": "it was dark {a1} we turned on the light",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "it was dark {a1} we turned on the light"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 2,
+            "uuid": "res-v3-a1-02",
+            "question": "{a1} we turned on the light",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows therefore.",
+                    "gap_tags": [
+                        "therefore"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "therefore"
+            ],
+            "variants": [
+                "{a1} we turned on the light"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 3,
+            "uuid": "res-v3-a1-03",
+            "question": "{a1} we turned on the light",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "As a result",
+                    "options": [
+                        "As a result",
+                        "Because",
+                        "Although",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows as a result.",
+                    "gap_tags": [
+                        "as_a_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_a_result"
+            ],
+            "variants": [
+                "{a1} we turned on the light"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 4,
+            "uuid": "res-v3-a1-04",
+            "question": "{a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows consequently.",
+                    "gap_tags": [
+                        "consequently"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequently"
+            ],
+            "variants": [
+                "{a1} we came back later"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 5,
+            "uuid": "res-v3-a1-05",
+            "question": "the shop was closed {a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "since",
+                        "as"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the shop was closed {a1} we came back later"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 6,
+            "uuid": "res-v3-a1-06",
+            "question": "it was dark {a1} we turned on the light",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "while"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "it was dark {a1} we turned on the light"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 7,
+            "uuid": "res-v3-a1-07",
+            "question": "the shop was closed {a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the shop was closed {a1} we came back later"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 8,
+            "uuid": "res-v3-a1-08",
+            "question": "the shop was closed {a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the shop was closed {a1} we came back later"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 9,
+            "uuid": "res-v3-a1-09",
+            "question": "{a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "{a1} we came back later"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 10,
+            "uuid": "res-v3-a1-10",
+            "question": "it was raining {a1} we stayed inside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "because of",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "it was raining {a1} we stayed inside"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 11,
+            "uuid": "res-v3-a1-11",
+            "question": "the shop was closed {a1} we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the shop was closed {a1} we came back later"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 12,
+            "uuid": "res-v3-a1-12",
+            "question": "it was dark {a1} we turned on the light",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "therefore",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "it was dark {a1} we turned on the light"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 13,
+            "uuid": "res-v3-a2-01",
+            "question": "the train was full {a1} we waited for the next one",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "the train was full {a1} we waited for the next one"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 14,
+            "uuid": "res-v3-a2-02",
+            "question": "{a1} we waited for the next one",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows therefore.",
+                    "gap_tags": [
+                        "therefore"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "therefore"
+            ],
+            "variants": [
+                "{a1} we waited for the next one"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 15,
+            "uuid": "res-v3-a2-03",
+            "question": "{a1} we waited for the next one",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "As a result",
+                    "options": [
+                        "As a result",
+                        "Because",
+                        "Although",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows as a result.",
+                    "gap_tags": [
+                        "as_a_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_a_result"
+            ],
+            "variants": [
+                "{a1} we waited for the next one"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 16,
+            "uuid": "res-v3-a2-04",
+            "question": "{a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows consequently.",
+                    "gap_tags": [
+                        "consequently"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequently"
+            ],
+            "variants": [
+                "{a1} we sent the files online"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 17,
+            "uuid": "res-v3-a2-05",
+            "question": "the printer was broken {a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "since",
+                        "as"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the printer was broken {a1} we sent the files online"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 18,
+            "uuid": "res-v3-a2-06",
+            "question": "the train was full {a1} we waited for the next one",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "while"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "the train was full {a1} we waited for the next one"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 19,
+            "uuid": "res-v3-a2-07",
+            "question": "the printer was broken {a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the printer was broken {a1} we sent the files online"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 20,
+            "uuid": "res-v3-a2-08",
+            "question": "the printer was broken {a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the printer was broken {a1} we sent the files online"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 21,
+            "uuid": "res-v3-a2-09",
+            "question": "{a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "{a1} we sent the files online"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 22,
+            "uuid": "res-v3-a2-10",
+            "question": "the evening was cold {a1} I took a jacket",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "because of",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the evening was cold {a1} I took a jacket"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 23,
+            "uuid": "res-v3-a2-11",
+            "question": "the printer was broken {a1} we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the printer was broken {a1} we sent the files online"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 24,
+            "uuid": "res-v3-a2-12",
+            "question": "the train was full {a1} we waited for the next one",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "therefore",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "the train was full {a1} we waited for the next one"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 25,
+            "uuid": "res-v3-b1-01",
+            "question": "The road was icy {a1} the bus arrived late",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "The road was icy {a1} the bus arrived late"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 26,
+            "uuid": "res-v3-b1-02",
+            "question": "{a1} the bus arrived late",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows therefore.",
+                    "gap_tags": [
+                        "therefore"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "therefore"
+            ],
+            "variants": [
+                "{a1} the bus arrived late"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 27,
+            "uuid": "res-v3-b1-03",
+            "question": "{a1} the bus arrived late",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "As a result",
+                    "options": [
+                        "As a result",
+                        "Because",
+                        "Although",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows as a result.",
+                    "gap_tags": [
+                        "as_a_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_a_result"
+            ],
+            "variants": [
+                "{a1} the bus arrived late"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 28,
+            "uuid": "res-v3-b1-04",
+            "question": "{a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows consequently.",
+                    "gap_tags": [
+                        "consequently"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequently"
+            ],
+            "variants": [
+                "{a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 29,
+            "uuid": "res-v3-b1-05",
+            "question": "the deadline was changed {a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "since",
+                        "as"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the deadline was changed {a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 30,
+            "uuid": "res-v3-b1-06",
+            "question": "The road was icy {a1} the bus arrived late",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "while"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The road was icy {a1} the bus arrived late"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 31,
+            "uuid": "res-v3-b1-07",
+            "question": "the deadline was changed {a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the deadline was changed {a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 32,
+            "uuid": "res-v3-b1-08",
+            "question": "the deadline was changed {a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the deadline was changed {a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 33,
+            "uuid": "res-v3-b1-09",
+            "question": "{a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "{a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 34,
+            "uuid": "res-v3-b1-10",
+            "question": "several people were absent {a1} The meeting was postponed",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "because of",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "several people were absent {a1} The meeting was postponed"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 35,
+            "uuid": "res-v3-b1-11",
+            "question": "the deadline was changed {a1} the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the deadline was changed {a1} the team adjusted the plan"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 36,
+            "uuid": "res-v3-b1-12",
+            "question": "The road was icy {a1} the bus arrived late",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "therefore",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "The road was icy {a1} the bus arrived late"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 37,
+            "uuid": "res-v3-b2-01",
+            "question": "The server failed overnight {a1} the support team restored the data",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "The server failed overnight {a1} the support team restored the data"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 38,
+            "uuid": "res-v3-b2-02",
+            "question": "{a1} the support team restored the data",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows therefore.",
+                    "gap_tags": [
+                        "therefore"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "therefore"
+            ],
+            "variants": [
+                "{a1} the support team restored the data"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 39,
+            "uuid": "res-v3-b2-03",
+            "question": "{a1} the support team restored the data",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "As a result",
+                    "options": [
+                        "As a result",
+                        "Because",
+                        "Although",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows as a result.",
+                    "gap_tags": [
+                        "as_a_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_a_result"
+            ],
+            "variants": [
+                "{a1} the support team restored the data"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 40,
+            "uuid": "res-v3-b2-04",
+            "question": "{a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows consequently.",
+                    "gap_tags": [
+                        "consequently"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequently"
+            ],
+            "variants": [
+                "{a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 41,
+            "uuid": "res-v3-b2-05",
+            "question": "the evidence was incomplete {a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "since",
+                        "as"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the evidence was incomplete {a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 42,
+            "uuid": "res-v3-b2-06",
+            "question": "The server failed overnight {a1} the support team restored the data",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "while"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The server failed overnight {a1} the support team restored the data"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 43,
+            "uuid": "res-v3-b2-07",
+            "question": "the evidence was incomplete {a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the evidence was incomplete {a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 44,
+            "uuid": "res-v3-b2-08",
+            "question": "the evidence was incomplete {a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the evidence was incomplete {a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 45,
+            "uuid": "res-v3-b2-09",
+            "question": "{a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "{a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 46,
+            "uuid": "res-v3-b2-10",
+            "question": "the requirements kept changing {a1} The project moved slowly",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "because of",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the requirements kept changing {a1} The project moved slowly"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 47,
+            "uuid": "res-v3-b2-11",
+            "question": "the evidence was incomplete {a1} the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the evidence was incomplete {a1} the committee delayed the decision"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 48,
+            "uuid": "res-v3-b2-12",
+            "question": "The server failed overnight {a1} the support team restored the data",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "therefore",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "The server failed overnight {a1} the support team restored the data"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 49,
+            "uuid": "res-v3-c1-01",
+            "question": "Demand increased sharply {a1} suppliers raised their prices",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "Demand increased sharply {a1} suppliers raised their prices"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 50,
+            "uuid": "res-v3-c1-02",
+            "question": "{a1} suppliers raised their prices",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows therefore.",
+                    "gap_tags": [
+                        "therefore"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "therefore"
+            ],
+            "variants": [
+                "{a1} suppliers raised their prices"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 51,
+            "uuid": "res-v3-c1-03",
+            "question": "{a1} suppliers raised their prices",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "As a result",
+                    "options": [
+                        "As a result",
+                        "Because",
+                        "Although",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows as a result.",
+                    "gap_tags": [
+                        "as_a_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_a_result"
+            ],
+            "variants": [
+                "{a1} suppliers raised their prices"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 52,
+            "uuid": "res-v3-c1-04",
+            "question": "{a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows consequently.",
+                    "gap_tags": [
+                        "consequently"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequently"
+            ],
+            "variants": [
+                "{a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 53,
+            "uuid": "res-v3-c1-05",
+            "question": "the figures were unreliable {a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "since",
+                        "as"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the figures were unreliable {a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 54,
+            "uuid": "res-v3-c1-06",
+            "question": "Demand increased sharply {a1} suppliers raised their prices",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "while"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "Demand increased sharply {a1} suppliers raised their prices"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 55,
+            "uuid": "res-v3-c1-07",
+            "question": "the figures were unreliable {a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the figures were unreliable {a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 56,
+            "uuid": "res-v3-c1-08",
+            "question": "the figures were unreliable {a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the figures were unreliable {a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 57,
+            "uuid": "res-v3-c1-09",
+            "question": "{a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "{a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 58,
+            "uuid": "res-v3-c1-10",
+            "question": "both sides rejected the compromise {a1} The negotiations stalled",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "because of",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "both sides rejected the compromise {a1} The negotiations stalled"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 59,
+            "uuid": "res-v3-c1-11",
+            "question": "the figures were unreliable {a1} the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the figures were unreliable {a1} the auditors repeated the analysis"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 60,
+            "uuid": "res-v3-c1-12",
+            "question": "Demand increased sharply {a1} suppliers raised their prices",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "therefore",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "Demand increased sharply {a1} suppliers raised their prices"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 61,
+            "uuid": "res-v3-c2-01",
+            "question": "The initial forecast underestimated demand {a1} the agency revised its budget",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "however"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "The initial forecast underestimated demand {a1} the agency revised its budget"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 62,
+            "uuid": "res-v3-c2-02",
+            "question": "{a1} the agency revised its budget",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Therefore",
+                    "options": [
+                        "Therefore",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows therefore.",
+                    "gap_tags": [
+                        "therefore"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "therefore"
+            ],
+            "variants": [
+                "{a1} the agency revised its budget"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 63,
+            "uuid": "res-v3-c2-03",
+            "question": "{a1} the agency revised its budget",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "As a result",
+                    "options": [
+                        "As a result",
+                        "Because",
+                        "Although",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows as a result.",
+                    "gap_tags": [
+                        "as_a_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "as_a_result"
+            ],
+            "variants": [
+                "{a1} the agency revised its budget"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 64,
+            "uuid": "res-v3-c2-04",
+            "question": "{a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows consequently.",
+                    "gap_tags": [
+                        "consequently"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "consequently"
+            ],
+            "variants": [
+                "{a1} the parties requested clarification"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 65,
+            "uuid": "res-v3-c2-05",
+            "question": "the contract terms were ambiguous {a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "since",
+                        "as"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the contract terms were ambiguous {a1} the parties requested clarification"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 66,
+            "uuid": "res-v3-c2-06",
+            "question": "The initial forecast underestimated demand {a1} the agency revised its budget",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "while"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The initial forecast underestimated demand {a1} the agency revised its budget"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 67,
+            "uuid": "res-v3-c2-07",
+            "question": "the contract terms were ambiguous {a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the contract terms were ambiguous {a1} the parties requested clarification"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 68,
+            "uuid": "res-v3-c2-08",
+            "question": "the contract terms were ambiguous {a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "as a result",
+                    "options": [
+                        "as a result",
+                        "because",
+                        "although",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "the contract terms were ambiguous {a1} the parties requested clarification"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 69,
+            "uuid": "res-v3-c2-09",
+            "question": "{a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Consequently",
+                    "options": [
+                        "Consequently",
+                        "Because",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Choose the linker that shows formal result linkers.",
+                    "gap_tags": [
+                        "formal_result_linkers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_result_linkers"
+            ],
+            "variants": [
+                "{a1} the parties requested clarification"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 70,
+            "uuid": "res-v3-c2-10",
+            "question": "the claimant missed the deadline {a1} The appeal was dismissed",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "because of",
+                        "since"
+                    ],
+                    "verb_hint": "Choose the linker that shows result vs reason.",
+                    "gap_tags": [
+                        "result_vs_reason"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "result_vs_reason"
+            ],
+            "variants": [
+                "the claimant missed the deadline {a1} The appeal was dismissed"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 71,
+            "uuid": "res-v3-c2-11",
+            "question": "the contract terms were ambiguous {a1} the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "therefore",
+                    "options": [
+                        "therefore",
+                        "because",
+                        "although",
+                        "despite"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the contract terms were ambiguous {a1} the parties requested clarification"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        },
+        {
+            "id": 72,
+            "uuid": "res-v3-c2-12",
+            "question": "The initial forecast underestimated demand {a1} the agency revised its budget",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "therefore",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Choose the linker that shows so result.",
+                    "gap_tags": [
+                        "so_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "so_result"
+            ],
+            "variants": [
+                "The initial forecast underestimated demand {a1} the agency revised its budget"
+            ],
+            "source": "theory_page_result_so_therefore_as_a_result"
+        }
+    ],
+    "saved_test": {
+        "uuid": "clw-res-v3-all",
+        "slug": "result-so-therefore-as-a-result-all-levels-v3",
+        "name": "Result: so / therefore / as a result: V3 All Levels",
+        "description": "Page-local V3 package for Result: so / therefore / as a result with A1-C2 coverage.",
+        "question_uuids": [
+            "res-v3-a1-01",
+            "res-v3-a1-02",
+            "res-v3-a1-03",
+            "res-v3-a1-04",
+            "res-v3-a1-05",
+            "res-v3-a1-06",
+            "res-v3-a1-07",
+            "res-v3-a1-08",
+            "res-v3-a1-09",
+            "res-v3-a1-10",
+            "res-v3-a1-11",
+            "res-v3-a1-12",
+            "res-v3-a2-01",
+            "res-v3-a2-02",
+            "res-v3-a2-03",
+            "res-v3-a2-04",
+            "res-v3-a2-05",
+            "res-v3-a2-06",
+            "res-v3-a2-07",
+            "res-v3-a2-08",
+            "res-v3-a2-09",
+            "res-v3-a2-10",
+            "res-v3-a2-11",
+            "res-v3-a2-12",
+            "res-v3-b1-01",
+            "res-v3-b1-02",
+            "res-v3-b1-03",
+            "res-v3-b1-04",
+            "res-v3-b1-05",
+            "res-v3-b1-06",
+            "res-v3-b1-07",
+            "res-v3-b1-08",
+            "res-v3-b1-09",
+            "res-v3-b1-10",
+            "res-v3-b1-11",
+            "res-v3-b1-12",
+            "res-v3-b2-01",
+            "res-v3-b2-02",
+            "res-v3-b2-03",
+            "res-v3-b2-04",
+            "res-v3-b2-05",
+            "res-v3-b2-06",
+            "res-v3-b2-07",
+            "res-v3-b2-08",
+            "res-v3-b2-09",
+            "res-v3-b2-10",
+            "res-v3-b2-11",
+            "res-v3-b2-12",
+            "res-v3-c1-01",
+            "res-v3-c1-02",
+            "res-v3-c1-03",
+            "res-v3-c1-04",
+            "res-v3-c1-05",
+            "res-v3-c1-06",
+            "res-v3-c1-07",
+            "res-v3-c1-08",
+            "res-v3-c1-09",
+            "res-v3-c1-10",
+            "res-v3-c1-11",
+            "res-v3-c1-12",
+            "res-v3-c2-01",
+            "res-v3-c2-02",
+            "res-v3-c2-03",
+            "res-v3-c2-04",
+            "res-v3-c2-05",
+            "res-v3-c2-06",
+            "res-v3-c2-07",
+            "res-v3-c2-08",
+            "res-v3-c2-09",
+            "res-v3-c2-10",
+            "res-v3-c2-11",
+            "res-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\ResultSoThereforeAsAResultAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "result-so-therefore-as-a-result",
+                    "title": "Result: so / therefore / as a result",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsResultTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/result-so-therefore-as-a-result"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 68,
+        "uuid": "50-i-lent-a50-my-bicycle-last-weeken",
+        "question": "I lent {a50} my bicycle last weekend.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-26T14:31:55.000000Z",
+        "updated_at": "2026-05-26T14:32:03.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:31:54.000000Z",
+        "updated_at": "2026-05-26T14:31:54.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:31:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-26T14:31:50.000000Z",
+                "updated_at": "2026-05-26T14:31:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 68,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 40,
+                "name": "SVO with indirect object",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 68,
+                "tag_id": 40,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 96,
+                "option": "I",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 68,
+                "option_id": 96,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 201,
+                "option": "my neighbour",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 68,
+                "option_id": 201,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 203,
+                "option": "my bicycle lent",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 68,
+                "option_id": 203,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 68,
+                "question_id": 68,
+                "marker": "a50",
+                "option_id": 201,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 201,
+                "option": "my neighbour",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50,
+                "question_id": 68,
+                "marker": "a50",
+                "option_id": 202,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 202,
+                "option": "IO after lent",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 68,
+            "question_id": 68,
+            "text": "I lent {a50} my bicycle last weekend.",
+            "created_at": "2026-05-26T14:31:55.000000Z",
+            "updated_at": "2026-05-26T14:31:55.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 166,
+            "question_id": 68,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "IO comes after `lent`, before DO `my bicycle`.\nVerb: `lent`, DO: `my bicycle`. To whom?",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 167,
+            "question_id": 68,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "IO comes after `lent`, before DO `my bicycle`.\nVerb: `lent`, DO: `my bicycle`. To whom?",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 168,
+            "question_id": 68,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Непрямий додаток стоїть після дієслова `lent`, перед прямим додатком `my bicycle`.\nДієслово — `lent`, прямий додаток — `my bicycle`. Кому я позичив?",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 698,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "I",
+            "correct_answer": "my neighbour",
+            "language": "en",
+            "explanation": "Incorrect: 'I' is the subject.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 701,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "I",
+            "correct_answer": "my neighbour",
+            "language": "pl",
+            "explanation": "Incorrect: 'I' is the subject.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 705,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "I",
+            "correct_answer": "my neighbour",
+            "language": "ua",
+            "explanation": "Неправильно: «I» — підмет речення.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 706,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "I",
+            "correct_answer": "my neighbour",
+            "language": "uk",
+            "explanation": "Неправильно: «I» — підмет речення.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 699,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my bicycle lent",
+            "correct_answer": "my neighbour",
+            "language": "en",
+            "explanation": "Incorrect: DO + verb is ungrammatical in this position.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 702,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my bicycle lent",
+            "correct_answer": "my neighbour",
+            "language": "pl",
+            "explanation": "Incorrect: DO + verb is ungrammatical in this position.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 707,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my bicycle lent",
+            "correct_answer": "my neighbour",
+            "language": "ua",
+            "explanation": "Неправильно: прямий додаток з дієсловом у позиції додатка порушує SVO.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 708,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my bicycle lent",
+            "correct_answer": "my neighbour",
+            "language": "uk",
+            "explanation": "Неправильно: прямий додаток з дієсловом у позиції додатка порушує SVO.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 697,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my neighbour",
+            "correct_answer": "my neighbour",
+            "language": "en",
+            "explanation": "Correct: IO after 'lent', before 'my bicycle'.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 700,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my neighbour",
+            "correct_answer": "my neighbour",
+            "language": "pl",
+            "explanation": "Correct: IO after 'lent', before 'my bicycle'.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 703,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my neighbour",
+            "correct_answer": "my neighbour",
+            "language": "ua",
+            "explanation": "Правильно: «my neighbour» — непрямий додаток після `lent`, перед `my bicycle`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        },
+        {
+            "id": 704,
+            "question": "I lent {a50} my bicycle last weekend.",
+            "wrong_answer": "my neighbour",
+            "correct_answer": "my neighbour",
+            "language": "uk",
+            "explanation": "Правильно: «my neighbour» — непрямий додаток після `lent`, перед `my bicycle`.",
+            "created_at": "2026-05-26T14:31:57.000000Z",
+            "updated_at": "2026-05-26T14:31:57.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,562 @@
+{
+    "generated_at": "2026-05-26T17:45:10+03:00",
+    "prompt_id": "GLZ-CODEX-THEORY-PAGE-TESTS-UNIFICATION-001",
+    "summary": {
+        "total_theory_pages": 6,
+        "pages_ok": 6,
+        "pages_missing_only_theory_links": 0,
+        "pages_missing_sentence_builder": 0,
+        "pages_missing_v3": 0,
+        "pages_missing_both_tests": 0,
+        "status_counts": {
+            "OK": 6
+        }
+    },
+    "pages": [
+        {
+            "page_id": 1,
+            "category_slug": "maibutni-formy",
+            "category_slug_path": "maibutni-formy",
+            "page_slug": "will-vs-be-going-to",
+            "route": "/theory/maibutni-formy/will-vs-be-going-to",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsWillVsBeGoingToTheorySeeder",
+            "text_block_count": 30,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-will-vs-be-going-to-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-1-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\AI\\ChatGpt\\WillVsBeGoingToFutureFormsAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotBeGoingToLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureSimpleWillLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotWillVsBeGoingToAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\AI\\ChatGpt\\WillVsBeGoingToFutureFormsAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\AI\\ChatGpt\\WillVsBeGoingToFutureFormsAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotBeGoingToLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureSimpleWillLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotWillVsBeGoingToAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 120,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotWillVsBeGoingToAllLevelsLessonSeeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureSimpleWillLessonSeeder": 24,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotBeGoingToLessonSeeder": 24
+                    },
+                    "questions_with_pivot_rows": 120,
+                    "questions_with_legacy_uuid": 120,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\AI\\ChatGpt\\WillVsBeGoingToFutureFormsAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotBeGoingToLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureSimpleWillLessonSeeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotWillVsBeGoingToAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 192,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\AI\\ChatGpt\\WillVsBeGoingToFutureFormsAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotWillVsBeGoingToAllLevelsLessonSeeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureSimpleWillLessonSeeder": 24,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotBeGoingToLessonSeeder": 24
+                    },
+                    "questions_with_pivot_rows": 192,
+                    "questions_with_legacy_uuid": 192,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/future-forms-will-vs-be-going-to-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\WillVsBeGoingToTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [],
+            "manifest_expected_polyglot_seeders": [],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 2,
+            "category_slug": "maibutni-formy",
+            "category_slug_path": "maibutni-formy",
+            "page_slug": "present-continuous-for-future",
+            "route": "/theory/maibutni-formy/present-continuous-for-future",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsPresentContinuousForFutureTheorySeeder",
+            "text_block_count": 21,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-present-continuous-for-future-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-2-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\FutureForms\\PresentContinuousForFutureAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousForFutureAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\PresentContinuousForFutureAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\PresentContinuousForFutureAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 4,
+                    "linked_text_block_uuid_existing_count": 4,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousForFutureAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousForFutureAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 4,
+                    "linked_text_block_uuid_existing_count": 4,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\PresentContinuousForFutureAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousForFutureAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\PresentContinuousForFutureAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousForFutureAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 4,
+                    "linked_text_block_uuid_existing_count": 4,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/future-forms-present-continuous-for-future-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\PresentContinuousForFutureTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [],
+            "manifest_expected_polyglot_seeders": [],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 3,
+            "category_slug": "maibutni-formy",
+            "category_slug_path": "maibutni-formy",
+            "page_slug": "choosing-the-right-future-form",
+            "route": "/theory/maibutni-formy/choosing-the-right-future-form",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "text_block_count": 24,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-choosing-the-right-future-form-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-3-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotChoosingTheRightFutureFormAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotChoosingTheRightFutureFormAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotChoosingTheRightFutureFormAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotChoosingTheRightFutureFormAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotChoosingTheRightFutureFormAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 6,
+                    "linked_text_block_uuid_existing_count": 6,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/future-forms-choosing-the-right-future-form-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\ChoosingTheRightFutureFormTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [],
+            "manifest_expected_polyglot_seeders": [],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 4,
+            "category_slug": "maibutni-formy",
+            "category_slug_path": "maibutni-formy",
+            "page_slug": "future-perfect-vs-future-continuous",
+            "route": "/theory/maibutni-formy/future-perfect-vs-future-continuous",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsFuturePerfectVsFutureContinuousTheorySeeder",
+            "text_block_count": 24,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-future-perfect-vs-future-continuous-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-4-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFutureContinuousAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFutureContinuousAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFutureContinuousAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFutureContinuousAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFutureContinuousAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFutureContinuousAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFutureContinuousAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFutureContinuousAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFutureContinuousAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFutureContinuousAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/future-forms-future-perfect-vs-future-continuous-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\FuturePerfectVsFutureContinuousTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [],
+            "manifest_expected_polyglot_seeders": [],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 5,
+            "category_slug": "maibutni-formy",
+            "category_slug_path": "maibutni-formy",
+            "page_slug": "future-perfect-vs-future-perfect-continuous",
+            "route": "/theory/maibutni-formy/future-perfect-vs-future-perfect-continuous",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsFuturePerfectVsFuturePerfectContinuousTheorySeeder",
+            "text_block_count": 24,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-future-perfect-vs-future-perfect-continuous-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-5-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFuturePerfectContinuousAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFuturePerfectContinuousAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFuturePerfectContinuousAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFuturePerfectContinuousAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFuturePerfectContinuousAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFuturePerfectContinuousAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFuturePerfectContinuousAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFuturePerfectContinuousAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\FuturePerfectVsFuturePerfectContinuousAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFuturePerfectVsFuturePerfectContinuousAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/future-forms-future-perfect-vs-future-perfect-continuous-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\FuturePerfectVsFuturePerfectContinuousTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [],
+            "manifest_expected_polyglot_seeders": [],
+            "status": "OK",
+            "missing": []
+        },
+        {
+            "page_id": 6,
+            "category_slug": "maibutni-formy",
+            "category_slug_path": "maibutni-formy",
+            "page_slug": "future-continuous-vs-future-perfect-continuous",
+            "route": "/theory/maibutni-formy/future-continuous-vs-future-perfect-continuous",
+            "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsFutureContinuousVsFuturePerfectContinuousTheorySeeder",
+            "text_block_count": 24,
+            "has_sentence_builder": true,
+            "direct_sentence_builder_slugs": [
+                "polyglot-future-continuous-vs-future-perfect-continuous-all-levels"
+            ],
+            "has_mixed_a1_c2": true,
+            "mixed_a1_c2_slug": "theory-page-6-mixed-a1-c2",
+            "v3_standard_seeders": [
+                "Database\\Seeders\\V3\\FutureForms\\FutureContinuousVsFuturePerfectContinuousAllLevelsV3Seeder"
+            ],
+            "polyglot_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder"
+            ],
+            "question_link_coverage": {
+                "standard_v3": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\FutureContinuousVsFuturePerfectContinuousAllLevelsV3Seeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\FutureContinuousVsFuturePerfectContinuousAllLevelsV3Seeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "polyglot": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 72,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 72,
+                    "questions_with_legacy_uuid": 72,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                },
+                "all": {
+                    "seeders": [
+                        "Database\\Seeders\\V3\\FutureForms\\FutureContinuousVsFuturePerfectContinuousAllLevelsV3Seeder",
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder"
+                    ],
+                    "question_count": 144,
+                    "question_count_by_seeder": {
+                        "Database\\Seeders\\V3\\FutureForms\\FutureContinuousVsFuturePerfectContinuousAllLevelsV3Seeder": 72,
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotFutureContinuousVsFuturePerfectContinuousAllLevelsLessonSeeder": 72
+                    },
+                    "questions_with_pivot_rows": 144,
+                    "questions_with_legacy_uuid": 144,
+                    "linked_text_block_uuid_count": 5,
+                    "linked_text_block_uuid_existing_count": 5,
+                    "all_questions_have_pivot_rows": true,
+                    "all_questions_have_legacy_uuid": true,
+                    "all_linked_text_blocks_exist": true,
+                    "all_questions_have_theory_links": true
+                }
+            },
+            "has_question_theory_text_blocks": true,
+            "has_questions_theory_text_block_uuid": true,
+            "has_theory_links": true,
+            "has_polyglot_theory_links": true,
+            "has_json_theory_links_manifest": true,
+            "json_theory_links_manifest": "database/seeders/V3/TheoryLinks/data/future-forms-future-continuous-vs-future-perfect-continuous-theory-links.json",
+            "has_php_theory_links_seeder": true,
+            "php_theory_links_seeder": "Database\\Seeders\\V3\\TheoryLinks\\FutureContinuousVsFuturePerfectContinuousTheoryLinksSeeder",
+            "manifest_missing": [],
+            "manifest_expected_standard_seeders": [],
+            "manifest_expected_polyglot_seeders": [],
+            "status": "OK",
+            "missing": []
+        }
+    ],
+    "backlog": []
+}

@@ -1,0 +1,516 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Advanced Linking Devices theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/clauses-and-linking-words/advanced-linking-devices",
+        "category_slug": "clauses-and-linking-words",
+        "slug": "advanced-linking-devices",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\AdvancedLinkingDevicesTheorySeeder",
+        "title": "Advanced Linking Devices"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\AdvancedLinkingDevicesTheorySeeder",
+            "sort_order": 1,
+            "title": "Hero"
+        },
+        "focus": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\AdvancedLinkingDevicesTheorySeeder",
+            "sort_order": 2,
+            "title": "Focus"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "focus"
+        ],
+        "concession": [
+            "overview",
+            "focus"
+        ],
+        "contrast": [
+            "overview",
+            "focus"
+        ],
+        "result_consequence": [
+            "overview",
+            "focus"
+        ],
+        "condition": [
+            "overview",
+            "focus"
+        ],
+        "addition": [
+            "overview",
+            "focus"
+        ],
+        "exemplification": [
+            "overview",
+            "focus"
+        ],
+        "reformulation": [
+            "overview",
+            "focus"
+        ],
+        "formal_vs_everyday": [
+            "overview",
+            "focus"
+        ],
+        "punctuation_position": [
+            "focus"
+        ],
+        "typical_mistakes": [
+            "focus"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\ClausesAndLinkingWords\\AdvancedLinkingDevicesAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedLinkingDevicesAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedLinkingDevicesC1LessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-advanced-linking-devices-all-levels",
+            "saved_test_name": "Sentence Builder: Advanced Linking Devices (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedLinkingDevicesAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "clw-ald-poly-a1-01": [
+                    "concession"
+                ],
+                "clw-ald-poly-a1-02": [
+                    "contrast"
+                ],
+                "clw-ald-poly-a1-03": [
+                    "result_consequence"
+                ],
+                "clw-ald-poly-a1-04": [
+                    "condition"
+                ],
+                "clw-ald-poly-a1-05": [
+                    "addition"
+                ],
+                "clw-ald-poly-a1-06": [
+                    "exemplification"
+                ],
+                "clw-ald-poly-a1-07": [
+                    "reformulation"
+                ],
+                "clw-ald-poly-a1-08": [
+                    "formal_vs_everyday"
+                ],
+                "clw-ald-poly-a1-09": [
+                    "punctuation_position"
+                ],
+                "clw-ald-poly-a1-10": [
+                    "typical_mistakes"
+                ],
+                "clw-ald-poly-a1-11": [
+                    "condition"
+                ],
+                "clw-ald-poly-a1-12": [
+                    "addition"
+                ],
+                "clw-ald-poly-a2-01": [
+                    "concession"
+                ],
+                "clw-ald-poly-a2-02": [
+                    "contrast"
+                ],
+                "clw-ald-poly-a2-03": [
+                    "result_consequence"
+                ],
+                "clw-ald-poly-a2-04": [
+                    "condition"
+                ],
+                "clw-ald-poly-a2-05": [
+                    "addition"
+                ],
+                "clw-ald-poly-a2-06": [
+                    "exemplification"
+                ],
+                "clw-ald-poly-a2-07": [
+                    "reformulation"
+                ],
+                "clw-ald-poly-a2-08": [
+                    "formal_vs_everyday"
+                ],
+                "clw-ald-poly-a2-09": [
+                    "punctuation_position"
+                ],
+                "clw-ald-poly-a2-10": [
+                    "typical_mistakes"
+                ],
+                "clw-ald-poly-a2-11": [
+                    "condition"
+                ],
+                "clw-ald-poly-a2-12": [
+                    "addition"
+                ],
+                "clw-ald-poly-b1-01": [
+                    "concession"
+                ],
+                "clw-ald-poly-b1-02": [
+                    "contrast"
+                ],
+                "clw-ald-poly-b1-03": [
+                    "result_consequence"
+                ],
+                "clw-ald-poly-b1-04": [
+                    "condition"
+                ],
+                "clw-ald-poly-b1-05": [
+                    "addition"
+                ],
+                "clw-ald-poly-b1-06": [
+                    "exemplification"
+                ],
+                "clw-ald-poly-b1-07": [
+                    "reformulation"
+                ],
+                "clw-ald-poly-b1-08": [
+                    "formal_vs_everyday"
+                ],
+                "clw-ald-poly-b1-09": [
+                    "punctuation_position"
+                ],
+                "clw-ald-poly-b1-10": [
+                    "typical_mistakes"
+                ],
+                "clw-ald-poly-b1-11": [
+                    "condition"
+                ],
+                "clw-ald-poly-b1-12": [
+                    "addition"
+                ],
+                "clw-ald-poly-b2-01": [
+                    "concession"
+                ],
+                "clw-ald-poly-b2-02": [
+                    "contrast"
+                ],
+                "clw-ald-poly-b2-03": [
+                    "result_consequence"
+                ],
+                "clw-ald-poly-b2-04": [
+                    "condition"
+                ],
+                "clw-ald-poly-b2-05": [
+                    "addition"
+                ],
+                "clw-ald-poly-b2-06": [
+                    "exemplification"
+                ],
+                "clw-ald-poly-b2-07": [
+                    "reformulation"
+                ],
+                "clw-ald-poly-b2-08": [
+                    "formal_vs_everyday"
+                ],
+                "clw-ald-poly-b2-09": [
+                    "punctuation_position"
+                ],
+                "clw-ald-poly-b2-10": [
+                    "typical_mistakes"
+                ],
+                "clw-ald-poly-b2-11": [
+                    "condition"
+                ],
+                "clw-ald-poly-b2-12": [
+                    "addition"
+                ],
+                "clw-ald-poly-c1-01": [
+                    "concession"
+                ],
+                "clw-ald-poly-c1-02": [
+                    "contrast"
+                ],
+                "clw-ald-poly-c1-03": [
+                    "result_consequence"
+                ],
+                "clw-ald-poly-c1-04": [
+                    "condition"
+                ],
+                "clw-ald-poly-c1-05": [
+                    "addition"
+                ],
+                "clw-ald-poly-c1-06": [
+                    "exemplification"
+                ],
+                "clw-ald-poly-c1-07": [
+                    "reformulation"
+                ],
+                "clw-ald-poly-c1-08": [
+                    "formal_vs_everyday"
+                ],
+                "clw-ald-poly-c1-09": [
+                    "punctuation_position"
+                ],
+                "clw-ald-poly-c1-10": [
+                    "typical_mistakes"
+                ],
+                "clw-ald-poly-c1-11": [
+                    "condition"
+                ],
+                "clw-ald-poly-c1-12": [
+                    "addition"
+                ],
+                "clw-ald-poly-c2-01": [
+                    "concession"
+                ],
+                "clw-ald-poly-c2-02": [
+                    "contrast"
+                ],
+                "clw-ald-poly-c2-03": [
+                    "result_consequence"
+                ],
+                "clw-ald-poly-c2-04": [
+                    "condition"
+                ],
+                "clw-ald-poly-c2-05": [
+                    "addition"
+                ],
+                "clw-ald-poly-c2-06": [
+                    "exemplification"
+                ],
+                "clw-ald-poly-c2-07": [
+                    "reformulation"
+                ],
+                "clw-ald-poly-c2-08": [
+                    "formal_vs_everyday"
+                ],
+                "clw-ald-poly-c2-09": [
+                    "punctuation_position"
+                ],
+                "clw-ald-poly-c2-10": [
+                    "typical_mistakes"
+                ],
+                "clw-ald-poly-c2-11": [
+                    "condition"
+                ],
+                "clw-ald-poly-c2-12": [
+                    "addition"
+                ]
+            }
+        },
+        {
+            "kind": "legacy_direct_sentence_builder",
+            "saved_test_slug": "polyglot-advanced-linking-devices-c1",
+            "saved_test_name": "Sentence Builder: Advanced Linking Devices (C1)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedLinkingDevicesC1LessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "polyglot-advanced-linking-devices-c1-q01": [
+                    "concession"
+                ],
+                "polyglot-advanced-linking-devices-c1-q02": [
+                    "contrast"
+                ],
+                "polyglot-advanced-linking-devices-c1-q03": [
+                    "result_consequence"
+                ],
+                "polyglot-advanced-linking-devices-c1-q04": [
+                    "condition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q05": [
+                    "addition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q06": [
+                    "exemplification"
+                ],
+                "polyglot-advanced-linking-devices-c1-q07": [
+                    "reformulation"
+                ],
+                "polyglot-advanced-linking-devices-c1-q08": [
+                    "formal_vs_everyday"
+                ],
+                "polyglot-advanced-linking-devices-c1-q09": [
+                    "punctuation_position"
+                ],
+                "polyglot-advanced-linking-devices-c1-q10": [
+                    "typical_mistakes"
+                ],
+                "polyglot-advanced-linking-devices-c1-q11": [
+                    "concession"
+                ],
+                "polyglot-advanced-linking-devices-c1-q12": [
+                    "contrast"
+                ],
+                "polyglot-advanced-linking-devices-c1-q13": [
+                    "result_consequence"
+                ],
+                "polyglot-advanced-linking-devices-c1-q14": [
+                    "condition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q15": [
+                    "addition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q16": [
+                    "exemplification"
+                ],
+                "polyglot-advanced-linking-devices-c1-q17": [
+                    "reformulation"
+                ],
+                "polyglot-advanced-linking-devices-c1-q18": [
+                    "formal_vs_everyday"
+                ],
+                "polyglot-advanced-linking-devices-c1-q19": [
+                    "punctuation_position"
+                ],
+                "polyglot-advanced-linking-devices-c1-q20": [
+                    "typical_mistakes"
+                ],
+                "polyglot-advanced-linking-devices-c1-q21": [
+                    "concession"
+                ],
+                "polyglot-advanced-linking-devices-c1-q22": [
+                    "contrast"
+                ],
+                "polyglot-advanced-linking-devices-c1-q23": [
+                    "result_consequence"
+                ],
+                "polyglot-advanced-linking-devices-c1-q24": [
+                    "condition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q25": [
+                    "addition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q26": [
+                    "exemplification"
+                ],
+                "polyglot-advanced-linking-devices-c1-q27": [
+                    "reformulation"
+                ],
+                "polyglot-advanced-linking-devices-c1-q28": [
+                    "formal_vs_everyday"
+                ],
+                "polyglot-advanced-linking-devices-c1-q29": [
+                    "punctuation_position"
+                ],
+                "polyglot-advanced-linking-devices-c1-q30": [
+                    "typical_mistakes"
+                ],
+                "polyglot-advanced-linking-devices-c1-q31": [
+                    "concession"
+                ],
+                "polyglot-advanced-linking-devices-c1-q32": [
+                    "contrast"
+                ],
+                "polyglot-advanced-linking-devices-c1-q33": [
+                    "result_consequence"
+                ],
+                "polyglot-advanced-linking-devices-c1-q34": [
+                    "condition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q35": [
+                    "addition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q36": [
+                    "exemplification"
+                ],
+                "polyglot-advanced-linking-devices-c1-q37": [
+                    "reformulation"
+                ],
+                "polyglot-advanced-linking-devices-c1-q38": [
+                    "formal_vs_everyday"
+                ],
+                "polyglot-advanced-linking-devices-c1-q39": [
+                    "punctuation_position"
+                ],
+                "polyglot-advanced-linking-devices-c1-q40": [
+                    "typical_mistakes"
+                ],
+                "polyglot-advanced-linking-devices-c1-q41": [
+                    "concession"
+                ],
+                "polyglot-advanced-linking-devices-c1-q42": [
+                    "contrast"
+                ],
+                "polyglot-advanced-linking-devices-c1-q43": [
+                    "result_consequence"
+                ],
+                "polyglot-advanced-linking-devices-c1-q44": [
+                    "condition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q45": [
+                    "addition"
+                ],
+                "polyglot-advanced-linking-devices-c1-q46": [
+                    "exemplification"
+                ],
+                "polyglot-advanced-linking-devices-c1-q47": [
+                    "reformulation"
+                ],
+                "polyglot-advanced-linking-devices-c1-q48": [
+                    "formal_vs_everyday"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_a1_c2",
+            "saved_test_slug": "virtual:theory-page-mixed-a1-c2",
+            "strategy": "tag_key_to_bundle",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\AdvancedLinkingDevicesAllLevelsV3Seeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedLinkingDevicesAllLevelsLessonSeeder"
+            ],
+            "tag_key_to_bundle": {
+                "concession": "concession",
+                "contrast": "contrast",
+                "result_consequence": "result_consequence",
+                "condition": "condition",
+                "addition": "addition",
+                "exemplification": "exemplification",
+                "reformulation": "reformulation",
+                "formal_vs_everyday": "formal_vs_everyday",
+                "punctuation_position": "punctuation_position",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {},
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "standard_questions": 72,
+        "polyglot_questions": 72,
+        "legacy_polyglot_questions": {
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedLinkingDevicesC1LessonSeeder": 48
+        },
+        "levels": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "questions_per_level_per_seeder": 12,
+        "idempotent": true
+    },
+    "qa": {
+        "show_theory_links": [
+            "direct_sentence_builder",
+            "mixed_a1_c2"
+        ],
+        "no_question_marker_tag": true,
+        "source_of_truth": "this JSON manifest"
+    }
+}

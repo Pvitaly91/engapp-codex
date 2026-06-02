@@ -1,0 +1,2265 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\MustHaveToAllLevelsV3Seeder",
+        "uuid_namespace": "MustHaveToAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "theory_page_must_have_to": {
+            "name": "Must / Have to"
+        }
+    },
+    "tags": {
+        "modal_must_have_to": {
+            "name": "Must / Have to",
+            "category": "modal-verbs"
+        },
+        "must_obligation": {
+            "name": "Must Obligation",
+            "category": "topic"
+        },
+        "have_to_obligation": {
+            "name": "Have To Obligation",
+            "category": "topic"
+        },
+        "mustnt_prohibition": {
+            "name": "Must Not Prohibition",
+            "category": "topic"
+        },
+        "dont_have_to_no_obligation": {
+            "name": "Do Not Have To No Obligation",
+            "category": "topic"
+        },
+        "past_obligation": {
+            "name": "Past Obligation",
+            "category": "topic"
+        },
+        "future_obligation": {
+            "name": "Future Obligation",
+            "category": "topic"
+        },
+        "must_vs_have_to": {
+            "name": "Must vs Have To",
+            "category": "topic"
+        },
+        "mustnt_vs_dont_have_to": {
+            "name": "Must Not vs Do Not Have To",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "modal_must_have_to"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mht-v3-a1-01",
+            "question": "I {a1} finish this report tonight",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Obligation.",
+                    "gap_tags": [
+                        "must_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_obligation"
+            ],
+            "variants": [
+                "I {a1} finish this report tonight"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 2,
+            "uuid": "mht-v3-a1-02",
+            "question": "I {a1} get up at six for work",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Have To Obligation.",
+                    "gap_tags": [
+                        "have_to_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_to_obligation"
+            ],
+            "variants": [
+                "I {a1} get up at six for work"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 3,
+            "uuid": "mht-v3-a1-03",
+            "question": "You {a1} touch that wire",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "do not have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not Prohibition.",
+                    "gap_tags": [
+                        "mustnt_prohibition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_prohibition"
+            ],
+            "variants": [
+                "You {a1} touch that wire"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 4,
+            "uuid": "mht-v3-a1-04",
+            "question": "You {a1} come early tomorrow",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Do Not Have To No Obligation.",
+                    "gap_tags": [
+                        "dont_have_to_no_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dont_have_to_no_obligation"
+            ],
+            "variants": [
+                "You {a1} come early tomorrow"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 5,
+            "uuid": "mht-v3-a1-05",
+            "question": "I {a1} stay late yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "have to",
+                        "must have",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Past Obligation.",
+                    "gap_tags": [
+                        "past_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_obligation"
+            ],
+            "variants": [
+                "I {a1} stay late yesterday"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 6,
+            "uuid": "mht-v3-a1-06",
+            "question": "I {a1} work this weekend",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will have to",
+                    "options": [
+                        "will have to",
+                        "must",
+                        "had to",
+                        "have to",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Future Obligation.",
+                    "gap_tags": [
+                        "future_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_obligation"
+            ],
+            "variants": [
+                "I {a1} work this weekend"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 7,
+            "uuid": "mht-v3-a1-07",
+            "question": "I {a1} stop eating so much sugar",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "do not have to",
+                        "must not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "I {a1} stop eating so much sugar"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 8,
+            "uuid": "mht-v3-a1-08",
+            "question": "I {a1} pay tax every year",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "I {a1} pay tax every year"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 9,
+            "uuid": "mht-v3-a1-09",
+            "question": "You {a1} smoke here",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "don't have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "You {a1} smoke here"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 10,
+            "uuid": "mht-v3-a1-10",
+            "question": "You {a1} answer question five",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "You {a1} answer question five"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 11,
+            "uuid": "mht-v3-a1-11",
+            "question": "He {a1} wear a uniform at school",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "has to",
+                    "options": [
+                        "has to",
+                        "have to",
+                        "must to",
+                        "has",
+                        "musts",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "He {a1} wear a uniform at school"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 12,
+            "uuid": "mht-v3-a1-12",
+            "question": "I {a1} leave early yesterday",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "musted",
+                        "have to",
+                        "must have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "I {a1} leave early yesterday"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 13,
+            "uuid": "mht-v3-a2-01",
+            "question": "You {a1} wear a helmet in this area",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Obligation.",
+                    "gap_tags": [
+                        "must_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_obligation"
+            ],
+            "variants": [
+                "You {a1} wear a helmet in this area"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 14,
+            "uuid": "mht-v3-a2-02",
+            "question": "She {a1} show her ID at reception",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Have To Obligation.",
+                    "gap_tags": [
+                        "have_to_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_to_obligation"
+            ],
+            "variants": [
+                "She {a1} show her ID at reception"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 15,
+            "uuid": "mht-v3-a2-03",
+            "question": "Students {a1} use phones in the exam",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "do not have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not Prohibition.",
+                    "gap_tags": [
+                        "mustnt_prohibition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_prohibition"
+            ],
+            "variants": [
+                "Students {a1} use phones in the exam"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 16,
+            "uuid": "mht-v3-a2-04",
+            "question": "We {a1} bring lunch today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Do Not Have To No Obligation.",
+                    "gap_tags": [
+                        "dont_have_to_no_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dont_have_to_no_obligation"
+            ],
+            "variants": [
+                "We {a1} bring lunch today"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 17,
+            "uuid": "mht-v3-a2-05",
+            "question": "She {a1} call the doctor last night",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "have to",
+                        "must have",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Past Obligation.",
+                    "gap_tags": [
+                        "past_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_obligation"
+            ],
+            "variants": [
+                "She {a1} call the doctor last night"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 18,
+            "uuid": "mht-v3-a2-06",
+            "question": "You {a1} renew your passport soon",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will have to",
+                    "options": [
+                        "will have to",
+                        "must",
+                        "had to",
+                        "have to",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Future Obligation.",
+                    "gap_tags": [
+                        "future_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_obligation"
+            ],
+            "variants": [
+                "You {a1} renew your passport soon"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 19,
+            "uuid": "mht-v3-a2-07",
+            "question": "You {a1} listen to me now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "do not have to",
+                        "must not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "You {a1} listen to me now"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 20,
+            "uuid": "mht-v3-a2-08",
+            "question": "She {a1} clock in before nine",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "She {a1} clock in before nine"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 21,
+            "uuid": "mht-v3-a2-09",
+            "question": "Children {a1} cross the line",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "don't have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Children {a1} cross the line"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 22,
+            "uuid": "mht-v3-a2-10",
+            "question": "We {a1} attend the optional meeting",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "We {a1} attend the optional meeting"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 23,
+            "uuid": "mht-v3-a2-11",
+            "question": "She {a1} sign the form today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "has to",
+                    "options": [
+                        "has to",
+                        "have to",
+                        "must to",
+                        "has",
+                        "musts",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She {a1} sign the form today"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 24,
+            "uuid": "mht-v3-a2-12",
+            "question": "She {a1} cancel the trip last month",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "musted",
+                        "have to",
+                        "must have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She {a1} cancel the trip last month"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 25,
+            "uuid": "mht-v3-b1-01",
+            "question": "We {a1} tell the truth now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Obligation.",
+                    "gap_tags": [
+                        "must_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_obligation"
+            ],
+            "variants": [
+                "We {a1} tell the truth now"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 26,
+            "uuid": "mht-v3-b1-02",
+            "question": "We {a1} pay before Friday because of the contract",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Have To Obligation.",
+                    "gap_tags": [
+                        "have_to_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_to_obligation"
+            ],
+            "variants": [
+                "We {a1} pay before Friday because of the contract"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 27,
+            "uuid": "mht-v3-b1-03",
+            "question": "Visitors {a1} enter this room without a guide",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "do not have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not Prohibition.",
+                    "gap_tags": [
+                        "mustnt_prohibition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_prohibition"
+            ],
+            "variants": [
+                "Visitors {a1} enter this room without a guide"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 28,
+            "uuid": "mht-v3-b1-04",
+            "question": "They {a1} pay for the museum on Sundays",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Do Not Have To No Obligation.",
+                    "gap_tags": [
+                        "dont_have_to_no_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dont_have_to_no_obligation"
+            ],
+            "variants": [
+                "They {a1} pay for the museum on Sundays"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 29,
+            "uuid": "mht-v3-b1-05",
+            "question": "We {a1} change trains twice",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "have to",
+                        "must have",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Past Obligation.",
+                    "gap_tags": [
+                        "past_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_obligation"
+            ],
+            "variants": [
+                "We {a1} change trains twice"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 30,
+            "uuid": "mht-v3-b1-06",
+            "question": "We {a1} move offices next year",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will have to",
+                    "options": [
+                        "will have to",
+                        "must",
+                        "had to",
+                        "have to",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Future Obligation.",
+                    "gap_tags": [
+                        "future_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_obligation"
+            ],
+            "variants": [
+                "We {a1} move offices next year"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 31,
+            "uuid": "mht-v3-b1-07",
+            "question": "We {a1} be honest with ourselves",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "do not have to",
+                        "must not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "We {a1} be honest with ourselves"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 32,
+            "uuid": "mht-v3-b1-08",
+            "question": "We {a1} use the official form",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "We {a1} use the official form"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 33,
+            "uuid": "mht-v3-b1-09",
+            "question": "Guests {a1} leave bags unattended",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "don't have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Guests {a1} leave bags unattended"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 34,
+            "uuid": "mht-v3-b1-10",
+            "question": "They {a1} print the ticket",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "They {a1} print the ticket"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 35,
+            "uuid": "mht-v3-b1-11",
+            "question": "My brother {a1} take medicine every morning",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "has to",
+                    "options": [
+                        "has to",
+                        "have to",
+                        "must to",
+                        "has",
+                        "musts",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "My brother {a1} take medicine every morning"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 36,
+            "uuid": "mht-v3-b1-12",
+            "question": "We {a1} wait outside for an hour",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "musted",
+                        "have to",
+                        "must have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "We {a1} wait outside for an hour"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 37,
+            "uuid": "mht-v3-b2-01",
+            "question": "All applicants {a1} submit the declaration today",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Obligation.",
+                    "gap_tags": [
+                        "must_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_obligation"
+            ],
+            "variants": [
+                "All applicants {a1} submit the declaration today"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 38,
+            "uuid": "mht-v3-b2-02",
+            "question": "Employees {a1} follow the safety procedure",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Have To Obligation.",
+                    "gap_tags": [
+                        "have_to_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_to_obligation"
+            ],
+            "variants": [
+                "Employees {a1} follow the safety procedure"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 39,
+            "uuid": "mht-v3-b2-03",
+            "question": "Drivers {a1} park in front of the exit",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "do not have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not Prohibition.",
+                    "gap_tags": [
+                        "mustnt_prohibition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_prohibition"
+            ],
+            "variants": [
+                "Drivers {a1} park in front of the exit"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 40,
+            "uuid": "mht-v3-b2-04",
+            "question": "Staff {a1} wear ties on Fridays",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Do Not Have To No Obligation.",
+                    "gap_tags": [
+                        "dont_have_to_no_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dont_have_to_no_obligation"
+            ],
+            "variants": [
+                "Staff {a1} wear ties on Fridays"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 41,
+            "uuid": "mht-v3-b2-05",
+            "question": "The team {a1} rewrite the proposal in March",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "have to",
+                        "must have",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Past Obligation.",
+                    "gap_tags": [
+                        "past_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_obligation"
+            ],
+            "variants": [
+                "The team {a1} rewrite the proposal in March"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 42,
+            "uuid": "mht-v3-b2-06",
+            "question": "The supplier {a1} meet stricter standards",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will have to",
+                    "options": [
+                        "will have to",
+                        "must",
+                        "had to",
+                        "have to",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Future Obligation.",
+                    "gap_tags": [
+                        "future_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_obligation"
+            ],
+            "variants": [
+                "The supplier {a1} meet stricter standards"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 43,
+            "uuid": "mht-v3-b2-07",
+            "question": "The speaker {a1} address this contradiction directly",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "do not have to",
+                        "must not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "The speaker {a1} address this contradiction directly"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 44,
+            "uuid": "mht-v3-b2-08",
+            "question": "Tenants {a1} give one month of notice",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "Tenants {a1} give one month of notice"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 45,
+            "uuid": "mht-v3-b2-09",
+            "question": "Users {a1} share their password",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "don't have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Users {a1} share their password"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 46,
+            "uuid": "mht-v3-b2-10",
+            "question": "Employees {a1} work from the office tomorrow",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Employees {a1} work from the office tomorrow"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 47,
+            "uuid": "mht-v3-b2-11",
+            "question": "The tenant {a1} repair the damage",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "has to",
+                    "options": [
+                        "has to",
+                        "have to",
+                        "must to",
+                        "has",
+                        "musts",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The tenant {a1} repair the damage"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 48,
+            "uuid": "mht-v3-b2-12",
+            "question": "The company {a1} issue a correction in 2024",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "musted",
+                        "have to",
+                        "must have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The company {a1} issue a correction in 2024"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 49,
+            "uuid": "mht-v3-c1-01",
+            "question": "The board {a1} disclose the conflict immediately",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Obligation.",
+                    "gap_tags": [
+                        "must_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_obligation"
+            ],
+            "variants": [
+                "The board {a1} disclose the conflict immediately"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 50,
+            "uuid": "mht-v3-c1-02",
+            "question": "The company {a1} report the incident under the law",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Have To Obligation.",
+                    "gap_tags": [
+                        "have_to_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_to_obligation"
+            ],
+            "variants": [
+                "The company {a1} report the incident under the law"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 51,
+            "uuid": "mht-v3-c1-03",
+            "question": "Researchers {a1} disclose private data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "do not have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not Prohibition.",
+                    "gap_tags": [
+                        "mustnt_prohibition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_prohibition"
+            ],
+            "variants": [
+                "Researchers {a1} disclose private data"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 52,
+            "uuid": "mht-v3-c1-04",
+            "question": "Participants {a1} answer every optional question",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Do Not Have To No Obligation.",
+                    "gap_tags": [
+                        "dont_have_to_no_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dont_have_to_no_obligation"
+            ],
+            "variants": [
+                "Participants {a1} answer every optional question"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 53,
+            "uuid": "mht-v3-c1-05",
+            "question": "The witness {a1} give evidence under oath",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "have to",
+                        "must have",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Past Obligation.",
+                    "gap_tags": [
+                        "past_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_obligation"
+            ],
+            "variants": [
+                "The witness {a1} give evidence under oath"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 54,
+            "uuid": "mht-v3-c1-06",
+            "question": "The committee {a1} review the decision again",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will have to",
+                    "options": [
+                        "will have to",
+                        "must",
+                        "had to",
+                        "have to",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Future Obligation.",
+                    "gap_tags": [
+                        "future_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_obligation"
+            ],
+            "variants": [
+                "The committee {a1} review the decision again"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 55,
+            "uuid": "mht-v3-c1-07",
+            "question": "The author {a1} define the key term more carefully",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "do not have to",
+                        "must not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "The author {a1} define the key term more carefully"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 56,
+            "uuid": "mht-v3-c1-08",
+            "question": "Banks {a1} verify customer identity",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "Banks {a1} verify customer identity"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 57,
+            "uuid": "mht-v3-c1-09",
+            "question": "Editors {a1} alter quoted evidence",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "don't have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Editors {a1} alter quoted evidence"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 58,
+            "uuid": "mht-v3-c1-10",
+            "question": "Candidates {a1} disclose voluntary experience",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Candidates {a1} disclose voluntary experience"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 59,
+            "uuid": "mht-v3-c1-11",
+            "question": "The applicant {a1} provide proof of address",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "has to",
+                    "options": [
+                        "has to",
+                        "have to",
+                        "must to",
+                        "has",
+                        "musts",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The applicant {a1} provide proof of address"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 60,
+            "uuid": "mht-v3-c1-12",
+            "question": "The defendant {a1} surrender his passport",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "musted",
+                        "have to",
+                        "must have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The defendant {a1} surrender his passport"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 61,
+            "uuid": "mht-v3-c2-01",
+            "question": "Any interpretation {a1} respect the central principle",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Obligation.",
+                    "gap_tags": [
+                        "must_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_obligation"
+            ],
+            "variants": [
+                "Any interpretation {a1} respect the central principle"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 62,
+            "uuid": "mht-v3-c2-02",
+            "question": "Auditors {a1} retain the records for seven years",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Have To Obligation.",
+                    "gap_tags": [
+                        "have_to_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "have_to_obligation"
+            ],
+            "variants": [
+                "Auditors {a1} retain the records for seven years"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 63,
+            "uuid": "mht-v3-c2-03",
+            "question": "Officials {a1} accept gifts from applicants",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "do not have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not Prohibition.",
+                    "gap_tags": [
+                        "mustnt_prohibition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_prohibition"
+            ],
+            "variants": [
+                "Officials {a1} accept gifts from applicants"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 64,
+            "uuid": "mht-v3-c2-04",
+            "question": "Applicants {a1} submit paper copies anymore",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "cannot"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Do Not Have To No Obligation.",
+                    "gap_tags": [
+                        "dont_have_to_no_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dont_have_to_no_obligation"
+            ],
+            "variants": [
+                "Applicants {a1} submit paper copies anymore"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 65,
+            "uuid": "mht-v3-c2-05",
+            "question": "The contractor {a1} replace the faulty component",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "have to",
+                        "must have",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Past Obligation.",
+                    "gap_tags": [
+                        "past_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_obligation"
+            ],
+            "variants": [
+                "The contractor {a1} replace the faulty component"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 66,
+            "uuid": "mht-v3-c2-06",
+            "question": "Future applicants {a1} provide biometric data",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will have to",
+                    "options": [
+                        "will have to",
+                        "must",
+                        "had to",
+                        "have to",
+                        "should have",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Future Obligation.",
+                    "gap_tags": [
+                        "future_obligation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_obligation"
+            ],
+            "variants": [
+                "Future applicants {a1} provide biometric data"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 67,
+            "uuid": "mht-v3-c2-07",
+            "question": "Any serious account {a1} confront the counterexample",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must",
+                    "options": [
+                        "must",
+                        "have to",
+                        "should",
+                        "can",
+                        "do not have to",
+                        "must not"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "Any serious account {a1} confront the counterexample"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 68,
+            "uuid": "mht-v3-c2-08",
+            "question": "Public bodies {a1} publish procurement data",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have to",
+                    "options": [
+                        "have to",
+                        "must",
+                        "should",
+                        "can",
+                        "must not",
+                        "do not have to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must vs Have To.",
+                    "gap_tags": [
+                        "must_vs_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_vs_have_to"
+            ],
+            "variants": [
+                "Public bodies {a1} publish procurement data"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 69,
+            "uuid": "mht-v3-c2-09",
+            "question": "Judges {a1} discuss the case privately",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "mustn't",
+                    "options": [
+                        "mustn't",
+                        "don't have to",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Judges {a1} discuss the case privately"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 70,
+            "uuid": "mht-v3-c2-10",
+            "question": "Reviewers {a1} comment on every paragraph",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "don't have to",
+                    "options": [
+                        "don't have to",
+                        "mustn't",
+                        "must",
+                        "have to",
+                        "should not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Must Not vs Do Not Have To.",
+                    "gap_tags": [
+                        "mustnt_vs_dont_have_to"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "mustnt_vs_dont_have_to"
+            ],
+            "variants": [
+                "Reviewers {a1} comment on every paragraph"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 71,
+            "uuid": "mht-v3-c2-11",
+            "question": "The institution {a1} justify the restriction",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "has to",
+                    "options": [
+                        "has to",
+                        "have to",
+                        "must to",
+                        "has",
+                        "musts",
+                        "should to"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The institution {a1} justify the restriction"
+            ],
+            "source": "theory_page_must_have_to"
+        },
+        {
+            "id": 72,
+            "uuid": "mht-v3-c2-12",
+            "question": "The minister {a1} answer questions in parliament",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "had to",
+                    "options": [
+                        "had to",
+                        "must",
+                        "musted",
+                        "have to",
+                        "must have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches: Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The minister {a1} answer questions in parliament"
+            ],
+            "source": "theory_page_must_have_to"
+        }
+    ],
+    "saved_test": {
+        "uuid": "modal-mht-v3-all",
+        "slug": "must-have-to-all-levels-v3",
+        "name": "Must / Have to: V3 All Levels",
+        "description": "Page-local V3 package for Must / Have to with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ModalVerbs\\MustHaveToAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "must-have-to",
+                    "title": "Must / Have to",
+                    "category_slug_path": "modal-verbs",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsMustHaveToTheorySeeder",
+                    "url": "https://gramlyze.com/theory/modal-verbs/must-have-to"
+                }
+            }
+        }
+    }
+}

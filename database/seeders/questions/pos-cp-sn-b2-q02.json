@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 35,
+        "uuid": "pos-cp-sn-b2-q02",
+        "question": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:57.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 40,
+                "name": "Preposition identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "tag_id": 40,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 140,
+                "option": "adverb",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "option_id": 140,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 142,
+                "option": "preposition",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "option_id": 142,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 143,
+                "option": "conjunction",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35,
+                "option_id": 143,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 145,
+                "question_id": 35,
+                "marker": "a1",
+                "option_id": 142,
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "option": {
+                "id": 142,
+                "option": "preposition",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 17,
+            "question_id": 35,
+            "text": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+            "created_at": "2026-05-26T14:30:52.000000Z",
+            "updated_at": "2026-05-26T14:30:52.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 17,
+            "question_id": 35,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "Складні прийменники (complex prepositions) також є прийменниками.\nСлово `despite` є прийменником поступки: воно вводить іменниковий зворот 'many challenges'.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 101,
+            "question": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+            "wrong_answer": "adverb",
+            "correct_answer": "preposition",
+            "language": "ua",
+            "explanation": "«Despite» не є прислівником. Воно завжди потребує наступного іменника або займенника.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 102,
+            "question": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+            "wrong_answer": "adverb",
+            "correct_answer": "preposition",
+            "language": "uk",
+            "explanation": "«Despite» не є прислівником. Воно завжди потребує наступного іменника або займенника.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 99,
+            "question": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+            "wrong_answer": "conjunction",
+            "correct_answer": "preposition",
+            "language": "ua",
+            "explanation": "«Despite» не є сполучником. Після нього не може стояти підрядне речення з підметом і присудком.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 100,
+            "question": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+            "wrong_answer": "conjunction",
+            "correct_answer": "preposition",
+            "language": "uk",
+            "explanation": "«Despite» не є сполучником. Після нього не може стояти підрядне речення з підметом і присудком.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 97,
+            "question": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+            "wrong_answer": "preposition",
+            "correct_answer": "preposition",
+            "language": "ua",
+            "explanation": "«Despite» є прийменником поступки: за ним слідує іменниковий зворот (без 'of').",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 98,
+            "question": "Identify the part of speech of 'despite' in 'She succeeded {a1} many challenges.'",
+            "wrong_answer": "preposition",
+            "correct_answer": "preposition",
+            "language": "uk",
+            "explanation": "«Despite» є прийменником поступки: за ним слідує іменниковий зворот (без 'of').",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ]
+}

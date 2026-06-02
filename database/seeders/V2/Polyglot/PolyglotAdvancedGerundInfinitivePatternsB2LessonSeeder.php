@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotAdvancedGerundInfinitivePatternsB2LessonSeeder as V3PolyglotAdvancedGerundInfinitivePatternsB2LessonSeeder;
+
+class PolyglotAdvancedGerundInfinitivePatternsB2LessonSeeder extends V3PolyglotAdvancedGerundInfinitivePatternsB2LessonSeeder
+{
+}

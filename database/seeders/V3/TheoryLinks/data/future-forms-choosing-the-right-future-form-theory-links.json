@@ -1,0 +1,487 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between Choosing the Right Future Form theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/maibutni-formy/choosing-the-right-future-form",
+        "category_slug": "maibutni-formy",
+        "slug": "choosing-the-right-future-form",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+        "title": "Choosing the Right Future Form"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 1,
+            "title": "Overview"
+        },
+        "will": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 2,
+            "title": "Will"
+        },
+        "going_to": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 2,
+            "title": "Going To"
+        },
+        "future_continuous": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 2,
+            "title": "Future Continuous"
+        },
+        "future_perfect": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 2,
+            "title": "Future Perfect"
+        },
+        "future_perfect_continuous": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 2,
+            "title": "Future Perfect Continuous"
+        },
+        "present_continuous_future": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 3,
+            "title": "Present Continuous Future"
+        },
+        "present_simple_timetable": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 3,
+            "title": "Present Simple Timetable"
+        },
+        "context_choice": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 4,
+            "title": "Context Choice"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 5,
+            "title": "Typical Mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "sort_order": 6,
+            "title": "Summary"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview",
+            "summary"
+        ],
+        "will": [
+            "will",
+            "overview",
+            "summary"
+        ],
+        "going_to": [
+            "going_to",
+            "overview",
+            "summary"
+        ],
+        "present_continuous_future": [
+            "present_continuous_future",
+            "overview",
+            "summary"
+        ],
+        "present_simple_timetable": [
+            "present_simple_timetable",
+            "overview",
+            "summary"
+        ],
+        "future_continuous": [
+            "future_continuous",
+            "overview",
+            "summary"
+        ],
+        "future_perfect": [
+            "future_perfect",
+            "overview",
+            "summary"
+        ],
+        "future_perfect_continuous": [
+            "future_perfect_continuous",
+            "overview",
+            "summary"
+        ],
+        "context_choice": [
+            "context_choice",
+            "overview",
+            "summary"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes",
+            "overview",
+            "summary"
+        ]
+    },
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-choosing-the-right-future-form-all-levels",
+            "saved_test_name": "Sentence Builder: Choosing the Right Future Form (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotChoosingTheRightFutureFormAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "ctrff-poly-a1-01": [
+                    "will",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-02": [
+                    "going_to",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-03": [
+                    "present_continuous_future",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-04": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-05": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-06": [
+                    "future_perfect",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-07": [
+                    "future_perfect_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-08": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-09": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-10": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-11": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-a1-12": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-01": [
+                    "will",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-02": [
+                    "going_to",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-03": [
+                    "present_continuous_future",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-04": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-05": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-06": [
+                    "future_perfect",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-07": [
+                    "future_perfect_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-08": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-09": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-10": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-11": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-a2-12": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-01": [
+                    "will",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-02": [
+                    "going_to",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-03": [
+                    "present_continuous_future",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-04": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-05": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-06": [
+                    "future_perfect",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-07": [
+                    "future_perfect_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-08": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-09": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-10": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-11": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-b1-12": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-01": [
+                    "will",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-02": [
+                    "going_to",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-03": [
+                    "present_continuous_future",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-04": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-05": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-06": [
+                    "future_perfect",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-07": [
+                    "future_perfect_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-08": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-09": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-10": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-11": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-b2-12": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-01": [
+                    "will",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-02": [
+                    "going_to",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-03": [
+                    "present_continuous_future",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-04": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-05": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-06": [
+                    "future_perfect",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-07": [
+                    "future_perfect_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-08": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-09": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-10": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-11": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-c1-12": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-01": [
+                    "will",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-02": [
+                    "going_to",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-03": [
+                    "present_continuous_future",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-04": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-05": [
+                    "future_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-06": [
+                    "future_perfect",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-07": [
+                    "future_perfect_continuous",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-08": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-09": [
+                    "context_choice",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-10": [
+                    "typical_mistakes",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-11": [
+                    "present_simple_timetable",
+                    "general_overview"
+                ],
+                "ctrff-poly-c2-12": [
+                    "future_continuous",
+                    "general_overview"
+                ]
+            }
+        },
+        {
+            "kind": "mixed_standard_v3",
+            "saved_test_slug": "choosing-the-right-future-form-all-levels-v3",
+            "seeder_class": "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder",
+            "strategy": "mapped_by_tags_answers_and_text",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "will": "will",
+                "going_to": "going_to",
+                "present_continuous_future": "present_continuous_future",
+                "present_simple_timetable": "present_simple_timetable",
+                "future_continuous": "future_continuous",
+                "future_perfect": "future_perfect",
+                "future_perfect_continuous": "future_perfect_continuous",
+                "context_choice": "context_choice",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {
+                "will": "will",
+                "are going to": "going_to",
+                "am seeing": "present_continuous_future",
+                "leaves": "present_simple_timetable",
+                "will be studying": "future_continuous",
+                "will have finished": "future_perfect",
+                "will have been working": "future_perfect_continuous",
+                "is going to rain": "context_choice",
+                "will win": "context_choice",
+                "will have completed": "typical_mistakes",
+                "starts": "present_simple_timetable",
+                "will be flying": "future_continuous"
+            },
+            "question_text_to_bundle_fallback": {},
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "seed_before_links": [
+            "Database\\Seeders\\Page_V3\\FutureForms\\FutureFormsChoosingTheRightFutureFormTheorySeeder",
+            "Database\\Seeders\\V3\\FutureForms\\ChoosingTheRightFutureFormAllLevelsV3Seeder",
+            "Database\\Seeders\\V3\\Polyglot\\PolyglotChoosingTheRightFutureFormAllLevelsLessonSeeder"
+        ],
+        "question_counts": {
+            "standard_v3": 72,
+            "polyglot_direct": 72
+        }
+    },
+    "qa": {
+        "expected_route_status": "OK",
+        "no_question_marker_tag": true,
+        "source_of_truth": "json_manifest",
+        "notes": [
+            "Polyglot questions use explicit uuid maps.",
+            "Standard V3 questions use tag and answer fallbacks."
+        ]
+    }
+}

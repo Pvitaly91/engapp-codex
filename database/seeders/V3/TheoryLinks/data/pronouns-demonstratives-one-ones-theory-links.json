@@ -1,0 +1,425 @@
+{
+    "schema_version": 1,
+    "content_type": "theory_test_links_manifest",
+    "purpose": "Describe curated links between One / Ones theory text blocks and page-local tests so Show theory can render.",
+    "page": {
+        "route": "/theory/zaimennyky-ta-vkazivni-slova/one-ones",
+        "category_slug": "zaimennyky-ta-vkazivni-slova",
+        "slug": "one-ones",
+        "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+        "title": "One / Ones"
+    },
+    "target_pivot": {
+        "table": "question_theory_text_blocks",
+        "question_key": "question_uuid",
+        "block_key": "text_block_uuid",
+        "position_column": "position",
+        "legacy_question_column": "questions.theory_text_block_uuid",
+        "notes": [
+            "Seeder writes many-to-many links into question_theory_text_blocks.",
+            "Seeder also sets questions.theory_text_block_uuid to the first resolved block UUID.",
+            "Seeder is idempotent for every covered question_uuid."
+        ]
+    },
+    "theory_text_block_aliases": {
+        "overview": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 1,
+            "title": "overview"
+        },
+        "basic_rule": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 2,
+            "title": "basic rule"
+        },
+        "adjective_one_ones": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 3,
+            "title": "adjective one ones"
+        },
+        "determiners": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 4,
+            "title": "determiners"
+        },
+        "unnatural_use": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 5,
+            "title": "unnatural use"
+        },
+        "comparison": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 6,
+            "title": "comparison"
+        },
+        "typical_mistakes": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 7,
+            "title": "typical mistakes"
+        },
+        "summary": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 8,
+            "title": "summary"
+        },
+        "practice": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 9,
+            "title": "practice"
+        },
+        "navigation": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 10,
+            "title": "navigation"
+        },
+        "nav_chips": {
+            "seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesOneOnesTheorySeeder",
+            "sort_order": 11,
+            "title": "nav chips"
+        }
+    },
+    "bundles": {
+        "general_overview": [
+            "overview"
+        ],
+        "one_singular": [
+            "basic_rule"
+        ],
+        "ones_plural": [
+            "basic_rule",
+            "comparison"
+        ],
+        "this_that_one": [
+            "determiners"
+        ],
+        "these_those_ones": [
+            "determiners"
+        ],
+        "the_one_the_ones": [
+            "determiners"
+        ],
+        "adjective_one_ones": [
+            "adjective_one_ones"
+        ],
+        "which_one_ones": [
+            "determiners"
+        ],
+        "avoid_repetition": [
+            "overview",
+            "summary"
+        ],
+        "countable_only": [
+            "basic_rule",
+            "unnatural_use"
+        ],
+        "unnatural_use": [
+            "unnatural_use"
+        ],
+        "typical_mistakes": [
+            "typical_mistakes"
+        ]
+    },
+    "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\PronounsDemonstratives\\OneOnesAllLevelsV3Seeder"
+    ],
+    "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotOneOnesAllLevelsLessonSeeder"
+    ],
+    "tests_on_page": [
+        {
+            "kind": "direct_sentence_builder",
+            "saved_test_slug": "polyglot-one-ones-all-levels",
+            "saved_test_name": "Sentence Builder: One / Ones (All levels)",
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotOneOnesAllLevelsLessonSeeder",
+            "strategy": "explicit_question_uuid_map",
+            "question_links": {
+                "pd-oo-poly-a1-01": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-a1-02": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-a1-03": [
+                    "this_that_one"
+                ],
+                "pd-oo-poly-a1-04": [
+                    "these_those_ones"
+                ],
+                "pd-oo-poly-a1-05": [
+                    "the_one_the_ones"
+                ],
+                "pd-oo-poly-a1-06": [
+                    "adjective_one_ones"
+                ],
+                "pd-oo-poly-a1-07": [
+                    "which_one_ones"
+                ],
+                "pd-oo-poly-a1-08": [
+                    "avoid_repetition"
+                ],
+                "pd-oo-poly-a1-09": [
+                    "countable_only"
+                ],
+                "pd-oo-poly-a1-10": [
+                    "unnatural_use"
+                ],
+                "pd-oo-poly-a1-11": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-a1-12": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-a2-01": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-a2-02": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-a2-03": [
+                    "this_that_one"
+                ],
+                "pd-oo-poly-a2-04": [
+                    "these_those_ones"
+                ],
+                "pd-oo-poly-a2-05": [
+                    "the_one_the_ones"
+                ],
+                "pd-oo-poly-a2-06": [
+                    "adjective_one_ones"
+                ],
+                "pd-oo-poly-a2-07": [
+                    "which_one_ones"
+                ],
+                "pd-oo-poly-a2-08": [
+                    "avoid_repetition"
+                ],
+                "pd-oo-poly-a2-09": [
+                    "countable_only"
+                ],
+                "pd-oo-poly-a2-10": [
+                    "unnatural_use"
+                ],
+                "pd-oo-poly-a2-11": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-a2-12": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-b1-01": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-b1-02": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-b1-03": [
+                    "this_that_one"
+                ],
+                "pd-oo-poly-b1-04": [
+                    "these_those_ones"
+                ],
+                "pd-oo-poly-b1-05": [
+                    "the_one_the_ones"
+                ],
+                "pd-oo-poly-b1-06": [
+                    "adjective_one_ones"
+                ],
+                "pd-oo-poly-b1-07": [
+                    "which_one_ones"
+                ],
+                "pd-oo-poly-b1-08": [
+                    "avoid_repetition"
+                ],
+                "pd-oo-poly-b1-09": [
+                    "countable_only"
+                ],
+                "pd-oo-poly-b1-10": [
+                    "unnatural_use"
+                ],
+                "pd-oo-poly-b1-11": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-b1-12": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-b2-01": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-b2-02": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-b2-03": [
+                    "this_that_one"
+                ],
+                "pd-oo-poly-b2-04": [
+                    "these_those_ones"
+                ],
+                "pd-oo-poly-b2-05": [
+                    "the_one_the_ones"
+                ],
+                "pd-oo-poly-b2-06": [
+                    "adjective_one_ones"
+                ],
+                "pd-oo-poly-b2-07": [
+                    "which_one_ones"
+                ],
+                "pd-oo-poly-b2-08": [
+                    "avoid_repetition"
+                ],
+                "pd-oo-poly-b2-09": [
+                    "countable_only"
+                ],
+                "pd-oo-poly-b2-10": [
+                    "unnatural_use"
+                ],
+                "pd-oo-poly-b2-11": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-b2-12": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-c1-01": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-c1-02": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-c1-03": [
+                    "this_that_one"
+                ],
+                "pd-oo-poly-c1-04": [
+                    "these_those_ones"
+                ],
+                "pd-oo-poly-c1-05": [
+                    "the_one_the_ones"
+                ],
+                "pd-oo-poly-c1-06": [
+                    "adjective_one_ones"
+                ],
+                "pd-oo-poly-c1-07": [
+                    "which_one_ones"
+                ],
+                "pd-oo-poly-c1-08": [
+                    "avoid_repetition"
+                ],
+                "pd-oo-poly-c1-09": [
+                    "countable_only"
+                ],
+                "pd-oo-poly-c1-10": [
+                    "unnatural_use"
+                ],
+                "pd-oo-poly-c1-11": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-c1-12": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-c2-01": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-c2-02": [
+                    "ones_plural"
+                ],
+                "pd-oo-poly-c2-03": [
+                    "this_that_one"
+                ],
+                "pd-oo-poly-c2-04": [
+                    "these_those_ones"
+                ],
+                "pd-oo-poly-c2-05": [
+                    "the_one_the_ones"
+                ],
+                "pd-oo-poly-c2-06": [
+                    "adjective_one_ones"
+                ],
+                "pd-oo-poly-c2-07": [
+                    "which_one_ones"
+                ],
+                "pd-oo-poly-c2-08": [
+                    "avoid_repetition"
+                ],
+                "pd-oo-poly-c2-09": [
+                    "countable_only"
+                ],
+                "pd-oo-poly-c2-10": [
+                    "unnatural_use"
+                ],
+                "pd-oo-poly-c2-11": [
+                    "one_singular"
+                ],
+                "pd-oo-poly-c2-12": [
+                    "ones_plural"
+                ]
+            }
+        },
+        {
+            "kind": "standard_v3",
+            "saved_test_slug": "one-ones-all-levels-v3",
+            "seeder_class": "Database\\Seeders\\V3\\PronounsDemonstratives\\OneOnesAllLevelsV3Seeder",
+            "strategy": "tag_key_to_bundle",
+            "expected_seeder_classes": [
+                "Database\\Seeders\\V3\\PronounsDemonstratives\\OneOnesAllLevelsV3Seeder"
+            ],
+            "tag_key_to_bundle": {
+                "one_singular": "one_singular",
+                "ones_plural": "ones_plural",
+                "this_that_one": "this_that_one",
+                "these_those_ones": "these_those_ones",
+                "the_one_the_ones": "the_one_the_ones",
+                "adjective_one_ones": "adjective_one_ones",
+                "which_one_ones": "which_one_ones",
+                "avoid_repetition": "avoid_repetition",
+                "countable_only": "countable_only",
+                "unnatural_use": "unnatural_use",
+                "typical_mistakes": "typical_mistakes"
+            },
+            "answer_value_to_bundle_fallback": {
+                "one": "one_singular",
+                "ones": "ones_plural",
+                "repetition": "avoid_repetition",
+                "countable": "countable_only",
+                "unnatural": "unnatural_use"
+            },
+            "question_text_to_bundle_fallback": {
+                "ones": "ones_plural",
+                "one": "one_singular",
+                "red": "one_singular",
+                "shoes": "ones_plural",
+                "water": "countable_only"
+            },
+            "default_bundle": "general_overview"
+        }
+    ],
+    "seeder_requirements": {
+        "standard_questions": {
+            "seeder_class": "Database\\Seeders\\V3\\PronounsDemonstratives\\OneOnesAllLevelsV3Seeder",
+            "question_count": 72,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ]
+        },
+        "polyglot_questions": {
+            "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotOneOnesAllLevelsLessonSeeder",
+            "question_count": 72,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "type": 4,
+            "mode": "compose_tokens"
+        },
+        "legacy_questions": {}
+    },
+    "qa": {
+        "polyglot_questions_use_explicit_uuid_map": true,
+        "standard_questions_allow_fallback": true
+    }
+}

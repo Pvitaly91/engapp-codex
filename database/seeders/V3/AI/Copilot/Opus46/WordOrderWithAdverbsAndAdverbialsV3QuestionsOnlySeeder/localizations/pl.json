@@ -1,0 +1,1526 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\AI\\Copilot\\Opus46\\WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\WordOrderWithAdverbsAndAdverbialsV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "copilot-opus46",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Przysłówki częstotliwości (always, never, usually) stawiamy przed głównym czasownikiem w Present Simple.",
+        "Czasownik `goes` jest główny — `always` musi stać bezpośrednio przed nim."
+      ],
+      "explanations": {
+        "a1": {
+          "always": "Poprawnie: `always` stoi przed głównym czasownikiem `goes`.",
+          "goes always": "Niepoprawnie: przysłówków częstotliwości nie stawiamy po głównym czasowniku w Present Simple.",
+          "always goes to": "Niepoprawnie: w luce potrzebny jest tylko przysłówek `always`, bez dodatkowych słów."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Po czasowniku `be` (am/is/are) przysłówek częstotliwości stoi po nim.",
+        "Konstrukcja `I am ___` — `never` stoi po `am`."
+      ],
+      "explanations": {
+        "a2": {
+          "never": "Poprawnie: po `be` przysłówek częstotliwości stoi po nim: `I am never late`.",
+          "late never": "Niepoprawnie: przysłówek częstotliwości nie stoi po przymiotniku.",
+          "not never": "Niepoprawnie: `not never` to podwójna negacja, niestandardowa w angielskim."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Przysłówki sposobu stawiamy po czasowniku lub po dopełnieniu.",
+        "Czasownik `plays` ma dopełnienie `football`, więc `well` stoi po dopełnieniu."
+      ],
+      "explanations": {
+        "a3": {
+          "well": "Poprawnie: `well` to przysłówek sposobu po dopełnieniu `football`.",
+          "good": "Niepoprawnie: `good` to przymiotnik. Do opisu czynności potrzebny jest przysłówek `well`.",
+          "well plays": "Niepoprawnie: przysłówek sposobu zwykle nie stoi przed czasownikiem."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Przysłówki miejsca (here, there, outside) stawiamy po czasowniku.",
+        "Czasownik `live` nie ma dopełnienia, więc `here` stoi zaraz po nim."
+      ],
+      "explanations": {
+        "a4": {
+          "here": "Poprawnie: `here` to przysłówek miejsca po czasowniku `live`.",
+          "here live": "Niepoprawnie: przysłówek miejsca powinien stać po czasowniku, nie przed nim.",
+          "live here they": "Niepoprawnie: podmiot nie może stać po przysłówku w zdaniu twierdzącym."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Okoliczniki czasu zwykle stoją na końcu zdania.",
+        "Po `eat breakfast` okolicznik czasu `every morning` zajmuje pozycję końcową."
+      ],
+      "explanations": {
+        "a5": {
+          "every morning": "Poprawnie: okolicznik czasu `every morning` stoi na końcu zdania.",
+          "every morning eat": "Niepoprawnie: okolicznik czasu nie rozdziela czasownika i dopełnienia w ten sposób.",
+          "morning every": "Niepoprawnie: szyk w wyrażeniu czasowym jest ustalony: `every morning`."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Przysłówki stopnia (very, too, really) stawiamy przed przymiotnikiem.",
+        "Przymiotnik `small` wymaga przysłówka stopnia przed sobą: `very small`."
+      ],
+      "explanations": {
+        "a6": {
+          "very": "Poprawnie: `very` stoi przed przymiotnikiem `small`.",
+          "small very": "Niepoprawnie: przysłówek stopnia nie stoi po przymiotniku.",
+          "much": "Niepoprawnie: `much` nie jest używany przed prostym przymiotnikiem. Użyj `very`."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Przysłówki częstotliwości stawiamy przed głównym czasownikiem.",
+        "Główny czasownik to `eats` — `sometimes` musi stać przed nim."
+      ],
+      "explanations": {
+        "a7": {
+          "sometimes": "Poprawnie: `sometimes` stoi przed głównym czasownikiem `eats`.",
+          "eats sometimes": "Niepoprawnie: w tej luce przysłówek musi stać przed czasownikiem.",
+          "sometime": "Niepoprawnie: `sometime` (bez -s) oznacza 'kiedyś w przyszłości', a nie 'czasami'."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Po `be` przysłówek częstotliwości stoi po czasowniku.",
+        "W konstrukcji `He is ___ happy` przysłówek `always` stoi po `is`."
+      ],
+      "explanations": {
+        "a8": {
+          "always": "Poprawnie: po `is` przysłówek częstotliwości stoi przed przymiotnikiem: `is always happy`.",
+          "happy always": "Niepoprawnie: przysłówek częstotliwości nie stoi po przymiotniku.",
+          "always is": "Niepoprawnie: przysłówek częstotliwości stoi po `be`, nie przed nim w zdaniu twierdzącym."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Przysłówki częstotliwości stawiamy przed głównym czasownikiem.",
+        "Główny czasownik to `watch` — `usually` stoi bezpośrednio przed nim."
+      ],
+      "explanations": {
+        "a9": {
+          "usually": "Poprawnie: `usually` stoi przed głównym czasownikiem `watch`.",
+          "watch usually": "Niepoprawnie: przysłówek częstotliwości nie stoi między czasownikiem a dopełnieniem.",
+          "usual": "Niepoprawnie: `usual` to przymiotnik. Przysłówek to `usually`."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Przysłówek sposobu stoi po czasowniku i dopełnieniu.",
+        "Po `speaks English` przysłówek `slowly` zajmuje pozycję końcową."
+      ],
+      "explanations": {
+        "a10": {
+          "slowly": "Poprawnie: `slowly` to przysłówek sposobu po dopełnieniu `English`.",
+          "slow": "Niepoprawnie: `slow` to przymiotnik. Użyj przysłówka `slowly`.",
+          "slowly speaks": "Niepoprawnie: przysłówek sposobu zwykle nie stoi przed czasownikiem."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Przysłówki stopnia stawiamy przed przymiotnikiem.",
+        "W konstrukcji `is ___ tired` przysłówek `really` stoi przed `tired`."
+      ],
+      "explanations": {
+        "a11": {
+          "really": "Poprawnie: `really` stoi przed przymiotnikiem `tired`.",
+          "tired really": "Niepoprawnie: przysłówek stopnia nie stoi po przymiotniku.",
+          "real": "Niepoprawnie: `real` to przymiotnik. Użyj przysłówka `really`."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Przysłówki miejsca stawiamy po czasowniku.",
+        "Czasownik `play` nie ma dopełnienia, więc `outside` stoi zaraz po nim."
+      ],
+      "explanations": {
+        "a12": {
+          "outside": "Poprawnie: `outside` to przysłówek miejsca po czasowniku `play`.",
+          "outside play": "Niepoprawnie: przysłówek miejsca stoi po czasowniku, nie przed nim.",
+          "the outside": "Niepoprawnie: `the outside` to fraza rzeczownikowa; potrzebny jest przysłówek `outside`."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Przysłówki czasu stawiamy na końcu zdania.",
+        "Po `go to bed` przysłówek `early` zajmuje pozycję końcową."
+      ],
+      "explanations": {
+        "a13": {
+          "early": "Poprawnie: `early` to przysłówek czasu na końcu zdania.",
+          "early go": "Niepoprawnie: `early` nie stoi przed czasownikiem w tym typie zdania.",
+          "earlily": "Niepoprawnie: forma `earlily` nie istnieje. `Early` to jednocześnie przymiotnik i przysłówek."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Przysłówek częstotliwości stoi przed głównym czasownikiem.",
+        "Przed `drinks` przysłówek `often` wskazuje na regularność."
+      ],
+      "explanations": {
+        "a14": {
+          "often": "Poprawnie: `often` stoi przed głównym czasownikiem `drinks`.",
+          "drinks often": "Niepoprawnie: w tej luce przysłówek musi stać przed czasownikiem.",
+          "oftenly": "Niepoprawnie: forma `oftenly` nie istnieje. `Often` to już przysłówek."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Przysłówki sposobu stawiamy po czasowniku, gdy nie ma dopełnienia.",
+        "Czasownik `sings` nie ma dopełnienia, więc `beautifully` stoi zaraz po nim."
+      ],
+      "explanations": {
+        "a15": {
+          "beautifully": "Poprawnie: `beautifully` to przysłówek sposobu po czasowniku `sings`.",
+          "beautiful": "Niepoprawnie: `beautiful` to przymiotnik. Użyj przysłówka `beautifully`.",
+          "beautifully sings": "Niepoprawnie: przysłówek sposobu zwykle stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Przysłówek stopnia `too` stawiamy przed przymiotnikiem i oznacza 'zbyt'.",
+        "W `is ___ hot` przysłówek `too` stoi przed `hot`."
+      ],
+      "explanations": {
+        "a16": {
+          "too": "Poprawnie: `too` stoi przed przymiotnikiem `hot`, oznaczając 'zbyt gorący'.",
+          "hot too": "Niepoprawnie: `too` w znaczeniu 'zbyt' nie stoi po przymiotniku.",
+          "to": "Niepoprawnie: `to` to przyimek, a nie przysłówek stopnia. Przysłówek to `too`."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Przysłówki częstotliwości stawiamy przed głównym czasownikiem.",
+        "Przed `forget` potrzebny jest przysłówek `sometimes`."
+      ],
+      "explanations": {
+        "a17": {
+          "sometimes": "Poprawnie: `sometimes` stoi przed głównym czasownikiem `forget`.",
+          "forget sometimes": "Niepoprawnie: w tej luce przysłówek musi stać przed czasownikiem.",
+          "some times": "Niepoprawnie: `some times` (dwa słowa) to 'kilka razy', a nie 'czasami'. Użyj `sometimes`."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Okoliczniki czasu zwykle stoją na końcu zdania.",
+        "Po `went to the park` okolicznik `yesterday` zajmuje pozycję końcową."
+      ],
+      "explanations": {
+        "a18": {
+          "yesterday": "Poprawnie: `yesterday` to okolicznik czasu na końcu zdania.",
+          "yesterday went": "Niepoprawnie: w zdaniu twierdzącym `yesterday` zwykle stoi na końcu.",
+          "the yesterday": "Niepoprawnie: `yesterday` nie jest używany z przedimkiem `the`."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Przysłówek stawiamy między czasownikiem modalnym a głównym.",
+        "W `can ___ speak` przysłówek `already` stoi między `can` a `speak`."
+      ],
+      "explanations": {
+        "a19": {
+          "already": "Poprawnie: `already` stoi między modalnym `can` a głównym `speak`.",
+          "can already speak": "Niepoprawnie: w luce potrzebny jest tylko przysłówek `already`.",
+          "already can": "Niepoprawnie: `already` nie stoi przed modalnym `can` w zdaniu twierdzącym."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Przysłówek sposobu stoi po czasowniku.",
+        "Po `walked` przysłówek `quickly` opisuje sposób chodzenia."
+      ],
+      "explanations": {
+        "a20": {
+          "quickly": "Poprawnie: `quickly` to przysłówek sposobu po czasowniku `walked`.",
+          "quick": "Niepoprawnie: `quick` to przymiotnik. Użyj przysłówka `quickly`.",
+          "quickly walked": "Niepoprawnie: w tej luce przysłówek stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "W czasach Perfect przysłówek stoi między `has/have` a imiesłowem.",
+        "W `has ___ been` przysłówek `never` stoi między `has` a `been`."
+      ],
+      "explanations": {
+        "a21": {
+          "never": "Poprawnie: `never` stoi między `has` a `been` w Present Perfect.",
+          "been never": "Niepoprawnie: przysłówek nie stoi po imiesłowie `been`.",
+          "never has": "Niepoprawnie: `never has` na początku wymaga inwersji, co tu nie jest potrzebne."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Przy kilku okolicznikach kolejność to: sposób → miejsce → czas (MPT).",
+        "Po `played` sposób `happily` stoi pierwszy, potem miejsce, potem czas."
+      ],
+      "explanations": {
+        "a22": {
+          "happily": "Poprawnie: `happily` stoi pierwszy po czasowniku w kolejności MPT.",
+          "happy": "Niepoprawnie: `happy` to przymiotnik. Użyj przysłówka `happily`.",
+          "happily played": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Przysłówek częstotliwości stoi przed głównym czasownikiem.",
+        "Przed `finishes` przysłówek `usually` wskazuje na regularność."
+      ],
+      "explanations": {
+        "a23": {
+          "usually": "Poprawnie: `usually` stoi przed głównym czasownikiem `finishes`.",
+          "finishes usually": "Niepoprawnie: przysłówek częstotliwości nie stoi po czasowniku.",
+          "usual": "Niepoprawnie: `usual` to przymiotnik. Użyj przysłówka `usually`."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Przysłówek stopnia stoi przed przymiotnikiem.",
+        "W `was ___ interesting` przysłówek `quite` stoi przed `interesting`."
+      ],
+      "explanations": {
+        "a24": {
+          "quite": "Poprawnie: `quite` stoi przed przymiotnikiem `interesting`.",
+          "interesting quite": "Niepoprawnie: przysłówek stopnia nie stoi po przymiotniku.",
+          "quit": "Niepoprawnie: `quit` to czasownik 'rzucić'. Przysłówek stopnia to `quite`."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Przysłówek stawiamy między czasownikiem posiłkowym a głównym.",
+        "W `will ___ call` przysłówek `definitely` stoi między `will` a `call`."
+      ],
+      "explanations": {
+        "a25": {
+          "definitely": "Poprawnie: `definitely` stoi między `will` a `call`.",
+          "will definitely call": "Niepoprawnie: w luce potrzebny jest tylko przysłówek.",
+          "definite": "Niepoprawnie: `definite` to przymiotnik. Użyj przysłówka `definitely`."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Po `be` przysłówek częstotliwości stoi po czasowniku.",
+        "W `are ___ late` przysłówek `often` stoi między `are` a `late`."
+      ],
+      "explanations": {
+        "a26": {
+          "often": "Poprawnie: po `are` przysłówek częstotliwości stoi przed przymiotnikiem.",
+          "late often": "Niepoprawnie: przysłówek częstotliwości nie stoi po przymiotniku.",
+          "oftenly": "Niepoprawnie: forma `oftenly` nie istnieje. `Often` to już przysłówek."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Przysłówek sposobu stoi po czasowniku, gdy nie ma dopełnienia.",
+        "Po `drives` przysłówek `carefully` opisuje sposób jazdy."
+      ],
+      "explanations": {
+        "a27": {
+          "carefully": "Poprawnie: `carefully` to przysłówek sposobu po czasowniku `drives`.",
+          "careful": "Niepoprawnie: `careful` to przymiotnik. Użyj przysłówka `carefully`.",
+          "carefully drives": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Przysłówek miejsca `there` stoi po czasowniku.",
+        "Po `stayed` przysłówek `there` stoi przed okolicznikiem czasu."
+      ],
+      "explanations": {
+        "a28": {
+          "there": "Poprawnie: `there` to przysłówek miejsca po czasowniku `stayed`.",
+          "there stayed": "Niepoprawnie: przysłówek miejsca nie stoi przed czasownikiem w zdaniu twierdzącym.",
+          "their": "Niepoprawnie: `their` to zaimek dzierżawczy, a nie przysłówek miejsca `there`."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "`enough` stawiamy po przymiotniku lub przysłówku, nie przed.",
+        "W `old ___ to drive` słowo `enough` stoi po przymiotniku `old`."
+      ],
+      "explanations": {
+        "a29": {
+          "enough": "Poprawnie: `enough` stoi po przymiotniku `old`: `old enough to drive`.",
+          "enough old": "Niepoprawnie: `enough` stawiamy po przymiotniku, nie przed nim.",
+          "enoughly": "Niepoprawnie: forma `enoughly` nie istnieje."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Kolejność okoliczników: sposób → miejsce → czas.",
+        "Po `danced` sposób `gracefully` stoi pierwszy, potem miejsce, potem czas."
+      ],
+      "explanations": {
+        "a30": {
+          "gracefully": "Poprawnie: `gracefully` stoi pierwszy po czasowniku w kolejności MPT.",
+          "graceful": "Niepoprawnie: `graceful` to przymiotnik. Użyj przysłówka `gracefully`.",
+          "gracefully danced": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 31,
+      "hints": [
+        "Przysłówki komentujące stawiamy na początku zdania z przecinkiem.",
+        "Pozycja przed przecinkiem na początku — typowa dla przysłówka komentującego."
+      ],
+      "explanations": {
+        "a31": {
+          "Unfortunately": "Poprawnie: `Unfortunately` to przysłówek komentujący na początku zdania.",
+          "Unfortunate": "Niepoprawnie: `unfortunate` to przymiotnik. Potrzebny jest przysłówek `Unfortunately`.",
+          "Unfortunately we missed": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 32,
+      "hints": [
+        "W czasach Perfect `just` stoi między czasownikiem posiłkowym a imiesłowem.",
+        "W `has ___ finished` przysłówek `just` stoi między `has` a `finished`."
+      ],
+      "explanations": {
+        "a32": {
+          "just": "Poprawnie: `just` stoi między `has` a `finished` w Present Perfect.",
+          "finished just": "Niepoprawnie: `just` nie stoi po imiesłowie w Present Perfect.",
+          "just has": "Niepoprawnie: `just` stoi po `has`, nie przed nim."
+        }
+      }
+    },
+    {
+      "id": 33,
+      "hints": [
+        "Przysłówek sposobu stoi po czasowniku; `enough` stoi po przysłówku.",
+        "Po `speaks` przysłówek `clearly` opisuje sposób, a `enough` stoi za nim."
+      ],
+      "explanations": {
+        "a33": {
+          "clearly": "Poprawnie: `clearly` to przysłówek sposobu po `speaks`, za nim `enough`.",
+          "clear": "Niepoprawnie: `clear` to przymiotnik. Użyj przysłówka `clearly`.",
+          "enough clearly": "Niepoprawnie: `enough` stawiamy po przysłówku, nie przed nim."
+        }
+      }
+    },
+    {
+      "id": 34,
+      "hints": [
+        "Przysłówki czasu stawiamy na końcu zdania.",
+        "Po `will see you` przysłówek `soon` zajmuje pozycję końcową."
+      ],
+      "explanations": {
+        "a34": {
+          "soon": "Poprawnie: `soon` to przysłówek czasu na końcu zdania.",
+          "soon will": "Niepoprawnie: `soon` nie stoi przed `will` w tym zdaniu.",
+          "soonly": "Niepoprawnie: forma `soonly` nie istnieje. `Soon` to już przysłówek."
+        }
+      }
+    },
+    {
+      "id": 35,
+      "hints": [
+        "`How often` stawiamy na początku, pytając o częstotliwość.",
+        "Fraza `How often` stoi przed czasownikiem posiłkowym `do`."
+      ],
+      "explanations": {
+        "a35": {
+          "How often": "Poprawnie: `How often` to fraza pytająca o częstotliwość.",
+          "Often how": "Niepoprawnie: ustalony szyk to `How often`, nie odwrotnie.",
+          "How much often": "Niepoprawnie: `How much often` zawiera zbędne `much`. Poprawnie: `How often`."
+        }
+      }
+    },
+    {
+      "id": 36,
+      "hints": [
+        "Przysłówek częstotliwości `rarely` stoi przed głównym czasownikiem.",
+        "Przed `argue` przysłówek `rarely` wskazuje na bardzo niską częstotliwość."
+      ],
+      "explanations": {
+        "a36": {
+          "rarely": "Poprawnie: `rarely` stoi przed głównym czasownikiem `argue`.",
+          "argue rarely": "Niepoprawnie: przysłówek częstotliwości zwykle stoi przed głównym czasownikiem.",
+          "rare": "Niepoprawnie: `rare` to przymiotnik. Użyj przysłówka `rarely`."
+        }
+      }
+    },
+    {
+      "id": 37,
+      "hints": [
+        "Kolejność okoliczników: sposób → miejsce → czas (MPT).",
+        "Po `spoke` sposób `confidently` stoi pierwszy, potem miejsce, potem czas."
+      ],
+      "explanations": {
+        "a37": {
+          "confidently": "Poprawnie: `confidently` stoi pierwszy po czasowniku w kolejności MPT.",
+          "confident": "Niepoprawnie: `confident` to przymiotnik. Użyj przysłówka `confidently`.",
+          "confidently spoke": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 38,
+      "hints": [
+        "W Present Perfect przysłówek stoi między `has/have` a imiesłowem.",
+        "W `has ___ visited` przysłówek `already` stoi między `has` a `visited`."
+      ],
+      "explanations": {
+        "a38": {
+          "already": "Poprawnie: `already` między `has` a `visited` w Present Perfect.",
+          "visited already": "Niepoprawnie: `already` zwykle nie stoi po imiesłowie.",
+          "already has": "Niepoprawnie: `already` stoi po `has`, nie przed nim w zdaniu twierdzącym."
+        }
+      }
+    },
+    {
+      "id": 39,
+      "hints": [
+        "Przysłówek komentujący stoi na początku zdania z przecinkiem.",
+        "Pozycja przed przecinkiem na początku — typowa dla `Fortunately`."
+      ],
+      "explanations": {
+        "a39": {
+          "Fortunately": "Poprawnie: `Fortunately` to przysłówek komentujący wyrażający pozytywną ocenę.",
+          "Fortunate": "Niepoprawnie: `fortunate` to przymiotnik. Użyj przysłówka `Fortunately`.",
+          "Fortunately was": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 40,
+      "hints": [
+        "Przysłówek stopnia stoi między czasownikiem posiłkowym a głównym.",
+        "W `would ___ like` przysłówek `really` stoi między `would` a `like`."
+      ],
+      "explanations": {
+        "a40": {
+          "really": "Poprawnie: `really` między `would` a `like` wzmacnia pragnienie.",
+          "would really like": "Niepoprawnie: w luce potrzebny jest tylko `really`.",
+          "real": "Niepoprawnie: `real` to przymiotnik. Użyj przysłówka `really`."
+        }
+      }
+    },
+    {
+      "id": 41,
+      "hints": [
+        "`How often` pyta o częstotliwość i stoi na początku pytania.",
+        "Przed `does` potrzebna jest fraza `How often`."
+      ],
+      "explanations": {
+        "a41": {
+          "How often": "Poprawnie: `How often` pyta o częstotliwość czynności.",
+          "How many times often": "Niepoprawnie: `How many times` i `How often` to osobne konstrukcje; nie łączymy ich.",
+          "Often how": "Niepoprawnie: szyk jest ustalony: `How often`."
+        }
+      }
+    },
+    {
+      "id": 42,
+      "hints": [
+        "Przysłówek stopnia stoi przed przymiotnikiem.",
+        "W `were ___ excited` przysłówek `extremely` stoi przed `excited`."
+      ],
+      "explanations": {
+        "a42": {
+          "extremely": "Poprawnie: `extremely` stoi przed przymiotnikiem `excited`.",
+          "excited extremely": "Niepoprawnie: przysłówek stopnia nie stoi po przymiotniku.",
+          "extreme": "Niepoprawnie: `extreme` to przymiotnik. Użyj przysłówka `extremely`."
+        }
+      }
+    },
+    {
+      "id": 43,
+      "hints": [
+        "Kolejność okoliczników: sposób → miejsce → czas.",
+        "Po `waited` sposób `patiently` stoi pierwszy, potem miejsce, potem czas."
+      ],
+      "explanations": {
+        "a43": {
+          "patiently": "Poprawnie: `patiently` stoi pierwszy po czasowniku w kolejności MPT.",
+          "patient": "Niepoprawnie: `patient` to przymiotnik/rzeczownik. Użyj przysłówka `patiently`.",
+          "patiently waited": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 44,
+      "hints": [
+        "Przysłówek skupiający `almost` stoi przed elementem, który ogranicza.",
+        "W zdaniu `almost` skupia uwagę na `only eats` — stoi przed tą frazą."
+      ],
+      "explanations": {
+        "a44": {
+          "almost": "Poprawnie: `almost` stoi przed `only eats`, ograniczając zakres.",
+          "eats almost": "Niepoprawnie: `almost` nie stoi po czasowniku, gdy skupia na `only`.",
+          "almost eats only": "Niepoprawnie: w luce potrzebny jest tylko `almost`."
+        }
+      }
+    },
+    {
+      "id": 45,
+      "hints": [
+        "Przysłówek może stać między `to` a czasownikiem (split infinitive).",
+        "W `to ___ check` przysłówek `carefully` stoi między `to` a `check`."
+      ],
+      "explanations": {
+        "a45": {
+          "carefully": "Poprawnie: `carefully` w split infinitive między `to` a `check`.",
+          "careful": "Niepoprawnie: `careful` to przymiotnik. Użyj przysłówka `carefully`.",
+          "carefully to check": "Niepoprawnie: przysłówek stoi między `to` a czasownikiem, nie przed `to`."
+        }
+      }
+    },
+    {
+      "id": 46,
+      "hints": [
+        "`enough` stawiamy po przysłówku lub przymiotniku, nie przed.",
+        "W `fast ___ to win` słowo `enough` stoi po `fast`."
+      ],
+      "explanations": {
+        "a46": {
+          "enough": "Poprawnie: `enough` po przysłówku `fast`: `fast enough to win`.",
+          "enough fast": "Niepoprawnie: `enough` stawiamy po przysłówku, nie przed nim.",
+          "enoughly": "Niepoprawnie: forma `enoughly` nie istnieje."
+        }
+      }
+    },
+    {
+      "id": 47,
+      "hints": [
+        "Przy łańcuchu czasowników posiłkowych przysłówek może stać po ostatnim.",
+        "W `have been ___ working` przysłówek `steadily` stoi między `been` a `working`."
+      ],
+      "explanations": {
+        "a47": {
+          "steadily": "Poprawnie: `steadily` stoi między `been` a `working`.",
+          "steady": "Niepoprawnie: `steady` to przymiotnik. Użyj przysłówka `steadily`.",
+          "steadily been": "Niepoprawnie: przysłówek nie stoi przed `been` w tej konstrukcji."
+        }
+      }
+    },
+    {
+      "id": 48,
+      "hints": [
+        "Przysłówki punktu widzenia stawiamy na początku zdania z przecinkiem.",
+        "Pozycja przed przecinkiem na początku — dla przysłówka `Personally`."
+      ],
+      "explanations": {
+        "a48": {
+          "Personally": "Poprawnie: `Personally` to przysłówek punktu widzenia na początku zdania.",
+          "Personal": "Niepoprawnie: `personal` to przymiotnik. Użyj przysłówka `Personally`.",
+          "Personally I think": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 49,
+      "hints": [
+        "Przysłówek skupiający `only` stoi przed elementem, który ogranicza.",
+        "W `I ___ just wanted` przysłówek `only` stoi przed `just`, ograniczając cel."
+      ],
+      "explanations": {
+        "a49": {
+          "only": "Poprawnie: `only` przed `just wanted` ogranicza czynność.",
+          "just only": "Niepoprawnie: `just only` to nadmiarowe powtórzenie; potrzebny jest tylko `only`.",
+          "only just wanted": "Niepoprawnie: w luce potrzebny jest tylko `only`."
+        }
+      }
+    },
+    {
+      "id": 50,
+      "hints": [
+        "Przysłówek sposobu stoi po dopełnieniu.",
+        "Po `read the instructions` przysłówek `thoroughly` opisuje jakość czytania."
+      ],
+      "explanations": {
+        "a50": {
+          "thoroughly": "Poprawnie: `thoroughly` to przysłówek sposobu po dopełnieniu.",
+          "thorough": "Niepoprawnie: `thorough` to przymiotnik. Użyj przysłówka `thoroughly`.",
+          "thoroughly read": "Niepoprawnie: przysłówek sposobu stoi po dopełnieniu."
+        }
+      }
+    },
+    {
+      "id": 51,
+      "hints": [
+        "Po `be` przysłówek stoi po czasowniku.",
+        "W `is ___ the best` przysłówek `probably` stoi po `is`."
+      ],
+      "explanations": {
+        "a51": {
+          "probably": "Poprawnie: `probably` stoi po `is` i przed `the best student`.",
+          "the probably best": "Niepoprawnie: `probably` nie stoi między przedimkiem a przymiotnikiem.",
+          "probable": "Niepoprawnie: `probable` to przymiotnik. Użyj przysłówka `probably`."
+        }
+      }
+    },
+    {
+      "id": 52,
+      "hints": [
+        "Przysłówek stoi między modalnym a głównym czasownikiem.",
+        "W `should ___ leave` przysłówek `probably` stoi między `should` a `leave`."
+      ],
+      "explanations": {
+        "a52": {
+          "probably": "Poprawnie: `probably` między `should` a `leave`.",
+          "should probably leave": "Niepoprawnie: w luce potrzebny jest tylko `probably`.",
+          "probable": "Niepoprawnie: `probable` to przymiotnik. Użyj przysłówka `probably`."
+        }
+      }
+    },
+    {
+      "id": 53,
+      "hints": [
+        "`absolutely` stawiamy przed przymiotnikami skrajnymi jak `amazing`.",
+        "Przymiotnik `amazing` jest skrajny, więc używamy `absolutely`, nie `very`."
+      ],
+      "explanations": {
+        "a53": {
+          "absolutely": "Poprawnie: `absolutely` wzmacnia skrajny przymiotnik `amazing`.",
+          "amazing absolutely": "Niepoprawnie: przysłówek stopnia nie stoi po przymiotniku.",
+          "absolute": "Niepoprawnie: `absolute` to przymiotnik. Użyj przysłówka `absolutely`."
+        }
+      }
+    },
+    {
+      "id": 54,
+      "hints": [
+        "Kolejność okoliczników: sposób → miejsce → czas.",
+        "Po `practised` sposób `diligently` stoi pierwszy, potem miejsce, potem czas."
+      ],
+      "explanations": {
+        "a54": {
+          "diligently": "Poprawnie: `diligently` — sposób, stoi pierwszy po czasowniku.",
+          "diligent": "Niepoprawnie: `diligent` to przymiotnik. Użyj przysłówka `diligently`.",
+          "diligently practised": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 55,
+      "hints": [
+        "Przysłówek komentujący stoi na początku zdania.",
+        "Pozycja przed przecinkiem na początku — dla `Surprisingly`."
+      ],
+      "explanations": {
+        "a55": {
+          "Surprisingly": "Poprawnie: `Surprisingly` to przysłówek komentujący na początku zdania.",
+          "Surprising": "Niepoprawnie: `surprising` to przymiotnik. Użyj przysłówka `Surprisingly`.",
+          "Surprisingly produced": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 56,
+      "hints": [
+        "Przysłówek stoi między posiłkowym a głównym lub następnym posiłkowym.",
+        "W `would ___ have accepted` przysłówek `gladly` stoi między `would` a `have`."
+      ],
+      "explanations": {
+        "a56": {
+          "gladly": "Poprawnie: `gladly` stoi między `would` a `have`.",
+          "glad": "Niepoprawnie: `glad` to przymiotnik. Użyj przysłówka `gladly`.",
+          "gladly would": "Niepoprawnie: przysłówek nie stoi przed modalnym `would`."
+        }
+      }
+    },
+    {
+      "id": 57,
+      "hints": [
+        "Przysłówek skupiający `hardly` oznacza 'ledwie' i stoi przed czasownikiem.",
+        "W zdaniu `hardly` stoi przed `even noticed`, podkreślając minimalność."
+      ],
+      "explanations": {
+        "a57": {
+          "hardly": "Poprawnie: `hardly` przed `even noticed` oznacza 'ledwie nawet zauważył'.",
+          "hard": "Niepoprawnie: `hard` jako przysłówek oznacza 'ciężko', nie 'ledwie'. Użyj `hardly`.",
+          "hardly even noticed": "Niepoprawnie: w luce potrzebny jest tylko `hardly`."
+        }
+      }
+    },
+    {
+      "id": 58,
+      "hints": [
+        "Split infinitive: przysłówek stoi między `to` a czasownikiem.",
+        "W `to ___ reform` przysłówek `gradually` rozdziela bezokolicznik."
+      ],
+      "explanations": {
+        "a58": {
+          "gradually": "Poprawnie: `gradually` w split infinitive między `to` a `reform`.",
+          "gradual": "Niepoprawnie: `gradual` to przymiotnik. Użyj przysłówka `gradually`.",
+          "gradually to reform": "Niepoprawnie: przysłówek stoi między `to` a czasownikiem, nie przed `to`."
+        }
+      }
+    },
+    {
+      "id": 59,
+      "hints": [
+        "Kolejność okoliczników: sposób → miejsce → czas.",
+        "Po `performed` sposób `brilliantly` stoi pierwszy, potem miejsce, potem czas."
+      ],
+      "explanations": {
+        "a59": {
+          "brilliantly": "Poprawnie: `brilliantly` stoi pierwszy w kolejności MPT.",
+          "brilliant": "Niepoprawnie: `brilliant` to przymiotnik. Użyj przysłówka `brilliantly`.",
+          "brilliantly performed": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 60,
+      "hints": [
+        "Przysłówek stopnia stoi przed przymiotnikiem.",
+        "W `were ___ different` przysłówek `significantly` stoi przed `different`."
+      ],
+      "explanations": {
+        "a60": {
+          "significantly": "Poprawnie: `significantly` stoi przed przymiotnikiem `different`.",
+          "significant": "Niepoprawnie: `significant` to przymiotnik. Użyj przysłówka `significantly`.",
+          "significantly were": "Niepoprawnie: przysłówek stopnia nie stoi przed `were`."
+        }
+      }
+    },
+    {
+      "id": 61,
+      "hints": [
+        "Przysłówek skupiający `barely` stoi między modalnym a głównym.",
+        "W `can ___ understand` przysłówek `barely` stoi między `can` a `understand`."
+      ],
+      "explanations": {
+        "a61": {
+          "barely": "Poprawnie: `barely` między `can` a `understand`.",
+          "bare": "Niepoprawnie: `bare` to przymiotnik 'nagi'. Użyj przysłówka `barely`.",
+          "barely can": "Niepoprawnie: `barely` nie stoi przed `can` w zdaniu twierdzącym."
+        }
+      }
+    },
+    {
+      "id": 62,
+      "hints": [
+        "Okolicznik czasu można wynieść na początek dla podkreślenia.",
+        "Pozycja na początku z przecinkiem — dla `Eventually`."
+      ],
+      "explanations": {
+        "a62": {
+          "Eventually": "Poprawnie: `Eventually` to okolicznik czasu wyniesiony na początek.",
+          "Eventual": "Niepoprawnie: `eventual` to przymiotnik. Użyj przysłówka `Eventually`.",
+          "Eventually decided": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 63,
+      "hints": [
+        "Przysłówek częstotliwości stoi przed głównym czasownikiem.",
+        "Przed `only reads` przysłówek `generally` wskazuje na ogólną tendencję."
+      ],
+      "explanations": {
+        "a63": {
+          "generally": "Poprawnie: `generally` stoi przed `only reads`.",
+          "general": "Niepoprawnie: `general` to przymiotnik. Użyj przysłówka `generally`.",
+          "generally only reads": "Niepoprawnie: w luce potrzebny jest tylko `generally`."
+        }
+      }
+    },
+    {
+      "id": 64,
+      "hints": [
+        "Kolejność okoliczników: sposób → miejsce → czas.",
+        "Po `discussed the matter` sposób `privately` stoi pierwszy, potem miejsce, potem czas."
+      ],
+      "explanations": {
+        "a64": {
+          "privately": "Poprawnie: `privately` — sposób po dopełnieniu, przed okolicznikami miejsca i czasu.",
+          "private": "Niepoprawnie: `private` to przymiotnik. Użyj przysłówka `privately`.",
+          "privately discussed": "Niepoprawnie: przysłówek sposobu stoi po czasowniku/dopełnieniu."
+        }
+      }
+    },
+    {
+      "id": 65,
+      "hints": [
+        "Przysłówek stoi po łańcuchu posiłkowych przed głównym.",
+        "W `must have ___ forgotten` przysłówek `completely` stoi po `have`."
+      ],
+      "explanations": {
+        "a65": {
+          "completely": "Poprawnie: `completely` stoi między `have` a `forgotten`.",
+          "complete": "Niepoprawnie: `complete` to przymiotnik. Użyj przysłówka `completely`.",
+          "completely must": "Niepoprawnie: przysłówek nie stoi przed `must`."
+        }
+      }
+    },
+    {
+      "id": 66,
+      "hints": [
+        "Przysłówek stopnia/zakresu stoi przed przymiotnikiem.",
+        "W `is ___ well-known` przysłówek `internationally` określa zakres."
+      ],
+      "explanations": {
+        "a66": {
+          "internationally": "Poprawnie: `internationally` przed `well-known` wskazuje zakres.",
+          "international": "Niepoprawnie: `international` to przymiotnik. Użyj przysłówka `internationally`.",
+          "internationally is": "Niepoprawnie: przysłówek nie stoi przed `is` w tym szyku."
+        }
+      }
+    },
+    {
+      "id": 67,
+      "hints": [
+        "Gdy przysłówek ograniczający (Only later) jest wyniesiony na początek, następuje inwersja.",
+        "Po `Only later` potrzebna jest inwersja: posiłkowy przed podmiotem."
+      ],
+      "explanations": {
+        "a67": {
+          "Only later": "Poprawnie: `Only later` na początku wywołuje inwersję `did they realise`.",
+          "Later only": "Niepoprawnie: ustalony szyk to `Only later`, nie odwrotnie.",
+          "Only later they": "Niepoprawnie: w luce potrzebna jest tylko fraza `Only later`."
+        }
+      }
+    },
+    {
+      "id": 68,
+      "hints": [
+        "`enough` stawiamy po przymiotniku.",
+        "W `strong ___ to lift` słowo `enough` stoi po `strong`."
+      ],
+      "explanations": {
+        "a68": {
+          "enough": "Poprawnie: `enough` po `strong`: `strong enough to lift`.",
+          "enough strong": "Niepoprawnie: `enough` stawiamy po przymiotniku, nie przed nim.",
+          "enoughly": "Niepoprawnie: forma `enoughly` nie istnieje."
+        }
+      }
+    },
+    {
+      "id": 69,
+      "hints": [
+        "`hardly` oznacza 'prawie nie' i stoi przed `ever` w frazie `hardly ever`.",
+        "W zdaniu `hardly ever` oznacza 'prawie nigdy' — `hardly` stoi przed `ever`."
+      ],
+      "explanations": {
+        "a69": {
+          "hardly": "Poprawnie: `hardly ever` — ustalona fraza, `hardly` przed `ever`.",
+          "hard": "Niepoprawnie: `hard` oznacza 'ciężko', a nie 'ledwie'.",
+          "ever hardly": "Niepoprawnie: ustalony szyk to `hardly ever`, nie odwrotnie."
+        }
+      }
+    },
+    {
+      "id": 70,
+      "hints": [
+        "Przysłówek stopnia stoi po `be` i przed przymiotnikiem.",
+        "W `were ___ aware` przysłówek `fully` stoi przed `aware`."
+      ],
+      "explanations": {
+        "a70": {
+          "fully": "Poprawnie: `fully` stoi po `were` i przed `aware`.",
+          "full": "Niepoprawnie: `full` to przymiotnik. Użyj przysłówka `fully`.",
+          "fully were": "Niepoprawnie: przysłówek nie stoi przed `were` w zdaniu twierdzącym."
+        }
+      }
+    },
+    {
+      "id": 71,
+      "hints": [
+        "Split infinitive: przysłówek między `to` a czasownikiem.",
+        "W `to ___ consider` przysłówek `thoroughly` rozdziela bezokolicznik."
+      ],
+      "explanations": {
+        "a71": {
+          "thoroughly": "Poprawnie: `thoroughly` w split infinitive między `to` a `consider`.",
+          "thorough": "Niepoprawnie: `thorough` to przymiotnik. Użyj przysłówka `thoroughly`.",
+          "thoroughly to": "Niepoprawnie: przysłówek stoi między `to` a czasownikiem, nie przed `to`."
+        }
+      }
+    },
+    {
+      "id": 72,
+      "hints": [
+        "Przysłówek komentujący stoi na początku z przecinkiem.",
+        "Pozycja na początku z przecinkiem — dla `Remarkably`."
+      ],
+      "explanations": {
+        "a72": {
+          "Remarkably": "Poprawnie: `Remarkably` to przysłówek komentujący wyrażający zdziwienie.",
+          "Remarkable": "Niepoprawnie: `remarkable` to przymiotnik. Użyj przysłówka `Remarkably`.",
+          "Remarkably managed": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 73,
+      "hints": [
+        "Po przysłówku przeczącym `Never` na początku zdania wymagana jest inwersja.",
+        "Po `Never` poprawna kolejność: `have I seen` (posiłkowy + podmiot + imiesłów)."
+      ],
+      "explanations": {
+        "a73": {
+          "have I seen": "Poprawnie: inwersja po `Never` — `have I seen`.",
+          "I have seen": "Niepoprawnie: po `Never` na początku potrzebna jest inwersja.",
+          "I seen have": "Niepoprawnie: naruszono i inwersję, i strukturę Present Perfect."
+        }
+      }
+    },
+    {
+      "id": 74,
+      "hints": [
+        "Po `Rarely` na początku zdania wymagana jest inwersja.",
+        "Poprawna kolejność: `does` + podmiot `the media` + główny `pay`."
+      ],
+      "explanations": {
+        "a74": {
+          "does the media pay": "Poprawnie: inwersja po `Rarely` — `does the media pay`.",
+          "the media pays": "Niepoprawnie: po `Rarely` na początku potrzebna jest inwersja.",
+          "the media does pay": "Niepoprawnie: w inwersji podmiot stoi między posiłkowym a głównym."
+        }
+      }
+    },
+    {
+      "id": 75,
+      "hints": [
+        "W stronie biernej z modalnym przysłówek może stać po ostatnim posiłkowym.",
+        "W `should be ___ interpreted` przysłówek `always` stoi po `be`."
+      ],
+      "explanations": {
+        "a75": {
+          "always": "Poprawnie: `always` między `be` a `interpreted` w stronie biernej.",
+          "interpreted always": "Niepoprawnie: przysłówek nie stoi po imiesłowie w stronie biernej.",
+          "always should": "Niepoprawnie: przysłówek nie stoi przed modalnym `should`."
+        }
+      }
+    },
+    {
+      "id": 76,
+      "hints": [
+        "Przysłówek oceny stoi na początku z przecinkiem.",
+        "`Arguably` oznacza 'można twierdzić' i stoi na początku."
+      ],
+      "explanations": {
+        "a76": {
+          "Arguably": "Poprawnie: `Arguably` to przysłówek oceny na początku zdania.",
+          "Arguable": "Niepoprawnie: `arguable` to przymiotnik. Użyj przysłówka `Arguably`.",
+          "Arguably has": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 77,
+      "hints": [
+        "Po `Seldom` na początku zdania wymagana jest inwersja.",
+        "Poprawna kolejność: `is there` — inwersja w konstrukcji egzystencjalnej."
+      ],
+      "explanations": {
+        "a77": {
+          "is there": "Poprawnie: inwersja po `Seldom` — `is there`.",
+          "there is": "Niepoprawnie: po `Seldom` na początku potrzebna jest inwersja.",
+          "there are": "Niepoprawnie: brak inwersji i `vote` jest w liczbie pojedynczej, więc `are` nie pasuje."
+        }
+      }
+    },
+    {
+      "id": 78,
+      "hints": [
+        "Przysłówek skupiający stoi przed elementem, na którym skupia uwagę.",
+        "`specifically` przed `highlights` skupia uwagę na konkretnej czynności."
+      ],
+      "explanations": {
+        "a78": {
+          "specifically": "Poprawnie: `specifically` przed `highlights` jako przysłówek skupiający.",
+          "specific": "Niepoprawnie: `specific` to przymiotnik. Użyj przysłówka `specifically`.",
+          "specifically highlights the": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 79,
+      "hints": [
+        "Przysłówek stoi po łańcuchu posiłkowych przed głównym.",
+        "W `could have ___ avoided` przysłówek `easily` stoi po `have`."
+      ],
+      "explanations": {
+        "a79": {
+          "easily": "Poprawnie: `easily` między `have` a `avoided` w modalnym perfekcie.",
+          "easy": "Niepoprawnie: `easy` to przymiotnik. Użyj przysłówka `easily`.",
+          "easily could": "Niepoprawnie: przysłówek nie stoi przed modalnym `could`."
+        }
+      }
+    },
+    {
+      "id": 80,
+      "hints": [
+        "Korelacja `Not only … but also`: po inwersji w pierwszej części, druga zaczyna się od `but also`.",
+        "Po `Not only did she …` druga część zaczyna się od `but also`."
+      ],
+      "explanations": {
+        "a80": {
+          "but also": "Poprawnie: `but also` to druga część korelacji `Not only … but also`.",
+          "and also": "Niepoprawnie: korelacja wymaga `but also`, nie `and also`.",
+          "but as well": "Niepoprawnie: standardowa para to `Not only … but also`."
+        }
+      }
+    },
+    {
+      "id": 81,
+      "hints": [
+        "W stronie biernej kolejność: sposób → miejsce → czas.",
+        "Po `were handled` sposób `discreetly` stoi pierwszy, potem miejsce i czas."
+      ],
+      "explanations": {
+        "a81": {
+          "discreetly": "Poprawnie: `discreetly` — sposób po `handled`, przed okolicznikami miejsca i czasu.",
+          "discreet": "Niepoprawnie: `discreet` to przymiotnik. Użyj przysłówka `discreetly`.",
+          "discreetly handled": "Niepoprawnie: przysłówek sposobu stoi po czasowniku."
+        }
+      }
+    },
+    {
+      "id": 82,
+      "hints": [
+        "Po `Little` na początku zdania wymagana jest inwersja.",
+        "Poprawna kolejność: `did they know` — posiłkowy + podmiot + główny."
+      ],
+      "explanations": {
+        "a82": {
+          "did they know": "Poprawnie: inwersja po `Little` — `did they know`.",
+          "they knew": "Niepoprawnie: po `Little` na początku potrzebna jest inwersja.",
+          "they did know": "Niepoprawnie: podmiot stoi między posiłkowym a głównym."
+        }
+      }
+    },
+    {
+      "id": 83,
+      "hints": [
+        "Split infinitive: przysłówek między `to` a czasownikiem.",
+        "W `to ___ increase` przysłówek `significantly` rozdziela bezokolicznik."
+      ],
+      "explanations": {
+        "a83": {
+          "significantly": "Poprawnie: `significantly` w split infinitive między `to` a `increase`.",
+          "significant": "Niepoprawnie: `significant` to przymiotnik. Użyj przysłówka `significantly`.",
+          "significantly to": "Niepoprawnie: przysłówek stoi między `to` a czasownikiem."
+        }
+      }
+    },
+    {
+      "id": 84,
+      "hints": [
+        "Przysłówek komentujący stoi na początku z przecinkiem.",
+        "Pozycja przed przecinkiem na początku — dla `Interestingly`."
+      ],
+      "explanations": {
+        "a84": {
+          "Interestingly": "Poprawnie: `Interestingly` to przysłówek komentujący na początku.",
+          "Interesting": "Niepoprawnie: `interesting` to przymiotnik. Użyj przysłówka `Interestingly`.",
+          "Interestingly suggests": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 85,
+      "hints": [
+        "W stronie biernej przysłówek sposobu stoi między posiłkowym a imiesłowem.",
+        "W `was ___ rejected` przysłówek `unanimously` stoi między `was` a `rejected`."
+      ],
+      "explanations": {
+        "a85": {
+          "unanimously": "Poprawnie: `unanimously` między `was` a `rejected` w stronie biernej.",
+          "unanimous": "Niepoprawnie: `unanimous` to przymiotnik. Użyj przysłówka `unanimously`.",
+          "unanimously was": "Niepoprawnie: przysłówek nie stoi przed `was`."
+        }
+      }
+    },
+    {
+      "id": 86,
+      "hints": [
+        "Przysłówek sposobu stoi po czasowniku; `enough` stoi po przysłówku.",
+        "Po `speaks` przysłówek `fluently` opisuje sposób, a `enough` stoi za nim."
+      ],
+      "explanations": {
+        "a86": {
+          "fluently": "Poprawnie: `fluently` po `speaks`, za nim `enough`.",
+          "fluent": "Niepoprawnie: `fluent` to przymiotnik. Użyj przysłówka `fluently`.",
+          "enough fluently": "Niepoprawnie: `enough` stawiamy po przysłówku, nie przed nim."
+        }
+      }
+    },
+    {
+      "id": 87,
+      "hints": [
+        "Po `Only after …` wymagana jest inwersja: posiłkowy przed podmiotem.",
+        "Po `Only after the audit` potrzebny jest posiłkowy `did` dla inwersji w Past Simple."
+      ],
+      "explanations": {
+        "a87": {
+          "did": "Poprawnie: `did` to posiłkowy dla inwersji Past Simple po `Only after …`.",
+          "were": "Niepoprawnie: `become` wymaga `did` w Past Simple, nie `were`.",
+          "had": "Niepoprawnie: `had` to Past Perfect, ale zdanie jest w Past Simple."
+        }
+      }
+    },
+    {
+      "id": 88,
+      "hints": [
+        "`scarcely` oznacza 'ledwie' i stoi przed `ever`.",
+        "Fraza `scarcely ever` oznacza 'prawie nigdy' — `scarcely` stoi przed `ever`."
+      ],
+      "explanations": {
+        "a88": {
+          "scarcely": "Poprawnie: `scarcely ever` — `scarcely` przed `ever`.",
+          "scarce": "Niepoprawnie: `scarce` to przymiotnik. Użyj przysłówka `scarcely`.",
+          "ever scarcely": "Niepoprawnie: ustalony szyk to `scarcely ever`."
+        }
+      }
+    },
+    {
+      "id": 89,
+      "hints": [
+        "Przysłówek sposobu może stać przed głównym czasownikiem dla emfazy.",
+        "W `The study ___ suggests` przysłówek `convincingly` przed `suggests` dodaje emfazę."
+      ],
+      "explanations": {
+        "a89": {
+          "convincingly": "Poprawnie: `convincingly` przed `suggests` podkreśla przekonującość.",
+          "convincing": "Niepoprawnie: `convincing` to przymiotnik. Użyj przysłówka `convincingly`.",
+          "convincingly study": "Niepoprawnie: w luce potrzebny jest tylko przysłówek."
+        }
+      }
+    },
+    {
+      "id": 90,
+      "hints": [
+        "Przysłówek stoi między modalnym a głównym czasownikiem.",
+        "W `must ___ reconsider` przysłówek `urgently` stoi między `must` a `reconsider`."
+      ],
+      "explanations": {
+        "a90": {
+          "urgently": "Poprawnie: `urgently` między `must` a `reconsider`.",
+          "urgent": "Niepoprawnie: `urgent` to przymiotnik. Użyj przysłówka `urgently`.",
+          "urgently must": "Niepoprawnie: przysłówek nie stoi przed `must`."
+        }
+      }
+    },
+    {
+      "id": 91,
+      "hints": [
+        "`Not until …` na początku wymaga inwersji w zdaniu głównym.",
+        "Po `Not until the final chapter` potrzebny jest `does` dla inwersji w Present Simple."
+      ],
+      "explanations": {
+        "a91": {
+          "does": "Poprawnie: `does` dla inwersji Present Simple po `Not until …`.",
+          "did": "Niepoprawnie: zdanie jest w Present Simple (`reveal`), więc potrzebny jest `does`.",
+          "the author does": "Niepoprawnie: w luce potrzebny jest tylko `does`; podmiot już następuje."
+        }
+      }
+    },
+    {
+      "id": 92,
+      "hints": [
+        "Po `Nowhere else` wymagana jest inwersja: posiłkowy + podmiot + główny.",
+        "Poprawna kolejność: `will you find`."
+      ],
+      "explanations": {
+        "a92": {
+          "will you find": "Poprawnie: inwersja po `Nowhere else` — `will you find`.",
+          "you will find": "Niepoprawnie: po `Nowhere else` wymagana jest inwersja.",
+          "you find will": "Niepoprawnie: szyk jest całkowicie błędny."
+        }
+      }
+    },
+    {
+      "id": 93,
+      "hints": [
+        "W stronie biernej przysłówek komentujący może stać między posiłkowym a głównym.",
+        "W `was ___ meticulously proofread` przysłówek `reportedly` stoi po `was`."
+      ],
+      "explanations": {
+        "a93": {
+          "reportedly": "Poprawnie: `reportedly` to przysłówek komentujący między `was` a `meticulously proofread`.",
+          "reported": "Niepoprawnie: `reported` to imiesłów, a nie przysłówek komentujący.",
+          "reportedly was": "Niepoprawnie: przysłówek nie stoi przed `was` w stronie biernej."
+        }
+      }
+    },
+    {
+      "id": 94,
+      "hints": [
+        "Po `Under no circumstances` wymagana jest inwersja: modalny + podmiot + czasownik.",
+        "Poprawna kolejność: `should you share`."
+      ],
+      "explanations": {
+        "a94": {
+          "should you share": "Poprawnie: inwersja po `Under no circumstances`.",
+          "you should share": "Niepoprawnie: okolicznik przeczący na początku wymaga inwersji.",
+          "you share should": "Niepoprawnie: struktura zdania jest całkowicie błędna."
+        }
+      }
+    },
+    {
+      "id": 95,
+      "hints": [
+        "`So + przysłówek + inwersja` wyraża skutek/rezultat.",
+        "Po `So` z przysłówkiem potrzebna jest inwersja: `brilliantly did she perform`."
+      ],
+      "explanations": {
+        "a95": {
+          "brilliantly did she perform": "Poprawnie: `So brilliantly did she perform` — inwersja dla emfazy.",
+          "brilliantly she performed": "Niepoprawnie: po `So + przysłówek` potrzebna jest inwersja.",
+          "she performed brilliantly": "Niepoprawnie: brak inwersji po `So`."
+        }
+      }
+    },
+    {
+      "id": 96,
+      "hints": [
+        "W split infinitive może stać przysłówek w stopniu wyższym.",
+        "W `to ___ redistribute` potrzebny jest przysłówek porównawczy `more equitably`."
+      ],
+      "explanations": {
+        "a96": {
+          "more equitably": "Poprawnie: `more equitably` to przysłówek porównawczy w split infinitive.",
+          "equitable more": "Niepoprawnie: w stopniu wyższym `more` stoi przed przysłówkiem.",
+          "more equitable": "Niepoprawnie: `equitable` to przymiotnik. Użyj przysłówka `equitably`."
+        }
+      }
+    },
+    {
+      "id": 97,
+      "hints": [
+        "Po `Only by …` wymagana jest inwersja: modalny + podmiot.",
+        "Poprawna kolejność: `can we`."
+      ],
+      "explanations": {
+        "a97": {
+          "can we": "Poprawnie: inwersja po `Only by …` — `can we arrive`.",
+          "we can": "Niepoprawnie: po `Only by …` potrzebna jest inwersja.",
+          "we are able to": "Niepoprawnie: inwersja wymaga modalnego, nie `be able to`."
+        }
+      }
+    },
+    {
+      "id": 98,
+      "hints": [
+        "`Hardly … when` wymaga inwersji z Past Perfect.",
+        "Po `Hardly` poprawna kolejność: `had we sat down` (inwersja Past Perfect)."
+      ],
+      "explanations": {
+        "a98": {
+          "had we sat down": "Poprawnie: `Hardly had we sat down when …` — inwersja Past Perfect.",
+          "we had sat down": "Niepoprawnie: po `Hardly` potrzebna jest inwersja.",
+          "we sat down": "Niepoprawnie: `Hardly … when` wymaga Past Perfect, nie Past Simple."
+        }
+      }
+    },
+    {
+      "id": 99,
+      "hints": [
+        "`scarcely` stoi między modalnym a następnym posiłkowym.",
+        "W `can ___ be attributed` przysłówek `scarcely` stoi między `can` a `be`."
+      ],
+      "explanations": {
+        "a99": {
+          "scarcely": "Poprawnie: `scarcely` między `can` a `be`.",
+          "scarce": "Niepoprawnie: `scarce` to przymiotnik. Użyj przysłówka `scarcely`.",
+          "scarcely can": "Niepoprawnie: przysłówek nie stoi przed `can`."
+        }
+      }
+    },
+    {
+      "id": 100,
+      "hints": [
+        "`Needless to say` to ustalona fraza komentująca na początku z przecinkiem.",
+        "Wyrażenie `Needless to say` oznacza 'nie trzeba mówić'."
+      ],
+      "explanations": {
+        "a100": {
+          "Needless to say": "Poprawnie: `Needless to say` to ustalona fraza komentująca.",
+          "Needlessly to say": "Niepoprawnie: ustalona forma to `Needless to say`, nie `Needlessly`.",
+          "Needless saying": "Niepoprawnie: poprawna forma to `Needless to say`."
+        }
+      }
+    },
+    {
+      "id": 101,
+      "hints": [
+        "`No sooner … than` wymaga inwersji z Past Perfect.",
+        "Po `No sooner` poprawna kolejność: `had she arrived` (inwersja Past Perfect)."
+      ],
+      "explanations": {
+        "a101": {
+          "had she arrived": "Poprawnie: `No sooner had she arrived than …` — inwersja Past Perfect.",
+          "she had arrived": "Niepoprawnie: po `No sooner` potrzebna jest inwersja.",
+          "she arrived": "Niepoprawnie: `No sooner … than` wymaga Past Perfect, nie Past Simple."
+        }
+      }
+    },
+    {
+      "id": 102,
+      "hints": [
+        "Posiłkowy stoi przed przysłówkiem sposobu w czasach złożonych.",
+        "Przed `painstakingly recreated` potrzebny jest posiłkowy `had` dla Past Perfect."
+      ],
+      "explanations": {
+        "a102": {
+          "had": "Poprawnie: `had` — posiłkowy Past Perfect przed przysłówkiem `painstakingly`.",
+          "has": "Niepoprawnie: kontekst (over several months — czas przeszły) wymaga `had`, nie `has`.",
+          "was": "Niepoprawnie: `was` tworzy Past Continuous/Passive, ale `recreated` wymaga `had`."
+        }
+      }
+    },
+    {
+      "id": 103,
+      "hints": [
+        "Po `In no way` wymagana jest inwersja: posiłkowy + podmiot + główny.",
+        "Poprawna kolejność: `does this diminish`."
+      ],
+      "explanations": {
+        "a103": {
+          "does this diminish": "Poprawnie: inwersja po `In no way` — `does this diminish`.",
+          "this diminishes": "Niepoprawnie: okolicznik przeczący wymaga inwersji.",
+          "this does diminish": "Niepoprawnie: podmiot stoi między posiłkowym a głównym w inwersji."
+        }
+      }
+    },
+    {
+      "id": 104,
+      "hints": [
+        "W stronie biernej z łańcuchem posiłkowych przysłówek stoi po ostatnim.",
+        "W `has been ___ praised` przysłówek `widely` stoi po `been`."
+      ],
+      "explanations": {
+        "a104": {
+          "widely": "Poprawnie: `widely` po `been` i przed `praised`.",
+          "wide": "Niepoprawnie: w znaczeniu abstrakcyjnym używamy `widely`, nie `wide`.",
+          "widely been": "Niepoprawnie: przysłówek stoi po `been`, nie przed nim."
+        }
+      }
+    },
+    {
+      "id": 105,
+      "hints": [
+        "Po `At no point` wymagana jest inwersja: czasownik/posiłkowy + podmiot.",
+        "Poprawna kolejność: `was it` — inwersja `be`."
+      ],
+      "explanations": {
+        "a105": {
+          "was it": "Poprawnie: inwersja po `At no point` — `was it my intention`.",
+          "it was": "Niepoprawnie: okolicznik przeczący wymaga inwersji.",
+          "it had been": "Niepoprawnie: brak inwersji i czas nie pasuje do kontekstu."
+        }
+      }
+    },
+    {
+      "id": 106,
+      "hints": [
+        "Przysłówek stopnia stoi po łańcuchu posiłkowych przed imiesłowem.",
+        "W `has been ___ challenged` przysłówek `increasingly` stoi po `been`."
+      ],
+      "explanations": {
+        "a106": {
+          "increasingly": "Poprawnie: `increasingly` między `been` a `challenged`.",
+          "increasing": "Niepoprawnie: `increasing` to przymiotnik. Użyj przysłówka `increasingly`.",
+          "increasingly has": "Niepoprawnie: przysłówek nie stoi przed `has`."
+        }
+      }
+    },
+    {
+      "id": 107,
+      "hints": [
+        "Po `Only when …` wymagana jest inwersja w zdaniu głównym.",
+        "Poprawna kolejność: `can researchers` — modalny + podmiot."
+      ],
+      "explanations": {
+        "a107": {
+          "can researchers": "Poprawnie: inwersja po `Only when …` — `can researchers draw`.",
+          "researchers can": "Niepoprawnie: po `Only when …` potrzebna jest inwersja.",
+          "researchers are able to": "Niepoprawnie: inwersja wymaga modalnego, nie `be able to`."
+        }
+      }
+    },
+    {
+      "id": 108,
+      "hints": [
+        "Po `Not for a moment` wymagana jest inwersja: posiłkowy + podmiot + główny.",
+        "Poprawna kolejność: `did we suspect` — inwersja Past Simple."
+      ],
+      "explanations": {
+        "a108": {
+          "did we suspect": "Poprawnie: inwersja po `Not for a moment` — `did we suspect`.",
+          "we suspected": "Niepoprawnie: okolicznik przeczący wymaga inwersji.",
+          "we did suspect": "Niepoprawnie: podmiot stoi między posiłkowym a głównym."
+        }
+      }
+    }
+  ]
+}

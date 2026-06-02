@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\Modals\\ModalObligationNecessityV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\Modals\\ModalObligationNecessityV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "{a1} Formuła: **be supposed to + czasownik podstawowy**. Użycie: używamy do zasad lub oczekiwanego zachowania. Markery: rule, expected, supposed to. Przykład: *You'd better not aren't supposed to use this product without protection.*."
+      ],
+      "explanations": {
+        "a1": {
+          "are not meant to use": "❌ «are not meant to use» sugeruje przeznaczenie, ale w zdaniu chodzi o zewnętrzną zasadę. Przykład: *You'd better not aren't supposed to use this product without protection.*.",
+          "aren't supposed to use": "✅ «aren't supposed to use» pokazuje zasadę lub oczekiwaną akcję. Przykład: *You'd better not aren't supposed to use this product without protection.*.",
+          "must not use": "❌ «must not use» oznacza surowy zakaz, a tutaj podkreśla się zasadę/oczekiwanie. Poprawny wzór: *You'd better not aren't supposed to use this product without protection.*.",
+          "shouldn't use": "❌ «shouldn't use» — tylko rada, a nie wymóg zasady. Zobacz poprawną wersję: *You'd better not aren't supposed to use this product without protection.*."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "{a1} Formuła: **do/does not have to albo needn't + czasownik podstawowy**. Użycie: gdy działanie nie jest obowiązkowe w czasie teraźniejszym/generalnym. Markery: no need, optional, don't have to. Przykład: *You don't have to go to the ceremony if you don’t feel like it. It’ll be very boring anyway.*."
+      ],
+      "explanations": {
+        "a1": {
+          "mustn't": "❌ «nie można» wyraża obowiązek lub zakaz, a nam trzeba pokazać, że działanie nie jest obowiązkowe. Poprawny przykład: *Nie musisz iść na ceremonię, jeśli nie masz na to ochoty. I tak będzie bardzo nudno.*.",
+          "don't have to": "✅ «nie musisz» oznacza, że nie ma obowiązku. Przykład: *Nie musisz iść na ceremonię, jeśli nie masz na to ochoty. I tak będzie bardzo nudno.*.",
+          "haven't to": "❌ Ta wersja nie znosi obowiązku. Poprawny wzór: *Nie musisz iść na ceremonię, jeśli nie masz na to ochoty. I tak będzie bardzo nudno.*.",
+          "needn't": "❌ Ta wersja nie znosi obowiązku. Poprawny wzór: *Nie musisz iść na ceremonię, jeśli nie masz na to ochoty. I tak będzie bardzo nudno.*."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "{a1} Wzór: **nie musiałeś + V3**. Użycie: wskazujemy, że działanie było niepotrzebne, ale miało miejsce. Markery: już, niepotrzebna akcja, żal. Przykład: *Podjęliśmy zbyt duże ryzyko. Nie musieliśmy podejmować tej decyzji.*."
+      ],
+      "explanations": {
+        "a1": {
+          "needn't have made": "✅ «nie musiałeś podjąć» podkreśla, że działanie w przeszłości było zbędne. Przykład: *Podjęliśmy zbyt duże ryzyko. Nie musieliśmy podejmować tej decyzji.*.",
+          "shouldn't make": "❌ «nie powinieneś podjąć» mówi o ogólnej radzie, a nie o tym, że działanie już było zbędne. Poprawny przykład: *Podjęliśmy zbyt duże ryzyko. Nie musieliśmy podejmować tej decyzji.*.",
+          "mustn't have made": "❌ Forma nie pokazuje, że działanie było zbędne. Zobacz: *Podjęliśmy zbyt duże ryzyko. Nie musieliśmy podejmować tej decyzji.*.",
+          "shouldn't have made": "❌ Forma nie pokazuje, że działanie było zbędne. Zobacz: *Podjęliśmy zbyt duże ryzyko. Nie musieliśmy podejmować tej decyzji.*."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "{a1} Wzór: **nie musiałeś / nie miałeś obowiązku + czasownik podstawowy**. Użycie: gdy w przeszłości nie było konieczności. Markery: wczoraj, ostatni, przeszły, brak potrzeby. Przykład: *Nie musiał wsiadać do autobusu, ponieważ jego brat odebrał go na stacji.*."
+      ],
+      "explanations": {
+        "a1": {
+          "needn't have taken": "❌ «nie musiałeś wsiadać» oznacza, że działanie miało miejsce, chociaż nie było potrzebne. W zdaniu mówi się, że w ogóle go nie zrobiono. Przykład: *Nie musiał wsiadać do autobusu, ponieważ jego brat odebrał go na stacji.*.",
+          "shouldn't have taken": "❌ «nie powinieneś był wsiadać» — to zarzut, a nie brak obowiązku. Zobacz poprawny wzór: *Nie musiał wsiadać do autobusu, ponieważ jego brat odebrał go na stacji.*.",
+          "didn't need to take": "✅ «nie musiał wsiadać» pokazuje, że robienie czegoś nie było potrzebne. Przykład: *Nie musiał wsiadać do autobusu, ponieważ jego brat odebrał go na stacji.*.",
+          "mustn't have taken": "❌ Wariant nie pokazuje, że działanie było nieobowiązkowe. Zobacz: *Nie musiał wsiadać do autobusu, ponieważ jego brat odebrał go na stacji.*."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "{a1} Wzór: **nie powinieneś był + V3**. Użycie: wyrażamy zarzut dotyczący przeszłego działania. Markery: błąd, żal, przeszłe działanie. Przykład: *Nie powinieneś był wydawać tyle pieniędzy na wycieczkę zeszłego lata.*."
+      ],
+      "explanations": {
+        "a1": {
+          "shouldn't spend": "❌ «nie powinieneś wydawać» tylko radzi na przyszłość, a trzeba wyrazić zarzut za przeszłość. Przykład: *Nie powinieneś był wydawać tyle pieniędzy na wycieczkę zeszłego lata.*.",
+          "had better not spend": "❌ Forma nie wyraża żalu. Sprawdź przykład: *Nie powinieneś był wydawać tyle pieniędzy na wycieczkę zeszłego lata.*.",
+          "shouldn't have spent": "✅ «nie powinieneś był wydać» wyraża zarzut dotyczący przeszłego działania. Przykład: *Nie powinieneś był wydawać tyle pieniędzy na wycieczkę zeszłego lata.*.",
+          "mustn't have spent": "❌ Forma nie wyraża żalu. Sprawdź przykład: *Nie powinieneś był wydawać tyle pieniędzy na wycieczkę zeszłego lata.*."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "{a1} Wzór: **być dozwolonym / zezwolonym na + czasownik podstawowy**. Użycie: mówimy o pozwoleniach lub zakazach. Markery: zasada, regulacja, dozwolone. Przykład: *Uchodźcy nie mają pozwolenia na pracę poza obozem.*."
+      ],
+      "explanations": {
+        "a1": {
+          "had better not": "❌ «lepiej nie» brzmi jak rada, a nam trzeba odnosić się do zasady. Przykład: *Uchodźcy nie mają pozwolenia na pracę poza obozem.*.",
+          "mustn't": "❌ «nie można» całkowicie zabrania, ale kontekst dotyczy administracyjnego zakazu z dozwolonym. Sprawdź: *Uchodźcy nie mają pozwolenia na pracę poza obozem.*.",
+          "are not allowed to": "✅ «nie mają pozwolenia» wyraźnie oznacza zakaz. Przykład: *Uchodźcy nie mają pozwolenia na pracę poza obozem.*.",
+          "are allowed to": "❌ «mają pozwolenie» zezwala na działanie, a w zdaniu mówi się o zakazie. Zobacz: *Uchodźcy nie mają pozwolenia na pracę poza obozem.*."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "{a1} Wzór: **musiałem / potrzebowałem + czasownik podstawowy**. Użycie: wyjaśniamy wymuszone działanie w przeszłości. Markery: musiałem, potrzebowałem, obowiązek. Przykład: *Nie mogliśmy znaleźć hotelu, więc musieliśmy spać w samochodzie. To było bardzo niewygodne!.*"
+      ],
+      "explanations": {
+        "a1": {
+          "must have slept": "❌ «must have slept» oznacza przypuszczenie, a nie realną konieczność. Poprawny przykład: *Nie mogliśmy znaleźć hotelu, więc musieliśmy spać w samochodzie. To było tak niewygodne!*.",
+          "had to sleep": "✅ «had to sleep» opisuje przymusowy obowiązek. Przykład: *Nie mogliśmy znaleźć hotelu, więc musieliśmy spać w samochodzie. To było tak niewygodne!*.",
+          "should have slept": "❌ «should have slept» radzi, ale nie pokazuje przymusowego działania. Zobacz: *Nie mogliśmy znaleźć hotelu, więc musieliśmy spać w samochodzie. To było tak niewygodne!*.",
+          "would have slept": "❌ Forma nie pokazuje, że działanie było przymusowe. Przykład: *Nie mogliśmy znaleźć hotelu, więc musieliśmy spać w samochodzie. To było tak niewygodne!*."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "{a1} Formuła: **mustn't + czasownik podstawowy**. Użycie: surowy zakaz. Markery: bezpieczeństwo, silna zasada. Przykład: *Nie możesz zapomnieć wziąć leki.*."
+      ],
+      "explanations": {
+        "a1": {
+          "mustn't": "✅ «mustn't» surowo zabrania działania. Przykład: *Nie możesz zapomnieć wziąć leki.*.",
+          "don't have to": "❌ Forma nie ostrzega przed działaniem. Przykład: *Nie możesz zapomnieć wziąć leki.*.",
+          "must": "❌ «must» nie zawiera zakazu. Zobacz poprawną wersję: *Nie możesz zapomnieć wziąć leki.*.",
+          "ought not to": "❌ Forma nie ostrzega przed działaniem. Przykład: *Nie możesz zapomnieć wziąć leki.*."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "{a1} Formuła: **didn't need to / didn't have to + czasownik podstawowy**. Użycie: gdy w przeszłości nie było konieczności. Markery: wczoraj, ostatni, przeszły, brak potrzeby. Przykład: *Nie musieliśmy wstawać wcześnie, ponieważ był to dzień wolny, więc spaliśmy do późna.*."
+      ],
+      "explanations": {
+        "a1": {
+          "didn't have to": "✅ «didn't have to» pokazuje, że robienie czegoś nie było konieczne. Przykład: *Nie musieliśmy wstawać wcześnie, ponieważ był to dzień wolny, więc spaliśmy do późna.*.",
+          "needn't get up": "❌ Opcja nie pokazuje, że działanie było nieobowiązkowe. Zobacz: *Nie musieliśmy wstawać wcześnie, ponieważ był to dzień wolny, więc spaliśmy do późna.*.",
+          "needn't have got up": "❌ «needn't have got up» oznacza, że działanie miało miejsce, chociaż nie było potrzebne. W zdaniu chodzi o to, że w ogóle go nie zrobiono. Przykład: *Nie musieliśmy wstawać wcześnie, ponieważ był to dzień wolny, więc spaliśmy do późna.*.",
+          "didn't need to": "❌ Opcja nie pokazuje, że działanie było nieobowiązkowe. Zobacz: *Nie musieliśmy wstawać wcześnie, ponieważ był to dzień wolny, więc spaliśmy do późna.*."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "{a1} Formuła: **was/were supposed to + czasownik podstawowy**. Użycie: mówimy o oczekiwaniach w przeszłości. Markery: supposed to, meant to, oczekiwanie w przeszłości. Przykład: *Miałeś zadzwonić do mnie, jak tylko przyjedziesz. Bardzo się martwiłem!*."
+      ],
+      "explanations": {
+        "a1": {
+          "were meant to": "✅ «were meant to» pokazuje zasadę lub oczekiwaną akcję. Przykład: *Miałeś zadzwonić do mnie, jak tylko przyjedziesz. Bardzo się martwiłem!*.",
+          "were supposed to": "❌ Ta forma nie przekazuje potrzebnej zasady. Sprawdź poprawny przykład: *Miałeś zadzwonić do mnie, jak tylko przyjedziesz. Bardzo się martwiłem!*.",
+          "must": "❌ «must» mówi o własnym wymaganiu, a nie o ustalonej zasadzie. Zobacz przykład: *Miałeś zadzwonić do mnie, jak tylko przyjedziesz. Bardzo się martwiłem!*.",
+          "had to": "❌ Ta forma nie przekazuje potrzebnej zasady. Sprawdź poprawny przykład: *Miałeś zadzwonić do mnie, jak tylko przyjedziesz. Bardzo się martwiłem!*."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "{a1} Formuła: **needn't (have) + czasownik podstawowy**. Użycie: grzecznie mówimy, że prezent lub działanie nie były potrzebne. Markery: prezent, grzeczność, brak potrzeby. Przykład: *To piękne! Dziękuję, ale nie musiałeś nic dla mnie kupować.*."
+      ],
+      "explanations": {
+        "a1": {
+          "needn't buy": "✅ «needn't buy» grzecznie mówi, że prezent nie był obowiązkowy. Przykład: *To piękne! Dziękuję, ale nie musiałeś nic dla mnie kupować.*."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "{a1} Formuła: **will have to / need to + czasownik podstawowy**. Użycie: gdy działanie stanie się konieczne w przyszłości. Markery: przyszły plan, obowiązek. Przykład: *Będziemy musieli być bardziej ostrożni w tym, co mówimy w przyszłości.*."
+      ],
+      "explanations": {
+        "a1": {
+          "need to": "✅ «need to» pokazuje przyszłą potrzebę. Przykład: *Będziemy musieli być bardziej ostrożni w tym, co mówimy w przyszłości.*."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "{a1} Formuła: **should / ought to + czasownik podstawowy**. Użycie: dajemy radę lub łagodną konieczność. Markery: rada, rekomendacja. Przykład: *Powinieneś zobaczyć specjalistę, aby sprawdzić to kolano.*."
+      ],
+      "explanations": {
+        "a1": {
+          "ought to": "✅ «ought to» brzmi jak silna rada. Przykład: *Powinieneś zobaczyć specjalistę, aby sprawdzić to kolano.*."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "{a1} Formuła: **won't have to / won't need to + czasownik podstawowy**. Użycie: gdy obowiązek zniknie w przyszłości. Markery: przyszłość, ulga, brak obowiązku. Przykład: *Kiedy dostaniesz nowego pracownika, nie będziesz musiał już tak ciężko pracować.*."
+      ],
+      "explanations": {
+        "a1": {
+          "won't need to": "✅ Poprawna odpowiedź. Przykład: *When you get a new employee, you won't need to work so hard any longer.*."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "{a1} Formuła: **be supposed/meant to + czasownik podstawowy**. Użycie: wyjaśniamy przeznaczenie lub normalny przebieg zdarzeń. Markery: meant to, supposed to, expectation. Przykład: *The effects are meant to last 6 to 8 hours.*."
+      ],
+      "explanations": {
+        "a1": {
+          "are supposed to": "✅ «are supposed to» pokazuje zasadę lub oczekiwaną akcję. Przykład: *The effects are supposed to last 6 to 8 hours.*."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "{a1} Formuła: **should / ought to have + V3**. Użycie: oczekiwanie w przeszłości, które nie zostało spełnione. Markery: should have, regret, expectation. Przykład: *They ought to have offered us a discount because we couldn’t sleep in the room that we had booked.*."
+      ],
+      "explanations": {
+        "a1": {
+          "should have offered": "✅ «should have offered» mówi o oczekiwanej, ale niewykonanej akcji. Przykład: *They should have offered us a discount because we couldn’t sleep in the room that we had booked.*."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "{a1} Formuła: **be supposed to + czasownik podstawowy**. Użycie: używamy do zasad lub oczekiwanego zachowania. Markery: rule, expected, supposed to. Przykład: *If we aren't meant to have midnight snacks, why is there a light in the fridge?*."
+      ],
+      "explanations": {
+        "a1": {
+          "aren't supposed": "✅ «aren't supposed» pokazuje zasadę lub oczekiwaną akcję. Przykład: *If we aren't supposed to have midnight snacks, why is there a light in the fridge?*."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "{a1} Formuła: **had to / were supposed to + czasownik podstawowy**. Użycie: zasady lub obowiązki w przeszłości. Markery: school rules, duty in the past. Przykład: *When I was at school, we had to wear a uniform.*."
+      ],
+      "explanations": {
+        "a1": {
+          "were supposed to": "✅ «were supposed to» opisuje zasady szkolne. Przykład: *When I was at school, we were supposed to wear a uniform.*."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "{a1} Formuła: **do/does not have to albo needn't + czasownik podstawowy**. Użycie: gdy akcja nie jest obowiązkowa w czasie teraźniejszym/ogólnym. Markery: no need, optional, don't have to. Przykład: *We needn't do the dishes today; we can leave them for tomorrow.*."
+      ],
+      "explanations": {
+        "a1": {
+          "don't need to": "✅ «don't need to» oznacza, że nie ma obowiązku. Przykład: *We don't need to do the dishes today; we can leave them for tomorrow.*."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "{a1} Formuła: **be allowed/permitted to + czasownik podstawowy**. Użycie: mówimy o pozwoleniach lub zakazach. Markery: rule, regulation, allowed. Przykład: *Visitors aren't permitted stay at night.*."
+      ],
+      "explanations": {
+        "a1": {
+          "aren't allowed to": "✅ «aren't allowed to» wyraźnie oznacza zakaz. Przykład: *Visitors aren't allowed to stay at night.*."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "{a1} Formuła: **be allowed/permitted to + czasownik podstawowy**. Użycie: mówimy o pozwoleniach lub zakazach. Markery: rule, regulation, allowed. Przykład: *TEACHER: What are you doing here? You are not permitted to be here.*."
+      ],
+      "explanations": {
+        "a1": {
+          "permitted": "✅ «permitted» wyraźnie oznacza zakaz. Przykład: *TEACHER: What are you doing here? You are not permitted to be here.*.",
+          "invited": "❌ Opcja nie przekazuje zakazu od zasad. Przykład: *TEACHER: What are you doing here? You are not permitted to be here.*.",
+          "supposed": "❌ Opcja nie przekazuje zakazu od zasad. Przykład: *TEACHER: What are you doing here? You are not permitted to be here.*.",
+          "expected": "❌ Opcja nie przekazuje zakazu od zasad. Przykład: *TEACHER: What are you doing here? You are not permitted to be here.*."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "{a1} Formuła: **be allowed/permitted to + czasownik podstawowy**. Użycie: mówimy o pozwoleniach lub zakazach. Markery: rule, regulation, allowed. Przykład: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*."
+      ],
+      "explanations": {
+        "a1": {
+          "must": "❌ Opcja nie przekazuje zakazu od zasad. Przykład: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*.",
+          "mustn't": "❌ «mustn't» całkowicie zakazuje, ale kontekst o administracyjnym zakazie z allowed. Sprawdź: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*.",
+          "don't have to": "❌ Opcja nie przekazuje zakazu od zasad. Przykład: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*.",
+          "aren't allowed to": "✅ «aren't allowed to» wyraźnie oznacza zakaz. Przykład: *STUDENT: Sorry, I know students aren't allowed to not go into the staffroom, but I really need to speak with Mr. Donovan.*."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "{a1} Formuła: **needn't have + V3**. Użycie: wskazujemy, że akcja była niepotrzebna, ale miała miejsce. Markery: already, unnecessary action, regret. Przykład: *TEACHER: Well, you needn't have come in here to talk to him.*."
+      ],
+      "explanations": {
+        "a1": {
+          "needn't": "✅ «needn't» podkreśla, że działanie w przeszłości było zbędne. Przykład: *NAUCZYCIEL: Cóż, nie musiałeś tu przychodzić, aby z nim porozmawiać.*.",
+          "mustn't": "❌ Forma nie pokazuje, że działanie było zbędne. Zobacz: *NAUCZYCIEL: Cóż, nie musiałeś tu przychodzić, aby z nim porozmawiać.*.",
+          "shouldn't": "❌ «shouldn't» mówi o ogólnej radzie, a nie o tym, że działanie już było zbędne. Poprawny przykład: *NAUCZYCIEL: Cóż, nie musiałeś tu przychodzić, aby z nim porozmawiać.*.",
+          "couldn't": "❌ Forma nie pokazuje, że działanie było zbędne. Zobacz: *NAUCZYCIEL: Cóż, nie musiałeś tu przychodzić, aby z nim porozmawiać.*."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "{a1} Formuła: **should / ought to have + V3**. Użycie: oczekiwanie w przeszłości, które nie zostało spełnione. Markery: should have, regret, expectation. Przykład: *To nie było naprawdę konieczne. Mogłeś pójść do dyrektora i poprosić go, aby zadzwonił do pana Donovana. Właściwie, to powinieneś był to zrobić.*."
+      ],
+      "explanations": {
+        "a1": {
+          "should": "✅ «should» mówi o oczekiwanym, ale niewykonanym działaniu. Przykład: *To nie było naprawdę konieczne. Mogłeś pójść do dyrektora i poprosić go, aby zadzwonił do pana Donovana. Właściwie, to powinieneś był to zrobić.*.",
+          "ought": "❌ «ought» bez have nie tworzy czasu przeszłego. Przykład: *To nie było naprawdę konieczne. Mogłeś pójść do dyrektora i poprosić go, aby zadzwonił do pana Donovana. Właściwie, to powinieneś był to zrobić.*.",
+          "had better": "❌ «had better» jest gramatycznie niepoprawny w przeszłości. Zobacz poprawną wersję: *To nie było naprawdę konieczne. Mogłeś pójść do dyrektora i poprosić go, aby zadzwonił do pana Donovana. Właściwie, to powinieneś był to zrobić.*.",
+          "ought to": "❌ «ought to» bez have nie tworzy czasu przeszłego. Przykład: *To nie było naprawdę konieczne. Mogłeś pójść do dyrektora i poprosić go, aby zadzwonił do pana Donovana. Właściwie, to powinieneś był to zrobić.*."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "{a1} Formuła: **had to / needed to + base verb**. Użycie: wyjaśniamy przymusowe działanie w przeszłości. Markery: had to, needed, obligation. Przykład: *UCZEŃ: Przepraszam, nie myślałem jasno. Naprawdę musiałem z nim pilnie porozmawiać.*."
+      ],
+      "explanations": {
+        "a1": {
+          "had": "❌ Forma nie pokazuje, że działanie było przymusowe. Przykład: *UCZEŃ: Przepraszam, nie myślałem jasno. Naprawdę musiałem z nim pilnie porozmawiać.*.",
+          "ought": "❌ Forma nie pokazuje, że działanie było przymusowe. Przykład: *UCZEŃ: Przepraszam, nie myślałem jasno. Naprawdę musiałem z nim pilnie porozmawiać.*.",
+          "needed": "✅ «needed» opisuje przymusowy obowiązek. Przykład: *UCZEŃ: Przepraszam, nie myślałem jasno. Naprawdę musiałem z nim pilnie porozmawiać.*.",
+          "must": "❌ Forma nie pokazuje, że działanie było przymusowe. Przykład: *UCZEŃ: Przepraszam, nie myślałem jasno. Naprawdę musiałem z nim pilnie porozmawiać.*."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "{a1} Formuła: **had better + base verb**. Użycie: surowa rada z ostrzeżeniem o konsekwencjach. Markery: warning, better, advice. Przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*.\n{a2} Formuła: **do/does not have to albo needn't + base verb**. Użycie: gdy działanie nie jest obowiązkowe w czasie teraźniejszym/ogólnym. Markery: no need, optional, don't have to. Przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*."
+      ],
+      "explanations": {
+        "a1": {
+          "better": "✅ Forma brzmi jak przekonywująca rada. Przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*.",
+          "ought to": "❌ Wariant nie przekazuje pilnej rady. Poprawny przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*.",
+          "mustn't": "❌ Wariant nie przekazuje pilnej rady. Poprawny przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*.",
+          "needn't": "❌ Wariant nie przekazuje pilnej rady. Poprawny przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*."
+        },
+        "a2": {
+          "need": "✅ «need» tworzy konstrukcję «don't need to», która znosi obowiązek. Przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*.",
+          "have": "❌ Ten wariant nie znosi obowiązku. Poprawny wzór: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*.",
+          "must": "❌ «must» wyraża obowiązek lub zakaz, a my musimy pokazać, że działanie nie jest obowiązkowe. Poprawny przykład: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*.",
+          "ought": "❌ Ten wariant nie znosi obowiązku. Poprawny wzór: *NAUCZYCIEL: Cóż, lepiej myśl jasno następnym razem, OK? Teraz, jeśli chcesz porozmawiać z panem Donovanem, nie musisz iść do biura dyrektora.*."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "{a1} Formuła: **have to / must + czasownik podstawowy**. Wykorzystanie: opisujemy obecny obowiązek. Markery: duty, must, have to. Przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.\n{a2} Formuła: **be allowed/permitted**. Wykorzystanie: opisujemy status pozwolenia lub zakazu bez bezokolicznika. Markery: allowed, permitted, forbidden. Przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*."
+      ],
+      "explanations": {
+        "a1": {
+          "have to": "✅ Forma przekazuje konieczność. Przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+          "don't have to": "❌ «don't have to» znosi obowiązek, a my musimy go podkreślić. Zobacz: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+          "had better": "❌ Opcja nie brzmi jak obowiązek. Poprawny przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+          "must": "❌ Opcja nie brzmi jak obowiązek. Poprawny przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*."
+        },
+        "a2": {
+          "allowed": "✅ «allowed» tworzy naturalne połączenie ze słowem not. Przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+          "welcome": "❌ «welcome» nie przekazuje zakazu. Poprawny przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+          "encouraged": "❌ «encouraged» nie przekazuje zakazu. Poprawny przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*.",
+          "required": "❌ «required» nie przekazuje zakazu. Poprawny przykład: *And, please, you have to take that chewing-gum out of your mouth. You know that chewing-gum is not allowed on school premises.*."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "{a1} Formuła: **had better + czasownik podstawowy**. Wykorzystanie: surowa rada z ostrzeżeniem o konsekwencjach. Markery: warning, better, advice. Przykład: *You had better not do it again, or I’ll have to send you to detention.*."
+      ],
+      "explanations": {
+        "a1": {
+          "'d": "✅ «'d» przekazuje silną radę z ostrzeżeniem. Przykład: *You 'd better not do it again, or I’ll have to send you to detention.*."
+        }
+      }
+    }
+  ]
+}

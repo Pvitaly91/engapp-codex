@@ -1,0 +1,227 @@
+<?php
+
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Support\Database\Seeder;
+use Database\Seeders\Ai\ConditionalsComprehensiveAiSeeder;
+use Database\Seeders\Ai\ConditionalsMixedPracticeCustomSeeder;
+use Database\Seeders\Ai\ConditionalsModalComprehensiveAiSeeder;
+use Database\Seeders\Ai\ContractionsMatchSeeder;
+use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
+use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
+use Database\Seeders\Ai\ModalVerbsComprehensiveAiSeeder;
+use Database\Seeders\Ai\ModalVerbsModalOnlyAiSeeder;
+use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
+use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
+use Database\Seeders\chatGpt\GptPageTagAssignmentSeeder;
+use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
+use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyCategorySeeder;
+use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyPlacesTheorySeeder;
+use Database\Seeders\Page_v2\PageV2TextBlockLevelSeeder;
+use Database\Seeders\Page_v2\BasicGrammar\WordOrder\BasicWordOrderTheorySeeder;
+use Database\Seeders\Page_v2\FutureForms\FutureFormsCategorySeeder;
+use Database\Seeders\Page_v2\FutureForms\FutureFormsWillVsBeGoingToTheorySeeder;
+use Database\Seeders\V2\BasicWordOrderComprehensiveV2Seeder;
+use Database\Seeders\V2\BasicWordOrderPracticeV2Seeder;
+use Database\Seeders\V2\ComparativesSuperlativesV2Seeder;
+use Database\Seeders\V2\ConditionalsMixedPracticeV2Seeder;
+use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
+use Database\Seeders\V2\ConditionalsZeroToSecondWorksheetV2Seeder;
+use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
+use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
+use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
+use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
+use Database\Seeders\V2\MixedConditionalsBridgePracticeV2Seeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue1Seeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue2Seeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DialogueSeeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DragDropSeeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22MatchSeeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityV2Seeder;
+use Database\Seeders\V2\Modals\ModalObligationNecessityV2Seeder;
+use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
+use Database\Seeders\V2\QuestionsDifferentTypesV2Seeder;
+use Database\Seeders\V2\SecondConditionalTestV2Seeder;
+use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
+use Database\Seeders\V3\WillVsBeGoingToFutureFormsV3Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    public function run(): void
+    {
+
+        $categories = [
+            1 => 'Past',
+            2 => 'Present',
+            3 => 'Present Continuous',
+            4 => 'Future',
+            5 => 'Present Perfect',
+            6 => 'Conditionals',
+        ];
+
+        foreach ($categories as $id => $name) {
+            Category::firstOrCreate(['id' => $id], ['name' => $name]);
+        }
+
+        $this->call([
+            TenseTagsSeeder::class,
+            DoDoesIsAreSeeder::class,
+            FutureSimpleTest1Seeder::class,
+            GrammarQuizPastSimpleSeeder::class,
+            GrammarTestAISeeder::class,
+            GrammarTestSeeder::class,
+            PastSimpleRegularSeeder::class,
+            PastSimpleRegularVerbsFullSeeder::class,
+            PresentPastRevisionSeeder::class,
+            PresentSimpleExercisesSeeder::class,
+            PresentSimpleSeeder::class,
+            QuizPresentSimpleSeeder::class,
+            RevisionTensesFullSeeder::class,
+            ShortAnswersSeeder::class,
+            PresentContinuousDialogueSeeder::class,
+            PresentContinuousShortAnswersSeeder::class,
+            PresentContinuousShortFormsSeeder::class,
+            SimplePresentPastSeeder::class,
+            ThisThatTheseThoseExercise2Seeder::class,
+            ThisThatTheseThoseExercise3Seeder::class,
+            ThisThatTheseThoseSeeder::class,
+            ToBeTenseSeeder::class,
+            WordsWithTranslationsSeeder::class,
+            PronounWordsSeeder::class,
+            SentenceTranslationSeeder::class,
+            CanCantAbilitySeeder::class,
+            CanCantAbilityExercise2Seeder::class,
+            CanCantAbilityExercise3Seeder::class,
+            HaveGotHasGotSeeder::class,
+            HaveGotExercise2Seeder::class,
+            HaveGotExercise3Seeder::class,
+            TestsSqlSeeder::class,
+            WordsFromSentencesSeeder::class,
+            WordsFromOptionsSeeder::class,
+            ChatGPTExplanationsSeeder::class,
+            ChatGPTTranslationChecksSeeder::class,
+            PresentContinuousStorySeeder::class,
+            PresentSimpleOrContinuousSeeder::class,
+            PresentContinuousPastSimpleTestSeeder::class,
+            PastContinuousTenseTestSeeder::class,
+            PastSimpleContinuousSentencesTestSeeder::class,
+            PastSimpleContinuousImageTestSeeder::class,
+            PastSimpleOrPastContinuousTestSeeder::class,
+            PastSimpleContinuousStorySeeder::class,
+            ThereIsThereAreSeeder::class,
+            ThereIsThereAreImageTestSeeder::class,
+            SomeAnyTestSeeder::class,
+            SomeAnyTest2Seeder::class,
+            AAnSomeAnyTestSeeder::class,
+            AAnTheTestSeeder::class,
+            AAnTheTest2Seeder::class,
+            PresentPerfectPastSimpleTestSeeder::class,
+            PresentPerfectExercisesSeeder::class,
+            PresentPerfectOrPresentPerfectContinuousExercise03Seeder::class,
+            PresentPerfectOrPresentPerfectContinuousExercise04Seeder::class,
+            PastSimpleOrPresentPerfectEx4Seeder::class,
+            PastSimpleVsPresentPerfectMultipleChoiceSeeder::class,
+            PastSimplePresentPerfectPastPerfectTestSeeder::class,
+            PastSimplePresentPerfectSimpleTestSeeder::class,
+            PastPerfectA2TestSeeder::class,
+            PastSimpleOrPastPerfectTestSeeder::class,
+            FuturePerfectVsFutureContinuousExercise1Seeder::class,
+            QuestionTenseAssignmentSeeder::class,
+            TestContiniusesSeeder::class,
+            QuestionLevelSeeder::class,
+            PastPerfectVsPastSimpleTestSeeder::class,
+            PastPerfectSimpleVsContinuousCTestSeeder::class,
+            PastTimeClausesMixedTestSeeder::class,
+            ConditionalsType1And2WorksheetV2Seeder::class,
+            ConditionalsZeroToSecondWorksheetV2Seeder::class,
+            IfClausesType012WorksheetV2Seeder::class,
+            ConditionalsMixedPracticeV2Seeder::class,
+            ConditionalsMixedPracticeCustomSeeder::class,
+            MixedConditionalsBridgePracticeV2Seeder::class,
+            ComparativesSuperlativesV2Seeder::class,
+            BasicWordOrderPracticeV2Seeder::class,
+            BasicWordOrderComprehensiveV2Seeder::class,
+            FutureTensesPracticeV2Seeder::class,
+            WillVsBeGoingToFutureFormsV3Seeder::class,
+            ModalObligationNecessityV2Seeder::class,
+            ModalDeductionPossibilityV2Seeder::class,
+            ModalDeductionPossibilityPracticeV22MatchSeeder::class,
+            ModalDeductionPossibilityPracticeV22DialogueSeeder::class,
+            ModalDeductionPossibilityPracticeV22DragDropSeeder::class,
+            ModalDeductionPossibilityPracticeV22Dialogue1Seeder::class,
+            ModalDeductionPossibilityPracticeV22Dialogue2Seeder::class,
+            ContractionsMatchSeeder::class,
+            FirstConditionalPracticeV2Seeder::class,
+            FirstConditionalChooseABCV2Seeder::class,
+            SecondConditionalTestV2Seeder::class,
+            ThirdConditionalPracticeV2Seeder::class,
+            FirstConditionalAiFormsV2Seeder::class,
+            FirstConditionalChooseABCAiSeeder::class,
+            IrregularVerbsSeeder::class,
+            FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
+            FutureSimpleOrFutureContinuousSeeder::class,
+            NegativePresentPerfectHabitsTestSeeder::class,
+            MixedTenseUsageAiSeeder::class,
+            Ai\MixedPerfectTenseDetailedSeeder::class,
+            Ai\PastPerfectComprehensiveAiSeeder::class,
+            Ai\PastTenseFormsAiSeeder::class,
+            Ai\FutureTensesComprehensiveAiSeeder::class,
+            Ai\FutureTensesPracticeComprehensiveAiSeeder::class,
+            Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
+            ConditionalsComprehensiveAiSeeder::class,
+            ConditionalsModalComprehensiveAiSeeder::class,
+            SecondConditionalComprehensiveAiSeeder::class,
+            ModalVerbsComprehensiveAiSeeder::class,
+            ModalVerbsModalOnlyAiSeeder::class,
+            QuestionWordsDragDropSeeder::class,
+            QuestionsDifferentTypesV2Seeder::class,
+            SomeAnyCategorySeeder::class,
+            SomeAnyPlacesTheorySeeder::class,
+            BasicWordOrderTheorySeeder::class,
+            FutureFormsCategorySeeder::class,
+            FutureFormsWillVsBeGoingToTheorySeeder::class,
+            GptPageTagAssignmentSeeder::class,
+            PageV2TextBlockLevelSeeder::class,
+
+            // Theory hint relation seeders. These link existing questions
+            // to theory text blocks via the question_theory_text_blocks
+            // pivot — they require both the source question seeders AND
+            // the corresponding theory page seeders to have already run.
+            // Idempotent: each call deletes its own pivot rows by
+            // question_uuid before re-inserting, so re-runs are safe.
+
+            // V3 standard test relations (8) — power /theory/verb-to-be mixed tests.
+            V3\Polyglot\V3VerbToBePresentFormsOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBePresentFormsSonateTheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeNegativesOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBePastFormsOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeFutureOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeFutureSonateTheoryLinksSeeder::class,
+            V3\Polyglot\V3VerbToBeQuestionsAndShortAnswersOpus46TheoryLinksSeeder::class,
+            V3\Polyglot\V3ThereIsThereAreOpus46TheoryLinksSeeder::class,
+
+            // Polyglot lesson relations (10) — power /test/polyglot-* tests
+            // and contribute to /theory/verb-to-be mixed tests too.
+            V3\Polyglot\PolyglotHaveGotHasGotA1TheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotPastSimpleToBeTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotThereIsThereAreA1TheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotThereIsThereAreAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotToBeA1TheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBeFutureAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBeNegativesAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBePastAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBePresentAllLevelsTheoryLinksSeeder::class,
+            V3\Polyglot\PolyglotVerbToBeQuestionsAllLevelsTheoryLinksSeeder::class,
+
+            // Basic Grammar theory-page relations — power Sentence Builder
+            // direct tests and their /theory/basic-grammar mixed tests.
+            V3\TheoryLinks\BasicGrammarPartsOfSpeechTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarSentenceStructureSvoTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarSentenceTypesTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarConjunctionsTheoryLinksSeeder::class,
+            V3\TheoryLinks\BasicGrammarImperativesTheoryLinksSeeder::class,
+        ]);
+    }
+}

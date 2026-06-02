@@ -1,0 +1,1640 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SomeAnyPlacesPeopleThingsAllLevelsV3Seeder",
+        "uuid_namespace": "SomeAnyPlacesPeopleThingsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Some / Any"
+    },
+    "sources": {
+        "some_any_theme_page": {
+            "name": "Some / Any - People, Places and Things"
+        }
+    },
+    "tags": {
+        "some_any_theme": {
+            "name": "Some / Any — people, places and things",
+            "category": "topic"
+        },
+        "some_any_reference": {
+            "name": "Some / Any reference",
+            "category": "topic"
+        },
+        "people_page": {
+            "name": "People",
+            "category": "pattern"
+        },
+        "places_page": {
+            "name": "Places",
+            "category": "pattern"
+        },
+        "things_page": {
+            "name": "Things",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "some_any_theme",
+        "some_any_reference"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "{a1} are waiting outside the cinema.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a1} are waiting outside the cinema."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "{a2} is calling you.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a2} is calling you."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "{a3} knows my new address.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a3} knows my new address."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "{a4} study at night.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a4} study at night."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "I want to go {a5} quiet.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "anywhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "I want to go {a5} quiet."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "We went {a6} on Sunday.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "anywhere",
+                        "somewhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We went {a6} on Sunday."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "I cannot find my phone {a7}.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "I cannot find my phone {a7}."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "We looked {a8} for the cat.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "anywhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We looked {a8} for the cat."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "I need {a9} to drink.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "something",
+                    "options": [
+                        "something",
+                        "anything",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "I need {a9} to drink."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "There is {a10} in the bag.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "something",
+                        "anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "There is {a10} in the bag."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "We bought {a11} for the trip.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "some things",
+                    "options": [
+                        "some things",
+                        "any things",
+                        "no things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "We bought {a11} for the trip."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "{a12} take time.",
+            "source": "some_any_theme_page",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a12} take time."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "{a13} in my evening class work part-time.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a13": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a13} in my evening class work part-time."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "{a14} from the team arrived early.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a14": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a14} from the team arrived early."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "I hardly know {a15} in this neighborhood.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a15": {
+                    "answer": "any people",
+                    "options": [
+                        "any people",
+                        "some people",
+                        "no people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "I hardly know {a15} in this neighborhood."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "{a16} from support answered immediately.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a16": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a16} from support answered immediately."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "{a17} near the station is still open.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a17": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a17} near the station is still open."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "We had {a18} to wait during the storm.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a18": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "anywhere",
+                        "somewhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We had {a18} to wait during the storm."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "She wants to live {a19} near the sea.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "anywhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "She wants to live {a19} near the sea."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "Can we stop {a20} for coffee on the way?",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "somewhere",
+                    "options": [
+                        "somewhere",
+                        "anywhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Can we stop {a20} for coffee on the way?"
+            ]
+        },
+        {
+            "id": 21,
+            "question": "{a21} in this box are very fragile.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a21} in this box are very fragile."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "{a22} in the drawer belongs to me.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a22} in the drawer belongs to me."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "{a23} in the soup tastes strange.",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "Something",
+                    "options": [
+                        "Something",
+                        "Anything",
+                        "Nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a23} in the soup tastes strange."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "Did {a24} on the dashboard change after the update?",
+            "source": "some_any_theme_page",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Did {a24} on the dashboard change after the update?"
+            ]
+        },
+        {
+            "id": 25,
+            "question": "{a25} in the front office speak three languages.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a25": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a25} in the front office speak three languages."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "{a26} on the panel agreed with the proposal.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a26": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Anyone",
+                        "Someone"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a26} on the panel agreed with the proposal."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "Did {a27} from the research team review the draft?",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a27": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Did {a27} from the research team review the draft?"
+            ]
+        },
+        {
+            "id": 28,
+            "question": "{a28} simply learn faster with examples.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a28": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a28} simply learn faster with examples."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "{a29} beyond the bridge there is a small market.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a29": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a29} beyond the bridge there is a small market."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "That song was playing {a30} last summer.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a30": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "anywhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "That song was playing {a30} last summer."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "Is there {a31} the team can talk privately after lunch?",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a31": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Is there {a31} the team can talk privately after lunch?"
+            ]
+        },
+        {
+            "id": 32,
+            "question": "By the time we arrived, there was {a32} left to park.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a32": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "anywhere",
+                        "somewhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "By the time we arrived, there was {a32} left to park."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "{a33} in the proposal deserve a second look.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a33": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a33} in the proposal deserve a second look."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "{a34} on that website seems reliable.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a34": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a34} on that website seems reliable."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Is there {a35} else the client requested?",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a35": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a35} else the client requested?"
+            ]
+        },
+        {
+            "id": 36,
+            "question": "{a36} about the plan are still unclear.",
+            "source": "some_any_theme_page",
+            "level": "B1",
+            "markers": {
+                "a36": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a36} about the plan are still unclear."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "{a37} on the review committee were openly skeptical.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a37": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a37} on the review committee were openly skeptical."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "Hardly {a38} in the finance department understood the new rule.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a38": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Hardly {a38} in the finance department understood the new rule."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "Did {a39} from the client side question the timeline?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a39": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Did {a39} from the client side question the timeline?"
+            ]
+        },
+        {
+            "id": 40,
+            "question": "{a40} interpret silence as agreement.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a40": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a40} interpret silence as agreement."
+            ]
+        },
+        {
+            "id": 41,
+            "question": "{a41} in the archive there is a letter we still need.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a41": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a41} in the archive there is a letter we still need."
+            ]
+        },
+        {
+            "id": 42,
+            "question": "New security notices appeared {a42} overnight.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a42": {
+                    "answer": "everywhere",
+                    "options": [
+                        "everywhere",
+                        "somewhere",
+                        "anywhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "New security notices appeared {a42} overnight."
+            ]
+        },
+        {
+            "id": 43,
+            "question": "Is there {a43} the witnesses could wait without being seen?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a43": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Is there {a43} the witnesses could wait without being seen?"
+            ]
+        },
+        {
+            "id": 44,
+            "question": "They would not stay {a44} that lacked internet access.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a44": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "They would not stay {a44} that lacked internet access."
+            ]
+        },
+        {
+            "id": 45,
+            "question": "{a45} in the contract are deliberately vague.",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a45": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a45} in the contract are deliberately vague."
+            ]
+        },
+        {
+            "id": 46,
+            "question": "Have you discovered {a46} worth preserving from the draft?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a46": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Have you discovered {a46} worth preserving from the draft?"
+            ]
+        },
+        {
+            "id": 47,
+            "question": "Is there {a47} in the data that troubles you?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a47": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a47} in the data that troubles you?"
+            ]
+        },
+        {
+            "id": 48,
+            "question": "Did {a48} meaningful emerge from the final interview?",
+            "source": "some_any_theme_page",
+            "level": "B2",
+            "markers": {
+                "a48": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Did {a48} meaningful emerge from the final interview?"
+            ]
+        },
+        {
+            "id": 49,
+            "question": "{a49} in the discipline still treat that study as a turning point.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a49": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a49} in the discipline still treat that study as a turning point."
+            ]
+        },
+        {
+            "id": 50,
+            "question": "Barely {a50} on the external advisory panel disputed the findings.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a50": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Barely {a50} on the external advisory panel disputed the findings."
+            ]
+        },
+        {
+            "id": 51,
+            "question": "Did {a51} in compliance flag the missing signatures?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a51": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Did {a51} in compliance flag the missing signatures?"
+            ]
+        },
+        {
+            "id": 52,
+            "question": "{a52} on the review team questioned the methodology.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a52": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a52} on the review team questioned the methodology."
+            ]
+        },
+        {
+            "id": 53,
+            "question": "{a53} in the final appendix the missing citation appears.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a53": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a53} in the final appendix the missing citation appears."
+            ]
+        },
+        {
+            "id": 54,
+            "question": "Have you identified {a54} sufficiently neutral for the mediation?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a54": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Have you identified {a54} sufficiently neutral for the mediation?"
+            ]
+        },
+        {
+            "id": 55,
+            "question": "Is there {a55} the delegation might speak off the record tonight?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a55": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Is there {a55} the delegation might speak off the record tonight?"
+            ]
+        },
+        {
+            "id": 56,
+            "question": "We would not relocate {a56} without a written guarantee.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a56": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We would not relocate {a56} without a written guarantee."
+            ]
+        },
+        {
+            "id": 57,
+            "question": "{a57} in that judgment remain open to interpretation.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a57": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a57} in that judgment remain open to interpretation."
+            ]
+        },
+        {
+            "id": 58,
+            "question": "{a58} in the briefing justified such alarm.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a58": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a58} in the briefing justified such alarm."
+            ]
+        },
+        {
+            "id": 59,
+            "question": "Is there {a59} in the draft that might expose us legally?",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a59": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a59} in the draft that might expose us legally?"
+            ]
+        },
+        {
+            "id": 60,
+            "question": "{a60} are omitted not by accident but by design.",
+            "source": "some_any_theme_page",
+            "level": "C1",
+            "markers": {
+                "a60": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a60} are omitted not by accident but by design."
+            ]
+        },
+        {
+            "id": 61,
+            "question": "{a61} in senior authority positions cultivate silence as a strategy.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a61": {
+                    "answer": "Some people",
+                    "options": [
+                        "Some people",
+                        "Any people",
+                        "No people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a61} in senior authority positions cultivate silence as a strategy."
+            ]
+        },
+        {
+            "id": 62,
+            "question": "Scarcely {a62} in the negotiating team fully grasped the wider implications.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a62": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Scarcely {a62} in the negotiating team fully grasped the wider implications."
+            ]
+        },
+        {
+            "id": 63,
+            "question": "Should {a63} from the board object, the clause will be redrafted.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a63": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "Should {a63} from the board object, the clause will be redrafted."
+            ]
+        },
+        {
+            "id": 64,
+            "question": "{a64} in either delegation was willing to concede first.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a64": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Anybody"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "people_page"
+            ],
+            "variants": [
+                "{a64} in either delegation was willing to concede first."
+            ]
+        },
+        {
+            "id": 65,
+            "question": "{a65} in the background correspondence the motive becomes unmistakable.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a65": {
+                    "answer": "Somewhere",
+                    "options": [
+                        "Somewhere",
+                        "Anywhere",
+                        "Nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "{a65} in the background correspondence the motive becomes unmistakable."
+            ]
+        },
+        {
+            "id": 66,
+            "question": "The committee found {a66} sufficiently independent to host the review.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a66": {
+                    "answer": "nowhere",
+                    "options": [
+                        "nowhere",
+                        "anywhere",
+                        "somewhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "The committee found {a66} sufficiently independent to host the review."
+            ]
+        },
+        {
+            "id": 67,
+            "question": "Is there {a67} the parties could confer without the press watching?",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a67": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "Is there {a67} the parties could confer without the press watching?"
+            ]
+        },
+        {
+            "id": 68,
+            "question": "We would not anchor the argument {a68} so theoretically unstable.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a68": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "somewhere",
+                        "nowhere"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "places_page"
+            ],
+            "variants": [
+                "We would not anchor the argument {a68} so theoretically unstable."
+            ]
+        },
+        {
+            "id": 69,
+            "question": "{a69} in the record resist even careful classification.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a69": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a69} in the record resist even careful classification."
+            ]
+        },
+        {
+            "id": 70,
+            "question": "{a70} in their reasoning survives close scrutiny.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a70": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Anything"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a70} in their reasoning survives close scrutiny."
+            ]
+        },
+        {
+            "id": 71,
+            "question": "Is there {a71} in the settlement that might later be contested?",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a71": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "Is there {a71} in the settlement that might later be contested?"
+            ]
+        },
+        {
+            "id": 72,
+            "question": "{a72} are remembered precisely because they were never explained.",
+            "source": "some_any_theme_page",
+            "level": "C2",
+            "markers": {
+                "a72": {
+                    "answer": "Some things",
+                    "options": [
+                        "Some things",
+                        "Any things",
+                        "No things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "things_page"
+            ],
+            "variants": [
+                "{a72} are remembered precisely because they were never explained."
+            ]
+        }
+    ]
+}

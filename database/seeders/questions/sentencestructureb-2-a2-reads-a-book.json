@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 20,
+        "uuid": "sentencestructureb-2-a2-reads-a-book",
+        "question": "{a2} reads a book.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-26T14:31:54.000000Z",
+        "updated_at": "2026-05-26T14:32:02.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:31:54.000000Z",
+        "updated_at": "2026-05-26T14:31:54.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:31:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-26T14:31:50.000000Z",
+                "updated_at": "2026-05-26T14:31:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 36,
+                "name": "Subject identification",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "tag_id": 36,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 39,
+                "option": "She",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 39,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 41,
+                "option": "A book",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 41,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 42,
+                "option": "Reads",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 20,
+                "option_id": 42,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 20,
+                "question_id": 20,
+                "marker": "a2",
+                "option_id": 39,
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "option": {
+                "id": 39,
+                "option": "She",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 2,
+                "question_id": 20,
+                "marker": "a2",
+                "option_id": 40,
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "option": {
+                "id": 40,
+                "option": "subject position",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 20,
+            "question_id": 20,
+            "text": "{a2} reads a book.",
+            "created_at": "2026-05-26T14:31:54.000000Z",
+            "updated_at": "2026-05-26T14:31:54.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 22,
+            "question_id": 20,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "The subject (S) is whoever performs the action. In SVO, it always comes first.\nThe verb is `reads` and the object is `a book`. Who performs the reading action?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 23,
+            "question_id": 20,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "The subject (S) is whoever performs the action. In SVO, it always comes first.\nThe verb is `reads` and the object is `a book`. Who performs the reading action?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 24,
+            "question_id": 20,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Підмет (Subject) — це той, хто виконує дію. У порядку SVO він завжди стоїть на першому місці.\nДієслово тут — `reads`, а додаток — `a book`. Хто виконує дію читання?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 122,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "A book",
+            "correct_answer": "She",
+            "language": "en",
+            "explanation": "Incorrect: 'A book' is the object — it receives the action, not performs it.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 125,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "A book",
+            "correct_answer": "She",
+            "language": "pl",
+            "explanation": "Incorrect: 'A book' is the object — it receives the action, not performs it.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 129,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "A book",
+            "correct_answer": "She",
+            "language": "ua",
+            "explanation": "Неправильно: «A book» — це додаток (Object), а не підмет. Книга не виконує дію читання.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 130,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "A book",
+            "correct_answer": "She",
+            "language": "uk",
+            "explanation": "Неправильно: «A book» — це додаток (Object), а не підмет. Книга не виконує дію читання.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 123,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "Reads",
+            "correct_answer": "She",
+            "language": "en",
+            "explanation": "Incorrect: 'Reads' is the verb, not the subject. A subject must be a noun or pronoun.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 126,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "Reads",
+            "correct_answer": "She",
+            "language": "pl",
+            "explanation": "Incorrect: 'Reads' is the verb, not the subject. A subject must be a noun or pronoun.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 131,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "Reads",
+            "correct_answer": "She",
+            "language": "ua",
+            "explanation": "Неправильно: «Reads» — це дієслово (Verb), а не підмет. Підмет має бути іменником або займенником.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 132,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "Reads",
+            "correct_answer": "She",
+            "language": "uk",
+            "explanation": "Неправильно: «Reads» — це дієслово (Verb), а не підмет. Підмет має бути іменником або займенником.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 121,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "She",
+            "correct_answer": "She",
+            "language": "en",
+            "explanation": "Correct: 'She' is the subject performing the action 'reads'. SVO order: She reads a book.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 124,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "She",
+            "correct_answer": "She",
+            "language": "pl",
+            "explanation": "Correct: 'She' is the subject performing the action 'reads'. SVO order: She reads a book.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 127,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "She",
+            "correct_answer": "She",
+            "language": "ua",
+            "explanation": "Правильно: «She» — це підмет, який виконує дію `reads`. Порядок S–V–O дотримано: She reads a book.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 128,
+            "question": "{a2} reads a book.",
+            "wrong_answer": "She",
+            "correct_answer": "She",
+            "language": "uk",
+            "explanation": "Правильно: «She» — це підмет, який виконує дію `reads`. Порядок S–V–O дотримано: She reads a book.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        }
+    ]
+}

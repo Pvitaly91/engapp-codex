@@ -1,0 +1,2233 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrder\\AdvancedFrontingAndEmphasisAllLevelsV3Seeder",
+        "uuid_namespace": "AdvancedFrontingAndEmphasisAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "afe-v3-all",
+        "slug": "advanced-fronting-and-emphasis-all-levels-v3",
+        "name": "Advanced Fronting and Emphasis: V3 All Levels",
+        "description": "Page-local V3 package for Advanced Fronting and Emphasis with A1-C2 coverage.",
+        "question_uuids": [
+            "afe-v3-a1-01",
+            "afe-v3-a1-02",
+            "afe-v3-a1-03",
+            "afe-v3-a1-04",
+            "afe-v3-a1-05",
+            "afe-v3-a1-06",
+            "afe-v3-a1-07",
+            "afe-v3-a1-08",
+            "afe-v3-a1-09",
+            "afe-v3-a1-10",
+            "afe-v3-a1-11",
+            "afe-v3-a1-12",
+            "afe-v3-a2-01",
+            "afe-v3-a2-02",
+            "afe-v3-a2-03",
+            "afe-v3-a2-04",
+            "afe-v3-a2-05",
+            "afe-v3-a2-06",
+            "afe-v3-a2-07",
+            "afe-v3-a2-08",
+            "afe-v3-a2-09",
+            "afe-v3-a2-10",
+            "afe-v3-a2-11",
+            "afe-v3-a2-12",
+            "afe-v3-b1-01",
+            "afe-v3-b1-02",
+            "afe-v3-b1-03",
+            "afe-v3-b1-04",
+            "afe-v3-b1-05",
+            "afe-v3-b1-06",
+            "afe-v3-b1-07",
+            "afe-v3-b1-08",
+            "afe-v3-b1-09",
+            "afe-v3-b1-10",
+            "afe-v3-b1-11",
+            "afe-v3-b1-12",
+            "afe-v3-b2-01",
+            "afe-v3-b2-02",
+            "afe-v3-b2-03",
+            "afe-v3-b2-04",
+            "afe-v3-b2-05",
+            "afe-v3-b2-06",
+            "afe-v3-b2-07",
+            "afe-v3-b2-08",
+            "afe-v3-b2-09",
+            "afe-v3-b2-10",
+            "afe-v3-b2-11",
+            "afe-v3-b2-12",
+            "afe-v3-c1-01",
+            "afe-v3-c1-02",
+            "afe-v3-c1-03",
+            "afe-v3-c1-04",
+            "afe-v3-c1-05",
+            "afe-v3-c1-06",
+            "afe-v3-c1-07",
+            "afe-v3-c1-08",
+            "afe-v3-c1-09",
+            "afe-v3-c1-10",
+            "afe-v3-c1-11",
+            "afe-v3-c1-12",
+            "afe-v3-c2-01",
+            "afe-v3-c2-02",
+            "afe-v3-c2-03",
+            "afe-v3-c2-04",
+            "afe-v3-c2-05",
+            "afe-v3-c2-06",
+            "afe-v3-c2-07",
+            "afe-v3-c2-08",
+            "afe-v3-c2-09",
+            "afe-v3-c2-10",
+            "afe-v3-c2-11",
+            "afe-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\WordOrder\\AdvancedFrontingAndEmphasisAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "word-order",
+                "page_slug": "advanced-fronting-and-emphasis",
+                "page_route": "/theory/word-order/advanced-fronting-and-emphasis",
+                "theory_page": {
+                    "slug": "advanced-fronting-and-emphasis",
+                    "title": "Advanced Fronting and Emphasis",
+                    "category_slug_path": "word-order",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedFrontingAndEmphasisTheorySeeder",
+                    "url": "https://gramlyze.com/theory/word-order/advanced-fronting-and-emphasis"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "afe-v3-a1-01",
+            "question": "On the wall {a1} an old map.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "hung",
+                    "options": [
+                        "hung",
+                        "did hang",
+                        "was hanging",
+                        "hangs"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "locative_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "locative_inversion"
+            ],
+            "variants": [
+                "On the wall {a1} an old map."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 2,
+            "uuid": "afe-v3-a1-02",
+            "question": "It was Maria {a1} solved the problem.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cleft_sentences"
+            ],
+            "variants": [
+                "It was Maria {a1} solved the problem."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 3,
+            "uuid": "afe-v3-a1-03",
+            "question": "What I need most {a1} more time.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What I need most {a1} more time."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 4,
+            "uuid": "afe-v3-a1-04",
+            "question": "This point {a1} want to emphasize.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "do I",
+                        "am I",
+                        "have I"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_objects_complements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_objects_complements"
+            ],
+            "variants": [
+                "This point {a1} want to emphasize."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 5,
+            "uuid": "afe-v3-a1-05",
+            "question": "Only later {a1} the real cost become clear.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "negative_fronting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_fronting"
+            ],
+            "variants": [
+                "Only later {a1} the real cost become clear."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 6,
+            "uuid": "afe-v3-a1-06",
+            "question": "She {a1} understand the risk, despite her doubts.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "emphatic_do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "emphatic_do"
+            ],
+            "variants": [
+                "She {a1} understand the risk, despite her doubts."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 7,
+            "uuid": "afe-v3-a1-07",
+            "question": "At the center of the debate {a1} a simple question.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "lies",
+                    "options": [
+                        "lies",
+                        "does lie",
+                        "is lying",
+                        "lie"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_adverbials"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_adverbials"
+            ],
+            "variants": [
+                "At the center of the debate {a1} a simple question."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 8,
+            "uuid": "afe-v3-a1-08",
+            "question": "What surprised me {a1} his calm reaction.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What surprised me {a1} his calm reaction."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 9,
+            "uuid": "afe-v3-a1-09",
+            "question": "The final decision {a1} I disagree with.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is what",
+                    "options": [
+                        "is what",
+                        "what is",
+                        "that what",
+                        "is that what"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "contrastive_focus"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrastive_focus"
+            ],
+            "variants": [
+                "The final decision {a1} I disagree with."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 10,
+            "uuid": "afe-v3-a1-10",
+            "question": "Fronting should keep the sentence {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "natural",
+                    "options": [
+                        "natural",
+                        "random",
+                        "repeated",
+                        "unfinished"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "natural_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "natural_word_order"
+            ],
+            "variants": [
+                "Fronting should keep the sentence {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 11,
+            "uuid": "afe-v3-a1-11",
+            "question": "In academic style, fronting can create controlled {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "emphasis",
+                    "options": [
+                        "emphasis",
+                        "slang",
+                        "tense",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "formal_literary_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_literary_style"
+            ],
+            "variants": [
+                "In academic style, fronting can create controlled {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 12,
+            "uuid": "afe-v3-a1-12",
+            "question": "Overusing fronting often sounds {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "neutral",
+                        "necessary",
+                        "short"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "Overusing fronting often sounds {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 13,
+            "uuid": "afe-v3-a2-01",
+            "question": "On the wall {a1} an old map.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "hung",
+                    "options": [
+                        "hung",
+                        "did hang",
+                        "was hanging",
+                        "hangs"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "locative_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "locative_inversion"
+            ],
+            "variants": [
+                "On the wall {a1} an old map."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 14,
+            "uuid": "afe-v3-a2-02",
+            "question": "It was Maria {a1} solved the problem.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cleft_sentences"
+            ],
+            "variants": [
+                "It was Maria {a1} solved the problem."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 15,
+            "uuid": "afe-v3-a2-03",
+            "question": "What I need most {a1} more time.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What I need most {a1} more time."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 16,
+            "uuid": "afe-v3-a2-04",
+            "question": "This point {a1} want to emphasize.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "do I",
+                        "am I",
+                        "have I"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_objects_complements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_objects_complements"
+            ],
+            "variants": [
+                "This point {a1} want to emphasize."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 17,
+            "uuid": "afe-v3-a2-05",
+            "question": "Only later {a1} the real cost become clear.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "negative_fronting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_fronting"
+            ],
+            "variants": [
+                "Only later {a1} the real cost become clear."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 18,
+            "uuid": "afe-v3-a2-06",
+            "question": "She {a1} understand the risk, despite her doubts.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "emphatic_do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "emphatic_do"
+            ],
+            "variants": [
+                "She {a1} understand the risk, despite her doubts."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 19,
+            "uuid": "afe-v3-a2-07",
+            "question": "At the center of the debate {a1} a simple question.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "lies",
+                    "options": [
+                        "lies",
+                        "does lie",
+                        "is lying",
+                        "lie"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_adverbials"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_adverbials"
+            ],
+            "variants": [
+                "At the center of the debate {a1} a simple question."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 20,
+            "uuid": "afe-v3-a2-08",
+            "question": "What surprised me {a1} his calm reaction.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What surprised me {a1} his calm reaction."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 21,
+            "uuid": "afe-v3-a2-09",
+            "question": "The final decision {a1} I disagree with.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is what",
+                    "options": [
+                        "is what",
+                        "what is",
+                        "that what",
+                        "is that what"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "contrastive_focus"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrastive_focus"
+            ],
+            "variants": [
+                "The final decision {a1} I disagree with."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 22,
+            "uuid": "afe-v3-a2-10",
+            "question": "Fronting should keep the sentence {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "natural",
+                    "options": [
+                        "natural",
+                        "random",
+                        "repeated",
+                        "unfinished"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "natural_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "natural_word_order"
+            ],
+            "variants": [
+                "Fronting should keep the sentence {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 23,
+            "uuid": "afe-v3-a2-11",
+            "question": "In academic style, fronting can create controlled {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "emphasis",
+                    "options": [
+                        "emphasis",
+                        "slang",
+                        "tense",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "formal_literary_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_literary_style"
+            ],
+            "variants": [
+                "In academic style, fronting can create controlled {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 24,
+            "uuid": "afe-v3-a2-12",
+            "question": "Overusing fronting often sounds {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "neutral",
+                        "necessary",
+                        "short"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "Overusing fronting often sounds {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 25,
+            "uuid": "afe-v3-b1-01",
+            "question": "On the wall {a1} an old map.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "hung",
+                    "options": [
+                        "hung",
+                        "did hang",
+                        "was hanging",
+                        "hangs"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "locative_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "locative_inversion"
+            ],
+            "variants": [
+                "On the wall {a1} an old map."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 26,
+            "uuid": "afe-v3-b1-02",
+            "question": "It was Maria {a1} solved the problem.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cleft_sentences"
+            ],
+            "variants": [
+                "It was Maria {a1} solved the problem."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 27,
+            "uuid": "afe-v3-b1-03",
+            "question": "What I need most {a1} more time.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What I need most {a1} more time."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 28,
+            "uuid": "afe-v3-b1-04",
+            "question": "This point {a1} want to emphasize.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "do I",
+                        "am I",
+                        "have I"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_objects_complements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_objects_complements"
+            ],
+            "variants": [
+                "This point {a1} want to emphasize."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 29,
+            "uuid": "afe-v3-b1-05",
+            "question": "Only later {a1} the real cost become clear.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "negative_fronting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_fronting"
+            ],
+            "variants": [
+                "Only later {a1} the real cost become clear."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 30,
+            "uuid": "afe-v3-b1-06",
+            "question": "She {a1} understand the risk, despite her doubts.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "emphatic_do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "emphatic_do"
+            ],
+            "variants": [
+                "She {a1} understand the risk, despite her doubts."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 31,
+            "uuid": "afe-v3-b1-07",
+            "question": "At the center of the debate {a1} a simple question.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "lies",
+                    "options": [
+                        "lies",
+                        "does lie",
+                        "is lying",
+                        "lie"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_adverbials"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_adverbials"
+            ],
+            "variants": [
+                "At the center of the debate {a1} a simple question."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 32,
+            "uuid": "afe-v3-b1-08",
+            "question": "What surprised me {a1} his calm reaction.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What surprised me {a1} his calm reaction."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 33,
+            "uuid": "afe-v3-b1-09",
+            "question": "The final decision {a1} I disagree with.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is what",
+                    "options": [
+                        "is what",
+                        "what is",
+                        "that what",
+                        "is that what"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "contrastive_focus"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrastive_focus"
+            ],
+            "variants": [
+                "The final decision {a1} I disagree with."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 34,
+            "uuid": "afe-v3-b1-10",
+            "question": "Fronting should keep the sentence {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "natural",
+                    "options": [
+                        "natural",
+                        "random",
+                        "repeated",
+                        "unfinished"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "natural_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "natural_word_order"
+            ],
+            "variants": [
+                "Fronting should keep the sentence {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 35,
+            "uuid": "afe-v3-b1-11",
+            "question": "In academic style, fronting can create controlled {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "emphasis",
+                    "options": [
+                        "emphasis",
+                        "slang",
+                        "tense",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "formal_literary_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_literary_style"
+            ],
+            "variants": [
+                "In academic style, fronting can create controlled {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 36,
+            "uuid": "afe-v3-b1-12",
+            "question": "Overusing fronting often sounds {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "neutral",
+                        "necessary",
+                        "short"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "Overusing fronting often sounds {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 37,
+            "uuid": "afe-v3-b2-01",
+            "question": "On the wall {a1} an old map.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "hung",
+                    "options": [
+                        "hung",
+                        "did hang",
+                        "was hanging",
+                        "hangs"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "locative_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "locative_inversion"
+            ],
+            "variants": [
+                "On the wall {a1} an old map."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 38,
+            "uuid": "afe-v3-b2-02",
+            "question": "It was Maria {a1} solved the problem.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cleft_sentences"
+            ],
+            "variants": [
+                "It was Maria {a1} solved the problem."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 39,
+            "uuid": "afe-v3-b2-03",
+            "question": "What I need most {a1} more time.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What I need most {a1} more time."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 40,
+            "uuid": "afe-v3-b2-04",
+            "question": "This point {a1} want to emphasize.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "do I",
+                        "am I",
+                        "have I"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_objects_complements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_objects_complements"
+            ],
+            "variants": [
+                "This point {a1} want to emphasize."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 41,
+            "uuid": "afe-v3-b2-05",
+            "question": "Only later {a1} the real cost become clear.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "negative_fronting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_fronting"
+            ],
+            "variants": [
+                "Only later {a1} the real cost become clear."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 42,
+            "uuid": "afe-v3-b2-06",
+            "question": "She {a1} understand the risk, despite her doubts.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "emphatic_do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "emphatic_do"
+            ],
+            "variants": [
+                "She {a1} understand the risk, despite her doubts."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 43,
+            "uuid": "afe-v3-b2-07",
+            "question": "At the center of the debate {a1} a simple question.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "lies",
+                    "options": [
+                        "lies",
+                        "does lie",
+                        "is lying",
+                        "lie"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_adverbials"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_adverbials"
+            ],
+            "variants": [
+                "At the center of the debate {a1} a simple question."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 44,
+            "uuid": "afe-v3-b2-08",
+            "question": "What surprised me {a1} his calm reaction.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What surprised me {a1} his calm reaction."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 45,
+            "uuid": "afe-v3-b2-09",
+            "question": "The final decision {a1} I disagree with.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is what",
+                    "options": [
+                        "is what",
+                        "what is",
+                        "that what",
+                        "is that what"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "contrastive_focus"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrastive_focus"
+            ],
+            "variants": [
+                "The final decision {a1} I disagree with."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 46,
+            "uuid": "afe-v3-b2-10",
+            "question": "Fronting should keep the sentence {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "natural",
+                    "options": [
+                        "natural",
+                        "random",
+                        "repeated",
+                        "unfinished"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "natural_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "natural_word_order"
+            ],
+            "variants": [
+                "Fronting should keep the sentence {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 47,
+            "uuid": "afe-v3-b2-11",
+            "question": "In academic style, fronting can create controlled {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "emphasis",
+                    "options": [
+                        "emphasis",
+                        "slang",
+                        "tense",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "formal_literary_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_literary_style"
+            ],
+            "variants": [
+                "In academic style, fronting can create controlled {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 48,
+            "uuid": "afe-v3-b2-12",
+            "question": "Overusing fronting often sounds {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "neutral",
+                        "necessary",
+                        "short"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "Overusing fronting often sounds {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 49,
+            "uuid": "afe-v3-c1-01",
+            "question": "On the wall {a1} an old map.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "hung",
+                    "options": [
+                        "hung",
+                        "did hang",
+                        "was hanging",
+                        "hangs"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "locative_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "locative_inversion"
+            ],
+            "variants": [
+                "On the wall {a1} an old map."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 50,
+            "uuid": "afe-v3-c1-02",
+            "question": "It was Maria {a1} solved the problem.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cleft_sentences"
+            ],
+            "variants": [
+                "It was Maria {a1} solved the problem."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 51,
+            "uuid": "afe-v3-c1-03",
+            "question": "What I need most {a1} more time.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What I need most {a1} more time."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 52,
+            "uuid": "afe-v3-c1-04",
+            "question": "This point {a1} want to emphasize.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "do I",
+                        "am I",
+                        "have I"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_objects_complements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_objects_complements"
+            ],
+            "variants": [
+                "This point {a1} want to emphasize."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 53,
+            "uuid": "afe-v3-c1-05",
+            "question": "Only later {a1} the real cost become clear.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "negative_fronting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_fronting"
+            ],
+            "variants": [
+                "Only later {a1} the real cost become clear."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 54,
+            "uuid": "afe-v3-c1-06",
+            "question": "She {a1} understand the risk, despite her doubts.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "emphatic_do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "emphatic_do"
+            ],
+            "variants": [
+                "She {a1} understand the risk, despite her doubts."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 55,
+            "uuid": "afe-v3-c1-07",
+            "question": "At the center of the debate {a1} a simple question.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "lies",
+                    "options": [
+                        "lies",
+                        "does lie",
+                        "is lying",
+                        "lie"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_adverbials"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_adverbials"
+            ],
+            "variants": [
+                "At the center of the debate {a1} a simple question."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 56,
+            "uuid": "afe-v3-c1-08",
+            "question": "What surprised me {a1} his calm reaction.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What surprised me {a1} his calm reaction."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 57,
+            "uuid": "afe-v3-c1-09",
+            "question": "The final decision {a1} I disagree with.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is what",
+                    "options": [
+                        "is what",
+                        "what is",
+                        "that what",
+                        "is that what"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "contrastive_focus"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrastive_focus"
+            ],
+            "variants": [
+                "The final decision {a1} I disagree with."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 58,
+            "uuid": "afe-v3-c1-10",
+            "question": "Fronting should keep the sentence {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "natural",
+                    "options": [
+                        "natural",
+                        "random",
+                        "repeated",
+                        "unfinished"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "natural_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "natural_word_order"
+            ],
+            "variants": [
+                "Fronting should keep the sentence {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 59,
+            "uuid": "afe-v3-c1-11",
+            "question": "In academic style, fronting can create controlled {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "emphasis",
+                    "options": [
+                        "emphasis",
+                        "slang",
+                        "tense",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "formal_literary_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_literary_style"
+            ],
+            "variants": [
+                "In academic style, fronting can create controlled {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 60,
+            "uuid": "afe-v3-c1-12",
+            "question": "Overusing fronting often sounds {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "neutral",
+                        "necessary",
+                        "short"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "Overusing fronting often sounds {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 61,
+            "uuid": "afe-v3-c2-01",
+            "question": "On the wall {a1} an old map.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "hung",
+                    "options": [
+                        "hung",
+                        "did hang",
+                        "was hanging",
+                        "hangs"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "locative_inversion"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "locative_inversion"
+            ],
+            "variants": [
+                "On the wall {a1} an old map."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 62,
+            "uuid": "afe-v3-c2-02",
+            "question": "It was Maria {a1} solved the problem.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "what",
+                        "where"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cleft_sentences"
+            ],
+            "variants": [
+                "It was Maria {a1} solved the problem."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 63,
+            "uuid": "afe-v3-c2-03",
+            "question": "What I need most {a1} more time.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What I need most {a1} more time."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 64,
+            "uuid": "afe-v3-c2-04",
+            "question": "This point {a1} want to emphasize.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "do I",
+                        "am I",
+                        "have I"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_objects_complements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_objects_complements"
+            ],
+            "variants": [
+                "This point {a1} want to emphasize."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 65,
+            "uuid": "afe-v3-c2-05",
+            "question": "Only later {a1} the real cost become clear.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "was",
+                        "had",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "negative_fronting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_fronting"
+            ],
+            "variants": [
+                "Only later {a1} the real cost become clear."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 66,
+            "uuid": "afe-v3-c2-06",
+            "question": "She {a1} understand the risk, despite her doubts.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "does",
+                        "was",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "emphatic_do"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "emphatic_do"
+            ],
+            "variants": [
+                "She {a1} understand the risk, despite her doubts."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 67,
+            "uuid": "afe-v3-c2-07",
+            "question": "At the center of the debate {a1} a simple question.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "lies",
+                    "options": [
+                        "lies",
+                        "does lie",
+                        "is lying",
+                        "lie"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "fronted_adverbials"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "fronted_adverbials"
+            ],
+            "variants": [
+                "At the center of the debate {a1} a simple question."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 68,
+            "uuid": "afe-v3-c2-08",
+            "question": "What surprised me {a1} his calm reaction.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "pseudo_cleft_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "pseudo_cleft_sentences"
+            ],
+            "variants": [
+                "What surprised me {a1} his calm reaction."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 69,
+            "uuid": "afe-v3-c2-09",
+            "question": "The final decision {a1} I disagree with.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is what",
+                    "options": [
+                        "is what",
+                        "what is",
+                        "that what",
+                        "is that what"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "contrastive_focus"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrastive_focus"
+            ],
+            "variants": [
+                "The final decision {a1} I disagree with."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 70,
+            "uuid": "afe-v3-c2-10",
+            "question": "Fronting should keep the sentence {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "natural",
+                    "options": [
+                        "natural",
+                        "random",
+                        "repeated",
+                        "unfinished"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "natural_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "natural_word_order"
+            ],
+            "variants": [
+                "Fronting should keep the sentence {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 71,
+            "uuid": "afe-v3-c2-11",
+            "question": "In academic style, fronting can create controlled {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "emphasis",
+                    "options": [
+                        "emphasis",
+                        "slang",
+                        "tense",
+                        "plural"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "formal_literary_style"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_literary_style"
+            ],
+            "variants": [
+                "In academic style, fronting can create controlled {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        },
+        {
+            "id": 72,
+            "uuid": "afe-v3-c2-12",
+            "question": "Overusing fronting often sounds {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "unnatural",
+                    "options": [
+                        "unnatural",
+                        "neutral",
+                        "necessary",
+                        "short"
+                    ],
+                    "verb_hint": "Choose the word order that matches the emphasized structure.",
+                    "gap_tags": [
+                        "avoid_overuse"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_overuse"
+            ],
+            "variants": [
+                "Overusing fronting often sounds {a1}."
+            ],
+            "source": "theory_page_advanced_fronting_and_emphasis"
+        }
+    ],
+    "category": {
+        "name": "Word Order"
+    },
+    "sources": {
+        "theory_page_advanced_fronting_and_emphasis": {
+            "name": "Advanced Fronting and Emphasis"
+        }
+    },
+    "tags": {
+        "fronting_basics": {
+            "name": "fronting basics",
+            "category": "topic"
+        },
+        "fronted_objects_complements": {
+            "name": "fronted objects complements",
+            "category": "topic"
+        },
+        "fronted_adverbials": {
+            "name": "fronted adverbials",
+            "category": "topic"
+        },
+        "locative_inversion": {
+            "name": "locative inversion",
+            "category": "topic"
+        },
+        "negative_fronting": {
+            "name": "negative fronting",
+            "category": "topic"
+        },
+        "cleft_sentences": {
+            "name": "cleft sentences",
+            "category": "topic"
+        },
+        "pseudo_cleft_sentences": {
+            "name": "pseudo cleft sentences",
+            "category": "topic"
+        },
+        "emphatic_do": {
+            "name": "emphatic do",
+            "category": "topic"
+        },
+        "contrastive_focus": {
+            "name": "contrastive focus",
+            "category": "topic"
+        },
+        "natural_word_order": {
+            "name": "natural word order",
+            "category": "topic"
+        },
+        "formal_literary_style": {
+            "name": "formal literary style",
+            "category": "topic"
+        },
+        "avoid_overuse": {
+            "name": "avoid overuse",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "theory_page_advanced_fronting_and_emphasis"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotRegisterToneAndParaphraseC1LessonSeeder as V3PolyglotRegisterToneAndParaphraseC1LessonSeeder;
+
+class PolyglotRegisterToneAndParaphraseC1LessonSeeder extends V3PolyglotRegisterToneAndParaphraseC1LessonSeeder
+{
+}

@@ -1,0 +1,2222 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsPastModalsAllLevelsV3Seeder",
+        "uuid_namespace": "ModalVerbsPastModalsAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "mv-pm-v3-all",
+        "slug": "past-modals-all-levels-v3",
+        "name": "Past Modals: V3 All Levels",
+        "description": "Page-local V3 package for Past Modals with A1-C2 coverage.",
+        "question_uuids": [
+            "mv-pm-v3-a1-01",
+            "mv-pm-v3-a1-02",
+            "mv-pm-v3-a1-03",
+            "mv-pm-v3-a1-04",
+            "mv-pm-v3-a1-05",
+            "mv-pm-v3-a1-06",
+            "mv-pm-v3-a1-07",
+            "mv-pm-v3-a1-08",
+            "mv-pm-v3-a1-09",
+            "mv-pm-v3-a1-10",
+            "mv-pm-v3-a1-11",
+            "mv-pm-v3-a1-12",
+            "mv-pm-v3-a2-01",
+            "mv-pm-v3-a2-02",
+            "mv-pm-v3-a2-03",
+            "mv-pm-v3-a2-04",
+            "mv-pm-v3-a2-05",
+            "mv-pm-v3-a2-06",
+            "mv-pm-v3-a2-07",
+            "mv-pm-v3-a2-08",
+            "mv-pm-v3-a2-09",
+            "mv-pm-v3-a2-10",
+            "mv-pm-v3-a2-11",
+            "mv-pm-v3-a2-12",
+            "mv-pm-v3-b1-01",
+            "mv-pm-v3-b1-02",
+            "mv-pm-v3-b1-03",
+            "mv-pm-v3-b1-04",
+            "mv-pm-v3-b1-05",
+            "mv-pm-v3-b1-06",
+            "mv-pm-v3-b1-07",
+            "mv-pm-v3-b1-08",
+            "mv-pm-v3-b1-09",
+            "mv-pm-v3-b1-10",
+            "mv-pm-v3-b1-11",
+            "mv-pm-v3-b1-12",
+            "mv-pm-v3-b2-01",
+            "mv-pm-v3-b2-02",
+            "mv-pm-v3-b2-03",
+            "mv-pm-v3-b2-04",
+            "mv-pm-v3-b2-05",
+            "mv-pm-v3-b2-06",
+            "mv-pm-v3-b2-07",
+            "mv-pm-v3-b2-08",
+            "mv-pm-v3-b2-09",
+            "mv-pm-v3-b2-10",
+            "mv-pm-v3-b2-11",
+            "mv-pm-v3-b2-12",
+            "mv-pm-v3-c1-01",
+            "mv-pm-v3-c1-02",
+            "mv-pm-v3-c1-03",
+            "mv-pm-v3-c1-04",
+            "mv-pm-v3-c1-05",
+            "mv-pm-v3-c1-06",
+            "mv-pm-v3-c1-07",
+            "mv-pm-v3-c1-08",
+            "mv-pm-v3-c1-09",
+            "mv-pm-v3-c1-10",
+            "mv-pm-v3-c1-11",
+            "mv-pm-v3-c1-12",
+            "mv-pm-v3-c2-01",
+            "mv-pm-v3-c2-02",
+            "mv-pm-v3-c2-03",
+            "mv-pm-v3-c2-04",
+            "mv-pm-v3-c2-05",
+            "mv-pm-v3-c2-06",
+            "mv-pm-v3-c2-07",
+            "mv-pm-v3-c2-08",
+            "mv-pm-v3-c2-09",
+            "mv-pm-v3-c2-10",
+            "mv-pm-v3-c2-11",
+            "mv-pm-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsPastModalsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "modal-verbs",
+                "page_slug": "past-modals",
+                "page_route": "/theory/modal-verbs/past-modals",
+                "theory_page": {
+                    "slug": "past-modals",
+                    "title": "Past Modals",
+                    "category_slug_path": "modal-verbs",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/modal-verbs/past-modals"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mv-pm-v3-a1-01",
+            "question": "You {a1} told me earlier.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} told me earlier."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 2,
+            "uuid": "mv-pm-v3-a1-02",
+            "question": "You {a1} said that; it hurt her.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should not have",
+                    "options": [
+                        "should not have",
+                        "must not",
+                        "cannot",
+                        "do not have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "shouldnt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt_have"
+            ],
+            "variants": [
+                "You {a1} said that; it hurt her."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 3,
+            "uuid": "mv-pm-v3-a1-03",
+            "question": "We {a1} taken a taxi, but we walked.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "can have",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "could_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_have"
+            ],
+            "variants": [
+                "We {a1} taken a taxi, but we walked."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 4,
+            "uuid": "mv-pm-v3-a1-04",
+            "question": "She {a1} missed the train; she is not here.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "must not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "might_have"
+            ],
+            "variants": [
+                "She {a1} missed the train; she is not here."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 5,
+            "uuid": "mv-pm-v3-a1-05",
+            "question": "They look exhausted. They {a1} worked all night.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "should",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "They look exhausted. They {a1} worked all night."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 6,
+            "uuid": "mv-pm-v3-a1-06",
+            "question": "He {a1} seen us; he was abroad.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have",
+                    "options": [
+                        "cannot have",
+                        "must not have",
+                        "should have",
+                        "would have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_have"
+            ],
+            "variants": [
+                "He {a1} seen us; he was abroad."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 7,
+            "uuid": "mv-pm-v3-a1-07",
+            "question": "You {a1} bought food; we already had enough.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "need not have",
+                    "options": [
+                        "need not have",
+                        "must not have",
+                        "cannot have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "neednt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "neednt_have"
+            ],
+            "variants": [
+                "You {a1} bought food; we already had enough."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 8,
+            "uuid": "mv-pm-v3-a1-08",
+            "question": "If I had known, I {a1} helped.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would have",
+                    "options": [
+                        "would have",
+                        "will have",
+                        "must have",
+                        "might"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "would_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have"
+            ],
+            "variants": [
+                "If I had known, I {a1} helped."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 9,
+            "uuid": "mv-pm-v3-a1-09",
+            "question": "The form is modal + {a1} + V3.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "to have",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "modal_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_have_v3"
+            ],
+            "variants": [
+                "The form is modal + {a1} + V3."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 10,
+            "uuid": "mv-pm-v3-a1-10",
+            "question": "\"She must had left\" is a {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "correct past modal",
+                        "request",
+                        "permission"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She must had left\" is a {a1}."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 11,
+            "uuid": "mv-pm-v3-a1-11",
+            "question": "I {a1} studied more for the exam.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "must",
+                        "can",
+                        "may"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "I {a1} studied more for the exam."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 12,
+            "uuid": "mv-pm-v3-a1-12",
+            "question": "This cannot be right; they {a1} made a mistake.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "should",
+                        "can have",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "This cannot be right; they {a1} made a mistake."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 13,
+            "uuid": "mv-pm-v3-a2-01",
+            "question": "You {a1} told me earlier.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} told me earlier."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 14,
+            "uuid": "mv-pm-v3-a2-02",
+            "question": "You {a1} said that; it hurt her.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should not have",
+                    "options": [
+                        "should not have",
+                        "must not",
+                        "cannot",
+                        "do not have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "shouldnt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt_have"
+            ],
+            "variants": [
+                "You {a1} said that; it hurt her."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 15,
+            "uuid": "mv-pm-v3-a2-03",
+            "question": "We {a1} taken a taxi, but we walked.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "can have",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "could_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_have"
+            ],
+            "variants": [
+                "We {a1} taken a taxi, but we walked."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 16,
+            "uuid": "mv-pm-v3-a2-04",
+            "question": "She {a1} missed the train; she is not here.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "must not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "might_have"
+            ],
+            "variants": [
+                "She {a1} missed the train; she is not here."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 17,
+            "uuid": "mv-pm-v3-a2-05",
+            "question": "They look exhausted. They {a1} worked all night.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "should",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "They look exhausted. They {a1} worked all night."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 18,
+            "uuid": "mv-pm-v3-a2-06",
+            "question": "He {a1} seen us; he was abroad.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have",
+                    "options": [
+                        "cannot have",
+                        "must not have",
+                        "should have",
+                        "would have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_have"
+            ],
+            "variants": [
+                "He {a1} seen us; he was abroad."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 19,
+            "uuid": "mv-pm-v3-a2-07",
+            "question": "You {a1} bought food; we already had enough.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "need not have",
+                    "options": [
+                        "need not have",
+                        "must not have",
+                        "cannot have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "neednt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "neednt_have"
+            ],
+            "variants": [
+                "You {a1} bought food; we already had enough."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 20,
+            "uuid": "mv-pm-v3-a2-08",
+            "question": "If I had known, I {a1} helped.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would have",
+                    "options": [
+                        "would have",
+                        "will have",
+                        "must have",
+                        "might"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "would_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have"
+            ],
+            "variants": [
+                "If I had known, I {a1} helped."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 21,
+            "uuid": "mv-pm-v3-a2-09",
+            "question": "The form is modal + {a1} + V3.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "to have",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "modal_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_have_v3"
+            ],
+            "variants": [
+                "The form is modal + {a1} + V3."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 22,
+            "uuid": "mv-pm-v3-a2-10",
+            "question": "\"She must had left\" is a {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "correct past modal",
+                        "request",
+                        "permission"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She must had left\" is a {a1}."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 23,
+            "uuid": "mv-pm-v3-a2-11",
+            "question": "I {a1} studied more for the exam.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "must",
+                        "can",
+                        "may"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "I {a1} studied more for the exam."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 24,
+            "uuid": "mv-pm-v3-a2-12",
+            "question": "This cannot be right; they {a1} made a mistake.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "should",
+                        "can have",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "This cannot be right; they {a1} made a mistake."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 25,
+            "uuid": "mv-pm-v3-b1-01",
+            "question": "You {a1} told me earlier.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} told me earlier."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 26,
+            "uuid": "mv-pm-v3-b1-02",
+            "question": "You {a1} said that; it hurt her.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should not have",
+                    "options": [
+                        "should not have",
+                        "must not",
+                        "cannot",
+                        "do not have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "shouldnt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt_have"
+            ],
+            "variants": [
+                "You {a1} said that; it hurt her."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 27,
+            "uuid": "mv-pm-v3-b1-03",
+            "question": "We {a1} taken a taxi, but we walked.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "can have",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "could_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_have"
+            ],
+            "variants": [
+                "We {a1} taken a taxi, but we walked."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 28,
+            "uuid": "mv-pm-v3-b1-04",
+            "question": "She {a1} missed the train; she is not here.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "must not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "might_have"
+            ],
+            "variants": [
+                "She {a1} missed the train; she is not here."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 29,
+            "uuid": "mv-pm-v3-b1-05",
+            "question": "They look exhausted. They {a1} worked all night.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "should",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "They look exhausted. They {a1} worked all night."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 30,
+            "uuid": "mv-pm-v3-b1-06",
+            "question": "He {a1} seen us; he was abroad.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have",
+                    "options": [
+                        "cannot have",
+                        "must not have",
+                        "should have",
+                        "would have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_have"
+            ],
+            "variants": [
+                "He {a1} seen us; he was abroad."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 31,
+            "uuid": "mv-pm-v3-b1-07",
+            "question": "You {a1} bought food; we already had enough.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "need not have",
+                    "options": [
+                        "need not have",
+                        "must not have",
+                        "cannot have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "neednt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "neednt_have"
+            ],
+            "variants": [
+                "You {a1} bought food; we already had enough."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 32,
+            "uuid": "mv-pm-v3-b1-08",
+            "question": "If I had known, I {a1} helped.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would have",
+                    "options": [
+                        "would have",
+                        "will have",
+                        "must have",
+                        "might"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "would_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have"
+            ],
+            "variants": [
+                "If I had known, I {a1} helped."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 33,
+            "uuid": "mv-pm-v3-b1-09",
+            "question": "The form is modal + {a1} + V3.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "to have",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "modal_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_have_v3"
+            ],
+            "variants": [
+                "The form is modal + {a1} + V3."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 34,
+            "uuid": "mv-pm-v3-b1-10",
+            "question": "\"She must had left\" is a {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "correct past modal",
+                        "request",
+                        "permission"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She must had left\" is a {a1}."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 35,
+            "uuid": "mv-pm-v3-b1-11",
+            "question": "I {a1} studied more for the exam.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "must",
+                        "can",
+                        "may"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "I {a1} studied more for the exam."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 36,
+            "uuid": "mv-pm-v3-b1-12",
+            "question": "This cannot be right; they {a1} made a mistake.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "should",
+                        "can have",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "This cannot be right; they {a1} made a mistake."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 37,
+            "uuid": "mv-pm-v3-b2-01",
+            "question": "You {a1} told me earlier.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} told me earlier."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 38,
+            "uuid": "mv-pm-v3-b2-02",
+            "question": "You {a1} said that; it hurt her.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should not have",
+                    "options": [
+                        "should not have",
+                        "must not",
+                        "cannot",
+                        "do not have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "shouldnt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt_have"
+            ],
+            "variants": [
+                "You {a1} said that; it hurt her."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 39,
+            "uuid": "mv-pm-v3-b2-03",
+            "question": "We {a1} taken a taxi, but we walked.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "can have",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "could_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_have"
+            ],
+            "variants": [
+                "We {a1} taken a taxi, but we walked."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 40,
+            "uuid": "mv-pm-v3-b2-04",
+            "question": "She {a1} missed the train; she is not here.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "must not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "might_have"
+            ],
+            "variants": [
+                "She {a1} missed the train; she is not here."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 41,
+            "uuid": "mv-pm-v3-b2-05",
+            "question": "They look exhausted. They {a1} worked all night.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "should",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "They look exhausted. They {a1} worked all night."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 42,
+            "uuid": "mv-pm-v3-b2-06",
+            "question": "He {a1} seen us; he was abroad.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have",
+                    "options": [
+                        "cannot have",
+                        "must not have",
+                        "should have",
+                        "would have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_have"
+            ],
+            "variants": [
+                "He {a1} seen us; he was abroad."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 43,
+            "uuid": "mv-pm-v3-b2-07",
+            "question": "You {a1} bought food; we already had enough.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "need not have",
+                    "options": [
+                        "need not have",
+                        "must not have",
+                        "cannot have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "neednt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "neednt_have"
+            ],
+            "variants": [
+                "You {a1} bought food; we already had enough."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 44,
+            "uuid": "mv-pm-v3-b2-08",
+            "question": "If I had known, I {a1} helped.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would have",
+                    "options": [
+                        "would have",
+                        "will have",
+                        "must have",
+                        "might"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "would_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have"
+            ],
+            "variants": [
+                "If I had known, I {a1} helped."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 45,
+            "uuid": "mv-pm-v3-b2-09",
+            "question": "The form is modal + {a1} + V3.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "to have",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "modal_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_have_v3"
+            ],
+            "variants": [
+                "The form is modal + {a1} + V3."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 46,
+            "uuid": "mv-pm-v3-b2-10",
+            "question": "\"She must had left\" is a {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "correct past modal",
+                        "request",
+                        "permission"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She must had left\" is a {a1}."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 47,
+            "uuid": "mv-pm-v3-b2-11",
+            "question": "I {a1} studied more for the exam.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "must",
+                        "can",
+                        "may"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "I {a1} studied more for the exam."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 48,
+            "uuid": "mv-pm-v3-b2-12",
+            "question": "This cannot be right; they {a1} made a mistake.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "should",
+                        "can have",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "This cannot be right; they {a1} made a mistake."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 49,
+            "uuid": "mv-pm-v3-c1-01",
+            "question": "You {a1} told me earlier.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} told me earlier."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 50,
+            "uuid": "mv-pm-v3-c1-02",
+            "question": "You {a1} said that; it hurt her.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should not have",
+                    "options": [
+                        "should not have",
+                        "must not",
+                        "cannot",
+                        "do not have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "shouldnt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt_have"
+            ],
+            "variants": [
+                "You {a1} said that; it hurt her."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 51,
+            "uuid": "mv-pm-v3-c1-03",
+            "question": "We {a1} taken a taxi, but we walked.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "can have",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "could_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_have"
+            ],
+            "variants": [
+                "We {a1} taken a taxi, but we walked."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 52,
+            "uuid": "mv-pm-v3-c1-04",
+            "question": "She {a1} missed the train; she is not here.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "must not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "might_have"
+            ],
+            "variants": [
+                "She {a1} missed the train; she is not here."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 53,
+            "uuid": "mv-pm-v3-c1-05",
+            "question": "They look exhausted. They {a1} worked all night.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "should",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "They look exhausted. They {a1} worked all night."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 54,
+            "uuid": "mv-pm-v3-c1-06",
+            "question": "He {a1} seen us; he was abroad.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have",
+                    "options": [
+                        "cannot have",
+                        "must not have",
+                        "should have",
+                        "would have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_have"
+            ],
+            "variants": [
+                "He {a1} seen us; he was abroad."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 55,
+            "uuid": "mv-pm-v3-c1-07",
+            "question": "You {a1} bought food; we already had enough.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "need not have",
+                    "options": [
+                        "need not have",
+                        "must not have",
+                        "cannot have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "neednt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "neednt_have"
+            ],
+            "variants": [
+                "You {a1} bought food; we already had enough."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 56,
+            "uuid": "mv-pm-v3-c1-08",
+            "question": "If I had known, I {a1} helped.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would have",
+                    "options": [
+                        "would have",
+                        "will have",
+                        "must have",
+                        "might"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "would_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have"
+            ],
+            "variants": [
+                "If I had known, I {a1} helped."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 57,
+            "uuid": "mv-pm-v3-c1-09",
+            "question": "The form is modal + {a1} + V3.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "to have",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "modal_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_have_v3"
+            ],
+            "variants": [
+                "The form is modal + {a1} + V3."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 58,
+            "uuid": "mv-pm-v3-c1-10",
+            "question": "\"She must had left\" is a {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "correct past modal",
+                        "request",
+                        "permission"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She must had left\" is a {a1}."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 59,
+            "uuid": "mv-pm-v3-c1-11",
+            "question": "I {a1} studied more for the exam.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "must",
+                        "can",
+                        "may"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "I {a1} studied more for the exam."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 60,
+            "uuid": "mv-pm-v3-c1-12",
+            "question": "This cannot be right; they {a1} made a mistake.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "should",
+                        "can have",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "This cannot be right; they {a1} made a mistake."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 61,
+            "uuid": "mv-pm-v3-c2-01",
+            "question": "You {a1} told me earlier.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "should",
+                        "must",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "You {a1} told me earlier."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 62,
+            "uuid": "mv-pm-v3-c2-02",
+            "question": "You {a1} said that; it hurt her.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should not have",
+                    "options": [
+                        "should not have",
+                        "must not",
+                        "cannot",
+                        "do not have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "shouldnt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "shouldnt_have"
+            ],
+            "variants": [
+                "You {a1} said that; it hurt her."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 63,
+            "uuid": "mv-pm-v3-c2-03",
+            "question": "We {a1} taken a taxi, but we walked.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "could have",
+                    "options": [
+                        "could have",
+                        "can have",
+                        "must",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "could_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "could_have"
+            ],
+            "variants": [
+                "We {a1} taken a taxi, but we walked."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 64,
+            "uuid": "mv-pm-v3-c2-04",
+            "question": "She {a1} missed the train; she is not here.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might have",
+                    "options": [
+                        "might have",
+                        "might",
+                        "must not",
+                        "can"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "might_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "might_have"
+            ],
+            "variants": [
+                "She {a1} missed the train; she is not here."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 65,
+            "uuid": "mv-pm-v3-c2-05",
+            "question": "They look exhausted. They {a1} worked all night.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "must",
+                        "should",
+                        "can have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "They look exhausted. They {a1} worked all night."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 66,
+            "uuid": "mv-pm-v3-c2-06",
+            "question": "He {a1} seen us; he was abroad.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "cannot have",
+                    "options": [
+                        "cannot have",
+                        "must not have",
+                        "should have",
+                        "would have"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "cant_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "cant_have"
+            ],
+            "variants": [
+                "He {a1} seen us; he was abroad."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 67,
+            "uuid": "mv-pm-v3-c2-07",
+            "question": "You {a1} bought food; we already had enough.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "need not have",
+                    "options": [
+                        "need not have",
+                        "must not have",
+                        "cannot have",
+                        "should"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "neednt_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "neednt_have"
+            ],
+            "variants": [
+                "You {a1} bought food; we already had enough."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 68,
+            "uuid": "mv-pm-v3-c2-08",
+            "question": "If I had known, I {a1} helped.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would have",
+                    "options": [
+                        "would have",
+                        "will have",
+                        "must have",
+                        "might"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "would_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "would_have"
+            ],
+            "variants": [
+                "If I had known, I {a1} helped."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 69,
+            "uuid": "mv-pm-v3-c2-09",
+            "question": "The form is modal + {a1} + V3.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "had",
+                        "to have",
+                        "has"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "modal_have_v3"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_have_v3"
+            ],
+            "variants": [
+                "The form is modal + {a1} + V3."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 70,
+            "uuid": "mv-pm-v3-c2-10",
+            "question": "\"She must had left\" is a {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "typical mistake",
+                    "options": [
+                        "typical mistake",
+                        "correct past modal",
+                        "request",
+                        "permission"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "\"She must had left\" is a {a1}."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 71,
+            "uuid": "mv-pm-v3-c2-11",
+            "question": "I {a1} studied more for the exam.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should have",
+                    "options": [
+                        "should have",
+                        "must",
+                        "can",
+                        "may"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "should_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "should_have"
+            ],
+            "variants": [
+                "I {a1} studied more for the exam."
+            ],
+            "source": "theory_page_past_modals"
+        },
+        {
+            "id": 72,
+            "uuid": "mv-pm-v3-c2-12",
+            "question": "This cannot be right; they {a1} made a mistake.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "must have",
+                    "options": [
+                        "must have",
+                        "should",
+                        "can have",
+                        "would"
+                    ],
+                    "verb_hint": "Choose the modal form that matches the meaning in context.",
+                    "gap_tags": [
+                        "must_have"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "must_have"
+            ],
+            "variants": [
+                "This cannot be right; they {a1} made a mistake."
+            ],
+            "source": "theory_page_past_modals"
+        }
+    ],
+    "category": {
+        "name": "Modal Verbs"
+    },
+    "sources": {
+        "theory_page_past_modals": {
+            "name": "Past Modals"
+        }
+    },
+    "tags": {
+        "should_have": {
+            "name": "should have",
+            "category": "topic"
+        },
+        "shouldnt_have": {
+            "name": "shouldnt have",
+            "category": "topic"
+        },
+        "could_have": {
+            "name": "could have",
+            "category": "topic"
+        },
+        "might_have": {
+            "name": "might have",
+            "category": "topic"
+        },
+        "must_have": {
+            "name": "must have",
+            "category": "topic"
+        },
+        "cant_have": {
+            "name": "cant have",
+            "category": "topic"
+        },
+        "neednt_have": {
+            "name": "neednt have",
+            "category": "topic"
+        },
+        "would_have": {
+            "name": "would have",
+            "category": "topic"
+        },
+        "modal_have_v3": {
+            "name": "modal have v3",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "theory_page_past_modals"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}

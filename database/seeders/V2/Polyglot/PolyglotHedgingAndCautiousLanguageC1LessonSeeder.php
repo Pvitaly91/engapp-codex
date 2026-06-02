@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotHedgingAndCautiousLanguageC1LessonSeeder as V3PolyglotHedgingAndCautiousLanguageC1LessonSeeder;
+
+class PolyglotHedgingAndCautiousLanguageC1LessonSeeder extends V3PolyglotHedgingAndCautiousLanguageC1LessonSeeder
+{
+}

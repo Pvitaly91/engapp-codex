@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'English App')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        foreground: '#0f172a',
+                        muted: '#f8fafc',
+                        border: '#e2e8f0',
+                        background: '#ffffff',
+                        card: '#ffffff',
+                        'card-foreground': '#0f172a',
+                    },
+                    boxShadow: {
+                        soft: '0 20px 45px -20px rgba(15, 23, 42, 0.35)',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        :root {
+            color-scheme: light;
+        }
+
+        .text-base {
+            line-height: 2.2rem !important;
+        }
+
+        .test-description {
+            background-color: #fefce8;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @livewireStyles
+    @stack('styles')
+    @stack('head-scripts')
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col" style="background-attachment: fixed;">
+    @include('components.admin-domain-switcher')
+
+    <!-- Навігація -->
+    <nav class="bg-white shadow mb-6" x-data="{ open: false }">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <a href="{{ route('admin.dashboard') }}" class="text-2xl font-bold text-blue-700">
+                    Admin Hub
+                </a>
+                <button
+                    type="button"
+                    class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none"
+                    @click="open = !open"
+                    aria-label="Toggle navigation"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                @php $supportsShell = function_exists('proc_open'); @endphp
+
+                <div class="hidden md:flex md:items-center md:gap-6 text-gray-600 font-medium">
+                    <a href="{{ route('pages.manage.index') }}" class="hover:text-blue-500 transition">Сторінки</a>
+                    <a href="{{ route('site-tree.index') }}" class="hover:text-blue-500 transition">Структура сайту</a>
+                    <a href="{{ route('language-manager.index') }}" class="hover:text-blue-500 transition">Мови</a>
+                    <div
+                        x-data="{ open: false }"
+                        class="relative"
+                        @mouseenter="open = true"
+                        @mouseleave="open = false"
+                        @focusin="open = true"
+                        @focusout="open = false"
+                    >
+                        <button
+                            type="button"
+                            class="inline-flex items-center gap-1 hover:text-blue-500 transition"
+                        >
+                            Граматика
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        <div
+                            x-show="open"
+                            x-transition
+                            x-cloak
+                            @mouseenter="open = true"
+                            @mouseleave="open = false"
+                            class="absolute left-0 mt-2 w-48 rounded-lg border border-gray-100 bg-white py-2 text-sm shadow-lg"
+                        >
+                            <a href="{{ route('grammar-test') }}" class="block px-4 py-2 hover:bg-blue-50">Конструктор тестів</a>
+                            <a href="{{ route('saved-tests.list') }}" class="block px-4 py-2 hover:bg-blue-50">Збережені тести</a>
+                            <a href="{{ route('question-reports.index') }}" class="block px-4 py-2 hover:bg-blue-50">Репорти питань</a>
+                            <a href="{{ route('test-tags.index') }}" class="block px-4 py-2 hover:bg-blue-50">Теги тестів</a>
+                            <a href="{{ route('v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор V3</a>
+                            <a href="{{ route('page-v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор Page_V3</a>
+                            <a href="{{ route('polyglot-v3-prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор Polyglot V3</a>
+                        </div>
+                    </div>
+                    <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
+                    <a href="{{ route('seed-runs.v2.index') }}" class="hover:text-blue-500 transition">Seed Runs (V2)</a>
+                    <a href="{{ route('database-structure.index') }}" class="hover:text-blue-500 transition">Структура БД</a>
+                    <a href="{{ route('file-manager.index') }}" class="hover:text-blue-500 transition" >Файловий менеджер</a>
+                    <a href="{{ route('file-manager.v2.index') }}" class="hover:text-blue-500 transition" >Файловий менеджер V2</a>
+                    <div
+                        x-data="{ open: false }"
+                        class="relative"
+                        @mouseenter="open = true"
+                        @mouseleave="open = false"
+                        @focusin="open = true"
+                        @focusout="open = false"
+                    >
+                        <button
+                            type="button"
+                            class="inline-flex items-center gap-1 hover:text-blue-500 transition"
+                        >
+                            Деплой
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        <div
+                            x-show="open"
+                            x-transition
+                            x-cloak
+                            @mouseenter="open = true"
+                            @mouseleave="open = false"
+                            class="absolute right-0 mt-2 w-48 rounded-lg border border-gray-100 bg-white py-2 text-sm shadow-lg"
+                        >
+                            @if($supportsShell)
+                                <a href="{{ route('deployment.index') }}" class="block px-4 py-2 hover:bg-blue-50">SSH режим</a>
+                            @else
+                                <a href="{{ route('deployment.native.index') }}" class="block px-4 py-2 hover:bg-blue-50">API режим</a>
+                            @endif
+                            <a href="{{ route('migrations.index') }}" class="block px-4 py-2 hover:bg-blue-50">Міграції</a>
+                            <a href="{{ route('artisan.index') }}" class="block px-4 py-2 hover:bg-blue-50">Artisan команди</a>
+                        </div>
+                    </div>
+                    <a href="{{ localized_route('home') }}" class="hover:text-blue-500 transition">До публічної частини</a>
+                    @if(session('admin_authenticated'))
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-600 transition">Вийти</button>
+                        </form>
+                    @else
+                        <a href="{{ route('login.show') }}" class="hover:text-blue-500 transition">Увійти</a>
+                    @endif
+                </div>
+            </div>
+            <div
+                class="md:hidden border-t border-gray-100 pt-2 pb-4 space-y-2 text-gray-600 font-medium"
+                x-show="open"
+                x-cloak
+                x-transition
+            >
+                <a href="{{ route('pages.manage.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Сторінки</a>
+                <a href="{{ route('site-tree.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Структура сайту</a>
+                <a href="{{ route('language-manager.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Мови</a>
+                <div x-data="{ openGrammar: false }" class="space-y-1">
+                    <button
+                        type="button"
+                        class="flex w-full items-center justify-between rounded-lg px-2 py-2 hover:bg-blue-50"
+                        @click="openGrammar = !openGrammar"
+                    >
+                        <span>Граматика</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openGrammar }"></i>
+                    </button>
+                    <div x-show="openGrammar" x-transition x-cloak class="ml-4 space-y-1 text-sm">
+                        <a href="{{ route('grammar-test') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Конструктор тестів</a>
+                        <a href="{{ route('saved-tests.list') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Збережені тести</a>
+                        <a href="{{ route('question-reports.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Репорти питань</a>
+                        <a href="{{ route('test-tags.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Теги тестів</a>
+                        <a href="{{ route('v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор V3</a>
+                        <a href="{{ route('page-v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор Page_V3</a>
+                        <a href="{{ route('polyglot-v3-prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор Polyglot V3</a>
+                    </div>
+                </div>
+                <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>
+                <a href="{{ route('seed-runs.v2.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs (V2)</a>
+                <a href="{{ route('database-structure.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Структура БД</a>
+                <a href="{{ route('file-manager.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50" >Файловий менеджер</a>
+                <a href="{{ route('file-manager.v2.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50" >Файловий менеджер V2</a>
+                <div x-data="{ openDeployment: false }" class="space-y-1">
+                    <button
+                        type="button"
+                        class="flex w-full items-center justify-between rounded-lg px-2 py-2 hover:bg-blue-50"
+                        @click="openDeployment = !openDeployment"
+                    >
+                        <span>Деплой</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openDeployment }"></i>
+                    </button>
+                    <div x-show="openDeployment" x-transition x-cloak class="ml-4 space-y-1 text-sm">
+                        @if($supportsShell)
+                            <a href="{{ route('deployment.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">SSH режим</a>
+                        @else
+                            <a href="{{ route('deployment.native.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">API режим</a>
+                        @endif
+                        <a href="{{ route('migrations.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Міграції</a>
+                        <a href="{{ route('artisan.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Artisan команди</a>
+                    </div>
+                </div>
+                <a href="{{ localized_route('home') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">До публічної частини</a>
+                @if(session('admin_authenticated'))
+                    <form method="POST" action="{{ route('logout') }}" class="px-2 py-2">
+                        @csrf
+                        <button type="submit" class="w-full text-left text-red-500 hover:text-red-600">Вийти</button>
+                    </form>
+                @else
+                    <a href="{{ route('login.show') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Увійти</a>
+                @endif
+            </div>
+        </div>
+    </nav>
+
+    <!-- Alpine.js plugins and core -->
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Контент -->
+    <main class="flex-1 container mx-auto px-3 sm:px-4">
+        @php $pageTitle = trim($__env->yieldContent('title')); @endphp
+        @if(isset($breadcrumbs))
+            @include('components.breadcrumbs', ['items' => $breadcrumbs])
+        @elseif(!request()->is('admin') && !empty($pageTitle))
+            @include('components.breadcrumbs', ['items' => [
+                ['label' => 'Home', 'url' => route('admin.dashboard')],
+                ['label' => $pageTitle]
+            ]])
+        @endif
+        @yield('content')
+    </main>
+
+    <!-- Підвал -->
+    <footer class="bg-white border-t mt-8 py-4 text-center text-sm text-gray-400">
+        &copy; {{ date('Y') }} English Test Hub. All rights reserved.
+    </footer>
+
+    @livewireScripts
+    @stack('scripts')
+</body>
+</html>

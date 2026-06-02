@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\V2\\IndefinitePronounsPracticeV2LocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\V2\\IndefinitePronounsPracticeV3Seeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "chatgpt",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "❌ «will find» zawiera will; druga warunkowa używa Past Simple.\nPrzykład: *What would you do if you found a wallet in the street?*"
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Gdzieś* jest stosowane w twierdzeniach lub zaproszeniach, a nie po zaprzeczeniu.",
+          "anywhere": "✅ **Gdziekolwiek** używamy po *can't* i *don't* dla oznaczenia „gdzie indziej/nigdzie”.",
+          "nowhere": "❌ *Nigdzie* już niesie zaprzeczenie i razem z *can't* tworzy podwójną negatywną konstrukcję."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Po \"didn't\" wybieramy any-słowo dla zaprzeczenia."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Coś* brzmi jak twierdzenie, a nie jak zaprzeczenie.",
+          "anything": "✅ **Cokolwiek** logicznie kończy zdanie po \"didn't\".",
+          "nothing": "❌ *Nic* uczyniłoby konstrukcję podwójnie zaprzeczającą."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Fraza „wszyscy nasi przyjaciele i rodzina” sugeruje totalność → **Wszyscy**."
+      ],
+      "explanations": {
+        "a1": {
+          "Everybody": "✅ **Wszyscy** oznacza wszystkich bez wyjątku, co jest opisane w zdaniu.",
+          "Anybody": "❌ *Ktokolwiek* częściej używa się w pytaniach/zaprzeczeniach i nie podkreśla „wszystkich”.",
+          "Nobody": "❌ *Nikt* zaprzecza twierdzeniu, że impreza była pełna ludzi."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Ogólne pytanie (Did you...?) wymaga any-słowa → **ktokolwiek**.\nOdpowiedź opisuje całkowity brak interesujących ludzi → **nikt**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ To by oznaczało, że ktoś interesujący był, ale fraza mówi przeciwnie.",
+          "anybody": "❌ *Ktokolwiek* brzmi nieokreślenie i nie przekazuje „żadnego”.",
+          "nobody": "✅ **Nikt** podkreśla brak interesujących ludzi."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Zdarzenie na pewno miało miejsce, ale osoba jest nieznana → używamy some-słowa."
+      ],
+      "explanations": {
+        "a1": {
+          "Somebody": "✅ **Ktoś** nadaje się do twierdzenia o nieznanym przestępcy.",
+          "Anybody": "❌ *Ktokolwiek* częściej występuje w pytaniach lub zaprzeczeniach.",
+          "Nobody": "❌ *Nikt* zaprzecza faktowi rabunku."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "To twierdzenie z założeniem → potrzebne jest **gdzieś**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "✅ **Gdzieś** używamy, gdy jesteśmy pewni, że miejsce istnieje, ale nie wiemy jakie.",
+          "anywhere": "❌ *Gdziekolwiek* używa się w zaprzeczeniach lub dla „gdziekolwiek”.",
+          "nowhere": "❌ *Nigdzie* oznacza, że nikt się nie ukrywa, co zaprzecza założeniu policji."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Tak/nie pytanie o doświadczenie → stawiamy **cokolwiek**.\nOn jest głodny, więc nic nie jadł → **nic**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Coś* nadaje się do propozycji, a nie do neutralnego pytania.",
+          "anything": "✅ **Cokolwiek** – standard dla ogólnych pytań.",
+          "nothing": "❌ *Nic* nie jest używane w części pytającej."
+        },
+        "a2": {
+          "something": "❌ Gdyby coś jadł, nie byłby „bardzo głodny”.",
+          "anything": "❌ *Cokolwiek* oznacza „cokolwiek”, a należy podkreślić brak jedzenia.",
+          "nothing": "✅ **Nic** pokazuje, że jedzenia w ogóle nie było."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Kiedy nie ma żadnego miejsca, mówimy **nigdzie**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Gdzieś* oznacza, że miejsce istnieje, ale jest nieznane.",
+          "anywhere": "❌ *Gdziekolwiek* oznacza „gdziekolwiek”, ale bohater nie ma dokąd iść.",
+          "nowhere": "✅ **Nigdzie** wyraźnie przekazuje całkowity brak miejsca."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Jest podejrzenie o zdarzenie → używamy **coś**.\nOficerowie wszędzie wokół → potrzebne **wszędzie**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "✅ **Coś** oznacza nieznane, ale realne zdarzenie.",
+          "anything": "❌ *Cokolwiek* wskazuje na obojętność wobec wyboru, a nie na podejrzenie.",
+          "nothing": "❌ *Nic* zaprzecza temu, co się dzieje."
+        },
+        "a2": {
+          "everywhere": "✅ **Wszędzie** pokazuje, że policja jest wszędzie.",
+          "anywhere": "❌ *Gdziekolwiek* brzmi jak „gdzieś”, bez akcentu na skalę.",
+          "nowhere": "❌ *Nigdzie* oznaczałoby, że policji nie ma, a to nieprawda."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Lista „ulice, domy, samochody…” = wszystkie rzeczy → **Wszystko**."
+      ],
+      "explanations": {
+        "a1": {
+          "Something": "❌ *Coś* oznacza tylko jedną rzecz, a nie całą listę.",
+          "Everything": "✅ **Wszystko** obejmuje wszystkie wymienione przedmioty.",
+          "Anything": "❌ *Cokolwiek* oznacza „cokolwiek”, ale nie „wszystko na raz”."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Fakt użycia był → potrzebne pozytywne some-słowo."
+      ],
+      "explanations": {
+        "a1": {
+          "Somebody": "✅ **Ktoś** przekazuje nieznanego, ale realnego użytkownika.",
+          "Nobody": "❌ *Nikt* zaprzecza faktowi.",
+          "Anybody": "❌ *Ktokolwiek* jest odpowiednie w pytaniach/zaprzeczeniach."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Po \"couldn't\" stawiamy **cokolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "anything": "✅ **Cokolwiek** odpowiada czasownikowi zaprzeczającemu.",
+          "something": "❌ *Coś* brzmi jak twierdzenie.",
+          "nothing": "❌ *Nic* stworzyłoby podwójną negatywną formę."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Neutralne pytanie wymaga **kogokolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ *Ktoś* brzmi jak oczekiwanie pozytywnej odpowiedzi.",
+          "anybody": "✅ **Ktokolwiek** pasuje do ogólnego pytania.",
+          "nobody": "❌ *Nikt* jest zaprzeczeniem i nie występuje w formie pytającej."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Po \"don't have\" używamy słowa any."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Coś* jest sprzeczne z zaprzeczeniem.",
+          "anything": "✅ **Cokolwiek** logicznie kończy negatywną frazę.",
+          "nothing": "❌ *Nic* stworzyłoby podwójną negatywną konstrukcję."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Kiedy nie ma mieszkań wcale, wybieramy **nigdzie**."
+      ],
+      "explanations": {
+        "a1": {
+          "somewhere": "❌ *Gdzieś* oznaczałoby obecność miejsca.",
+          "anywhere": "❌ *Gdziekolwiek* = „gdziekolwiek”, a nie „nigdzie”.",
+          "nowhere": "✅ **Nigdzie** podkreśla całkowity brak mieszkań."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Po zaprzeczeniu \"doesn't have\" używamy **kogokolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "somebody": "❌ *Ktoś* oznacza, że ktoś jest, co jest sprzeczne z zaprzeczeniem.",
+          "anybody": "✅ **Ktokolwiek** poprawnie łączy się z \"doesn't have\" w celu wyrażenia samotności.",
+          "nobody": "❌ *Nikt* tworzy podwójne zaprzeczenie z \"doesn't have\"."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "W uprzejmych propozycjach Would you like…? używamy **czegoś**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "✅ **Coś** brzmi ciepło w propozycji.",
+          "anything": "❌ *Cokolwiek* czyni propozycję zbyt obojętną.",
+          "nothing": "❌ *Nic* zaprzecza propozycji."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Ogólne pytanie → **ktokolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "someone": "❌ *Ktoś* brzmi jak odpowiedź, a nie pytanie.",
+          "anyone": "✅ **Każdy** standard dla neutralnych pytań.",
+          "no one": "❌ *Nikt* nie sprzeciwia się pozytywnej odpowiedzi."
+        }
+      }
+    },
+    {
+      "id": 19,
+      "hints": [
+        "Fraza \"Teraz wszyscy wiemy\" oznacza, że powiedziała wszystkim → **wszyscy**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "❌ *Każdy* brzmi nieokreślenie, a kontekst mówi o „wszystkich”.",
+          "no one": "❌ *Nikt* sprzeciwia się stwierdzeniu \"Teraz wszyscy wiemy\".",
+          "everyone": "✅ **Wszyscy** logicznie wyjaśnia, dlaczego wszyscy teraz wiedzą."
+        }
+      }
+    },
+    {
+      "id": 20,
+      "hints": [
+        "Forma \"Jest ...\" + negatywna treść → **nic**."
+      ],
+      "explanations": {
+        "a1": {
+          "something": "❌ *Coś* sprzeciwia się idei „idę spać”.",
+          "anything": "❌ *Cokolwiek* nie daje poczucia całkowitego braku zainteresowania.",
+          "nothing": "✅ **Nic** oznacza, że w TV nie ma nic interesującego."
+        }
+      }
+    },
+    {
+      "id": 21,
+      "hints": [
+        "Zaprzeczenie *can't find* → **gdziekolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Gdziekolwiek** łączy się z *can't* i pokazuje brak wyniku.",
+          "nowhere": "❌ *Nigdzie* już zawiera zaprzeczenie, co brzmiałoby dziwnie.",
+          "somewhere": "❌ *Gdzieś* oznacza, że znaleziono miejsce."
+        }
+      }
+    },
+    {
+      "id": 22,
+      "hints": [
+        "Telefon był → używamy **Kogoś**."
+      ],
+      "explanations": {
+        "a1": {
+          "Someone": "✅ **Ktoś** przekazuje, że dzwonił nieznany.",
+          "Anybody": "❌ *Każdy* używa się w pytaniach/zaprzeczeniach.",
+          "No one": "❌ *Nikt* sprzeciwia się faktowi telefonu."
+        }
+      }
+    },
+    {
+      "id": 23,
+      "hints": [
+        "Po \"didn't\" stawiamy **gdziekolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Gdziekolwiek** – najnaturalniejszy wybór w zaprzeczeniu.",
+          "somewhere": "❌ *Gdzieś* oznaczałoby, że on gdzieś chodził.",
+          "nowhere": "❌ *Nigdzie* powtarza zaprzeczenie i brzmi ciężko."
+        }
+      }
+    },
+    {
+      "id": 24,
+      "hints": [
+        "Zaprzeczenie *don't know* + ogólne odniesienie → **ktokolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "✅ **Ktokolwiek** pokazuje, że brakuje znajomości z pozostałymi ludźmi.",
+          "someone": "❌ *Ktoś* oznaczałoby, że nieznana jest tylko jedna osoba.",
+          "everyone": "❌ *Wszyscy* mówią o wszystkich, a tutaj potrzebna jest grupa „jeszcze nieznanych”."
+        }
+      }
+    },
+    {
+      "id": 25,
+      "hints": [
+        "Po \"nie wiem\" – **cokolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "anything": "✅ **Cokolwiek** wspiera zaprzeczenie.",
+          "something": "❌ *Coś* oznaczałoby, że wiedza istnieje.",
+          "nothing": "❌ *Nic* uczyniłoby zdanie podwójnie negatywnym."
+        }
+      }
+    },
+    {
+      "id": 26,
+      "hints": [
+        "Jest oczywisty problem, choć nieznany → **Coś**."
+      ],
+      "explanations": {
+        "a1": {
+          "Something": "✅ **Coś** wskazuje na konkretny, choć nienazwany problem.",
+          "Anything": "❌ *Cokolwiek* brzmi jak obojętność, a nie jak fakt.",
+          "Nothing": "❌ *Nic* stoi w sprzeczności z dziwnym zachowaniem."
+        }
+      }
+    },
+    {
+      "id": 27,
+      "hints": [
+        "Byłem sam → **Nikt**."
+      ],
+      "explanations": {
+        "a1": {
+          "Nobody": "✅ **Nikt** oznacza całkowity brak ludzi.",
+          "Anybody": "❌ *Ktokolwiek* nie daje wyraźnego poczucia, że nikogo nie było.",
+          "Everyone": "❌ *Wszyscy* stoi w sprzeczności z twierdzeniem."
+        }
+      }
+    },
+    {
+      "id": 28,
+      "hints": [
+        "Zaprzeczenie *can't find* → **gdziekolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "anywhere": "✅ **Gdziekolwiek** naturalnie brzmi w zaprzeczeniu.",
+          "nowhere": "❌ *Nigdzie* powtarza zaprzeczenie.",
+          "everywhere": "❌ *Wszędzie* oznacza „wszędzie”, ale lepiej używać go, gdy coś się znajduje."
+        }
+      }
+    },
+    {
+      "id": 29,
+      "hints": [
+        "Porażka = zero powodów do świętowania → **nic**."
+      ],
+      "explanations": {
+        "a1": {
+          "nothing": "✅ **Nic** podkreśla brak powodu.",
+          "anything": "❌ *Cokolwiek* brzmiałoby jak możliwość świętowania.",
+          "everything": "❌ *Wszystko* oznacza przeciwieństwo treści."
+        }
+      }
+    },
+    {
+      "id": 30,
+      "hints": [
+        "Policja myślała, że ktoś się ukrywa → potrzebne **ktoś**.\nPo zaprzeczeniu \"nie znaleziono\" używamy **ktokolwiek**."
+      ],
+      "explanations": {
+        "a1": {
+          "anyone": "❌ *Ktokolwiek* częściej do pytań, a tutaj twierdzenie o podejrzeniu.",
+          "someone": "✅ **Ktoś** pasuje do twierdzenia, że policja myślała o konkretnej osobie.",
+          "no one": "❌ *Nikt* stoi w sprzeczności z założeniem policji."
+        },
+        "a2": {
+          "anyone": "✅ **Ktokolwiek** jest poprawnie używane po zaprzeczeniu \"nie znaleziono\".",
+          "someone": "❌ *Ktoś* oznaczałoby, że kogoś znaleziono.",
+          "no one": "❌ *Nikt* tworzy podwójne zaprzeczenie z \"did not find\"."
+        }
+      }
+    }
+  ]
+}

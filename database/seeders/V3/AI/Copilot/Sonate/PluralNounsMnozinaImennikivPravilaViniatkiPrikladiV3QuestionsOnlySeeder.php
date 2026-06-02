@@ -1,0 +1,3 @@
+<?php
+
+require_once __DIR__ . '/PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder/PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder.php';

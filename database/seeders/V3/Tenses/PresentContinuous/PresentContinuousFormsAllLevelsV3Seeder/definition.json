@@ -1,0 +1,2060 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Tenses\\PresentContinuous\\PresentContinuousFormsAllLevelsV3Seeder",
+        "uuid_namespace": "PresentContinuousFormsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Tenses / Present Continuous"
+    },
+    "sources": {
+        "theory_page_present_continuous_forms": {
+            "name": "Present Continuous: Forms and Use"
+        }
+    },
+    "tags": {
+        "present_continuous": {
+            "name": "Present Continuous",
+            "category": "tense"
+        },
+        "be_ing_structure": {
+            "name": "Be Ing Structure",
+            "category": "topic"
+        },
+        "subject_be_agreement": {
+            "name": "Subject Be Agreement",
+            "category": "topic"
+        },
+        "now_action": {
+            "name": "Now Action",
+            "category": "topic"
+        },
+        "temporary_situation": {
+            "name": "Temporary Situation",
+            "category": "topic"
+        },
+        "ing_spelling": {
+            "name": "Ing Spelling",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "present_continuous"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pc-forms-v3-a1-01",
+            "question": "I {a1} reading at home now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am",
+                    "options": [
+                        "am",
+                        "is",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "I {a1} reading at home now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 2,
+            "uuid": "pc-forms-v3-a1-02",
+            "question": "You are {a1} in the office right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "working",
+                    "options": [
+                        "working",
+                        "work",
+                        "works"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "You are {a1} in the office right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 3,
+            "uuid": "pc-forms-v3-a1-03",
+            "question": "He is {a1} outside at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "playing",
+                    "options": [
+                        "playing",
+                        "play",
+                        "plays"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "He is {a1} outside at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 4,
+            "uuid": "pc-forms-v3-a1-04",
+            "question": "She is {a1} in the kitchen currently",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "sleeping",
+                    "options": [
+                        "sleeping",
+                        "sleep",
+                        "sleeps"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "She is {a1} in the kitchen currently"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 5,
+            "uuid": "pc-forms-v3-a1-05",
+            "question": "It is {a1} near the station right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "waiting",
+                    "options": [
+                        "waiting",
+                        "wait",
+                        "waits"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "It is {a1} near the station right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 6,
+            "uuid": "pc-forms-v3-a1-06",
+            "question": "We {a1} running with friends at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "We {a1} running with friends at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 7,
+            "uuid": "pc-forms-v3-a1-07",
+            "question": "They are {a1} for the meeting now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "writing",
+                    "options": [
+                        "writing",
+                        "write",
+                        "writes",
+                        "writeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "They are {a1} for the meeting now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 8,
+            "uuid": "pc-forms-v3-a1-08",
+            "question": "The children are {a1} on the platform right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "making",
+                    "options": [
+                        "making",
+                        "make",
+                        "makes",
+                        "makeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "The children are {a1} on the platform right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 9,
+            "uuid": "pc-forms-v3-a1-09",
+            "question": "My brother is {a1} at home at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "lying",
+                    "options": [
+                        "lying",
+                        "lie",
+                        "lies",
+                        "lieing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "My brother is {a1} at home at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 10,
+            "uuid": "pc-forms-v3-a1-10",
+            "question": "The team is {a1} in the office this month",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "sitting",
+                    "options": [
+                        "sitting",
+                        "sit",
+                        "sits",
+                        "siting"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "The team is {a1} in the office this month"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 11,
+            "uuid": "pc-forms-v3-a1-11",
+            "question": "Our colleagues are {a1} outside right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "studying",
+                    "options": [
+                        "studying",
+                        "study",
+                        "studies"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "Our colleagues are {a1} outside right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 12,
+            "uuid": "pc-forms-v3-a1-12",
+            "question": "The analyst {a1} coming in the kitchen at the moment",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The analyst {a1} coming in the kitchen at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 13,
+            "uuid": "pc-forms-v3-a2-01",
+            "question": "He {a1} sleeping in the office right now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "He {a1} sleeping in the office right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 14,
+            "uuid": "pc-forms-v3-a2-02",
+            "question": "She is {a1} outside at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "waiting",
+                    "options": [
+                        "waiting",
+                        "wait",
+                        "waits"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "She is {a1} outside at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 15,
+            "uuid": "pc-forms-v3-a2-03",
+            "question": "It is {a1} in the kitchen now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "running",
+                    "options": [
+                        "running",
+                        "run",
+                        "runs",
+                        "runing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "It is {a1} in the kitchen now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 16,
+            "uuid": "pc-forms-v3-a2-04",
+            "question": "We are {a1} near the station this month",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "writing",
+                    "options": [
+                        "writing",
+                        "write",
+                        "writes",
+                        "writeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "We are {a1} near the station this month"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 17,
+            "uuid": "pc-forms-v3-a2-05",
+            "question": "They are {a1} with friends at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "making",
+                    "options": [
+                        "making",
+                        "make",
+                        "makes",
+                        "makeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "They are {a1} with friends at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 18,
+            "uuid": "pc-forms-v3-a2-06",
+            "question": "The children {a1} lying for the meeting now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "The children {a1} lying for the meeting now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 19,
+            "uuid": "pc-forms-v3-a2-07",
+            "question": "My brother is {a1} on the platform right now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "sitting",
+                    "options": [
+                        "sitting",
+                        "sit",
+                        "sits",
+                        "siting"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "My brother is {a1} on the platform right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 20,
+            "uuid": "pc-forms-v3-a2-08",
+            "question": "The team is {a1} at home at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "studying",
+                    "options": [
+                        "studying",
+                        "study",
+                        "studies"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "The team is {a1} at home at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 21,
+            "uuid": "pc-forms-v3-a2-09",
+            "question": "Our colleagues are {a1} in the office now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "coming",
+                    "options": [
+                        "coming",
+                        "come",
+                        "comes",
+                        "comeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "Our colleagues are {a1} in the office now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 22,
+            "uuid": "pc-forms-v3-a2-10",
+            "question": "The analyst is {a1} outside today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "taking",
+                    "options": [
+                        "taking",
+                        "take",
+                        "takes",
+                        "takeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "The analyst is {a1} outside today"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 23,
+            "uuid": "pc-forms-v3-a2-11",
+            "question": "I am {a1} in the kitchen at the moment",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "preparing",
+                    "options": [
+                        "preparing",
+                        "prepare",
+                        "prepares"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "I am {a1} in the kitchen at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 24,
+            "uuid": "pc-forms-v3-a2-12",
+            "question": "You {a1} reviewing near the station now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "You {a1} reviewing near the station now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 25,
+            "uuid": "pc-forms-v3-b1-01",
+            "question": "It {a1} writing outside at the moment",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "It {a1} writing outside at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 26,
+            "uuid": "pc-forms-v3-b1-02",
+            "question": "We are {a1} in the kitchen now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "making",
+                    "options": [
+                        "making",
+                        "make",
+                        "makes",
+                        "makeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "We are {a1} in the kitchen now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 27,
+            "uuid": "pc-forms-v3-b1-03",
+            "question": "They are {a1} near the station right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "lying",
+                    "options": [
+                        "lying",
+                        "lie",
+                        "lies",
+                        "lieing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "They are {a1} near the station right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 28,
+            "uuid": "pc-forms-v3-b1-04",
+            "question": "The children are {a1} with friends today",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "sitting",
+                    "options": [
+                        "sitting",
+                        "sit",
+                        "sits",
+                        "siting"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "The children are {a1} with friends today"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 29,
+            "uuid": "pc-forms-v3-b1-05",
+            "question": "My brother is {a1} for the meeting now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "studying",
+                    "options": [
+                        "studying",
+                        "study",
+                        "studies"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "My brother is {a1} for the meeting now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 30,
+            "uuid": "pc-forms-v3-b1-06",
+            "question": "The team {a1} coming on the platform right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "The team {a1} coming on the platform right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 31,
+            "uuid": "pc-forms-v3-b1-07",
+            "question": "Our colleagues are {a1} at home at the moment",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "taking",
+                    "options": [
+                        "taking",
+                        "take",
+                        "takes",
+                        "takeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "Our colleagues are {a1} at home at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 32,
+            "uuid": "pc-forms-v3-b1-08",
+            "question": "The analyst is {a1} in the office now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "preparing",
+                    "options": [
+                        "preparing",
+                        "prepare",
+                        "prepares"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "The analyst is {a1} in the office now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 33,
+            "uuid": "pc-forms-v3-b1-09",
+            "question": "I am {a1} outside right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "reviewing",
+                    "options": [
+                        "reviewing",
+                        "review",
+                        "reviews"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "I am {a1} outside right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 34,
+            "uuid": "pc-forms-v3-b1-10",
+            "question": "You are {a1} in the kitchen this week",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "developing",
+                    "options": [
+                        "developing",
+                        "develop",
+                        "develops"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "You are {a1} in the kitchen this week"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 35,
+            "uuid": "pc-forms-v3-b1-11",
+            "question": "He is {a1} near the station now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "reads"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "He is {a1} near the station now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 36,
+            "uuid": "pc-forms-v3-b1-12",
+            "question": "She {a1} working with friends right now",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "She {a1} working with friends right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 37,
+            "uuid": "pc-forms-v3-b2-01",
+            "question": "They {a1} sitting in the kitchen now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "They {a1} sitting in the kitchen now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 38,
+            "uuid": "pc-forms-v3-b2-02",
+            "question": "The children are {a1} near the station right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "studying",
+                    "options": [
+                        "studying",
+                        "study",
+                        "studies"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "The children are {a1} near the station right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 39,
+            "uuid": "pc-forms-v3-b2-03",
+            "question": "My brother is {a1} with friends at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "coming",
+                    "options": [
+                        "coming",
+                        "come",
+                        "comes",
+                        "comeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "My brother is {a1} with friends at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 40,
+            "uuid": "pc-forms-v3-b2-04",
+            "question": "The team is {a1} for the meeting this week",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "taking",
+                    "options": [
+                        "taking",
+                        "take",
+                        "takes",
+                        "takeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "The team is {a1} for the meeting this week"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 41,
+            "uuid": "pc-forms-v3-b2-05",
+            "question": "Our colleagues are {a1} on the platform right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "preparing",
+                    "options": [
+                        "preparing",
+                        "prepare",
+                        "prepares"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "Our colleagues are {a1} on the platform right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 42,
+            "uuid": "pc-forms-v3-b2-06",
+            "question": "The analyst {a1} reviewing at home at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "The analyst {a1} reviewing at home at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 43,
+            "uuid": "pc-forms-v3-b2-07",
+            "question": "I am {a1} in the office now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "developing",
+                    "options": [
+                        "developing",
+                        "develop",
+                        "develops"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "I am {a1} in the office now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 44,
+            "uuid": "pc-forms-v3-b2-08",
+            "question": "You are {a1} outside right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "reads"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "You are {a1} outside right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 45,
+            "uuid": "pc-forms-v3-b2-09",
+            "question": "He is {a1} in the kitchen at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "working",
+                    "options": [
+                        "working",
+                        "work",
+                        "works"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "He is {a1} in the kitchen at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 46,
+            "uuid": "pc-forms-v3-b2-10",
+            "question": "She is {a1} near the station these days",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "playing",
+                    "options": [
+                        "playing",
+                        "play",
+                        "plays"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "She is {a1} near the station these days"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 47,
+            "uuid": "pc-forms-v3-b2-11",
+            "question": "It is {a1} with friends right now",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "sleeping",
+                    "options": [
+                        "sleeping",
+                        "sleep",
+                        "sleeps"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "It is {a1} with friends right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 48,
+            "uuid": "pc-forms-v3-b2-12",
+            "question": "We {a1} waiting for the meeting at the moment",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "We {a1} waiting for the meeting at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 49,
+            "uuid": "pc-forms-v3-c1-01",
+            "question": "My brother {a1} taking near the station right now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "My brother {a1} taking near the station right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 50,
+            "uuid": "pc-forms-v3-c1-02",
+            "question": "The team is {a1} with friends at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "preparing",
+                    "options": [
+                        "preparing",
+                        "prepare",
+                        "prepares"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "The team is {a1} with friends at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 51,
+            "uuid": "pc-forms-v3-c1-03",
+            "question": "Our colleagues are {a1} for the meeting now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "reviewing",
+                    "options": [
+                        "reviewing",
+                        "review",
+                        "reviews"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "Our colleagues are {a1} for the meeting now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 52,
+            "uuid": "pc-forms-v3-c1-04",
+            "question": "The analyst is {a1} on the platform these days",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "developing",
+                    "options": [
+                        "developing",
+                        "develop",
+                        "develops"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "The analyst is {a1} on the platform these days"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 53,
+            "uuid": "pc-forms-v3-c1-05",
+            "question": "I am {a1} at home at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "reads"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "I am {a1} at home at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 54,
+            "uuid": "pc-forms-v3-c1-06",
+            "question": "You {a1} working in the office now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "You {a1} working in the office now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 55,
+            "uuid": "pc-forms-v3-c1-07",
+            "question": "He is {a1} outside right now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "playing",
+                    "options": [
+                        "playing",
+                        "play",
+                        "plays"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "He is {a1} outside right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 56,
+            "uuid": "pc-forms-v3-c1-08",
+            "question": "She is {a1} in the kitchen at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "sleeping",
+                    "options": [
+                        "sleeping",
+                        "sleep",
+                        "sleeps"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "She is {a1} in the kitchen at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 57,
+            "uuid": "pc-forms-v3-c1-09",
+            "question": "It is {a1} near the station now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "waiting",
+                    "options": [
+                        "waiting",
+                        "wait",
+                        "waits"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "It is {a1} near the station now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 58,
+            "uuid": "pc-forms-v3-c1-10",
+            "question": "We are {a1} with friends currently",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "running",
+                    "options": [
+                        "running",
+                        "run",
+                        "runs",
+                        "runing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "We are {a1} with friends currently"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 59,
+            "uuid": "pc-forms-v3-c1-11",
+            "question": "They are {a1} for the meeting at the moment",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "writing",
+                    "options": [
+                        "writing",
+                        "write",
+                        "writes",
+                        "writeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "They are {a1} for the meeting at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 60,
+            "uuid": "pc-forms-v3-c1-12",
+            "question": "The children {a1} making on the platform now",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The children {a1} making on the platform now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 61,
+            "uuid": "pc-forms-v3-c2-01",
+            "question": "Our colleagues {a1} developing with friends at the moment",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "am",
+                        "is"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "Our colleagues {a1} developing with friends at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 62,
+            "uuid": "pc-forms-v3-c2-02",
+            "question": "The analyst is {a1} for the meeting now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "reads"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "The analyst is {a1} for the meeting now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 63,
+            "uuid": "pc-forms-v3-c2-03",
+            "question": "I am {a1} on the platform right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "working",
+                    "options": [
+                        "working",
+                        "work",
+                        "works"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "I am {a1} on the platform right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 64,
+            "uuid": "pc-forms-v3-c2-04",
+            "question": "You are {a1} at home currently",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "playing",
+                    "options": [
+                        "playing",
+                        "play",
+                        "plays"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "You are {a1} at home currently"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 65,
+            "uuid": "pc-forms-v3-c2-05",
+            "question": "He is {a1} in the office now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "sleeping",
+                    "options": [
+                        "sleeping",
+                        "sleep",
+                        "sleeps"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "He is {a1} in the office now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 66,
+            "uuid": "pc-forms-v3-c2-06",
+            "question": "She {a1} waiting outside right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "subject_be_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_be_agreement"
+            ],
+            "variants": [
+                "She {a1} waiting outside right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 67,
+            "uuid": "pc-forms-v3-c2-07",
+            "question": "It is {a1} in the kitchen at the moment",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "running",
+                    "options": [
+                        "running",
+                        "run",
+                        "runs",
+                        "runing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "now_action"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "now_action"
+            ],
+            "variants": [
+                "It is {a1} in the kitchen at the moment"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 68,
+            "uuid": "pc-forms-v3-c2-08",
+            "question": "We are {a1} near the station now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "writing",
+                    "options": [
+                        "writing",
+                        "write",
+                        "writes",
+                        "writeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "We are {a1} near the station now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 69,
+            "uuid": "pc-forms-v3-c2-09",
+            "question": "They are {a1} with friends right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "making",
+                    "options": [
+                        "making",
+                        "make",
+                        "makes",
+                        "makeing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "ing_spelling"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ing_spelling"
+            ],
+            "variants": [
+                "They are {a1} with friends right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 70,
+            "uuid": "pc-forms-v3-c2-10",
+            "question": "The children are {a1} for the meeting this month",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "lying",
+                    "options": [
+                        "lying",
+                        "lie",
+                        "lies",
+                        "lieing"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "temporary_situation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "temporary_situation"
+            ],
+            "variants": [
+                "The children are {a1} for the meeting this month"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 71,
+            "uuid": "pc-forms-v3-c2-11",
+            "question": "My brother is {a1} on the platform now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "sitting",
+                    "options": [
+                        "sitting",
+                        "sit",
+                        "sits",
+                        "siting"
+                    ],
+                    "verb_hint": "Use the correct -ing form after am / is / are.",
+                    "gap_tags": [
+                        "be_ing_structure"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "be_ing_structure"
+            ],
+            "variants": [
+                "My brother is {a1} on the platform now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        },
+        {
+            "id": 72,
+            "uuid": "pc-forms-v3-c2-12",
+            "question": "The team {a1} studying at home right now",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "are"
+                    ],
+                    "verb_hint": "Choose the correct form of be before verb-ing.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The team {a1} studying at home right now"
+            ],
+            "source": "theory_page_present_continuous_forms"
+        }
+    ],
+    "saved_test": {
+        "uuid": "present-continuous-forms-v3-all",
+        "slug": "present-continuous-forms-all-levels-v3",
+        "name": "Present Continuous: Forms and Use: V3 All Levels",
+        "description": "Page-local V3 package for Present Continuous: Forms and Use with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\PresentContinuous\\PresentContinuousFormsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "present-continuous-forms",
+                    "title": "Present Continuous: Forms and Use",
+                    "category_slug_path": "tenses/present-continuous",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousFormsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/tenses/present-continuous/present-continuous-forms"
+                }
+            }
+        }
+    }
+}

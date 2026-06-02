@@ -1,0 +1,2269 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Tenses\\Extra\\StativeVerbsAllLevelsV3Seeder",
+        "uuid_namespace": "StativeVerbsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Tenses / Extra"
+    },
+    "sources": {
+        "theory_page_stative_verbs": {
+            "name": "Stative Verbs"
+        }
+    },
+    "tags": {
+        "stative_verbs_extra": {
+            "name": "Stative Verbs",
+            "category": "tense-extra"
+        },
+        "stative_verbs": {
+            "name": "Stative Verbs",
+            "category": "topic"
+        },
+        "dynamic_verbs": {
+            "name": "Dynamic Verbs",
+            "category": "topic"
+        },
+        "thinking_verbs": {
+            "name": "Thinking Verbs",
+            "category": "topic"
+        },
+        "feeling_verbs": {
+            "name": "Feeling Verbs",
+            "category": "topic"
+        },
+        "sense_verbs": {
+            "name": "Sense Verbs",
+            "category": "topic"
+        },
+        "possession_relation": {
+            "name": "Possession Relation",
+            "category": "topic"
+        },
+        "no_continuous": {
+            "name": "No Continuous",
+            "category": "topic"
+        },
+        "dynamic_meaning_exception": {
+            "name": "Dynamic Meaning Exception",
+            "category": "topic"
+        },
+        "simple_continuous_contrast": {
+            "name": "Simple Continuous Contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "stative_verbs_extra"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "sv-v3-a1-01",
+            "question": "I {a1} the answer to this question",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "know",
+                    "options": [
+                        "know",
+                        "am knowing",
+                        "knows",
+                        "knew",
+                        "have known",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "I {a1} the answer to this question"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 2,
+            "uuid": "sv-v3-a1-02",
+            "question": "She {a1} jazz and listens every night",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "loves",
+                    "options": [
+                        "loves",
+                        "is loving",
+                        "love",
+                        "loved",
+                        "has loved",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: feeling verbs.",
+                    "gap_tags": [
+                        "feeling_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "feeling_verbs"
+            ],
+            "variants": [
+                "She {a1} jazz and listens every night"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 3,
+            "uuid": "sv-v3-a1-03",
+            "question": "This bag {a1} to my brother",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "belongs",
+                    "options": [
+                        "belongs",
+                        "is belonging",
+                        "belong",
+                        "belonged",
+                        "has belonged",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This bag {a1} to my brother"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 4,
+            "uuid": "sv-v3-a1-04",
+            "question": "I {a1} smoke in the kitchen",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "smell",
+                    "options": [
+                        "smell",
+                        "am smelling",
+                        "smells",
+                        "smelled",
+                        "have smelled",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "I {a1} smoke in the kitchen"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 5,
+            "uuid": "sv-v3-a1-05",
+            "question": "Right now, I {a1} about your offer",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "am thinking",
+                    "options": [
+                        "am thinking",
+                        "think",
+                        "thinks",
+                        "thought",
+                        "have thought",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Right now, I {a1} about your offer"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 6,
+            "uuid": "sv-v3-a1-06",
+            "question": "Tom {a1} lunch with his team now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is having",
+                    "options": [
+                        "is having",
+                        "has",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Tom {a1} lunch with his team now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 7,
+            "uuid": "sv-v3-a1-07",
+            "question": "This box {a1} old letters",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "contains",
+                    "options": [
+                        "contains",
+                        "is containing",
+                        "contain",
+                        "contained",
+                        "has contained",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This box {a1} old letters"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 8,
+            "uuid": "sv-v3-a1-08",
+            "question": "We {a1} what you mean",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "are understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "We {a1} what you mean"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 9,
+            "uuid": "sv-v3-a1-09",
+            "question": "The chef {a1} the sauce now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is tasting",
+                    "options": [
+                        "is tasting",
+                        "tastes",
+                        "taste",
+                        "tasted",
+                        "has tasted",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "The chef {a1} the sauce now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 10,
+            "uuid": "sv-v3-a1-10",
+            "question": "That music {a1} wonderful",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "sounds",
+                    "options": [
+                        "sounds",
+                        "is sounding",
+                        "sound",
+                        "sounded",
+                        "has sounded",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "That music {a1} wonderful"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 11,
+            "uuid": "sv-v3-a1-11",
+            "question": "She {a1} a new phone",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is having",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: no continuous.",
+                    "gap_tags": [
+                        "no_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_continuous"
+            ],
+            "variants": [
+                "She {a1} a new phone"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 12,
+            "uuid": "sv-v3-a1-12",
+            "question": "The children {a1} outside right now",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are playing",
+                    "options": [
+                        "are playing",
+                        "play",
+                        "plays",
+                        "played",
+                        "have played",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic verbs.",
+                    "gap_tags": [
+                        "dynamic_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_verbs"
+            ],
+            "variants": [
+                "The children {a1} outside right now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 13,
+            "uuid": "sv-v3-a2-01",
+            "question": "I {a1} the answer to this question",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "know",
+                    "options": [
+                        "know",
+                        "am knowing",
+                        "knows",
+                        "knew",
+                        "have known",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "I {a1} the answer to this question"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 14,
+            "uuid": "sv-v3-a2-02",
+            "question": "She {a1} jazz and listens every night",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "loves",
+                    "options": [
+                        "loves",
+                        "is loving",
+                        "love",
+                        "loved",
+                        "has loved",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: feeling verbs.",
+                    "gap_tags": [
+                        "feeling_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "feeling_verbs"
+            ],
+            "variants": [
+                "She {a1} jazz and listens every night"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 15,
+            "uuid": "sv-v3-a2-03",
+            "question": "This bag {a1} to my brother",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "belongs",
+                    "options": [
+                        "belongs",
+                        "is belonging",
+                        "belong",
+                        "belonged",
+                        "has belonged",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This bag {a1} to my brother"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 16,
+            "uuid": "sv-v3-a2-04",
+            "question": "I {a1} smoke in the kitchen",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "smell",
+                    "options": [
+                        "smell",
+                        "am smelling",
+                        "smells",
+                        "smelled",
+                        "have smelled",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "I {a1} smoke in the kitchen"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 17,
+            "uuid": "sv-v3-a2-05",
+            "question": "Right now, I {a1} about your offer",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "am thinking",
+                    "options": [
+                        "am thinking",
+                        "think",
+                        "thinks",
+                        "thought",
+                        "have thought",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Right now, I {a1} about your offer"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 18,
+            "uuid": "sv-v3-a2-06",
+            "question": "Tom {a1} lunch with his team now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is having",
+                    "options": [
+                        "is having",
+                        "has",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Tom {a1} lunch with his team now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 19,
+            "uuid": "sv-v3-a2-07",
+            "question": "This box {a1} old letters",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "contains",
+                    "options": [
+                        "contains",
+                        "is containing",
+                        "contain",
+                        "contained",
+                        "has contained",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This box {a1} old letters"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 20,
+            "uuid": "sv-v3-a2-08",
+            "question": "We {a1} what you mean",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "are understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "We {a1} what you mean"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 21,
+            "uuid": "sv-v3-a2-09",
+            "question": "The chef {a1} the sauce now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is tasting",
+                    "options": [
+                        "is tasting",
+                        "tastes",
+                        "taste",
+                        "tasted",
+                        "has tasted",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "The chef {a1} the sauce now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 22,
+            "uuid": "sv-v3-a2-10",
+            "question": "That music {a1} wonderful",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "sounds",
+                    "options": [
+                        "sounds",
+                        "is sounding",
+                        "sound",
+                        "sounded",
+                        "has sounded",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "That music {a1} wonderful"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 23,
+            "uuid": "sv-v3-a2-11",
+            "question": "She {a1} a new phone",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is having",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: no continuous.",
+                    "gap_tags": [
+                        "no_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_continuous"
+            ],
+            "variants": [
+                "She {a1} a new phone"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 24,
+            "uuid": "sv-v3-a2-12",
+            "question": "The children {a1} outside right now",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are playing",
+                    "options": [
+                        "are playing",
+                        "play",
+                        "plays",
+                        "played",
+                        "have played",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic verbs.",
+                    "gap_tags": [
+                        "dynamic_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_verbs"
+            ],
+            "variants": [
+                "The children {a1} outside right now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 25,
+            "uuid": "sv-v3-b1-01",
+            "question": "I {a1} the answer to this question (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "know",
+                    "options": [
+                        "know",
+                        "am knowing",
+                        "knows",
+                        "knew",
+                        "have known",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "I {a1} the answer to this question"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 26,
+            "uuid": "sv-v3-b1-02",
+            "question": "She {a1} jazz and listens every night (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "loves",
+                    "options": [
+                        "loves",
+                        "is loving",
+                        "love",
+                        "loved",
+                        "has loved",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: feeling verbs.",
+                    "gap_tags": [
+                        "feeling_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "feeling_verbs"
+            ],
+            "variants": [
+                "She {a1} jazz and listens every night"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 27,
+            "uuid": "sv-v3-b1-03",
+            "question": "This bag {a1} to my brother (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "belongs",
+                    "options": [
+                        "belongs",
+                        "is belonging",
+                        "belong",
+                        "belonged",
+                        "has belonged",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This bag {a1} to my brother"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 28,
+            "uuid": "sv-v3-b1-04",
+            "question": "I {a1} smoke in the kitchen (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "smell",
+                    "options": [
+                        "smell",
+                        "am smelling",
+                        "smells",
+                        "smelled",
+                        "have smelled",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "I {a1} smoke in the kitchen"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 29,
+            "uuid": "sv-v3-b1-05",
+            "question": "Right now, I {a1} about your offer (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "am thinking",
+                    "options": [
+                        "am thinking",
+                        "think",
+                        "thinks",
+                        "thought",
+                        "have thought",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Right now, I {a1} about your offer"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 30,
+            "uuid": "sv-v3-b1-06",
+            "question": "Tom {a1} lunch with his team now (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is having",
+                    "options": [
+                        "is having",
+                        "has",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Tom {a1} lunch with his team now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 31,
+            "uuid": "sv-v3-b1-07",
+            "question": "This box {a1} old letters (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "contains",
+                    "options": [
+                        "contains",
+                        "is containing",
+                        "contain",
+                        "contained",
+                        "has contained",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This box {a1} old letters"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 32,
+            "uuid": "sv-v3-b1-08",
+            "question": "We {a1} what you mean (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "are understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "We {a1} what you mean"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 33,
+            "uuid": "sv-v3-b1-09",
+            "question": "The chef {a1} the sauce now (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is tasting",
+                    "options": [
+                        "is tasting",
+                        "tastes",
+                        "taste",
+                        "tasted",
+                        "has tasted",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "The chef {a1} the sauce now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 34,
+            "uuid": "sv-v3-b1-10",
+            "question": "That music {a1} wonderful (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "sounds",
+                    "options": [
+                        "sounds",
+                        "is sounding",
+                        "sound",
+                        "sounded",
+                        "has sounded",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "That music {a1} wonderful"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 35,
+            "uuid": "sv-v3-b1-11",
+            "question": "She {a1} a new phone (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is having",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: no continuous.",
+                    "gap_tags": [
+                        "no_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_continuous"
+            ],
+            "variants": [
+                "She {a1} a new phone"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 36,
+            "uuid": "sv-v3-b1-12",
+            "question": "The children {a1} outside right now (B1 context)",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are playing",
+                    "options": [
+                        "are playing",
+                        "play",
+                        "plays",
+                        "played",
+                        "have played",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic verbs.",
+                    "gap_tags": [
+                        "dynamic_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_verbs"
+            ],
+            "variants": [
+                "The children {a1} outside right now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 37,
+            "uuid": "sv-v3-b2-01",
+            "question": "I {a1} the answer to this question (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "know",
+                    "options": [
+                        "know",
+                        "am knowing",
+                        "knows",
+                        "knew",
+                        "have known",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "I {a1} the answer to this question"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 38,
+            "uuid": "sv-v3-b2-02",
+            "question": "She {a1} jazz and listens every night (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "loves",
+                    "options": [
+                        "loves",
+                        "is loving",
+                        "love",
+                        "loved",
+                        "has loved",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: feeling verbs.",
+                    "gap_tags": [
+                        "feeling_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "feeling_verbs"
+            ],
+            "variants": [
+                "She {a1} jazz and listens every night"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 39,
+            "uuid": "sv-v3-b2-03",
+            "question": "This bag {a1} to my brother (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "belongs",
+                    "options": [
+                        "belongs",
+                        "is belonging",
+                        "belong",
+                        "belonged",
+                        "has belonged",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This bag {a1} to my brother"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 40,
+            "uuid": "sv-v3-b2-04",
+            "question": "I {a1} smoke in the kitchen (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "smell",
+                    "options": [
+                        "smell",
+                        "am smelling",
+                        "smells",
+                        "smelled",
+                        "have smelled",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "I {a1} smoke in the kitchen"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 41,
+            "uuid": "sv-v3-b2-05",
+            "question": "Right now, I {a1} about your offer (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "am thinking",
+                    "options": [
+                        "am thinking",
+                        "think",
+                        "thinks",
+                        "thought",
+                        "have thought",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Right now, I {a1} about your offer"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 42,
+            "uuid": "sv-v3-b2-06",
+            "question": "Tom {a1} lunch with his team now (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is having",
+                    "options": [
+                        "is having",
+                        "has",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Tom {a1} lunch with his team now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 43,
+            "uuid": "sv-v3-b2-07",
+            "question": "This box {a1} old letters (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "contains",
+                    "options": [
+                        "contains",
+                        "is containing",
+                        "contain",
+                        "contained",
+                        "has contained",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This box {a1} old letters"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 44,
+            "uuid": "sv-v3-b2-08",
+            "question": "We {a1} what you mean (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "are understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "We {a1} what you mean"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 45,
+            "uuid": "sv-v3-b2-09",
+            "question": "The chef {a1} the sauce now (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is tasting",
+                    "options": [
+                        "is tasting",
+                        "tastes",
+                        "taste",
+                        "tasted",
+                        "has tasted",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "The chef {a1} the sauce now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 46,
+            "uuid": "sv-v3-b2-10",
+            "question": "That music {a1} wonderful (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "sounds",
+                    "options": [
+                        "sounds",
+                        "is sounding",
+                        "sound",
+                        "sounded",
+                        "has sounded",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "That music {a1} wonderful"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 47,
+            "uuid": "sv-v3-b2-11",
+            "question": "She {a1} a new phone (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is having",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: no continuous.",
+                    "gap_tags": [
+                        "no_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_continuous"
+            ],
+            "variants": [
+                "She {a1} a new phone"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 48,
+            "uuid": "sv-v3-b2-12",
+            "question": "The children {a1} outside right now (B2 context)",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are playing",
+                    "options": [
+                        "are playing",
+                        "play",
+                        "plays",
+                        "played",
+                        "have played",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic verbs.",
+                    "gap_tags": [
+                        "dynamic_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_verbs"
+            ],
+            "variants": [
+                "The children {a1} outside right now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 49,
+            "uuid": "sv-v3-c1-01",
+            "question": "I {a1} the answer to this question (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "know",
+                    "options": [
+                        "know",
+                        "am knowing",
+                        "knows",
+                        "knew",
+                        "have known",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "I {a1} the answer to this question"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 50,
+            "uuid": "sv-v3-c1-02",
+            "question": "She {a1} jazz and listens every night (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "loves",
+                    "options": [
+                        "loves",
+                        "is loving",
+                        "love",
+                        "loved",
+                        "has loved",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: feeling verbs.",
+                    "gap_tags": [
+                        "feeling_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "feeling_verbs"
+            ],
+            "variants": [
+                "She {a1} jazz and listens every night"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 51,
+            "uuid": "sv-v3-c1-03",
+            "question": "This bag {a1} to my brother (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "belongs",
+                    "options": [
+                        "belongs",
+                        "is belonging",
+                        "belong",
+                        "belonged",
+                        "has belonged",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This bag {a1} to my brother"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 52,
+            "uuid": "sv-v3-c1-04",
+            "question": "I {a1} smoke in the kitchen (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "smell",
+                    "options": [
+                        "smell",
+                        "am smelling",
+                        "smells",
+                        "smelled",
+                        "have smelled",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "I {a1} smoke in the kitchen"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 53,
+            "uuid": "sv-v3-c1-05",
+            "question": "Right now, I {a1} about your offer (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "am thinking",
+                    "options": [
+                        "am thinking",
+                        "think",
+                        "thinks",
+                        "thought",
+                        "have thought",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Right now, I {a1} about your offer"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 54,
+            "uuid": "sv-v3-c1-06",
+            "question": "Tom {a1} lunch with his team now (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is having",
+                    "options": [
+                        "is having",
+                        "has",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Tom {a1} lunch with his team now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 55,
+            "uuid": "sv-v3-c1-07",
+            "question": "This box {a1} old letters (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "contains",
+                    "options": [
+                        "contains",
+                        "is containing",
+                        "contain",
+                        "contained",
+                        "has contained",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This box {a1} old letters"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 56,
+            "uuid": "sv-v3-c1-08",
+            "question": "We {a1} what you mean (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "are understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "We {a1} what you mean"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 57,
+            "uuid": "sv-v3-c1-09",
+            "question": "The chef {a1} the sauce now (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is tasting",
+                    "options": [
+                        "is tasting",
+                        "tastes",
+                        "taste",
+                        "tasted",
+                        "has tasted",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "The chef {a1} the sauce now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 58,
+            "uuid": "sv-v3-c1-10",
+            "question": "That music {a1} wonderful (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "sounds",
+                    "options": [
+                        "sounds",
+                        "is sounding",
+                        "sound",
+                        "sounded",
+                        "has sounded",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "That music {a1} wonderful"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 59,
+            "uuid": "sv-v3-c1-11",
+            "question": "She {a1} a new phone (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is having",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: no continuous.",
+                    "gap_tags": [
+                        "no_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_continuous"
+            ],
+            "variants": [
+                "She {a1} a new phone"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 60,
+            "uuid": "sv-v3-c1-12",
+            "question": "The children {a1} outside right now (C1 context)",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are playing",
+                    "options": [
+                        "are playing",
+                        "play",
+                        "plays",
+                        "played",
+                        "have played",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic verbs.",
+                    "gap_tags": [
+                        "dynamic_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_verbs"
+            ],
+            "variants": [
+                "The children {a1} outside right now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 61,
+            "uuid": "sv-v3-c2-01",
+            "question": "I {a1} the answer to this question (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "know",
+                    "options": [
+                        "know",
+                        "am knowing",
+                        "knows",
+                        "knew",
+                        "have known",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "I {a1} the answer to this question"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 62,
+            "uuid": "sv-v3-c2-02",
+            "question": "She {a1} jazz and listens every night (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "loves",
+                    "options": [
+                        "loves",
+                        "is loving",
+                        "love",
+                        "loved",
+                        "has loved",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: feeling verbs.",
+                    "gap_tags": [
+                        "feeling_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "feeling_verbs"
+            ],
+            "variants": [
+                "She {a1} jazz and listens every night"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 63,
+            "uuid": "sv-v3-c2-03",
+            "question": "This bag {a1} to my brother (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "belongs",
+                    "options": [
+                        "belongs",
+                        "is belonging",
+                        "belong",
+                        "belonged",
+                        "has belonged",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This bag {a1} to my brother"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 64,
+            "uuid": "sv-v3-c2-04",
+            "question": "I {a1} smoke in the kitchen (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "smell",
+                    "options": [
+                        "smell",
+                        "am smelling",
+                        "smells",
+                        "smelled",
+                        "have smelled",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "I {a1} smoke in the kitchen"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 65,
+            "uuid": "sv-v3-c2-05",
+            "question": "Right now, I {a1} about your offer (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "am thinking",
+                    "options": [
+                        "am thinking",
+                        "think",
+                        "thinks",
+                        "thought",
+                        "have thought",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Right now, I {a1} about your offer"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 66,
+            "uuid": "sv-v3-c2-06",
+            "question": "Tom {a1} lunch with his team now (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is having",
+                    "options": [
+                        "is having",
+                        "has",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "Tom {a1} lunch with his team now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 67,
+            "uuid": "sv-v3-c2-07",
+            "question": "This box {a1} old letters (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "contains",
+                    "options": [
+                        "contains",
+                        "is containing",
+                        "contain",
+                        "contained",
+                        "has contained",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: possession relation.",
+                    "gap_tags": [
+                        "possession_relation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "possession_relation"
+            ],
+            "variants": [
+                "This box {a1} old letters"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 68,
+            "uuid": "sv-v3-c2-08",
+            "question": "We {a1} what you mean (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "understand",
+                    "options": [
+                        "understand",
+                        "are understanding",
+                        "understands",
+                        "understood",
+                        "have understood",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: thinking verbs.",
+                    "gap_tags": [
+                        "thinking_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "thinking_verbs"
+            ],
+            "variants": [
+                "We {a1} what you mean"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 69,
+            "uuid": "sv-v3-c2-09",
+            "question": "The chef {a1} the sauce now (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is tasting",
+                    "options": [
+                        "is tasting",
+                        "tastes",
+                        "taste",
+                        "tasted",
+                        "has tasted",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic meaning exception.",
+                    "gap_tags": [
+                        "dynamic_meaning_exception"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_meaning_exception"
+            ],
+            "variants": [
+                "The chef {a1} the sauce now"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 70,
+            "uuid": "sv-v3-c2-10",
+            "question": "That music {a1} wonderful (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "sounds",
+                    "options": [
+                        "sounds",
+                        "is sounding",
+                        "sound",
+                        "sounded",
+                        "has sounded",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: sense verbs.",
+                    "gap_tags": [
+                        "sense_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sense_verbs"
+            ],
+            "variants": [
+                "That music {a1} wonderful"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 71,
+            "uuid": "sv-v3-c2-11",
+            "question": "She {a1} a new phone (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is having",
+                        "have",
+                        "had",
+                        "has had",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: no continuous.",
+                    "gap_tags": [
+                        "no_continuous"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_continuous"
+            ],
+            "variants": [
+                "She {a1} a new phone"
+            ],
+            "source": "theory_page_stative_verbs"
+        },
+        {
+            "id": 72,
+            "uuid": "sv-v3-c2-12",
+            "question": "The children {a1} outside right now (C2 context)",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are playing",
+                    "options": [
+                        "are playing",
+                        "play",
+                        "plays",
+                        "played",
+                        "have played",
+                        "not sure"
+                    ],
+                    "verb_hint": "Choose the form that matches: dynamic verbs.",
+                    "gap_tags": [
+                        "dynamic_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "dynamic_verbs"
+            ],
+            "variants": [
+                "The children {a1} outside right now"
+            ],
+            "source": "theory_page_stative_verbs"
+        }
+    ],
+    "saved_test": {
+        "uuid": "extra-sv-v3-all",
+        "slug": "stative-verbs-all-levels-v3",
+        "name": "Stative Verbs: V3 All Levels",
+        "description": "Page-local V3 package for Stative Verbs with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\Extra\\StativeVerbsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "stative-verbs",
+                    "title": "Stative Verbs",
+                    "category_slug_path": "tenses",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesStativeVerbsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/tenses/stative-verbs"
+                }
+            }
+        }
+    }
+}

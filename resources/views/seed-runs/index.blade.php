@@ -1,0 +1,3417 @@
+@extends('layouts.app')
+
+@section('title', 'Seed Runs')
+
+@section('content')
+    <div class="max-w-6xl mx-auto space-y-6">
+        @php $recentSeedRunOrdinals = collect($recentSeedRunOrdinals ?? []); @endphp
+        <div class="bg-white shadow rounded-lg p-6">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h1 class="text-2xl font-semibold text-gray-800">Seed Runs</h1>
+                    <p class="text-sm text-gray-500">Керуйте виконаними та невиконаними сидарами.</p>
+                </div>
+                @if($tableExists && $activeSeederTab !== 'theory-tests')
+                    <form method="POST" action="{{ route('seed-runs.run-missing', ['tab' => $activeSeederTab]) }}" data-preloader>
+                        @csrf
+                        <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed" @if(($runnablePendingCount ?? 0) === 0) disabled @endif>
+                            <i class="fa-solid fa-play"></i>
+                            {{ $activeSeederTab === 'localizations' ? 'Виконати доступні локалізації' : 'Виконати всі невиконані' }}
+                        </button>
+                    </form>
+                @endif
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+                @php
+                    $mainCount = (int) data_get($seederTabCounts ?? [], 'main.total', 0);
+                    $localizationsCount = (int) data_get($seederTabCounts ?? [], 'localizations.total', 0);
+                    $theoryTestsCount = (int) data_get($seederTabCounts ?? [], 'theory-tests.total', 0);
+                @endphp
+                <a href="{{ route('seed-runs.index') }}"
+                   @class([
+                       'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                       'bg-slate-900 text-white shadow-sm' => $activeSeederTab === 'main',
+                       'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'main',
+                   ])>
+                    <span>Основні сидери</span>
+                    <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $mainCount }}</span>
+                </a>
+                <a href="{{ route('seed-runs.index', ['tab' => 'localizations']) }}"
+                   @class([
+                       'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                       'bg-sky-600 text-white shadow-sm' => $activeSeederTab === 'localizations',
+                       'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'localizations',
+                   ])>
+                    <span>Локалізації</span>
+                    <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $localizationsCount }}</span>
+                </a>
+                <a href="{{ route('seed-runs.index', ['tab' => 'theory-tests']) }}"
+                   @class([
+                       'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+                       'bg-emerald-600 text-white shadow-sm' => $activeSeederTab === 'theory-tests',
+                       'bg-slate-100 text-slate-700 hover:bg-slate-200' => $activeSeederTab !== 'theory-tests',
+                   ])>
+                    <span>Теорія з тестами</span>
+                    <span class="rounded-full bg-white/15 px-2 py-0.5 text-xs">{{ $theoryTestsCount }}</span>
+                </a>
+            </div>
+
+            @php
+                $statusLinks = collect(session('status_links', []))
+                    ->filter(fn ($link) => filled($link['url'] ?? null));
+            @endphp
+
+            @if(session('status') || $statusLinks->isNotEmpty())
+                <div class="mb-4 rounded-md bg-green-50 border border-green-200 px-4 py-3 text-green-700" data-feedback-container>
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="min-w-0 flex-1 space-y-3" data-feedback-copy-content>
+                            @if(session('status'))
+                                <p class="whitespace-pre-line">{{ session('status') }}</p>
+                            @endif
+
+                            @if($statusLinks->isNotEmpty())
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    @foreach($statusLinks as $link)
+                                        <a href="{{ $link['url'] }}"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           title="{{ $link['title'] ?? ($link['label'] ?? 'Тест') }}"
+                                           class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-green-700 ring-1 ring-green-200 hover:bg-green-100 transition">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            {{ $link['title'] ?? ($link['label'] ?? 'Готовий тест') }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+                        <button type="button"
+                                class="inline-flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-current ring-1 ring-current/10 transition hover:bg-white"
+                                data-copy-feedback
+                                title="Скопіювати текст повідомлення">
+                            <i class="fa-regular fa-copy"></i>
+                            <span data-copy-feedback-label>Скопіювати</span>
+                        </button>
+                    </div>
+                </div>
+            @endif
+
+            @if($errors->any())
+                <div class="mb-4 rounded-md bg-red-50 border border-red-200 px-4 py-3 text-red-700" data-feedback-container>
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="min-w-0 flex-1" data-feedback-copy-content>
+                            <ul class="list-disc list-inside space-y-1">
+                                @foreach($errors->all() as $error)
+                                    <li class="whitespace-pre-line">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <button type="button"
+                                class="inline-flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-current ring-1 ring-current/10 transition hover:bg-white"
+                                data-copy-feedback
+                                title="Скопіювати текст повідомлення">
+                            <i class="fa-regular fa-copy"></i>
+                            <span data-copy-feedback-label>Скопіювати</span>
+                        </button>
+                    </div>
+                </div>
+            @endif
+
+            <div id="seed-run-ajax-feedback" class="hidden mb-4 rounded-md border px-4 py-3 text-sm" data-feedback-container></div>
+
+            @unless($tableExists)
+                <div class="rounded-md bg-yellow-50 border border-yellow-200 px-4 py-3 text-yellow-800">
+                    Таблиця <code class="font-mono">seed_runs</code> ще не створена. Запустіть міграції, щоб продовжити.
+                </div>
+            @endunless
+        </div>
+
+        @if($tableExists)
+            <div class="space-y-6">
+                @if($activeSeederTab === 'theory-tests')
+                    @php $theoryTestPages = collect($theoryTestPages ?? []); @endphp
+                    <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
+                        <div class="mb-4">
+                            <h2 class="text-xl font-semibold text-gray-800">Сторінки теорії з пов’язаними сидарами</h2>
+                            <p class="mt-1 text-sm text-gray-500">
+                                Показані сторінки теорії, які прив’язані до сидерів через Prompt Generator. Для кожної сторінки видно виконані та невиконані сидери, а також доступні готові тести.
+                            </p>
+                        </div>
+
+                        @if($theoryTestPages->isEmpty())
+                            <p class="text-sm text-gray-500">Поки що не знайдено сторінок теорії, пов’язаних із сидарами через Prompt Generator.</p>
+                        @else
+                            <div class="space-y-4">
+                                @include('seed-runs.partials.theory-test-pages', ['theoryTestPages' => $theoryTestPages])
+                            </div>
+                        @endif
+                    </div>
+                @else
+                    <form id="pending-bulk-delete-form"
+                          method="POST"
+                          action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
+                          data-preloader
+                          data-bulk-delete-form
+                          data-bulk-scope="pending"
+                          data-confirm="Видалити файли вибраних сидерів?"
+                          class="hidden">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+
+                    <form id="executed-bulk-delete-form"
+                          method="POST"
+                          action="{{ route('seed-runs.destroy-seeder-files', ['tab' => $activeSeederTab]) }}"
+                          data-preloader
+                          data-bulk-delete-form
+                          data-bulk-scope="executed"
+                          data-confirm="Видалити файли вибраних сидерів?"
+                          class="hidden">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                            <h2 class="text-xl font-semibold text-gray-800">
+                                {{ $activeSeederTab === 'localizations' ? 'Невиконані локалізації' : 'Невиконані сидери' }}
+                            </h2>
+                            <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                                <button type="button"
+                                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
+                                        data-create-seeder-open>
+                                    <i class="fa-solid fa-plus"></i>
+                                    Створити сидер
+                                </button>
+                                @if($pendingSeeders->isNotEmpty())
+                                    <button type="submit"
+                                            form="pending-bulk-delete-form"
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                            data-bulk-delete-button
+                                            data-bulk-scope="pending"
+                                            disabled>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Видалити вибрані файли
+                                    </button>
+                                @endif
+                            </div>
+                        </div>
+                        <div id="pending-seeders-container">
+                            @if(($pendingSeederHierarchy ?? collect())->isEmpty())
+                                <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
+                            @else
+                                @if(($runnablePendingCount ?? 0) === 0 && $activeSeederTab === 'localizations')
+                                    <div class="mb-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                                        Усі локалізації в цій вкладці заблоковані. Спочатку виконайте їхні основні сидери.
+                                    </div>
+                                @endif
+                                <div class="space-y-3" id="pending-seeders-tree" data-pending-tree>
+                                    @foreach($pendingSeederHierarchy as $node)
+                                        @include('seed-runs.partials.pending-node', [
+                                            'node' => $node,
+                                            'depth' => 0,
+                                            'activeSeederTab' => $activeSeederTab,
+                                        ])
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
+                        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between mb-4">
+                            <h2 class="text-xl font-semibold text-gray-800">
+                                {{ $activeSeederTab === 'localizations' ? 'Виконані локалізації' : 'Виконані сидери' }}
+                            </h2>
+                            <div class="flex flex-col gap-3 w-full sm:flex-row sm:items-center sm:justify-end">
+                                <div class="relative w-full sm:max-w-xs">
+                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
+                                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                                    </span>
+                                    <input type="search"
+                                           class="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                           placeholder="Пошук сидера…"
+                                           aria-label="Пошук виконаного сидера"
+                                           autocomplete="off"
+                                           data-executed-search-input
+                                           @if($executedSeederHierarchy->isEmpty()) disabled @endif>
+                                </div>
+                                @if($executedSeederHierarchy->isNotEmpty())
+                                    <button type="submit"
+                                            form="executed-bulk-delete-form"
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                            data-bulk-delete-button
+                                            data-bulk-scope="executed"
+                                            disabled>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Видалити вибрані файли
+                                    </button>
+                                @endif
+                            </div>
+                        </div>
+                        @if($executedSeederHierarchy->isEmpty())
+                            <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
+                        @else
+                            <div class="space-y-4" data-executed-nodes>
+                                @foreach($executedSeederHierarchy as $node)
+                                @include('seed-runs.partials.executed-node', [
+                                    'node' => $node,
+                                    'depth' => 0,
+                                    'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+                                    'activeSeederTab' => $activeSeederTab,
+                                ])
+                            @endforeach
+                            </div>
+                            <p class="text-sm text-slate-500 hidden" data-executed-search-empty>
+                                Сидери з такою назвою не знайдено.
+                            </p>
+                        @endif
+                    </div>
+                @endif
+            </div>
+        @endif
+    </div>
+
+    <div id="seed-run-confirmation-modal" class="hidden fixed inset-0 z-50 items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="seed-run-confirmation-title">
+        <div class="absolute inset-0 bg-slate-900/50" data-confirm-overlay></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-sm w-full mx-4 p-6 space-y-4">
+            <div class="space-y-1">
+                <h2 id="seed-run-confirmation-title" class="text-lg font-semibold text-gray-800">{{ __('Підтвердження') }}</h2>
+                <p class="text-sm text-gray-600" data-confirm-message></p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition" data-confirm-cancel>{{ __('Скасувати') }}</button>
+                <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-500 transition" data-confirm-accept>{{ __('Підтвердити') }}</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="seed-run-preloader" class="hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 text-sm text-gray-700">
+            <span class="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></span>
+            <span>Виконується операція…</span>
+        </div>
+    </div>
+
+    <div id="seeder-file-modal" class="hidden fixed inset-0 z-[60] items-center justify-center" data-load-url="{{ route('seed-runs.file.show') }}">
+        <div class="absolute inset-0 bg-slate-900/60" data-file-overlay></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 flex flex-col overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-start justify-between gap-4">
+                <div>
+                    <h2 class="text-lg font-semibold text-slate-800" data-file-title data-default-title="{{ __('Редагування файлу сидера') }}">{{ __('Редагування файлу сидера') }}</h2>
+                    <p class="text-xs text-slate-500 mt-1 break-words" data-file-path></p>
+                    <p class="text-[11px] text-slate-400 mt-1" data-file-updated-at></p>
+                </div>
+                <button type="button" class="text-slate-400 hover:text-slate-600 transition" data-file-close>
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form method="POST" action="{{ route('seed-runs.file.update') }}" class="flex-1 flex flex-col" data-seeder-file-form>
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="class_name" value="" data-file-class-input>
+                <div class="p-6">
+                    <textarea name="contents"
+                              data-file-editor
+                              class="w-full h-96 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg p-4 focus:border-blue-500 focus:ring-blue-500 resize-y disabled:bg-slate-100 disabled:text-slate-400"
+                              spellcheck="false"
+                              disabled></textarea>
+                </div>
+                <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <p class="text-xs text-slate-500" data-file-status></p>
+                    <div class="flex items-center justify-end gap-3">
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-md hover:bg-slate-100 transition" data-file-close>{{ __('Скасувати') }}</button>
+                        <button type="submit" class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-500 transition disabled:opacity-60 disabled:cursor-not-allowed" data-file-save-button>{{ __('Зберегти файл') }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="create-seeder-modal" class="hidden fixed inset-0 z-[60] items-center justify-center" data-store-url="{{ route('seed-runs.file.store') }}">
+        <div class="absolute inset-0 bg-slate-900/60" data-create-seeder-overlay></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 flex flex-col overflow-hidden max-h-[90vh]">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-start justify-between gap-4">
+                <div>
+                    <h2 class="text-lg font-semibold text-slate-800">{{ __('Створити новий сидер') }}</h2>
+                    <p class="text-xs text-slate-500 mt-1">{{ __('Вкажіть назву класу та PHP код сидера') }}</p>
+                </div>
+                <button type="button" class="text-slate-400 hover:text-slate-600 transition" data-create-seeder-close>
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form method="POST" action="{{ route('seed-runs.file.store') }}" class="flex-1 flex flex-col overflow-hidden" data-create-seeder-form>
+                @csrf
+                <div class="p-6 space-y-4 overflow-y-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="create-seeder-class-name" class="block text-sm font-medium text-slate-700 mb-1">{{ __('Назва класу') }} <span class="text-red-500">*</span></label>
+                            <input type="text"
+                                   id="create-seeder-class-name"
+                                   name="class_name"
+                                   class="w-full font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                   placeholder="MyNewSeeder"
+                                   pattern="[A-Z][a-zA-Z0-9]*"
+                                   required
+                                   data-create-seeder-class-input>
+                            <p class="mt-1 text-xs text-slate-500">{{ __('Має починатися з великої літери (наприклад: MyNewSeeder)') }}</p>
+                        </div>
+                        <div>
+                            <label for="create-seeder-folder" class="block text-sm font-medium text-slate-700 mb-1">{{ __("Папка (необов'язково)") }}</label>
+                            <div class="flex gap-2">
+                                <select id="create-seeder-folder-select"
+                                        class="flex-1 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                        data-create-seeder-folder-select>
+                                    <option value="">{{ __('Коренева папка (database/seeders)') }}</option>
+                                </select>
+                                <button type="button"
+                                        class="px-3 py-2 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg hover:bg-emerald-100 transition"
+                                        data-create-seeder-new-folder-toggle
+                                        title="{{ __('Створити нову папку') }}">
+                                    <i class="fa-solid fa-folder-plus"></i>
+                                </button>
+                            </div>
+                            <div class="mt-2 hidden" data-create-seeder-new-folder-container>
+                                <input type="text"
+                                       id="create-seeder-folder"
+                                       name="folder"
+                                       class="w-full font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                       placeholder="{{ __('Нова папка (наприклад: V2/Custom)') }}"
+                                       data-create-seeder-folder-input>
+                                <p class="mt-1 text-xs text-slate-500">{{ __('Введіть назву нової папки') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="create-seeder-contents" class="block text-sm font-medium text-slate-700 mb-1">{{ __('PHP код сидера') }} <span class="text-red-500">*</span></label>
+                        <textarea id="create-seeder-contents"
+                                  name="contents"
+                                  data-create-seeder-editor
+                                  class="w-full h-80 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg p-4 focus:border-emerald-500 focus:ring-emerald-500 resize-y"
+                                  spellcheck="false"></textarea>
+                    </div>
+                </div>
+                <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <p class="text-xs text-slate-500" data-create-seeder-status></p>
+                    <div class="flex items-center justify-end gap-3">
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-md hover:bg-slate-100 transition" data-create-seeder-close>{{ __('Скасувати') }}</button>
+                        <button type="submit" class="px-4 py-2 text-sm font-semibold text-white bg-emerald-600 rounded-md hover:bg-emerald-500 transition disabled:opacity-60 disabled:cursor-not-allowed" data-create-seeder-save-button>{{ __('Створити сидер') }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @once
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js" referrerpolicy="no-referrer"></script>
+    @endonce
+
+    <style>
+        #seeder-file-modal .CodeMirror {
+            height: 24rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.875rem;
+        }
+
+        #seeder-file-modal .CodeMirror.cm-editor-disabled {
+            background-color: #f1f5f9;
+        }
+
+        #seeder-file-modal .CodeMirror.cm-editor-disabled .CodeMirror-cursor {
+            display: none !important;
+        }
+
+        #create-seeder-modal .CodeMirror {
+            height: 20rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.875rem;
+        }
+
+        .hidden-by-search {
+            display: none !important;
+        }
+
+        [data-seeder-name] mark {
+            background-color: #fef3c7;
+            color: inherit;
+            padding: 0 0.1rem;
+            border-radius: 0.125rem;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const preloader = document.getElementById('seed-run-preloader');
+            const feedback = document.getElementById('seed-run-ajax-feedback');
+            const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            const csrfToken = csrfTokenMeta ? csrfTokenMeta.getAttribute('content') : '';
+            const successClasses = ['bg-emerald-50', 'border-emerald-200', 'text-emerald-700'];
+            const warningClasses = ['bg-amber-50', 'border-amber-200', 'text-amber-800'];
+            const errorClasses = ['bg-red-50', 'border-red-200', 'text-red-700'];
+            const fileModal = document.getElementById('seeder-file-modal');
+            const fileModalLoadUrl = fileModal ? fileModal.dataset.loadUrl || '' : '';
+            const fileModalOverlay = fileModal ? fileModal.querySelector('[data-file-overlay]') : null;
+            const fileModalForm = fileModal ? fileModal.querySelector('[data-seeder-file-form]') : null;
+            const fileModalEditor = fileModal ? fileModal.querySelector('[data-file-editor]') : null;
+            let fileModalEditorInstance = null;
+            const fileModalClassInput = fileModal ? fileModal.querySelector('[data-file-class-input]') : null;
+            const fileModalTitle = fileModal ? fileModal.querySelector('[data-file-title]') : null;
+            const fileModalDefaultTitle = fileModalTitle ? (fileModalTitle.dataset.defaultTitle || fileModalTitle.textContent || '') : '';
+            const fileModalPath = fileModal ? fileModal.querySelector('[data-file-path]') : null;
+            const fileModalUpdatedAt = fileModal ? fileModal.querySelector('[data-file-updated-at]') : null;
+            const fileModalStatus = fileModal ? fileModal.querySelector('[data-file-status]') : null;
+            const executedSearchInput = document.querySelector('[data-executed-search-input]');
+            const executedNodesContainer = document.querySelector('[data-executed-nodes]');
+            const executedSearchEmptyState = document.querySelector('[data-executed-search-empty]');
+            const hiddenBySearchClass = 'hidden-by-search';
+            const fileModalSaveButton = fileModal ? fileModal.querySelector('[data-file-save-button]') : null;
+            const fileModalCloseButtons = fileModal ? fileModal.querySelectorAll('[data-file-close]') : [];
+            const fileModalSavingMessage = @json(__('Збереження файлу…'));
+            const fileModalSavedMessage = @json(__('Файл сидера успішно збережено.'));
+            const fileModalLoadedMessage = @json(__('Файл завантажено. Можна редагувати.'));
+            const fileModalLoadErrorMessage = @json(__('Не вдалося завантажити файл сидера.'));
+            const fileModalSaveErrorMessage = @json(__('Не вдалося зберегти файл сидера.'));
+            const fileModalMissingClassMessage = @json(__('Не вказано клас сидера.'));
+            const fileModalUpdatedAtTemplate = @json(__('Останнє оновлення файлу: :timestamp'));
+            const fileModalLoadingMessage = @json(__('Завантаження файлу…'));
+
+            // Create Seeder Modal elements
+            const createSeederModal = document.getElementById('create-seeder-modal');
+            const createSeederStoreUrl = createSeederModal ? createSeederModal.dataset.storeUrl || '' : '';
+            const createSeederFoldersUrl = @json(route('seed-runs.folders.list'));
+            const createSeederOverlay = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-overlay]') : null;
+            const createSeederForm = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-form]') : null;
+            const createSeederEditor = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-editor]') : null;
+            let createSeederEditorInstance = null;
+            const createSeederClassInput = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-class-input]') : null;
+            const createSeederFolderInput = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-folder-input]') : null;
+            const createSeederFolderSelect = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-folder-select]') : null;
+            const createSeederNewFolderToggle = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-new-folder-toggle]') : null;
+            const createSeederNewFolderContainer = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-new-folder-container]') : null;
+            const createSeederStatus = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-status]') : null;
+            const createSeederSaveButton = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-save-button]') : null;
+            const createSeederCloseButtons = createSeederModal ? createSeederModal.querySelectorAll('[data-create-seeder-close]') : [];
+            const createSeederOpenButtons = document.querySelectorAll('[data-create-seeder-open]');
+            const createSeederCreatingMessage = @json(__('Створення файлу…'));
+            const createSeederCreatedMessage = @json(__('Файл сидера успішно створено.'));
+            const createSeederErrorMessage = @json(__('Не вдалося створити файл сидера.'));
+            const createSeederMissingClassMessage = @json(__('Не вказано назву класу сидера.'));
+            const createSeederMissingContentsMessage = @json(__('Не вказано PHP код сидера.'));
+
+            let feedbackTimeout;
+
+            const setFileEditorDisabledState = function (disabled) {
+                if (fileModalEditor) {
+                    if (disabled) {
+                        fileModalEditor.setAttribute('disabled', 'disabled');
+                    } else {
+                        fileModalEditor.removeAttribute('disabled');
+                    }
+                }
+
+                if (fileModalEditorInstance) {
+                    fileModalEditorInstance.setOption('readOnly', disabled ? 'nocursor' : false);
+
+                    const wrapper = fileModalEditorInstance.getWrapperElement();
+
+                    if (wrapper) {
+                        wrapper.classList.toggle('cm-editor-disabled', !!disabled);
+                    }
+                }
+            };
+
+            const ensureFileModalEditorInstance = function () {
+                if (!fileModalEditor || typeof CodeMirror === 'undefined') {
+                    return;
+                }
+
+                if (fileModalEditorInstance) {
+                    return;
+                }
+
+                fileModalEditorInstance = CodeMirror.fromTextArea(fileModalEditor, {
+                    mode: 'application/x-httpd-php',
+                    lineNumbers: true,
+                    indentUnit: 4,
+                    tabSize: 4,
+                    indentWithTabs: true,
+                    lineWrapping: false,
+                    matchBrackets: true,
+                    autoCloseBrackets: true,
+                });
+
+                fileModalEditorInstance.setSize('100%', '24rem');
+                setFileEditorDisabledState(true);
+            };
+
+            const detectEditorMode = function (path) {
+                const normalizedPath = (path || '').toLowerCase();
+
+                if (normalizedPath.endsWith('.json')) {
+                    return { name: 'javascript', json: true };
+                }
+
+                return 'application/x-httpd-php';
+            };
+
+            const updateFileModalStatus = function (message, type = 'info') {
+                if (!fileModalStatus) {
+                    return;
+                }
+
+                fileModalStatus.textContent = message || '';
+                fileModalStatus.classList.remove('text-emerald-600', 'text-red-600', 'text-slate-500');
+
+                if (!message) {
+                    fileModalStatus.classList.add('text-slate-500');
+
+                    return;
+                }
+
+                if (type === 'success') {
+                    fileModalStatus.classList.add('text-emerald-600');
+                } else if (type === 'error') {
+                    fileModalStatus.classList.add('text-red-600');
+                } else {
+                    fileModalStatus.classList.add('text-slate-500');
+                }
+            };
+
+            const resetFileModal = function () {
+                if (!fileModal) {
+                    return;
+                }
+
+                ensureFileModalEditorInstance();
+
+                if (fileModalTitle) {
+                    fileModalTitle.textContent = fileModalDefaultTitle;
+                }
+
+                if (fileModalPath) {
+                    fileModalPath.textContent = '';
+                }
+
+                if (fileModalUpdatedAt) {
+                    fileModalUpdatedAt.textContent = '';
+                }
+
+                updateFileModalStatus('');
+
+                if (fileModalClassInput) {
+                    fileModalClassInput.value = '';
+                }
+
+                if (fileModalEditorInstance) {
+                    fileModalEditorInstance.setValue('');
+                    fileModalEditorInstance.clearHistory();
+                }
+
+                if (fileModalEditor) {
+                    fileModalEditor.value = '';
+                }
+
+                setFileEditorDisabledState(true);
+
+                if (fileModalSaveButton) {
+                    fileModalSaveButton.disabled = true;
+                }
+
+                fileModal.dataset.className = '';
+            };
+
+            const collectPayloadErrors = function (payload) {
+                const messages = [];
+
+                if (!payload || typeof payload !== 'object') {
+                    return messages;
+                }
+
+                if (Array.isArray(payload)) {
+                    payload.forEach(function (value) {
+                        if (typeof value === 'string' && value) {
+                            messages.push(value);
+                        }
+                    });
+                }
+
+                if (payload.errors && typeof payload.errors === 'object') {
+                    Object.values(payload.errors).forEach(function (value) {
+                        if (Array.isArray(value)) {
+                            value.forEach(function (message) {
+                                if (typeof message === 'string' && message) {
+                                    messages.push(message);
+                                }
+                            });
+                        } else if (typeof value === 'string' && value) {
+                            messages.push(value);
+                        }
+                    });
+                }
+
+                if (typeof payload.message === 'string' && payload.message) {
+                    messages.push(payload.message);
+                }
+
+                return messages;
+            };
+
+            const parseErrorMessage = function (payload, fallbackMessage) {
+                const messages = collectPayloadErrors(payload);
+
+                if (messages.length > 0) {
+                    return messages.join(' ');
+                }
+
+                return fallbackMessage;
+            };
+
+            const collectPayloadErrorList = function (payload) {
+                const messages = [];
+
+                if (!payload || typeof payload !== 'object') {
+                    return messages;
+                }
+
+                if (!payload.errors || typeof payload.errors !== 'object') {
+                    return messages;
+                }
+
+                Object.values(payload.errors).forEach(function (value) {
+                    if (Array.isArray(value)) {
+                        value.forEach(function (message) {
+                            if (typeof message === 'string' && message) {
+                                messages.push(message);
+                            }
+                        });
+
+                        return;
+                    }
+
+                    if (typeof value === 'string' && value) {
+                        messages.push(value);
+                    }
+                });
+
+                return messages
+                    .map(function (message) {
+                        return typeof message === 'string' ? message.trim() : '';
+                    })
+                    .filter(function (message, index, list) {
+                        return message !== '' && list.indexOf(message) === index;
+                    });
+            };
+
+            const escapeHtml = function (value) {
+                return String(value ?? '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            };
+
+            const extractFeedbackText = function (container) {
+                if (!container) {
+                    return '';
+                }
+
+                const source = container.querySelector('[data-feedback-copy-content]') || container;
+
+                return String(source.innerText || source.textContent || '')
+                    .replace(/\n{3,}/g, '\n\n')
+                    .trim();
+            };
+
+            const copyTextToClipboard = async function (text) {
+                if (!text) {
+                    return false;
+                }
+
+                if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                    await navigator.clipboard.writeText(text);
+
+                    return true;
+                }
+
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.setAttribute('readonly', 'readonly');
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                const copied = document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                return copied;
+            };
+
+            const updateCopyButtonLabel = function (button, label) {
+                if (!button) {
+                    return;
+                }
+
+                const labelNode = button.querySelector('[data-copy-feedback-label]');
+
+                if (!labelNode) {
+                    return;
+                }
+
+                if (!labelNode.dataset.defaultLabel) {
+                    labelNode.dataset.defaultLabel = labelNode.textContent || 'Скопіювати';
+                }
+
+                labelNode.textContent = label;
+
+                window.clearTimeout(Number(button.dataset.copyFeedbackTimeout || '0'));
+                button.dataset.copyFeedbackTimeout = String(window.setTimeout(function () {
+                    labelNode.textContent = labelNode.dataset.defaultLabel || 'Скопіювати';
+                }, 1800));
+            };
+
+            const buildFeedbackMarkup = function (content, type) {
+                const details = content && typeof content === 'object' && !Array.isArray(content)
+                    ? content
+                    : { message: typeof content === 'string' ? content : '' };
+                const message = typeof details.message === 'string' ? details.message.trim() : '';
+                const errors = Array.isArray(details.errors)
+                    ? details.errors
+                        .map(function (error) {
+                            return typeof error === 'string' ? error.trim() : '';
+                        })
+                        .filter(function (error, index, list) {
+                            return error !== '' && list.indexOf(error) === index;
+                        })
+                    : [];
+                const links = Array.isArray(details.links)
+                    ? details.links.filter(function (link) {
+                        return link && typeof link === 'object' && typeof link.url === 'string' && link.url;
+                    })
+                    : [];
+                const title = type === 'error'
+                    ? 'Не виконано'
+                    : (type === 'warning' ? 'Частково виконано' : 'Виконано');
+                const sections = [];
+
+                if (message) {
+                    sections.push(
+                        '<div>'
+                        + '<p class="text-[11px] font-semibold uppercase tracking-wide">' + escapeHtml(title) + '</p>'
+                        + '<p class="mt-1 whitespace-pre-line">' + escapeHtml(message) + '</p>'
+                        + '</div>'
+                    );
+                }
+
+                if (errors.length > 0) {
+                    sections.push(
+                        '<div class="rounded-md border border-red-200 bg-white/80 px-3 py-2 text-red-700">'
+                        + '<p class="text-[11px] font-semibold uppercase tracking-wide">Помилки</p>'
+                        + '<ul class="mt-2 list-disc space-y-1 pl-4">'
+                        + errors.map(function (error) {
+                            return '<li class="whitespace-pre-line">' + escapeHtml(error) + '</li>';
+                        }).join('')
+                        + '</ul>'
+                        + '</div>'
+                    );
+                }
+
+                if (links.length > 0) {
+                    sections.push(
+                        '<div class="flex flex-wrap gap-2">'
+                        + links.map(function (link) {
+                            const titleText = link.title || link.label || 'Тест';
+                            const href = typeof link.url === 'string' ? link.url : '#';
+
+                            return '<a href="' + escapeHtml(href) + '" target="_blank" rel="noopener noreferrer"'
+                                + ' title="' + escapeHtml(titleText) + '"'
+                                + ' class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold ring-1 ring-current/10 hover:bg-white/80 transition">'
+                                + '<i class="fa-solid fa-arrow-up-right-from-square"></i>'
+                                + escapeHtml(titleText)
+                                + '</a>';
+                        }).join('')
+                        + '</div>'
+                    );
+                }
+
+                return '<div class="flex items-start justify-between gap-3">'
+                    + '<div class="min-w-0 flex-1 space-y-3" data-feedback-copy-content>'
+                    + sections.join('')
+                    + '</div>'
+                    + '<button type="button"'
+                    + ' class="inline-flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-current ring-1 ring-current/10 transition hover:bg-white"'
+                    + ' data-copy-feedback'
+                    + ' title="Скопіювати текст повідомлення">'
+                    + '<i class="fa-regular fa-copy"></i>'
+                    + '<span data-copy-feedback-label>Скопіювати</span>'
+                    + '</button>'
+                    + '</div>';
+            };
+
+            const formatFileUpdatedAt = function (timestamp) {
+                if (!timestamp) {
+                    return '';
+                }
+
+                return (fileModalUpdatedAtTemplate || '').replace(':timestamp', timestamp);
+            };
+
+            const ensureOriginalText = function (element) {
+                if (!element) {
+                    return '';
+                }
+
+                if (!element.dataset.originalName) {
+                    element.dataset.originalName = element.textContent || '';
+                }
+
+                return element.dataset.originalName;
+            };
+
+            const escapeSearchRegExp = function (value) {
+                const text = typeof value === 'string' ? value : String(value || '');
+
+                return text.replace(/[.*+?^${}()|[\]\\]/g, '\$&');
+            };
+
+            const highlightSearchMatch = function (element, query) {
+                if (!element) {
+                    return;
+                }
+
+                const originalName = ensureOriginalText(element);
+
+                if (!query) {
+                    element.innerHTML = originalName;
+                    return;
+                }
+
+                const pattern = new RegExp('(' + escapeSearchRegExp(query) + ')', 'ig');
+                element.innerHTML = originalName.replace(pattern, '<mark>$1</mark>');
+            };
+
+            const expandFolderForSearchMatch = function (folderNode) {
+                if (!folderNode) {
+                    return;
+                }
+
+                const folderButton = folderNode.querySelector('[data-folder-toggle]');
+
+                if (!folderButton) {
+                    return;
+                }
+
+                if (folderButton.getAttribute('aria-expanded') === 'true') {
+                    return;
+                }
+
+                folderNode.dataset.expandedBySearch = 'true';
+                handleFolderToggle(folderButton);
+            };
+
+            const collapseFoldersExpandedBySearch = function () {
+                if (!executedNodesContainer) {
+                    return;
+                }
+
+                const expandedFolders = executedNodesContainer.querySelectorAll('[data-folder-node][data-expanded-by-search="true"]');
+
+                expandedFolders.forEach(function (folderNode) {
+                    const folderButton = folderNode.querySelector('[data-folder-toggle]');
+
+                    if (folderButton && folderButton.getAttribute('aria-expanded') === 'true') {
+                        handleFolderToggle(folderButton);
+                    }
+
+                    delete folderNode.dataset.expandedBySearch;
+                });
+            };
+
+            const toggleSearchVisibility = function (element, shouldHide) {
+                if (!element) {
+                    return;
+                }
+
+                if (shouldHide) {
+                    element.classList.add(hiddenBySearchClass);
+                } else {
+                    element.classList.remove(hiddenBySearchClass);
+                }
+            };
+
+            
+
+            const closeFileModal = function () {
+                if (!fileModal) {
+                    return;
+                }
+
+                fileModal.classList.add('hidden');
+                fileModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                resetFileModal();
+            };
+
+            // Create Seeder Modal functions
+            const ensureCreateSeederEditorInstance = function () {
+                if (!createSeederEditor || typeof CodeMirror === 'undefined') {
+                    return;
+                }
+
+                if (createSeederEditorInstance) {
+                    return;
+                }
+
+                createSeederEditorInstance = CodeMirror.fromTextArea(createSeederEditor, {
+                    mode: 'application/x-httpd-php',
+                    lineNumbers: true,
+                    indentUnit: 4,
+                    tabSize: 4,
+                    indentWithTabs: true,
+                    lineWrapping: false,
+                    matchBrackets: true,
+                    autoCloseBrackets: true,
+                });
+
+                createSeederEditorInstance.setSize('100%', '20rem');
+            };
+
+            const updateCreateSeederStatus = function (message, type = 'info') {
+                if (!createSeederStatus) {
+                    return;
+                }
+
+                createSeederStatus.textContent = message || '';
+                createSeederStatus.classList.remove('text-emerald-600', 'text-red-600', 'text-slate-500');
+
+                if (!message) {
+                    createSeederStatus.classList.add('text-slate-500');
+                    return;
+                }
+
+                if (type === 'success') {
+                    createSeederStatus.classList.add('text-emerald-600');
+                } else if (type === 'error') {
+                    createSeederStatus.classList.add('text-red-600');
+                } else {
+                    createSeederStatus.classList.add('text-slate-500');
+                }
+            };
+
+            let createSeederFoldersLoaded = false;
+
+            const loadSeederFolders = async function () {
+                if (!createSeederFolderSelect || createSeederFoldersLoaded) {
+                    return;
+                }
+
+                try {
+                    const response = await fetch(createSeederFoldersUrl, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    if (!response.ok) {
+                        return;
+                    }
+
+                    const data = await response.json();
+                    const folders = data.folders || [];
+
+                    // Clear existing options except the first one (root folder)
+                    while (createSeederFolderSelect.options.length > 1) {
+                        createSeederFolderSelect.remove(1);
+                    }
+
+                    // Add folder options
+                    folders.forEach(function (folder) {
+                        const option = document.createElement('option');
+                        option.value = folder;
+                        option.textContent = folder;
+                        createSeederFolderSelect.appendChild(option);
+                    });
+
+                    createSeederFoldersLoaded = true;
+                } catch (error) {
+                    console.error('Failed to load seeder folders:', error);
+                }
+            };
+
+            const toggleNewFolderInput = function () {
+                if (!createSeederNewFolderContainer || !createSeederFolderSelect) {
+                    return;
+                }
+
+                const isHidden = createSeederNewFolderContainer.classList.contains('hidden');
+
+                if (isHidden) {
+                    // Show new folder input, hide select
+                    createSeederNewFolderContainer.classList.remove('hidden');
+                    createSeederFolderSelect.disabled = true;
+                    createSeederFolderSelect.value = '';
+                    if (createSeederFolderInput) {
+                        createSeederFolderInput.focus();
+                    }
+                } else {
+                    // Hide new folder input, show select
+                    createSeederNewFolderContainer.classList.add('hidden');
+                    createSeederFolderSelect.disabled = false;
+                    if (createSeederFolderInput) {
+                        createSeederFolderInput.value = '';
+                    }
+                }
+            };
+
+            const getSelectedFolder = function () {
+                // Check if new folder input is visible
+                if (createSeederNewFolderContainer && !createSeederNewFolderContainer.classList.contains('hidden')) {
+                    return createSeederFolderInput ? createSeederFolderInput.value.trim() : '';
+                }
+
+                // Otherwise get from select
+                return createSeederFolderSelect ? createSeederFolderSelect.value : '';
+            };
+
+            const resetCreateSeederModal = function () {
+                if (!createSeederModal) {
+                    return;
+                }
+
+                ensureCreateSeederEditorInstance();
+
+                if (createSeederClassInput) {
+                    createSeederClassInput.value = '';
+                }
+
+                if (createSeederFolderInput) {
+                    createSeederFolderInput.value = '';
+                }
+
+                if (createSeederFolderSelect) {
+                    createSeederFolderSelect.value = '';
+                    createSeederFolderSelect.disabled = false;
+                }
+
+                if (createSeederNewFolderContainer) {
+                    createSeederNewFolderContainer.classList.add('hidden');
+                }
+
+                // Start with empty editor - user will paste their PHP code
+                if (createSeederEditorInstance) {
+                    createSeederEditorInstance.setValue('');
+                    createSeederEditorInstance.clearHistory();
+                }
+
+                if (createSeederEditor) {
+                    createSeederEditor.value = '';
+                }
+
+                updateCreateSeederStatus('');
+
+                if (createSeederSaveButton) {
+                    createSeederSaveButton.disabled = false;
+                }
+            };
+
+            const openCreateSeederModal = function () {
+                if (!createSeederModal) {
+                    return;
+                }
+
+                resetCreateSeederModal();
+                loadSeederFolders();
+                document.body.classList.add('overflow-hidden');
+                createSeederModal.classList.remove('hidden');
+                createSeederModal.classList.add('flex');
+
+                window.setTimeout(function () {
+                    if (createSeederClassInput) {
+                        createSeederClassInput.focus();
+                    }
+
+                    if (createSeederEditorInstance) {
+                        createSeederEditorInstance.refresh();
+                    }
+                }, 50);
+            };
+
+            const closeCreateSeederModal = function () {
+                if (!createSeederModal) {
+                    return;
+                }
+
+                createSeederModal.classList.add('hidden');
+                createSeederModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                resetCreateSeederModal();
+            };
+
+            // Event listener for new folder toggle
+            if (createSeederNewFolderToggle) {
+                createSeederNewFolderToggle.addEventListener('click', function () {
+                    toggleNewFolderInput();
+                });
+            }
+
+            // Event listeners for create seeder modal
+            if (createSeederOpenButtons && createSeederOpenButtons.length > 0) {
+                createSeederOpenButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        openCreateSeederModal();
+                    });
+                });
+            }
+
+            if (createSeederCloseButtons && createSeederCloseButtons.length > 0) {
+                createSeederCloseButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        closeCreateSeederModal();
+                    });
+                });
+            }
+
+            if (createSeederOverlay) {
+                createSeederOverlay.addEventListener('click', function () {
+                    closeCreateSeederModal();
+                });
+            }
+
+            // Handle create seeder form submission
+            if (createSeederForm && createSeederEditor) {
+                createSeederForm.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const className = createSeederClassInput ? createSeederClassInput.value.trim() : '';
+                    const folder = getSelectedFolder();
+                    const contents = createSeederEditorInstance
+                        ? createSeederEditorInstance.getValue()
+                        : (createSeederEditor.value || '');
+
+                    if (!className) {
+                        updateCreateSeederStatus(createSeederMissingClassMessage, 'error');
+                        showFeedback(createSeederMissingClassMessage, 'error');
+                        return;
+                    }
+
+                    if (!contents.trim()) {
+                        updateCreateSeederStatus(createSeederMissingContentsMessage, 'error');
+                        showFeedback(createSeederMissingContentsMessage, 'error');
+                        return;
+                    }
+
+                    if (preloader) {
+                        preloader.classList.remove('hidden');
+                    }
+
+                    updateCreateSeederStatus(createSeederCreatingMessage, 'info');
+
+                    if (createSeederSaveButton) {
+                        createSeederSaveButton.disabled = true;
+                    }
+
+                    try {
+                        const formData = new FormData(createSeederForm);
+                        formData.set('class_name', className);
+                        formData.set('folder', folder);
+                        formData.set('contents', contents);
+
+                        const response = await fetch(createSeederStoreUrl, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken,
+                                'Accept': 'application/json',
+                            },
+                            body: formData,
+                        });
+
+                        const payload = await response.json().catch(function () {
+                            return null;
+                        });
+
+                        if (!response.ok) {
+                            const message = parseErrorMessage(payload, createSeederErrorMessage);
+                            throw new Error(message);
+                        }
+
+                        const successMessage = payload && typeof payload.message === 'string' && payload.message
+                            ? payload.message
+                            : createSeederCreatedMessage;
+
+                        updateCreateSeederStatus(successMessage, 'success');
+                        showFeedback(successMessage, 'success');
+                        window.setTimeout(function () {
+                            window.location.reload();
+                        }, 250);
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : createSeederErrorMessage;
+
+                        updateCreateSeederStatus(message, 'error');
+                        showFeedback(message, 'error');
+                    } finally {
+                        if (createSeederSaveButton) {
+                            createSeederSaveButton.disabled = false;
+                        }
+
+                        if (preloader) {
+                            preloader.classList.add('hidden');
+                        }
+                    }
+                });
+            }
+
+            const loadSeederFile = async function (className, displayName) {
+                if (!fileModal || !fileModalLoadUrl || !className) {
+                    return;
+                }
+
+                resetFileModal();
+                updateFileModalStatus(fileModalLoadingMessage, 'info');
+
+                if (preloader) {
+                    preloader.classList.remove('hidden');
+                }
+
+                try {
+                    const params = new URLSearchParams({ class_name: className });
+                    const response = await fetch(fileModalLoadUrl + '?' + params.toString(), {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = parseErrorMessage(payload, fileModalLoadErrorMessage);
+                        throw new Error(message);
+                    }
+
+                    const displayLabel = payload && typeof payload.display_class_name === 'string' && payload.display_class_name
+                        ? payload.display_class_name
+                        : (displayName || className);
+
+                    if (fileModalTitle) {
+                        fileModalTitle.textContent = fileModalDefaultTitle + (displayLabel ? ' — ' + displayLabel : '');
+                    }
+
+                    if (fileModalPath) {
+                        fileModalPath.textContent = payload && typeof payload.path === 'string' ? payload.path : '';
+                    }
+
+                    if (fileModalUpdatedAt) {
+                        fileModalUpdatedAt.textContent = formatFileUpdatedAt(payload && typeof payload.last_modified === 'string' ? payload.last_modified : '');
+                    }
+
+                    if (fileModalClassInput) {
+                        fileModalClassInput.value = className;
+                    }
+
+                    const contents = payload && typeof payload.contents === 'string' ? payload.contents : '';
+                    const filePath = payload && typeof payload.path === 'string' ? payload.path : '';
+
+                    if (fileModalEditorInstance) {
+                        fileModalEditorInstance.setOption('mode', detectEditorMode(filePath));
+                        fileModalEditorInstance.setValue(contents);
+                        fileModalEditorInstance.clearHistory();
+                    }
+
+                    if (fileModalEditor) {
+                        fileModalEditor.value = contents;
+                    }
+
+                    setFileEditorDisabledState(false);
+
+                    if (fileModalSaveButton) {
+                        fileModalSaveButton.disabled = false;
+                    }
+
+                    fileModal.dataset.className = className;
+                    updateFileModalStatus(fileModalLoadedMessage, 'info');
+                    document.body.classList.add('overflow-hidden');
+                    fileModal.classList.remove('hidden');
+                    fileModal.classList.add('flex');
+
+                    window.setTimeout(function () {
+                        if (fileModalEditorInstance) {
+                            fileModalEditorInstance.refresh();
+
+                            const doc = fileModalEditorInstance.getDoc();
+                            const lastLine = Math.max(doc.lineCount() - 1, 0);
+                            const lastCh = doc.getLine(lastLine) ? doc.getLine(lastLine).length : 0;
+
+                            fileModalEditorInstance.focus();
+                            doc.setCursor({ line: lastLine, ch: lastCh });
+                        } else if (fileModalEditor) {
+                            const length = fileModalEditor.value.length;
+                            fileModalEditor.focus({ preventScroll: true });
+                            fileModalEditor.setSelectionRange(length, length);
+                        }
+                    }, 0);
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : fileModalLoadErrorMessage;
+
+                    updateFileModalStatus(message, 'error');
+                    showFeedback(message, 'error');
+                    closeFileModal();
+                } finally {
+                    if (preloader) {
+                        preloader.classList.add('hidden');
+                    }
+                }
+            };
+
+            if (fileModalCloseButtons && fileModalCloseButtons.length > 0) {
+                fileModalCloseButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        closeFileModal();
+                    });
+                });
+            }
+
+            if (fileModalOverlay) {
+                fileModalOverlay.addEventListener('click', function () {
+                    closeFileModal();
+                });
+            }
+
+            resetFileModal();
+
+            if (fileModalForm && fileModalEditor) {
+                fileModalForm.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const className = fileModalClassInput
+                        ? (fileModalClassInput.value || fileModal.dataset.className || '')
+                        : (fileModal ? fileModal.dataset.className || '' : '');
+                    const contents = fileModalEditorInstance
+                        ? fileModalEditorInstance.getValue()
+                        : (fileModalEditor.value || '');
+
+                    if (!className) {
+                        updateFileModalStatus(fileModalMissingClassMessage, 'error');
+                        showFeedback(fileModalMissingClassMessage, 'error');
+
+                        return;
+                    }
+
+                    if (preloader) {
+                        preloader.classList.remove('hidden');
+                    }
+
+                    updateFileModalStatus(fileModalSavingMessage, 'info');
+
+                    if (fileModalSaveButton) {
+                        fileModalSaveButton.disabled = true;
+                    }
+
+                    try {
+                        const formData = new FormData(fileModalForm);
+                        formData.set('class_name', className);
+                        formData.set('contents', contents);
+
+                        const response = await fetch(fileModalForm.action, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken,
+                                'Accept': 'application/json',
+                            },
+                            body: formData,
+                        });
+
+                        const payload = await response.json().catch(function () {
+                            return null;
+                        });
+
+                        if (!response.ok) {
+                            const message = parseErrorMessage(payload, fileModalSaveErrorMessage);
+                            throw new Error(message);
+                        }
+
+                        if (payload && typeof payload.contents === 'string') {
+                            if (fileModalEditorInstance) {
+                                fileModalEditorInstance.setValue(payload.contents);
+                                fileModalEditorInstance.clearHistory();
+                            }
+
+                            fileModalEditor.value = payload.contents;
+                        }
+
+                        if (fileModalPath && payload && typeof payload.path === 'string') {
+                            fileModalPath.textContent = payload.path;
+                        }
+
+                        if (fileModalUpdatedAt) {
+                            const timestamp = payload && typeof payload.last_modified === 'string'
+                                ? payload.last_modified
+                                : '';
+                            fileModalUpdatedAt.textContent = formatFileUpdatedAt(timestamp);
+                        }
+
+                        const successMessage = payload && typeof payload.message === 'string' && payload.message
+                            ? payload.message
+                            : fileModalSavedMessage;
+
+                        updateFileModalStatus(successMessage, 'success');
+                        showFeedback(successMessage, 'success');
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : fileModalSaveErrorMessage;
+
+                        updateFileModalStatus(message, 'error');
+                        showFeedback(message, 'error');
+                    } finally {
+                        if (fileModalSaveButton) {
+                            fileModalSaveButton.disabled = false;
+                        }
+
+                        if (preloader) {
+                            preloader.classList.add('hidden');
+                        }
+                    }
+                });
+            }
+
+            const updateBulkButtonState = function (scope) {
+                if (!scope) {
+                    return;
+                }
+
+                const button = document.querySelector('[data-bulk-delete-button][data-bulk-scope="' + scope + '"]');
+
+                if (!button) {
+                    return;
+                }
+
+                const checkboxes = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]');
+                const hasChecked = Array.from(checkboxes).some(function (checkbox) {
+                    return checkbox.checked;
+                });
+
+                button.disabled = !hasChecked;
+            };
+
+            const updateAllBulkButtonStates = function () {
+                const scopes = new Set();
+
+                document.querySelectorAll('[data-bulk-delete-checkbox]').forEach(function (checkbox) {
+                    const scope = checkbox.dataset.bulkScope;
+
+                    if (scope) {
+                        scopes.add(scope);
+                    }
+                });
+
+                scopes.forEach(function (scope) {
+                    updateBulkButtonState(scope);
+                });
+            };
+
+            const syncDeleteWithQuestionsInputs = function (className, checked) {
+                if (!className) {
+                    return;
+                }
+
+                const inputs = document.querySelectorAll('[data-delete-with-questions-input][data-class-name="' + className + '"]');
+
+                inputs.forEach(function (input) {
+                    input.value = checked ? '1' : '0';
+                });
+
+                const forms = document.querySelectorAll('[data-delete-with-questions-form][data-class-name="' + className + '"]');
+
+                forms.forEach(function (form) {
+                    const confirmWithQuestions = form.dataset.confirmWithQuestions || '';
+                    const confirmRegular = form.dataset.confirmRegular || form.dataset.confirm || '';
+
+                    if (checked && confirmWithQuestions) {
+                        form.dataset.confirm = confirmWithQuestions;
+                    } else if (confirmRegular) {
+                        form.dataset.confirm = confirmRegular;
+                    }
+                });
+            };
+
+            const findBulkCheckboxForClass = function (scope, className) {
+                if (!scope || !className) {
+                    return null;
+                }
+
+                const candidates = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]');
+
+                for (const candidate of candidates) {
+                    if (candidate.value === className) {
+                        return candidate;
+                    }
+                }
+
+                return null;
+            };
+
+            const prepareBulkConfirmMessage = function (scope) {
+                if (!scope) {
+                    return;
+                }
+
+                const form = document.querySelector('form[data-bulk-delete-form][data-bulk-scope="' + scope + '"]');
+
+                if (!form) {
+                    return;
+                }
+
+                const checkboxes = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]:checked');
+                const count = checkboxes.length;
+
+                if (count <= 0) {
+                    return;
+                }
+
+                const selectedClasses = Array.from(checkboxes).map(function (checkbox) {
+                    return checkbox.value || '';
+                });
+
+                const deleteQuestionsCount = selectedClasses.reduce(function (total, className) {
+                    const toggle = document.querySelector('[data-delete-with-questions-toggle][data-class-name="' + className + '"]');
+
+                    if (toggle && toggle.checked) {
+                        return total + 1;
+                    }
+
+                    return total;
+                }, 0);
+
+                if (count === 1) {
+                    form.dataset.confirm = deleteQuestionsCount > 0
+                        ? 'Видалити файл вибраного сидера та пов’язані питання?'
+                        : 'Видалити файл вибраного сидера?';
+                } else {
+                    form.dataset.confirm = deleteQuestionsCount > 0
+                        ? 'Видалити файли ' + count + ' вибраних сидерів та пов’язані питання?'
+                        : 'Видалити файли ' + count + ' вибраних сидерів?';
+                }
+            };
+
+            updateAllBulkButtonStates();
+
+            const folderLoadingPromises = new WeakMap();
+            const buildUrlWithParams = function (baseUrl, params = {}) {
+                if (!baseUrl) {
+                    return '';
+                }
+
+                const url = new URL(baseUrl, window.location.origin);
+
+                Object.entries(params).forEach(function ([key, value]) {
+                    if (value === null || typeof value === 'undefined') {
+                        return;
+                    }
+
+                    url.searchParams.set(key, String(value));
+                });
+
+                return url.toString();
+            };
+
+            const loadFolderChildrenContent = function (folderNode, options = {}) {
+                if (!folderNode) {
+                    return Promise.resolve(false);
+                }
+
+                const loadedState = folderNode.dataset.loaded || '';
+
+                if (loadedState === 'true') {
+                    return Promise.resolve(false);
+                }
+
+                if (folderLoadingPromises.has(folderNode)) {
+                    return folderLoadingPromises.get(folderNode);
+                }
+
+                const children = folderNode.querySelector('[data-folder-children]');
+                const contentTarget = children
+                    ? children.querySelector('[data-folder-children-content]') || children
+                    : null;
+                const button = folderNode.querySelector('[data-folder-toggle]');
+
+                if (!children || !contentTarget || !button) {
+                    return Promise.resolve(false);
+                }
+
+                const baseUrl = button.dataset.loadUrl;
+
+                if (!baseUrl) {
+                    return Promise.resolve(false);
+                }
+
+                const showLoadingMessage = options.showLoading !== false;
+
+                const loadPromise = (async function () {
+                    folderNode.dataset.loaded = 'loading';
+
+                    if (showLoadingMessage) {
+                        contentTarget.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+                    }
+
+                    const depth = children.dataset.depth || '0';
+                    const path = button.dataset.folderPath || '';
+                    const tab = button.dataset.folderTab || 'main';
+                    const requestUrl = buildUrlWithParams(baseUrl, {
+                        tab: tab,
+                        path: path,
+                        depth: depth,
+                    });
+
+                    try {
+                        const response = await fetch(requestUrl, {
+                            headers: {
+                                'Accept': 'application/json',
+                            },
+                        });
+
+                        const payload = await response.json().catch(function () {
+                            return null;
+                        });
+
+                        if (!response.ok) {
+                            const message = payload && typeof payload.message === 'string'
+                                ? payload.message
+                                : 'Не вдалося завантажити вміст папки.';
+                            throw new Error(message);
+                        }
+
+                        contentTarget.innerHTML = payload && typeof payload.html === 'string'
+                            ? payload.html
+                            : '';
+                        folderNode.dataset.loaded = 'true';
+                        updateAllBulkButtonStates();
+                        children.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
+                            syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
+                        });
+
+                        return true;
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : 'Не вдалося завантажити вміст папки.';
+
+                        contentTarget.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                        folderNode.dataset.loaded = 'error';
+                        showFeedback(message, 'error');
+
+                        return false;
+                    } finally {
+                        folderLoadingPromises.delete(folderNode);
+                    }
+                })();
+
+                folderLoadingPromises.set(folderNode, loadPromise);
+
+                return loadPromise;
+            };
+
+            const ensureAllFoldersLoadedForSearch = function () {
+                if (!executedNodesContainer) {
+                    return Promise.resolve(false);
+                }
+
+                const foldersNeedingLoad = Array.from(executedNodesContainer.querySelectorAll('[data-folder-node]')).filter(function (folderNode) {
+                    return (folderNode.dataset.loaded || '') !== 'true';
+                });
+
+                if (!foldersNeedingLoad.length) {
+                    return Promise.resolve(false);
+                }
+
+                return Promise.all(foldersNeedingLoad.map(function (folderNode) {
+                    return loadFolderChildrenContent(folderNode, { showLoading: false });
+                })).then(function (results) {
+                    return results.some(function (result) {
+                        return !!result;
+                    });
+                });
+            };
+
+            const applyExecutedSeederSearch = function () {
+                if (!executedNodesContainer) {
+                    return;
+                }
+
+                const query = executedSearchInput ? (executedSearchInput.value || '').trim() : '';
+                const normalizedQuery = query.toLowerCase();
+                let matchCount = 0;
+
+                if (normalizedQuery) {
+                    ensureAllFoldersLoadedForSearch().then(function (loadedAny) {
+                        if (loadedAny) {
+                            applyExecutedSeederSearch();
+                        }
+                    });
+                } else {
+                    collapseFoldersExpandedBySearch();
+                }
+
+                const seederNodes = executedNodesContainer.querySelectorAll('[data-seeder-node]');
+
+                seederNodes.forEach(function (node) {
+                    const nameElement = node.querySelector('[data-seeder-name]');
+
+                    if (!nameElement) {
+                        toggleSearchVisibility(node, normalizedQuery.length > 0);
+                        return;
+                    }
+
+                    if (!normalizedQuery) {
+                        highlightSearchMatch(nameElement, '');
+                        toggleSearchVisibility(node, false);
+                        return;
+                    }
+
+                    const originalName = ensureOriginalText(nameElement);
+
+                    if (originalName.toLowerCase().indexOf(normalizedQuery) !== -1) {
+                        matchCount += 1;
+                        highlightSearchMatch(nameElement, query);
+                        toggleSearchVisibility(node, false);
+                    } else {
+                        highlightSearchMatch(nameElement, '');
+                        toggleSearchVisibility(node, true);
+                    }
+                });
+
+                const folderNodes = Array.from(executedNodesContainer.querySelectorAll('[data-folder-node]'));
+
+                folderNodes.sort(function (a, b) {
+                    const depthA = parseInt(a.dataset.depth || '0', 10) || 0;
+                    const depthB = parseInt(b.dataset.depth || '0', 10) || 0;
+
+                    return depthB - depthA;
+                });
+
+                folderNodes.forEach(function (folderNode) {
+                    const folderNameElement = folderNode.querySelector('[data-folder-name]');
+                    const folderOriginalName = folderNameElement ? ensureOriginalText(folderNameElement) : '';
+
+                    if (!normalizedQuery) {
+                        if (folderNameElement) {
+                            highlightSearchMatch(folderNameElement, '');
+                        }
+
+                        toggleSearchVisibility(folderNode, false);
+                        return;
+                    }
+
+                    let folderNameMatches = false;
+
+                    if (folderOriginalName && folderOriginalName.toLowerCase().indexOf(normalizedQuery) !== -1) {
+                        folderNameMatches = true;
+                        matchCount += 1;
+                        if (folderNameElement) {
+                            highlightSearchMatch(folderNameElement, query);
+                        }
+                    } else if (folderNameElement) {
+                        highlightSearchMatch(folderNameElement, '');
+                    }
+
+                    const hasVisibleSeeder = folderNode.querySelector('[data-seeder-node]:not(.' + hiddenBySearchClass + ')');
+                    const hasVisibleFolder = folderNode.querySelector('[data-folder-node]:not(.' + hiddenBySearchClass + ')');
+                    const shouldHide = !folderNameMatches && !hasVisibleSeeder && !hasVisibleFolder;
+
+                    toggleSearchVisibility(folderNode, shouldHide);
+
+                    if (!shouldHide && !folderNameMatches) {
+                        expandFolderForSearchMatch(folderNode);
+                    }
+                });
+
+                if (executedSearchEmptyState) {
+                    if (normalizedQuery && matchCount === 0) {
+                        executedSearchEmptyState.classList.remove('hidden');
+                    } else {
+                        executedSearchEmptyState.classList.add('hidden');
+                    }
+                }
+            };
+
+            const confirmationModal = document.getElementById('seed-run-confirmation-modal');
+            const confirmationMessage = confirmationModal ? confirmationModal.querySelector('[data-confirm-message]') : null;
+            const confirmationAccept = confirmationModal ? confirmationModal.querySelector('[data-confirm-accept]') : null;
+            const confirmationCancel = confirmationModal ? confirmationModal.querySelector('[data-confirm-cancel]') : null;
+            const confirmationOverlay = confirmationModal ? confirmationModal.querySelector('[data-confirm-overlay]') : null;
+            let pendingConfirmationForm = null;
+
+            const closeConfirmationModal = function () {
+                if (!confirmationModal) {
+                    return;
+                }
+
+                confirmationModal.classList.add('hidden');
+                confirmationModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                pendingConfirmationForm = null;
+            };
+
+            const openConfirmationModal = function (form, message) {
+                if (!confirmationModal || !confirmationMessage || !confirmationAccept || !confirmationCancel) {
+                    return false;
+                }
+
+                pendingConfirmationForm = form;
+                confirmationMessage.textContent = message;
+                confirmationModal.classList.remove('hidden');
+                confirmationModal.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+
+                window.setTimeout(function () {
+                    confirmationAccept.focus();
+                }, 0);
+
+                return true;
+            };
+
+            if (confirmationAccept) {
+                confirmationAccept.addEventListener('click', function () {
+                    if (!pendingConfirmationForm) {
+                        closeConfirmationModal();
+
+                        return;
+                    }
+
+                    const formToSubmit = pendingConfirmationForm;
+                    formToSubmit.dataset.confirmed = 'true';
+                    closeConfirmationModal();
+                    formToSubmit.requestSubmit();
+                });
+            }
+
+            const cancelConfirmation = function () {
+                if (pendingConfirmationForm) {
+                    pendingConfirmationForm = null;
+                }
+
+                closeConfirmationModal();
+            };
+
+            if (confirmationCancel) {
+                confirmationCancel.addEventListener('click', cancelConfirmation);
+            }
+
+            if (confirmationOverlay) {
+                confirmationOverlay.addEventListener('click', cancelConfirmation);
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape') {
+                    return;
+                }
+
+                let handled = false;
+
+                if (createSeederModal && !createSeederModal.classList.contains('hidden')) {
+                    closeCreateSeederModal();
+                    handled = true;
+                }
+
+                if (fileModal && !fileModal.classList.contains('hidden')) {
+                    closeFileModal();
+                    handled = true;
+                }
+
+                if (confirmationModal && !confirmationModal.classList.contains('hidden')) {
+                    cancelConfirmation();
+                    handled = true;
+                }
+
+                if (handled) {
+                    event.preventDefault();
+                }
+            });
+
+            const handleAjaxFormSubmit = async function (form) {
+                if (preloader) {
+                    preloader.classList.remove('hidden');
+                }
+
+                try {
+                    const formData = new FormData(form);
+                    const method = form.querySelector('[name="_method"]')?.value || form.method.toUpperCase();
+                    
+                    const response = await fetch(form.action, {
+                        method: method === 'DELETE' || method === 'PUT' || method === 'PATCH' ? 'POST' : method,
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                        body: formData,
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = parseErrorMessage(payload, 'Не вдалося виконати операцію.');
+                        const error = new Error(message);
+                        error.payload = payload;
+                        throw error;
+                    }
+
+                    const successMessage = payload && typeof payload.message === 'string' && payload.message
+                        ? payload.message
+                        : 'Операцію успішно виконано.';
+                    const successErrors = collectPayloadErrorList(payload);
+                    const feedbackType = (payload && payload.status === 'partial') || successErrors.length > 0
+                        ? 'warning'
+                        : 'success';
+
+                    showFeedback({
+                        message: successMessage,
+                        errors: successErrors,
+                        links: payload && Array.isArray(payload.test_targets) ? payload.test_targets : [],
+                    }, feedbackType);
+
+                    if (form.dataset.reloadAfterSuccess === 'true') {
+                        window.setTimeout(function () {
+                            window.location.reload();
+                        }, 200);
+
+                        return;
+                    }
+
+                    // Update UI dynamically based on operation type
+                    handleUIUpdate(form, payload);
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося виконати операцію.';
+
+                    showFeedback({
+                        message: message,
+                        errors: collectPayloadErrorList(error && typeof error === 'object' ? error.payload : null)
+                            .filter(function (item) {
+                                return item !== message;
+                            }),
+                    }, 'error');
+                } finally {
+                    if (preloader) {
+                        preloader.classList.add('hidden');
+                    }
+                }
+            };
+
+            const handleUIUpdate = function (form, payload) {
+                if (form.dataset.noReloadSuccess === 'true') {
+                    return;
+                }
+
+                if (payload && payload.overview) {
+                    window.setTimeout(function () {
+                        window.location.reload();
+                    }, 200);
+
+                    return;
+                }
+
+                // Get the class name from form if available
+                const classNameInput = form.querySelector('[name="class_name"]');
+                const className = classNameInput ? classNameInput.value : null;
+
+                // Check if this is a seeder execution (run) operation
+                // For execution, reload page after showing success message so user sees result in executed section
+                const isExecutionOperation = form.action && form.action.includes('/seed-runs/run') && !form.action.includes('run-missing');
+                if (isExecutionOperation && payload.seeder_moved) {
+                    // Remove from pending list first
+                    if (className) {
+                        const seederListItem = findSeederByClassName(className);
+                        if (seederListItem) {
+                            removePendingSeederNode(seederListItem, function () {
+                                // Reload page after animation so user sees seeder in executed section
+                                window.setTimeout(function () {
+                                    window.location.reload();
+                                }, 100);
+                            });
+                        }
+                    } else {
+                        // Fallback: just reload
+                        window.setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    }
+                    return; // Exit early for execution operations
+                }
+
+                // Check if this is a seeder removal operation (not execution)
+                if (payload.seeder_removed || payload.seeder_moved) {
+                    // Find and remove the seeder's list item from pending section
+                    if (className) {
+                        const seederListItem = findSeederByClassName(className);
+
+                        if (seederListItem) {
+                            removePendingSeederNode(seederListItem);
+                        }
+                    }
+                }
+
+                // Handle bulk operations (multiple class names)
+                if (payload.removed_class_names && Array.isArray(payload.removed_class_names)) {
+                    payload.removed_class_names.forEach(function (className) {
+                        const seederListItem = findSeederByClassName(className);
+
+                        if (seederListItem) {
+                            removePendingSeederNode(seederListItem);
+                        }
+                    });
+
+                    // Check if pending list is now empty after bulk delete
+                    window.setTimeout(function () {
+                        checkPendingListEmpty();
+                    }, 400);
+                }
+
+                // Handle seed run deletion (from executed section)
+                if (payload.seed_run_id) {
+                    const seederNode = findExecutedSeederById(payload.seed_run_id);
+                    
+                    if (seederNode) {
+                        fadeOutAndRemove(seederNode, function () {
+                            // If seeder returns to pending, add it to pending list
+                            if (payload.returns_to_pending && payload.pending_seeder) {
+                                addToPendingList(payload.pending_seeder);
+                            }
+                        });
+                    }
+                }
+
+                // Enable "Execute all" button if there are pending seeders
+                if (payload.overview && payload.overview.pending_count > 0) {
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = false;
+                    }
+                } else if (payload.overview && payload.overview.pending_count === 0) {
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = true;
+                    }
+                }
+
+                // Reset bulk delete checkboxes and disable button
+                updateAllBulkButtonStates();
+            };
+
+            // Helper function to find seeder element by class name
+            const findSeederByClassName = function (className) {
+                // Find pending seeder by iterating through all pending seeders
+                const pendingSeeders = document.querySelectorAll('[data-pending-seeder]');
+                for (let i = 0; i < pendingSeeders.length; i++) {
+                    if (pendingSeeders[i].getAttribute('data-class-name') === className) {
+                        return pendingSeeders[i];
+                    }
+                }
+                return null;
+            };
+
+            // Helper function to find executed seeder by seed run ID
+            const findExecutedSeederById = function (seedRunId) {
+                const executedSeeders = document.querySelectorAll('[data-seeder-node]');
+                for (let i = 0; i < executedSeeders.length; i++) {
+                    if (executedSeeders[i].getAttribute('data-seed-run-id') === String(seedRunId)) {
+                        return executedSeeders[i];
+                    }
+                }
+                return null;
+            };
+
+            // Helper function to fade out and remove element
+            const fadeOutAndRemove = function (element, callback) {
+                element.style.opacity = '0';
+                element.style.transition = 'opacity 0.3s ease';
+                
+                window.setTimeout(function () {
+                    element.remove();
+                    if (callback) {
+                        callback();
+                    }
+                }, 300);
+            };
+
+            // Get route URLs from existing forms (to handle base path correctly)
+            const getRouteUrls = function () {
+                // Find existing forms to extract route URLs
+                const existingRunForm = document.querySelector('form[action*="seed-runs/run"]');
+                const existingMarkExecutedForm = document.querySelector('form[action*="seed-runs/mark-executed"]');
+                const existingDeleteFileForm = document.querySelector('form[action*="seed-runs/delete-file"]');
+                const existingPreviewLink = document.querySelector('a[href*="seed-runs/preview"]');
+
+                return {
+                    run: existingRunForm ? existingRunForm.action : window.location.origin + '/seed-runs/run',
+                    markExecuted: existingMarkExecutedForm ? existingMarkExecutedForm.action : window.location.origin + '/seed-runs/mark-executed',
+                    deleteFile: existingDeleteFileForm ? existingDeleteFileForm.action : window.location.origin + '/seed-runs/delete-file',
+                    previewBase: existingPreviewLink ? existingPreviewLink.href.split('?')[0] : window.location.origin + '/seed-runs/preview'
+                };
+            };
+
+            const findPendingTree = function () {
+                return document.querySelector('[data-pending-tree]');
+            };
+
+            const ensurePendingTree = function () {
+                const pendingContainer = document.getElementById('pending-seeders-container');
+
+                if (!pendingContainer) {
+                    return null;
+                }
+
+                let pendingTree = findPendingTree();
+
+                if (!pendingTree) {
+                    pendingContainer.innerHTML = '<div class="space-y-3" id="pending-seeders-tree" data-pending-tree></div>';
+                    pendingTree = findPendingTree();
+                }
+
+                return pendingTree;
+            };
+
+            const updateFolderCounts = function (folderElement, delta) {
+                let currentFolder = folderElement;
+
+                while (currentFolder) {
+                    const countAttribute = parseInt(currentFolder.getAttribute('data-seeder-count') || '0', 10) || 0;
+                    const nextCount = Math.max(0, countAttribute + delta);
+                    const folderCount = currentFolder.querySelector('[data-folder-count]');
+
+                    currentFolder.setAttribute('data-seeder-count', String(nextCount));
+
+                    if (folderCount) {
+                        folderCount.textContent = '(' + nextCount + ')';
+                    }
+
+                    currentFolder = currentFolder.parentElement ? currentFolder.parentElement.closest('[data-pending-folder]') : null;
+                }
+            };
+
+            const pruneEmptyPendingFolders = function (folderElement) {
+                let currentFolder = folderElement;
+
+                while (currentFolder) {
+                    const count = parseInt(currentFolder.getAttribute('data-seeder-count') || '0', 10) || 0;
+                    const children = currentFolder.querySelector('[data-pending-folder-children]');
+                    const hasSeeders = children && children.querySelector('[data-pending-seeder]');
+                    const hasFolders = children && children.querySelector('[data-pending-folder]');
+
+                    if (count <= 0 && !hasSeeders && !hasFolders) {
+                        const parentFolder = currentFolder.parentElement ? currentFolder.parentElement.closest('[data-pending-folder]') : null;
+                        currentFolder.remove();
+                        currentFolder = parentFolder;
+                        continue;
+                    }
+
+                    currentFolder = currentFolder.parentElement ? currentFolder.parentElement.closest('[data-pending-folder]') : null;
+                }
+            };
+
+            const createPendingFolderNode = function (name, path, depth) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'space-y-2';
+                wrapper.style.marginLeft = (depth > 0 ? 1.5 : 0) + 'rem';
+                wrapper.setAttribute('data-pending-folder', '');
+                wrapper.setAttribute('data-folder-path', path);
+                wrapper.setAttribute('data-folder-name', name);
+                wrapper.setAttribute('data-seeder-count', '0');
+                wrapper.innerHTML = `
+                    <button type="button" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition" data-pending-folder-toggle data-folder-path="${escapeHtml(path)}" aria-expanded="false">
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform -rotate-90" data-pending-folder-icon></i>
+                        <i class="fa-solid fa-folder-tree text-slate-500"></i>
+                        <span data-folder-name>${escapeHtml(name)}</span>
+                        <span class="text-xs font-normal text-slate-500" data-folder-count>(0)</span>
+                    </button>
+                    <div class="space-y-3 hidden" data-pending-folder-children data-depth="${depth + 1}"></div>
+                `;
+
+                return wrapper;
+            };
+
+            const buildLocalizationPreviewBadges = function (localizations) {
+                const preview = localizations.slice(0, 3).map(function (localization) {
+                    const localeLabel = localization.locale_label || 'N/A';
+
+                    return '<span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 text-[11px] font-semibold text-sky-800">' + escapeHtml(localeLabel) + '</span>';
+                }).join('');
+                const overflow = localizations.length - Math.min(localizations.length, 3);
+
+                return preview + (overflow > 0
+                    ? '<span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">+' + overflow + '</span>'
+                    : '');
+            };
+
+            const buildPendingLocalizationsMarkup = function (checkboxId, localizations) {
+                if (!localizations.length) {
+                    return '';
+                }
+
+                const localizationsId = checkboxId + '-localizations';
+                const badgesMarkup = buildLocalizationPreviewBadges(localizations);
+                const localizationsItems = localizations.map(function (localization) {
+                    const localeLabel = localization.locale_label || 'N/A';
+                    const typeLabel = localization.type_label || 'Локалізація';
+                    const displayBasename = localization.display_basename || ((localization.class_name || localization.display_name || '').split('\\').pop());
+                    const displayName = localization.display_name || localization.class_name || '';
+
+                    return `
+                        <div class="rounded-md border border-sky-100 bg-white/90 px-3 py-2">
+                            <div class="flex flex-wrap items-center gap-2 text-xs">
+                                <span class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 font-semibold text-sky-800">
+                                    ${escapeHtml(localeLabel)}
+                                </span>
+                                <span class="font-medium text-slate-700 break-all">
+                                    ${escapeHtml(displayBasename)}
+                                </span>
+                                <span class="text-slate-500">
+                                    ${escapeHtml(typeLabel)}
+                                </span>
+                            </div>
+                            ${displayName && displayName !== displayBasename
+                                ? '<p class="mt-1 break-all text-[11px] text-slate-500">' + escapeHtml(displayName) + '</p>'
+                                : ''}
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button type="button" class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 transition hover:bg-sky-100" data-localizations-toggle data-target="${localizationsId}" aria-expanded="false" aria-controls="${localizationsId}">
+                                <i class="fa-solid fa-chevron-right text-[10px] transition-transform" data-localizations-toggle-icon></i>
+                                <span data-toggle-label-collapsed>Показати локалізації (${localizations.length})</span>
+                                <span data-toggle-label-expanded class="hidden">Сховати локалізації (${localizations.length})</span>
+                            </button>
+                            ${badgesMarkup}
+                        </div>
+                        <div id="${localizationsId}" class="hidden rounded-lg border border-sky-100 bg-sky-50/70 px-3 py-2 space-y-2" data-localizations-panel>
+                            ${localizationsItems}
+                        </div>
+                    </div>
+                `;
+            };
+
+            const buildPromptTheoryTargetMarkup = function (target) {
+                if (!target || typeof target !== 'object' || !target.url) {
+                    return '';
+                }
+
+                const label = target.label || 'Пов’язана сторінка теорії';
+                const title = target.title || target.url;
+
+                return `
+                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                        <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 font-semibold text-emerald-700 ring-1 ring-emerald-200">
+                            ${escapeHtml(label)}
+                        </span>
+                        <a href="${escapeHtml(target.url)}" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-900 break-all">
+                            ${escapeHtml(title)}
+                        </a>
+                    </div>
+                `;
+            };
+
+            const createPendingSeederNode = function (seeder, depth, routes) {
+                const checkboxId = 'pending-seeder-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+                const actionsId = checkboxId + '-actions';
+                const displayNamespace = seeder.display_class_namespace || '';
+                const displayBasename = seeder.display_class_basename || seeder.display_class_name;
+                const availableLocalizations = Array.isArray(seeder.available_localizations) ? seeder.available_localizations : [];
+                const promptTheoryTargetMarkup = buildPromptTheoryTargetMarkup(seeder.prompt_theory_target || null);
+                const isLocalizationSeeder = ['question_localizations', 'page_localizations'].includes(seeder.data_type || '');
+                const isCategorySeeder = (displayBasename || '').includes('Category');
+                const labelClasses = isLocalizationSeeder
+                    ? 'inline-flex items-center px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold ring-1 ring-sky-200'
+                    : (isCategorySeeder
+                    ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
+                    : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold');
+                const localizationsMarkup = buildPendingLocalizationsMarkup(checkboxId, availableLocalizations);
+                const wrapper = document.createElement('div');
+                wrapper.style.marginLeft = (depth > 0 ? 1.5 : 0) + 'rem';
+                wrapper.setAttribute('data-pending-seeder', '');
+                wrapper.setAttribute('data-class-name', seeder.class_name);
+                wrapper.style.opacity = '0';
+
+                wrapper.innerHTML = `
+                    <div class="border border-gray-200 rounded-xl shadow-sm bg-white p-4 md:p-6">
+                        <div class="flex flex-col gap-3 w-full">
+                            <div class="flex flex-col gap-3 sm:flex-1">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
+                                    <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
+                                        ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
+                                        <span class="${labelClasses}">${escapeHtml(displayBasename)}</span>
+                                    </label>
+                                </div>
+                                ${promptTheoryTargetMarkup}
+                                ${localizationsMarkup}
+                            </div>
+                            <div class="sm:hidden">
+                                <button type="button" class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition" data-pending-actions-toggle data-target="${actionsId}" aria-expanded="false" aria-controls="${actionsId}">
+                                    <span data-toggle-label-collapsed>Показати дії</span>
+                                    <span data-toggle-label-expanded class="hidden">Сховати дії</span>
+                                    <i class="fa-solid fa-chevron-down text-[10px] transition-transform" data-pending-actions-icon></i>
+                                </button>
+                            </div>
+                            <div id="${actionsId}" class="hidden w-full sm:block" data-pending-actions>
+                                <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap sm:items-center">
+                                    <button type="button" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto" data-seeder-file-open data-class-name="${escapeHtml(seeder.class_name)}" data-display-name="${escapeHtml(seeder.display_class_name)}">
+                                        <i class="fa-solid fa-file-code"></i>
+                                        Код
+                                    </button>
+                                    ${seeder.supports_preview ? '<a href="' + routes.previewBase + '?class_name=' + encodeURIComponent(seeder.class_name) + '" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto"><i class="fa-solid fa-eye"></i>Переглянути</a>' : ''}
+                                    <form method="POST" action="${routes.deleteFile}" data-preloader data-confirm="Видалити файл сидера «${escapeHtml(seeder.display_class_name)}»?" class="flex w-full sm:w-auto">
+                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
+                                            <i class="fa-solid fa-file-circle-xmark"></i>
+                                            Видалити файл
+                                        </button>
+                                    </form>
+                                    <form method="POST" action="${routes.markExecuted}" data-preloader class="flex w-full sm:w-auto">
+                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                        <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
+                                            <i class="fa-solid fa-check"></i>
+                                            Позначити виконаним
+                                        </button>
+                                    </form>
+                                    <form method="POST" action="${routes.run}" data-preloader class="flex w-full sm:w-auto">
+                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                        <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                        <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
+                                            <i class="fa-solid fa-play"></i>
+                                            Виконати
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                return wrapper;
+            };
+
+            const getOrCreatePendingFolder = function (segments, pendingTree) {
+                let parentContainer = pendingTree;
+                let currentPath = '';
+
+                segments.forEach(function (segment, index) {
+                    currentPath = currentPath ? currentPath + '/' + segment : segment;
+                    let folder = parentContainer.querySelector('[data-pending-folder][data-folder-path="' + currentPath + '"]');
+
+                    if (!folder) {
+                        const folderNode = createPendingFolderNode(segment, currentPath, index);
+                        parentContainer.appendChild(folderNode);
+                        folder = folderNode;
+                    }
+
+                    const children = folder.querySelector('[data-pending-folder-children]');
+                    parentContainer = children || folder;
+                });
+
+                return parentContainer;
+            };
+
+            // Helper function to add seeder to pending list
+            const addToPendingList = function (seeder) {
+                const pendingTree = ensurePendingTree();
+                const pendingContainer = document.getElementById('pending-seeders-container');
+
+                if (!pendingTree || !pendingContainer) {
+                    return;
+                }
+
+                const routes = getRouteUrls();
+                const segments = (seeder.display_class_name || seeder.class_name || '').split('\\').filter(Boolean);
+                const folderSegments = segments.slice(0, -1);
+                const depth = folderSegments.length;
+                const targetContainer = folderSegments.length > 0
+                    ? getOrCreatePendingFolder(folderSegments, pendingTree)
+                    : pendingTree;
+
+                const seederNode = createPendingSeederNode(seeder, depth, routes);
+                targetContainer.appendChild(seederNode);
+
+                // Fade in animation
+                window.setTimeout(function () {
+                    seederNode.style.transition = 'opacity 0.3s ease';
+                    seederNode.style.opacity = '1';
+                }, 50);
+
+                updateFolderCounts(seederNode.closest('[data-pending-folder]'), 1);
+
+                const bulkDeleteButton = document.querySelector('[data-bulk-delete-button][data-bulk-scope="pending"]');
+                if (bulkDeleteButton) {
+                    bulkDeleteButton.disabled = false;
+                    bulkDeleteButton.classList.remove('hidden');
+                }
+
+                const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                if (executeAllButton) {
+                    executeAllButton.disabled = false;
+                }
+
+                // Update bulk button states
+                updateAllBulkButtonStates();
+            };
+
+            const removePendingSeederNode = function (seederElement, callback) {
+                if (!seederElement) {
+                    return;
+                }
+
+                const parentFolder = seederElement.closest('[data-pending-folder]');
+
+                fadeOutAndRemove(seederElement, function () {
+                    updateFolderCounts(parentFolder, -1);
+                    pruneEmptyPendingFolders(parentFolder);
+                    checkPendingListEmpty();
+                    updateAllBulkButtonStates();
+
+                    if (callback) {
+                        callback();
+                    }
+                });
+            };
+
+            const checkPendingListEmpty = function () {
+                const pendingContainer = document.getElementById('pending-seeders-container');
+                const hasPendingSeeders = pendingContainer && pendingContainer.querySelector('[data-pending-seeder]');
+                const bulkDeleteButton = document.querySelector('[data-bulk-delete-button][data-bulk-scope="pending"]');
+
+                if (bulkDeleteButton) {
+                    bulkDeleteButton.disabled = !hasPendingSeeders;
+                    bulkDeleteButton.classList.toggle('hidden', !hasPendingSeeders);
+                }
+
+                const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                if (executeAllButton) {
+                    executeAllButton.disabled = !hasPendingSeeders;
+                }
+
+                if (!hasPendingSeeders && pendingContainer) {
+                    pendingContainer.innerHTML = '<p class="text-sm text-gray-500">Усі сидери вже виконані.</p>';
+                }
+            };
+
+            document.addEventListener('submit', function (event) {
+                const form = event.target.closest('form[data-preloader]');
+
+                if (!form) {
+                    return;
+                }
+
+                // Check if this is already confirmed and ready to submit via AJAX
+                if (form.dataset.confirmed === 'true') {
+                    event.preventDefault();
+                    delete form.dataset.confirmed;
+                    handleAjaxFormSubmit(form);
+                    return;
+                }
+
+                const confirmMessage = form.dataset.confirm;
+
+                if (confirmMessage) {
+                    event.preventDefault();
+
+                    const modalOpened = openConfirmationModal(form, confirmMessage);
+
+                    if (!modalOpened && !window.confirm(confirmMessage)) {
+                        return;
+                    }
+
+                    if (!modalOpened) {
+                        handleAjaxFormSubmit(form);
+                    }
+
+                    return;
+                }
+
+                // No confirmation needed, submit via AJAX directly
+                event.preventDefault();
+                handleAjaxFormSubmit(form);
+            });
+
+            document.addEventListener('click', async function (event) {
+                const button = event.target.closest('[data-copy-feedback]');
+
+                if (!button) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const container = button.closest('[data-feedback-container]');
+                const text = extractFeedbackText(container);
+
+                if (!text) {
+                    updateCopyButtonLabel(button, 'Порожньо');
+
+                    return;
+                }
+
+                try {
+                    await copyTextToClipboard(text);
+                    updateCopyButtonLabel(button, 'Скопійовано');
+                } catch (error) {
+                    updateCopyButtonLabel(button, 'Помилка');
+                }
+            });
+
+            document.querySelectorAll('[data-bulk-delete-button]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const scope = button.dataset.bulkScope || '';
+
+                    prepareBulkConfirmMessage(scope);
+                });
+            });
+
+            document.addEventListener('change', function (event) {
+                const deleteToggle = event.target.closest('[data-delete-with-questions-toggle]');
+
+                if (deleteToggle) {
+                    const className = deleteToggle.dataset.className || '';
+                    const scope = deleteToggle.dataset.bulkScope || '';
+                    const checked = deleteToggle.checked;
+
+                    syncDeleteWithQuestionsInputs(className, checked);
+
+                    if (checked) {
+                        const relatedCheckbox = findBulkCheckboxForClass(scope, className);
+
+                        if (relatedCheckbox && !relatedCheckbox.checked) {
+                            relatedCheckbox.checked = true;
+                            updateBulkButtonState(scope);
+                        }
+                    } else {
+                        updateBulkButtonState(scope);
+                    }
+
+                    return;
+                }
+
+                const checkbox = event.target.closest('[data-bulk-delete-checkbox]');
+
+                if (!checkbox) {
+                    return;
+                }
+
+                const scope = checkbox.dataset.bulkScope || '';
+
+                if (!checkbox.checked) {
+                    const className = checkbox.value || '';
+                    const toggles = document.querySelectorAll('[data-delete-with-questions-toggle][data-class-name="' + className + '"]');
+
+                    toggles.forEach(function (toggle) {
+                        if (toggle.checked) {
+                            toggle.checked = false;
+                        }
+                    });
+
+                    syncDeleteWithQuestionsInputs(className, false);
+                }
+
+                updateBulkButtonState(scope);
+            });
+
+            document.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
+                syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
+            });
+
+            const showFeedback = function (message, type = 'success') {
+                if (!feedback) {
+                    return;
+                }
+
+                feedback.innerHTML = buildFeedbackMarkup(message, type);
+                feedback.classList.remove('hidden');
+                feedback.classList.remove(...successClasses, ...warningClasses, ...errorClasses);
+
+                const classes = type === 'error'
+                    ? errorClasses
+                    : (type === 'warning' ? warningClasses : successClasses);
+                classes.forEach(function (className) {
+                    feedback.classList.add(className);
+                });
+
+                window.clearTimeout(feedbackTimeout);
+                feedbackTimeout = window.setTimeout(function () {
+                    feedback.classList.add('hidden');
+                }, 8000);
+            };
+
+            const updateToggleLabels = function (button, expanded) {
+                const collapsedLabel = button.querySelector('[data-toggle-label-collapsed]');
+                const expandedLabel = button.querySelector('[data-toggle-label-expanded]');
+
+                if (collapsedLabel) {
+                    collapsedLabel.classList.toggle('hidden', expanded);
+                }
+
+                if (expandedLabel) {
+                    expandedLabel.classList.toggle('hidden', !expanded);
+                }
+            };
+
+            const handlePendingActionsToggle = function (button) {
+                const targetId = button.dataset.target || button.getAttribute('aria-controls');
+
+                if (!targetId) {
+                    return;
+                }
+
+                const actionsContainer = document.getElementById(targetId);
+
+                if (!actionsContainer) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-pending-actions-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    actionsContainer.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                actionsContainer.classList.remove('hidden');
+            };
+
+            const handleLocalizationsToggle = function (button) {
+                const targetId = button.dataset.target || button.getAttribute('aria-controls');
+
+                if (!targetId) {
+                    return;
+                }
+
+                const panel = document.getElementById(targetId);
+
+                if (!panel) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-localizations-toggle-icon]');
+
+                button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                updateToggleLabels(button, !isExpanded);
+                panel.classList.toggle('hidden', isExpanded);
+
+                if (icon) {
+                    icon.classList.toggle('rotate-90', !isExpanded);
+                }
+            };
+
+            const decrementNumericContent = function (elements) {
+                elements.forEach(function (element) {
+                    const current = parseInt(element.textContent.trim(), 10);
+
+                    if (Number.isNaN(current)) {
+                        return;
+                    }
+
+                    const nextValue = Math.max(0, current - 1);
+                    element.textContent = nextValue;
+                });
+            };
+
+            const hasPositiveCount = function (elements) {
+                return Array.from(elements).some(function (element) {
+                    const value = parseInt(element.textContent.trim(), 10);
+
+                    return Number.isFinite(value) && value > 0;
+                });
+            };
+
+            const cleanupEmptyGroups = function (seedRunId, categoryKey, sourceKey) {
+                const sourceWrappers = document.querySelectorAll('[data-source-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"][data-source-key="' + sourceKey + '"]');
+                sourceWrappers.forEach(function (wrapper) {
+                    const questionList = wrapper.querySelector('[data-source-questions]');
+
+                    if (!questionList || questionList.querySelector('[data-question-container]')) {
+                        return;
+                    }
+
+                    wrapper.remove();
+                });
+
+                const categoryWrappers = document.querySelectorAll('[data-category-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"]');
+                categoryWrappers.forEach(function (wrapper) {
+                    if (wrapper.querySelector('[data-question-container]')) {
+                        return;
+                    }
+
+                    if (wrapper.querySelector('[data-source-wrapper]')) {
+                        return;
+                    }
+
+                    wrapper.remove();
+                });
+
+                const seederContent = document.querySelector('[data-seeder-content][data-seed-run-id="' + seedRunId + '"]');
+                const seederQuestions = seederContent
+                    ? seederContent.querySelector('[data-seeder-questions-container][data-seed-run-id="' + seedRunId + '"]')
+                    : null;
+                const seederSection = document.querySelector('[data-seeder-section][data-seed-run-id="' + seedRunId + '"]');
+                const toggleButton = document.querySelector('[data-seeder-toggle][data-seed-run-id="' + seedRunId + '"]');
+                const noQuestionsMessage = document.querySelector('[data-no-questions-message][data-seed-run-id="' + seedRunId + '"]');
+                const seederCounts = document.querySelectorAll('[data-seed-run-question-count][data-seed-run-id="' + seedRunId + '"]');
+                const remainingQuestions = hasPositiveCount(seederCounts);
+
+                if (!remainingQuestions) {
+                    if (seederContent) {
+                        if (seederQuestions) {
+                            seederQuestions.innerHTML = '';
+                        } else {
+                            seederContent.innerHTML = '';
+                        }
+
+                        seederContent.classList.remove('hidden');
+                    }
+
+                    if (seederSection) {
+                        seederSection.classList.remove('hidden');
+                    }
+
+                    if (toggleButton) {
+                        toggleButton.dataset.loaded = 'false';
+                        toggleButton.classList.add('hidden');
+                        toggleButton.setAttribute('aria-expanded', 'false');
+                        updateToggleLabels(toggleButton, false);
+
+                        const icon = toggleButton.querySelector('[data-seeder-toggle-icon]');
+
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+                    }
+
+                    if (noQuestionsMessage) {
+                        noQuestionsMessage.classList.remove('hidden');
+                    }
+                }
+            };
+
+            const handleFolderToggle = async function (button) {
+                const folderNode = button.closest('[data-folder-node]');
+
+                if (!folderNode) {
+                    return;
+                }
+
+                const children = folderNode.querySelector('[data-folder-children]');
+                const contentTarget = children
+                    ? children.querySelector('[data-folder-children-content]') || children
+                    : null;
+
+                if (!children || !contentTarget) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-folder-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+
+                    if (icon) {
+                        icon.classList.add('-rotate-90');
+                    }
+
+                    children.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+
+                if (icon) {
+                    icon.classList.remove('-rotate-90');
+                }
+
+                children.classList.remove('hidden');
+
+                const loaded = await loadFolderChildrenContent(folderNode, { showLoading: true });
+
+                if (loaded) {
+                    applyExecutedSeederSearch();
+                }
+            };
+
+            const handlePendingFolderToggle = function (button) {
+                const folderNode = button.closest('[data-pending-folder]');
+
+                if (!folderNode) {
+                    return;
+                }
+
+                const children = folderNode.querySelector('[data-pending-folder-children]');
+
+                if (!children) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-pending-folder-icon]');
+
+                button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                children.classList.toggle('hidden', isExpanded);
+
+                if (icon) {
+                    icon.classList.toggle('-rotate-90', isExpanded);
+                }
+            };
+
+            const handleSeederToggle = async function (button) {
+                const seedRunId = button.dataset.seedRunId;
+                const seederNode = button.closest('[data-seeder-node]');
+
+                if (!seedRunId || !seederNode) {
+                    return;
+                }
+
+                const content = seederNode.querySelector('[data-seeder-content][data-seed-run-id="' + seedRunId + '"]');
+                const questionsContainer = content
+                    ? content.querySelector('[data-seeder-questions-container][data-seed-run-id="' + seedRunId + '"]')
+                    : null;
+                const target = questionsContainer || content;
+
+                if (!target) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-seeder-toggle-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    content.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                content.classList.remove('hidden');
+
+                if (button.dataset.loaded === 'true') {
+                    return;
+                }
+
+                const url = button.dataset.loadUrl;
+
+                if (!url) {
+                    return;
+                }
+
+                button.dataset.loaded = 'loading';
+                target.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити питання.';
+                        throw new Error(message);
+                    }
+
+                    target.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    button.dataset.loaded = 'true';
+
+                    if (!target.innerHTML.trim()) {
+                        target.innerHTML = '<p class="text-xs text-gray-500">Питання для цього сидера не знайдені.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити питання.';
+
+                    target.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            const handleSourceToggle = async function (button) {
+                const seedRunId = button.dataset.seedRunId;
+                const categoryKey = button.dataset.categoryKey;
+                const sourceKey = button.dataset.sourceKey;
+                const sourceWrapper = button.closest('[data-source-wrapper]');
+
+                if (!seedRunId || !categoryKey || !sourceKey || !sourceWrapper) {
+                    return;
+                }
+
+                const questionsContainer = sourceWrapper.querySelector('[data-source-questions][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"][data-source-key="' + sourceKey + '"]');
+
+                if (!questionsContainer) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-source-toggle-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    questionsContainer.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                questionsContainer.classList.remove('hidden');
+
+                if (button.dataset.loaded === 'true') {
+                    return;
+                }
+
+                const url = button.dataset.loadUrl;
+
+                if (!url) {
+                    return;
+                }
+
+                button.dataset.loaded = 'loading';
+                questionsContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити питання.';
+                        throw new Error(message);
+                    }
+
+                    questionsContainer.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    button.dataset.loaded = 'true';
+
+                    if (!questionsContainer.innerHTML.trim()) {
+                        questionsContainer.innerHTML = '<p class="text-xs text-gray-500">Питань не знайдено.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити питання.';
+
+                    questionsContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            const handleQuestionToggle = async function (button) {
+                const container = button.closest('[data-question-container]');
+
+                if (!container) {
+                    return;
+                }
+
+                const detailsContainer = container.querySelector('[data-question-details]');
+
+                if (!detailsContainer) {
+                    return;
+                }
+
+                const answersContainer = detailsContainer.querySelector('[data-question-answers]');
+                const tagsContainer = detailsContainer.querySelector('[data-question-tags]');
+
+                if (!answersContainer) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-question-toggle-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    detailsContainer.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                detailsContainer.classList.remove('hidden');
+
+                if (button.dataset.loaded === 'true') {
+                    if (tagsContainer && tagsContainer.dataset.loaded !== 'true' && tagsContainer.dataset.loaded !== 'loading') {
+                        loadQuestionTags(tagsContainer);
+                    }
+
+                    return;
+                }
+
+                const url = button.dataset.loadUrl;
+
+                if (!url) {
+                    answersContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження не вказане.</p>';
+                    button.dataset.loaded = 'error';
+
+                    return;
+                }
+
+                button.dataset.loaded = 'loading';
+                answersContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити варіанти.';
+                        throw new Error(message);
+                    }
+
+                    answersContainer.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    button.dataset.loaded = 'true';
+
+                    if (!answersContainer.innerHTML.trim()) {
+                        answersContainer.innerHTML = '<p class="text-xs text-gray-500">Варіанти відповіді не знайдені.</p>';
+                    }
+
+                    if (tagsContainer && tagsContainer.dataset.loaded !== 'true' && tagsContainer.dataset.loaded !== 'loading') {
+                        loadQuestionTags(tagsContainer);
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити варіанти.';
+
+                    answersContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            const loadQuestionTags = async function (tagsContainer) {
+                if (!tagsContainer) {
+                    return;
+                }
+
+                const url = tagsContainer.dataset.loadUrl;
+
+                if (!url) {
+                    tagsContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження тегів не вказане.</p>';
+                    tagsContainer.dataset.loaded = 'error';
+
+                    return;
+                }
+
+                tagsContainer.dataset.loaded = 'loading';
+                tagsContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити теги.';
+                        throw new Error(message);
+                    }
+
+                    tagsContainer.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    tagsContainer.dataset.loaded = 'true';
+
+                    if (!tagsContainer.innerHTML.trim()) {
+                        tagsContainer.innerHTML = '<p class="text-xs text-gray-500">Теги не знайдені.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити теги.';
+
+                    tagsContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    tagsContainer.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            document.addEventListener('click', function (event) {
+                const pendingActionsButton = event.target.closest('[data-pending-actions-toggle]');
+
+                if (pendingActionsButton) {
+                    event.preventDefault();
+                    handlePendingActionsToggle(pendingActionsButton);
+
+                    return;
+                }
+
+                const localizationsButton = event.target.closest('[data-localizations-toggle]');
+
+                if (localizationsButton) {
+                    event.preventDefault();
+                    handleLocalizationsToggle(localizationsButton);
+
+                    return;
+                }
+
+                const pendingFolderButton = event.target.closest('[data-pending-folder-toggle]');
+
+                if (pendingFolderButton) {
+                    event.preventDefault();
+                    handlePendingFolderToggle(pendingFolderButton);
+
+                    return;
+                }
+
+                const fileButton = event.target.closest('[data-seeder-file-open]');
+
+                if (fileButton) {
+                    event.preventDefault();
+
+                    const className = fileButton.dataset.className || '';
+                    const displayName = fileButton.dataset.displayName || '';
+
+                    loadSeederFile(className, displayName);
+
+                    return;
+                }
+
+                const folderButton = event.target.closest('[data-folder-toggle]');
+
+                if (folderButton) {
+                    event.preventDefault();
+                    handleFolderToggle(folderButton);
+
+                    return;
+                }
+
+                const seederButton = event.target.closest('[data-seeder-toggle]');
+
+                if (seederButton) {
+                    event.preventDefault();
+                    handleSeederToggle(seederButton);
+
+                    return;
+                }
+
+                const questionButton = event.target.closest('[data-question-toggle]');
+
+                if (questionButton) {
+                    event.preventDefault();
+                    handleQuestionToggle(questionButton);
+
+                    return;
+                }
+
+                const sourceButton = event.target.closest('[data-source-toggle]');
+
+                if (sourceButton) {
+                    event.preventDefault();
+                    handleSourceToggle(sourceButton);
+                }
+            });
+
+            document.addEventListener('submit', async function (event) {
+                const form = event.target.closest('form[data-question-delete-form]');
+
+                if (!form) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const confirmMessage = form.dataset.confirm;
+
+                if (confirmMessage && !window.confirm(confirmMessage)) {
+                    return;
+                }
+
+                const questionId = form.dataset.questionId;
+                const seedRunId = form.dataset.seedRunId;
+                const categoryKey = form.dataset.categoryKey;
+                const sourceKey = form.dataset.sourceKey;
+                const submitButton = form.querySelector('button[type="submit"]');
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+                }
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const errorMessage = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося видалити питання.';
+                        throw new Error(errorMessage);
+                    }
+
+                    const questionContainer = document.querySelector('[data-question-container][data-question-id="' + questionId + '"]');
+
+                    if (questionContainer) {
+                        questionContainer.remove();
+                    }
+
+                    decrementNumericContent(document.querySelectorAll('[data-seed-run-question-count][data-seed-run-id="' + seedRunId + '"]'));
+                    decrementNumericContent(document.querySelectorAll('[data-category-question-count][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"]'));
+                    decrementNumericContent(document.querySelectorAll('[data-source-question-count][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"][data-source-key="' + sourceKey + '"]'));
+
+                    cleanupEmptyGroups(seedRunId, categoryKey, sourceKey);
+
+                    const successMessage = payload && typeof payload.message === 'string'
+                        ? payload.message
+                        : 'Питання успішно видалено.';
+
+                    showFeedback(successMessage);
+                } catch (error) {
+                    const fallbackErrorMessage = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося видалити питання.';
+
+                    showFeedback(fallbackErrorMessage, 'error');
+
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
+                    }
+                }
+            });
+
+            if (executedSearchInput) {
+                executedSearchInput.addEventListener('input', function () {
+                    applyExecutedSeederSearch();
+                });
+
+                executedSearchInput.addEventListener('search', function () {
+                    applyExecutedSeederSearch();
+                });
+            }
+
+            applyExecutedSeederSearch();
+        });
+    </script>
+@endsection

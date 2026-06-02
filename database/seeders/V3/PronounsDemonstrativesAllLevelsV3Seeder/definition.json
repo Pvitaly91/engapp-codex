@@ -1,0 +1,1035 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstrativesAllLevelsV3Seeder",
+        "uuid_namespace": "PronounsDemonstrativesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns and Demonstratives"
+    },
+    "sources": {
+        "pronouns_overview_page": {
+            "name": "Pronouns - Overview"
+        }
+    },
+    "tags": {
+        "pronouns_demonstratives_theme": {
+            "name": "Pronouns and demonstratives",
+            "category": "topic"
+        },
+        "pronoun_reference": {
+            "name": "Pronoun reference and substitution",
+            "category": "topic"
+        },
+        "personal_pronouns": {
+            "name": "Personal pronouns",
+            "category": "pattern"
+        },
+        "object_pronouns": {
+            "name": "Object pronouns",
+            "category": "pattern"
+        },
+        "possessive_forms": {
+            "name": "Possessive forms",
+            "category": "pattern"
+        },
+        "reflexive_pronouns": {
+            "name": "Reflexive pronouns",
+            "category": "pattern"
+        },
+        "reciprocal_pronouns": {
+            "name": "Reciprocal pronouns",
+            "category": "pattern"
+        },
+        "relative_pronouns": {
+            "name": "Relative pronouns",
+            "category": "pattern"
+        },
+        "demonstratives": {
+            "name": "Demonstratives",
+            "category": "pattern"
+        },
+        "one_ones": {
+            "name": "One / Ones",
+            "category": "pattern"
+        },
+        "distributive_pronouns": {
+            "name": "Each / Every / All",
+            "category": "pattern"
+        },
+        "pronoun_agreement": {
+            "name": "Pronoun agreement",
+            "category": "usage"
+        }
+    },
+    "default_tag_keys": [
+        "pronouns_demonstratives_theme",
+        "pronoun_reference"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "{a1} are waiting outside the classroom.",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "options": [
+                        "They",
+                        "Them",
+                        "Their"
+                    ],
+                    "verb_hint": "subject pronoun"
+                }
+            },
+            "tag_keys": [
+                "personal_pronouns"
+            ],
+            "variants": [
+                "{a1} are waiting outside the classroom."
+            ]
+        },
+        {
+            "id": 2,
+            "question": "Can you help {a1} with this form?",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "I",
+                        "my"
+                    ],
+                    "verb_hint": "object pronoun"
+                }
+            },
+            "tag_keys": [
+                "object_pronouns"
+            ],
+            "variants": [
+                "Can you help {a1} with this form?"
+            ]
+        },
+        {
+            "id": 3,
+            "question": "This is {a1} notebook, not yours.",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "mine",
+                        "me"
+                    ],
+                    "verb_hint": "possessive adjective"
+                }
+            },
+            "tag_keys": [
+                "possessive_forms"
+            ],
+            "variants": [
+                "This is {a1} notebook, not yours."
+            ]
+        },
+        {
+            "id": 4,
+            "question": "The red umbrella is {a1}.",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "me"
+                    ],
+                    "verb_hint": "possessive pronoun"
+                }
+            },
+            "tag_keys": [
+                "possessive_forms"
+            ],
+            "variants": [
+                "The red umbrella is {a1}."
+            ]
+        },
+        {
+            "id": 5,
+            "question": "{a1} bag here is heavier than that one.",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "These",
+                        "Those"
+                    ],
+                    "verb_hint": "near demonstrative"
+                }
+            },
+            "tag_keys": [
+                "demonstratives"
+            ],
+            "variants": [
+                "{a1} bag here is heavier than that one."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "I don't want the white trainers; I want the black {a1}.",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "them"
+                    ],
+                    "verb_hint": "plural substitute"
+                }
+            },
+            "tag_keys": [
+                "one_ones"
+            ],
+            "variants": [
+                "I don't want the white trainers; I want the black {a1}."
+            ]
+        },
+        {
+            "id": 7,
+            "question": "The teacher asked {a1} to open the window.",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "we",
+                        "our"
+                    ],
+                    "verb_hint": "object pronoun"
+                }
+            },
+            "tag_keys": [
+                "object_pronouns"
+            ],
+            "variants": [
+                "The teacher asked {a1} to open the window."
+            ]
+        },
+        {
+            "id": 8,
+            "question": "Look at {a1} stars over there.",
+            "source": "pronouns_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "this",
+                        "that"
+                    ],
+                    "verb_hint": "far demonstrative"
+                }
+            },
+            "tag_keys": [
+                "demonstratives"
+            ],
+            "variants": [
+                "Look at {a1} stars over there."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "He taught {a1} to cook before he moved out.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "himself",
+                    "options": [
+                        "himself",
+                        "him",
+                        "his"
+                    ],
+                    "verb_hint": "reflexive pronoun"
+                }
+            },
+            "tag_keys": [
+                "reflexive_pronouns"
+            ],
+            "variants": [
+                "He taught {a1} to cook before he moved out."
+            ]
+        },
+        {
+            "id": 10,
+            "question": "The two sisters call {a1} every evening.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "each other",
+                    "options": [
+                        "each other",
+                        "themselves",
+                        "herself"
+                    ],
+                    "verb_hint": "reciprocal pronoun"
+                }
+            },
+            "tag_keys": [
+                "reciprocal_pronouns"
+            ],
+            "variants": [
+                "The two sisters call {a1} every evening."
+            ]
+        },
+        {
+            "id": 11,
+            "question": "The woman {a1} lives next door is a pilot.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "relative pronoun for people"
+                }
+            },
+            "tag_keys": [
+                "relative_pronouns"
+            ],
+            "variants": [
+                "The woman {a1} lives next door is a pilot."
+            ]
+        },
+        {
+            "id": 12,
+            "question": "The report {a1} I sent yesterday needs one more chart.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "relative pronoun for things"
+                }
+            },
+            "tag_keys": [
+                "relative_pronouns"
+            ],
+            "variants": [
+                "The report {a1} I sent yesterday needs one more chart."
+            ]
+        },
+        {
+            "id": 13,
+            "question": "These gloves are too small. I need larger {a1}.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "them"
+                    ],
+                    "verb_hint": "plural substitute"
+                }
+            },
+            "tag_keys": [
+                "one_ones"
+            ],
+            "variants": [
+                "These gloves are too small. I need larger {a1}."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "{a1} student has to upload the homework before midnight.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Each",
+                    "options": [
+                        "Each",
+                        "Any",
+                        "None"
+                    ],
+                    "verb_hint": "distributive pronoun"
+                }
+            },
+            "tag_keys": [
+                "distributive_pronouns"
+            ],
+            "variants": [
+                "{a1} student has to upload the homework before midnight."
+            ]
+        },
+        {
+            "id": 15,
+            "question": "We need a clearer example. {a1} one is too vague.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "These",
+                        "Those"
+                    ],
+                    "verb_hint": "demonstrative pronoun"
+                }
+            },
+            "tag_keys": [
+                "demonstratives"
+            ],
+            "variants": [
+                "We need a clearer example. {a1} one is too vague."
+            ]
+        },
+        {
+            "id": 16,
+            "question": "The manager thanked {a1} for staying late.",
+            "source": "pronouns_overview_page",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "their"
+                    ],
+                    "verb_hint": "object pronoun"
+                }
+            },
+            "tag_keys": [
+                "object_pronouns"
+            ],
+            "variants": [
+                "The manager thanked {a1} for staying late."
+            ]
+        },
+        {
+            "id": 17,
+            "question": "Laura blamed {a1} for the mistake, but the rest of the team disagreed.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "herself",
+                    "options": [
+                        "herself",
+                        "her",
+                        "hers"
+                    ],
+                    "verb_hint": "reflexive pronoun"
+                }
+            },
+            "tag_keys": [
+                "reflexive_pronouns"
+            ],
+            "variants": [
+                "Laura blamed {a1} for the mistake, but the rest of the team disagreed."
+            ]
+        },
+        {
+            "id": 18,
+            "question": "The negotiators listened to {a1} before signing the final draft.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "one another",
+                    "options": [
+                        "one another",
+                        "themselves",
+                        "himself"
+                    ],
+                    "verb_hint": "reciprocal pronoun"
+                }
+            },
+            "tag_keys": [
+                "reciprocal_pronouns"
+            ],
+            "variants": [
+                "The negotiators listened to {a1} before signing the final draft."
+            ]
+        },
+        {
+            "id": 19,
+            "question": "The candidate {a1} portfolio won the award works in Berlin.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "who"
+                    ],
+                    "verb_hint": "relative pronoun showing possession"
+                }
+            },
+            "tag_keys": [
+                "relative_pronouns"
+            ],
+            "variants": [
+                "The candidate {a1} portfolio won the award works in Berlin."
+            ]
+        },
+        {
+            "id": 20,
+            "question": "Those aren't the samples we tested yesterday; the new {a1} are on the lower shelf.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "them"
+                    ],
+                    "verb_hint": "plural substitute"
+                }
+            },
+            "tag_keys": [
+                "one_ones"
+            ],
+            "variants": [
+                "Those aren't the samples we tested yesterday; the new {a1} are on the lower shelf."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "All of the interns submitted their forms, but only two of {a1} attached the reference letters.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "their"
+                    ],
+                    "verb_hint": "object form after of"
+                }
+            },
+            "tag_keys": [
+                "pronoun_agreement"
+            ],
+            "variants": [
+                "All of the interns submitted their forms, but only two of {a1} attached the reference letters."
+            ]
+        },
+        {
+            "id": 22,
+            "question": "I prefer that solution to {a1} we discussed last week.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "the one",
+                    "options": [
+                        "the one",
+                        "it",
+                        "them"
+                    ],
+                    "verb_hint": "singular substitute"
+                }
+            },
+            "tag_keys": [
+                "one_ones"
+            ],
+            "variants": [
+                "I prefer that solution to {a1} we discussed last week."
+            ]
+        },
+        {
+            "id": 23,
+            "question": "The analyst said {a1} figures were provisional, not final.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "these",
+                        "this"
+                    ],
+                    "verb_hint": "demonstrative pronoun"
+                }
+            },
+            "tag_keys": [
+                "demonstratives"
+            ],
+            "variants": [
+                "The analyst said {a1} figures were provisional, not final."
+            ]
+        },
+        {
+            "id": 24,
+            "question": "Both speakers defended {a1} calmly during the debate.",
+            "source": "pronouns_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "themselves",
+                    "options": [
+                        "themselves",
+                        "each other",
+                        "theirs"
+                    ],
+                    "verb_hint": "reflexive pronoun"
+                }
+            },
+            "tag_keys": [
+                "reflexive_pronouns"
+            ],
+            "variants": [
+                "Both speakers defended {a1} calmly during the debate."
+            ]
+        },
+        {
+            "id": 25,
+            "question": "The consultant to {a1} I spoke recommended a phased rollout.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "formal relative pronoun"
+                }
+            },
+            "tag_keys": [
+                "relative_pronouns"
+            ],
+            "variants": [
+                "The consultant to {a1} I spoke recommended a phased rollout."
+            ]
+        },
+        {
+            "id": 26,
+            "question": "Only a few applicants arrived early, but not all of {a1} stayed for the second interview.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "their"
+                    ],
+                    "verb_hint": "object form after of"
+                }
+            },
+            "tag_keys": [
+                "pronoun_agreement"
+            ],
+            "variants": [
+                "Only a few applicants arrived early, but not all of {a1} stayed for the second interview."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "The board rejected the original plan. {a1} forced us to design a leaner version.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "Those",
+                        "These"
+                    ],
+                    "verb_hint": "discourse reference"
+                }
+            },
+            "tag_keys": [
+                "demonstratives"
+            ],
+            "variants": [
+                "The board rejected the original plan. {a1} forced us to design a leaner version."
+            ]
+        },
+        {
+            "id": 28,
+            "question": "The red cables are damaged. Replace them with the insulated {a1} in the top drawer.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "them"
+                    ],
+                    "verb_hint": "plural substitute"
+                }
+            },
+            "tag_keys": [
+                "one_ones"
+            ],
+            "variants": [
+                "The red cables are damaged. Replace them with the insulated {a1} in the top drawer."
+            ]
+        },
+        {
+            "id": 29,
+            "question": "The witnesses prepared {a1} for cross-examination by reviewing the timeline again.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "themselves",
+                    "options": [
+                        "themselves",
+                        "them",
+                        "each other"
+                    ],
+                    "verb_hint": "reflexive pronoun"
+                }
+            },
+            "tag_keys": [
+                "reflexive_pronouns"
+            ],
+            "variants": [
+                "The witnesses prepared {a1} for cross-examination by reviewing the timeline again."
+            ]
+        },
+        {
+            "id": 30,
+            "question": "The clauses {a1} appear in brackets are optional.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "relative pronoun for things"
+                }
+            },
+            "tag_keys": [
+                "relative_pronouns"
+            ],
+            "variants": [
+                "The clauses {a1} appear in brackets are optional."
+            ]
+        },
+        {
+            "id": 31,
+            "question": "The teams congratulated {a1} after the joint launch succeeded.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "each other",
+                    "options": [
+                        "each other",
+                        "themselves",
+                        "himself"
+                    ],
+                    "verb_hint": "reciprocal pronoun"
+                }
+            },
+            "tag_keys": [
+                "reciprocal_pronouns"
+            ],
+            "variants": [
+                "The teams congratulated {a1} after the joint launch succeeded."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "Not every recommendation was adopted, but all of {a1} were discussed in full.",
+            "source": "pronouns_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "it"
+                    ],
+                    "verb_hint": "object form after of"
+                }
+            },
+            "tag_keys": [
+                "pronoun_agreement"
+            ],
+            "variants": [
+                "Not every recommendation was adopted, but all of {a1} were discussed in full."
+            ]
+        },
+        {
+            "id": 33,
+            "question": "The scholar with {a1} the committee corresponded later withdrew the article.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "formal relative pronoun"
+                }
+            },
+            "tag_keys": [
+                "relative_pronouns"
+            ],
+            "variants": [
+                "The scholar with {a1} the committee corresponded later withdrew the article."
+            ]
+        },
+        {
+            "id": 34,
+            "question": "These are workable assumptions; {a1}, however, are too speculative for the final model.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "this",
+                        "it"
+                    ],
+                    "verb_hint": "contrastive demonstrative"
+                }
+            },
+            "tag_keys": [
+                "demonstratives"
+            ],
+            "variants": [
+                "These are workable assumptions; {a1}, however, are too speculative for the final model."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "The junior solicitors supported {a1} through the appeal and shared the credit afterwards.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "one another",
+                    "options": [
+                        "one another",
+                        "themselves",
+                        "ourselves"
+                    ],
+                    "verb_hint": "reciprocal pronoun"
+                }
+            },
+            "tag_keys": [
+                "reciprocal_pronouns"
+            ],
+            "variants": [
+                "The junior solicitors supported {a1} through the appeal and shared the credit afterwards."
+            ]
+        },
+        {
+            "id": 36,
+            "question": "Where one option is ambiguous, choose the clearer {a1} and justify the choice explicitly.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "ones",
+                        "it"
+                    ],
+                    "verb_hint": "singular substitute"
+                }
+            },
+            "tag_keys": [
+                "one_ones"
+            ],
+            "variants": [
+                "Where one option is ambiguous, choose the clearer {a1} and justify the choice explicitly."
+            ]
+        },
+        {
+            "id": 37,
+            "question": "Each of the witnesses insisted the final statement had been written by {a1}.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "themselves",
+                    "options": [
+                        "themselves",
+                        "them",
+                        "each other"
+                    ],
+                    "verb_hint": "reflexive pronoun"
+                }
+            },
+            "tag_keys": [
+                "reflexive_pronouns"
+            ],
+            "variants": [
+                "Each of the witnesses insisted the final statement had been written by {a1}."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "The policy, {a1} wording remained intentionally broad, allowed local variation.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "that"
+                    ],
+                    "verb_hint": "relative pronoun showing possession"
+                }
+            },
+            "tag_keys": [
+                "relative_pronouns"
+            ],
+            "variants": [
+                "The policy, {a1} wording remained intentionally broad, allowed local variation."
+            ]
+        },
+        {
+            "id": 39,
+            "question": "All of the evidence was reviewed, but none of {a1} was released publicly.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "them",
+                        "that"
+                    ],
+                    "verb_hint": "pronoun agreement with uncountable noun"
+                }
+            },
+            "tag_keys": [
+                "pronoun_agreement"
+            ],
+            "variants": [
+                "All of the evidence was reviewed, but none of {a1} was released publicly."
+            ]
+        },
+        {
+            "id": 40,
+            "question": "The original forecasts were inconsistent, but the revised {a1} aligned with the baseline model.",
+            "source": "pronouns_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ones",
+                    "options": [
+                        "ones",
+                        "one",
+                        "it"
+                    ],
+                    "verb_hint": "plural substitute"
+                }
+            },
+            "tag_keys": [
+                "one_ones"
+            ],
+            "variants": [
+                "The original forecasts were inconsistent, but the revised {a1} aligned with the baseline model."
+            ]
+        }
+    ],
+    "saved_test": {
+        "uuid": "pronouns-demonstratives-v3-test",
+        "slug": "pronouns-demonstratives-all-levels-v3",
+        "name": "Pronouns and Demonstratives - All Levels V3",
+        "description": "Mixed all-level practice on pronouns, demonstratives, reference, and substitution for the overview theory page.",
+        "filters": {
+            "num_questions": 70,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PronounsDemonstrativesAllLevelsV3Seeder",
+                "Database\\Seeders\\V3\\V2\\IndefinitePronounsPracticeV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "pronouns-theory",
+                    "title": "Pronouns - Overview",
+                    "category_slug_path": "zaimennyky-ta-vkazivni-slova",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesPronounsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/zaimennyky-ta-vkazivni-slova/pronouns-theory"
+                }
+            }
+        }
+    }
+}

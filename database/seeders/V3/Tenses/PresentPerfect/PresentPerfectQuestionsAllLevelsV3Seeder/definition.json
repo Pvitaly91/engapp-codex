@@ -1,0 +1,2185 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Tenses\\PresentPerfect\\PresentPerfectQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "PresentPerfectQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Tenses / Present Perfect"
+    },
+    "sources": {
+        "theory_page_present_perfect_questions": {
+            "name": "Present Perfect: Questions"
+        }
+    },
+    "tags": {
+        "present_perfect": {
+            "name": "Present Perfect",
+            "category": "tense"
+        },
+        "question_order": {
+            "name": "Question Order",
+            "category": "topic"
+        },
+        "yes_no_questions": {
+            "name": "Yes No Questions",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh Questions",
+            "category": "topic"
+        },
+        "ever_questions": {
+            "name": "Ever Questions",
+            "category": "topic"
+        },
+        "yet_already_questions": {
+            "name": "Yet Already Questions",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "present_perfect"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "present-perfect-q-v3-a1-01",
+            "question": "{a1} my homework yet?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "You have finished",
+                        "Has you finished",
+                        "Did you finished",
+                        "Have finished you"
+                    ],
+                    "verb_hint": "Put Have/Has before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} my homework yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 2,
+            "uuid": "present-perfect-q-v3-a1-02",
+            "question": "{a1} the email?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Has she read",
+                    "options": [
+                        "Has she read",
+                        "Have she read",
+                        "Did she readed",
+                        "She has read",
+                        "Has she reads"
+                    ],
+                    "verb_hint": "Use Has + singular subject + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the email?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 3,
+            "uuid": "present-perfect-q-v3-a1-03",
+            "question": "{a1} today?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "What have you done",
+                    "options": [
+                        "What have you done",
+                        "What did you done",
+                        "What you have done",
+                        "What has you done",
+                        "What have you did"
+                    ],
+                    "verb_hint": "Use question word + have/has + subject + past participle.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} today?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 4,
+            "uuid": "present-perfect-q-v3-a1-04",
+            "question": "{a1} to London?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you ever been",
+                    "options": [
+                        "Have you ever been",
+                        "Did you ever been",
+                        "Have you ever was",
+                        "Has you ever been",
+                        "Have ever you been"
+                    ],
+                    "verb_hint": "Use ever in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} to London?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 5,
+            "uuid": "present-perfect-q-v3-a1-05",
+            "question": "{a1} the email yet?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Has he sent",
+                    "options": [
+                        "Has he sent",
+                        "Have he sent",
+                        "Did he sent",
+                        "Has he send",
+                        "He has sent"
+                    ],
+                    "verb_hint": "Use Has + subject + participle + yet/already.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the email yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 6,
+            "uuid": "present-perfect-q-v3-a1-06",
+            "question": "Have you seen it? Yes, I {a1}",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "did",
+                        "am"
+                    ],
+                    "verb_hint": "Short answers repeat have or has.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have you seen it? Yes, I {a1}"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 7,
+            "uuid": "present-perfect-q-v3-a1-07",
+            "question": "{a1} this before?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Have they done",
+                    "options": [
+                        "Have they done",
+                        "Did they done",
+                        "They have done",
+                        "Has they done",
+                        "Have they did"
+                    ],
+                    "verb_hint": "Use Have + plural subject + past participle.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 8,
+            "uuid": "present-perfect-q-v3-a1-08",
+            "question": "{a1} the book?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Has Anna bought",
+                    "options": [
+                        "Has Anna bought",
+                        "Have Anna bought",
+                        "Did Anna bought",
+                        "Anna has bought",
+                        "Has Anna buy"
+                    ],
+                    "verb_hint": "Use Has + singular name + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the book?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 9,
+            "uuid": "present-perfect-q-v3-a1-09",
+            "question": "{a1} the note?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Where have you put",
+                    "options": [
+                        "Where have you put",
+                        "Where you have put",
+                        "Where did you putted",
+                        "Where has you put",
+                        "Where have you putted"
+                    ],
+                    "verb_hint": "Keep have/has before the subject in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} the note?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 10,
+            "uuid": "present-perfect-q-v3-a1-10",
+            "question": "{a1} such a result before?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Have we ever seen",
+                    "options": [
+                        "Have we ever seen",
+                        "Did we ever seen",
+                        "Have we ever saw",
+                        "Has we ever seen",
+                        "Have ever we seen"
+                    ],
+                    "verb_hint": "Use ever between the subject and past participle in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} such a result before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 11,
+            "uuid": "present-perfect-q-v3-a1-11",
+            "question": "{a1} the answer already?",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Has she found",
+                    "options": [
+                        "Has she found",
+                        "Have she found",
+                        "Did she found",
+                        "Has she find",
+                        "She has found"
+                    ],
+                    "verb_hint": "Already can appear in Present Perfect questions.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the answer already?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 12,
+            "uuid": "present-perfect-q-v3-a1-12",
+            "question": "{a1} the report? not Did you finished",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "Did you finished",
+                        "Have you finish",
+                        "You have finished",
+                        "Has you finished"
+                    ],
+                    "verb_hint": "Do not use did + past participle for Present Perfect.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the report? not Did you finished"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 13,
+            "uuid": "present-perfect-q-v3-a2-01",
+            "question": "{a1} the exercise yet?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "You have finished",
+                        "Has you finished",
+                        "Did you finished",
+                        "Have finished you"
+                    ],
+                    "verb_hint": "Put Have/Has before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} the exercise yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 14,
+            "uuid": "present-perfect-q-v3-a2-02",
+            "question": "{a1} the message?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Has she read",
+                    "options": [
+                        "Has she read",
+                        "Have she read",
+                        "Did she readed",
+                        "She has read",
+                        "Has she reads"
+                    ],
+                    "verb_hint": "Use Has + singular subject + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the message?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 15,
+            "uuid": "present-perfect-q-v3-a2-03",
+            "question": "{a1} today?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "What have you done",
+                    "options": [
+                        "What have you done",
+                        "What did you done",
+                        "What you have done",
+                        "What has you done",
+                        "What have you did"
+                    ],
+                    "verb_hint": "Use question word + have/has + subject + past participle.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} today?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 16,
+            "uuid": "present-perfect-q-v3-a2-04",
+            "question": "{a1} to Paris?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you ever been",
+                    "options": [
+                        "Have you ever been",
+                        "Did you ever been",
+                        "Have you ever was",
+                        "Has you ever been",
+                        "Have ever you been"
+                    ],
+                    "verb_hint": "Use ever in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} to Paris?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 17,
+            "uuid": "present-perfect-q-v3-a2-05",
+            "question": "{a1} the message yet?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Has he sent",
+                    "options": [
+                        "Has he sent",
+                        "Have he sent",
+                        "Did he sent",
+                        "Has he send",
+                        "He has sent"
+                    ],
+                    "verb_hint": "Use Has + subject + participle + yet/already.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the message yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 18,
+            "uuid": "present-perfect-q-v3-a2-06",
+            "question": "Have you seen it? Yes, I {a1}",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "did",
+                        "am"
+                    ],
+                    "verb_hint": "Short answers repeat have or has.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have you seen it? Yes, I {a1}"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 19,
+            "uuid": "present-perfect-q-v3-a2-07",
+            "question": "{a1} this before?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Have they done",
+                    "options": [
+                        "Have they done",
+                        "Did they done",
+                        "They have done",
+                        "Has they done",
+                        "Have they did"
+                    ],
+                    "verb_hint": "Use Have + plural subject + past participle.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 20,
+            "uuid": "present-perfect-q-v3-a2-08",
+            "question": "{a1} the tickets?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Has Anna bought",
+                    "options": [
+                        "Has Anna bought",
+                        "Have Anna bought",
+                        "Did Anna bought",
+                        "Anna has bought",
+                        "Has Anna buy"
+                    ],
+                    "verb_hint": "Use Has + singular name + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the tickets?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 21,
+            "uuid": "present-perfect-q-v3-a2-09",
+            "question": "{a1} the form?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Where have you put",
+                    "options": [
+                        "Where have you put",
+                        "Where you have put",
+                        "Where did you putted",
+                        "Where has you put",
+                        "Where have you putted"
+                    ],
+                    "verb_hint": "Keep have/has before the subject in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} the form?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 22,
+            "uuid": "present-perfect-q-v3-a2-10",
+            "question": "{a1} such a result before?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Have we ever seen",
+                    "options": [
+                        "Have we ever seen",
+                        "Did we ever seen",
+                        "Have we ever saw",
+                        "Has we ever seen",
+                        "Have ever we seen"
+                    ],
+                    "verb_hint": "Use ever between the subject and past participle in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} such a result before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 23,
+            "uuid": "present-perfect-q-v3-a2-11",
+            "question": "{a1} the answer already?",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Has she found",
+                    "options": [
+                        "Has she found",
+                        "Have she found",
+                        "Did she found",
+                        "Has she find",
+                        "She has found"
+                    ],
+                    "verb_hint": "Already can appear in Present Perfect questions.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the answer already?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 24,
+            "uuid": "present-perfect-q-v3-a2-12",
+            "question": "{a1} the report? not Did you finished",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "Did you finished",
+                        "Have you finish",
+                        "You have finished",
+                        "Has you finished"
+                    ],
+                    "verb_hint": "Do not use did + past participle for Present Perfect.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the report? not Did you finished"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 25,
+            "uuid": "present-perfect-q-v3-b1-01",
+            "question": "{a1} the report yet?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "You have finished",
+                        "Has you finished",
+                        "Did you finished",
+                        "Have finished you"
+                    ],
+                    "verb_hint": "Put Have/Has before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} the report yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 26,
+            "uuid": "present-perfect-q-v3-b1-02",
+            "question": "{a1} the invitation?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Has she read",
+                    "options": [
+                        "Has she read",
+                        "Have she read",
+                        "Did she readed",
+                        "She has read",
+                        "Has she reads"
+                    ],
+                    "verb_hint": "Use Has + singular subject + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the invitation?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 27,
+            "uuid": "present-perfect-q-v3-b1-03",
+            "question": "{a1} today?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "What have you done",
+                    "options": [
+                        "What have you done",
+                        "What did you done",
+                        "What you have done",
+                        "What has you done",
+                        "What have you did"
+                    ],
+                    "verb_hint": "Use question word + have/has + subject + past participle.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} today?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 28,
+            "uuid": "present-perfect-q-v3-b1-04",
+            "question": "{a1} to Berlin?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you ever been",
+                    "options": [
+                        "Have you ever been",
+                        "Did you ever been",
+                        "Have you ever was",
+                        "Has you ever been",
+                        "Have ever you been"
+                    ],
+                    "verb_hint": "Use ever in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} to Berlin?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 29,
+            "uuid": "present-perfect-q-v3-b1-05",
+            "question": "{a1} the invitation yet?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Has he sent",
+                    "options": [
+                        "Has he sent",
+                        "Have he sent",
+                        "Did he sent",
+                        "Has he send",
+                        "He has sent"
+                    ],
+                    "verb_hint": "Use Has + subject + participle + yet/already.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the invitation yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 30,
+            "uuid": "present-perfect-q-v3-b1-06",
+            "question": "Have you seen it? Yes, I {a1}",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "did",
+                        "am"
+                    ],
+                    "verb_hint": "Short answers repeat have or has.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have you seen it? Yes, I {a1}"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 31,
+            "uuid": "present-perfect-q-v3-b1-07",
+            "question": "{a1} this before?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have they done",
+                    "options": [
+                        "Have they done",
+                        "Did they done",
+                        "They have done",
+                        "Has they done",
+                        "Have they did"
+                    ],
+                    "verb_hint": "Use Have + plural subject + past participle.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 32,
+            "uuid": "present-perfect-q-v3-b1-08",
+            "question": "{a1} the files?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Has Anna bought",
+                    "options": [
+                        "Has Anna bought",
+                        "Have Anna bought",
+                        "Did Anna bought",
+                        "Anna has bought",
+                        "Has Anna buy"
+                    ],
+                    "verb_hint": "Use Has + singular name + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the files?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 33,
+            "uuid": "present-perfect-q-v3-b1-09",
+            "question": "{a1} the file?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Where have you put",
+                    "options": [
+                        "Where have you put",
+                        "Where you have put",
+                        "Where did you putted",
+                        "Where has you put",
+                        "Where have you putted"
+                    ],
+                    "verb_hint": "Keep have/has before the subject in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} the file?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 34,
+            "uuid": "present-perfect-q-v3-b1-10",
+            "question": "{a1} such a result before?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have we ever seen",
+                    "options": [
+                        "Have we ever seen",
+                        "Did we ever seen",
+                        "Have we ever saw",
+                        "Has we ever seen",
+                        "Have ever we seen"
+                    ],
+                    "verb_hint": "Use ever between the subject and past participle in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} such a result before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 35,
+            "uuid": "present-perfect-q-v3-b1-11",
+            "question": "{a1} the solution already?",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Has she found",
+                    "options": [
+                        "Has she found",
+                        "Have she found",
+                        "Did she found",
+                        "Has she find",
+                        "She has found"
+                    ],
+                    "verb_hint": "Already can appear in Present Perfect questions.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the solution already?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 36,
+            "uuid": "present-perfect-q-v3-b1-12",
+            "question": "{a1} the report? not Did you finished",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "Did you finished",
+                        "Have you finish",
+                        "You have finished",
+                        "Has you finished"
+                    ],
+                    "verb_hint": "Do not use did + past participle for Present Perfect.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the report? not Did you finished"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 37,
+            "uuid": "present-perfect-q-v3-b2-01",
+            "question": "{a1} the quarterly report yet?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "You have finished",
+                        "Has you finished",
+                        "Did you finished",
+                        "Have finished you"
+                    ],
+                    "verb_hint": "Put Have/Has before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} the quarterly report yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 38,
+            "uuid": "present-perfect-q-v3-b2-02",
+            "question": "{a1} the proposal?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Has she read",
+                    "options": [
+                        "Has she read",
+                        "Have she read",
+                        "Did she readed",
+                        "She has read",
+                        "Has she reads"
+                    ],
+                    "verb_hint": "Use Has + singular subject + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the proposal?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 39,
+            "uuid": "present-perfect-q-v3-b2-03",
+            "question": "{a1} today?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "What have you done",
+                    "options": [
+                        "What have you done",
+                        "What did you done",
+                        "What you have done",
+                        "What has you done",
+                        "What have you did"
+                    ],
+                    "verb_hint": "Use question word + have/has + subject + past participle.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} today?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 40,
+            "uuid": "present-perfect-q-v3-b2-04",
+            "question": "{a1} to New York?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you ever been",
+                    "options": [
+                        "Have you ever been",
+                        "Did you ever been",
+                        "Have you ever was",
+                        "Has you ever been",
+                        "Have ever you been"
+                    ],
+                    "verb_hint": "Use ever in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} to New York?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 41,
+            "uuid": "present-perfect-q-v3-b2-05",
+            "question": "{a1} the proposal yet?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Has he sent",
+                    "options": [
+                        "Has he sent",
+                        "Have he sent",
+                        "Did he sent",
+                        "Has he send",
+                        "He has sent"
+                    ],
+                    "verb_hint": "Use Has + subject + participle + yet/already.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the proposal yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 42,
+            "uuid": "present-perfect-q-v3-b2-06",
+            "question": "Have you seen it? Yes, I {a1}",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "did",
+                        "am"
+                    ],
+                    "verb_hint": "Short answers repeat have or has.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have you seen it? Yes, I {a1}"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 43,
+            "uuid": "present-perfect-q-v3-b2-07",
+            "question": "{a1} this before?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Have they done",
+                    "options": [
+                        "Have they done",
+                        "Did they done",
+                        "They have done",
+                        "Has they done",
+                        "Have they did"
+                    ],
+                    "verb_hint": "Use Have + plural subject + past participle.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 44,
+            "uuid": "present-perfect-q-v3-b2-08",
+            "question": "{a1} the contract?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Has Anna bought",
+                    "options": [
+                        "Has Anna bought",
+                        "Have Anna bought",
+                        "Did Anna bought",
+                        "Anna has bought",
+                        "Has Anna buy"
+                    ],
+                    "verb_hint": "Use Has + singular name + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the contract?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 45,
+            "uuid": "present-perfect-q-v3-b2-09",
+            "question": "{a1} the document?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Where have you put",
+                    "options": [
+                        "Where have you put",
+                        "Where you have put",
+                        "Where did you putted",
+                        "Where has you put",
+                        "Where have you putted"
+                    ],
+                    "verb_hint": "Keep have/has before the subject in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} the document?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 46,
+            "uuid": "present-perfect-q-v3-b2-10",
+            "question": "{a1} such a result before?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Have we ever seen",
+                    "options": [
+                        "Have we ever seen",
+                        "Did we ever seen",
+                        "Have we ever saw",
+                        "Has we ever seen",
+                        "Have ever we seen"
+                    ],
+                    "verb_hint": "Use ever between the subject and past participle in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} such a result before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 47,
+            "uuid": "present-perfect-q-v3-b2-11",
+            "question": "{a1} the explanation already?",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Has she found",
+                    "options": [
+                        "Has she found",
+                        "Have she found",
+                        "Did she found",
+                        "Has she find",
+                        "She has found"
+                    ],
+                    "verb_hint": "Already can appear in Present Perfect questions.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the explanation already?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 48,
+            "uuid": "present-perfect-q-v3-b2-12",
+            "question": "{a1} the report? not Did you finished",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "Did you finished",
+                        "Have you finish",
+                        "You have finished",
+                        "Has you finished"
+                    ],
+                    "verb_hint": "Do not use did + past participle for Present Perfect.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the report? not Did you finished"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 49,
+            "uuid": "present-perfect-q-v3-c1-01",
+            "question": "{a1} the assessment yet?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "You have finished",
+                        "Has you finished",
+                        "Did you finished",
+                        "Have finished you"
+                    ],
+                    "verb_hint": "Put Have/Has before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} the assessment yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 50,
+            "uuid": "present-perfect-q-v3-c1-02",
+            "question": "{a1} the clarification?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Has she read",
+                    "options": [
+                        "Has she read",
+                        "Have she read",
+                        "Did she readed",
+                        "She has read",
+                        "Has she reads"
+                    ],
+                    "verb_hint": "Use Has + singular subject + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the clarification?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 51,
+            "uuid": "present-perfect-q-v3-c1-03",
+            "question": "{a1} today?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "What have you done",
+                    "options": [
+                        "What have you done",
+                        "What did you done",
+                        "What you have done",
+                        "What has you done",
+                        "What have you did"
+                    ],
+                    "verb_hint": "Use question word + have/has + subject + past participle.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} today?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 52,
+            "uuid": "present-perfect-q-v3-c1-04",
+            "question": "{a1} to Singapore?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you ever been",
+                    "options": [
+                        "Have you ever been",
+                        "Did you ever been",
+                        "Have you ever was",
+                        "Has you ever been",
+                        "Have ever you been"
+                    ],
+                    "verb_hint": "Use ever in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} to Singapore?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 53,
+            "uuid": "present-perfect-q-v3-c1-05",
+            "question": "{a1} the clarification yet?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Has he sent",
+                    "options": [
+                        "Has he sent",
+                        "Have he sent",
+                        "Did he sent",
+                        "Has he send",
+                        "He has sent"
+                    ],
+                    "verb_hint": "Use Has + subject + participle + yet/already.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the clarification yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 54,
+            "uuid": "present-perfect-q-v3-c1-06",
+            "question": "Have you seen it? Yes, I {a1}",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "did",
+                        "am"
+                    ],
+                    "verb_hint": "Short answers repeat have or has.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have you seen it? Yes, I {a1}"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 55,
+            "uuid": "present-perfect-q-v3-c1-07",
+            "question": "{a1} this before?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Have they done",
+                    "options": [
+                        "Have they done",
+                        "Did they done",
+                        "They have done",
+                        "Has they done",
+                        "Have they did"
+                    ],
+                    "verb_hint": "Use Have + plural subject + past participle.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 56,
+            "uuid": "present-perfect-q-v3-c1-08",
+            "question": "{a1} the preliminary results?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Has Anna bought",
+                    "options": [
+                        "Has Anna bought",
+                        "Have Anna bought",
+                        "Did Anna bought",
+                        "Anna has bought",
+                        "Has Anna buy"
+                    ],
+                    "verb_hint": "Use Has + singular name + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the preliminary results?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 57,
+            "uuid": "present-perfect-q-v3-c1-09",
+            "question": "{a1} the appendix?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Where have you put",
+                    "options": [
+                        "Where have you put",
+                        "Where you have put",
+                        "Where did you putted",
+                        "Where has you put",
+                        "Where have you putted"
+                    ],
+                    "verb_hint": "Keep have/has before the subject in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} the appendix?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 58,
+            "uuid": "present-perfect-q-v3-c1-10",
+            "question": "{a1} such a result before?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Have we ever seen",
+                    "options": [
+                        "Have we ever seen",
+                        "Did we ever seen",
+                        "Have we ever saw",
+                        "Has we ever seen",
+                        "Have ever we seen"
+                    ],
+                    "verb_hint": "Use ever between the subject and past participle in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} such a result before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 59,
+            "uuid": "present-perfect-q-v3-c1-11",
+            "question": "{a1} the pattern already?",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Has she found",
+                    "options": [
+                        "Has she found",
+                        "Have she found",
+                        "Did she found",
+                        "Has she find",
+                        "She has found"
+                    ],
+                    "verb_hint": "Already can appear in Present Perfect questions.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the pattern already?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 60,
+            "uuid": "present-perfect-q-v3-c1-12",
+            "question": "{a1} the report? not Did you finished",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "Did you finished",
+                        "Have you finish",
+                        "You have finished",
+                        "Has you finished"
+                    ],
+                    "verb_hint": "Do not use did + past participle for Present Perfect.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the report? not Did you finished"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 61,
+            "uuid": "present-perfect-q-v3-c2-01",
+            "question": "{a1} the compliance review yet?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "You have finished",
+                        "Has you finished",
+                        "Did you finished",
+                        "Have finished you"
+                    ],
+                    "verb_hint": "Put Have/Has before the subject.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} the compliance review yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 62,
+            "uuid": "present-perfect-q-v3-c2-02",
+            "question": "{a1} the formal response?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Has she read",
+                    "options": [
+                        "Has she read",
+                        "Have she read",
+                        "Did she readed",
+                        "She has read",
+                        "Has she reads"
+                    ],
+                    "verb_hint": "Use Has + singular subject + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the formal response?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 63,
+            "uuid": "present-perfect-q-v3-c2-03",
+            "question": "{a1} today?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "What have you done",
+                    "options": [
+                        "What have you done",
+                        "What did you done",
+                        "What you have done",
+                        "What has you done",
+                        "What have you did"
+                    ],
+                    "verb_hint": "Use question word + have/has + subject + past participle.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} today?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 64,
+            "uuid": "present-perfect-q-v3-c2-04",
+            "question": "{a1} to Geneva?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you ever been",
+                    "options": [
+                        "Have you ever been",
+                        "Did you ever been",
+                        "Have you ever was",
+                        "Has you ever been",
+                        "Have ever you been"
+                    ],
+                    "verb_hint": "Use ever in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} to Geneva?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 65,
+            "uuid": "present-perfect-q-v3-c2-05",
+            "question": "{a1} the formal response yet?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Has he sent",
+                    "options": [
+                        "Has he sent",
+                        "Have he sent",
+                        "Did he sent",
+                        "Has he send",
+                        "He has sent"
+                    ],
+                    "verb_hint": "Use Has + subject + participle + yet/already.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the formal response yet?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 66,
+            "uuid": "present-perfect-q-v3-c2-06",
+            "question": "Have you seen it? Yes, I {a1}",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "do",
+                        "did",
+                        "am"
+                    ],
+                    "verb_hint": "Short answers repeat have or has.",
+                    "gap_tags": [
+                        "short_answers"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "short_answers"
+            ],
+            "variants": [
+                "Have you seen it? Yes, I {a1}"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 67,
+            "uuid": "present-perfect-q-v3-c2-07",
+            "question": "{a1} this before?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Have they done",
+                    "options": [
+                        "Have they done",
+                        "Did they done",
+                        "They have done",
+                        "Has they done",
+                        "Have they did"
+                    ],
+                    "verb_hint": "Use Have + plural subject + past participle.",
+                    "gap_tags": [
+                        "question_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_order"
+            ],
+            "variants": [
+                "{a1} this before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 68,
+            "uuid": "present-perfect-q-v3-c2-08",
+            "question": "{a1} the revised agreement?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Has Anna bought",
+                    "options": [
+                        "Has Anna bought",
+                        "Have Anna bought",
+                        "Did Anna bought",
+                        "Anna has bought",
+                        "Has Anna buy"
+                    ],
+                    "verb_hint": "Use Has + singular name + past participle.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "{a1} the revised agreement?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 69,
+            "uuid": "present-perfect-q-v3-c2-09",
+            "question": "{a1} the dossier?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Where have you put",
+                    "options": [
+                        "Where have you put",
+                        "Where you have put",
+                        "Where did you putted",
+                        "Where has you put",
+                        "Where have you putted"
+                    ],
+                    "verb_hint": "Keep have/has before the subject in wh-questions.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "{a1} the dossier?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 70,
+            "uuid": "present-perfect-q-v3-c2-10",
+            "question": "{a1} such a result before?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Have we ever seen",
+                    "options": [
+                        "Have we ever seen",
+                        "Did we ever seen",
+                        "Have we ever saw",
+                        "Has we ever seen",
+                        "Have ever we seen"
+                    ],
+                    "verb_hint": "Use ever between the subject and past participle in experience questions.",
+                    "gap_tags": [
+                        "ever_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "ever_questions"
+            ],
+            "variants": [
+                "{a1} such a result before?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 71,
+            "uuid": "present-perfect-q-v3-c2-11",
+            "question": "{a1} the contradiction already?",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Has she found",
+                    "options": [
+                        "Has she found",
+                        "Have she found",
+                        "Did she found",
+                        "Has she find",
+                        "She has found"
+                    ],
+                    "verb_hint": "Already can appear in Present Perfect questions.",
+                    "gap_tags": [
+                        "yet_already_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yet_already_questions"
+            ],
+            "variants": [
+                "{a1} the contradiction already?"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        },
+        {
+            "id": 72,
+            "uuid": "present-perfect-q-v3-c2-12",
+            "question": "{a1} the report? not Did you finished",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Have you finished",
+                    "options": [
+                        "Have you finished",
+                        "Did you finished",
+                        "Have you finish",
+                        "You have finished",
+                        "Has you finished"
+                    ],
+                    "verb_hint": "Do not use did + past participle for Present Perfect.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "{a1} the report? not Did you finished"
+            ],
+            "source": "theory_page_present_perfect_questions"
+        }
+    ],
+    "saved_test": {
+        "uuid": "pp-q-v3-all-levels",
+        "slug": "present-perfect-questions-all-levels-v3",
+        "name": "Present Perfect: Questions: V3 All Levels",
+        "description": "Page-local V3 package for Present Perfect: Questions with A1-C2 coverage.",
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Tenses\\PresentPerfect\\PresentPerfectQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "present-perfect-questions",
+                    "title": "Present Perfect: Questions",
+                    "category_slug_path": "tenses/present-perfect",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/tenses/present-perfect/present-perfect-questions"
+                }
+            }
+        }
+    }
+}

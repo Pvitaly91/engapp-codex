@@ -1,0 +1,205 @@
+{
+  "initial_summary": {
+    "total_theory_pages": 250,
+    "pages_ok": 211,
+    "pages_missing_only_theory_links": 22,
+    "pages_missing_sentence_builder": 13,
+    "pages_missing_v3": 17,
+    "pages_missing_both_tests": 13,
+    "status_counts": {
+      "OK": 211,
+      "missing_all": 13,
+      "missing_mixed_test": 4,
+      "missing_polyglot_theory_links": 22
+    }
+  },
+  "final_summary": {
+    "total_theory_pages": 250,
+    "pages_ok": 237,
+    "pages_missing_only_theory_links": 3,
+    "pages_missing_sentence_builder": 6,
+    "pages_missing_v3": 10,
+    "pages_missing_both_tests": 6,
+    "status_counts": {
+      "OK": 237,
+      "missing_all": 6,
+      "missing_mixed_test": 4,
+      "missing_theory_links": 3
+    }
+  },
+  "resolved_by_seed_refresh": 26,
+  "current_failed_count": 13,
+  "current_classification_counts": {
+    "TYPE A": 5,
+    "TYPE H": 5,
+    "TYPE D": 3
+  },
+  "inventory_counts": {
+    "page_v3_definitions": 284,
+    "v3_definition_files": 317,
+    "v3_all_levels_seeders": 245,
+    "polyglot_definition_files": 341,
+    "polyglot_all_levels_seeders": 245,
+    "theory_links_manifests": 240,
+    "theory_links_php_seeders": 242,
+    "feature_test_files": 64
+  },
+  "rows": [
+    {
+      "route": "/theory/passive-voice/passive-voice-tenses/theory-passive-voice-future-continuous",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "evidence": "No repo V3/Polyglot all-level/links source found for this Page_V3 route.",
+      "proposed_action": "Level 3 content-gap repair batch; do not generate until scoped prompt."
+    },
+    {
+      "route": "/theory/passive-voice/passive-voice-tenses/theory-passive-voice-future-simple",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE H",
+      "evidence": "Existing all-level V3/Polyglot source has question UUID collisions: pvfs-v3-a1-01 belongs to PassiveVoiceFormalityStyleAllLevelsV3Seeder and pvfs-poly-a1-01 belongs to PolyglotPassiveVoiceFormalityStyleAllLevelsLessonSeeder.",
+      "proposed_action": "Scoped metadata/UUID collision repair; no random question generation."
+    },
+    {
+      "route": "/theory/zaimennyky-ta-vkazivni-slova/personal-object-pronouns",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE H",
+      "evidence": "Existing all-level V3/Polyglot source has question UUID collisions: pop-v3-a1-01 belongs to PrepositionsOfPlaceAllLevelsV3Seeder and pop-poly-a1-01 belongs to PolyglotPrepositionsOfPlaceAllLevelsLessonSeeder.",
+      "proposed_action": "Scoped metadata/UUID collision repair; no random question generation."
+    },
+    {
+      "route": "/theory/tenses/present-continuous/present-continuous-forms",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "classification": "TYPE H",
+      "evidence": "V3 questions exist, but saved_test.uuid pc-forms-v3-all-levels collides with past-continuous-forms-all-levels-v3, so no page-local V3 saved test is created for this page.",
+      "proposed_action": "Scoped metadata/UUID collision repair; no random question generation."
+    },
+    {
+      "route": "/theory/tenses/present-continuous/present-continuous-time-expressions",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "classification": "TYPE H",
+      "evidence": "V3 questions exist, but saved_test.uuid pc-time-v3-all-levels collides with past-continuous-time-expressions-all-levels-v3, so no page-local V3 saved test is created for this page.",
+      "proposed_action": "Scoped metadata/UUID collision repair; no random question generation."
+    },
+    {
+      "route": "/theory/tenses/present-perfect/present-perfect-forms",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "classification": "TYPE H",
+      "evidence": "V3 questions exist, but saved_test.uuid pp-forms-v3-all-levels collides with past-perfect-forms-all-levels-v3, so no page-local V3 saved test is created for this page.",
+      "proposed_action": "Scoped metadata/UUID collision repair; no random question generation."
+    },
+    {
+      "route": "/theory/conditionals/conditionals-with-unless-provided-as-long-as",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "evidence": "Only legacy PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder source found; no full V3/Polyglot all-level/links stack.",
+      "proposed_action": "Level 3 content-gap repair batch; do not generate until scoped prompt."
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/inversion-basics",
+      "status": "missing_theory_links",
+      "missing": [
+        "theory_links",
+        "question_theory_text_blocks"
+      ],
+      "classification": "TYPE D",
+      "evidence": "Canonical Page_V3 audit route is /theory/basic-grammar/word-order/inversion-basics, but manifest/V3 routes use /theory/word-order/inversion-basics.",
+      "proposed_action": "Level 1/2 route alias reconciliation: update canonical route source/manifest or audit normalizer with regression test."
+    },
+    {
+      "route": "/theory/conditionals/advanced-conditionals",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "evidence": "Only legacy PolyglotAdvancedConditionalsC1LessonSeeder source found; no full V3/Polyglot all-level/links stack.",
+      "proposed_action": "Level 3 content-gap repair batch; do not generate until scoped prompt."
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/inversion-after-negative-adverbials",
+      "status": "missing_theory_links",
+      "missing": [
+        "theory_links",
+        "question_theory_text_blocks"
+      ],
+      "classification": "TYPE D",
+      "evidence": "Canonical Page_V3 audit route is /theory/basic-grammar/word-order/inversion-after-negative-adverbials, but manifest/V3 routes use /theory/word-order/inversion-after-negative-adverbials.",
+      "proposed_action": "Level 1/2 route alias reconciliation: update canonical route source/manifest or audit normalizer with regression test."
+    },
+    {
+      "route": "/theory/passive-voice/passive-reporting-structures",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "evidence": "Only legacy PolyglotPassiveReportingStructuresC1LessonSeeder source found; no full V3/Polyglot all-level/links stack.",
+      "proposed_action": "Level 3 content-gap repair batch; do not generate until scoped prompt."
+    },
+    {
+      "route": "/theory/conditionals/conditional-alternatives-and-nuance",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "evidence": "Only legacy PolyglotConditionalAlternativesAndNuanceC2LessonSeeder source found; no full V3/Polyglot all-level/links stack.",
+      "proposed_action": "Level 3 content-gap repair batch; do not generate until scoped prompt."
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/advanced-fronting-and-emphasis",
+      "status": "missing_theory_links",
+      "missing": [
+        "theory_links",
+        "question_theory_text_blocks"
+      ],
+      "classification": "TYPE D",
+      "evidence": "Canonical Page_V3 audit route is /theory/basic-grammar/word-order/advanced-fronting-and-emphasis, but manifest/V3 routes use /theory/word-order/advanced-fronting-and-emphasis.",
+      "proposed_action": "Level 1/2 route alias reconciliation: update canonical route source/manifest or audit normalizer with regression test."
+    }
+  ]
+}

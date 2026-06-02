@@ -1,0 +1,1860 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsModalsAllLevelsV3Seeder",
+        "uuid_namespace": "SentenceTransformationsModalsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "theory_page_sentence_transformations_modals": {
+            "name": "Sentence Transformations — Modals"
+        }
+    },
+    "tags": {
+        "sentence_transformations_modals_all_levels": {
+            "name": "sentence transformations modals all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "can_be_able_to": {
+            "name": "Can Be Able To",
+            "category": "topic"
+        },
+        "must_have_to": {
+            "name": "Must Have To",
+            "category": "topic"
+        },
+        "mustnt_not_allowed": {
+            "name": "Mustnt Not Allowed",
+            "category": "topic"
+        },
+        "dont_have_to_neednt": {
+            "name": "Dont Have To Neednt",
+            "category": "topic"
+        },
+        "should_ought_to": {
+            "name": "Should Ought To",
+            "category": "topic"
+        },
+        "may_might_paraphrase": {
+            "name": "May Might Paraphrase",
+            "category": "topic"
+        },
+        "had_better_would_rather": {
+            "name": "Had Better Would Rather",
+            "category": "topic"
+        },
+        "modal_perfect": {
+            "name": "Modal Perfect",
+            "category": "topic"
+        },
+        "preserve_modal_meaning": {
+            "name": "Preserve Modal Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stmod-v3-a1-01",
+            "question": "Rewrite with the same ability meaning: She {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is able to swim",
+                    "options": [
+                        "is able to swim",
+                        "must swim",
+                        "has to swim",
+                        "is allowed swim"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "stmod-v3-a1-02",
+            "question": "Rewrite obligation with have to: We {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "must_have_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have to leave now",
+                    "options": [
+                        "have to leave now",
+                        "must not leave now",
+                        "do not have to leave now",
+                        "are able to leave now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "stmod-v3-a1-03",
+            "question": "Rewrite prohibition: You {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "mustnt_not_allowed"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are not allowed to park here",
+                    "options": [
+                        "are not allowed to park here",
+                        "do not have to park here",
+                        "need not park here",
+                        "are able to park here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "stmod-v3-a1-04",
+            "question": "Rewrite lack of necessity: You {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "dont_have_to_neednt"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "need not bring food",
+                    "options": [
+                        "need not bring food",
+                        "must not bring food",
+                        "are not allowed to bring food",
+                        "should bring food"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "stmod-v3-a1-05",
+            "question": "Rewrite advice with ought to: You {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "ought to call her",
+                    "options": [
+                        "ought to call her",
+                        "must not call her",
+                        "are able to call her",
+                        "need not call her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "stmod-v3-a1-06",
+            "question": "Rewrite possibility: Perhaps it will rain. It {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "may_might_paraphrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "might rain",
+                    "options": [
+                        "might rain",
+                        "must rain",
+                        "has to rain",
+                        "should rain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "stmod-v3-a1-07",
+            "question": "Rewrite strong advice: You {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "had_better_would_rather"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "had better apologize",
+                    "options": [
+                        "had better apologize",
+                        "would rather apologize",
+                        "had better to apologize",
+                        "need not apologize"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "stmod-v3-a1-08",
+            "question": "Rewrite past deduction: I am sure he forgot. He {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "modal_perfect"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must have forgotten",
+                    "options": [
+                        "must have forgotten",
+                        "must forget yesterday",
+                        "has to forget",
+                        "must have forget"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "stmod-v3-a1-09",
+            "question": "Preserve permission meaning: We {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "preserve_modal_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are allowed to use the room",
+                    "options": [
+                        "are allowed to use the room",
+                        "have to use the room",
+                        "must use the room",
+                        "need not use the room"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "stmod-v3-a1-10",
+            "question": "Avoid confusing prohibition and lack of necessity: You {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must not touch this switch",
+                    "options": [
+                        "must not touch this switch",
+                        "do not have to touch this switch",
+                        "need not touch this switch",
+                        "are able to touch this switch"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "stmod-v3-a1-11",
+            "question": "Rewrite a specific successful past action: We {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were able to finish on time",
+                    "options": [
+                        "were able to finish on time",
+                        "could finish on time and did",
+                        "can finish yesterday",
+                        "are able finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "stmod-v3-a1-12",
+            "question": "Rewrite criticism about the past: You {a1}.",
+            "level": "A1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a1",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should have told me earlier",
+                    "options": [
+                        "should have told me earlier",
+                        "should tell me yesterday",
+                        "ought tell me earlier",
+                        "must tell me earlier"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "stmod-v3-a2-01",
+            "question": "Rewrite with the same ability meaning: She {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is able to swim",
+                    "options": [
+                        "is able to swim",
+                        "must swim",
+                        "has to swim",
+                        "is allowed swim"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "stmod-v3-a2-02",
+            "question": "Rewrite obligation with have to: We {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "must_have_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have to leave now",
+                    "options": [
+                        "have to leave now",
+                        "must not leave now",
+                        "do not have to leave now",
+                        "are able to leave now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "stmod-v3-a2-03",
+            "question": "Rewrite prohibition: You {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "mustnt_not_allowed"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are not allowed to park here",
+                    "options": [
+                        "are not allowed to park here",
+                        "do not have to park here",
+                        "need not park here",
+                        "are able to park here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "stmod-v3-a2-04",
+            "question": "Rewrite lack of necessity: You {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "dont_have_to_neednt"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "need not bring food",
+                    "options": [
+                        "need not bring food",
+                        "must not bring food",
+                        "are not allowed to bring food",
+                        "should bring food"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "stmod-v3-a2-05",
+            "question": "Rewrite advice with ought to: You {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "ought to call her",
+                    "options": [
+                        "ought to call her",
+                        "must not call her",
+                        "are able to call her",
+                        "need not call her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "stmod-v3-a2-06",
+            "question": "Rewrite possibility: Perhaps it will rain. It {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "may_might_paraphrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "might rain",
+                    "options": [
+                        "might rain",
+                        "must rain",
+                        "has to rain",
+                        "should rain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "stmod-v3-a2-07",
+            "question": "Rewrite strong advice: You {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "had_better_would_rather"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "had better apologize",
+                    "options": [
+                        "had better apologize",
+                        "would rather apologize",
+                        "had better to apologize",
+                        "need not apologize"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "stmod-v3-a2-08",
+            "question": "Rewrite past deduction: I am sure he forgot. He {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "modal_perfect"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must have forgotten",
+                    "options": [
+                        "must have forgotten",
+                        "must forget yesterday",
+                        "has to forget",
+                        "must have forget"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "stmod-v3-a2-09",
+            "question": "Preserve permission meaning: We {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "preserve_modal_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are allowed to use the room",
+                    "options": [
+                        "are allowed to use the room",
+                        "have to use the room",
+                        "must use the room",
+                        "need not use the room"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "stmod-v3-a2-10",
+            "question": "Avoid confusing prohibition and lack of necessity: You {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must not touch this switch",
+                    "options": [
+                        "must not touch this switch",
+                        "do not have to touch this switch",
+                        "need not touch this switch",
+                        "are able to touch this switch"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "stmod-v3-a2-11",
+            "question": "Rewrite a specific successful past action: We {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were able to finish on time",
+                    "options": [
+                        "were able to finish on time",
+                        "could finish on time and did",
+                        "can finish yesterday",
+                        "are able finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "stmod-v3-a2-12",
+            "question": "Rewrite criticism about the past: You {a1}.",
+            "level": "A2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_a2",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should have told me earlier",
+                    "options": [
+                        "should have told me earlier",
+                        "should tell me yesterday",
+                        "ought tell me earlier",
+                        "must tell me earlier"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "stmod-v3-b1-01",
+            "question": "Rewrite with the same ability meaning: She {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is able to swim",
+                    "options": [
+                        "is able to swim",
+                        "must swim",
+                        "has to swim",
+                        "is allowed swim"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "stmod-v3-b1-02",
+            "question": "Rewrite obligation with have to: We {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "must_have_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have to leave now",
+                    "options": [
+                        "have to leave now",
+                        "must not leave now",
+                        "do not have to leave now",
+                        "are able to leave now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "stmod-v3-b1-03",
+            "question": "Rewrite prohibition: You {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "mustnt_not_allowed"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are not allowed to park here",
+                    "options": [
+                        "are not allowed to park here",
+                        "do not have to park here",
+                        "need not park here",
+                        "are able to park here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "stmod-v3-b1-04",
+            "question": "Rewrite lack of necessity: You {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "dont_have_to_neednt"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "need not bring food",
+                    "options": [
+                        "need not bring food",
+                        "must not bring food",
+                        "are not allowed to bring food",
+                        "should bring food"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "stmod-v3-b1-05",
+            "question": "Rewrite advice with ought to: You {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "ought to call her",
+                    "options": [
+                        "ought to call her",
+                        "must not call her",
+                        "are able to call her",
+                        "need not call her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "stmod-v3-b1-06",
+            "question": "Rewrite possibility: Perhaps it will rain. It {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "may_might_paraphrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "might rain",
+                    "options": [
+                        "might rain",
+                        "must rain",
+                        "has to rain",
+                        "should rain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "stmod-v3-b1-07",
+            "question": "Rewrite strong advice: You {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "had_better_would_rather"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "had better apologize",
+                    "options": [
+                        "had better apologize",
+                        "would rather apologize",
+                        "had better to apologize",
+                        "need not apologize"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "stmod-v3-b1-08",
+            "question": "Rewrite past deduction: I am sure he forgot. He {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "modal_perfect"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must have forgotten",
+                    "options": [
+                        "must have forgotten",
+                        "must forget yesterday",
+                        "has to forget",
+                        "must have forget"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "stmod-v3-b1-09",
+            "question": "Preserve permission meaning: We {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "preserve_modal_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are allowed to use the room",
+                    "options": [
+                        "are allowed to use the room",
+                        "have to use the room",
+                        "must use the room",
+                        "need not use the room"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "stmod-v3-b1-10",
+            "question": "Avoid confusing prohibition and lack of necessity: You {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must not touch this switch",
+                    "options": [
+                        "must not touch this switch",
+                        "do not have to touch this switch",
+                        "need not touch this switch",
+                        "are able to touch this switch"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "stmod-v3-b1-11",
+            "question": "Rewrite a specific successful past action: We {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were able to finish on time",
+                    "options": [
+                        "were able to finish on time",
+                        "could finish on time and did",
+                        "can finish yesterday",
+                        "are able finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "stmod-v3-b1-12",
+            "question": "Rewrite criticism about the past: You {a1}.",
+            "level": "B1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b1",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should have told me earlier",
+                    "options": [
+                        "should have told me earlier",
+                        "should tell me yesterday",
+                        "ought tell me earlier",
+                        "must tell me earlier"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "stmod-v3-b2-01",
+            "question": "Rewrite with the same ability meaning: She {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is able to swim",
+                    "options": [
+                        "is able to swim",
+                        "must swim",
+                        "has to swim",
+                        "is allowed swim"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "stmod-v3-b2-02",
+            "question": "Rewrite obligation with have to: We {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "must_have_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have to leave now",
+                    "options": [
+                        "have to leave now",
+                        "must not leave now",
+                        "do not have to leave now",
+                        "are able to leave now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "stmod-v3-b2-03",
+            "question": "Rewrite prohibition: You {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "mustnt_not_allowed"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are not allowed to park here",
+                    "options": [
+                        "are not allowed to park here",
+                        "do not have to park here",
+                        "need not park here",
+                        "are able to park here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "stmod-v3-b2-04",
+            "question": "Rewrite lack of necessity: You {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "dont_have_to_neednt"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "need not bring food",
+                    "options": [
+                        "need not bring food",
+                        "must not bring food",
+                        "are not allowed to bring food",
+                        "should bring food"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "stmod-v3-b2-05",
+            "question": "Rewrite advice with ought to: You {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "ought to call her",
+                    "options": [
+                        "ought to call her",
+                        "must not call her",
+                        "are able to call her",
+                        "need not call her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "stmod-v3-b2-06",
+            "question": "Rewrite possibility: Perhaps it will rain. It {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "may_might_paraphrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "might rain",
+                    "options": [
+                        "might rain",
+                        "must rain",
+                        "has to rain",
+                        "should rain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "stmod-v3-b2-07",
+            "question": "Rewrite strong advice: You {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "had_better_would_rather"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "had better apologize",
+                    "options": [
+                        "had better apologize",
+                        "would rather apologize",
+                        "had better to apologize",
+                        "need not apologize"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "stmod-v3-b2-08",
+            "question": "Rewrite past deduction: I am sure he forgot. He {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "modal_perfect"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must have forgotten",
+                    "options": [
+                        "must have forgotten",
+                        "must forget yesterday",
+                        "has to forget",
+                        "must have forget"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "stmod-v3-b2-09",
+            "question": "Preserve permission meaning: We {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "preserve_modal_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are allowed to use the room",
+                    "options": [
+                        "are allowed to use the room",
+                        "have to use the room",
+                        "must use the room",
+                        "need not use the room"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "stmod-v3-b2-10",
+            "question": "Avoid confusing prohibition and lack of necessity: You {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must not touch this switch",
+                    "options": [
+                        "must not touch this switch",
+                        "do not have to touch this switch",
+                        "need not touch this switch",
+                        "are able to touch this switch"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "stmod-v3-b2-11",
+            "question": "Rewrite a specific successful past action: We {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were able to finish on time",
+                    "options": [
+                        "were able to finish on time",
+                        "could finish on time and did",
+                        "can finish yesterday",
+                        "are able finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "stmod-v3-b2-12",
+            "question": "Rewrite criticism about the past: You {a1}.",
+            "level": "B2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_b2",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should have told me earlier",
+                    "options": [
+                        "should have told me earlier",
+                        "should tell me yesterday",
+                        "ought tell me earlier",
+                        "must tell me earlier"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "stmod-v3-c1-01",
+            "question": "Rewrite with the same ability meaning: She {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is able to swim",
+                    "options": [
+                        "is able to swim",
+                        "must swim",
+                        "has to swim",
+                        "is allowed swim"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "stmod-v3-c1-02",
+            "question": "Rewrite obligation with have to: We {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "must_have_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have to leave now",
+                    "options": [
+                        "have to leave now",
+                        "must not leave now",
+                        "do not have to leave now",
+                        "are able to leave now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "stmod-v3-c1-03",
+            "question": "Rewrite prohibition: You {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "mustnt_not_allowed"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are not allowed to park here",
+                    "options": [
+                        "are not allowed to park here",
+                        "do not have to park here",
+                        "need not park here",
+                        "are able to park here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "stmod-v3-c1-04",
+            "question": "Rewrite lack of necessity: You {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "dont_have_to_neednt"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "need not bring food",
+                    "options": [
+                        "need not bring food",
+                        "must not bring food",
+                        "are not allowed to bring food",
+                        "should bring food"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "stmod-v3-c1-05",
+            "question": "Rewrite advice with ought to: You {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "ought to call her",
+                    "options": [
+                        "ought to call her",
+                        "must not call her",
+                        "are able to call her",
+                        "need not call her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "stmod-v3-c1-06",
+            "question": "Rewrite possibility: Perhaps it will rain. It {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "may_might_paraphrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "might rain",
+                    "options": [
+                        "might rain",
+                        "must rain",
+                        "has to rain",
+                        "should rain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "stmod-v3-c1-07",
+            "question": "Rewrite strong advice: You {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "had_better_would_rather"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "had better apologize",
+                    "options": [
+                        "had better apologize",
+                        "would rather apologize",
+                        "had better to apologize",
+                        "need not apologize"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "stmod-v3-c1-08",
+            "question": "Rewrite past deduction: I am sure he forgot. He {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "modal_perfect"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must have forgotten",
+                    "options": [
+                        "must have forgotten",
+                        "must forget yesterday",
+                        "has to forget",
+                        "must have forget"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "stmod-v3-c1-09",
+            "question": "Preserve permission meaning: We {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "preserve_modal_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are allowed to use the room",
+                    "options": [
+                        "are allowed to use the room",
+                        "have to use the room",
+                        "must use the room",
+                        "need not use the room"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "stmod-v3-c1-10",
+            "question": "Avoid confusing prohibition and lack of necessity: You {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must not touch this switch",
+                    "options": [
+                        "must not touch this switch",
+                        "do not have to touch this switch",
+                        "need not touch this switch",
+                        "are able to touch this switch"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "stmod-v3-c1-11",
+            "question": "Rewrite a specific successful past action: We {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were able to finish on time",
+                    "options": [
+                        "were able to finish on time",
+                        "could finish on time and did",
+                        "can finish yesterday",
+                        "are able finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "stmod-v3-c1-12",
+            "question": "Rewrite criticism about the past: You {a1}.",
+            "level": "C1",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c1",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should have told me earlier",
+                    "options": [
+                        "should have told me earlier",
+                        "should tell me yesterday",
+                        "ought tell me earlier",
+                        "must tell me earlier"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "stmod-v3-c2-01",
+            "question": "Rewrite with the same ability meaning: She {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is able to swim",
+                    "options": [
+                        "is able to swim",
+                        "must swim",
+                        "has to swim",
+                        "is allowed swim"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "stmod-v3-c2-02",
+            "question": "Rewrite obligation with have to: We {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "must_have_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "have to leave now",
+                    "options": [
+                        "have to leave now",
+                        "must not leave now",
+                        "do not have to leave now",
+                        "are able to leave now"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "stmod-v3-c2-03",
+            "question": "Rewrite prohibition: You {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "mustnt_not_allowed"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are not allowed to park here",
+                    "options": [
+                        "are not allowed to park here",
+                        "do not have to park here",
+                        "need not park here",
+                        "are able to park here"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "stmod-v3-c2-04",
+            "question": "Rewrite lack of necessity: You {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "dont_have_to_neednt"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "need not bring food",
+                    "options": [
+                        "need not bring food",
+                        "must not bring food",
+                        "are not allowed to bring food",
+                        "should bring food"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "stmod-v3-c2-05",
+            "question": "Rewrite advice with ought to: You {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "ought to call her",
+                    "options": [
+                        "ought to call her",
+                        "must not call her",
+                        "are able to call her",
+                        "need not call her"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "stmod-v3-c2-06",
+            "question": "Rewrite possibility: Perhaps it will rain. It {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "may_might_paraphrase"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "might rain",
+                    "options": [
+                        "might rain",
+                        "must rain",
+                        "has to rain",
+                        "should rain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "stmod-v3-c2-07",
+            "question": "Rewrite strong advice: You {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "had_better_would_rather"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "had better apologize",
+                    "options": [
+                        "had better apologize",
+                        "would rather apologize",
+                        "had better to apologize",
+                        "need not apologize"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "stmod-v3-c2-08",
+            "question": "Rewrite past deduction: I am sure he forgot. He {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "modal_perfect"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must have forgotten",
+                    "options": [
+                        "must have forgotten",
+                        "must forget yesterday",
+                        "has to forget",
+                        "must have forget"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "stmod-v3-c2-09",
+            "question": "Preserve permission meaning: We {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "preserve_modal_meaning"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "are allowed to use the room",
+                    "options": [
+                        "are allowed to use the room",
+                        "have to use the room",
+                        "must use the room",
+                        "need not use the room"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "stmod-v3-c2-10",
+            "question": "Avoid confusing prohibition and lack of necessity: You {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "must not touch this switch",
+                    "options": [
+                        "must not touch this switch",
+                        "do not have to touch this switch",
+                        "need not touch this switch",
+                        "are able to touch this switch"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "stmod-v3-c2-11",
+            "question": "Rewrite a specific successful past action: We {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "can_be_able_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "were able to finish on time",
+                    "options": [
+                        "were able to finish on time",
+                        "could finish on time and did",
+                        "can finish yesterday",
+                        "are able finished"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "stmod-v3-c2-12",
+            "question": "Rewrite criticism about the past: You {a1}.",
+            "level": "C2",
+            "source": "theory_page_sentence_transformations_modals",
+            "tag_keys": [
+                "sentence_transformations_modals_all_levels",
+                "level_c2",
+                "should_ought_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "should have told me earlier",
+                    "options": [
+                        "should have told me earlier",
+                        "should tell me yesterday",
+                        "ought tell me earlier",
+                        "must tell me earlier"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "stmod-v3-all",
+        "slug": "sentence-transformations-modals-all-levels-v3",
+        "name": "Sentence Transformations — Modals (All levels V3)",
+        "description": "Standard V3 package for Sentence Transformations — Modals across A1-C2.",
+        "question_uuids": [
+            "stmod-v3-a1-01",
+            "stmod-v3-a1-02",
+            "stmod-v3-a1-03",
+            "stmod-v3-a1-04",
+            "stmod-v3-a1-05",
+            "stmod-v3-a1-06",
+            "stmod-v3-a1-07",
+            "stmod-v3-a1-08",
+            "stmod-v3-a1-09",
+            "stmod-v3-a1-10",
+            "stmod-v3-a1-11",
+            "stmod-v3-a1-12",
+            "stmod-v3-a2-01",
+            "stmod-v3-a2-02",
+            "stmod-v3-a2-03",
+            "stmod-v3-a2-04",
+            "stmod-v3-a2-05",
+            "stmod-v3-a2-06",
+            "stmod-v3-a2-07",
+            "stmod-v3-a2-08",
+            "stmod-v3-a2-09",
+            "stmod-v3-a2-10",
+            "stmod-v3-a2-11",
+            "stmod-v3-a2-12",
+            "stmod-v3-b1-01",
+            "stmod-v3-b1-02",
+            "stmod-v3-b1-03",
+            "stmod-v3-b1-04",
+            "stmod-v3-b1-05",
+            "stmod-v3-b1-06",
+            "stmod-v3-b1-07",
+            "stmod-v3-b1-08",
+            "stmod-v3-b1-09",
+            "stmod-v3-b1-10",
+            "stmod-v3-b1-11",
+            "stmod-v3-b1-12",
+            "stmod-v3-b2-01",
+            "stmod-v3-b2-02",
+            "stmod-v3-b2-03",
+            "stmod-v3-b2-04",
+            "stmod-v3-b2-05",
+            "stmod-v3-b2-06",
+            "stmod-v3-b2-07",
+            "stmod-v3-b2-08",
+            "stmod-v3-b2-09",
+            "stmod-v3-b2-10",
+            "stmod-v3-b2-11",
+            "stmod-v3-b2-12",
+            "stmod-v3-c1-01",
+            "stmod-v3-c1-02",
+            "stmod-v3-c1-03",
+            "stmod-v3-c1-04",
+            "stmod-v3-c1-05",
+            "stmod-v3-c1-06",
+            "stmod-v3-c1-07",
+            "stmod-v3-c1-08",
+            "stmod-v3-c1-09",
+            "stmod-v3-c1-10",
+            "stmod-v3-c1-11",
+            "stmod-v3-c1-12",
+            "stmod-v3-c2-01",
+            "stmod-v3-c2-02",
+            "stmod-v3-c2-03",
+            "stmod-v3-c2-04",
+            "stmod-v3-c2-05",
+            "stmod-v3-c2-06",
+            "stmod-v3-c2-07",
+            "stmod-v3-c2-08",
+            "stmod-v3-c2-09",
+            "stmod-v3-c2-10",
+            "stmod-v3-c2-11",
+            "stmod-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\SentenceTransformations\\SentenceTransformationsModalsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "modals",
+                    "title": "Sentence Transformations — Modals",
+                    "category_slug_path": "sentence-transformations",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsModalsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/sentence-transformations/modals"
+                }
+            }
+        }
+    }
+}

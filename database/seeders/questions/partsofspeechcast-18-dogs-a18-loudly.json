@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 66,
+        "uuid": "partsofspeechcast-18-dogs-a18-loudly",
+        "question": "Dogs {a18} loudly.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-26T14:30:54.000000Z",
+        "updated_at": "2026-05-26T14:30:58.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:48.000000Z",
+                "updated_at": "2026-05-26T14:30:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 66,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 45,
+                "name": "Verb recognition",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 66,
+                "tag_id": 45,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 189,
+                "option": "bark",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 66,
+                "option_id": 189,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 191,
+                "option": "barking",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 66,
+                "option_id": 191,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 192,
+                "option": "barked",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 66,
+                "option_id": 192,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 176,
+                "question_id": 66,
+                "marker": "a18",
+                "option_id": 189,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 189,
+                "option": "bark",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 18,
+                "question_id": 66,
+                "marker": "a18",
+                "option_id": 190,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 190,
+                "option": "present tense verb",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 48,
+            "question_id": 66,
+            "text": "Dogs {a18} loudly.",
+            "created_at": "2026-05-26T14:30:54.000000Z",
+            "updated_at": "2026-05-26T14:30:54.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 82,
+            "question_id": 66,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Choose the word that best completes the sentence grammatically.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 83,
+            "question_id": 66,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Czasownik w czasie teraźniejszym prostym dla 'dogs' (liczba mnoga).",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 84,
+            "question_id": 66,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "У Present Simple з підметом 'dogs' потрібна базова форма дієслова.\nСлово 'bark' (гавкати) — це дієслово в базовій формі, що виражає типову дію собак.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 385,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "bark",
+            "correct_answer": "bark",
+            "language": "en",
+            "explanation": "Correct. 'bark' is the appropriate choice in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 388,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "bark",
+            "correct_answer": "bark",
+            "language": "pl",
+            "explanation": "Poprawnie! 'Bark' to forma czasownika dla liczby mnogiej w czasie teraźniejszym.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 391,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "bark",
+            "correct_answer": "bark",
+            "language": "ua",
+            "explanation": "Дієслово 'bark' у Present Simple правильно описує регулярну дію.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 392,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "bark",
+            "correct_answer": "bark",
+            "language": "uk",
+            "explanation": "Дієслово 'bark' у Present Simple правильно описує регулярну дію.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 387,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barked",
+            "correct_answer": "bark",
+            "language": "en",
+            "explanation": "Incorrect. 'barked' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 390,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barked",
+            "correct_answer": "bark",
+            "language": "pl",
+            "explanation": "'Barked' to czas przeszły, a potrzebujemy teraźniejszego.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 395,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barked",
+            "correct_answer": "bark",
+            "language": "ua",
+            "explanation": "Форма минулого часу 'barked' не підходить, бо в реченні немає вказівки на минуле.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 396,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barked",
+            "correct_answer": "bark",
+            "language": "uk",
+            "explanation": "Форма минулого часу 'barked' не підходить, бо в реченні немає вказівки на минуле.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 386,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barking",
+            "correct_answer": "bark",
+            "language": "en",
+            "explanation": "Incorrect. 'barking' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 389,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barking",
+            "correct_answer": "bark",
+            "language": "pl",
+            "explanation": "'Barking' to forma ciągła, nieodpowiednia tutaj.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 393,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barking",
+            "correct_answer": "bark",
+            "language": "ua",
+            "explanation": "Герундій або дієприкметник 'barking' не може виконувати роль присудка без допоміжного дієслова.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 394,
+            "question": "Dogs {a18} loudly.",
+            "wrong_answer": "barking",
+            "correct_answer": "bark",
+            "language": "uk",
+            "explanation": "Герундій або дієприкметник 'barking' не може виконувати роль присудка без допоміжного дієслова.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ]
+}

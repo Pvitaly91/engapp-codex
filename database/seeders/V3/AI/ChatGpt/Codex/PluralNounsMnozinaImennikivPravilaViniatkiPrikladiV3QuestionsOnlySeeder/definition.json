@@ -1,0 +1,2838 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AI\\ChatGpt\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+        "uuid_namespace": "pn-cg-cx"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Іменники, артиклі та кількість"
+    },
+    "sources": {
+        "theory_page_712": {
+            "name": "Plural Nouns — Множина іменників: правила, винятки, приклади"
+        }
+    },
+    "tags": {
+        "theme": {
+            "name": "Plural nouns",
+            "category": "topic"
+        },
+        "detail": {
+            "name": "Rules, exceptions, and usage",
+            "category": "focus"
+        },
+        "structure": {
+            "name": "Single-gap multiple choice",
+            "category": "structure"
+        },
+        "regular_plural": {
+            "name": "Regular plural formation",
+            "category": "pattern"
+        },
+        "spelling_rules": {
+            "name": "Plural spelling rules",
+            "category": "pattern"
+        },
+        "irregular_forms": {
+            "name": "Irregular plural forms",
+            "category": "pattern"
+        },
+        "singular_only_nouns": {
+            "name": "Nouns used only in the singular",
+            "category": "usage"
+        },
+        "plural_only_nouns": {
+            "name": "Nouns used only in the plural",
+            "category": "usage"
+        },
+        "agreement_usage": {
+            "name": "Subject-verb agreement",
+            "category": "usage"
+        },
+        "compound_plurals": {
+            "name": "Compound noun plurals",
+            "category": "pattern"
+        },
+        "zero_plural": {
+            "name": "Zero plural nouns",
+            "category": "pattern"
+        },
+        "academic_plurals": {
+            "name": "Academic and formal plurals",
+            "category": "register"
+        },
+        "scientific_plurals": {
+            "name": "Scientific and technical plurals",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "theme",
+        "detail",
+        "structure"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "I have two {a1}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "books",
+                    "options": [
+                        "book",
+                        "books",
+                        "bookes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "I have two {a1}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q01"
+        },
+        {
+            "id": 2,
+            "question": "She bought three {a2}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a2": {
+                    "answer": "apples",
+                    "options": [
+                        "apple",
+                        "apples",
+                        "appless"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "She bought three {a2}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q02"
+        },
+        {
+            "id": 3,
+            "question": "We can see four {a3} in the yard. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a3": {
+                    "answer": "dogs",
+                    "options": [
+                        "dog",
+                        "dogs",
+                        "doges"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "regular_plural"
+            ],
+            "variants": [
+                "We can see four {a3} in the yard. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q03"
+        },
+        {
+            "id": 4,
+            "question": "Two {a4} stopped near the station. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a4": {
+                    "answer": "buses",
+                    "options": [
+                        "bus",
+                        "buses",
+                        "buss"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Two {a4} stopped near the station. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q04"
+        },
+        {
+            "id": 5,
+            "question": "The moving company delivered six {a5}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a5": {
+                    "answer": "boxes",
+                    "options": [
+                        "box",
+                        "boxes",
+                        "boxs"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The moving company delivered six {a5}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q05"
+        },
+        {
+            "id": 6,
+            "question": "The shop sells long summer {a6}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a6": {
+                    "answer": "dresses",
+                    "options": [
+                        "dress",
+                        "dresses",
+                        "dresss"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The shop sells long summer {a6}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q06"
+        },
+        {
+            "id": 7,
+            "question": "The two {a7} are sleeping. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a7": {
+                    "answer": "babies",
+                    "options": [
+                        "babys",
+                        "babies",
+                        "babyes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The two {a7} are sleeping. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q07"
+        },
+        {
+            "id": 8,
+            "question": "Old European {a8} often have narrow streets. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a8": {
+                    "answer": "cities",
+                    "options": [
+                        "citys",
+                        "cities",
+                        "cityes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Old European {a8} often have narrow streets. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q08"
+        },
+        {
+            "id": 9,
+            "question": "Autumn {a9} are everywhere in the park. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a9": {
+                    "answer": "leaves",
+                    "options": [
+                        "leafs",
+                        "leaves",
+                        "leafes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Autumn {a9} are everywhere in the park. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q09"
+        },
+        {
+            "id": 10,
+            "question": "The chef sharpened two {a10}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a10": {
+                    "answer": "knives",
+                    "options": [
+                        "knifes",
+                        "knives",
+                        "knifees"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The chef sharpened two {a10}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q10"
+        },
+        {
+            "id": 11,
+            "question": "Two {a11} are waiting outside. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a11": {
+                    "answer": "men",
+                    "options": [
+                        "mans",
+                        "men",
+                        "mens"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "Two {a11} are waiting outside. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q11"
+        },
+        {
+            "id": 12,
+            "question": "Three {a12} work in this office. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a12": {
+                    "answer": "women",
+                    "options": [
+                        "womans",
+                        "women",
+                        "womens"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "Three {a12} work in this office. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q12"
+        },
+        {
+            "id": 13,
+            "question": "The {a13} are playing quietly. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a13": {
+                    "answer": "children",
+                    "options": [
+                        "childs",
+                        "children",
+                        "childrens"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "The {a13} are playing quietly. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q13"
+        },
+        {
+            "id": 14,
+            "question": "My {a14} are cold. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a14": {
+                    "answer": "feet",
+                    "options": [
+                        "foots",
+                        "feet",
+                        "feets"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "My {a14} are cold. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q14"
+        },
+        {
+            "id": 15,
+            "question": "Brush your {a15} twice a day. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a15": {
+                    "answer": "teeth",
+                    "options": [
+                        "tooths",
+                        "teeth",
+                        "toothes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "Brush your {a15} twice a day. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q15"
+        },
+        {
+            "id": 16,
+            "question": "The farmer saw two {a16} in the field. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a16": {
+                    "answer": "mice",
+                    "options": [
+                        "mouses",
+                        "mice",
+                        "mouse"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "The farmer saw two {a16} in the field. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q16"
+        },
+        {
+            "id": 17,
+            "question": "The {a17} on the hill are white. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a17": {
+                    "answer": "sheep",
+                    "options": [
+                        "sheeps",
+                        "sheep",
+                        "shep"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "The {a17} on the hill are white. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q17"
+        },
+        {
+            "id": 18,
+            "question": "Many {a18} use the metro every day. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A1",
+            "markers": {
+                "a18": {
+                    "answer": "people",
+                    "options": [
+                        "persons",
+                        "peoples",
+                        "people"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "Many {a18} use the metro every day. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a1-q18"
+        },
+        {
+            "id": 19,
+            "question": "Our teacher collected all the {a19}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a19": {
+                    "answer": "classes",
+                    "options": [
+                        "class",
+                        "classes",
+                        "classs"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Our teacher collected all the {a19}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q01"
+        },
+        {
+            "id": 20,
+            "question": "I bought two new {a20}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a20": {
+                    "answer": "watches",
+                    "options": [
+                        "watchs",
+                        "watches",
+                        "watchies"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "I bought two new {a20}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q02"
+        },
+        {
+            "id": 21,
+            "question": "We planted several {a21} in the garden. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a21": {
+                    "answer": "potatoes",
+                    "options": [
+                        "potatos",
+                        "potatoes",
+                        "potatoses"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "We planted several {a21} in the garden. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q03"
+        },
+        {
+            "id": 22,
+            "question": "Comic-book {a22} often wear capes. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a22": {
+                    "answer": "heroes",
+                    "options": [
+                        "heros",
+                        "heroes",
+                        "heroies"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Comic-book {a22} often wear capes. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q04"
+        },
+        {
+            "id": 23,
+            "question": "Their {a23} live in different countries. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a23": {
+                    "answer": "families",
+                    "options": [
+                        "familys",
+                        "families",
+                        "familyes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Their {a23} live in different countries. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q05"
+        },
+        {
+            "id": 24,
+            "question": "She writes travel {a24} on her blog. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a24": {
+                    "answer": "stories",
+                    "options": [
+                        "storys",
+                        "stories",
+                        "storyes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "She writes travel {a24} on her blog. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q06"
+        },
+        {
+            "id": 25,
+            "question": "The hungry {a25} were howling at night. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a25": {
+                    "answer": "wolves",
+                    "options": [
+                        "wolfs",
+                        "wolves",
+                        "wolfes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The hungry {a25} were howling at night. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q07"
+        },
+        {
+            "id": 26,
+            "question": "Many people lost their {a26} during the storm. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a26": {
+                    "answer": "lives",
+                    "options": [
+                        "lifes",
+                        "lives",
+                        "lifees"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "Many people lost their {a26} during the storm. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q08"
+        },
+        {
+            "id": 27,
+            "question": "The kitchen has three wooden {a27}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a27": {
+                    "answer": "shelves",
+                    "options": [
+                        "shelfs",
+                        "shelves",
+                        "shelfes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The kitchen has three wooden {a27}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q09"
+        },
+        {
+            "id": 28,
+            "question": "The bakery sells fresh {a28} every morning. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a28": {
+                    "answer": "loaves",
+                    "options": [
+                        "loafs",
+                        "loaves",
+                        "loafes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "The bakery sells fresh {a28} every morning. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q10"
+        },
+        {
+            "id": 29,
+            "question": "These {a29} need sharpening. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a29": {
+                    "answer": "scissors",
+                    "options": [
+                        "scissor",
+                        "scissors",
+                        "scissers"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "These {a29} need sharpening. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q11"
+        },
+        {
+            "id": 30,
+            "question": "His black {a30} are in the bedroom. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a30": {
+                    "answer": "trousers",
+                    "options": [
+                        "trouser",
+                        "trousers",
+                        "trouserses"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "His black {a30} are in the bedroom. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q12"
+        },
+        {
+            "id": 31,
+            "question": "The {a31} is excellent tonight. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a31": {
+                    "answer": "news",
+                    "options": [
+                        "news",
+                        "newses",
+                        "new"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "The {a31} is excellent tonight. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q13"
+        },
+        {
+            "id": 32,
+            "question": "We need more {a32} in the living room. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a32": {
+                    "answer": "furniture",
+                    "options": [
+                        "furniture",
+                        "furnitures",
+                        "furnitur"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "We need more {a32} in the living room. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q14"
+        },
+        {
+            "id": 33,
+            "question": "Her {a33} is very practical. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a33": {
+                    "answer": "advice",
+                    "options": [
+                        "advice",
+                        "advices",
+                        "advise"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "Her {a33} is very practical. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q15"
+        },
+        {
+            "id": 34,
+            "question": "The office equipment {a34} brand-new. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a34": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns",
+                "agreement_usage"
+            ],
+            "variants": [
+                "The office equipment {a34} brand-new. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q16"
+        },
+        {
+            "id": 35,
+            "question": "This information {a35} useful for beginners. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a35": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns",
+                "agreement_usage"
+            ],
+            "variants": [
+                "This information {a35} useful for beginners. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q17"
+        },
+        {
+            "id": 36,
+            "question": "I bought several ripe {a36} at the market. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "A2",
+            "markers": {
+                "a36": {
+                    "answer": "cherries",
+                    "options": [
+                        "cherrys",
+                        "cherries",
+                        "cherryes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "spelling_rules"
+            ],
+            "variants": [
+                "I bought several ripe {a36} at the market. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-a2-q18"
+        },
+        {
+            "id": 37,
+            "question": "One goose, two {a37}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a37": {
+                    "answer": "geese",
+                    "options": [
+                        "geese",
+                        "gooses",
+                        "goose"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "One goose, two {a37}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q01"
+        },
+        {
+            "id": 38,
+            "question": "One ox, two {a38}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a38": {
+                    "answer": "oxen",
+                    "options": [
+                        "oxes",
+                        "oxen",
+                        "oxe"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "One ox, two {a38}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q02"
+        },
+        {
+            "id": 39,
+            "question": "The mountain area is home to many wild {a39}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a39": {
+                    "answer": "deer",
+                    "options": [
+                        "deers",
+                        "deer",
+                        "diers"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "The mountain area is home to many wild {a39}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q03"
+        },
+        {
+            "id": 40,
+            "question": "Several military {a40} flew over the coast. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a40": {
+                    "answer": "aircraft",
+                    "options": [
+                        "aircrafts",
+                        "aircraft",
+                        "aircrafes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "Several military {a40} flew over the coast. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q04"
+        },
+        {
+            "id": 41,
+            "question": "I cannot find my reading {a41}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a41": {
+                    "answer": "glasses",
+                    "options": [
+                        "glass",
+                        "glasses",
+                        "glasss"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "I cannot find my reading {a41}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q05"
+        },
+        {
+            "id": 42,
+            "question": "The dirty {a42} are in the laundry basket. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a42": {
+                    "answer": "clothes",
+                    "options": [
+                        "clothe",
+                        "clothes",
+                        "cloths"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The dirty {a42} are in the laundry basket. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q06"
+        },
+        {
+            "id": 43,
+            "question": "The police {a43} investigating the case now. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a43": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The police {a43} investigating the case now. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q07"
+        },
+        {
+            "id": 44,
+            "question": "This {a44} is too technical for A2 learners. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a44": {
+                    "answer": "information",
+                    "options": [
+                        "information",
+                        "informations",
+                        "infoes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "This {a44} is too technical for A2 learners. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q08"
+        },
+        {
+            "id": 45,
+            "question": "She gave me two useful pieces of {a45}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a45": {
+                    "answer": "advice",
+                    "options": [
+                        "advices",
+                        "advice",
+                        "advises"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "She gave me two useful pieces of {a45}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q09"
+        },
+        {
+            "id": 46,
+            "question": "Our {a46} was delayed at the airport. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a46": {
+                    "answer": "luggage",
+                    "options": [
+                        "luggages",
+                        "luggage",
+                        "laggage"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "Our {a46} was delayed at the airport. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q10"
+        },
+        {
+            "id": 47,
+            "question": "His math {a47} is still on the desk. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a47": {
+                    "answer": "homework",
+                    "options": [
+                        "homeworks",
+                        "homework",
+                        "home-work"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "His math {a47} is still on the desk. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q11"
+        },
+        {
+            "id": 48,
+            "question": "The camping gear {a48} ready for the trip. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a48": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "singular_only_nouns"
+            ],
+            "variants": [
+                "The camping gear {a48} ready for the trip. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q12"
+        },
+        {
+            "id": 49,
+            "question": "A pair of jeans {a49} on the chair. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a49": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "A pair of jeans {a49} on the chair. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q13"
+        },
+        {
+            "id": 50,
+            "question": "These jeans {a50} too tight for me. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a50": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "These jeans {a50} too tight for me. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q14"
+        },
+        {
+            "id": 51,
+            "question": "One louse, two {a51}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a51": {
+                    "answer": "lice",
+                    "options": [
+                        "lices",
+                        "lice",
+                        "louse"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "One louse, two {a51}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q15"
+        },
+        {
+            "id": 52,
+            "question": "The main {a52} for the course are reading and writing. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a52": {
+                    "answer": "criteria",
+                    "options": [
+                        "criterias",
+                        "criteria",
+                        "criterion"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "The main {a52} for the course are reading and writing. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q16"
+        },
+        {
+            "id": 53,
+            "question": "Throw the {a53} again, please. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a53": {
+                    "answer": "dice",
+                    "options": [
+                        "dices",
+                        "dice",
+                        "dies"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "irregular_forms"
+            ],
+            "variants": [
+                "Throw the {a53} again, please. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q17"
+        },
+        {
+            "id": 54,
+            "question": "The cattle {a54} grazing near the river. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B1",
+            "markers": {
+                "a54": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The cattle {a54} grazing near the river. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b1-q18"
+        },
+        {
+            "id": 55,
+            "question": "Scientists recorded several strange {a55}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a55": {
+                    "answer": "phenomena",
+                    "options": [
+                        "phenomenons",
+                        "phenomena",
+                        "phenomenas"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "Scientists recorded several strange {a55}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q01"
+        },
+        {
+            "id": 56,
+            "question": "We discussed three possible {a56}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a56": {
+                    "answer": "hypotheses",
+                    "options": [
+                        "hypothesis",
+                        "hypotheses",
+                        "hypothesises"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "We discussed three possible {a56}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q02"
+        },
+        {
+            "id": 57,
+            "question": "The report compared the latest {a57} from both surveys. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a57": {
+                    "answer": "analyses",
+                    "options": [
+                        "analysises",
+                        "analyses",
+                        "analysis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "The report compared the latest {a57} from both surveys. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q03"
+        },
+        {
+            "id": 58,
+            "question": "The country faced multiple economic {a58}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a58": {
+                    "answer": "crises",
+                    "options": [
+                        "crisises",
+                        "crises",
+                        "crisis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "The country faced multiple economic {a58}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q04"
+        },
+        {
+            "id": 59,
+            "question": "The library stores hundreds of doctoral {a59}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a59": {
+                    "answer": "theses",
+                    "options": [
+                        "thesises",
+                        "theses",
+                        "thesis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "The library stores hundreds of doctoral {a59}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q05"
+        },
+        {
+            "id": 60,
+            "question": "Several theoretical {a60} support the model. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a60": {
+                    "answer": "bases",
+                    "options": [
+                        "basis",
+                        "bases",
+                        "basises"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "Several theoretical {a60} support the model. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q06"
+        },
+        {
+            "id": 61,
+            "question": "In geometry, all three {a61} of the triangle were marked. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a61": {
+                    "answer": "vertices",
+                    "options": [
+                        "vertexes",
+                        "vertices",
+                        "vertexs"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "In geometry, all three {a61} of the triangle were marked. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q07"
+        },
+        {
+            "id": 62,
+            "question": "In linear algebra, these {a62} describe the transformation. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a62": {
+                    "answer": "matrices",
+                    "options": [
+                        "matrixes",
+                        "matrices",
+                        "matrixs"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "In linear algebra, these {a62} describe the transformation. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q08"
+        },
+        {
+            "id": 63,
+            "question": "Ten kilometres {a63} too far to walk before breakfast. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a63": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Ten kilometres {a63} too far to walk before breakfast. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q09"
+        },
+        {
+            "id": 64,
+            "question": "Five hundred dollars {a64} missing from the safe. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a64": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Five hundred dollars {a64} missing from the safe. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q10"
+        },
+        {
+            "id": 65,
+            "question": "The number of applicants {a65} increasing every week. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a65": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "The number of applicants {a65} increasing every week. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q11"
+        },
+        {
+            "id": 66,
+            "question": "A number of applicants {a66} waiting outside. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a66": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "A number of applicants {a66} waiting outside. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q12"
+        },
+        {
+            "id": 67,
+            "question": "Two new {a67} of the same podcast will be released tomorrow. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a67": {
+                    "answer": "series",
+                    "options": [
+                        "serieses",
+                        "series",
+                        "seri"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "Two new {a67} of the same podcast will be released tomorrow. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q13"
+        },
+        {
+            "id": 68,
+            "question": "Several rare {a68} live on this island. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a68": {
+                    "answer": "species",
+                    "options": [
+                        "species",
+                        "specie",
+                        "specieses"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "zero_plural"
+            ],
+            "variants": [
+                "Several rare {a68} live on this island. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q14"
+        },
+        {
+            "id": 69,
+            "question": "One medium, several print {a69}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a69": {
+                    "answer": "media",
+                    "options": [
+                        "medias",
+                        "media",
+                        "mediums"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "academic_plurals"
+            ],
+            "variants": [
+                "One medium, several print {a69}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q15"
+        },
+        {
+            "id": 70,
+            "question": "Economics {a70} often taught with real-world examples. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a70": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Economics {a70} often taught with real-world examples. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q16"
+        },
+        {
+            "id": 71,
+            "question": "Mathematics {a71} my favorite subject at school. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a71": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Mathematics {a71} my favorite subject at school. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q17"
+        },
+        {
+            "id": 72,
+            "question": "Measles {a72} still a dangerous disease in some places. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "B2",
+            "markers": {
+                "a72": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Measles {a72} still a dangerous disease in some places. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-b2-q18"
+        },
+        {
+            "id": 73,
+            "question": "Two {a73} joined the family dinner last night. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a73": {
+                    "answer": "brothers-in-law",
+                    "options": [
+                        "brother-in-laws",
+                        "brothers-in-law",
+                        "brothers-in-laws"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "Two {a73} joined the family dinner last night. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q01"
+        },
+        {
+            "id": 74,
+            "question": "The busy street was full of hurried {a74}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a74": {
+                    "answer": "passers-by",
+                    "options": [
+                        "passer-bys",
+                        "passers-by",
+                        "passers-bys"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "The busy street was full of hurried {a74}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q02"
+        },
+        {
+            "id": 75,
+            "question": "The company hired two experienced {a75}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a75": {
+                    "answer": "attorneys general",
+                    "options": [
+                        "attorney generals",
+                        "attorneys general",
+                        "attorneys generals"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "The company hired two experienced {a75}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q03"
+        },
+        {
+            "id": 76,
+            "question": "Several decorated {a76} attended the ceremony. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a76": {
+                    "answer": "commanders-in-chief",
+                    "options": [
+                        "commander-in-chiefs",
+                        "commanders-in-chief",
+                        "commanders-in-chieves"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "Several decorated {a76} attended the ceremony. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q04"
+        },
+        {
+            "id": 77,
+            "question": "Both {a77} approved the proposal. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a77": {
+                    "answer": "mothers-in-law",
+                    "options": [
+                        "mother-in-laws",
+                        "mothers-in-law",
+                        "mothers-in-laws"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "Both {a77} approved the proposal. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q05"
+        },
+        {
+            "id": 78,
+            "question": "The final two {a78} received silver medals. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a78": {
+                    "answer": "runners-up",
+                    "options": [
+                        "runner-ups",
+                        "runners-up",
+                        "runnerss-up"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "compound_plurals"
+            ],
+            "variants": [
+                "The final two {a78} received silver medals. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q06"
+        },
+        {
+            "id": 79,
+            "question": "The warehouse {a79} are guarded at night. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a79": {
+                    "answer": "premises",
+                    "options": [
+                        "premise",
+                        "premises",
+                        "premisses"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The warehouse {a79} are guarded at night. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q07"
+        },
+        {
+            "id": 80,
+            "question": "The city {a80} are expanding rapidly. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a80": {
+                    "answer": "outskirts",
+                    "options": [
+                        "outskirt",
+                        "outskirts",
+                        "outskirtes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The city {a80} are expanding rapidly. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q08"
+        },
+        {
+            "id": 81,
+            "question": "The ancient {a81} were carefully buried. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a81": {
+                    "answer": "remains",
+                    "options": [
+                        "remain",
+                        "remains",
+                        "remaines"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The ancient {a81} were carefully buried. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q09"
+        },
+        {
+            "id": 82,
+            "question": "His precise {a82} are still unknown. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a82": {
+                    "answer": "whereabouts",
+                    "options": [
+                        "whereabout",
+                        "whereabouts",
+                        "whereaboutes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "His precise {a82} are still unknown. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q10"
+        },
+        {
+            "id": 83,
+            "question": "Politics {a83} often a sensitive topic at dinner. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a83": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Politics {a83} often a sensitive topic at dinner. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q11"
+        },
+        {
+            "id": 84,
+            "question": "Billiards {a84} easier than it looks. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a84": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Billiards {a84} easier than it looks. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q12"
+        },
+        {
+            "id": 85,
+            "question": "Phonetics {a85} useful for pronunciation training. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a85": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage"
+            ],
+            "variants": [
+                "Phonetics {a85} useful for pronunciation training. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q13"
+        },
+        {
+            "id": 86,
+            "question": "The contents of the box {a86} missing. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a86": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The contents of the box {a86} missing. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q14"
+        },
+        {
+            "id": 87,
+            "question": "Thanks {a87} due to everyone who helped. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a87": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "Thanks {a87} due to everyone who helped. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q15"
+        },
+        {
+            "id": 88,
+            "question": "The goods {a88} stored in a dry place. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a88": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The goods {a88} stored in a dry place. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q16"
+        },
+        {
+            "id": 89,
+            "question": "The customs {a89} stricter at this border crossing. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a89": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The customs {a89} stricter at this border crossing. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q17"
+        },
+        {
+            "id": 90,
+            "question": "The archives {a90} open to researchers on weekdays. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C1",
+            "markers": {
+                "a90": {
+                    "answer": "are",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "subject-verb agreement"
+                }
+            },
+            "tag_keys": [
+                "agreement_usage",
+                "plural_only_nouns"
+            ],
+            "variants": [
+                "The archives {a90} open to researchers on weekdays. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c1-q18"
+        },
+        {
+            "id": 91,
+            "question": "The botanist compared several plant {a91}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a91": {
+                    "answer": "genera",
+                    "options": [
+                        "genuses",
+                        "genera",
+                        "genus"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The botanist compared several plant {a91}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q01"
+        },
+        {
+            "id": 92,
+            "question": "The microscope revealed harmful {a92} in the sample. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a92": {
+                    "answer": "bacteria",
+                    "options": [
+                        "bacterias",
+                        "bacteria",
+                        "bacterium"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The microscope revealed harmful {a92} in the sample. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q02"
+        },
+        {
+            "id": 93,
+            "question": "The marine biologist studied tiny {a93}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a93": {
+                    "answer": "algae",
+                    "options": [
+                        "algaes",
+                        "algae",
+                        "algas"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The marine biologist studied tiny {a93}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q03"
+        },
+        {
+            "id": 94,
+            "question": "The zoologist described insect {a94} in detail. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a94": {
+                    "answer": "larvae",
+                    "options": [
+                        "larvas",
+                        "larvae",
+                        "larvaes"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The zoologist described insect {a94} in detail. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q04"
+        },
+        {
+            "id": 95,
+            "question": "The physicist explained atomic {a95} in the lecture. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a95": {
+                    "answer": "nuclei",
+                    "options": [
+                        "nucleuses",
+                        "nuclei",
+                        "nucleus"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The physicist explained atomic {a95} in the lecture. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q05"
+        },
+        {
+            "id": 96,
+            "question": "Several external {a96} affected the result. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a96": {
+                    "answer": "stimuli",
+                    "options": [
+                        "stimuluses",
+                        "stimuli",
+                        "stimulus"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "Several external {a96} affected the result. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q06"
+        },
+        {
+            "id": 97,
+            "question": "In the circle diagram, the {a97} were drawn in red. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a97": {
+                    "answer": "radii",
+                    "options": [
+                        "radiuses",
+                        "radii",
+                        "radius"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "In the circle diagram, the {a97} were drawn in red. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q07"
+        },
+        {
+            "id": 98,
+            "question": "The linguist built large text {a98} for the study. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a98": {
+                    "answer": "corpora",
+                    "options": [
+                        "corpuses",
+                        "corpora",
+                        "corpus"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The linguist built large text {a98} for the study. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q08"
+        },
+        {
+            "id": 99,
+            "question": "In computer theory, simple {a99} can recognize patterns. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a99": {
+                    "answer": "automata",
+                    "options": [
+                        "automatons",
+                        "automata",
+                        "automatas"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "In computer theory, simple {a99} can recognize patterns. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q09"
+        },
+        {
+            "id": 100,
+            "question": "Please put the citation in round {a100}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a100": {
+                    "answer": "parentheses",
+                    "options": [
+                        "parenthesises",
+                        "parentheses",
+                        "parenthesis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "Please put the citation in round {a100}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q10"
+        },
+        {
+            "id": 101,
+            "question": "On the graph, several {a101} were drawn to show the orbits. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a101": {
+                    "answer": "ellipses",
+                    "options": [
+                        "ellipsises",
+                        "ellipses",
+                        "ellipse"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "On the graph, several {a101} were drawn to show the orbits. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q11"
+        },
+        {
+            "id": 102,
+            "question": "The clinic recorded several difficult {a102} that week. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a102": {
+                    "answer": "diagnoses",
+                    "options": [
+                        "diagnosises",
+                        "diagnoses",
+                        "diagnosis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The clinic recorded several difficult {a102} that week. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q12"
+        },
+        {
+            "id": 103,
+            "question": "The editor requested short {a103} of each chapter. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a103": {
+                    "answer": "synopses",
+                    "options": [
+                        "synopsises",
+                        "synopses",
+                        "synopsis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The editor requested short {a103} of each chapter. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q13"
+        },
+        {
+            "id": 104,
+            "question": "After hours in the desert, the travelers finally found two {a104}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a104": {
+                    "answer": "oases",
+                    "options": [
+                        "oasises",
+                        "oases",
+                        "oasis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "After hours in the desert, the travelers finally found two {a104}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q14"
+        },
+        {
+            "id": 105,
+            "question": "The speaker placed strong {a105} on clarity and tone. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a105": {
+                    "answer": "emphases",
+                    "options": [
+                        "emphasises",
+                        "emphases",
+                        "emphasis"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The speaker placed strong {a105} on clarity and tone. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q15"
+        },
+        {
+            "id": 106,
+            "question": "Geologists examined the rock {a106} one by one. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a106": {
+                    "answer": "strata",
+                    "options": [
+                        "stratas",
+                        "strata",
+                        "stratum"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "Geologists examined the rock {a106} one by one. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q16"
+        },
+        {
+            "id": 107,
+            "question": "The entomologist examined the beetles' long {a107}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a107": {
+                    "answer": "antennae",
+                    "options": [
+                        "antennas",
+                        "antennae",
+                        "antenna"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "The entomologist examined the beetles' long {a107}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q17"
+        },
+        {
+            "id": 108,
+            "question": "In the old Latinized textbook, the plural of formula was written as {a108}. Choose the best plural form.",
+            "source": "theory_page_712",
+            "level": "C2",
+            "markers": {
+                "a108": {
+                    "answer": "formulae",
+                    "options": [
+                        "formulas",
+                        "formulae",
+                        "formuli"
+                    ],
+                    "verb_hint": "plural form"
+                }
+            },
+            "tag_keys": [
+                "scientific_plurals"
+            ],
+            "variants": [
+                "In the old Latinized textbook, the plural of formula was written as {a108}. Choose the best plural form."
+            ],
+            "uuid": "pn-cg-cx-c2-q18"
+        }
+    ],
+    "saved_test": {
+        "uuid": "pn-cg-cx-saved-test",
+        "slug": "plural_nouns_chatgpt_codex",
+    "name": "Plural Nouns — ChatGPT Codex V3 Questions Test",
+        "description": "ChatGpt Codex practice set for plural noun formation, spelling changes, irregular forms, singular-only and plural-only nouns, compound plurals, and academic usage across A1-C2.",
+        "filters": {
+            "num_questions": 108,
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\AI\\ChatGpt\\Codex\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page_id": 712,
+                "theory_page_ids": [
+                    712
+                ],
+                "theory_page": {
+                    "id": 712,
+                    "slug": "plural-nouns-s-es-ies",
+                    "title": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+                    "category_slug_path": "imennyky-artykli-ta-kilkist",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies"
+                }
+            }
+        },
+        "question_uuids": [
+            "pn-cg-cx-a1-q01",
+            "pn-cg-cx-a1-q02",
+            "pn-cg-cx-a1-q03",
+            "pn-cg-cx-a1-q04",
+            "pn-cg-cx-a1-q05",
+            "pn-cg-cx-a1-q06",
+            "pn-cg-cx-a1-q07",
+            "pn-cg-cx-a1-q08",
+            "pn-cg-cx-a1-q09",
+            "pn-cg-cx-a1-q10",
+            "pn-cg-cx-a1-q11",
+            "pn-cg-cx-a1-q12",
+            "pn-cg-cx-a1-q13",
+            "pn-cg-cx-a1-q14",
+            "pn-cg-cx-a1-q15",
+            "pn-cg-cx-a1-q16",
+            "pn-cg-cx-a1-q17",
+            "pn-cg-cx-a1-q18",
+            "pn-cg-cx-a2-q01",
+            "pn-cg-cx-a2-q02",
+            "pn-cg-cx-a2-q03",
+            "pn-cg-cx-a2-q04",
+            "pn-cg-cx-a2-q05",
+            "pn-cg-cx-a2-q06",
+            "pn-cg-cx-a2-q07",
+            "pn-cg-cx-a2-q08",
+            "pn-cg-cx-a2-q09",
+            "pn-cg-cx-a2-q10",
+            "pn-cg-cx-a2-q11",
+            "pn-cg-cx-a2-q12",
+            "pn-cg-cx-a2-q13",
+            "pn-cg-cx-a2-q14",
+            "pn-cg-cx-a2-q15",
+            "pn-cg-cx-a2-q16",
+            "pn-cg-cx-a2-q17",
+            "pn-cg-cx-a2-q18",
+            "pn-cg-cx-b1-q01",
+            "pn-cg-cx-b1-q02",
+            "pn-cg-cx-b1-q03",
+            "pn-cg-cx-b1-q04",
+            "pn-cg-cx-b1-q05",
+            "pn-cg-cx-b1-q06",
+            "pn-cg-cx-b1-q07",
+            "pn-cg-cx-b1-q08",
+            "pn-cg-cx-b1-q09",
+            "pn-cg-cx-b1-q10",
+            "pn-cg-cx-b1-q11",
+            "pn-cg-cx-b1-q12",
+            "pn-cg-cx-b1-q13",
+            "pn-cg-cx-b1-q14",
+            "pn-cg-cx-b1-q15",
+            "pn-cg-cx-b1-q16",
+            "pn-cg-cx-b1-q17",
+            "pn-cg-cx-b1-q18",
+            "pn-cg-cx-b2-q01",
+            "pn-cg-cx-b2-q02",
+            "pn-cg-cx-b2-q03",
+            "pn-cg-cx-b2-q04",
+            "pn-cg-cx-b2-q05",
+            "pn-cg-cx-b2-q06",
+            "pn-cg-cx-b2-q07",
+            "pn-cg-cx-b2-q08",
+            "pn-cg-cx-b2-q09",
+            "pn-cg-cx-b2-q10",
+            "pn-cg-cx-b2-q11",
+            "pn-cg-cx-b2-q12",
+            "pn-cg-cx-b2-q13",
+            "pn-cg-cx-b2-q14",
+            "pn-cg-cx-b2-q15",
+            "pn-cg-cx-b2-q16",
+            "pn-cg-cx-b2-q17",
+            "pn-cg-cx-b2-q18",
+            "pn-cg-cx-c1-q01",
+            "pn-cg-cx-c1-q02",
+            "pn-cg-cx-c1-q03",
+            "pn-cg-cx-c1-q04",
+            "pn-cg-cx-c1-q05",
+            "pn-cg-cx-c1-q06",
+            "pn-cg-cx-c1-q07",
+            "pn-cg-cx-c1-q08",
+            "pn-cg-cx-c1-q09",
+            "pn-cg-cx-c1-q10",
+            "pn-cg-cx-c1-q11",
+            "pn-cg-cx-c1-q12",
+            "pn-cg-cx-c1-q13",
+            "pn-cg-cx-c1-q14",
+            "pn-cg-cx-c1-q15",
+            "pn-cg-cx-c1-q16",
+            "pn-cg-cx-c1-q17",
+            "pn-cg-cx-c1-q18",
+            "pn-cg-cx-c2-q01",
+            "pn-cg-cx-c2-q02",
+            "pn-cg-cx-c2-q03",
+            "pn-cg-cx-c2-q04",
+            "pn-cg-cx-c2-q05",
+            "pn-cg-cx-c2-q06",
+            "pn-cg-cx-c2-q07",
+            "pn-cg-cx-c2-q08",
+            "pn-cg-cx-c2-q09",
+            "pn-cg-cx-c2-q10",
+            "pn-cg-cx-c2-q11",
+            "pn-cg-cx-c2-q12",
+            "pn-cg-cx-c2-q13",
+            "pn-cg-cx-c2-q14",
+            "pn-cg-cx-c2-q15",
+            "pn-cg-cx-c2-q16",
+            "pn-cg-cx-c2-q17",
+            "pn-cg-cx-c2-q18"
+        ]
+    }
+}

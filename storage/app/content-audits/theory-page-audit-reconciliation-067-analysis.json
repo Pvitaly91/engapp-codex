@@ -1,0 +1,1597 @@
+{
+  "audit_summary": {
+    "total_theory_pages": 250,
+    "pages_ok": 211,
+    "pages_missing_only_theory_links": 22,
+    "pages_missing_sentence_builder": 13,
+    "pages_missing_v3": 17,
+    "pages_missing_both_tests": 13,
+    "status_counts": {
+      "OK": 211,
+      "missing_all": 13,
+      "missing_mixed_test": 4,
+      "missing_polyglot_theory_links": 22
+    }
+  },
+  "failed_count": 39,
+  "inventory_counts": {
+    "page_v3_definitions": 284,
+    "v3_definition_files": 658,
+    "v3_all_levels_seeders": 238,
+    "polyglot_all_levels_seeders": 245,
+    "theory_links_manifests": 240,
+    "feature_test_files": 64
+  },
+  "classification_counts": {
+    "TYPE H": 22,
+    "TYPE A": 8,
+    "TYPE C": 9
+  },
+  "rows": [
+    {
+      "route": "/theory/basic-grammar/basic-conjunctions-and-but-or-because-so",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\ConjunctionsAndButOrBecauseSoV3QuestionsOnlySeeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotConjunctionsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\BasicGrammarConjunctionsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarConjunctionsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\basic-grammar-conjunctions-theory-links.json",
+          "route": "/theory/basic-grammar/basic-conjunctions-and-but-or-because-so",
+          "category_slug": "basic-grammar",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarConjunctionsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\BasicGrammarTheoryLinksSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/modal-verbs/past-modals",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "theory_links",
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsPastModalsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotModalPerfectDeductionAndRegretB2LessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotModalVerbsPastModalsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+      "repo_v3": [
+        {
+          "path": "database\\seeders\\V3\\ModalVerbs\\ModalVerbsPastModalsAllLevelsV3Seeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsPastModalsAllLevelsV3Seeder",
+          "saved_test_slug": "past-modals-all-levels-v3",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 0,
+          "route": "/theory/modal-verbs/past-modals",
+          "page_slug": "past-modals",
+          "category_slug": "modal-verbs"
+        }
+      ],
+      "repo_poly": [
+        {
+          "path": "database\\seeders\\V3\\Polyglot\\PolyglotModalVerbsPastModalsAllLevelsLessonSeeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotModalVerbsPastModalsAllLevelsLessonSeeder",
+          "saved_test_slug": "polyglot-modal-verbs-past-modals-all-levels",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 4,
+          "mode": "compose_tokens",
+          "route": "/theory/modal-verbs/past-modals",
+          "page_slug": "past-modals",
+          "category_slug": "modal-verbs"
+        }
+      ],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\modal-verbs-past-modals-theory-links.json",
+          "route": "/theory/modal-verbs/past-modals",
+          "category_slug": "modal-verbs",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\ModalVerbsPart2TheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/modal-verbs/requests-offers-suggestions",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "theory_links",
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotModalVerbsRequestsOffersSuggestionsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder",
+      "repo_v3": [
+        {
+          "path": "database\\seeders\\V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsAllLevelsV3Seeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsAllLevelsV3Seeder",
+          "saved_test_slug": "requests-offers-suggestions-all-levels-v3",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 0,
+          "route": "/theory/modal-verbs/requests-offers-suggestions",
+          "page_slug": "requests-offers-suggestions",
+          "category_slug": "modal-verbs"
+        }
+      ],
+      "repo_poly": [
+        {
+          "path": "database\\seeders\\V3\\Polyglot\\PolyglotModalVerbsRequestsOffersSuggestionsAllLevelsLessonSeeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotModalVerbsRequestsOffersSuggestionsAllLevelsLessonSeeder",
+          "saved_test_slug": "polyglot-modal-verbs-requests-offers-suggestions-all-levels",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 4,
+          "mode": "compose_tokens",
+          "route": "/theory/modal-verbs/requests-offers-suggestions",
+          "page_slug": "requests-offers-suggestions",
+          "category_slug": "modal-verbs"
+        }
+      ],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\modal-verbs-requests-offers-suggestions-theory-links.json",
+          "route": "/theory/modal-verbs/requests-offers-suggestions",
+          "category_slug": "modal-verbs",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\ModalVerbsPart2TheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/passive-voice/passive-voice-tenses/theory-passive-voice-future-continuous",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceFutureContinuousTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceFutureContinuousTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    },
+    {
+      "route": "/theory/passive-voice/passive-voice-tenses/theory-passive-voice-future-simple",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceFutureSimpleTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceFutureSimpleTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\passive-voice-future-simple-theory-links.json",
+          "route": "/theory/passive-voice/passive-voice-tenses/theory-passive-voice-future-simple",
+          "category_slug": "passive-voice/passive-voice-tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceFutureSimpleTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PassiveVoiceTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/zaimennyky-ta-vkazivni-slova/personal-object-pronouns",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPersonalObjectPronounsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesPersonalObjectPronounsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesPersonalObjectPronounsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\pronouns-demonstratives-personal-object-pronouns-theory-links.json",
+          "route": "/theory/zaimennyky-ta-vkazivni-slova/personal-object-pronouns",
+          "category_slug": "zaimennyky-ta-vkazivni-slova",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesPersonalObjectPronounsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PronounsDemonstrativesTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/tenses/past-perfect/past-perfect-forms",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\PastPerfect\\PastPerfectFormsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectFormsAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectBasicsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectFormsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectFormsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\past-perfect-forms-theory-links.json",
+          "route": "/theory/tenses/past-perfect/past-perfect-forms",
+          "category_slug": "tenses/past-perfect",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectFormsTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PastPerfectTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/past-perfect/past-perfect-negatives",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\PastPerfect\\PastPerfectNegativesAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectNegativesAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectNegativesTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectNegativesTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\past-perfect-negatives-theory-links.json",
+          "route": "/theory/tenses/past-perfect/past-perfect-negatives",
+          "category_slug": "tenses/past-perfect",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectNegativesTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PastPerfectTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/past-perfect/past-perfect-questions",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\PastPerfect\\PastPerfectQuestionsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectQuestionsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectQuestionsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectQuestionsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\past-perfect-questions-theory-links.json",
+          "route": "/theory/tenses/past-perfect/past-perfect-questions",
+          "category_slug": "tenses/past-perfect",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastPerfect\\PastPerfectQuestionsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PastPerfectTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/past-simple/past-simple-questions",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleQuestionsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleQuestionsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleQuestionsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleQuestionsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\past-simple-questions-theory-links.json",
+          "route": "/theory/tenses/past-simple/past-simple-questions",
+          "category_slug": "tenses/past-simple",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleQuestionsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PastSimpleTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/past-simple/past-simple-time-expressions",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleTimeExpressionsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\past-simple-time-expressions-theory-links.json",
+          "route": "/theory/tenses/past-simple/past-simple-time-expressions",
+          "category_slug": "tenses/past-simple",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PastSimple\\PastSimpleTimeExpressionsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PastSimpleTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/present-continuous/present-continuous-forms",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousFormsAllLevelsLessonSeeder"
+      ],
+      "theory_links": true,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousFormsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousFormsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\present-continuous-forms-theory-links.json",
+          "route": "/theory/tenses/present-continuous/present-continuous-forms",
+          "category_slug": "tenses/present-continuous",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousFormsTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PresentContinuousTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/tenses/present-continuous/present-continuous-time-expressions",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousTimeExpressionsAllLevelsLessonSeeder"
+      ],
+      "theory_links": true,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousTimeExpressionsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousTimeExpressionsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\present-continuous-time-expressions-theory-links.json",
+          "route": "/theory/tenses/present-continuous/present-continuous-time-expressions",
+          "category_slug": "tenses/present-continuous",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousTimeExpressionsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PresentContinuousTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/tenses/present-perfect/present-perfect-forms",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectFormsAllLevelsLessonSeeder"
+      ],
+      "theory_links": true,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectFormsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectFormsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\present-perfect-forms-theory-links.json",
+          "route": "/theory/tenses/present-perfect/present-perfect-forms",
+          "category_slug": "tenses/present-perfect",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectFormsTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PresentPerfectTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/tenses/present-perfect-continuous/present-perfect-continuous-time-expressions",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousTimeExpressionsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectContinuousTimeExpressionsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousTimeExpressionsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousTimeExpressionsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\present-perfect-continuous-time-expressions-theory-links.json",
+          "route": "/theory/tenses/present-perfect-continuous/present-perfect-continuous-time-expressions",
+          "category_slug": "tenses/present-perfect-continuous",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfectContinuous\\PresentPerfectContinuousTimeExpressionsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\PresentPerfectContinuousTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/past-perfect-vs-past-perfect-continuous",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Comparisons\\PastPerfectVsPastPerfectContinuousAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectVsPastPerfectContinuousAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesPastPerfectVsPastPerfectContinuousTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesPastPerfectVsPastPerfectContinuousTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\past-perfect-vs-past-perfect-continuous-theory-links.json",
+          "route": "/theory/tenses/past-perfect-vs-past-perfect-continuous",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesPastPerfectVsPastPerfectContinuousTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesComparisonsTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/past-simple-vs-past-continuous",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Comparisons\\PastSimpleVsPastContinuousAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPastSimpleVsPastContinuousAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesPastSimpleVsPastContinuousTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesPastSimpleVsPastContinuousTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\past-simple-vs-past-continuous-theory-links.json",
+          "route": "/theory/tenses/past-simple-vs-past-continuous",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesPastSimpleVsPastContinuousTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesComparisonsTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/present-perfect-vs-past-simple",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Comparisons\\PresentPerfectVsPastSimpleAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectVsPastSimpleAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectVsPastSimpleLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPastSimpleTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPastSimpleTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\present-perfect-vs-past-simple-theory-links.json",
+          "route": "/theory/tenses/present-perfect-vs-past-simple",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPastSimpleTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesComparisonsTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/present-perfect-vs-present-perfect-continuous",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Comparisons\\PresentPerfectVsPresentPerfectContinuousAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectVsPresentPerfectContinuousAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectContinuousVsPresentPerfectLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPresentPerfectContinuousTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPresentPerfectContinuousTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\present-perfect-vs-present-perfect-continuous-theory-links.json",
+          "route": "/theory/tenses/present-perfect-vs-present-perfect-continuous",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentPerfectVsPresentPerfectContinuousTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesComparisonsTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/present-simple-vs-present-continuous",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Comparisons\\PresentSimpleVsPresentContinuousAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentSimpleVsPresentContinuousAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesPresentSimpleVsPresentContinuousTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentSimpleVsPresentContinuousTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\present-simple-vs-present-continuous-theory-links.json",
+          "route": "/theory/tenses/present-simple-vs-present-continuous",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesPresentSimpleVsPresentContinuousTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesComparisonsTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/stative-verbs",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Extra\\StativeVerbsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotStativeVerbsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesStativeVerbsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesStativeVerbsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\stative-verbs-theory-links.json",
+          "route": "/theory/tenses/stative-verbs",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesStativeVerbsTheorySeeder",
+          "tests_on_page": 2,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesExtraTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/used-to-would",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Extra\\UsedToWouldAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotUsedToWouldAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotUsedToLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesUsedToWouldTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesUsedToWouldTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\used-to-would-theory-links.json",
+          "route": "/theory/tenses/used-to-would",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesUsedToWouldTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesExtraTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/theory-advanced-word-order-emphasis",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\AdvancedWordOrderEmphasisAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedWordOrderEmphasisAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedWordOrderEmphasisTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedWordOrderEmphasisTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderTheoryLinksSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/theory-basic-word-order",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\BasicWordOrderAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotBasicWordOrderAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\BasicWordOrderTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderTheoryLinksSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/theory-word-order-adverbs-adverbials",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\WordOrderAdverbsAdverbialsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotWordOrderAdverbsAdverbialsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderAdverbsAdverbialsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderAdverbsAdverbialsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderTheoryLinksSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/theory-word-order-questions-negatives",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\WordOrderQuestionsNegativesAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotWordOrderQuestionsNegativesAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderQuestionsNegativesTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderTheoryLinksSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/theory-word-order-verbs-objects",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\WordOrderVerbsObjectsAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotWordOrderVerbsObjectsAllLevelsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderVerbsObjectsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\WordOrderVerbsObjectsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderTheoryLinksSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/tenses/narrative-tenses",
+      "status": "missing_polyglot_theory_links",
+      "missing": [
+        "polyglot_theory_links",
+        "question_theory_text_blocks"
+      ],
+      "sentence_builder": true,
+      "mixed_a1_c2": true,
+      "v3_detected": [
+        "Database\\Seeders\\V3\\Tenses\\Extra\\NarrativeTensesAllLevelsV3Seeder"
+      ],
+      "polyglot_detected": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotNarrativeTensesAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotNarrativeTensesBasicsLessonSeeder"
+      ],
+      "theory_links": false,
+      "qttb": true,
+      "page_path": "database\\seeders\\Page_V3\\Tenses\\TensesNarrativeTensesTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Tenses\\TensesNarrativeTensesTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\narrative-tenses-theory-links.json",
+          "route": "/theory/tenses/narrative-tenses",
+          "category_slug": "tenses",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\TensesNarrativeTensesTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\TensesExtraTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE H",
+      "likely_cause": "needs manual inspection",
+      "proposed_action": "Manual decision before repair"
+    },
+    {
+      "route": "/theory/conditionals/conditionals-with-unless-provided-as-long-as",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\Conditionals\\ConditionalsWithUnlessProvidedAsLongAsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsWithUnlessProvidedAsLongAsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/inversion-basics",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionBasicsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionBasicsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderAdvancedTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    },
+    {
+      "route": "/theory/formal-english/formal-register-and-nominalisation-basics",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\FormalEnglish\\FormalRegisterAndNominalisationBasicsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\FormalRegisterAndNominalisationBasicsTheorySeeder",
+      "repo_v3": [
+        {
+          "path": "database\\seeders\\V3\\FormalEnglish\\FormalRegisterAndNominalisationBasicsAllLevelsV3Seeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\FormalEnglish\\FormalRegisterAndNominalisationBasicsAllLevelsV3Seeder",
+          "saved_test_slug": "formal-register-and-nominalisation-basics-all-levels-v3",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 0,
+          "route": "/theory/formal-english/formal-register-and-nominalisation-basics",
+          "page_slug": "formal-register-and-nominalisation-basics",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_poly": [
+        {
+          "path": "database\\seeders\\V3\\Polyglot\\PolyglotFormalRegisterAndNominalisationBasicsAllLevelsLessonSeeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotFormalRegisterAndNominalisationBasicsAllLevelsLessonSeeder",
+          "saved_test_slug": "polyglot-formal-register-and-nominalisation-basics-all-levels",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 4,
+          "mode": "compose_tokens",
+          "route": "/theory/formal-english/formal-register-and-nominalisation-basics",
+          "page_slug": "formal-register-and-nominalisation-basics",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\formal-english-formal-register-and-nominalisation-basics-theory-links.json",
+          "route": "/theory/formal-english/formal-register-and-nominalisation-basics",
+          "category_slug": "formal-english",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\FormalRegisterAndNominalisationBasicsTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\FormalEnglishTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/conditionals/advanced-conditionals",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/inversion-after-negative-adverbials",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionAfterNegativeAdverbialsTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionAfterNegativeAdverbialsTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderAdvancedTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    },
+    {
+      "route": "/theory/passive-voice/passive-reporting-structures",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\PassiveVoice\\PassiveReportingStructuresTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveReportingStructuresTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    },
+    {
+      "route": "/theory/formal-english/nominalisation-formal-register",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\FormalEnglish\\NominalisationFormalRegisterTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\NominalisationFormalRegisterTheorySeeder",
+      "repo_v3": [
+        {
+          "path": "database\\seeders\\V3\\FormalEnglish\\NominalisationFormalRegisterAllLevelsV3Seeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\FormalEnglish\\NominalisationFormalRegisterAllLevelsV3Seeder",
+          "saved_test_slug": "nominalisation-formal-register-all-levels-v3",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 0,
+          "route": "/theory/formal-english/nominalisation-formal-register",
+          "page_slug": "nominalisation-formal-register",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_poly": [
+        {
+          "path": "database\\seeders\\V3\\Polyglot\\PolyglotNominalisationFormalRegisterAllLevelsLessonSeeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotNominalisationFormalRegisterAllLevelsLessonSeeder",
+          "saved_test_slug": "polyglot-nominalisation-formal-register-all-levels",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 4,
+          "mode": "compose_tokens",
+          "route": "/theory/formal-english/nominalisation-formal-register",
+          "page_slug": "nominalisation-formal-register",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\formal-english-nominalisation-formal-register-theory-links.json",
+          "route": "/theory/formal-english/nominalisation-formal-register",
+          "category_slug": "formal-english",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\NominalisationFormalRegisterTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\FormalEnglishTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/formal-english/subjunctive-and-formal-structures",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\FormalEnglish\\SubjunctiveAndFormalStructuresTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\SubjunctiveAndFormalStructuresTheorySeeder",
+      "repo_v3": [
+        {
+          "path": "database\\seeders\\V3\\FormalEnglish\\SubjunctiveAndFormalStructuresAllLevelsV3Seeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\FormalEnglish\\SubjunctiveAndFormalStructuresAllLevelsV3Seeder",
+          "saved_test_slug": "subjunctive-and-formal-structures-all-levels-v3",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 0,
+          "route": "/theory/formal-english/subjunctive-and-formal-structures",
+          "page_slug": "subjunctive-and-formal-structures",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_poly": [
+        {
+          "path": "database\\seeders\\V3\\Polyglot\\PolyglotSubjunctiveAndFormalStructuresAllLevelsLessonSeeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotSubjunctiveAndFormalStructuresAllLevelsLessonSeeder",
+          "saved_test_slug": "polyglot-subjunctive-and-formal-structures-all-levels",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 4,
+          "mode": "compose_tokens",
+          "route": "/theory/formal-english/subjunctive-and-formal-structures",
+          "page_slug": "subjunctive-and-formal-structures",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\formal-english-subjunctive-and-formal-structures-theory-links.json",
+          "route": "/theory/formal-english/subjunctive-and-formal-structures",
+          "category_slug": "formal-english",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\SubjunctiveAndFormalStructuresTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\FormalEnglishTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/formal-english/register-tone-and-paraphrase",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+      "repo_v3": [
+        {
+          "path": "database\\seeders\\V3\\FormalEnglish\\RegisterToneAndParaphraseAllLevelsV3Seeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\FormalEnglish\\RegisterToneAndParaphraseAllLevelsV3Seeder",
+          "saved_test_slug": "register-tone-and-paraphrase-all-levels-v3",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 0,
+          "route": "/theory/formal-english/register-tone-and-paraphrase",
+          "page_slug": "register-tone-and-paraphrase",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_poly": [
+        {
+          "path": "database\\seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseAllLevelsLessonSeeder\\definition.json",
+          "class": "Database\\Seeders\\V3\\Polyglot\\PolyglotRegisterToneAndParaphraseAllLevelsLessonSeeder",
+          "saved_test_slug": "polyglot-register-tone-and-paraphrase-all-levels",
+          "question_count": 72,
+          "levels": {
+            "A1": 12,
+            "A2": 12,
+            "B1": 12,
+            "B2": 12,
+            "C1": 12,
+            "C2": 12
+          },
+          "type": 4,
+          "mode": "compose_tokens",
+          "route": "/theory/formal-english/register-tone-and-paraphrase",
+          "page_slug": "register-tone-and-paraphrase",
+          "category_slug": "formal-english"
+        }
+      ],
+      "repo_links": [
+        {
+          "path": "database\\seeders\\V3\\TheoryLinks\\data\\formal-english-register-tone-and-paraphrase-theory-links.json",
+          "route": "/theory/formal-english/register-tone-and-paraphrase",
+          "category_slug": "formal-english",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\FormalEnglish\\RegisterToneAndParaphraseTheorySeeder",
+          "tests_on_page": 3,
+          "poly_explicit": true
+        }
+      ],
+      "feature_tests": [
+        "tests\\Feature\\FormalEnglishTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE C",
+      "likely_cause": "repo has some/all content source, but current local DB/audit resolution is missing seeded V3/mixed state",
+      "proposed_action": "Level 0 seed/refresh local DB first; if still failed, inspect resolver"
+    },
+    {
+      "route": "/theory/conditionals/conditional-alternatives-and-nuance",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\Conditionals\\ConditionalAlternativesAndNuanceTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalAlternativesAndNuanceTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/advanced-fronting-and-emphasis",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "sentence_builder": false,
+      "mixed_a1_c2": false,
+      "v3_detected": [],
+      "polyglot_detected": [],
+      "theory_links": false,
+      "qttb": false,
+      "page_path": "database\\seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedFrontingAndEmphasisTheorySeeder\\definition.json",
+      "page_seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedFrontingAndEmphasisTheorySeeder",
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "feature_tests": [
+        "tests\\Feature\\WordOrderAdvancedTheoryPageTestsSeedersTest.php"
+      ],
+      "classification": "TYPE A",
+      "likely_cause": "repo lacks page-local all-level content/links for this canonical Page_V3 route",
+      "proposed_action": "Level 3 content repair batch after scoping pages"
+    }
+  ]
+}

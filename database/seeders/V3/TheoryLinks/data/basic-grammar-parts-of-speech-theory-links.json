@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "content_type": "theory_test_links_manifest",
+  "purpose": "Describe curated links between Parts of Speech theory text blocks and theory-page tests so the public test UI can render the 'Показати теорію' / Show theory block.",
+  "page": {
+    "route": "/theory/basic-grammar/parts-of-speech",
+    "category_slug": "basic-grammar",
+    "slug": "parts-of-speech",
+    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+    "title": "Parts of Speech — Частини мови"
+  },
+  "target_pivot": {
+    "table": "question_theory_text_blocks",
+    "question_key": "question_uuid",
+    "block_key": "text_block_uuid",
+    "position_column": "position",
+    "legacy_question_column": "questions.theory_text_block_uuid",
+    "notes": [
+      "Seeder must write many-to-many links into question_theory_text_blocks.",
+      "Seeder must also set questions.theory_text_block_uuid to the first resolved block UUID for backward compatibility."
+    ]
+  },
+  "theory_text_block_aliases": {
+    "hero": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 1,
+      "title": "Hero / introduction",
+      "use_for": [
+        "intro",
+        "fallback",
+        "all_general"
+      ]
+    },
+    "overview_8_parts": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 2,
+      "title": "Огляд 8 частин мови",
+      "use_for": [
+        "general_parts_of_speech",
+        "mixed_sentence_builder"
+      ]
+    },
+    "nouns": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 3,
+      "title": "Nouns — Іменники",
+      "use_for": [
+        "noun",
+        "noun_identification",
+        "noun_recognition"
+      ]
+    },
+    "verbs": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 4,
+      "title": "Verbs — Дієслова",
+      "use_for": [
+        "verb",
+        "verb_identification",
+        "verb_recognition"
+      ]
+    },
+    "adjectives": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 5,
+      "title": "Adjectives — Прикметники",
+      "use_for": [
+        "adjective",
+        "adjective_identification",
+        "adjective_recognition"
+      ]
+    },
+    "adverbs": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 6,
+      "title": "Adverbs — Прислівники",
+      "use_for": [
+        "adverb",
+        "adverb_identification",
+        "adverb_recognition",
+        "adverb_vs_adjective"
+      ]
+    },
+    "pronouns": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 7,
+      "title": "Pronouns — Займенники",
+      "use_for": [
+        "pronoun",
+        "pronoun_identification",
+        "pronoun_usage",
+        "reflexive_pronoun"
+      ]
+    },
+    "prepositions": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 8,
+      "title": "Prepositions — Прийменники",
+      "use_for": [
+        "preposition",
+        "preposition_identification",
+        "preposition_usage"
+      ]
+    },
+    "conjunctions": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 9,
+      "title": "Conjunctions — Сполучники",
+      "use_for": [
+        "conjunction",
+        "conjunction_identification",
+        "conjunction_usage"
+      ]
+    },
+    "interjections": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 10,
+      "title": "Interjections — Вигуки",
+      "use_for": [
+        "interjection",
+        "interjection_usage"
+      ]
+    },
+    "summary_table": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 11,
+      "title": "Зведена таблиця частин мови",
+      "use_for": [
+        "summary",
+        "ambiguity",
+        "mixed_sentence_builder"
+      ]
+    },
+    "typical_mistakes": {
+      "seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "sort_order": 12,
+      "title": "Типові помилки україномовних",
+      "use_for": [
+        "mistakes",
+        "adverb_vs_adjective",
+        "word_form_derivation"
+      ]
+    }
+  },
+  "bundles": {
+    "general_overview": [
+      "overview_8_parts",
+      "summary_table",
+      "hero"
+    ],
+    "noun": [
+      "nouns",
+      "overview_8_parts",
+      "summary_table"
+    ],
+    "verb": [
+      "verbs",
+      "overview_8_parts",
+      "summary_table"
+    ],
+    "adjective": [
+      "adjectives",
+      "overview_8_parts",
+      "summary_table"
+    ],
+    "adverb": [
+      "adverbs",
+      "overview_8_parts",
+      "typical_mistakes",
+      "summary_table"
+    ],
+    "pronoun": [
+      "pronouns",
+      "overview_8_parts",
+      "summary_table"
+    ],
+    "preposition": [
+      "prepositions",
+      "overview_8_parts",
+      "summary_table"
+    ],
+    "conjunction": [
+      "conjunctions",
+      "overview_8_parts",
+      "summary_table"
+    ],
+    "interjection": [
+      "interjections",
+      "overview_8_parts",
+      "summary_table"
+    ],
+    "adverb_vs_adjective": [
+      "adverbs",
+      "adjectives",
+      "typical_mistakes",
+      "summary_table"
+    ],
+    "word_form_derivation": [
+      "nouns",
+      "verbs",
+      "adjectives",
+      "adverbs",
+      "typical_mistakes",
+      "summary_table"
+    ],
+    "pos_context_choice": [
+      "overview_8_parts",
+      "summary_table",
+      "typical_mistakes"
+    ],
+    "pos_ambiguity": [
+      "summary_table",
+      "overview_8_parts",
+      "typical_mistakes"
+    ],
+    "mixed_sentence_builder": [
+      "overview_8_parts",
+      "nouns",
+      "verbs",
+      "adjectives",
+      "adverbs",
+      "pronouns",
+      "prepositions",
+      "conjunctions",
+      "interjections",
+      "summary_table"
+    ]
+  },
+  "tests_on_page": [
+    {
+      "kind": "direct_saved_test",
+      "saved_test_slug": "polyglot-parts-of-speech-all-levels",
+      "saved_test_name": "Sentence Builder: Parts of Speech (All levels)",
+      "seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder",
+      "strategy": "explicit_question_uuid_map",
+      "question_links": {
+        "poly-pos-a1-01": [
+          "pronoun",
+          "verb",
+          "article_or_determiner_note",
+          "adjective",
+          "noun",
+          "general_overview"
+        ],
+        "poly-pos-a1-02": [
+          "pronoun",
+          "verb",
+          "adverb",
+          "general_overview"
+        ],
+        "poly-pos-a1-03": [
+          "pronoun",
+          "verb",
+          "preposition",
+          "noun",
+          "general_overview"
+        ],
+        "poly-pos-a2-01": [
+          "pronoun",
+          "noun",
+          "adverb",
+          "verb",
+          "general_overview"
+        ],
+        "poly-pos-a2-02": [
+          "pronoun",
+          "verb",
+          "adjective",
+          "noun",
+          "adverb",
+          "general_overview"
+        ],
+        "poly-pos-a2-03": [
+          "preposition",
+          "article_or_determiner_note",
+          "noun",
+          "pronoun",
+          "verb",
+          "general_overview"
+        ],
+        "poly-pos-b1-01": [
+          "conjunction",
+          "article_or_determiner_note",
+          "noun",
+          "verb",
+          "adjective",
+          "adverb",
+          "general_overview"
+        ],
+        "poly-pos-b1-02": [
+          "pronoun",
+          "noun",
+          "verb",
+          "adverb",
+          "adjective",
+          "general_overview"
+        ],
+        "poly-pos-b1-03": [
+          "conjunction",
+          "pronoun",
+          "verb",
+          "adverb",
+          "general_overview"
+        ],
+        "poly-pos-b2-01": [
+          "article_or_determiner_note",
+          "noun",
+          "adverb",
+          "verb",
+          "adjective",
+          "preposition",
+          "general_overview"
+        ],
+        "poly-pos-b2-02": [
+          "article_or_determiner_note",
+          "noun",
+          "pronoun",
+          "verb",
+          "adverb",
+          "adjective",
+          "general_overview"
+        ],
+        "poly-pos-b2-03": [
+          "preposition",
+          "article_or_determiner_note",
+          "noun",
+          "verb",
+          "adverb",
+          "general_overview"
+        ],
+        "poly-pos-c1-01": [
+          "adjective",
+          "noun",
+          "adverb",
+          "verb",
+          "general_overview"
+        ],
+        "poly-pos-c1-02": [
+          "conjunction",
+          "article_or_determiner_note",
+          "noun",
+          "verb",
+          "adjective",
+          "general_overview"
+        ],
+        "poly-pos-c1-03": [
+          "pronoun",
+          "adverb",
+          "adjective",
+          "noun",
+          "verb",
+          "article_or_determiner_note",
+          "general_overview"
+        ],
+        "poly-pos-c2-01": [
+          "adverb",
+          "article_or_determiner_note",
+          "adjective",
+          "noun",
+          "verb",
+          "preposition",
+          "general_overview"
+        ],
+        "poly-pos-c2-02": [
+          "pronoun",
+          "verb",
+          "article_or_determiner_note",
+          "adjective",
+          "noun",
+          "adverb",
+          "general_overview"
+        ],
+        "poly-pos-c2-03": [
+          "preposition",
+          "adjective",
+          "noun",
+          "adverb",
+          "verb",
+          "article_or_determiner_note",
+          "general_overview"
+        ]
+      },
+      "bundle_alias_notes": {
+        "article_or_determiner_note": "Parts of Speech page does not have an article-specific block. Do not create cross-page links yet unless Codex finds an existing article/determiner page link pattern. For this first seeder, ignore this alias or map it to overview_8_parts + summary_table."
+      }
+    },
+    {
+      "kind": "virtual_mixed_test",
+      "saved_test_slug_pattern": "theory-page-{page_id}-mixed-a1-c2",
+      "expected_page_route": "/theory/basic-grammar/parts-of-speech",
+      "expected_seeder_classes": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+      ],
+      "strategy": "map_by_question_tag_keys_and_marker_answer",
+      "tag_key_to_bundle": {
+        "noun_identification": "noun",
+        "noun_recognition": "noun",
+        "verb_identification": "verb",
+        "verb_recognition": "verb",
+        "adjective_identification": "adjective",
+        "adjective_recognition": "adjective",
+        "adverb_identification": "adverb",
+        "adverb_recognition": "adverb",
+        "pronoun_identification": "pronoun",
+        "pronoun_usage": "pronoun",
+        "reflexive_pronoun": "pronoun",
+        "preposition_identification": "preposition",
+        "preposition_usage": "preposition",
+        "conjunction_identification": "conjunction",
+        "conjunction_usage": "conjunction",
+        "interjection_usage": "interjection",
+        "adverb_vs_adjective": "adverb_vs_adjective",
+        "word_form_derivation": "word_form_derivation",
+        "pos_context_choice": "pos_context_choice",
+        "pos_ambiguity": "pos_ambiguity",
+        "theme": "general_overview",
+        "topic": "general_overview",
+        "parts_of_speech": "general_overview",
+        "Parts of Speech": "general_overview",
+        "Basic Grammar": "general_overview",
+        "Noun identification": "noun",
+        "Verb identification": "verb",
+        "Adjective identification": "adjective",
+        "Adverb identification": "adverb",
+        "Pronoun identification": "pronoun",
+        "Preposition identification": "preposition",
+        "Conjunction identification": "conjunction",
+        "Adverb vs Adjective": "adverb_vs_adjective",
+        "Reflexive pronoun": "pronoun",
+        "Parts of speech identification": "general_overview",
+        "Noun recognition": "noun",
+        "Verb recognition": "verb",
+        "Adjective recognition": "adjective",
+        "Adverb recognition": "adverb",
+        "Pronoun usage": "pronoun",
+        "Preposition usage": "preposition",
+        "Conjunction usage": "conjunction",
+        "Interjection usage": "interjection",
+        "Part-of-speech context choice": "pos_context_choice",
+        "Word-form derivation": "word_form_derivation",
+        "Part-of-speech ambiguity": "pos_ambiguity"
+      },
+      "answer_value_to_bundle_fallback": {
+        "noun": "noun",
+        "verb": "verb",
+        "adjective": "adjective",
+        "adverb": "adverb",
+        "pronoun": "pronoun",
+        "preposition": "preposition",
+        "conjunction": "conjunction",
+        "interjection": "interjection"
+      },
+      "default_bundle": "general_overview",
+      "expected_standard_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder"
+      ],
+      "expected_polyglot_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+      ],
+      "expected_all_seeders": [
+        "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+      ],
+      "polyglot_strategy": "Use direct_saved_test.question_links for the polyglot seeder; use tag/answer fallback only for unlisted future polyglot questions."
+    }
+  ],
+  "seeder_requirements": {
+    "new_seeder_class": "Database\\Seeders\\V3\\TheoryLinks\\BasicGrammarPartsOfSpeechTheoryLinksSeeder",
+    "suggested_php_path": "database/seeders/V3/TheoryLinks/BasicGrammarPartsOfSpeechTheoryLinksSeeder.php",
+    "suggested_json_path": "database/seeders/V3/TheoryLinks/data/basic-grammar-parts-of-speech-theory-links.json",
+    "idempotent": true,
+    "must_resolve_text_blocks_by": [
+      "seeder_class",
+      "sort_order"
+    ],
+    "must_resolve_questions_by": [
+      "uuid",
+      "seeder_class"
+    ],
+    "must_not_modify": [
+      "source question seeders",
+      "theory page seeders",
+      "saved_grammar_tests definitions"
+    ],
+    "must_update": [
+      "question_theory_text_blocks pivot",
+      "questions.theory_text_block_uuid legacy first-block field"
+    ]
+  },
+  "qa": {
+    "commands": [
+      "php artisan db:seed --class=Database\\\\Seeders\\\\Page_V3\\\\BasicGrammar\\\\BasicGrammarCategorySeeder",
+      "php artisan db:seed --class=Database\\\\Seeders\\\\Page_V3\\\\BasicGrammar\\\\BasicGrammarPartsOfSpeechTheorySeeder",
+      "php artisan db:seed --class=Database\\\\Seeders\\\\V3\\\\Polyglot\\\\PolyglotPartsOfSpeechAllLevelsLessonSeeder",
+      "php artisan db:seed --class=Database\\\\Seeders\\\\V3\\\\AI\\\\Copilot\\\\Sonate\\\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+      "php artisan db:seed --class=Database\\\\Seeders\\\\V3\\\\AI\\\\Copilot\\\\Opus46\\\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+      "php artisan db:seed --class=Database\\\\Seeders\\\\V3\\\\TheoryLinks\\\\BasicGrammarPartsOfSpeechTheoryLinksSeeder"
+    ],
+    "manual_checks": [
+      "Open /theory/basic-grammar/parts-of-speech and confirm page still shows 2 tests.",
+      "Open /test/polyglot-parts-of-speech-all-levels/step/compose and verify Show theory appears for questions.",
+      "Open /test/theory-page-{page_id}-mixed-a1-c2 and verify Show theory appears for mixed questions.",
+      "Check that question_theory_text_blocks contains rows for all questions from the three listed seeders."
+    ],
+    "must_cover_polyglot_sentence_builder": true,
+    "polyglot_direct_test_slug": "polyglot-parts-of-speech-all-levels",
+    "polyglot_seeder_class": "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder",
+    "expected_all_seeders": [
+      "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+      "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+    ],
+    "assertions": [
+      "All questions from Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder have at least one question_theory_text_blocks row.",
+      "Direct Polyglot/Sentence Builder test polyglot-parts-of-speech-all-levels shows the Show Theory / Показати теорію block.",
+      "Virtual mixed test includes standard V3 AI seeders and the Polyglot/Sentence Builder seeder.",
+      "Running the seeder twice does not increase pivot row count."
+    ]
+  },
+  "expected_standard_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder"
+  ],
+  "expected_polyglot_seeders": [
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+  ],
+  "expected_all_seeders": [
+    "Database\\Seeders\\V3\\AI\\Copilot\\Sonate\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\AI\\Copilot\\Opus46\\PartsOfSpeechCastiniMoviV3QuestionsOnlySeeder",
+    "Database\\Seeders\\V3\\Polyglot\\PolyglotPartsOfSpeechAllLevelsLessonSeeder"
+  ],
+  "implementation_contract": {
+    "codex_role": "Implement loader/seeder that applies this manifest exactly.",
+    "manifest_role": "This JSON is the source of truth for links. Do not let Codex re-decide mappings for listed polyglot question UUIDs.",
+    "standard_v3_strategy": "Use tag_key_to_bundle and answer_value_to_bundle_fallback.",
+    "polyglot_strategy": "Use direct_saved_test.question_links first. If a future polyglot UUID is not listed, use tag/answer fallback and report it in seeder output.",
+    "write_targets": [
+      "question_theory_text_blocks",
+      "questions.theory_text_block_uuid"
+    ],
+    "do_not_modify": [
+      "questions.question",
+      "question_answers",
+      "question_options",
+      "saved_grammar_tests",
+      "text_blocks",
+      "pages"
+    ]
+  }
+}

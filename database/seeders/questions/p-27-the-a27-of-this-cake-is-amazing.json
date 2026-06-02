@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 75,
+        "uuid": "p-27-the-a27-of-this-cake-is-amazing",
+        "question": "The {a27} of this cake is amazing.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-26T14:30:54.000000Z",
+        "updated_at": "2026-05-26T14:30:58.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:48.000000Z",
+                "updated_at": "2026-05-26T14:30:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 75,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 44,
+                "name": "Noun recognition",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 75,
+                "tag_id": 44,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 211,
+                "option": "taste",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 75,
+                "option_id": 211,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 212,
+                "option": "tasty",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 75,
+                "option_id": 212,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 213,
+                "option": "tastefully",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 75,
+                "option_id": 213,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 185,
+                "question_id": 75,
+                "marker": "a27",
+                "option_id": 211,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 211,
+                "option": "taste",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 27,
+                "question_id": 75,
+                "marker": "a27",
+                "option_id": 193,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 193,
+                "option": "noun form",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 57,
+            "question_id": 75,
+            "text": "The {a27} of this cake is amazing.",
+            "created_at": "2026-05-26T14:30:54.000000Z",
+            "updated_at": "2026-05-26T14:30:54.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 109,
+            "question_id": 75,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Choose the word that best completes the sentence grammatically.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 110,
+            "question_id": 75,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Po 'the' potrzebujemy rzeczownika.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 111,
+            "question_id": 75,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Після артикля 'the' і перед прийменника 'of' потрібен іменник.\nСлово 'taste' як іменник означає «смак» — властивість їжі.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 493,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "taste",
+            "correct_answer": "taste",
+            "language": "en",
+            "explanation": "Correct. 'taste' is the appropriate choice in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 496,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "taste",
+            "correct_answer": "taste",
+            "language": "pl",
+            "explanation": "Poprawnie! 'Taste' to rzeczownik oznaczający smak.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 499,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "taste",
+            "correct_answer": "taste",
+            "language": "ua",
+            "explanation": "Іменник 'taste' (смак) правильно називає якість їжі.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 500,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "taste",
+            "correct_answer": "taste",
+            "language": "uk",
+            "explanation": "Іменник 'taste' (смак) правильно називає якість їжі.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 495,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tastefully",
+            "correct_answer": "taste",
+            "language": "en",
+            "explanation": "Incorrect. 'tastefully' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 498,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tastefully",
+            "correct_answer": "taste",
+            "language": "pl",
+            "explanation": "'Tastefully' to przysłówek (gustownie), nie rzeczownik.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 503,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tastefully",
+            "correct_answer": "taste",
+            "language": "ua",
+            "explanation": "Прислівник 'tastefully' (зі смаком) описує спосіб дії, а не властивість предмета.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 504,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tastefully",
+            "correct_answer": "taste",
+            "language": "uk",
+            "explanation": "Прислівник 'tastefully' (зі смаком) описує спосіб дії, а не властивість предмета.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 494,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tasty",
+            "correct_answer": "taste",
+            "language": "en",
+            "explanation": "Incorrect. 'tasty' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 497,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tasty",
+            "correct_answer": "taste",
+            "language": "pl",
+            "explanation": "'Tasty' to przymiotnik (smaczny), nie rzeczownik.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 501,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tasty",
+            "correct_answer": "taste",
+            "language": "ua",
+            "explanation": "Прикметник 'tasty' (смачний) описує ознаку, але не може стояти після 'the' перед 'of'.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 502,
+            "question": "The {a27} of this cake is amazing.",
+            "wrong_answer": "tasty",
+            "correct_answer": "taste",
+            "language": "uk",
+            "explanation": "Прикметник 'tasty' (смачний) описує ознаку, але не може стояти після 'the' перед 'of'.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ]
+}

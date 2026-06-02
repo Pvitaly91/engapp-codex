@@ -1,0 +1,897 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\AI\\ChatGpt\\CodexWithTags\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "uuid_namespace": "pn-cg-cwt"
+  },
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 0,
+    "level_difficulty": {
+      "A1": 1,
+      "A2": 2,
+      "B1": 3,
+      "B2": 4,
+      "C1": 5,
+      "C2": 5
+    }
+  },
+  "category": {
+    "name": "Іменники, артиклі та кількість"
+  },
+  "sources": {
+    "theory_page_776": {
+      "name": "Plural Nouns — Множина іменників: правила, винятки, приклади"
+    }
+  },
+  "tags": {
+    "plural_nouns_topic": {
+      "name": "Plural nouns",
+      "category": "topic"
+    },
+    "plural_noun_rules_and_exceptions": {
+      "name": "Plural noun rules and exceptions",
+      "category": "focus"
+    },
+    "single_gap_multiple_choice": {
+      "name": "Single-gap multiple choice",
+      "category": "structure"
+    },
+    "regular_plural_s": {
+      "name": "Regular plural with -s",
+      "category": "pattern"
+    },
+    "plural_es_after_sibilant": {
+      "name": "Plural with -es after sibilant endings",
+      "category": "pattern"
+    },
+    "plural_consonant_y_to_ies": {
+      "name": "Consonant + y to ies",
+      "category": "pattern"
+    },
+    "plural_vowel_y_plus_s": {
+      "name": "Vowel + y plus s",
+      "category": "pattern"
+    },
+    "plural_f_fe_to_ves": {
+      "name": "f or fe to ves",
+      "category": "pattern"
+    },
+    "irregular_plural_child_children": {
+      "name": "Child to children",
+      "category": "pattern"
+    },
+    "plural_consonant_o_to_es": {
+      "name": "Consonant + o to es",
+      "category": "pattern"
+    },
+    "plural_o_exception_s": {
+      "name": "-o exception with s",
+      "category": "pattern"
+    },
+    "zero_plural_same_form": {
+      "name": "Same-form plural nouns",
+      "category": "pattern"
+    },
+    "uncountable_noun_no_plural": {
+      "name": "Uncountable noun without plural",
+      "category": "usage"
+    },
+    "plural_subject_verb_agreement": {
+      "name": "Plural subject-verb agreement",
+      "category": "usage"
+    },
+    "latin_greek_plural": {
+      "name": "Latin and Greek plural forms",
+      "category": "register"
+    },
+    "plural_only_noun_usage": {
+      "name": "Plural-only noun usage",
+      "category": "usage"
+    },
+    "f_noun_exception_s": {
+      "name": "-f noun exception with s",
+      "category": "pattern"
+    },
+    "plural_is_to_es": {
+      "name": "-is to -es plural",
+      "category": "register"
+    },
+    "people_vs_peoples_meaning": {
+      "name": "People vs peoples meaning contrast",
+      "category": "usage"
+    },
+    "pair_of_singular_agreement": {
+      "name": "Pair of plus singular agreement",
+      "category": "usage"
+    }
+  },
+  "default_tag_keys": [
+    "plural_nouns_topic",
+    "plural_noun_rules_and_exceptions",
+    "single_gap_multiple_choice"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "uuid": "pn-cg-cwt-a1-q01",
+      "question": "I have two {a1} in my school bag.",
+      "source": "theory_page_776",
+      "level": "A1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "books",
+          "options": [
+            "book",
+            "books",
+            "bookes"
+          ],
+          "verb_hint": "book"
+        }
+      },
+      "tag_keys": [
+        "regular_plural_s"
+      ],
+      "variants": [
+        "I have two {a1} in my school bag."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило regular plural with `-s`: більшість звичайних злічуваних іменників у множині отримують саме `-s`.",
+            "Підказка з речення: числівник `two` перед пропуском показує, що тут потрібна не форма однини, а множина."
+          ],
+          "explanations": {
+            "a1": {
+              "book": "Форма `book` не підходить, бо це однина. Після `two` іменник має стояти у множині.",
+              "books": "Варіант `books` правильний, бо для звичайного іменника `book` множина утворюється простим додаванням `-s`. Саме цього вимагає кількісний сигнал `two`.",
+              "bookes": "Форма `bookes` помилкова, бо закінчення `-es` тут не потрібне. Це не слово на `s`, `x`, `ch` чи `sh`, тому працює базова модель з `-s`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "uuid": "pn-cg-cwt-a1-q02",
+      "question": "There are three {a1} at the bus stop.",
+      "source": "theory_page_776",
+      "level": "A1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "buses",
+          "options": [
+            "buses",
+            "bus",
+            "buss"
+          ],
+          "verb_hint": "bus"
+        }
+      },
+      "tag_keys": [
+        "plural_es_after_sibilant"
+      ],
+      "variants": [
+        "There are three {a1} at the bus stop."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило plural with `-es`: після закінчень на `-s`, `-ss`, `-x`, `-ch` і `-sh` у множині зазвичай додаємо `-es`.",
+            "Підказка з речення: слово `three` вимагає множини, а основа `bus` уже закінчується на `-s`, тому простого `-s` тут недостатньо."
+          ],
+          "explanations": {
+            "a1": {
+              "buses": "Варіант `buses` правильний, бо слово `bus` закінчується на `-s` і в множині отримує `-es`. Кількісна підказка `three` підтверджує, що тут потрібна саме ця форма.",
+              "bus": "Форма `bus` помилкова, бо це однина. Після `three` потрібен іменник у множині.",
+              "buss": "Форма `buss` не працює, бо просте подвоєння фінальної літери не утворює множину. Для слова на `-s` тут потрібне саме закінчення `-es`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "uuid": "pn-cg-cwt-a1-q03",
+      "question": "The baby is playing with two other {a1} at the daycare.",
+      "source": "theory_page_776",
+      "level": "A1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "babies",
+          "options": [
+            "baby",
+            "babies",
+            "babys"
+          ],
+          "verb_hint": "baby"
+        }
+      },
+      "tag_keys": [
+        "plural_consonant_y_to_ies"
+      ],
+      "variants": [
+        "The baby is playing with two other {a1} at the daycare."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило `consonant + y -> ies`: якщо перед `-y` стоїть приголосна, у множині `y` змінюється на `-ies`.",
+            "Підказка з речення: фраза `two other` прямо показує, що йдеться про кілька дітей, а слово перед пропуском утворює множину від основи на `-y`."
+          ],
+          "explanations": {
+            "a1": {
+              "baby": "Форма `baby` не підходить, бо це однина. Після `two other` речення вимагає форму множини.",
+              "babies": "Варіант `babies` правильний, бо в слові `baby` перед `y` стоїть приголосна `b`, тому `y` переходить у `-ies`. Саме така орфографія потрібна в цьому контексті.",
+              "babys": "Форма `babys` помилкова, бо тут не можна просто додати `-s`. Після приголосної перед `y` треба змінити `y` на `-ies`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "uuid": "pn-cg-cwt-a2-q01",
+      "question": "My little brother has many {a1} in his room.",
+      "source": "theory_page_776",
+      "level": "A2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "toys",
+          "options": [
+            "toies",
+            "toys",
+            "toyes"
+          ],
+          "verb_hint": "toy"
+        }
+      },
+      "tag_keys": [
+        "plural_vowel_y_plus_s"
+      ],
+      "variants": [
+        "My little brother has many {a1} in his room."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило `vowel + y + s`: якщо перед `-y` стоїть голосна, у множині `y` не змінюємо, а просто додаємо `-s`.",
+            "Підказка з речення: слово `many` вимагає множини, а в основі слова перед `y` стоїть голосна `o`."
+          ],
+          "explanations": {
+            "a1": {
+              "toies": "Форма `toies` помилкова, бо правило `y -> ies` працює після приголосної, а не після голосної. Тут `y` треба зберегти.",
+              "toys": "Варіант `toys` правильний, бо в слові `toy` перед `y` стоїть голосна. У такому випадку ми просто додаємо `-s` без зміни літери `y`.",
+              "toyes": "Форма `toyes` не підходить, бо слово `toy` не потребує закінчення `-es`. Для такого типу іменника достатньо простого `-s`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "uuid": "pn-cg-cwt-a2-q02",
+      "question": "The baker put several fresh {a1} on the shelf this morning.",
+      "source": "theory_page_776",
+      "level": "A2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "loaves",
+          "options": [
+            "loafes",
+            "loaves",
+            "loafs"
+          ],
+          "verb_hint": "loaf"
+        }
+      },
+      "tag_keys": [
+        "plural_f_fe_to_ves"
+      ],
+      "variants": [
+        "The baker put several fresh {a1} on the shelf this morning."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило `-f -> -ves`: частина іменників на `-f` або `-fe` у множині змінює це закінчення на `-ves`.",
+            "Підказка з речення: слово `several` показує множину, а іменник перед пропуском належить до групи слів, де фінальне `-f` змінюється."
+          ],
+          "explanations": {
+            "a1": {
+              "loafes": "Форма `loafes` хибна, бо тут не можна просто додати `-es` до основи. Потрібно саме замінити фінальне `-f` на `-ves`.",
+              "loaves": "Варіант `loaves` правильний, бо `loaf` утворює множину за моделлю `-f -> -ves`. Саме ця форма відповідає кількісному слову `several`.",
+              "loafs": "Форма `loafs` помилкова, бо для цього слова просте `-s` не працює. У множині фінальне `-f` переходить у `-ves`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 6,
+      "uuid": "pn-cg-cwt-a2-q03",
+      "question": "Two {a1} are drawing a picture together.",
+      "source": "theory_page_776",
+      "level": "A2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "children",
+          "options": [
+            "childs",
+            "children",
+            "childrens"
+          ],
+          "verb_hint": "child"
+        }
+      },
+      "tag_keys": [
+        "irregular_plural_child_children"
+      ],
+      "variants": [
+        "Two {a1} are drawing a picture together."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило irregular plural: деякі іменники утворюють множину не через `-s`, а через окрему усталену форму.",
+            "Підказка з речення: числівник `Two` і дієслово `are` разом показують, що в пропуску має бути множина, але не регулярна."
+          ],
+          "explanations": {
+            "a1": {
+              "childs": "Форма `childs` помилкова, бо `child` не утворює множину простим додаванням `-s`. Для нього існує окрема нерегулярна форма.",
+              "children": "Варіант `children` правильний, бо це нерегулярна множина від `child`. Саме така форма узгоджується з `Two` і присудком `are`.",
+              "childrens": "Форма `childrens` хибна, бо `children` уже є формою множини. Додавати ще одне множинне закінчення до неї не можна."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 7,
+      "uuid": "pn-cg-cwt-b1-q01",
+      "question": "The garden grows many red {a1} every summer.",
+      "source": "theory_page_776",
+      "level": "B1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "tomatoes",
+          "options": [
+            "tomatoes",
+            "tomatos",
+            "tomato"
+          ],
+          "verb_hint": "tomato"
+        }
+      },
+      "tag_keys": [
+        "plural_consonant_o_to_es"
+      ],
+      "variants": [
+        "The garden grows many red {a1} every summer."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило `consonant + o -> es`: багато іменників на приголосну + `o` утворюють множину через `-es`.",
+            "Підказка з речення: слово `many` вимагає множини, а слово перед пропуском закінчується на `-o` після приголосної."
+          ],
+          "explanations": {
+            "a1": {
+              "tomatoes": "Варіант `tomatoes` правильний, бо `tomato` належить до типових іменників із множиною на `-es` після `-o`. Саме цього вимагає слово `many` у реченні.",
+              "tomatos": "Форма `tomatos` помилкова, бо для слова `tomato` простого `-s` недостатньо. У стандартній множині тут потрібно `-es`.",
+              "tomato": "Форма `tomato` не підходить, бо це однина. Після `many` потрібен іменник у множині."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 8,
+      "uuid": "pn-cg-cwt-b1-q02",
+      "question": "She took several family {a1} on holiday.",
+      "source": "theory_page_776",
+      "level": "B1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "photos",
+          "options": [
+            "photoes",
+            "photos",
+            "photo"
+          ],
+          "verb_hint": "photo"
+        }
+      },
+      "tag_keys": [
+        "plural_o_exception_s"
+      ],
+      "variants": [
+        "She took several family {a1} on holiday."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило винятків на `-o`: деякі слова на `-o` не беруть `-es`, а утворюють множину звичайним додаванням `-s`.",
+            "Підказка з речення: слово `several` показує множину, а `photo` належить до поширених винятків, де форма з `-es` не потрібна."
+          ],
+          "explanations": {
+            "a1": {
+              "photoes": "Форма `photoes` помилкова, бо `photo` не належить до слів, які вимагають `-es`. У цьому випадку вживається просте закінчення `-s`.",
+              "photos": "Варіант `photos` правильний, бо `photo` є винятком серед іменників на `-o` і утворює множину з `-s`. Підказка `several` лише підтверджує потребу в множині.",
+              "photo": "Форма `photo` не підходить, бо це однина. Після `several` потрібна форма множини."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "uuid": "pn-cg-cwt-b1-q03",
+      "question": "We saw six wild {a1} near the river.",
+      "source": "theory_page_776",
+      "level": "B1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "deer",
+          "options": [
+            "deers",
+            "deer",
+            "deeres"
+          ],
+          "verb_hint": "deer"
+        }
+      },
+      "tag_keys": [
+        "zero_plural_same_form"
+      ],
+      "variants": [
+        "We saw six wild {a1} near the river."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило zero plural: деякі іменники мають однакову форму в однині та множині.",
+            "Підказка з речення: числівник `six` показує множину, але саме для цього слова форма не змінюється."
+          ],
+          "explanations": {
+            "a1": {
+              "deers": "Форма `deers` помилкова, бо для слова `deer` не додаємо `-s` у множині. Це класичний приклад same-form plural.",
+              "deer": "Варіант `deer` правильний, бо цей іменник має однакову форму в однині та множині. Після `six` він зберігає той самий вигляд.",
+              "deeres": "Форма `deeres` хибна, бо `deer` не утворює множину через `-es`. У цій моделі зовнішня форма слова не змінюється."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 10,
+      "uuid": "pn-cg-cwt-b2-q01",
+      "question": "The teacher gave us useful {a1} before the exam.",
+      "source": "theory_page_776",
+      "level": "B2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "advice",
+          "options": [
+            "advices",
+            "advice",
+            "an advice"
+          ],
+          "verb_hint": "advice"
+        }
+      },
+      "tag_keys": [
+        "uncountable_noun_no_plural"
+      ],
+      "variants": [
+        "The teacher gave us useful {a1} before the exam."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило uncountable noun: деякі слова в англійській мові зазвичай не мають звичайної форми множини і не вживаються з `a/an`.",
+            "Підказка з речення: сполука `useful ... before the exam` описує загальну корисну інформацію чи поради, а не окремі пораховані одиниці."
+          ],
+          "explanations": {
+            "a1": {
+              "advices": "Форма `advices` помилкова, бо `advice` у звичайному навчальному вживанні не pluralizes. Якщо треба рахувати окремі одиниці, англійська використовує конструкцію `pieces of advice`.",
+              "advice": "Варіант `advice` правильний, бо це незлічуваний іменник. У такому значенні він не потребує ні множини, ні неозначеного артикля.",
+              "an advice": "Форма `an advice` хибна, бо артикль `an` ставлять перед одниною countable noun. Тут же слово вживається як незлічуване."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 11,
+      "uuid": "pn-cg-cwt-b2-q02",
+      "question": "The latest figures {a1} more encouraging than last month's.",
+      "source": "theory_page_776",
+      "level": "B2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "be"
+          ],
+          "verb_hint": "be"
+        }
+      },
+      "tag_keys": [
+        "plural_subject_verb_agreement"
+      ],
+      "variants": [
+        "The latest figures {a1} more encouraging than last month's."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило plural subject-verb agreement: підмет у множині потребує множинної форми дієслова `to be`.",
+            "Підказка з речення: граматичним центром підмета є `figures`, а не прикметник `latest`, тому присудок має узгоджуватися з множиною."
+          ],
+          "explanations": {
+            "a1": {
+              "is": "Форма `is` помилкова, бо вона узгоджується з одниною. Підмет `The latest figures` є множинним, отже ця форма не підходить.",
+              "are": "Варіант `are` правильний, бо він узгоджується з множинним підметом `The latest figures`. Саме таке узгодження потрібне в порівняльній конструкції цього речення.",
+              "be": "Форма `be` хибна, бо після конкретного підмета у теперішньому часі потрібна особова форма дієслова. Тут не інфінітив, а присудок."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 12,
+      "uuid": "pn-cg-cwt-b2-q03",
+      "question": "The final {a1} for selection were published yesterday.",
+      "source": "theory_page_776",
+      "level": "B2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "criteria",
+          "options": [
+            "criterions",
+            "criteria",
+            "criterion"
+          ],
+          "verb_hint": "criterion"
+        }
+      },
+      "tag_keys": [
+        "latin_greek_plural"
+      ],
+      "variants": [
+        "The final {a1} for selection were published yesterday."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило classical plural: частина формальних іменників має окрему грецьку або латинську форму множини замість звичайного `-s`.",
+            "Підказка з речення: присудок `were published` показує, що в пропуску потрібна множина, а контекст добору робить форму офіційною та академічною."
+          ],
+          "explanations": {
+            "a1": {
+              "criterions": "Форма `criterions` інколи трапляється, але в цьому формальному навчальному контексті очікуваною множиною є `criteria`. Саме вона відповідає академічній нормі, яку перевіряє завдання.",
+              "criteria": "Варіант `criteria` правильний, бо це класична множина від `criterion`. Підказка `were published` теж підтверджує, що потрібна саме форма множини.",
+              "criterion": "Форма `criterion` помилкова, бо це однина. Речення прямо вимагає множини через дієслово `were`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 13,
+      "uuid": "pn-cg-cwt-c1-q01",
+      "question": "The quiet {a1} of the village make it attractive to writers.",
+      "source": "theory_page_776",
+      "level": "C1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "surroundings",
+          "options": [
+            "surrounding",
+            "surroundings",
+            "surroundingses"
+          ],
+          "verb_hint": "surroundings"
+        }
+      },
+      "tag_keys": [
+        "plural_only_noun_usage"
+      ],
+      "variants": [
+        "The quiet {a1} of the village make it attractive to writers."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило plural-only noun: деякі слова існують переважно лише у формі множини, навіть коли позначають одне середовище або загальну обстановку.",
+            "Підказка з речення: дієслово `make` після підмета показує множинне узгодження, а фраза `of the village` описує саме оточення."
+          ],
+          "explanations": {
+            "a1": {
+              "surrounding": "Форма `surrounding` помилкова, бо вона не передає значення середовища як сукупності умов навколо чогось. У цьому контексті потрібне усталене plural-only слово.",
+              "surroundings": "Варіант `surroundings` правильний, бо це plural-only noun у значенні `оточення`. Саме тому далі стоїть множинне узгодження `make`.",
+              "surroundingses": "Форма `surroundingses` хибна, бо `surroundings` уже є готовою формою, що вживається як множинний іменник. Додавати ще одне множинне закінчення не можна."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 14,
+      "uuid": "pn-cg-cwt-c1-q02",
+      "question": "The damaged {a1} were repaired before winter.",
+      "source": "theory_page_776",
+      "level": "C1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "roofs",
+          "options": [
+            "rooves",
+            "roofs",
+            "roofes"
+          ],
+          "verb_hint": "roof"
+        }
+      },
+      "tag_keys": [
+        "f_noun_exception_s"
+      ],
+      "variants": [
+        "The damaged {a1} were repaired before winter."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило винятку на `-f`: не всі іменники на `-f` переходять у `-ves`; частина з них утворює множину звичайним `-s`.",
+            "Підказка з речення: присудок `were repaired` вимагає множини, але слово перед пропуском належить саме до винятків без `-ves`."
+          ],
+          "explanations": {
+            "a1": {
+              "rooves": "Форма `rooves` помилкова, бо правило `-f -> -ves` не поширюється на слово `roof`. Тут треба пам'ятати виняток із простим `-s`.",
+              "roofs": "Варіант `roofs` правильний, бо `roof` належить до винятків і в множині бере звичайне `-s`. Саме ця форма відповідає підказці `were repaired`.",
+              "roofes": "Форма `roofes` хибна, бо до `roof` не додають `-es`. Це слово утворює множину не через `-es`, а через просте `-s`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 15,
+      "uuid": "pn-cg-cwt-c1-q03",
+      "question": "The report describes several social {a1} that followed the crisis.",
+      "source": "theory_page_776",
+      "level": "C1",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "phenomena",
+          "options": [
+            "phenomena",
+            "phenomenon",
+            "phenomenons"
+          ],
+          "verb_hint": "phenomenon"
+        }
+      },
+      "tag_keys": [
+        "latin_greek_plural"
+      ],
+      "variants": [
+        "The report describes several social {a1} that followed the crisis."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило classical plural: частина формальних іменників має окрему грецьку або латинську форму множини, яку треба запам'ятати.",
+            "Підказка з речення: слово `several` і займенник `that` після пропуску вказують на кілька явищ, а не на одне."
+          ],
+          "explanations": {
+            "a1": {
+              "phenomena": "Варіант `phenomena` правильний, бо це класична множина від `phenomenon`. У контексті звіту саме ця форма є нормативною та очікуваною.",
+              "phenomenon": "Форма `phenomenon` помилкова, бо це однина. Слово `several` уже підказує, що тут потрібна множина.",
+              "phenomenons": "Форма `phenomenons` хибна в цьому навчальному та формальному контексті, бо завдання перевіряє саме класичну множину `phenomena`."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 16,
+      "uuid": "pn-cg-cwt-c2-q01",
+      "question": "The researchers repeated the {a1} after noticing a contradiction in the first report.",
+      "source": "theory_page_776",
+      "level": "C2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "analyses",
+          "options": [
+            "analysis",
+            "analyses",
+            "analysises"
+          ],
+          "verb_hint": "analysis"
+        }
+      },
+      "tag_keys": [
+        "plural_is_to_es"
+      ],
+      "variants": [
+        "The researchers repeated the {a1} after noticing a contradiction in the first report."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило `-is -> -es`: частина формальних іменників на `-is` утворює множину через зміну закінчення, а не через просте `-s`.",
+            "Підказка з речення: контекст дослідження і дієслово `repeated` показують, що йдеться про кілька окремих аналізів, а не про один."
+          ],
+          "explanations": {
+            "a1": {
+              "analysis": "Форма `analysis` помилкова, бо це однина. Контекст повторення через суперечність у звіті вказує на кілька окремих процедур.",
+              "analyses": "Варіант `analyses` правильний, бо це множина від `analysis` за моделлю `-is -> -es`. Саме така форма потрібна в академічному контексті цього речення.",
+              "analysises": "Форма `analysises` хибна, бо `analysis` не утворює множину механічним додаванням `-es` до повної основи. Для нього існує окрема усталена множинна форма."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 17,
+      "uuid": "pn-cg-cwt-c2-q02",
+      "question": "The museum presents the traditions of many indigenous {a1} of the region.",
+      "source": "theory_page_776",
+      "level": "C2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "peoples",
+          "options": [
+            "people",
+            "peoples",
+            "peopleses"
+          ],
+          "verb_hint": "people"
+        }
+      },
+      "tag_keys": [
+        "people_vs_peoples_meaning"
+      ],
+      "variants": [
+        "The museum presents the traditions of many indigenous {a1} of the region."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Правило lexical plural nuance: іноді форма множини залежить не лише від кількості, а й від значення слова в конкретному контексті.",
+            "Підказка з речення: слова `many indigenous` і фраза `of the region` підказують, що мова йде про окремі народи або етнічні спільноти, а не просто про людей загалом."
+          ],
+          "explanations": {
+            "a1": {
+              "people": "Форма `people` тут не підходить, бо вона зазвичай означає людей загалом. У цьому реченні йдеться саме про різні народи чи етнічні групи.",
+              "peoples": "Варіант `peoples` правильний, бо в цьому контексті маються на увазі різні народи або спільноти. Саме для такого значення англійська використовує окрему форму множини.",
+              "peopleses": "Форма `peopleses` хибна, бо `peoples` уже є завершеною множинною формою для цього значення. Додавати ще одне закінчення тут не можна."
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 18,
+      "uuid": "pn-cg-cwt-c2-q03",
+      "question": "These trousers {a1} still too long, but that pair by the mirror {a2} shorter.",
+      "source": "theory_page_776",
+      "level": "C2",
+      "hint_provider": "chatgpt-codex-with-tags",
+      "markers": {
+        "a1": {
+          "answer": "are",
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "verb_hint": "be"
+        },
+        "a2": {
+          "answer": "is",
+          "options": [
+            "is",
+            "are",
+            "be"
+          ],
+          "verb_hint": "be"
+        }
+      },
+      "tag_keys": [
+        "plural_only_noun_usage",
+        "plural_subject_verb_agreement",
+        "pair_of_singular_agreement"
+      ],
+      "gap_tags": {
+        "a1": [
+          "plural_only_noun_usage",
+          "plural_subject_verb_agreement"
+        ],
+        "a2": [
+          "pair_of_singular_agreement"
+        ]
+      },
+      "variants": [
+        "These trousers {a1} still too long, but that pair by the mirror {a2} shorter."
+      ],
+      "localizations": {
+        "uk": {
+          "hints": [
+            "Подвійне правило узгодження: plural-only noun `trousers` бере множинне дієслово, але конструкція `that pair` переносить узгодження на слово `pair` в однині.",
+            "Підказка з речення: зіставте підмети `These trousers` і `that pair by the mirror`. Саме вони, а не назва одягу сама по собі, керують обома формами дієслова."
+          ],
+          "explanations": {
+            "a1": {
+              "is": "Форма `is` помилкова для першої прогалини, бо підмет `These trousers` стоїть у множині. Навіть якщо йдеться про один предмет одягу, граматично це plural-only noun.",
+              "are": "Варіант `are` правильний, бо підмет `These trousers` вимагає множинного узгодження. Саме така форма `to be` відповідає plural-only noun без слова `pair`.",
+              "am": "Форма `am` хибна, бо вона вживається лише з `I`. У першій частині речення підмет множинний, тому цей варіант неможливий."
+            },
+            "a2": {
+              "is": "Варіант `is` правильний, бо в другій частині підметом є `that pair`. Саме слово `pair`, а не прихований предмет одягу, визначає однину присудка.",
+              "are": "Форма `are` помилкова для другої прогалини, бо вона ігнорує граматичний центр `pair`. У конструкції `that pair` дієслово узгоджується з одниною.",
+              "be": "Форма `be` хибна, бо після конкретного підмета в теперішньому часі потрібна особова форма дієслова, а не інфінітив."
+            }
+          }
+        }
+      }
+    }
+  ],
+  "saved_test": {
+    "uuid": "pn-cg-cwt-saved-test",
+    "slug": "plural_nouns_chatgpt_codex_with_tags_776",
+    "name": "Plural Nouns — ChatGpt Codex With Tags V3 Questions Test",
+    "description": "Theory-linked 18-question V3 practice set for plural noun formation, agreement, irregular forms, zero plurals, uncountable nouns, plural-only nouns, and advanced plural patterns across A1-C2.",
+    "filters": {
+      "num_questions": 18,
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "seeder_classes": [
+        "Database\\Seeders\\V3\\AI\\ChatGpt\\CodexWithTags\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder"
+      ],
+      "prompt_generator": {
+        "source_type": "theory_page",
+        "theory_page_id": 776,
+        "theory_page_ids": [
+          776
+        ],
+        "theory_page": {
+          "id": 776,
+          "slug": "plural-nouns-s-es-ies",
+          "title": "Plural Nouns — Множина іменників: правила, винятки, приклади",
+          "category_slug_path": "imennyky-artykli-ta-kilkist",
+          "page_seeder_class": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityPluralNounsTheorySeeder",
+          "url": "https://gramlyze.com/theory/imennyky-artykli-ta-kilkist/plural-nouns-s-es-ies"
+        }
+      }
+    }
+  }
+}

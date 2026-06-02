@@ -1,0 +1,1856 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\ComplexPassiveImpersonalStyleAllLevelsV3Seeder",
+        "uuid_namespace": "ComplexPassiveImpersonalStyleAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_complex_passive_impersonal_style": {
+            "name": "Complex Passive Impersonal Style"
+        }
+    },
+    "tags": {
+        "complex_passive_impersonal_style": {
+            "name": "Complex Passive Impersonal Style",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "it_is_said_that": {
+            "name": "It Is Said That",
+            "category": "topic"
+        },
+        "it_is_thought_that": {
+            "name": "It Is Thought That",
+            "category": "topic"
+        },
+        "it_is_believed_that": {
+            "name": "It Is Believed That",
+            "category": "topic"
+        },
+        "it_is_alleged_that": {
+            "name": "It Is Alleged That",
+            "category": "topic"
+        },
+        "subject_is_said_to": {
+            "name": "Subject Is Said To",
+            "category": "topic"
+        },
+        "perfect_infinitive_reporting": {
+            "name": "Perfect Infinitive Reporting",
+            "category": "topic"
+        },
+        "formal_journalistic": {
+            "name": "Formal Journalistic",
+            "category": "topic"
+        },
+        "avoid_overuse": {
+            "name": "Avoid Overuse",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvcis-v3-a1-01",
+            "question": "{a1} he works abroad.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "He is said that",
+                        "It says that",
+                        "It is saying that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "pvcis-v3-a1-02",
+            "question": "{a1} the decision is risky.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "it_is_thought_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is thought that",
+                    "options": [
+                        "It is thought that",
+                        "It thinks that",
+                        "It is thinking that",
+                        "The decision is thought that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "pvcis-v3-a1-03",
+            "question": "{a1} the team is ready.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "it_is_believed_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is believed that",
+                    "options": [
+                        "It is believed that",
+                        "It believes that",
+                        "It is believing that",
+                        "There is believed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "pvcis-v3-a1-04",
+            "question": "{a1} the funds were misused.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is alleged that",
+                    "options": [
+                        "It is alleged that",
+                        "It alleges that",
+                        "It is alleging that",
+                        "There is alleged that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "pvcis-v3-a1-05",
+            "question": "She {a1} the project.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "subject_is_said_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is said to lead",
+                    "options": [
+                        "is said to lead",
+                        "is said lead",
+                        "is said that leads",
+                        "said to lead"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "pvcis-v3-a1-06",
+            "question": "The errors are reported {a1}.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have been found",
+                    "options": [
+                        "to have been found",
+                        "to be found yesterday",
+                        "to have found",
+                        "having been found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "pvcis-v3-a1-07",
+            "question": "Impersonal passive is common in {a1} style.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "formal_journalistic"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "journalistic",
+                    "options": [
+                        "journalistic",
+                        "chatty",
+                        "private",
+                        "childish"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "pvcis-v3-a1-08",
+            "question": "When the actor is important, use the {a1} voice.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "avoid_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "active",
+                    "options": [
+                        "active",
+                        "passive",
+                        "impersonal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "pvcis-v3-a1-09",
+            "question": "Do not write “He is said be rich”; write “He is said {a1} be rich.”",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "that",
+                        "for",
+                        "being"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "pvcis-v3-a1-10",
+            "question": "{a1} the factory will be closed.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is reported that",
+                    "options": [
+                        "It is reported that",
+                        "It reports that",
+                        "It is report that",
+                        "The factory is reported that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "pvcis-v3-a1-11",
+            "question": "She is thought {a1} already.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave yesterday",
+                        "to has left",
+                        "having left"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "pvcis-v3-a1-12",
+            "question": "{a1} the system is unsafe.",
+            "level": "A1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a1",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is claimed that",
+                    "options": [
+                        "It is claimed that",
+                        "It claims that",
+                        "It is claiming that",
+                        "There is claimed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "pvcis-v3-a2-01",
+            "question": "{a1} he works abroad.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "He is said that",
+                        "It says that",
+                        "It is saying that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "pvcis-v3-a2-02",
+            "question": "{a1} the decision is risky.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "it_is_thought_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is thought that",
+                    "options": [
+                        "It is thought that",
+                        "It thinks that",
+                        "It is thinking that",
+                        "The decision is thought that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "pvcis-v3-a2-03",
+            "question": "{a1} the team is ready.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "it_is_believed_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is believed that",
+                    "options": [
+                        "It is believed that",
+                        "It believes that",
+                        "It is believing that",
+                        "There is believed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "pvcis-v3-a2-04",
+            "question": "{a1} the funds were misused.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is alleged that",
+                    "options": [
+                        "It is alleged that",
+                        "It alleges that",
+                        "It is alleging that",
+                        "There is alleged that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "pvcis-v3-a2-05",
+            "question": "She {a1} the project.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "subject_is_said_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is said to lead",
+                    "options": [
+                        "is said to lead",
+                        "is said lead",
+                        "is said that leads",
+                        "said to lead"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "pvcis-v3-a2-06",
+            "question": "The errors are reported {a1}.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have been found",
+                    "options": [
+                        "to have been found",
+                        "to be found yesterday",
+                        "to have found",
+                        "having been found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "pvcis-v3-a2-07",
+            "question": "Impersonal passive is common in {a1} style.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "formal_journalistic"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "journalistic",
+                    "options": [
+                        "journalistic",
+                        "chatty",
+                        "private",
+                        "childish"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "pvcis-v3-a2-08",
+            "question": "When the actor is important, use the {a1} voice.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "avoid_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "active",
+                    "options": [
+                        "active",
+                        "passive",
+                        "impersonal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "pvcis-v3-a2-09",
+            "question": "Do not write “He is said be rich”; write “He is said {a1} be rich.”",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "that",
+                        "for",
+                        "being"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "pvcis-v3-a2-10",
+            "question": "{a1} the factory will be closed.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is reported that",
+                    "options": [
+                        "It is reported that",
+                        "It reports that",
+                        "It is report that",
+                        "The factory is reported that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "pvcis-v3-a2-11",
+            "question": "She is thought {a1} already.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave yesterday",
+                        "to has left",
+                        "having left"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "pvcis-v3-a2-12",
+            "question": "{a1} the system is unsafe.",
+            "level": "A2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_a2",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is claimed that",
+                    "options": [
+                        "It is claimed that",
+                        "It claims that",
+                        "It is claiming that",
+                        "There is claimed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "pvcis-v3-b1-01",
+            "question": "{a1} he works abroad.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "He is said that",
+                        "It says that",
+                        "It is saying that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "pvcis-v3-b1-02",
+            "question": "{a1} the decision is risky.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "it_is_thought_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is thought that",
+                    "options": [
+                        "It is thought that",
+                        "It thinks that",
+                        "It is thinking that",
+                        "The decision is thought that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "pvcis-v3-b1-03",
+            "question": "{a1} the team is ready.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "it_is_believed_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is believed that",
+                    "options": [
+                        "It is believed that",
+                        "It believes that",
+                        "It is believing that",
+                        "There is believed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "pvcis-v3-b1-04",
+            "question": "{a1} the funds were misused.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is alleged that",
+                    "options": [
+                        "It is alleged that",
+                        "It alleges that",
+                        "It is alleging that",
+                        "There is alleged that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "pvcis-v3-b1-05",
+            "question": "She {a1} the project.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "subject_is_said_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is said to lead",
+                    "options": [
+                        "is said to lead",
+                        "is said lead",
+                        "is said that leads",
+                        "said to lead"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "pvcis-v3-b1-06",
+            "question": "The errors are reported {a1}.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have been found",
+                    "options": [
+                        "to have been found",
+                        "to be found yesterday",
+                        "to have found",
+                        "having been found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "pvcis-v3-b1-07",
+            "question": "Impersonal passive is common in {a1} style.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "formal_journalistic"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "journalistic",
+                    "options": [
+                        "journalistic",
+                        "chatty",
+                        "private",
+                        "childish"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "pvcis-v3-b1-08",
+            "question": "When the actor is important, use the {a1} voice.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "avoid_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "active",
+                    "options": [
+                        "active",
+                        "passive",
+                        "impersonal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "pvcis-v3-b1-09",
+            "question": "Do not write “He is said be rich”; write “He is said {a1} be rich.”",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "that",
+                        "for",
+                        "being"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "pvcis-v3-b1-10",
+            "question": "{a1} the factory will be closed.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is reported that",
+                    "options": [
+                        "It is reported that",
+                        "It reports that",
+                        "It is report that",
+                        "The factory is reported that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "pvcis-v3-b1-11",
+            "question": "She is thought {a1} already.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave yesterday",
+                        "to has left",
+                        "having left"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "pvcis-v3-b1-12",
+            "question": "{a1} the system is unsafe.",
+            "level": "B1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b1",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is claimed that",
+                    "options": [
+                        "It is claimed that",
+                        "It claims that",
+                        "It is claiming that",
+                        "There is claimed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "pvcis-v3-b2-01",
+            "question": "{a1} he works abroad.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "He is said that",
+                        "It says that",
+                        "It is saying that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "pvcis-v3-b2-02",
+            "question": "{a1} the decision is risky.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "it_is_thought_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is thought that",
+                    "options": [
+                        "It is thought that",
+                        "It thinks that",
+                        "It is thinking that",
+                        "The decision is thought that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "pvcis-v3-b2-03",
+            "question": "{a1} the team is ready.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "it_is_believed_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is believed that",
+                    "options": [
+                        "It is believed that",
+                        "It believes that",
+                        "It is believing that",
+                        "There is believed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "pvcis-v3-b2-04",
+            "question": "{a1} the funds were misused.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is alleged that",
+                    "options": [
+                        "It is alleged that",
+                        "It alleges that",
+                        "It is alleging that",
+                        "There is alleged that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "pvcis-v3-b2-05",
+            "question": "She {a1} the project.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "subject_is_said_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is said to lead",
+                    "options": [
+                        "is said to lead",
+                        "is said lead",
+                        "is said that leads",
+                        "said to lead"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "pvcis-v3-b2-06",
+            "question": "The errors are reported {a1}.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have been found",
+                    "options": [
+                        "to have been found",
+                        "to be found yesterday",
+                        "to have found",
+                        "having been found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "pvcis-v3-b2-07",
+            "question": "Impersonal passive is common in {a1} style.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "formal_journalistic"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "journalistic",
+                    "options": [
+                        "journalistic",
+                        "chatty",
+                        "private",
+                        "childish"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "pvcis-v3-b2-08",
+            "question": "When the actor is important, use the {a1} voice.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "avoid_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "active",
+                    "options": [
+                        "active",
+                        "passive",
+                        "impersonal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "pvcis-v3-b2-09",
+            "question": "Do not write “He is said be rich”; write “He is said {a1} be rich.”",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "that",
+                        "for",
+                        "being"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "pvcis-v3-b2-10",
+            "question": "{a1} the factory will be closed.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is reported that",
+                    "options": [
+                        "It is reported that",
+                        "It reports that",
+                        "It is report that",
+                        "The factory is reported that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "pvcis-v3-b2-11",
+            "question": "She is thought {a1} already.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave yesterday",
+                        "to has left",
+                        "having left"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "pvcis-v3-b2-12",
+            "question": "{a1} the system is unsafe.",
+            "level": "B2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_b2",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is claimed that",
+                    "options": [
+                        "It is claimed that",
+                        "It claims that",
+                        "It is claiming that",
+                        "There is claimed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "pvcis-v3-c1-01",
+            "question": "{a1} he works abroad.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "He is said that",
+                        "It says that",
+                        "It is saying that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "pvcis-v3-c1-02",
+            "question": "{a1} the decision is risky.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "it_is_thought_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is thought that",
+                    "options": [
+                        "It is thought that",
+                        "It thinks that",
+                        "It is thinking that",
+                        "The decision is thought that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "pvcis-v3-c1-03",
+            "question": "{a1} the team is ready.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "it_is_believed_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is believed that",
+                    "options": [
+                        "It is believed that",
+                        "It believes that",
+                        "It is believing that",
+                        "There is believed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "pvcis-v3-c1-04",
+            "question": "{a1} the funds were misused.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is alleged that",
+                    "options": [
+                        "It is alleged that",
+                        "It alleges that",
+                        "It is alleging that",
+                        "There is alleged that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "pvcis-v3-c1-05",
+            "question": "She {a1} the project.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "subject_is_said_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is said to lead",
+                    "options": [
+                        "is said to lead",
+                        "is said lead",
+                        "is said that leads",
+                        "said to lead"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "pvcis-v3-c1-06",
+            "question": "The errors are reported {a1}.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have been found",
+                    "options": [
+                        "to have been found",
+                        "to be found yesterday",
+                        "to have found",
+                        "having been found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "pvcis-v3-c1-07",
+            "question": "Impersonal passive is common in {a1} style.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "formal_journalistic"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "journalistic",
+                    "options": [
+                        "journalistic",
+                        "chatty",
+                        "private",
+                        "childish"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "pvcis-v3-c1-08",
+            "question": "When the actor is important, use the {a1} voice.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "avoid_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "active",
+                    "options": [
+                        "active",
+                        "passive",
+                        "impersonal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "pvcis-v3-c1-09",
+            "question": "Do not write “He is said be rich”; write “He is said {a1} be rich.”",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "that",
+                        "for",
+                        "being"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "pvcis-v3-c1-10",
+            "question": "{a1} the factory will be closed.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is reported that",
+                    "options": [
+                        "It is reported that",
+                        "It reports that",
+                        "It is report that",
+                        "The factory is reported that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "pvcis-v3-c1-11",
+            "question": "She is thought {a1} already.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave yesterday",
+                        "to has left",
+                        "having left"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "pvcis-v3-c1-12",
+            "question": "{a1} the system is unsafe.",
+            "level": "C1",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c1",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is claimed that",
+                    "options": [
+                        "It is claimed that",
+                        "It claims that",
+                        "It is claiming that",
+                        "There is claimed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "pvcis-v3-c2-01",
+            "question": "{a1} he works abroad.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "He is said that",
+                        "It says that",
+                        "It is saying that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "pvcis-v3-c2-02",
+            "question": "{a1} the decision is risky.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "it_is_thought_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is thought that",
+                    "options": [
+                        "It is thought that",
+                        "It thinks that",
+                        "It is thinking that",
+                        "The decision is thought that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "pvcis-v3-c2-03",
+            "question": "{a1} the team is ready.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "it_is_believed_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is believed that",
+                    "options": [
+                        "It is believed that",
+                        "It believes that",
+                        "It is believing that",
+                        "There is believed that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "pvcis-v3-c2-04",
+            "question": "{a1} the funds were misused.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is alleged that",
+                    "options": [
+                        "It is alleged that",
+                        "It alleges that",
+                        "It is alleging that",
+                        "There is alleged that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "pvcis-v3-c2-05",
+            "question": "She {a1} the project.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "subject_is_said_to"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "is said to lead",
+                    "options": [
+                        "is said to lead",
+                        "is said lead",
+                        "is said that leads",
+                        "said to lead"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "pvcis-v3-c2-06",
+            "question": "The errors are reported {a1}.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have been found",
+                    "options": [
+                        "to have been found",
+                        "to be found yesterday",
+                        "to have found",
+                        "having been found"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "pvcis-v3-c2-07",
+            "question": "Impersonal passive is common in {a1} style.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "formal_journalistic"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "journalistic",
+                    "options": [
+                        "journalistic",
+                        "chatty",
+                        "private",
+                        "childish"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "pvcis-v3-c2-08",
+            "question": "When the actor is important, use the {a1} voice.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "avoid_overuse"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "active",
+                    "options": [
+                        "active",
+                        "passive",
+                        "impersonal",
+                        "perfect"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "pvcis-v3-c2-09",
+            "question": "Do not write “He is said be rich”; write “He is said {a1} be rich.”",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "that",
+                        "for",
+                        "being"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "pvcis-v3-c2-10",
+            "question": "{a1} the factory will be closed.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "it_is_said_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is reported that",
+                    "options": [
+                        "It is reported that",
+                        "It reports that",
+                        "It is report that",
+                        "The factory is reported that"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "pvcis-v3-c2-11",
+            "question": "She is thought {a1} already.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "perfect_infinitive_reporting"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave yesterday",
+                        "to has left",
+                        "having left"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "pvcis-v3-c2-12",
+            "question": "{a1} the system is unsafe.",
+            "level": "C2",
+            "source": "theory_page_complex_passive_impersonal_style",
+            "tag_keys": [
+                "complex_passive_impersonal_style",
+                "level_c2",
+                "it_is_alleged_that"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "It is claimed that",
+                    "options": [
+                        "It is claimed that",
+                        "It claims that",
+                        "It is claiming that",
+                        "There is claimed that"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-cis-v3-all",
+        "slug": "complex-passive-impersonal-style-all-levels-v3",
+        "name": "Complex Passive Impersonal Style (All levels V3)",
+        "description": "Standard V3 package for Complex Passive Impersonal Style across A1-C2.",
+        "question_uuids": [
+            "pvcis-v3-a1-01",
+            "pvcis-v3-a1-02",
+            "pvcis-v3-a1-03",
+            "pvcis-v3-a1-04",
+            "pvcis-v3-a1-05",
+            "pvcis-v3-a1-06",
+            "pvcis-v3-a1-07",
+            "pvcis-v3-a1-08",
+            "pvcis-v3-a1-09",
+            "pvcis-v3-a1-10",
+            "pvcis-v3-a1-11",
+            "pvcis-v3-a1-12",
+            "pvcis-v3-a2-01",
+            "pvcis-v3-a2-02",
+            "pvcis-v3-a2-03",
+            "pvcis-v3-a2-04",
+            "pvcis-v3-a2-05",
+            "pvcis-v3-a2-06",
+            "pvcis-v3-a2-07",
+            "pvcis-v3-a2-08",
+            "pvcis-v3-a2-09",
+            "pvcis-v3-a2-10",
+            "pvcis-v3-a2-11",
+            "pvcis-v3-a2-12",
+            "pvcis-v3-b1-01",
+            "pvcis-v3-b1-02",
+            "pvcis-v3-b1-03",
+            "pvcis-v3-b1-04",
+            "pvcis-v3-b1-05",
+            "pvcis-v3-b1-06",
+            "pvcis-v3-b1-07",
+            "pvcis-v3-b1-08",
+            "pvcis-v3-b1-09",
+            "pvcis-v3-b1-10",
+            "pvcis-v3-b1-11",
+            "pvcis-v3-b1-12",
+            "pvcis-v3-b2-01",
+            "pvcis-v3-b2-02",
+            "pvcis-v3-b2-03",
+            "pvcis-v3-b2-04",
+            "pvcis-v3-b2-05",
+            "pvcis-v3-b2-06",
+            "pvcis-v3-b2-07",
+            "pvcis-v3-b2-08",
+            "pvcis-v3-b2-09",
+            "pvcis-v3-b2-10",
+            "pvcis-v3-b2-11",
+            "pvcis-v3-b2-12",
+            "pvcis-v3-c1-01",
+            "pvcis-v3-c1-02",
+            "pvcis-v3-c1-03",
+            "pvcis-v3-c1-04",
+            "pvcis-v3-c1-05",
+            "pvcis-v3-c1-06",
+            "pvcis-v3-c1-07",
+            "pvcis-v3-c1-08",
+            "pvcis-v3-c1-09",
+            "pvcis-v3-c1-10",
+            "pvcis-v3-c1-11",
+            "pvcis-v3-c1-12",
+            "pvcis-v3-c2-01",
+            "pvcis-v3-c2-02",
+            "pvcis-v3-c2-03",
+            "pvcis-v3-c2-04",
+            "pvcis-v3-c2-05",
+            "pvcis-v3-c2-06",
+            "pvcis-v3-c2-07",
+            "pvcis-v3-c2-08",
+            "pvcis-v3-c2-09",
+            "pvcis-v3-c2-10",
+            "pvcis-v3-c2-11",
+            "pvcis-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\ComplexPassiveImpersonalStyleAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "complex-passive-impersonal-style",
+                    "title": "Complex Passive Impersonal Style",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\ComplexPassiveImpersonalStyleTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/complex-passive-impersonal-style"
+                }
+            }
+        }
+    }
+}

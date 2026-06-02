@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 125,
+        "uuid": "77-the-hypothesis-a77-was-later-prov",
+        "question": "The hypothesis, {a77} was later proven, changed the field.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-26T14:30:55.000000Z",
+        "updated_at": "2026-05-26T14:30:59.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:48.000000Z",
+                "updated_at": "2026-05-26T14:30:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 125,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 48,
+                "name": "Pronoun usage",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 125,
+                "tag_id": 48,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 74,
+                "option": "that",
+                "created_at": "2026-05-26T14:30:51.000000Z",
+                "updated_at": "2026-05-26T14:30:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 125,
+                "option_id": 74,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 244,
+                "option": "what",
+                "created_at": "2026-05-26T14:30:55.000000Z",
+                "updated_at": "2026-05-26T14:30:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 125,
+                "option_id": 244,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 320,
+                "option": "which",
+                "created_at": "2026-05-26T14:30:55.000000Z",
+                "updated_at": "2026-05-26T14:30:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 125,
+                "option_id": 320,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 235,
+                "question_id": 125,
+                "marker": "a77",
+                "option_id": 320,
+                "created_at": "2026-05-26T14:30:55.000000Z",
+                "updated_at": "2026-05-26T14:30:55.000000Z"
+            },
+            "option": {
+                "id": 320,
+                "option": "which",
+                "created_at": "2026-05-26T14:30:55.000000Z",
+                "updated_at": "2026-05-26T14:30:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 77,
+                "question_id": 125,
+                "marker": "a77",
+                "option_id": 321,
+                "created_at": "2026-05-26T14:30:55.000000Z",
+                "updated_at": "2026-05-26T14:30:55.000000Z"
+            },
+            "option": {
+                "id": 321,
+                "option": "non-restrictive relative pronoun",
+                "created_at": "2026-05-26T14:30:55.000000Z",
+                "updated_at": "2026-05-26T14:30:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 107,
+            "question_id": 125,
+            "text": "The hypothesis, {a77} was later proven, changed the field.",
+            "created_at": "2026-05-26T14:30:55.000000Z",
+            "updated_at": "2026-05-26T14:30:55.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 259,
+            "question_id": 125,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "Choose the word that best completes the sentence grammatically.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 260,
+            "question_id": 125,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Zaimek względny 'which' w zdaniu nieokreślającym (z przecinkami).",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 261,
+            "question_id": 125,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Невизначальний відносний займенник у комах додає додаткову інформацію про гіпотезу.\nЗайменник 'which' використовується для речей і вводить невизначальне підрядне речення.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 1094,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "that",
+            "correct_answer": "which",
+            "language": "en",
+            "explanation": "Incorrect. 'that' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1097,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "that",
+            "correct_answer": "which",
+            "language": "pl",
+            "explanation": "'That' nie może być używane w zdaniach nieokreślających (z przecinkami).",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1101,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "that",
+            "correct_answer": "which",
+            "language": "ua",
+            "explanation": "Займенник 'that' не вживається в невизначальних підрядних реченнях з комами.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1102,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "that",
+            "correct_answer": "which",
+            "language": "uk",
+            "explanation": "Займенник 'that' не вживається в невизначальних підрядних реченнях з комами.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1095,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "what",
+            "correct_answer": "which",
+            "language": "en",
+            "explanation": "Incorrect. 'what' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1098,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "what",
+            "correct_answer": "which",
+            "language": "pl",
+            "explanation": "'What' nie jest używane jako zaimek względny w tym kontekście.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1103,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "what",
+            "correct_answer": "which",
+            "language": "ua",
+            "explanation": "Займенник 'what' не використовується як відносний займенник після іменника.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1104,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "what",
+            "correct_answer": "which",
+            "language": "uk",
+            "explanation": "Займенник 'what' не використовується як відносний займенник після іменника.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1093,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "which",
+            "correct_answer": "which",
+            "language": "en",
+            "explanation": "Correct. 'which' is the appropriate choice in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1096,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "which",
+            "correct_answer": "which",
+            "language": "pl",
+            "explanation": "Poprawnie! 'Which' w zdaniu nieokreślającym odnosi się do hipotezy.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1099,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "which",
+            "correct_answer": "which",
+            "language": "ua",
+            "explanation": "Відносний займенник 'which' правильно вводить невизначальне підрядне речення в комах.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 1100,
+            "question": "The hypothesis, {a77} was later proven, changed the field.",
+            "wrong_answer": "which",
+            "correct_answer": "which",
+            "language": "uk",
+            "explanation": "Відносний займенник 'which' правильно вводить невизначальне підрядне речення в комах.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ]
+}

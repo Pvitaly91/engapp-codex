@@ -1,0 +1,2191 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\FirstConditionalAllLevelsV3Seeder",
+        "uuid_namespace": "FirstConditionalAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_first_conditional": {
+            "name": "First Conditional"
+        }
+    },
+    "tags": {
+        "conditionals_first_conditional": {
+            "name": "First Conditional",
+            "category": "conditionals"
+        },
+        "if_present_simple": {
+            "name": "If Present Simple",
+            "category": "topic"
+        },
+        "will_base": {
+            "name": "Will Base",
+            "category": "topic"
+        },
+        "real_future_condition": {
+            "name": "Real Future Condition",
+            "category": "topic"
+        },
+        "modal_main_clause": {
+            "name": "Modal Main Clause",
+            "category": "topic"
+        },
+        "imperative_main_clause": {
+            "name": "Imperative Main Clause",
+            "category": "topic"
+        },
+        "unless": {
+            "name": "Unless",
+            "category": "topic"
+        },
+        "comma_rules": {
+            "name": "Comma Rules",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_first_conditional"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "fc-v3-a1-01",
+            "question": "If it {a1} tomorrow, we will stay home.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "rains",
+                    "options": [
+                        "rains",
+                        "will rain",
+                        "rained",
+                        "would rain"
+                    ],
+                    "verb_hint": "Use present simple after if.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If it {a1} tomorrow, we will stay home."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 2,
+            "uuid": "fc-v3-a1-02",
+            "question": "If you call me, I {a1} you.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will help",
+                    "options": [
+                        "will help",
+                        "help",
+                        "would help",
+                        "helped"
+                    ],
+                    "verb_hint": "Use will + base verb in the main clause.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If you call me, I {a1} you."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 3,
+            "uuid": "fc-v3-a1-03",
+            "question": "If she studies tonight, she {a1} the test.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will pass",
+                    "options": [
+                        "will pass",
+                        "passes",
+                        "would pass",
+                        "passed"
+                    ],
+                    "verb_hint": "This is a real future possibility.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If she studies tonight, she {a1} the test."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 4,
+            "uuid": "fc-v3-a1-04",
+            "question": "If we finish early, we {a1} go for a walk.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "will can",
+                        "could have",
+                        "would have"
+                    ],
+                    "verb_hint": "A modal can stand in the main clause.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If we finish early, we {a1} go for a walk."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 5,
+            "uuid": "fc-v3-a1-05",
+            "question": "If you feel tired, {a1} a break.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "will take",
+                        "took",
+                        "would take"
+                    ],
+                    "verb_hint": "The main clause can be an imperative.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you feel tired, {a1} a break."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 6,
+            "uuid": "fc-v3-a1-06",
+            "question": "Unless you hurry, you {a1} the bus.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will miss",
+                    "options": [
+                        "will miss",
+                        "miss",
+                        "would miss",
+                        "missed"
+                    ],
+                    "verb_hint": "Unless means if not.",
+                    "gap_tags": [
+                        "unless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless"
+            ],
+            "variants": [
+                "Unless you hurry, you {a1} the bus."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 7,
+            "uuid": "fc-v3-a1-07",
+            "question": "If the condition comes first, we {a1} a comma.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "Use a comma after a fronted if-clause.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the condition comes first, we {a1} a comma."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 8,
+            "uuid": "fc-v3-a1-08",
+            "question": "If he {a1} late, I will call him.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "will be",
+                        "would be",
+                        "was"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If he {a1} late, I will call him."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 9,
+            "uuid": "fc-v3-a1-09",
+            "question": "If they invite us, we {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will come",
+                    "options": [
+                        "will come",
+                        "come",
+                        "would come",
+                        "came"
+                    ],
+                    "verb_hint": "The result is a real future result.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If they invite us, we {a1}."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 10,
+            "uuid": "fc-v3-a1-10",
+            "question": "If the weather improves, we {a1} drive to the lake.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "will might",
+                        "would have",
+                        "had"
+                    ],
+                    "verb_hint": "Might can show a possible result.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If the weather improves, we {a1} drive to the lake."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 11,
+            "uuid": "fc-v3-a1-11",
+            "question": "If you need help, {a1} me.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "will ask",
+                        "asked",
+                        "would ask"
+                    ],
+                    "verb_hint": "Use an imperative for advice or instruction.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you need help, {a1} me."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 12,
+            "uuid": "fc-v3-a1-12",
+            "question": "If I see Marta, I {a1} her the news.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "will tell",
+                    "options": [
+                        "will tell",
+                        "tell",
+                        "would tell",
+                        "told"
+                    ],
+                    "verb_hint": "Use will + base verb for the future result.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If I see Marta, I {a1} her the news."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 13,
+            "uuid": "fc-v3-a2-01",
+            "question": "If it {a1} tomorrow, we will stay home.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "rains",
+                    "options": [
+                        "rains",
+                        "will rain",
+                        "rained",
+                        "would rain"
+                    ],
+                    "verb_hint": "Use present simple after if.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If it {a1} tomorrow, we will stay home."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 14,
+            "uuid": "fc-v3-a2-02",
+            "question": "If you call me, I {a1} you.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will help",
+                    "options": [
+                        "will help",
+                        "help",
+                        "would help",
+                        "helped"
+                    ],
+                    "verb_hint": "Use will + base verb in the main clause.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If you call me, I {a1} you."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 15,
+            "uuid": "fc-v3-a2-03",
+            "question": "If she studies tonight, she {a1} the test.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will pass",
+                    "options": [
+                        "will pass",
+                        "passes",
+                        "would pass",
+                        "passed"
+                    ],
+                    "verb_hint": "This is a real future possibility.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If she studies tonight, she {a1} the test."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 16,
+            "uuid": "fc-v3-a2-04",
+            "question": "If we finish early, we {a1} go for a walk.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "will can",
+                        "could have",
+                        "would have"
+                    ],
+                    "verb_hint": "A modal can stand in the main clause.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If we finish early, we {a1} go for a walk."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 17,
+            "uuid": "fc-v3-a2-05",
+            "question": "If you feel tired, {a1} a break.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "will take",
+                        "took",
+                        "would take"
+                    ],
+                    "verb_hint": "The main clause can be an imperative.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you feel tired, {a1} a break."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 18,
+            "uuid": "fc-v3-a2-06",
+            "question": "Unless you hurry, you {a1} the bus.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will miss",
+                    "options": [
+                        "will miss",
+                        "miss",
+                        "would miss",
+                        "missed"
+                    ],
+                    "verb_hint": "Unless means if not.",
+                    "gap_tags": [
+                        "unless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless"
+            ],
+            "variants": [
+                "Unless you hurry, you {a1} the bus."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 19,
+            "uuid": "fc-v3-a2-07",
+            "question": "If the condition comes first, we {a1} a comma.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "Use a comma after a fronted if-clause.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the condition comes first, we {a1} a comma."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 20,
+            "uuid": "fc-v3-a2-08",
+            "question": "If he {a1} late, I will call him.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "will be",
+                        "would be",
+                        "was"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If he {a1} late, I will call him."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 21,
+            "uuid": "fc-v3-a2-09",
+            "question": "If they invite us, we {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will come",
+                    "options": [
+                        "will come",
+                        "come",
+                        "would come",
+                        "came"
+                    ],
+                    "verb_hint": "The result is a real future result.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If they invite us, we {a1}."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 22,
+            "uuid": "fc-v3-a2-10",
+            "question": "If the weather improves, we {a1} drive to the lake.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "will might",
+                        "would have",
+                        "had"
+                    ],
+                    "verb_hint": "Might can show a possible result.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If the weather improves, we {a1} drive to the lake."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 23,
+            "uuid": "fc-v3-a2-11",
+            "question": "If you need help, {a1} me.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "will ask",
+                        "asked",
+                        "would ask"
+                    ],
+                    "verb_hint": "Use an imperative for advice or instruction.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you need help, {a1} me."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 24,
+            "uuid": "fc-v3-a2-12",
+            "question": "If I see Marta, I {a1} her the news.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "will tell",
+                    "options": [
+                        "will tell",
+                        "tell",
+                        "would tell",
+                        "told"
+                    ],
+                    "verb_hint": "Use will + base verb for the future result.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If I see Marta, I {a1} her the news."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 25,
+            "uuid": "fc-v3-b1-01",
+            "question": "If it {a1} tomorrow, we will stay home.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "rains",
+                    "options": [
+                        "rains",
+                        "will rain",
+                        "rained",
+                        "would rain"
+                    ],
+                    "verb_hint": "Use present simple after if.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If it {a1} tomorrow, we will stay home."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 26,
+            "uuid": "fc-v3-b1-02",
+            "question": "If you call me, I {a1} you.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will help",
+                    "options": [
+                        "will help",
+                        "help",
+                        "would help",
+                        "helped"
+                    ],
+                    "verb_hint": "Use will + base verb in the main clause.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If you call me, I {a1} you."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 27,
+            "uuid": "fc-v3-b1-03",
+            "question": "If she studies tonight, she {a1} the test.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will pass",
+                    "options": [
+                        "will pass",
+                        "passes",
+                        "would pass",
+                        "passed"
+                    ],
+                    "verb_hint": "This is a real future possibility.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If she studies tonight, she {a1} the test."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 28,
+            "uuid": "fc-v3-b1-04",
+            "question": "If we finish early, we {a1} go for a walk.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "will can",
+                        "could have",
+                        "would have"
+                    ],
+                    "verb_hint": "A modal can stand in the main clause.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If we finish early, we {a1} go for a walk."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 29,
+            "uuid": "fc-v3-b1-05",
+            "question": "If you feel tired, {a1} a break.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "will take",
+                        "took",
+                        "would take"
+                    ],
+                    "verb_hint": "The main clause can be an imperative.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you feel tired, {a1} a break."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 30,
+            "uuid": "fc-v3-b1-06",
+            "question": "Unless you hurry, you {a1} the bus.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will miss",
+                    "options": [
+                        "will miss",
+                        "miss",
+                        "would miss",
+                        "missed"
+                    ],
+                    "verb_hint": "Unless means if not.",
+                    "gap_tags": [
+                        "unless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless"
+            ],
+            "variants": [
+                "Unless you hurry, you {a1} the bus."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 31,
+            "uuid": "fc-v3-b1-07",
+            "question": "If the condition comes first, we {a1} a comma.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "Use a comma after a fronted if-clause.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the condition comes first, we {a1} a comma."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 32,
+            "uuid": "fc-v3-b1-08",
+            "question": "If he {a1} late, I will call him.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "will be",
+                        "would be",
+                        "was"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If he {a1} late, I will call him."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 33,
+            "uuid": "fc-v3-b1-09",
+            "question": "If they invite us, we {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will come",
+                    "options": [
+                        "will come",
+                        "come",
+                        "would come",
+                        "came"
+                    ],
+                    "verb_hint": "The result is a real future result.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If they invite us, we {a1}."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 34,
+            "uuid": "fc-v3-b1-10",
+            "question": "If the weather improves, we {a1} drive to the lake.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "will might",
+                        "would have",
+                        "had"
+                    ],
+                    "verb_hint": "Might can show a possible result.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If the weather improves, we {a1} drive to the lake."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 35,
+            "uuid": "fc-v3-b1-11",
+            "question": "If you need help, {a1} me.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "will ask",
+                        "asked",
+                        "would ask"
+                    ],
+                    "verb_hint": "Use an imperative for advice or instruction.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you need help, {a1} me."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 36,
+            "uuid": "fc-v3-b1-12",
+            "question": "If I see Marta, I {a1} her the news.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "will tell",
+                    "options": [
+                        "will tell",
+                        "tell",
+                        "would tell",
+                        "told"
+                    ],
+                    "verb_hint": "Use will + base verb for the future result.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If I see Marta, I {a1} her the news."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 37,
+            "uuid": "fc-v3-b2-01",
+            "question": "If it {a1} tomorrow, we will stay home.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "rains",
+                    "options": [
+                        "rains",
+                        "will rain",
+                        "rained",
+                        "would rain"
+                    ],
+                    "verb_hint": "Use present simple after if.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If it {a1} tomorrow, we will stay home."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 38,
+            "uuid": "fc-v3-b2-02",
+            "question": "If you call me, I {a1} you.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will help",
+                    "options": [
+                        "will help",
+                        "help",
+                        "would help",
+                        "helped"
+                    ],
+                    "verb_hint": "Use will + base verb in the main clause.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If you call me, I {a1} you."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 39,
+            "uuid": "fc-v3-b2-03",
+            "question": "If she studies tonight, she {a1} the test.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will pass",
+                    "options": [
+                        "will pass",
+                        "passes",
+                        "would pass",
+                        "passed"
+                    ],
+                    "verb_hint": "This is a real future possibility.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If she studies tonight, she {a1} the test."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 40,
+            "uuid": "fc-v3-b2-04",
+            "question": "If we finish early, we {a1} go for a walk.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "will can",
+                        "could have",
+                        "would have"
+                    ],
+                    "verb_hint": "A modal can stand in the main clause.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If we finish early, we {a1} go for a walk."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 41,
+            "uuid": "fc-v3-b2-05",
+            "question": "If you feel tired, {a1} a break.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "will take",
+                        "took",
+                        "would take"
+                    ],
+                    "verb_hint": "The main clause can be an imperative.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you feel tired, {a1} a break."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 42,
+            "uuid": "fc-v3-b2-06",
+            "question": "Unless you hurry, you {a1} the bus.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will miss",
+                    "options": [
+                        "will miss",
+                        "miss",
+                        "would miss",
+                        "missed"
+                    ],
+                    "verb_hint": "Unless means if not.",
+                    "gap_tags": [
+                        "unless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless"
+            ],
+            "variants": [
+                "Unless you hurry, you {a1} the bus."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 43,
+            "uuid": "fc-v3-b2-07",
+            "question": "If the condition comes first, we {a1} a comma.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "Use a comma after a fronted if-clause.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the condition comes first, we {a1} a comma."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 44,
+            "uuid": "fc-v3-b2-08",
+            "question": "If he {a1} late, I will call him.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "will be",
+                        "would be",
+                        "was"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If he {a1} late, I will call him."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 45,
+            "uuid": "fc-v3-b2-09",
+            "question": "If they invite us, we {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will come",
+                    "options": [
+                        "will come",
+                        "come",
+                        "would come",
+                        "came"
+                    ],
+                    "verb_hint": "The result is a real future result.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If they invite us, we {a1}."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 46,
+            "uuid": "fc-v3-b2-10",
+            "question": "If the weather improves, we {a1} drive to the lake.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "will might",
+                        "would have",
+                        "had"
+                    ],
+                    "verb_hint": "Might can show a possible result.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If the weather improves, we {a1} drive to the lake."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 47,
+            "uuid": "fc-v3-b2-11",
+            "question": "If you need help, {a1} me.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "will ask",
+                        "asked",
+                        "would ask"
+                    ],
+                    "verb_hint": "Use an imperative for advice or instruction.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you need help, {a1} me."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 48,
+            "uuid": "fc-v3-b2-12",
+            "question": "If I see Marta, I {a1} her the news.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "will tell",
+                    "options": [
+                        "will tell",
+                        "tell",
+                        "would tell",
+                        "told"
+                    ],
+                    "verb_hint": "Use will + base verb for the future result.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If I see Marta, I {a1} her the news."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 49,
+            "uuid": "fc-v3-c1-01",
+            "question": "If it {a1} tomorrow, we will stay home.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "rains",
+                    "options": [
+                        "rains",
+                        "will rain",
+                        "rained",
+                        "would rain"
+                    ],
+                    "verb_hint": "Use present simple after if.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If it {a1} tomorrow, we will stay home."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 50,
+            "uuid": "fc-v3-c1-02",
+            "question": "If you call me, I {a1} you.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will help",
+                    "options": [
+                        "will help",
+                        "help",
+                        "would help",
+                        "helped"
+                    ],
+                    "verb_hint": "Use will + base verb in the main clause.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If you call me, I {a1} you."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 51,
+            "uuid": "fc-v3-c1-03",
+            "question": "If she studies tonight, she {a1} the test.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will pass",
+                    "options": [
+                        "will pass",
+                        "passes",
+                        "would pass",
+                        "passed"
+                    ],
+                    "verb_hint": "This is a real future possibility.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If she studies tonight, she {a1} the test."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 52,
+            "uuid": "fc-v3-c1-04",
+            "question": "If we finish early, we {a1} go for a walk.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "will can",
+                        "could have",
+                        "would have"
+                    ],
+                    "verb_hint": "A modal can stand in the main clause.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If we finish early, we {a1} go for a walk."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 53,
+            "uuid": "fc-v3-c1-05",
+            "question": "If you feel tired, {a1} a break.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "will take",
+                        "took",
+                        "would take"
+                    ],
+                    "verb_hint": "The main clause can be an imperative.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you feel tired, {a1} a break."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 54,
+            "uuid": "fc-v3-c1-06",
+            "question": "Unless you hurry, you {a1} the bus.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will miss",
+                    "options": [
+                        "will miss",
+                        "miss",
+                        "would miss",
+                        "missed"
+                    ],
+                    "verb_hint": "Unless means if not.",
+                    "gap_tags": [
+                        "unless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless"
+            ],
+            "variants": [
+                "Unless you hurry, you {a1} the bus."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 55,
+            "uuid": "fc-v3-c1-07",
+            "question": "If the condition comes first, we {a1} a comma.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "Use a comma after a fronted if-clause.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the condition comes first, we {a1} a comma."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 56,
+            "uuid": "fc-v3-c1-08",
+            "question": "If he {a1} late, I will call him.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "will be",
+                        "would be",
+                        "was"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If he {a1} late, I will call him."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 57,
+            "uuid": "fc-v3-c1-09",
+            "question": "If they invite us, we {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will come",
+                    "options": [
+                        "will come",
+                        "come",
+                        "would come",
+                        "came"
+                    ],
+                    "verb_hint": "The result is a real future result.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If they invite us, we {a1}."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 58,
+            "uuid": "fc-v3-c1-10",
+            "question": "If the weather improves, we {a1} drive to the lake.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "will might",
+                        "would have",
+                        "had"
+                    ],
+                    "verb_hint": "Might can show a possible result.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If the weather improves, we {a1} drive to the lake."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 59,
+            "uuid": "fc-v3-c1-11",
+            "question": "If you need help, {a1} me.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "will ask",
+                        "asked",
+                        "would ask"
+                    ],
+                    "verb_hint": "Use an imperative for advice or instruction.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you need help, {a1} me."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 60,
+            "uuid": "fc-v3-c1-12",
+            "question": "If I see Marta, I {a1} her the news.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "will tell",
+                    "options": [
+                        "will tell",
+                        "tell",
+                        "would tell",
+                        "told"
+                    ],
+                    "verb_hint": "Use will + base verb for the future result.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If I see Marta, I {a1} her the news."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 61,
+            "uuid": "fc-v3-c2-01",
+            "question": "If it {a1} tomorrow, we will stay home.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "rains",
+                    "options": [
+                        "rains",
+                        "will rain",
+                        "rained",
+                        "would rain"
+                    ],
+                    "verb_hint": "Use present simple after if.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If it {a1} tomorrow, we will stay home."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 62,
+            "uuid": "fc-v3-c2-02",
+            "question": "If you call me, I {a1} you.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will help",
+                    "options": [
+                        "will help",
+                        "help",
+                        "would help",
+                        "helped"
+                    ],
+                    "verb_hint": "Use will + base verb in the main clause.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If you call me, I {a1} you."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 63,
+            "uuid": "fc-v3-c2-03",
+            "question": "If she studies tonight, she {a1} the test.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will pass",
+                    "options": [
+                        "will pass",
+                        "passes",
+                        "would pass",
+                        "passed"
+                    ],
+                    "verb_hint": "This is a real future possibility.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If she studies tonight, she {a1} the test."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 64,
+            "uuid": "fc-v3-c2-04",
+            "question": "If we finish early, we {a1} go for a walk.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "will can",
+                        "could have",
+                        "would have"
+                    ],
+                    "verb_hint": "A modal can stand in the main clause.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If we finish early, we {a1} go for a walk."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 65,
+            "uuid": "fc-v3-c2-05",
+            "question": "If you feel tired, {a1} a break.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "take",
+                    "options": [
+                        "take",
+                        "will take",
+                        "took",
+                        "would take"
+                    ],
+                    "verb_hint": "The main clause can be an imperative.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you feel tired, {a1} a break."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 66,
+            "uuid": "fc-v3-c2-06",
+            "question": "Unless you hurry, you {a1} the bus.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will miss",
+                    "options": [
+                        "will miss",
+                        "miss",
+                        "would miss",
+                        "missed"
+                    ],
+                    "verb_hint": "Unless means if not.",
+                    "gap_tags": [
+                        "unless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "unless"
+            ],
+            "variants": [
+                "Unless you hurry, you {a1} the bus."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 67,
+            "uuid": "fc-v3-c2-07",
+            "question": "If the condition comes first, we {a1} a comma.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "Use a comma after a fronted if-clause.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the condition comes first, we {a1} a comma."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 68,
+            "uuid": "fc-v3-c2-08",
+            "question": "If he {a1} late, I will call him.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "will be",
+                        "would be",
+                        "was"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If he {a1} late, I will call him."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 69,
+            "uuid": "fc-v3-c2-09",
+            "question": "If they invite us, we {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will come",
+                    "options": [
+                        "will come",
+                        "come",
+                        "would come",
+                        "came"
+                    ],
+                    "verb_hint": "The result is a real future result.",
+                    "gap_tags": [
+                        "real_future_condition"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "real_future_condition"
+            ],
+            "variants": [
+                "If they invite us, we {a1}."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 70,
+            "uuid": "fc-v3-c2-10",
+            "question": "If the weather improves, we {a1} drive to the lake.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "will might",
+                        "would have",
+                        "had"
+                    ],
+                    "verb_hint": "Might can show a possible result.",
+                    "gap_tags": [
+                        "modal_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_main_clause"
+            ],
+            "variants": [
+                "If the weather improves, we {a1} drive to the lake."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 71,
+            "uuid": "fc-v3-c2-11",
+            "question": "If you need help, {a1} me.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "ask",
+                    "options": [
+                        "ask",
+                        "will ask",
+                        "asked",
+                        "would ask"
+                    ],
+                    "verb_hint": "Use an imperative for advice or instruction.",
+                    "gap_tags": [
+                        "imperative_main_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_main_clause"
+            ],
+            "variants": [
+                "If you need help, {a1} me."
+            ],
+            "source": "theory_page_first_conditional"
+        },
+        {
+            "id": 72,
+            "uuid": "fc-v3-c2-12",
+            "question": "If I see Marta, I {a1} her the news.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "will tell",
+                    "options": [
+                        "will tell",
+                        "tell",
+                        "would tell",
+                        "told"
+                    ],
+                    "verb_hint": "Use will + base verb for the future result.",
+                    "gap_tags": [
+                        "will_base"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "will_base"
+            ],
+            "variants": [
+                "If I see Marta, I {a1} her the news."
+            ],
+            "source": "theory_page_first_conditional"
+        }
+    ],
+    "saved_test": {
+        "uuid": "conditionals-first-v3-all",
+        "slug": "first-conditional-all-levels-v3",
+        "name": "First Conditional: V3 All Levels",
+        "description": "Page-local V3 package for First Conditional with A1-C2 coverage.",
+        "question_uuids": [
+            "fc-v3-a1-01",
+            "fc-v3-a1-02",
+            "fc-v3-a1-03",
+            "fc-v3-a1-04",
+            "fc-v3-a1-05",
+            "fc-v3-a1-06",
+            "fc-v3-a1-07",
+            "fc-v3-a1-08",
+            "fc-v3-a1-09",
+            "fc-v3-a1-10",
+            "fc-v3-a1-11",
+            "fc-v3-a1-12",
+            "fc-v3-a2-01",
+            "fc-v3-a2-02",
+            "fc-v3-a2-03",
+            "fc-v3-a2-04",
+            "fc-v3-a2-05",
+            "fc-v3-a2-06",
+            "fc-v3-a2-07",
+            "fc-v3-a2-08",
+            "fc-v3-a2-09",
+            "fc-v3-a2-10",
+            "fc-v3-a2-11",
+            "fc-v3-a2-12",
+            "fc-v3-b1-01",
+            "fc-v3-b1-02",
+            "fc-v3-b1-03",
+            "fc-v3-b1-04",
+            "fc-v3-b1-05",
+            "fc-v3-b1-06",
+            "fc-v3-b1-07",
+            "fc-v3-b1-08",
+            "fc-v3-b1-09",
+            "fc-v3-b1-10",
+            "fc-v3-b1-11",
+            "fc-v3-b1-12",
+            "fc-v3-b2-01",
+            "fc-v3-b2-02",
+            "fc-v3-b2-03",
+            "fc-v3-b2-04",
+            "fc-v3-b2-05",
+            "fc-v3-b2-06",
+            "fc-v3-b2-07",
+            "fc-v3-b2-08",
+            "fc-v3-b2-09",
+            "fc-v3-b2-10",
+            "fc-v3-b2-11",
+            "fc-v3-b2-12",
+            "fc-v3-c1-01",
+            "fc-v3-c1-02",
+            "fc-v3-c1-03",
+            "fc-v3-c1-04",
+            "fc-v3-c1-05",
+            "fc-v3-c1-06",
+            "fc-v3-c1-07",
+            "fc-v3-c1-08",
+            "fc-v3-c1-09",
+            "fc-v3-c1-10",
+            "fc-v3-c1-11",
+            "fc-v3-c1-12",
+            "fc-v3-c2-01",
+            "fc-v3-c2-02",
+            "fc-v3-c2-03",
+            "fc-v3-c2-04",
+            "fc-v3-c2-05",
+            "fc-v3-c2-06",
+            "fc-v3-c2-07",
+            "fc-v3-c2-08",
+            "fc-v3-c2-09",
+            "fc-v3-c2-10",
+            "fc-v3-c2-11",
+            "fc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\FirstConditionalAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "first-conditional",
+                    "title": "First Conditional",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsFirstTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/first-conditional"
+                }
+            }
+        }
+    }
+}

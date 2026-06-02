@@ -1,0 +1,980 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegationsAllLevelsV3Seeder",
+        "uuid_namespace": "QuestionsNegationsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions and Negations"
+    },
+    "sources": {
+        "questions_negations_overview_page": {
+            "name": "Questions and Negations - All Levels Overview"
+        }
+    },
+    "tags": {
+        "question_formation_practice": {
+            "name": "Question Formation Practice",
+            "category": "theme"
+        },
+        "question_word_order": {
+            "name": "Question word order",
+            "category": "theory"
+        },
+        "sentence_types": {
+            "name": "Sentence types",
+            "category": "theory"
+        },
+        "embedded_questions": {
+            "name": "Embedded Questions",
+            "category": "detail"
+        },
+        "subject_questions": {
+            "name": "Subject Questions",
+            "category": "detail"
+        },
+        "wh_questions_formation": {
+            "name": "Wh-Questions Formation",
+            "category": "detail"
+        }
+    },
+    "default_tag_keys": [
+        "question_formation_practice",
+        "question_word_order"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "question": "{a1} you like coffee?",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "present simple question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "{a1} you like coffee?"
+            ]
+        },
+        {
+            "id": 2,
+            "question": "She {a1} like cold weather.",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "doesn't",
+                    "options": [
+                        "doesn't",
+                        "don't",
+                        "isn't"
+                    ],
+                    "verb_hint": "present simple negative"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "She {a1} like cold weather."
+            ]
+        },
+        {
+            "id": 3,
+            "question": "{a1} are they from?",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "What",
+                        "Why"
+                    ],
+                    "verb_hint": "wh-word for place"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "{a1} are they from?"
+            ]
+        },
+        {
+            "id": 4,
+            "question": "{a1} he at home yesterday?",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Did",
+                        "Does"
+                    ],
+                    "verb_hint": "be in past question"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "{a1} he at home yesterday?"
+            ]
+        },
+        {
+            "id": 5,
+            "question": "There {a1} any milk in the fridge.",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "isn't",
+                    "options": [
+                        "isn't",
+                        "aren't",
+                        "doesn't"
+                    ],
+                    "verb_hint": "negative there is"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "There {a1} any milk in the fridge."
+            ]
+        },
+        {
+            "id": 6,
+            "question": "{a1} she play the piano?",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Does",
+                        "Is"
+                    ],
+                    "verb_hint": "modal question"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "{a1} she play the piano?"
+            ]
+        },
+        {
+            "id": 7,
+            "question": "{a1} your brother work in Kyiv?",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is"
+                    ],
+                    "verb_hint": "present simple question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "{a1} your brother work in Kyiv?"
+            ]
+        },
+        {
+            "id": 8,
+            "question": "They {a1} watching TV now.",
+            "source": "questions_negations_overview_page",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "don't",
+                        "isn't"
+                    ],
+                    "verb_hint": "present continuous negative"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "They {a1} watching TV now."
+            ]
+        },
+        {
+            "id": 9,
+            "question": "{a1} did you call after the lesson?",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "When",
+                        "How"
+                    ],
+                    "verb_hint": "wh-word for person"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "{a1} did you call after the lesson?"
+            ]
+        },
+        {
+            "id": 10,
+            "question": "Why {a1} you come earlier yesterday?",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "didn't",
+                    "options": [
+                        "didn't",
+                        "don't",
+                        "weren't"
+                    ],
+                    "verb_hint": "past simple negative question"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "Why {a1} you come earlier yesterday?"
+            ]
+        },
+        {
+            "id": 11,
+            "question": "{a1} you ever been to Poland?",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Do",
+                        "Did"
+                    ],
+                    "verb_hint": "present perfect question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "{a1} you ever been to Poland?"
+            ]
+        },
+        {
+            "id": 12,
+            "question": "He asked, \"{a1} are you going?\"",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Where",
+                    "options": [
+                        "Where",
+                        "Why",
+                        "How many"
+                    ],
+                    "verb_hint": "wh-question word"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "He asked, \"{a1} are you going?\""
+            ]
+        },
+        {
+            "id": 13,
+            "question": "She {a1} finished her homework yet.",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "hasn't",
+                    "options": [
+                        "hasn't",
+                        "didn't",
+                        "isn't"
+                    ],
+                    "verb_hint": "present perfect negative"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "She {a1} finished her homework yet."
+            ]
+        },
+        {
+            "id": 14,
+            "question": "{a1} is sitting next to Marta?",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "options": [
+                        "Who",
+                        "Whom",
+                        "What"
+                    ],
+                    "verb_hint": "subject question"
+                }
+            },
+            "tag_keys": [
+                "subject_questions"
+            ],
+            "variants": [
+                "{a1} is sitting next to Marta?"
+            ]
+        },
+        {
+            "id": 15,
+            "question": "Are we meeting at six, {a1} we?",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "aren't",
+                    "options": [
+                        "aren't",
+                        "don't",
+                        "won't"
+                    ],
+                    "verb_hint": "question tag"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "Are we meeting at six, {a1} we?"
+            ]
+        },
+        {
+            "id": 16,
+            "question": "Could you tell me where the nearest bank {a1}?",
+            "source": "questions_negations_overview_page",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "be"
+                    ],
+                    "verb_hint": "embedded question order"
+                }
+            },
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "variants": [
+                "Could you tell me where the nearest bank {a1}?"
+            ]
+        },
+        {
+            "id": 17,
+            "question": "What time {a1} the guests supposed to arrive?",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "have"
+                    ],
+                    "verb_hint": "be in wh-question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "What time {a1} the guests supposed to arrive?"
+            ]
+        },
+        {
+            "id": 18,
+            "question": "The printer wasn't working, {a1} it?",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "had"
+                    ],
+                    "verb_hint": "question tag auxiliary"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "The printer wasn't working, {a1} it?"
+            ]
+        },
+        {
+            "id": 19,
+            "question": "If you saw the note, {a1} didn't you mention it earlier?",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "why",
+                    "options": [
+                        "why",
+                        "where",
+                        "which"
+                    ],
+                    "verb_hint": "wh-word for reason"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "If you saw the note, {a1} didn't you mention it earlier?"
+            ]
+        },
+        {
+            "id": 20,
+            "question": "Not only {a1} she forget the keys, but she also locked the back door.",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "she did",
+                        "has"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "Not only {a1} she forget the keys, but she also locked the back door."
+            ]
+        },
+        {
+            "id": 21,
+            "question": "Do you remember what the technician {a1} us to reset?",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "told",
+                    "options": [
+                        "told",
+                        "did tell",
+                        "was telling"
+                    ],
+                    "verb_hint": "embedded content question"
+                }
+            },
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "variants": [
+                "Do you remember what the technician {a1} us to reset?"
+            ]
+        },
+        {
+            "id": 22,
+            "question": "Which option {a1} you rather choose, the annual plan or the monthly one?",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "do",
+                        "are"
+                    ],
+                    "verb_hint": "alternative question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "Which option {a1} you rather choose, the annual plan or the monthly one?"
+            ]
+        },
+        {
+            "id": 23,
+            "question": "How many interns {a1} assigned to the late shift last week?",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "did",
+                        "have"
+                    ],
+                    "verb_hint": "past be in wh-question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "How many interns {a1} assigned to the late shift last week?"
+            ]
+        },
+        {
+            "id": 24,
+            "question": "Nobody on the panel objected, {a1} they?",
+            "source": "questions_negations_overview_page",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "didn't",
+                        "were"
+                    ],
+                    "verb_hint": "affirmative tag after negative subject"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "Nobody on the panel objected, {a1} they?"
+            ]
+        },
+        {
+            "id": 25,
+            "question": "How exactly {a1} the figures been reconciled before the audit began?",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "have",
+                        "were"
+                    ],
+                    "verb_hint": "past perfect question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "How exactly {a1} the figures been reconciled before the audit began?"
+            ]
+        },
+        {
+            "id": 26,
+            "question": "Rarely {a1} we see such a tightly argued response from a first draft.",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "we do",
+                        "have"
+                    ],
+                    "verb_hint": "inversion after negative adverbial"
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "Rarely {a1} we see such a tightly argued response from a first draft."
+            ]
+        },
+        {
+            "id": 27,
+            "question": "Could you clarify why the revised clause {a1} been removed from the final version?",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "was",
+                        "did"
+                    ],
+                    "verb_hint": "embedded question with past perfect"
+                }
+            },
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "variants": [
+                "Could you clarify why the revised clause {a1} been removed from the final version?"
+            ]
+        },
+        {
+            "id": 28,
+            "question": "Who {a1} likely to raise an objection once the annex is circulated?",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "subject question with be"
+                }
+            },
+            "tag_keys": [
+                "subject_questions"
+            ],
+            "variants": [
+                "Who {a1} likely to raise an objection once the annex is circulated?"
+            ]
+        },
+        {
+            "id": 29,
+            "question": "You had already escalated the issue before the outage, {a1} you?",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "hadn't",
+                    "options": [
+                        "hadn't",
+                        "didn't",
+                        "weren't"
+                    ],
+                    "verb_hint": "question tag with past perfect"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "You had already escalated the issue before the outage, {a1} you?"
+            ]
+        },
+        {
+            "id": 30,
+            "question": "Why {a1} the reviewers not informed before the memo was published?",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "did",
+                        "had"
+                    ],
+                    "verb_hint": "passive wh-question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "Why {a1} the reviewers not informed before the memo was published?"
+            ]
+        },
+        {
+            "id": 31,
+            "question": "Under no circumstances {a1} the archived files be altered without written approval.",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "may",
+                    "options": [
+                        "may",
+                        "can",
+                        "do"
+                    ],
+                    "verb_hint": "inversion after negative phrase"
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "Under no circumstances {a1} the archived files be altered without written approval."
+            ]
+        },
+        {
+            "id": 32,
+            "question": "What {a1} the committee have done differently to avoid the delay?",
+            "source": "questions_negations_overview_page",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "modal perfect question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "What {a1} the committee have done differently to avoid the delay?"
+            ]
+        },
+        {
+            "id": 33,
+            "question": "Why ever {a1} the board have approved such a loosely drafted amendment?",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "did",
+                        "had"
+                    ],
+                    "verb_hint": "rhetorical question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "Why ever {a1} the board have approved such a loosely drafted amendment?"
+            ]
+        },
+        {
+            "id": 34,
+            "question": "Little {a1} the negotiators suspect how quickly the figures would unravel.",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "they did",
+                        "had"
+                    ],
+                    "verb_hint": "inversion after limiting adverb"
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "Little {a1} the negotiators suspect how quickly the figures would unravel."
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Could you explain on what basis the panel concluded the evidence {a1} inadmissible?",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "had",
+                        "did"
+                    ],
+                    "verb_hint": "embedded clause with be"
+                }
+            },
+            "tag_keys": [
+                "embedded_questions"
+            ],
+            "variants": [
+                "Could you explain on what basis the panel concluded the evidence {a1} inadmissible?"
+            ]
+        },
+        {
+            "id": 36,
+            "question": "Who {a1} to have authorised the transfer before compliance signed off on it?",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "appears",
+                    "options": [
+                        "appears",
+                        "appear",
+                        "did appear"
+                    ],
+                    "verb_hint": "subject question with reporting verb"
+                }
+            },
+            "tag_keys": [
+                "subject_questions"
+            ],
+            "variants": [
+                "Who {a1} to have authorised the transfer before compliance signed off on it?"
+            ]
+        },
+        {
+            "id": 37,
+            "question": "Not until the annex was circulated {a1} the discrepancy become obvious to the auditors.",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "had",
+                        "was"
+                    ],
+                    "verb_hint": "delayed inversion"
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "Not until the annex was circulated {a1} the discrepancy become obvious to the auditors."
+            ]
+        },
+        {
+            "id": 38,
+            "question": "You wouldn't have released the draft without legal review, {a1}?",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would you",
+                    "options": [
+                        "would you",
+                        "wouldn't you",
+                        "did you"
+                    ],
+                    "verb_hint": "negative statement tag"
+                }
+            },
+            "tag_keys": [
+                "sentence_types"
+            ],
+            "variants": [
+                "You wouldn't have released the draft without legal review, {a1}?"
+            ]
+        },
+        {
+            "id": 39,
+            "question": "How {a1} anyone have inferred consent from wording that tentative?",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "did",
+                        "would"
+                    ],
+                    "verb_hint": "modal question auxiliary"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "How {a1} anyone have inferred consent from wording that tentative?"
+            ]
+        },
+        {
+            "id": 40,
+            "question": "Why {a1} the review team have been expected to endorse a version they had never seen?",
+            "source": "questions_negations_overview_page",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "rhetorical modal question"
+                }
+            },
+            "tag_keys": [
+                "wh_questions_formation"
+            ],
+            "variants": [
+                "Why {a1} the review team have been expected to endorse a version they had never seen?"
+            ]
+        }
+    ]
+}

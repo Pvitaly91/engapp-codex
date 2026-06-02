@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 62,
+        "uuid": "14-i-like-apples-a14-i-dont-like-ora",
+        "question": "I like apples {a14} I don't like oranges.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 2,
+        "created_at": "2026-05-26T14:30:54.000000Z",
+        "updated_at": "2026-05-26T14:30:57.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:48.000000Z",
+                "updated_at": "2026-05-26T14:30:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 62,
+                "tag_id": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 50,
+                "name": "Conjunction usage",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62,
+                "tag_id": 50,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 63,
+                "option": "and",
+                "created_at": "2026-05-26T14:30:51.000000Z",
+                "updated_at": "2026-05-26T14:30:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 62,
+                "option_id": 63,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 151,
+                "option": "but",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62,
+                "option_id": 151,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 176,
+                "option": "or",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62,
+                "option_id": 176,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 172,
+                "question_id": 62,
+                "marker": "a14",
+                "option_id": 151,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 151,
+                "option": "but",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 14,
+                "question_id": 62,
+                "marker": "a14",
+                "option_id": 175,
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            },
+            "option": {
+                "id": 175,
+                "option": "contrast word",
+                "created_at": "2026-05-26T14:30:54.000000Z",
+                "updated_at": "2026-05-26T14:30:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 44,
+            "question_id": 62,
+            "text": "I like apples {a14} I don't like oranges.",
+            "created_at": "2026-05-26T14:30:54.000000Z",
+            "updated_at": "2026-05-26T14:30:54.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 70,
+            "question_id": 62,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "The conjunction 'but' correctly connects the elements in this sentence.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 71,
+            "question_id": 62,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "Spójnik 'but' wyraża kontrast między dwoma zdaniami.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 72,
+            "question_id": 62,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Сполучник протиставлення (contrast conjunction) з'єднує два речення з протилежним змістом.\nПерша частина виражає подобання ('like'), друга — неподобання ('don't like'), тому потрібен 'but'.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 338,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "en",
+            "explanation": "Incorrect. 'and' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 341,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "pl",
+            "explanation": "'And' łączy podobne elementy, a nie kontrastujące.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 345,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "ua",
+            "explanation": "Сполучник 'and' (і) додає інформацію, а не протиставляє її.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 346,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "and",
+            "correct_answer": "but",
+            "language": "uk",
+            "explanation": "Сполучник 'and' (і) додає інформацію, а не протиставляє її.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 337,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "en",
+            "explanation": "Correct. 'but' is the appropriate choice in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 340,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "pl",
+            "explanation": "Poprawnie! 'But' wyraża kontrast (lubię jabłka, ale nie pomarańcze).",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 343,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "ua",
+            "explanation": "Сполучник 'but' (але) правильно виражає контраст між двома твердженнями.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 344,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "but",
+            "correct_answer": "but",
+            "language": "uk",
+            "explanation": "Сполучник 'but' (але) правильно виражає контраст між двома твердженнями.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 339,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "or",
+            "correct_answer": "but",
+            "language": "en",
+            "explanation": "Incorrect. 'or' doesn't fit grammatically or idiomatically in this context.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 342,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "or",
+            "correct_answer": "but",
+            "language": "pl",
+            "explanation": "'Or' wyraża wybór, nie kontrast.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 347,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "or",
+            "correct_answer": "but",
+            "language": "ua",
+            "explanation": "Сполучник 'or' (або) виражає вибір, що не підходить за змістом.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        },
+        {
+            "id": 348,
+            "question": "I like apples {a14} I don't like oranges.",
+            "wrong_answer": "or",
+            "correct_answer": "but",
+            "language": "uk",
+            "explanation": "Сполучник 'or' (або) виражає вибір, що не підходить за змістом.",
+            "created_at": "2026-05-26T14:30:56.000000Z",
+            "updated_at": "2026-05-26T14:30:56.000000Z"
+        }
+    ]
+}

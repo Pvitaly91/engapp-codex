@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotDiscourseMarkersAndCohesionC2LessonSeeder as V3PolyglotDiscourseMarkersAndCohesionC2LessonSeeder;
+
+class PolyglotDiscourseMarkersAndCohesionC2LessonSeeder extends V3PolyglotDiscourseMarkersAndCohesionC2LessonSeeder
+{
+}

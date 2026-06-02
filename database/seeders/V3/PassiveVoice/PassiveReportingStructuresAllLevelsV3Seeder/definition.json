@@ -1,0 +1,2303 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\PassiveReportingStructuresAllLevelsV3Seeder",
+        "uuid_namespace": "PassiveReportingStructuresAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "theory_page_passive_reporting_structures": {
+            "name": "Passive Reporting Structures"
+        }
+    },
+    "tags": {
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "passive_reporting_structures": {
+            "name": "Passive Reporting Structures",
+            "category": "passive_voice"
+        },
+        "impersonal_passive": {
+            "name": "Impersonal Passive",
+            "category": "topic"
+        },
+        "personal_passive": {
+            "name": "Personal Passive",
+            "category": "topic"
+        },
+        "reporting_verbs": {
+            "name": "Reporting Verbs",
+            "category": "topic"
+        },
+        "present_infinitive": {
+            "name": "Present Infinitive",
+            "category": "topic"
+        },
+        "perfect_infinitive": {
+            "name": "Perfect Infinitive",
+            "category": "topic"
+        },
+        "passive_infinitive": {
+            "name": "Passive Infinitive",
+            "category": "topic"
+        },
+        "active_reporting": {
+            "name": "Active Reporting",
+            "category": "topic"
+        },
+        "formal_register": {
+            "name": "Formal Register",
+            "category": "topic"
+        },
+        "tense_match": {
+            "name": "Tense Match",
+            "category": "topic"
+        },
+        "expected_known": {
+            "name": "Expected Known",
+            "category": "topic"
+        },
+        "avoid_mismatch": {
+            "name": "Avoid Mismatch",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_reporting_structures"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pv-report-v3-a1-01",
+            "question": "{a1} the method is reliable.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "It says that",
+                        "People is said that",
+                        "It said to"
+                    ],
+                    "verb_hint": "Choose the form that matches Impersonal Passive.",
+                    "gap_tags": [
+                        "impersonal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "impersonal_passive",
+                "level_a1"
+            ],
+            "variants": [
+                "{a1} the method is reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 2,
+            "uuid": "pv-report-v3-a1-02",
+            "question": "The researcher {a1} to be reliable.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "is saying",
+                        "says",
+                        "is said that"
+                    ],
+                    "verb_hint": "Choose the form that matches Personal Passive.",
+                    "gap_tags": [
+                        "personal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "personal_passive",
+                "level_a1"
+            ],
+            "variants": [
+                "The researcher {a1} to be reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 3,
+            "uuid": "pv-report-v3-a1-03",
+            "question": "Use a reporting verb: The plan is {a1} to be effective.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "believing",
+                        "belief",
+                        "believe"
+                    ],
+                    "verb_hint": "Choose the form that matches Reporting Verbs.",
+                    "gap_tags": [
+                        "reporting_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reporting_verbs",
+                "level_a1"
+            ],
+            "variants": [
+                "Use a reporting verb: The plan is {a1} to be effective."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 4,
+            "uuid": "pv-report-v3-a1-04",
+            "question": "He is expected {a1} the meeting.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to attend",
+                    "options": [
+                        "to attend",
+                        "to have attended",
+                        "attending",
+                        "attend"
+                    ],
+                    "verb_hint": "Choose the form that matches Present Infinitive.",
+                    "gap_tags": [
+                        "present_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_infinitive",
+                "level_a1"
+            ],
+            "variants": [
+                "He is expected {a1} the meeting."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 5,
+            "uuid": "pv-report-v3-a1-05",
+            "question": "She is believed {a1} the report already.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to have completed",
+                    "options": [
+                        "to have completed",
+                        "to complete tomorrow",
+                        "completing",
+                        "complete"
+                    ],
+                    "verb_hint": "Choose the form that matches Perfect Infinitive.",
+                    "gap_tags": [
+                        "perfect_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "perfect_infinitive",
+                "level_a1"
+            ],
+            "variants": [
+                "She is believed {a1} the report already."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 6,
+            "uuid": "pv-report-v3-a1-06",
+            "question": "The file is reported {a1} by the board.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to have been approved",
+                    "options": [
+                        "to have been approved",
+                        "to approve",
+                        "to have approve",
+                        "approved"
+                    ],
+                    "verb_hint": "Choose the form that matches Passive Infinitive.",
+                    "gap_tags": [
+                        "passive_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_infinitive",
+                "level_a1"
+            ],
+            "variants": [
+                "The file is reported {a1} by the board."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 7,
+            "uuid": "pv-report-v3-a1-07",
+            "question": "Active reporting uses a subject such as {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "people say",
+                    "options": [
+                        "people say",
+                        "it is said",
+                        "he is believed",
+                        "the claim is reported"
+                    ],
+                    "verb_hint": "Choose the form that matches Active Reporting.",
+                    "gap_tags": [
+                        "active_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "active_reporting",
+                "level_a1"
+            ],
+            "variants": [
+                "Active reporting uses a subject such as {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 8,
+            "uuid": "pv-report-v3-a1-08",
+            "question": "Passive reporting is common in {a1} style.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "formal",
+                    "options": [
+                        "formal",
+                        "casual",
+                        "slang",
+                        "childish"
+                    ],
+                    "verb_hint": "Choose the form that matches Formal Register.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register",
+                "level_a1"
+            ],
+            "variants": [
+                "Passive reporting is common in {a1} style."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 9,
+            "uuid": "pv-report-v3-a1-09",
+            "question": "For an earlier action, use the perfect infinitive: is believed {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave now",
+                        "leaving",
+                        "lefts"
+                    ],
+                    "verb_hint": "Choose the form that matches Tense Match.",
+                    "gap_tags": [
+                        "tense_match"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tense_match",
+                "level_a1"
+            ],
+            "variants": [
+                "For an earlier action, use the perfect infinitive: is believed {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 10,
+            "uuid": "pv-report-v3-a1-10",
+            "question": "The results are {a1} to be accurate.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "knowing",
+                        "know",
+                        "knew"
+                    ],
+                    "verb_hint": "Choose the form that matches Expected Known.",
+                    "gap_tags": [
+                        "expected_known"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "expected_known",
+                "level_a1"
+            ],
+            "variants": [
+                "The results are {a1} to be accurate."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 11,
+            "uuid": "pv-report-v3-a1-11",
+            "question": "Avoid tense mismatch: He is thought {a1} yesterday.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to have arrived",
+                    "options": [
+                        "to have arrived",
+                        "to arrive yesterday",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Choose the form that matches Avoid Mismatch.",
+                    "gap_tags": [
+                        "avoid_mismatch"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_mismatch",
+                "level_a1"
+            ],
+            "variants": [
+                "Avoid tense mismatch: He is thought {a1} yesterday."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 12,
+            "uuid": "pv-report-v3-a1-12",
+            "question": "Do not write: He is said that he is honest. Use: He is said {a1} honest.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "that be",
+                        "being",
+                        "be"
+                    ],
+                    "verb_hint": "Choose the form that matches Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes",
+                "level_a1"
+            ],
+            "variants": [
+                "Do not write: He is said that he is honest. Use: He is said {a1} honest."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 13,
+            "uuid": "pv-report-v3-a2-01",
+            "question": "{a1} the method is reliable.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "It says that",
+                        "People is said that",
+                        "It said to"
+                    ],
+                    "verb_hint": "Choose the form that matches Impersonal Passive.",
+                    "gap_tags": [
+                        "impersonal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "impersonal_passive",
+                "level_a2"
+            ],
+            "variants": [
+                "{a1} the method is reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 14,
+            "uuid": "pv-report-v3-a2-02",
+            "question": "The researcher {a1} to be reliable.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "is saying",
+                        "says",
+                        "is said that"
+                    ],
+                    "verb_hint": "Choose the form that matches Personal Passive.",
+                    "gap_tags": [
+                        "personal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "personal_passive",
+                "level_a2"
+            ],
+            "variants": [
+                "The researcher {a1} to be reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 15,
+            "uuid": "pv-report-v3-a2-03",
+            "question": "Use a reporting verb: The plan is {a1} to be effective.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "believing",
+                        "belief",
+                        "believe"
+                    ],
+                    "verb_hint": "Choose the form that matches Reporting Verbs.",
+                    "gap_tags": [
+                        "reporting_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reporting_verbs",
+                "level_a2"
+            ],
+            "variants": [
+                "Use a reporting verb: The plan is {a1} to be effective."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 16,
+            "uuid": "pv-report-v3-a2-04",
+            "question": "He is expected {a1} the meeting.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to attend",
+                    "options": [
+                        "to attend",
+                        "to have attended",
+                        "attending",
+                        "attend"
+                    ],
+                    "verb_hint": "Choose the form that matches Present Infinitive.",
+                    "gap_tags": [
+                        "present_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_infinitive",
+                "level_a2"
+            ],
+            "variants": [
+                "He is expected {a1} the meeting."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 17,
+            "uuid": "pv-report-v3-a2-05",
+            "question": "She is believed {a1} the report already.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to have completed",
+                    "options": [
+                        "to have completed",
+                        "to complete tomorrow",
+                        "completing",
+                        "complete"
+                    ],
+                    "verb_hint": "Choose the form that matches Perfect Infinitive.",
+                    "gap_tags": [
+                        "perfect_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "perfect_infinitive",
+                "level_a2"
+            ],
+            "variants": [
+                "She is believed {a1} the report already."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 18,
+            "uuid": "pv-report-v3-a2-06",
+            "question": "The file is reported {a1} by the board.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to have been approved",
+                    "options": [
+                        "to have been approved",
+                        "to approve",
+                        "to have approve",
+                        "approved"
+                    ],
+                    "verb_hint": "Choose the form that matches Passive Infinitive.",
+                    "gap_tags": [
+                        "passive_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_infinitive",
+                "level_a2"
+            ],
+            "variants": [
+                "The file is reported {a1} by the board."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 19,
+            "uuid": "pv-report-v3-a2-07",
+            "question": "Active reporting uses a subject such as {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "people say",
+                    "options": [
+                        "people say",
+                        "it is said",
+                        "he is believed",
+                        "the claim is reported"
+                    ],
+                    "verb_hint": "Choose the form that matches Active Reporting.",
+                    "gap_tags": [
+                        "active_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "active_reporting",
+                "level_a2"
+            ],
+            "variants": [
+                "Active reporting uses a subject such as {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 20,
+            "uuid": "pv-report-v3-a2-08",
+            "question": "Passive reporting is common in {a1} style.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "formal",
+                    "options": [
+                        "formal",
+                        "casual",
+                        "slang",
+                        "childish"
+                    ],
+                    "verb_hint": "Choose the form that matches Formal Register.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register",
+                "level_a2"
+            ],
+            "variants": [
+                "Passive reporting is common in {a1} style."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 21,
+            "uuid": "pv-report-v3-a2-09",
+            "question": "For an earlier action, use the perfect infinitive: is believed {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave now",
+                        "leaving",
+                        "lefts"
+                    ],
+                    "verb_hint": "Choose the form that matches Tense Match.",
+                    "gap_tags": [
+                        "tense_match"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tense_match",
+                "level_a2"
+            ],
+            "variants": [
+                "For an earlier action, use the perfect infinitive: is believed {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 22,
+            "uuid": "pv-report-v3-a2-10",
+            "question": "The results are {a1} to be accurate.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "knowing",
+                        "know",
+                        "knew"
+                    ],
+                    "verb_hint": "Choose the form that matches Expected Known.",
+                    "gap_tags": [
+                        "expected_known"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "expected_known",
+                "level_a2"
+            ],
+            "variants": [
+                "The results are {a1} to be accurate."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 23,
+            "uuid": "pv-report-v3-a2-11",
+            "question": "Avoid tense mismatch: He is thought {a1} yesterday.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to have arrived",
+                    "options": [
+                        "to have arrived",
+                        "to arrive yesterday",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Choose the form that matches Avoid Mismatch.",
+                    "gap_tags": [
+                        "avoid_mismatch"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_mismatch",
+                "level_a2"
+            ],
+            "variants": [
+                "Avoid tense mismatch: He is thought {a1} yesterday."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 24,
+            "uuid": "pv-report-v3-a2-12",
+            "question": "Do not write: He is said that he is honest. Use: He is said {a1} honest.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "that be",
+                        "being",
+                        "be"
+                    ],
+                    "verb_hint": "Choose the form that matches Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes",
+                "level_a2"
+            ],
+            "variants": [
+                "Do not write: He is said that he is honest. Use: He is said {a1} honest."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 25,
+            "uuid": "pv-report-v3-b1-01",
+            "question": "{a1} the method is reliable.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "It says that",
+                        "People is said that",
+                        "It said to"
+                    ],
+                    "verb_hint": "Choose the form that matches Impersonal Passive.",
+                    "gap_tags": [
+                        "impersonal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "impersonal_passive",
+                "level_b1"
+            ],
+            "variants": [
+                "{a1} the method is reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 26,
+            "uuid": "pv-report-v3-b1-02",
+            "question": "The researcher {a1} to be reliable.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "is saying",
+                        "says",
+                        "is said that"
+                    ],
+                    "verb_hint": "Choose the form that matches Personal Passive.",
+                    "gap_tags": [
+                        "personal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "personal_passive",
+                "level_b1"
+            ],
+            "variants": [
+                "The researcher {a1} to be reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 27,
+            "uuid": "pv-report-v3-b1-03",
+            "question": "Use a reporting verb: The plan is {a1} to be effective.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "believing",
+                        "belief",
+                        "believe"
+                    ],
+                    "verb_hint": "Choose the form that matches Reporting Verbs.",
+                    "gap_tags": [
+                        "reporting_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reporting_verbs",
+                "level_b1"
+            ],
+            "variants": [
+                "Use a reporting verb: The plan is {a1} to be effective."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 28,
+            "uuid": "pv-report-v3-b1-04",
+            "question": "He is expected {a1} the meeting.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to attend",
+                    "options": [
+                        "to attend",
+                        "to have attended",
+                        "attending",
+                        "attend"
+                    ],
+                    "verb_hint": "Choose the form that matches Present Infinitive.",
+                    "gap_tags": [
+                        "present_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_infinitive",
+                "level_b1"
+            ],
+            "variants": [
+                "He is expected {a1} the meeting."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 29,
+            "uuid": "pv-report-v3-b1-05",
+            "question": "She is believed {a1} the report already.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to have completed",
+                    "options": [
+                        "to have completed",
+                        "to complete tomorrow",
+                        "completing",
+                        "complete"
+                    ],
+                    "verb_hint": "Choose the form that matches Perfect Infinitive.",
+                    "gap_tags": [
+                        "perfect_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "perfect_infinitive",
+                "level_b1"
+            ],
+            "variants": [
+                "She is believed {a1} the report already."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 30,
+            "uuid": "pv-report-v3-b1-06",
+            "question": "The file is reported {a1} by the board.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to have been approved",
+                    "options": [
+                        "to have been approved",
+                        "to approve",
+                        "to have approve",
+                        "approved"
+                    ],
+                    "verb_hint": "Choose the form that matches Passive Infinitive.",
+                    "gap_tags": [
+                        "passive_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_infinitive",
+                "level_b1"
+            ],
+            "variants": [
+                "The file is reported {a1} by the board."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 31,
+            "uuid": "pv-report-v3-b1-07",
+            "question": "Active reporting uses a subject such as {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "people say",
+                    "options": [
+                        "people say",
+                        "it is said",
+                        "he is believed",
+                        "the claim is reported"
+                    ],
+                    "verb_hint": "Choose the form that matches Active Reporting.",
+                    "gap_tags": [
+                        "active_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "active_reporting",
+                "level_b1"
+            ],
+            "variants": [
+                "Active reporting uses a subject such as {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 32,
+            "uuid": "pv-report-v3-b1-08",
+            "question": "Passive reporting is common in {a1} style.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "formal",
+                    "options": [
+                        "formal",
+                        "casual",
+                        "slang",
+                        "childish"
+                    ],
+                    "verb_hint": "Choose the form that matches Formal Register.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register",
+                "level_b1"
+            ],
+            "variants": [
+                "Passive reporting is common in {a1} style."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 33,
+            "uuid": "pv-report-v3-b1-09",
+            "question": "For an earlier action, use the perfect infinitive: is believed {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave now",
+                        "leaving",
+                        "lefts"
+                    ],
+                    "verb_hint": "Choose the form that matches Tense Match.",
+                    "gap_tags": [
+                        "tense_match"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tense_match",
+                "level_b1"
+            ],
+            "variants": [
+                "For an earlier action, use the perfect infinitive: is believed {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 34,
+            "uuid": "pv-report-v3-b1-10",
+            "question": "The results are {a1} to be accurate.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "knowing",
+                        "know",
+                        "knew"
+                    ],
+                    "verb_hint": "Choose the form that matches Expected Known.",
+                    "gap_tags": [
+                        "expected_known"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "expected_known",
+                "level_b1"
+            ],
+            "variants": [
+                "The results are {a1} to be accurate."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 35,
+            "uuid": "pv-report-v3-b1-11",
+            "question": "Avoid tense mismatch: He is thought {a1} yesterday.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to have arrived",
+                    "options": [
+                        "to have arrived",
+                        "to arrive yesterday",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Choose the form that matches Avoid Mismatch.",
+                    "gap_tags": [
+                        "avoid_mismatch"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_mismatch",
+                "level_b1"
+            ],
+            "variants": [
+                "Avoid tense mismatch: He is thought {a1} yesterday."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 36,
+            "uuid": "pv-report-v3-b1-12",
+            "question": "Do not write: He is said that he is honest. Use: He is said {a1} honest.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "that be",
+                        "being",
+                        "be"
+                    ],
+                    "verb_hint": "Choose the form that matches Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes",
+                "level_b1"
+            ],
+            "variants": [
+                "Do not write: He is said that he is honest. Use: He is said {a1} honest."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 37,
+            "uuid": "pv-report-v3-b2-01",
+            "question": "{a1} the method is reliable.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "It says that",
+                        "People is said that",
+                        "It said to"
+                    ],
+                    "verb_hint": "Choose the form that matches Impersonal Passive.",
+                    "gap_tags": [
+                        "impersonal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "impersonal_passive",
+                "level_b2"
+            ],
+            "variants": [
+                "{a1} the method is reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 38,
+            "uuid": "pv-report-v3-b2-02",
+            "question": "The researcher {a1} to be reliable.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "is saying",
+                        "says",
+                        "is said that"
+                    ],
+                    "verb_hint": "Choose the form that matches Personal Passive.",
+                    "gap_tags": [
+                        "personal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "personal_passive",
+                "level_b2"
+            ],
+            "variants": [
+                "The researcher {a1} to be reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 39,
+            "uuid": "pv-report-v3-b2-03",
+            "question": "Use a reporting verb: The plan is {a1} to be effective.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "believing",
+                        "belief",
+                        "believe"
+                    ],
+                    "verb_hint": "Choose the form that matches Reporting Verbs.",
+                    "gap_tags": [
+                        "reporting_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reporting_verbs",
+                "level_b2"
+            ],
+            "variants": [
+                "Use a reporting verb: The plan is {a1} to be effective."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 40,
+            "uuid": "pv-report-v3-b2-04",
+            "question": "He is expected {a1} the meeting.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to attend",
+                    "options": [
+                        "to attend",
+                        "to have attended",
+                        "attending",
+                        "attend"
+                    ],
+                    "verb_hint": "Choose the form that matches Present Infinitive.",
+                    "gap_tags": [
+                        "present_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_infinitive",
+                "level_b2"
+            ],
+            "variants": [
+                "He is expected {a1} the meeting."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 41,
+            "uuid": "pv-report-v3-b2-05",
+            "question": "She is believed {a1} the report already.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to have completed",
+                    "options": [
+                        "to have completed",
+                        "to complete tomorrow",
+                        "completing",
+                        "complete"
+                    ],
+                    "verb_hint": "Choose the form that matches Perfect Infinitive.",
+                    "gap_tags": [
+                        "perfect_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "perfect_infinitive",
+                "level_b2"
+            ],
+            "variants": [
+                "She is believed {a1} the report already."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 42,
+            "uuid": "pv-report-v3-b2-06",
+            "question": "The file is reported {a1} by the board.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to have been approved",
+                    "options": [
+                        "to have been approved",
+                        "to approve",
+                        "to have approve",
+                        "approved"
+                    ],
+                    "verb_hint": "Choose the form that matches Passive Infinitive.",
+                    "gap_tags": [
+                        "passive_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_infinitive",
+                "level_b2"
+            ],
+            "variants": [
+                "The file is reported {a1} by the board."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 43,
+            "uuid": "pv-report-v3-b2-07",
+            "question": "Active reporting uses a subject such as {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "people say",
+                    "options": [
+                        "people say",
+                        "it is said",
+                        "he is believed",
+                        "the claim is reported"
+                    ],
+                    "verb_hint": "Choose the form that matches Active Reporting.",
+                    "gap_tags": [
+                        "active_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "active_reporting",
+                "level_b2"
+            ],
+            "variants": [
+                "Active reporting uses a subject such as {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 44,
+            "uuid": "pv-report-v3-b2-08",
+            "question": "Passive reporting is common in {a1} style.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "formal",
+                    "options": [
+                        "formal",
+                        "casual",
+                        "slang",
+                        "childish"
+                    ],
+                    "verb_hint": "Choose the form that matches Formal Register.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register",
+                "level_b2"
+            ],
+            "variants": [
+                "Passive reporting is common in {a1} style."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 45,
+            "uuid": "pv-report-v3-b2-09",
+            "question": "For an earlier action, use the perfect infinitive: is believed {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave now",
+                        "leaving",
+                        "lefts"
+                    ],
+                    "verb_hint": "Choose the form that matches Tense Match.",
+                    "gap_tags": [
+                        "tense_match"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tense_match",
+                "level_b2"
+            ],
+            "variants": [
+                "For an earlier action, use the perfect infinitive: is believed {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 46,
+            "uuid": "pv-report-v3-b2-10",
+            "question": "The results are {a1} to be accurate.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "knowing",
+                        "know",
+                        "knew"
+                    ],
+                    "verb_hint": "Choose the form that matches Expected Known.",
+                    "gap_tags": [
+                        "expected_known"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "expected_known",
+                "level_b2"
+            ],
+            "variants": [
+                "The results are {a1} to be accurate."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 47,
+            "uuid": "pv-report-v3-b2-11",
+            "question": "Avoid tense mismatch: He is thought {a1} yesterday.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to have arrived",
+                    "options": [
+                        "to have arrived",
+                        "to arrive yesterday",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Choose the form that matches Avoid Mismatch.",
+                    "gap_tags": [
+                        "avoid_mismatch"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_mismatch",
+                "level_b2"
+            ],
+            "variants": [
+                "Avoid tense mismatch: He is thought {a1} yesterday."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 48,
+            "uuid": "pv-report-v3-b2-12",
+            "question": "Do not write: He is said that he is honest. Use: He is said {a1} honest.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "that be",
+                        "being",
+                        "be"
+                    ],
+                    "verb_hint": "Choose the form that matches Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes",
+                "level_b2"
+            ],
+            "variants": [
+                "Do not write: He is said that he is honest. Use: He is said {a1} honest."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 49,
+            "uuid": "pv-report-v3-c1-01",
+            "question": "{a1} the method is reliable.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "It says that",
+                        "People is said that",
+                        "It said to"
+                    ],
+                    "verb_hint": "Choose the form that matches Impersonal Passive.",
+                    "gap_tags": [
+                        "impersonal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "impersonal_passive",
+                "level_c1"
+            ],
+            "variants": [
+                "{a1} the method is reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 50,
+            "uuid": "pv-report-v3-c1-02",
+            "question": "The researcher {a1} to be reliable.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "is saying",
+                        "says",
+                        "is said that"
+                    ],
+                    "verb_hint": "Choose the form that matches Personal Passive.",
+                    "gap_tags": [
+                        "personal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "personal_passive",
+                "level_c1"
+            ],
+            "variants": [
+                "The researcher {a1} to be reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 51,
+            "uuid": "pv-report-v3-c1-03",
+            "question": "Use a reporting verb: The plan is {a1} to be effective.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "believing",
+                        "belief",
+                        "believe"
+                    ],
+                    "verb_hint": "Choose the form that matches Reporting Verbs.",
+                    "gap_tags": [
+                        "reporting_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reporting_verbs",
+                "level_c1"
+            ],
+            "variants": [
+                "Use a reporting verb: The plan is {a1} to be effective."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 52,
+            "uuid": "pv-report-v3-c1-04",
+            "question": "He is expected {a1} the meeting.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to attend",
+                    "options": [
+                        "to attend",
+                        "to have attended",
+                        "attending",
+                        "attend"
+                    ],
+                    "verb_hint": "Choose the form that matches Present Infinitive.",
+                    "gap_tags": [
+                        "present_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_infinitive",
+                "level_c1"
+            ],
+            "variants": [
+                "He is expected {a1} the meeting."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 53,
+            "uuid": "pv-report-v3-c1-05",
+            "question": "She is believed {a1} the report already.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to have completed",
+                    "options": [
+                        "to have completed",
+                        "to complete tomorrow",
+                        "completing",
+                        "complete"
+                    ],
+                    "verb_hint": "Choose the form that matches Perfect Infinitive.",
+                    "gap_tags": [
+                        "perfect_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "perfect_infinitive",
+                "level_c1"
+            ],
+            "variants": [
+                "She is believed {a1} the report already."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 54,
+            "uuid": "pv-report-v3-c1-06",
+            "question": "The file is reported {a1} by the board.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to have been approved",
+                    "options": [
+                        "to have been approved",
+                        "to approve",
+                        "to have approve",
+                        "approved"
+                    ],
+                    "verb_hint": "Choose the form that matches Passive Infinitive.",
+                    "gap_tags": [
+                        "passive_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_infinitive",
+                "level_c1"
+            ],
+            "variants": [
+                "The file is reported {a1} by the board."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 55,
+            "uuid": "pv-report-v3-c1-07",
+            "question": "Active reporting uses a subject such as {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "people say",
+                    "options": [
+                        "people say",
+                        "it is said",
+                        "he is believed",
+                        "the claim is reported"
+                    ],
+                    "verb_hint": "Choose the form that matches Active Reporting.",
+                    "gap_tags": [
+                        "active_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "active_reporting",
+                "level_c1"
+            ],
+            "variants": [
+                "Active reporting uses a subject such as {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 56,
+            "uuid": "pv-report-v3-c1-08",
+            "question": "Passive reporting is common in {a1} style.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "formal",
+                    "options": [
+                        "formal",
+                        "casual",
+                        "slang",
+                        "childish"
+                    ],
+                    "verb_hint": "Choose the form that matches Formal Register.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register",
+                "level_c1"
+            ],
+            "variants": [
+                "Passive reporting is common in {a1} style."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 57,
+            "uuid": "pv-report-v3-c1-09",
+            "question": "For an earlier action, use the perfect infinitive: is believed {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave now",
+                        "leaving",
+                        "lefts"
+                    ],
+                    "verb_hint": "Choose the form that matches Tense Match.",
+                    "gap_tags": [
+                        "tense_match"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tense_match",
+                "level_c1"
+            ],
+            "variants": [
+                "For an earlier action, use the perfect infinitive: is believed {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 58,
+            "uuid": "pv-report-v3-c1-10",
+            "question": "The results are {a1} to be accurate.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "knowing",
+                        "know",
+                        "knew"
+                    ],
+                    "verb_hint": "Choose the form that matches Expected Known.",
+                    "gap_tags": [
+                        "expected_known"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "expected_known",
+                "level_c1"
+            ],
+            "variants": [
+                "The results are {a1} to be accurate."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 59,
+            "uuid": "pv-report-v3-c1-11",
+            "question": "Avoid tense mismatch: He is thought {a1} yesterday.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to have arrived",
+                    "options": [
+                        "to have arrived",
+                        "to arrive yesterday",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Choose the form that matches Avoid Mismatch.",
+                    "gap_tags": [
+                        "avoid_mismatch"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_mismatch",
+                "level_c1"
+            ],
+            "variants": [
+                "Avoid tense mismatch: He is thought {a1} yesterday."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 60,
+            "uuid": "pv-report-v3-c1-12",
+            "question": "Do not write: He is said that he is honest. Use: He is said {a1} honest.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "that be",
+                        "being",
+                        "be"
+                    ],
+                    "verb_hint": "Choose the form that matches Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes",
+                "level_c1"
+            ],
+            "variants": [
+                "Do not write: He is said that he is honest. Use: He is said {a1} honest."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 61,
+            "uuid": "pv-report-v3-c2-01",
+            "question": "{a1} the method is reliable.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "It is said that",
+                    "options": [
+                        "It is said that",
+                        "It says that",
+                        "People is said that",
+                        "It said to"
+                    ],
+                    "verb_hint": "Choose the form that matches Impersonal Passive.",
+                    "gap_tags": [
+                        "impersonal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "impersonal_passive",
+                "level_c2"
+            ],
+            "variants": [
+                "{a1} the method is reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 62,
+            "uuid": "pv-report-v3-c2-02",
+            "question": "The researcher {a1} to be reliable.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "is saying",
+                        "says",
+                        "is said that"
+                    ],
+                    "verb_hint": "Choose the form that matches Personal Passive.",
+                    "gap_tags": [
+                        "personal_passive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "personal_passive",
+                "level_c2"
+            ],
+            "variants": [
+                "The researcher {a1} to be reliable."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 63,
+            "uuid": "pv-report-v3-c2-03",
+            "question": "Use a reporting verb: The plan is {a1} to be effective.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "believing",
+                        "belief",
+                        "believe"
+                    ],
+                    "verb_hint": "Choose the form that matches Reporting Verbs.",
+                    "gap_tags": [
+                        "reporting_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reporting_verbs",
+                "level_c2"
+            ],
+            "variants": [
+                "Use a reporting verb: The plan is {a1} to be effective."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 64,
+            "uuid": "pv-report-v3-c2-04",
+            "question": "He is expected {a1} the meeting.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to attend",
+                    "options": [
+                        "to attend",
+                        "to have attended",
+                        "attending",
+                        "attend"
+                    ],
+                    "verb_hint": "Choose the form that matches Present Infinitive.",
+                    "gap_tags": [
+                        "present_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_infinitive",
+                "level_c2"
+            ],
+            "variants": [
+                "He is expected {a1} the meeting."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 65,
+            "uuid": "pv-report-v3-c2-05",
+            "question": "She is believed {a1} the report already.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to have completed",
+                    "options": [
+                        "to have completed",
+                        "to complete tomorrow",
+                        "completing",
+                        "complete"
+                    ],
+                    "verb_hint": "Choose the form that matches Perfect Infinitive.",
+                    "gap_tags": [
+                        "perfect_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "perfect_infinitive",
+                "level_c2"
+            ],
+            "variants": [
+                "She is believed {a1} the report already."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 66,
+            "uuid": "pv-report-v3-c2-06",
+            "question": "The file is reported {a1} by the board.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to have been approved",
+                    "options": [
+                        "to have been approved",
+                        "to approve",
+                        "to have approve",
+                        "approved"
+                    ],
+                    "verb_hint": "Choose the form that matches Passive Infinitive.",
+                    "gap_tags": [
+                        "passive_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_infinitive",
+                "level_c2"
+            ],
+            "variants": [
+                "The file is reported {a1} by the board."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 67,
+            "uuid": "pv-report-v3-c2-07",
+            "question": "Active reporting uses a subject such as {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "people say",
+                    "options": [
+                        "people say",
+                        "it is said",
+                        "he is believed",
+                        "the claim is reported"
+                    ],
+                    "verb_hint": "Choose the form that matches Active Reporting.",
+                    "gap_tags": [
+                        "active_reporting"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "active_reporting",
+                "level_c2"
+            ],
+            "variants": [
+                "Active reporting uses a subject such as {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 68,
+            "uuid": "pv-report-v3-c2-08",
+            "question": "Passive reporting is common in {a1} style.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "formal",
+                    "options": [
+                        "formal",
+                        "casual",
+                        "slang",
+                        "childish"
+                    ],
+                    "verb_hint": "Choose the form that matches Formal Register.",
+                    "gap_tags": [
+                        "formal_register"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "formal_register",
+                "level_c2"
+            ],
+            "variants": [
+                "Passive reporting is common in {a1} style."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 69,
+            "uuid": "pv-report-v3-c2-09",
+            "question": "For an earlier action, use the perfect infinitive: is believed {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to have left",
+                    "options": [
+                        "to have left",
+                        "to leave now",
+                        "leaving",
+                        "lefts"
+                    ],
+                    "verb_hint": "Choose the form that matches Tense Match.",
+                    "gap_tags": [
+                        "tense_match"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "tense_match",
+                "level_c2"
+            ],
+            "variants": [
+                "For an earlier action, use the perfect infinitive: is believed {a1}."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 70,
+            "uuid": "pv-report-v3-c2-10",
+            "question": "The results are {a1} to be accurate.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "knowing",
+                        "know",
+                        "knew"
+                    ],
+                    "verb_hint": "Choose the form that matches Expected Known.",
+                    "gap_tags": [
+                        "expected_known"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "expected_known",
+                "level_c2"
+            ],
+            "variants": [
+                "The results are {a1} to be accurate."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 71,
+            "uuid": "pv-report-v3-c2-11",
+            "question": "Avoid tense mismatch: He is thought {a1} yesterday.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to have arrived",
+                    "options": [
+                        "to have arrived",
+                        "to arrive yesterday",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Choose the form that matches Avoid Mismatch.",
+                    "gap_tags": [
+                        "avoid_mismatch"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "avoid_mismatch",
+                "level_c2"
+            ],
+            "variants": [
+                "Avoid tense mismatch: He is thought {a1} yesterday."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        },
+        {
+            "id": 72,
+            "uuid": "pv-report-v3-c2-12",
+            "question": "Do not write: He is said that he is honest. Use: He is said {a1} honest.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to be",
+                    "options": [
+                        "to be",
+                        "that be",
+                        "being",
+                        "be"
+                    ],
+                    "verb_hint": "Choose the form that matches Typical Mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes",
+                "level_c2"
+            ],
+            "variants": [
+                "Do not write: He is said that he is honest. Use: He is said {a1} honest."
+            ],
+            "source": "theory_page_passive_reporting_structures"
+        }
+    ],
+    "saved_test": {
+        "uuid": "pv-report-v3-all",
+        "slug": "passive-reporting-structures-all-levels-v3",
+        "name": "Passive Reporting Structures: V3 All Levels",
+        "description": "Page-local V3 package for Passive Reporting Structures with A1-C2 coverage.",
+        "question_uuids": [
+            "pv-report-v3-a1-01",
+            "pv-report-v3-a1-02",
+            "pv-report-v3-a1-03",
+            "pv-report-v3-a1-04",
+            "pv-report-v3-a1-05",
+            "pv-report-v3-a1-06",
+            "pv-report-v3-a1-07",
+            "pv-report-v3-a1-08",
+            "pv-report-v3-a1-09",
+            "pv-report-v3-a1-10",
+            "pv-report-v3-a1-11",
+            "pv-report-v3-a1-12",
+            "pv-report-v3-a2-01",
+            "pv-report-v3-a2-02",
+            "pv-report-v3-a2-03",
+            "pv-report-v3-a2-04",
+            "pv-report-v3-a2-05",
+            "pv-report-v3-a2-06",
+            "pv-report-v3-a2-07",
+            "pv-report-v3-a2-08",
+            "pv-report-v3-a2-09",
+            "pv-report-v3-a2-10",
+            "pv-report-v3-a2-11",
+            "pv-report-v3-a2-12",
+            "pv-report-v3-b1-01",
+            "pv-report-v3-b1-02",
+            "pv-report-v3-b1-03",
+            "pv-report-v3-b1-04",
+            "pv-report-v3-b1-05",
+            "pv-report-v3-b1-06",
+            "pv-report-v3-b1-07",
+            "pv-report-v3-b1-08",
+            "pv-report-v3-b1-09",
+            "pv-report-v3-b1-10",
+            "pv-report-v3-b1-11",
+            "pv-report-v3-b1-12",
+            "pv-report-v3-b2-01",
+            "pv-report-v3-b2-02",
+            "pv-report-v3-b2-03",
+            "pv-report-v3-b2-04",
+            "pv-report-v3-b2-05",
+            "pv-report-v3-b2-06",
+            "pv-report-v3-b2-07",
+            "pv-report-v3-b2-08",
+            "pv-report-v3-b2-09",
+            "pv-report-v3-b2-10",
+            "pv-report-v3-b2-11",
+            "pv-report-v3-b2-12",
+            "pv-report-v3-c1-01",
+            "pv-report-v3-c1-02",
+            "pv-report-v3-c1-03",
+            "pv-report-v3-c1-04",
+            "pv-report-v3-c1-05",
+            "pv-report-v3-c1-06",
+            "pv-report-v3-c1-07",
+            "pv-report-v3-c1-08",
+            "pv-report-v3-c1-09",
+            "pv-report-v3-c1-10",
+            "pv-report-v3-c1-11",
+            "pv-report-v3-c1-12",
+            "pv-report-v3-c2-01",
+            "pv-report-v3-c2-02",
+            "pv-report-v3-c2-03",
+            "pv-report-v3-c2-04",
+            "pv-report-v3-c2-05",
+            "pv-report-v3-c2-06",
+            "pv-report-v3-c2-07",
+            "pv-report-v3-c2-08",
+            "pv-report-v3-c2-09",
+            "pv-report-v3-c2-10",
+            "pv-report-v3-c2-11",
+            "pv-report-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PassiveVoice\\PassiveReportingStructuresAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "passive-reporting-structures",
+                    "title": "Passive Reporting Structures",
+                    "category_slug_path": "passive-voice",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveReportingStructuresTheorySeeder",
+                    "url": "https://gramlyze.com/theory/passive-voice/passive-reporting-structures"
+                }
+            }
+        }
+    }
+}

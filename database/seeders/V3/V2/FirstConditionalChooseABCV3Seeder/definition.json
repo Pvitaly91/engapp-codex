@@ -1,0 +1,538 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\V2\\FirstConditionalChooseABCV3Seeder",
+        "uuid_namespace": "FirstConditionalChooseABCV2Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": "0",
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "custom_first_conditional_if_clauses_abc_v2": {
+            "name": "Custom: First Conditional If-Clauses A/B/C V2"
+        },
+        "custom_first_conditional_imperatives_abc_v2": {
+            "name": "Custom: First Conditional Imperatives A/B/C V2"
+        },
+        "custom_first_conditional_result_clauses_abc_v2": {
+            "name": "Custom: First Conditional Result Clauses A/B/C V2"
+        }
+    },
+    "tags": {
+        "if_clause_negative_present_simple": {
+            "name": "If-Clause — Negative Present Simple",
+            "category": "English Grammar Detail"
+        },
+        "if_clause_present_simple": {
+            "name": "If-Clause — Present Simple",
+            "category": "English Grammar Detail"
+        },
+        "result_clause_imperative": {
+            "name": "Result Clause — Imperative",
+            "category": "English Grammar Detail"
+        },
+        "result_clause_will_base": {
+            "name": "Result Clause — Will + Base",
+            "category": "English Grammar Detail"
+        },
+        "result_clause_will_not": {
+            "name": "Result Clause — Will Not",
+            "category": "English Grammar Detail"
+        },
+        "first_conditional_sentences": {
+            "name": "First Conditional Sentences",
+            "category": "English Grammar Structure"
+        },
+        "first_conditional_if_clauses": {
+            "name": "First Conditional If-Clauses",
+            "category": "English Grammar Theme"
+        },
+        "first_conditional_imperative_results": {
+            "name": "First Conditional Imperative Results",
+            "category": "English Grammar Theme"
+        },
+        "first_conditional_result_clauses": {
+            "name": "First Conditional Result Clauses",
+            "category": "English Grammar Theme"
+        },
+        "first_conditional": {
+            "name": "First Conditional",
+            "category": "Tenses"
+        }
+    },
+    "default_tag_keys": [
+        "first_conditional",
+        "first_conditional_sentences"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "result-future-0-if-we-come-home-late",
+            "question": "If we come home late, mum {a1} angry.",
+            "source": "custom_first_conditional_result_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "will be"
+            },
+            "options": [
+                "is",
+                "will be",
+                "won't be"
+            ],
+            "verb_hints": {
+                "a1": "future auxiliary (result clause"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_result_clauses",
+                "result_clause_will_base"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, will + V1**.  \nПояснення: Головна частина першого умовного потребує will + початкову форму дієслова.  \nПриклад: *If we come home late, mum will be angry.*  \nМаркери: If + Present Simple, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "is": "❌ «is» не має допоміжного will, а результат першого умовного вимагає will + дієслово.  \nПриклад: *If we come home late, mum will be angry.*",
+                            "won't be": "❌ «won't be» не підходить, бо це заперечна форма, а у реченні потрібно ствердне «will be».  \nПриклад: *If we come home late, mum will be angry.*",
+                            "will be": "✅ «will be» правильно, бо результат у першому умовному виражається конструкцією will + дієслово.  \nПриклад: *If we come home late, mum will be angry.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "result-future-1-he-a1-to-your-party-",
+            "question": "He {a1} to your party if you don't invite him.",
+            "source": "custom_first_conditional_result_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "won't come"
+            },
+            "options": [
+                "will come",
+                "comes",
+                "won't come"
+            ],
+            "verb_hints": {
+                "a1": "not"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_result_clauses",
+                "result_clause_will_not"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, won't + V1**.  \nПояснення: У запереченні в головній частині ставимо will not (won't) перед початковою формою дієслова.  \nПриклад: *He won't come to your party if you don't invite him.*  \nМаркери: If + Present Simple, will not + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "will come": "❌ «will come» стверджує, що дія відбудеться, тоді як нам потрібне заперечення «won't come».  \nПриклад: *He won't come to your party if you don't invite him.*",
+                            "comes": "❌ «comes» ужито в Present Simple без will, а заперечний результат повинен мати won't + дієслово.  \nПриклад: *He won't come to your party if you don't invite him.*",
+                            "won't come": "✅ «won't come» правильно, бо для заперечення в головній частині ставимо won't + дієслово.  \nПриклад: *He won't come to your party if you don't invite him.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "result-future-2-if-you-make-lunch-i-",
+            "question": "If you make lunch, I {a1} the dishes.",
+            "source": "custom_first_conditional_result_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "will wash"
+            },
+            "options": [
+                "wash",
+                "washes",
+                "will wash"
+            ],
+            "verb_hints": {
+                "a1": "future auxiliary (result clause"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_result_clauses",
+                "result_clause_will_base"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, will + V1**.  \nПояснення: Головна частина першого умовного потребує will + початкову форму дієслова.  \nПриклад: *If you make lunch, I will wash the dishes.*  \nМаркери: If + Present Simple, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wash": "❌ «wash» не має допоміжного will, а результат першого умовного вимагає will + дієслово.  \nПриклад: *If you make lunch, I will wash the dishes.*",
+                            "will wash": "✅ «will wash» правильно, бо результат у першому умовному виражається конструкцією will + дієслово.  \nПриклад: *If you make lunch, I will wash the dishes.*",
+                            "washes": "❌ «washes» не передає майбутній результат. Потрібно використати конструкцію will + дієслово.  \nПриклад: *If you make lunch, I will wash the dishes.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "result-imperative-0-if-it-rains-a1-a",
+            "question": "If it rains, {a1} an umbrella.",
+            "source": "custom_first_conditional_imperatives_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "take"
+            },
+            "options": [
+                "take",
+                "will take",
+                "you will take"
+            ],
+            "verb_hints": {
+                "a1": "imperative form"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_imperative_results",
+                "result_clause_imperative"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, + V1 (наказ)**.  \nПояснення: Результат може бути у формі наказу, тому використовуємо базову форму дієслова без will.  \nПриклад: *If it rains, take an umbrella.*  \nМаркери: If + Present Simple, (just) base verb."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "take": "✅ «take» правильно, бо після if речення результат подаємо як наказ у базовій формі без will.  \nПриклад: *If it rains, take an umbrella.*",
+                            "you will take": "❌ «you will take» містить will, але в наказовій формі після if ми вживаємо тільки базове дієслово.  \nПриклад: *If it rains, take an umbrella.*",
+                            "will take": "❌ «will take» містить will, але в наказовій формі після if ми вживаємо тільки базове дієслово.  \nПриклад: *If it rains, take an umbrella.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "result-imperative-1-if-you-want-to-c",
+            "question": "If you want to come with us, {a1} me.",
+            "source": "custom_first_conditional_imperatives_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "call"
+            },
+            "options": [
+                "call",
+                "called",
+                "you call"
+            ],
+            "verb_hints": {
+                "a1": "imperative form"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_imperative_results",
+                "result_clause_imperative"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, + V1 (наказ)**.  \nПояснення: Результат може бути у формі наказу, тому використовуємо базову форму дієслова без will.  \nПриклад: *If you want to come with us, call me.*  \nМаркери: If + Present Simple, (just) base verb."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "you call": "❌ Після if наказ формуємо лише базовим дієсловом. Оберіть «call».  \nПриклад: *If you want to come with us, call me.*",
+                            "call": "✅ «call» правильно, бо після if речення результат подаємо як наказ у базовій формі без will.  \nПриклад: *If you want to come with us, call me.*",
+                            "called": "❌ «called» у минулому часі, а наказ повинен бути у початковій формі: «call».  \nПриклад: *If you want to come with us, call me.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "result-imperative-2-if-you-cant-find",
+            "question": "If you can't find the answer, {a1} your teacher.",
+            "source": "custom_first_conditional_imperatives_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "ask"
+            },
+            "options": [
+                "ask",
+                "asked",
+                "will ask"
+            ],
+            "verb_hints": {
+                "a1": "imperative form"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_imperative_results",
+                "result_clause_imperative"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, + V1 (наказ)**.  \nПояснення: Результат може бути у формі наказу, тому використовуємо базову форму дієслова без will.  \nПриклад: *If you can't find the answer, ask your teacher.*  \nМаркери: If + Present Simple, (just) base verb."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "asked": "❌ «asked» у минулому часі, а наказ повинен бути у початковій формі: «ask».  \nПриклад: *If you can't find the answer, ask your teacher.*",
+                            "will ask": "❌ «will ask» містить will, але в наказовій формі після if ми вживаємо тільки базове дієслово.  \nПриклад: *If you can't find the answer, ask your teacher.*",
+                            "ask": "✅ «ask» правильно, бо після if речення результат подаємо як наказ у базовій формі без will.  \nПриклад: *If you can't find the answer, ask your teacher.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "condition-0-meg-will-be-ill-if-she-a",
+            "question": "Meg will be ill if she {a1} a lot of chocolates.",
+            "source": "custom_first_conditional_if_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "eats"
+            },
+            "options": [
+                "eat",
+                "eats",
+                "will eat"
+            ],
+            "verb_hints": {
+                "a1": "Present Simple"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_if_clauses",
+                "if_clause_present_simple"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, will + V1**.  \nПояснення: В if-клаузі першого умовного завжди вживаємо Present Simple без will.  \nПриклад: *Meg will be ill if she eats a lot of chocolates.*  \nМаркери: If + Present Simple, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "eats": "✅ «eats» правильно, бо в if-клаузі першого умовного потрібен Present Simple.  \nПриклад: *Meg will be ill if she eats a lot of chocolates.*",
+                            "will eat": "❌ Умовна частина потребує Present Simple без will.  \nПриклад: *Meg will be ill if she eats a lot of chocolates.*",
+                            "eat": "❌ Умовна частина потребує Present Simple без will.  \nПриклад: *Meg will be ill if she eats a lot of chocolates.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "condition-1-the-boys-will-have-to-pl",
+            "question": "The boys will have to play well if they {a1} to win the game.",
+            "source": "custom_first_conditional_if_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "want"
+            },
+            "options": [
+                "wanted",
+                "want",
+                "will want"
+            ],
+            "verb_hints": {
+                "a1": "Present Simple"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_if_clauses",
+                "if_clause_present_simple"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, will + V1**.  \nПояснення: В if-клаузі першого умовного завжди вживаємо Present Simple без will.  \nПриклад: *The boys will have to play well if they want to win the game.*  \nМаркери: If + Present Simple, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "wanted": "❌ Умовна частина потребує Present Simple без will.  \nПриклад: *The boys will have to play well if they want to win the game.*",
+                            "will want": "❌ Умовна частина потребує Present Simple без will.  \nПриклад: *The boys will have to play well if they want to win the game.*",
+                            "want": "✅ «want» правильно, бо в if-клаузі першого умовного потрібен Present Simple.  \nПриклад: *The boys will have to play well if they want to win the game.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "condition-2-if-it-a1-well-go-skiing",
+            "question": "If it {a1}, we'll go skiing.",
+            "source": "custom_first_conditional_if_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "snows"
+            },
+            "options": [
+                "snows",
+                "snow",
+                "will snow"
+            ],
+            "verb_hints": {
+                "a1": "Present Simple"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_if_clauses",
+                "if_clause_present_simple"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, will + V1**.  \nПояснення: В if-клаузі першого умовного завжди вживаємо Present Simple без will.  \nПриклад: *If it snows, we'll go skiing.*  \nМаркери: If + Present Simple, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "snow": "❌ Умовна частина потребує Present Simple без will.  \nПриклад: *If it snows, we'll go skiing.*",
+                            "will snow": "❌ «will snow» має неправильне закінчення або will. Умовна частина повинна бути у Present Simple: «snows».  \nПриклад: *If it snows, we'll go skiing.*",
+                            "snows": "✅ «snows» правильно, бо в if-клаузі першого умовного потрібен Present Simple.  \nПриклад: *If it snows, we'll go skiing.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "condition-3-if-you-a1-up-late-youll-",
+            "question": "If you {a1} up late, you'll be tired in the morning.",
+            "source": "custom_first_conditional_if_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "stay"
+            },
+            "options": [
+                "stays",
+                "stay",
+                "'ll stay"
+            ],
+            "verb_hints": {
+                "a1": "Present Simple"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_if_clauses",
+                "if_clause_present_simple"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + Present Simple, will + V1**.  \nПояснення: В if-клаузі першого умовного завжди вживаємо Present Simple без will.  \nПриклад: *If you stay up late, you'll be tired in the morning.*  \nМаркери: If + Present Simple, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "'ll stay": "❌ «'ll stay» містить скорочене will, але в if-клаузі першого умовного ми використовуємо тільки Present Simple.  \nПриклад: *If you stay up late, you'll be tired in the morning.*",
+                            "stay": "✅ «stay» правильно, бо в if-клаузі першого умовного потрібен Present Simple.  \nПриклад: *If you stay up late, you'll be tired in the morning.*",
+                            "stays": "❌ «stays» має неправильне закінчення або will. Умовна частина повинна бути у Present Simple: «stay».  \nПриклад: *If you stay up late, you'll be tired in the morning.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "condition-4-if-he-a1-his-homework-hi",
+            "question": "If he {a1} his homework, his teacher won't be pleased.",
+            "source": "custom_first_conditional_if_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "doesn't do"
+            },
+            "options": [
+                "does",
+                "doesn't do",
+                "don't do"
+            ],
+            "verb_hints": {
+                "a1": "negative present simple — use not"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_if_clauses",
+                "if_clause_negative_present_simple"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + do/does not + V1, will + V1**.  \nПояснення: Заперечення в if-клаузі будуємо за допомогою do/does + not і початкової форми дієслова.  \nПриклад: *If he doesn't do his homework, his teacher won't be pleased.*  \nМаркери: If + do/does not + V1, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "don't do": "❌ «don't do» вживає do not, але з третьою особою однини потрібно does not.  \nПриклад: *If he doesn't do his homework, his teacher won't be pleased.*",
+                            "does": "❌ «does» не містить правильної базової форми після does/doesn't. Треба «doesn't do».  \nПриклад: *If he doesn't do his homework, his teacher won't be pleased.*",
+                            "doesn't do": "✅ «doesn't do» правильно, бо заперечну if-клаузу будуємо через does not + базове дієслово.  \nПриклад: *If he doesn't do his homework, his teacher won't be pleased.*"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "condition-5-if-he-a1-all-his-exams-h",
+            "question": "If he {a1} all his exams, his father won't buy him a bike.",
+            "source": "custom_first_conditional_if_clauses_abc_v2",
+            "level": "A2",
+            "answers": {
+                "a1": "doesn't pass"
+            },
+            "options": [
+                "doesn't pass",
+                "don't pass",
+                "doesn't passes"
+            ],
+            "verb_hints": {
+                "a1": "negative present simple — use not"
+            },
+            "variants": [],
+            "tag_keys": [
+                "first_conditional_if_clauses",
+                "if_clause_negative_present_simple"
+            ],
+            "localizations": {
+                "uk": {
+                    "hint_provider": "chatgpt",
+                    "hints": [
+                        "Час: First Conditional.  \nФормула: **If + do/does not + V1, will + V1**.  \nПояснення: Заперечення в if-клаузі будуємо за допомогою do/does + not і початкової форми дієслова.  \nПриклад: *If he doesn't pass all his exams, his father won't buy him a bike.*  \nМаркери: If + do/does not + V1, will + V1."
+                    ],
+                    "explanations": {
+                        "a1": {
+                            "don't pass": "❌ «don't pass» вживає do not, але з третьою особою однини потрібно does not.  \nПриклад: *If he doesn't pass all his exams, his father won't buy him a bike.*",
+                            "doesn't passes": "❌ «doesn't passes» не містить правильної базової форми після does/doesn't. Треба «doesn't pass».  \nПриклад: *If he doesn't pass all his exams, his father won't buy him a bike.*",
+                            "doesn't pass": "✅ «doesn't pass» правильно, бо заперечну if-клаузу будуємо через does not + базове дієслово.  \nПриклад: *If he doesn't pass all his exams, his father won't buy him a bike.*"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

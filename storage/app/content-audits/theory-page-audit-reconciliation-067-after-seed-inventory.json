@@ -1,0 +1,481 @@
+{
+  "audit_summary": {
+    "total_theory_pages": 250,
+    "pages_ok": 237,
+    "pages_missing_only_theory_links": 3,
+    "pages_missing_sentence_builder": 6,
+    "pages_missing_v3": 10,
+    "pages_missing_both_tests": 6,
+    "status_counts": {
+      "OK": 237,
+      "missing_all": 6,
+      "missing_mixed_test": 4,
+      "missing_theory_links": 3
+    }
+  },
+  "failed_count": 13,
+  "classification_counts": {
+    "TYPE A": 5,
+    "TYPE F": 8
+  },
+  "rows": [
+    {
+      "route": "/theory/passive-voice/passive-voice-tenses/theory-passive-voice-future-continuous",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "proposed": "real missing V3+Polyglot+links content candidate",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceFutureContinuousTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [],
+      "repo_poly": [],
+      "repo_links": [],
+      "audit_v3": [],
+      "audit_poly": [],
+      "audit_links": {
+        "json": null,
+        "php": null,
+        "has_theory_links": false,
+        "has_polyglot_theory_links": false,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": []
+    },
+    {
+      "route": "/theory/passive-voice/passive-voice-tenses/theory-passive-voice-future-simple",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoiceFutureSimpleTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceFutureSimpleAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceFutureSimpleAllLevelsLessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/passive-voice-future-simple-theory-links.json"
+      ],
+      "audit_v3": [],
+      "audit_poly": [],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/passive-voice-future-simple-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\PassiveVoiceFutureSimpleTheoryLinksSeeder",
+        "has_theory_links": false,
+        "has_polyglot_theory_links": false,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": [
+        "tests/Feature/PassiveVoiceTheoryPageTestsSeedersTest.php"
+      ]
+    },
+    {
+      "route": "/theory/zaimennyky-ta-vkazivni-slova/personal-object-pronouns",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesPersonalObjectPronounsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\PronounsDemonstratives\\PersonalObjectPronounsAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPersonalObjectPronounsAllLevelsLessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/pronouns-demonstratives-personal-object-pronouns-theory-links.json"
+      ],
+      "audit_v3": [],
+      "audit_poly": [
+        null
+      ],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/pronouns-demonstratives-personal-object-pronouns-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\PersonalObjectPronounsTheoryLinksSeeder",
+        "has_theory_links": false,
+        "has_polyglot_theory_links": false,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": [
+        "tests/Feature/PronounsDemonstrativesTheoryPageTestsSeedersTest.php"
+      ]
+    },
+    {
+      "route": "/theory/tenses/present-continuous/present-continuous-forms",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousFormsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\Tenses\\PresentContinuous\\PresentContinuousFormsAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousFormsAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousLessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/present-continuous-forms-theory-links.json"
+      ],
+      "audit_v3": [],
+      "audit_poly": [
+        null
+      ],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/present-continuous-forms-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\PresentContinuousFormsTheoryLinksSeeder",
+        "has_theory_links": true,
+        "has_polyglot_theory_links": true,
+        "has_qttb": true,
+        "has_uuid": true
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": [
+        "tests/Feature/PresentContinuousTheoryPageTestsSeedersTest.php"
+      ]
+    },
+    {
+      "route": "/theory/tenses/present-continuous/present-continuous-time-expressions",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentContinuous\\PresentContinuousTimeExpressionsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\Tenses\\PresentContinuous\\PresentContinuousTimeExpressionsAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentContinuousTimeExpressionsAllLevelsLessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/present-continuous-time-expressions-theory-links.json"
+      ],
+      "audit_v3": [],
+      "audit_poly": [
+        null
+      ],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/present-continuous-time-expressions-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\PresentContinuousTimeExpressionsTheoryLinksSeeder",
+        "has_theory_links": true,
+        "has_polyglot_theory_links": true,
+        "has_qttb": true,
+        "has_uuid": true
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": [
+        "tests/Feature/PresentContinuousTheoryPageTestsSeedersTest.php"
+      ]
+    },
+    {
+      "route": "/theory/tenses/present-perfect/present-perfect-forms",
+      "status": "missing_mixed_test",
+      "missing": [
+        "mixed_a1_c2",
+        "v3_questions"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\Tenses\\PresentPerfect\\PresentPerfectFormsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\Tenses\\PresentPerfect\\PresentPerfectFormsAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectBasicLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPresentPerfectFormsAllLevelsLessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/present-perfect-forms-theory-links.json"
+      ],
+      "audit_v3": [],
+      "audit_poly": [
+        null
+      ],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/present-perfect-forms-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\PresentPerfectFormsTheoryLinksSeeder",
+        "has_theory_links": true,
+        "has_polyglot_theory_links": true,
+        "has_qttb": true,
+        "has_uuid": true
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": [
+        "tests/Feature/PresentPerfectTheoryPageTestsSeedersTest.php"
+      ]
+    },
+    {
+      "route": "/theory/conditionals/conditionals-with-unless-provided-as-long-as",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "proposed": "partial content gap candidate",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsWithUnlessProvidedAsLongAsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotConditionalsWithUnlessProvidedAsLongAsB2LessonSeeder"
+      ],
+      "repo_links": [],
+      "audit_v3": [],
+      "audit_poly": [],
+      "audit_links": {
+        "json": null,
+        "php": null,
+        "has_theory_links": false,
+        "has_polyglot_theory_links": false,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": []
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/inversion-basics",
+      "status": "missing_theory_links",
+      "missing": [
+        "theory_links",
+        "question_theory_text_blocks"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionBasicsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\WordOrder\\InversionBasicsAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotInversionBasicsAllLevelsLessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotInversionBasicsB2LessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/word-order-inversion-basics-theory-links.json"
+      ],
+      "audit_v3": [
+        null
+      ],
+      "audit_poly": [
+        null,
+        null
+      ],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/word-order-inversion-basics-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\InversionBasicsTheoryLinksSeeder",
+        "has_theory_links": false,
+        "has_polyglot_theory_links": true,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "/theory/word-order/inversion-basics",
+      "tests": []
+    },
+    {
+      "route": "/theory/conditionals/advanced-conditionals",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "proposed": "partial content gap candidate",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\AdvancedConditionalsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedConditionalsC1LessonSeeder"
+      ],
+      "repo_links": [],
+      "audit_v3": [],
+      "audit_poly": [],
+      "audit_links": {
+        "json": null,
+        "php": null,
+        "has_theory_links": false,
+        "has_polyglot_theory_links": false,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": []
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/inversion-after-negative-adverbials",
+      "status": "missing_theory_links",
+      "missing": [
+        "theory_links",
+        "question_theory_text_blocks"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\InversionAfterNegativeAdverbialsTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\WordOrder\\InversionAfterNegativeAdverbialsAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotInversionAfterAdverbialsC1LessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotInversionAfterNegativeAdverbialsAllLevelsLessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/word-order-inversion-after-negative-adverbials-theory-links.json"
+      ],
+      "audit_v3": [
+        null
+      ],
+      "audit_poly": [
+        null,
+        null
+      ],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/word-order-inversion-after-negative-adverbials-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\InversionAfterNegativeAdverbialsTheoryLinksSeeder",
+        "has_theory_links": false,
+        "has_polyglot_theory_links": true,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "/theory/word-order/inversion-after-negative-adverbials",
+      "tests": []
+    },
+    {
+      "route": "/theory/passive-voice/passive-reporting-structures",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "proposed": "partial content gap candidate",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveReportingStructuresTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveReportingStructuresC1LessonSeeder"
+      ],
+      "repo_links": [],
+      "audit_v3": [],
+      "audit_poly": [],
+      "audit_links": {
+        "json": null,
+        "php": null,
+        "has_theory_links": false,
+        "has_polyglot_theory_links": false,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": []
+    },
+    {
+      "route": "/theory/conditionals/conditional-alternatives-and-nuance",
+      "status": "missing_all",
+      "missing": [
+        "sentence_builder",
+        "mixed_a1_c2",
+        "v3_questions",
+        "polyglot_questions"
+      ],
+      "classification": "TYPE A",
+      "proposed": "partial content gap candidate",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalAlternativesAndNuanceTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotConditionalAlternativesAndNuanceC2LessonSeeder"
+      ],
+      "repo_links": [],
+      "audit_v3": [],
+      "audit_poly": [],
+      "audit_links": {
+        "json": null,
+        "php": null,
+        "has_theory_links": false,
+        "has_polyglot_theory_links": false,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "",
+      "tests": []
+    },
+    {
+      "route": "/theory/basic-grammar/word-order/advanced-fronting-and-emphasis",
+      "status": "missing_theory_links",
+      "missing": [
+        "theory_links",
+        "question_theory_text_blocks"
+      ],
+      "classification": "TYPE F",
+      "proposed": "audit/route normalizer or seeder detection issue after successful seed refresh",
+      "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\WordOrder\\AdvancedFrontingAndEmphasisTheorySeeder",
+      "repo_page": [],
+      "repo_v3": [
+        "Database\\Seeders\\V3\\WordOrder\\AdvancedFrontingAndEmphasisAllLevelsV3Seeder"
+      ],
+      "repo_poly": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedFrontingAndEmphasisC2LessonSeeder",
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotAdvancedFrontingAndEmphasisAllLevelsLessonSeeder"
+      ],
+      "repo_links": [
+        "database/seeders/V3/TheoryLinks/data/word-order-advanced-fronting-and-emphasis-theory-links.json"
+      ],
+      "audit_v3": [
+        null
+      ],
+      "audit_poly": [
+        null,
+        null
+      ],
+      "audit_links": {
+        "json": "database/seeders/V3/TheoryLinks/data/word-order-advanced-fronting-and-emphasis-theory-links.json",
+        "php": "Database\\Seeders\\V3\\TheoryLinks\\AdvancedFrontingAndEmphasisTheoryLinksSeeder",
+        "has_theory_links": false,
+        "has_polyglot_theory_links": true,
+        "has_qttb": false,
+        "has_uuid": false
+      },
+      "route_mismatch_manifest_routes": "/theory/word-order/advanced-fronting-and-emphasis",
+      "tests": []
+    }
+  ]
+}

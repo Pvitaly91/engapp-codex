@@ -1,0 +1,2199 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\DefiningRelativeClausesAllLevelsV3Seeder",
+        "uuid_namespace": "DefiningRelativeClausesAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_defining_relative_clauses": {
+            "name": "Defining Relative Clauses"
+        }
+    },
+    "tags": {
+        "defining_relative_clauses": {
+            "name": "Defining Relative Clauses",
+            "category": "clauses_and_linking_words"
+        },
+        "identify_noun": {
+            "name": "Identify noun",
+            "category": "topic"
+        },
+        "who_people": {
+            "name": "Who for people",
+            "category": "topic"
+        },
+        "which_things": {
+            "name": "Which for things",
+            "category": "topic"
+        },
+        "that_defining": {
+            "name": "That in defining clauses",
+            "category": "topic"
+        },
+        "where_places": {
+            "name": "Where for places",
+            "category": "topic"
+        },
+        "whose_possession": {
+            "name": "Whose possession",
+            "category": "topic"
+        },
+        "subject_relative": {
+            "name": "Subject relative pronoun",
+            "category": "topic"
+        },
+        "object_relative": {
+            "name": "Object relative pronoun",
+            "category": "topic"
+        },
+        "no_commas": {
+            "name": "No commas",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "defining_relative_clauses"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "drc-v3-a1-01",
+            "question": "The girl {a1} helped me lives next door",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose the relative pronoun that identifies a person.",
+                    "gap_tags": [
+                        "identify_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "identify_noun"
+            ],
+            "variants": [
+                "The girl {a1} helped me lives next door"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 2,
+            "uuid": "drc-v3-a1-02",
+            "question": "I know the boy {a1} teaches Spanish",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for a person in a defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "I know the boy {a1} teaches Spanish"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 3,
+            "uuid": "drc-v3-a1-03",
+            "question": "This is the book {a1} explains the rule",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "This is the book {a1} explains the rule"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 4,
+            "uuid": "drc-v3-a1-04",
+            "question": "The bag {a1} you ordered arrived today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "who"
+                    ],
+                    "verb_hint": "Use that as the defining relative pronoun.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "The bag {a1} you ordered arrived today"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 5,
+            "uuid": "drc-v3-a1-05",
+            "question": "This is the school {a1} we met",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the school {a1} we met"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 6,
+            "uuid": "drc-v3-a1-06",
+            "question": "The student {a1} laptop broke called support",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The student {a1} laptop broke called support"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 7,
+            "uuid": "drc-v3-a1-07",
+            "question": "The email {a1} arrived this morning changed the plan",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the relative clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The email {a1} arrived this morning changed the plan"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 8,
+            "uuid": "drc-v3-a1-08",
+            "question": "The book {a1} we discussed was useful",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that as the object relative pronoun in a defining clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The book {a1} we discussed was useful"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 9,
+            "uuid": "drc-v3-a1-09",
+            "question": "A defining relative clause normally uses {a1} around the relative clause",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "no commas",
+                    "options": [
+                        "no commas",
+                        "commas",
+                        "a semicolon",
+                        "a colon"
+                    ],
+                    "verb_hint": "Defining clauses identify the noun and are not separated by commas.",
+                    "gap_tags": [
+                        "no_commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_commas"
+            ],
+            "variants": [
+                "A defining relative clause normally uses {a1} around the relative clause"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 10,
+            "uuid": "drc-v3-a1-10",
+            "question": "The bag {a1} I bought yesterday works well",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Avoid where or whose when the noun is a thing and the pronoun is the object.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The bag {a1} I bought yesterday works well"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 11,
+            "uuid": "drc-v3-a1-11",
+            "question": "The girl {a1} we invited has arrived",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for the invited person.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The girl {a1} we invited has arrived"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 12,
+            "uuid": "drc-v3-a1-12",
+            "question": "The boy {a1} office is upstairs is waiting",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The boy {a1} office is upstairs is waiting"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 13,
+            "uuid": "drc-v3-a2-01",
+            "question": "The teacher {a1} helped me lives next door",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose the relative pronoun that identifies a person.",
+                    "gap_tags": [
+                        "identify_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "identify_noun"
+            ],
+            "variants": [
+                "The teacher {a1} helped me lives next door"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 14,
+            "uuid": "drc-v3-a2-02",
+            "question": "I know the doctor {a1} teaches Spanish",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for a person in a defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "I know the doctor {a1} teaches Spanish"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 15,
+            "uuid": "drc-v3-a2-03",
+            "question": "This is the phone {a1} explains the rule",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "This is the phone {a1} explains the rule"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 16,
+            "uuid": "drc-v3-a2-04",
+            "question": "The camera {a1} you ordered arrived today",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "who"
+                    ],
+                    "verb_hint": "Use that as the defining relative pronoun.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "The camera {a1} you ordered arrived today"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 17,
+            "uuid": "drc-v3-a2-05",
+            "question": "This is the cafe {a1} we met",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the cafe {a1} we met"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 18,
+            "uuid": "drc-v3-a2-06",
+            "question": "The neighbour {a1} laptop broke called support",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The neighbour {a1} laptop broke called support"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 19,
+            "uuid": "drc-v3-a2-07",
+            "question": "The email {a1} arrived this morning changed the plan",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the relative clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The email {a1} arrived this morning changed the plan"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 20,
+            "uuid": "drc-v3-a2-08",
+            "question": "The phone {a1} we discussed was useful",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that as the object relative pronoun in a defining clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The phone {a1} we discussed was useful"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 21,
+            "uuid": "drc-v3-a2-09",
+            "question": "A defining relative clause normally uses {a1} around the relative clause",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "no commas",
+                    "options": [
+                        "no commas",
+                        "commas",
+                        "a semicolon",
+                        "a colon"
+                    ],
+                    "verb_hint": "Defining clauses identify the noun and are not separated by commas.",
+                    "gap_tags": [
+                        "no_commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_commas"
+            ],
+            "variants": [
+                "A defining relative clause normally uses {a1} around the relative clause"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 22,
+            "uuid": "drc-v3-a2-10",
+            "question": "The camera {a1} I bought yesterday works well",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Avoid where or whose when the noun is a thing and the pronoun is the object.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The camera {a1} I bought yesterday works well"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 23,
+            "uuid": "drc-v3-a2-11",
+            "question": "The teacher {a1} we invited has arrived",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for the invited person.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The teacher {a1} we invited has arrived"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 24,
+            "uuid": "drc-v3-a2-12",
+            "question": "The doctor {a1} office is upstairs is waiting",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The doctor {a1} office is upstairs is waiting"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 25,
+            "uuid": "drc-v3-b1-01",
+            "question": "The manager {a1} helped me lives next door",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose the relative pronoun that identifies a person.",
+                    "gap_tags": [
+                        "identify_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "identify_noun"
+            ],
+            "variants": [
+                "The manager {a1} helped me lives next door"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 26,
+            "uuid": "drc-v3-b1-02",
+            "question": "I know the nurse {a1} teaches Spanish",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for a person in a defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "I know the nurse {a1} teaches Spanish"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 27,
+            "uuid": "drc-v3-b1-03",
+            "question": "This is the report {a1} explains the rule",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "This is the report {a1} explains the rule"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 28,
+            "uuid": "drc-v3-b1-04",
+            "question": "The laptop {a1} you ordered arrived today",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "who"
+                    ],
+                    "verb_hint": "Use that as the defining relative pronoun.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "The laptop {a1} you ordered arrived today"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 29,
+            "uuid": "drc-v3-b1-05",
+            "question": "This is the office {a1} we met",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the office {a1} we met"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 30,
+            "uuid": "drc-v3-b1-06",
+            "question": "The colleague {a1} laptop broke called support",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The colleague {a1} laptop broke called support"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 31,
+            "uuid": "drc-v3-b1-07",
+            "question": "The email {a1} arrived this morning changed the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the relative clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The email {a1} arrived this morning changed the plan"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 32,
+            "uuid": "drc-v3-b1-08",
+            "question": "The report {a1} we discussed was useful",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that as the object relative pronoun in a defining clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The report {a1} we discussed was useful"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 33,
+            "uuid": "drc-v3-b1-09",
+            "question": "A defining relative clause normally uses {a1} around the relative clause",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "no commas",
+                    "options": [
+                        "no commas",
+                        "commas",
+                        "a semicolon",
+                        "a colon"
+                    ],
+                    "verb_hint": "Defining clauses identify the noun and are not separated by commas.",
+                    "gap_tags": [
+                        "no_commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_commas"
+            ],
+            "variants": [
+                "A defining relative clause normally uses {a1} around the relative clause"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 34,
+            "uuid": "drc-v3-b1-10",
+            "question": "The laptop {a1} I bought yesterday works well",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Avoid where or whose when the noun is a thing and the pronoun is the object.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The laptop {a1} I bought yesterday works well"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 35,
+            "uuid": "drc-v3-b1-11",
+            "question": "The manager {a1} we invited has arrived",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for the invited person.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The manager {a1} we invited has arrived"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 36,
+            "uuid": "drc-v3-b1-12",
+            "question": "The nurse {a1} office is upstairs is waiting",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The nurse {a1} office is upstairs is waiting"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 37,
+            "uuid": "drc-v3-b2-01",
+            "question": "The researcher {a1} helped me lives next door",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose the relative pronoun that identifies a person.",
+                    "gap_tags": [
+                        "identify_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "identify_noun"
+            ],
+            "variants": [
+                "The researcher {a1} helped me lives next door"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 38,
+            "uuid": "drc-v3-b2-02",
+            "question": "I know the lawyer {a1} teaches Spanish",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for a person in a defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "I know the lawyer {a1} teaches Spanish"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 39,
+            "uuid": "drc-v3-b2-03",
+            "question": "This is the proposal {a1} explains the rule",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "This is the proposal {a1} explains the rule"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 40,
+            "uuid": "drc-v3-b2-04",
+            "question": "The contract {a1} you ordered arrived today",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "who"
+                    ],
+                    "verb_hint": "Use that as the defining relative pronoun.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "The contract {a1} you ordered arrived today"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 41,
+            "uuid": "drc-v3-b2-05",
+            "question": "This is the laboratory {a1} we met",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the laboratory {a1} we met"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 42,
+            "uuid": "drc-v3-b2-06",
+            "question": "The client {a1} laptop broke called support",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The client {a1} laptop broke called support"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 43,
+            "uuid": "drc-v3-b2-07",
+            "question": "The email {a1} arrived this morning changed the plan",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the relative clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The email {a1} arrived this morning changed the plan"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 44,
+            "uuid": "drc-v3-b2-08",
+            "question": "The proposal {a1} we discussed was useful",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that as the object relative pronoun in a defining clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The proposal {a1} we discussed was useful"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 45,
+            "uuid": "drc-v3-b2-09",
+            "question": "A defining relative clause normally uses {a1} around the relative clause",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "no commas",
+                    "options": [
+                        "no commas",
+                        "commas",
+                        "a semicolon",
+                        "a colon"
+                    ],
+                    "verb_hint": "Defining clauses identify the noun and are not separated by commas.",
+                    "gap_tags": [
+                        "no_commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_commas"
+            ],
+            "variants": [
+                "A defining relative clause normally uses {a1} around the relative clause"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 46,
+            "uuid": "drc-v3-b2-10",
+            "question": "The contract {a1} I bought yesterday works well",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Avoid where or whose when the noun is a thing and the pronoun is the object.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The contract {a1} I bought yesterday works well"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 47,
+            "uuid": "drc-v3-b2-11",
+            "question": "The researcher {a1} we invited has arrived",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for the invited person.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The researcher {a1} we invited has arrived"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 48,
+            "uuid": "drc-v3-b2-12",
+            "question": "The lawyer {a1} office is upstairs is waiting",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The lawyer {a1} office is upstairs is waiting"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 49,
+            "uuid": "drc-v3-c1-01",
+            "question": "The consultant {a1} helped me lives next door",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose the relative pronoun that identifies a person.",
+                    "gap_tags": [
+                        "identify_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "identify_noun"
+            ],
+            "variants": [
+                "The consultant {a1} helped me lives next door"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 50,
+            "uuid": "drc-v3-c1-02",
+            "question": "I know the editor {a1} teaches Spanish",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for a person in a defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "I know the editor {a1} teaches Spanish"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 51,
+            "uuid": "drc-v3-c1-03",
+            "question": "This is the analysis {a1} explains the rule",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "This is the analysis {a1} explains the rule"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 52,
+            "uuid": "drc-v3-c1-04",
+            "question": "The manuscript {a1} you ordered arrived today",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "who"
+                    ],
+                    "verb_hint": "Use that as the defining relative pronoun.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "The manuscript {a1} you ordered arrived today"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 53,
+            "uuid": "drc-v3-c1-05",
+            "question": "This is the archive {a1} we met",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the archive {a1} we met"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 54,
+            "uuid": "drc-v3-c1-06",
+            "question": "The director {a1} laptop broke called support",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The director {a1} laptop broke called support"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 55,
+            "uuid": "drc-v3-c1-07",
+            "question": "The email {a1} arrived this morning changed the plan",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the relative clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The email {a1} arrived this morning changed the plan"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 56,
+            "uuid": "drc-v3-c1-08",
+            "question": "The analysis {a1} we discussed was useful",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that as the object relative pronoun in a defining clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The analysis {a1} we discussed was useful"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 57,
+            "uuid": "drc-v3-c1-09",
+            "question": "A defining relative clause normally uses {a1} around the relative clause",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "no commas",
+                    "options": [
+                        "no commas",
+                        "commas",
+                        "a semicolon",
+                        "a colon"
+                    ],
+                    "verb_hint": "Defining clauses identify the noun and are not separated by commas.",
+                    "gap_tags": [
+                        "no_commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_commas"
+            ],
+            "variants": [
+                "A defining relative clause normally uses {a1} around the relative clause"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 58,
+            "uuid": "drc-v3-c1-10",
+            "question": "The manuscript {a1} I bought yesterday works well",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Avoid where or whose when the noun is a thing and the pronoun is the object.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The manuscript {a1} I bought yesterday works well"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 59,
+            "uuid": "drc-v3-c1-11",
+            "question": "The consultant {a1} we invited has arrived",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for the invited person.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The consultant {a1} we invited has arrived"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 60,
+            "uuid": "drc-v3-c1-12",
+            "question": "The editor {a1} office is upstairs is waiting",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The editor {a1} office is upstairs is waiting"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 61,
+            "uuid": "drc-v3-c2-01",
+            "question": "The archivist {a1} helped me lives next door",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Choose the relative pronoun that identifies a person.",
+                    "gap_tags": [
+                        "identify_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "identify_noun"
+            ],
+            "variants": [
+                "The archivist {a1} helped me lives next door"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 62,
+            "uuid": "drc-v3-c2-02",
+            "question": "I know the curator {a1} teaches Spanish",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for a person in a defining clause.",
+                    "gap_tags": [
+                        "who_people"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "who_people"
+            ],
+            "variants": [
+                "I know the curator {a1} teaches Spanish"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 63,
+            "uuid": "drc-v3-c2-03",
+            "question": "This is the documentary {a1} explains the rule",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use which for a thing.",
+                    "gap_tags": [
+                        "which_things"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "which_things"
+            ],
+            "variants": [
+                "This is the documentary {a1} explains the rule"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 64,
+            "uuid": "drc-v3-c2-04",
+            "question": "The exhibit {a1} you ordered arrived today",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "who"
+                    ],
+                    "verb_hint": "Use that as the defining relative pronoun.",
+                    "gap_tags": [
+                        "that_defining"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_defining"
+            ],
+            "variants": [
+                "The exhibit {a1} you ordered arrived today"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 65,
+            "uuid": "drc-v3-c2-05",
+            "question": "This is the gallery {a1} we met",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "where",
+                    "options": [
+                        "where",
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Use where for a place.",
+                    "gap_tags": [
+                        "where_places"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "where_places"
+            ],
+            "variants": [
+                "This is the gallery {a1} we met"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 66,
+            "uuid": "drc-v3-c2-06",
+            "question": "The organiser {a1} laptop broke called support",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose for possession.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The organiser {a1} laptop broke called support"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 67,
+            "uuid": "drc-v3-c2-07",
+            "question": "The email {a1} arrived this morning changed the plan",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "The relative pronoun is the subject of the relative clause.",
+                    "gap_tags": [
+                        "subject_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_relative"
+            ],
+            "variants": [
+                "The email {a1} arrived this morning changed the plan"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 68,
+            "uuid": "drc-v3-c2-08",
+            "question": "The documentary {a1} we discussed was useful",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Use that as the object relative pronoun in a defining clause.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The documentary {a1} we discussed was useful"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 69,
+            "uuid": "drc-v3-c2-09",
+            "question": "A defining relative clause normally uses {a1} around the relative clause",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "no commas",
+                    "options": [
+                        "no commas",
+                        "commas",
+                        "a semicolon",
+                        "a colon"
+                    ],
+                    "verb_hint": "Defining clauses identify the noun and are not separated by commas.",
+                    "gap_tags": [
+                        "no_commas"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "no_commas"
+            ],
+            "variants": [
+                "A defining relative clause normally uses {a1} around the relative clause"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 70,
+            "uuid": "drc-v3-c2-10",
+            "question": "The exhibit {a1} I bought yesterday works well",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "where",
+                        "whose",
+                        "when"
+                    ],
+                    "verb_hint": "Avoid where or whose when the noun is a thing and the pronoun is the object.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "The exhibit {a1} I bought yesterday works well"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 71,
+            "uuid": "drc-v3-c2-11",
+            "question": "The archivist {a1} we invited has arrived",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "whose"
+                    ],
+                    "verb_hint": "Use who for the invited person.",
+                    "gap_tags": [
+                        "object_relative"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_relative"
+            ],
+            "variants": [
+                "The archivist {a1} we invited has arrived"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        },
+        {
+            "id": 72,
+            "uuid": "drc-v3-c2-12",
+            "question": "The curator {a1} office is upstairs is waiting",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which",
+                        "where"
+                    ],
+                    "verb_hint": "Use whose before the possessed noun.",
+                    "gap_tags": [
+                        "whose_possession"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "whose_possession"
+            ],
+            "variants": [
+                "The curator {a1} office is upstairs is waiting"
+            ],
+            "source": "theory_page_defining_relative_clauses"
+        }
+    ],
+    "saved_test": {
+        "uuid": "rc-def-v3-all",
+        "slug": "defining-relative-clauses-all-levels-v3",
+        "name": "Defining Relative Clauses: V3 All Levels",
+        "description": "Page-local V3 package for Defining Relative Clauses with A1-C2 coverage.",
+        "question_uuids": [
+            "drc-v3-a1-01",
+            "drc-v3-a1-02",
+            "drc-v3-a1-03",
+            "drc-v3-a1-04",
+            "drc-v3-a1-05",
+            "drc-v3-a1-06",
+            "drc-v3-a1-07",
+            "drc-v3-a1-08",
+            "drc-v3-a1-09",
+            "drc-v3-a1-10",
+            "drc-v3-a1-11",
+            "drc-v3-a1-12",
+            "drc-v3-a2-01",
+            "drc-v3-a2-02",
+            "drc-v3-a2-03",
+            "drc-v3-a2-04",
+            "drc-v3-a2-05",
+            "drc-v3-a2-06",
+            "drc-v3-a2-07",
+            "drc-v3-a2-08",
+            "drc-v3-a2-09",
+            "drc-v3-a2-10",
+            "drc-v3-a2-11",
+            "drc-v3-a2-12",
+            "drc-v3-b1-01",
+            "drc-v3-b1-02",
+            "drc-v3-b1-03",
+            "drc-v3-b1-04",
+            "drc-v3-b1-05",
+            "drc-v3-b1-06",
+            "drc-v3-b1-07",
+            "drc-v3-b1-08",
+            "drc-v3-b1-09",
+            "drc-v3-b1-10",
+            "drc-v3-b1-11",
+            "drc-v3-b1-12",
+            "drc-v3-b2-01",
+            "drc-v3-b2-02",
+            "drc-v3-b2-03",
+            "drc-v3-b2-04",
+            "drc-v3-b2-05",
+            "drc-v3-b2-06",
+            "drc-v3-b2-07",
+            "drc-v3-b2-08",
+            "drc-v3-b2-09",
+            "drc-v3-b2-10",
+            "drc-v3-b2-11",
+            "drc-v3-b2-12",
+            "drc-v3-c1-01",
+            "drc-v3-c1-02",
+            "drc-v3-c1-03",
+            "drc-v3-c1-04",
+            "drc-v3-c1-05",
+            "drc-v3-c1-06",
+            "drc-v3-c1-07",
+            "drc-v3-c1-08",
+            "drc-v3-c1-09",
+            "drc-v3-c1-10",
+            "drc-v3-c1-11",
+            "drc-v3-c1-12",
+            "drc-v3-c2-01",
+            "drc-v3-c2-02",
+            "drc-v3-c2-03",
+            "drc-v3-c2-04",
+            "drc-v3-c2-05",
+            "drc-v3-c2-06",
+            "drc-v3-c2-07",
+            "drc-v3-c2-08",
+            "drc-v3-c2-09",
+            "drc-v3-c2-10",
+            "drc-v3-c2-11",
+            "drc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\DefiningRelativeClausesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "defining-relative-clauses",
+                    "title": "Defining Relative Clauses",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsDefiningRelativeClausesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/defining-relative-clauses"
+                }
+            }
+        }
+    }
+}

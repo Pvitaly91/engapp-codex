@@ -1,0 +1,2241 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammar\\SentenceTypesAllLevelsV3Seeder",
+        "uuid_namespace": "SentenceTypesAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "bg-st-v3-all",
+        "slug": "sentence-types-all-levels-v3",
+        "name": "Sentence Types: V3 All Levels",
+        "description": "Page-local V3 package for Sentence Types with A1-C2 coverage.",
+        "question_uuids": [
+            "bg-st-v3-a1-01",
+            "bg-st-v3-a1-02",
+            "bg-st-v3-a1-03",
+            "bg-st-v3-a1-04",
+            "bg-st-v3-a1-05",
+            "bg-st-v3-a1-06",
+            "bg-st-v3-a1-07",
+            "bg-st-v3-a1-08",
+            "bg-st-v3-a1-09",
+            "bg-st-v3-a1-10",
+            "bg-st-v3-a1-11",
+            "bg-st-v3-a1-12",
+            "bg-st-v3-a2-01",
+            "bg-st-v3-a2-02",
+            "bg-st-v3-a2-03",
+            "bg-st-v3-a2-04",
+            "bg-st-v3-a2-05",
+            "bg-st-v3-a2-06",
+            "bg-st-v3-a2-07",
+            "bg-st-v3-a2-08",
+            "bg-st-v3-a2-09",
+            "bg-st-v3-a2-10",
+            "bg-st-v3-a2-11",
+            "bg-st-v3-a2-12",
+            "bg-st-v3-b1-01",
+            "bg-st-v3-b1-02",
+            "bg-st-v3-b1-03",
+            "bg-st-v3-b1-04",
+            "bg-st-v3-b1-05",
+            "bg-st-v3-b1-06",
+            "bg-st-v3-b1-07",
+            "bg-st-v3-b1-08",
+            "bg-st-v3-b1-09",
+            "bg-st-v3-b1-10",
+            "bg-st-v3-b1-11",
+            "bg-st-v3-b1-12",
+            "bg-st-v3-b2-01",
+            "bg-st-v3-b2-02",
+            "bg-st-v3-b2-03",
+            "bg-st-v3-b2-04",
+            "bg-st-v3-b2-05",
+            "bg-st-v3-b2-06",
+            "bg-st-v3-b2-07",
+            "bg-st-v3-b2-08",
+            "bg-st-v3-b2-09",
+            "bg-st-v3-b2-10",
+            "bg-st-v3-b2-11",
+            "bg-st-v3-b2-12",
+            "bg-st-v3-c1-01",
+            "bg-st-v3-c1-02",
+            "bg-st-v3-c1-03",
+            "bg-st-v3-c1-04",
+            "bg-st-v3-c1-05",
+            "bg-st-v3-c1-06",
+            "bg-st-v3-c1-07",
+            "bg-st-v3-c1-08",
+            "bg-st-v3-c1-09",
+            "bg-st-v3-c1-10",
+            "bg-st-v3-c1-11",
+            "bg-st-v3-c1-12",
+            "bg-st-v3-c2-01",
+            "bg-st-v3-c2-02",
+            "bg-st-v3-c2-03",
+            "bg-st-v3-c2-04",
+            "bg-st-v3-c2-05",
+            "bg-st-v3-c2-06",
+            "bg-st-v3-c2-07",
+            "bg-st-v3-c2-08",
+            "bg-st-v3-c2-09",
+            "bg-st-v3-c2-10",
+            "bg-st-v3-c2-11",
+            "bg-st-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\BasicGrammar\\SentenceTypesAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "basic-grammar",
+                "page_slug": "sentence-types",
+                "page_route": "/theory/basic-grammar/sentence-types",
+                "theory_page": {
+                    "slug": "sentence-types",
+                    "title": "Sentence Types",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceTypesTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-types"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bg-st-v3-a1-01",
+            "question": "\"She lives here\" is an {a1} sentence.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "negative",
+                        "imperative",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "affirmative_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_statements"
+            ],
+            "variants": [
+                "\"She lives here\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 2,
+            "uuid": "bg-st-v3-a1-02",
+            "question": "\"She does not live here\" is a {a1} sentence.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "affirmative",
+                        "imperative",
+                        "exclamation"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_sentences"
+            ],
+            "variants": [
+                "\"She does not live here\" is a {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 3,
+            "uuid": "bg-st-v3-a1-03",
+            "question": "\"Do you like tea?\" is a {a1} question.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "yes/no",
+                    "options": [
+                        "yes/no",
+                        "wh",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "\"Do you like tea?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 4,
+            "uuid": "bg-st-v3-a1-04",
+            "question": "\"Where do you live?\" is a {a1} question.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "wh",
+                    "options": [
+                        "wh",
+                        "yes/no",
+                        "statement",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "\"Where do you live?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 5,
+            "uuid": "bg-st-v3-a1-05",
+            "question": "\"Open the door\" is an {a1} sentence.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "negative",
+                        "question",
+                        "statement"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "imperative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_sentences"
+            ],
+            "variants": [
+                "\"Open the door\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 6,
+            "uuid": "bg-st-v3-a1-06",
+            "question": "\"What a beautiful day!\" is an {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "exclamation",
+                    "options": [
+                        "exclamation",
+                        "question",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "exclamations"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "exclamations"
+            ],
+            "variants": [
+                "\"What a beautiful day!\" is an {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 7,
+            "uuid": "bg-st-v3-a1-07",
+            "question": "A simple statement usually follows subject + {a1} + object.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "question word",
+                        "not",
+                        "auxiliary"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "statement_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "statement_word_order"
+            ],
+            "variants": [
+                "A simple statement usually follows subject + {a1} + object."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 8,
+            "uuid": "bg-st-v3-a1-08",
+            "question": "In \"Does she work here?\", {a1} comes before the subject.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "work",
+                        "here",
+                        "she"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "In \"Does she work here?\", {a1} comes before the subject."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 9,
+            "uuid": "bg-st-v3-a1-09",
+            "question": "In \"I do not know\", not comes after {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "know",
+                        "I",
+                        "after"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "In \"I do not know\", not comes after {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 10,
+            "uuid": "bg-st-v3-a1-10",
+            "question": "A question normally ends with a question {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "mark",
+                    "options": [
+                        "mark",
+                        "comma",
+                        "period",
+                        "dash"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "A question normally ends with a question {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 11,
+            "uuid": "bg-st-v3-a1-11",
+            "question": "A sentence that asks for information is a {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "command",
+                        "negative"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "sentence_purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_purpose"
+            ],
+            "variants": [
+                "A sentence that asks for information is a {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 12,
+            "uuid": "bg-st-v3-a1-12",
+            "question": "Use \"Does she like music?\", not \"{a1} she likes music?\"",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use \"Does she like music?\", not \"{a1} she likes music?\""
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 13,
+            "uuid": "bg-st-v3-a2-01",
+            "question": "\"She lives here\" is an {a1} sentence.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "negative",
+                        "imperative",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "affirmative_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_statements"
+            ],
+            "variants": [
+                "\"She lives here\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 14,
+            "uuid": "bg-st-v3-a2-02",
+            "question": "\"She does not live here\" is a {a1} sentence.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "affirmative",
+                        "imperative",
+                        "exclamation"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_sentences"
+            ],
+            "variants": [
+                "\"She does not live here\" is a {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 15,
+            "uuid": "bg-st-v3-a2-03",
+            "question": "\"Do you like tea?\" is a {a1} question.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "yes/no",
+                    "options": [
+                        "yes/no",
+                        "wh",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "\"Do you like tea?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 16,
+            "uuid": "bg-st-v3-a2-04",
+            "question": "\"Where do you live?\" is a {a1} question.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "wh",
+                    "options": [
+                        "wh",
+                        "yes/no",
+                        "statement",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "\"Where do you live?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 17,
+            "uuid": "bg-st-v3-a2-05",
+            "question": "\"Open the door\" is an {a1} sentence.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "negative",
+                        "question",
+                        "statement"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "imperative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_sentences"
+            ],
+            "variants": [
+                "\"Open the door\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 18,
+            "uuid": "bg-st-v3-a2-06",
+            "question": "\"What a beautiful day!\" is an {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "exclamation",
+                    "options": [
+                        "exclamation",
+                        "question",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "exclamations"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "exclamations"
+            ],
+            "variants": [
+                "\"What a beautiful day!\" is an {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 19,
+            "uuid": "bg-st-v3-a2-07",
+            "question": "A simple statement usually follows subject + {a1} + object.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "question word",
+                        "not",
+                        "auxiliary"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "statement_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "statement_word_order"
+            ],
+            "variants": [
+                "A simple statement usually follows subject + {a1} + object."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 20,
+            "uuid": "bg-st-v3-a2-08",
+            "question": "In \"Does she work here?\", {a1} comes before the subject.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "work",
+                        "here",
+                        "she"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "In \"Does she work here?\", {a1} comes before the subject."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 21,
+            "uuid": "bg-st-v3-a2-09",
+            "question": "In \"I do not know\", not comes after {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "know",
+                        "I",
+                        "after"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "In \"I do not know\", not comes after {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 22,
+            "uuid": "bg-st-v3-a2-10",
+            "question": "A question normally ends with a question {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "mark",
+                    "options": [
+                        "mark",
+                        "comma",
+                        "period",
+                        "dash"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "A question normally ends with a question {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 23,
+            "uuid": "bg-st-v3-a2-11",
+            "question": "A sentence that asks for information is a {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "command",
+                        "negative"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "sentence_purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_purpose"
+            ],
+            "variants": [
+                "A sentence that asks for information is a {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 24,
+            "uuid": "bg-st-v3-a2-12",
+            "question": "Use \"Does she like music?\", not \"{a1} she likes music?\"",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use \"Does she like music?\", not \"{a1} she likes music?\""
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 25,
+            "uuid": "bg-st-v3-b1-01",
+            "question": "\"She lives here\" is an {a1} sentence.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "negative",
+                        "imperative",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "affirmative_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_statements"
+            ],
+            "variants": [
+                "\"She lives here\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 26,
+            "uuid": "bg-st-v3-b1-02",
+            "question": "\"She does not live here\" is a {a1} sentence.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "affirmative",
+                        "imperative",
+                        "exclamation"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_sentences"
+            ],
+            "variants": [
+                "\"She does not live here\" is a {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 27,
+            "uuid": "bg-st-v3-b1-03",
+            "question": "\"Do you like tea?\" is a {a1} question.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "yes/no",
+                    "options": [
+                        "yes/no",
+                        "wh",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "\"Do you like tea?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 28,
+            "uuid": "bg-st-v3-b1-04",
+            "question": "\"Where do you live?\" is a {a1} question.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "wh",
+                    "options": [
+                        "wh",
+                        "yes/no",
+                        "statement",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "\"Where do you live?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 29,
+            "uuid": "bg-st-v3-b1-05",
+            "question": "\"Open the door\" is an {a1} sentence.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "negative",
+                        "question",
+                        "statement"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "imperative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_sentences"
+            ],
+            "variants": [
+                "\"Open the door\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 30,
+            "uuid": "bg-st-v3-b1-06",
+            "question": "\"What a beautiful day!\" is an {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "exclamation",
+                    "options": [
+                        "exclamation",
+                        "question",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "exclamations"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "exclamations"
+            ],
+            "variants": [
+                "\"What a beautiful day!\" is an {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 31,
+            "uuid": "bg-st-v3-b1-07",
+            "question": "A simple statement usually follows subject + {a1} + object.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "question word",
+                        "not",
+                        "auxiliary"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "statement_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "statement_word_order"
+            ],
+            "variants": [
+                "A simple statement usually follows subject + {a1} + object."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 32,
+            "uuid": "bg-st-v3-b1-08",
+            "question": "In \"Does she work here?\", {a1} comes before the subject.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "work",
+                        "here",
+                        "she"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "In \"Does she work here?\", {a1} comes before the subject."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 33,
+            "uuid": "bg-st-v3-b1-09",
+            "question": "In \"I do not know\", not comes after {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "know",
+                        "I",
+                        "after"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "In \"I do not know\", not comes after {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 34,
+            "uuid": "bg-st-v3-b1-10",
+            "question": "A question normally ends with a question {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "mark",
+                    "options": [
+                        "mark",
+                        "comma",
+                        "period",
+                        "dash"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "A question normally ends with a question {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 35,
+            "uuid": "bg-st-v3-b1-11",
+            "question": "A sentence that asks for information is a {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "command",
+                        "negative"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "sentence_purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_purpose"
+            ],
+            "variants": [
+                "A sentence that asks for information is a {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 36,
+            "uuid": "bg-st-v3-b1-12",
+            "question": "Use \"Does she like music?\", not \"{a1} she likes music?\"",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use \"Does she like music?\", not \"{a1} she likes music?\""
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 37,
+            "uuid": "bg-st-v3-b2-01",
+            "question": "\"She lives here\" is an {a1} sentence.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "negative",
+                        "imperative",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "affirmative_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_statements"
+            ],
+            "variants": [
+                "\"She lives here\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 38,
+            "uuid": "bg-st-v3-b2-02",
+            "question": "\"She does not live here\" is a {a1} sentence.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "affirmative",
+                        "imperative",
+                        "exclamation"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_sentences"
+            ],
+            "variants": [
+                "\"She does not live here\" is a {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 39,
+            "uuid": "bg-st-v3-b2-03",
+            "question": "\"Do you like tea?\" is a {a1} question.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "yes/no",
+                    "options": [
+                        "yes/no",
+                        "wh",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "\"Do you like tea?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 40,
+            "uuid": "bg-st-v3-b2-04",
+            "question": "\"Where do you live?\" is a {a1} question.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "wh",
+                    "options": [
+                        "wh",
+                        "yes/no",
+                        "statement",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "\"Where do you live?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 41,
+            "uuid": "bg-st-v3-b2-05",
+            "question": "\"Open the door\" is an {a1} sentence.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "negative",
+                        "question",
+                        "statement"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "imperative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_sentences"
+            ],
+            "variants": [
+                "\"Open the door\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 42,
+            "uuid": "bg-st-v3-b2-06",
+            "question": "\"What a beautiful day!\" is an {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "exclamation",
+                    "options": [
+                        "exclamation",
+                        "question",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "exclamations"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "exclamations"
+            ],
+            "variants": [
+                "\"What a beautiful day!\" is an {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 43,
+            "uuid": "bg-st-v3-b2-07",
+            "question": "A simple statement usually follows subject + {a1} + object.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "question word",
+                        "not",
+                        "auxiliary"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "statement_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "statement_word_order"
+            ],
+            "variants": [
+                "A simple statement usually follows subject + {a1} + object."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 44,
+            "uuid": "bg-st-v3-b2-08",
+            "question": "In \"Does she work here?\", {a1} comes before the subject.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "work",
+                        "here",
+                        "she"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "In \"Does she work here?\", {a1} comes before the subject."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 45,
+            "uuid": "bg-st-v3-b2-09",
+            "question": "In \"I do not know\", not comes after {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "know",
+                        "I",
+                        "after"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "In \"I do not know\", not comes after {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 46,
+            "uuid": "bg-st-v3-b2-10",
+            "question": "A question normally ends with a question {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "mark",
+                    "options": [
+                        "mark",
+                        "comma",
+                        "period",
+                        "dash"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "A question normally ends with a question {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 47,
+            "uuid": "bg-st-v3-b2-11",
+            "question": "A sentence that asks for information is a {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "command",
+                        "negative"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "sentence_purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_purpose"
+            ],
+            "variants": [
+                "A sentence that asks for information is a {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 48,
+            "uuid": "bg-st-v3-b2-12",
+            "question": "Use \"Does she like music?\", not \"{a1} she likes music?\"",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use \"Does she like music?\", not \"{a1} she likes music?\""
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 49,
+            "uuid": "bg-st-v3-c1-01",
+            "question": "\"She lives here\" is an {a1} sentence.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "negative",
+                        "imperative",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "affirmative_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_statements"
+            ],
+            "variants": [
+                "\"She lives here\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 50,
+            "uuid": "bg-st-v3-c1-02",
+            "question": "\"She does not live here\" is a {a1} sentence.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "affirmative",
+                        "imperative",
+                        "exclamation"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_sentences"
+            ],
+            "variants": [
+                "\"She does not live here\" is a {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 51,
+            "uuid": "bg-st-v3-c1-03",
+            "question": "\"Do you like tea?\" is a {a1} question.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "yes/no",
+                    "options": [
+                        "yes/no",
+                        "wh",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "\"Do you like tea?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 52,
+            "uuid": "bg-st-v3-c1-04",
+            "question": "\"Where do you live?\" is a {a1} question.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "wh",
+                    "options": [
+                        "wh",
+                        "yes/no",
+                        "statement",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "\"Where do you live?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 53,
+            "uuid": "bg-st-v3-c1-05",
+            "question": "\"Open the door\" is an {a1} sentence.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "negative",
+                        "question",
+                        "statement"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "imperative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_sentences"
+            ],
+            "variants": [
+                "\"Open the door\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 54,
+            "uuid": "bg-st-v3-c1-06",
+            "question": "\"What a beautiful day!\" is an {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "exclamation",
+                    "options": [
+                        "exclamation",
+                        "question",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "exclamations"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "exclamations"
+            ],
+            "variants": [
+                "\"What a beautiful day!\" is an {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 55,
+            "uuid": "bg-st-v3-c1-07",
+            "question": "A simple statement usually follows subject + {a1} + object.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "question word",
+                        "not",
+                        "auxiliary"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "statement_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "statement_word_order"
+            ],
+            "variants": [
+                "A simple statement usually follows subject + {a1} + object."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 56,
+            "uuid": "bg-st-v3-c1-08",
+            "question": "In \"Does she work here?\", {a1} comes before the subject.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "work",
+                        "here",
+                        "she"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "In \"Does she work here?\", {a1} comes before the subject."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 57,
+            "uuid": "bg-st-v3-c1-09",
+            "question": "In \"I do not know\", not comes after {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "know",
+                        "I",
+                        "after"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "In \"I do not know\", not comes after {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 58,
+            "uuid": "bg-st-v3-c1-10",
+            "question": "A question normally ends with a question {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "mark",
+                    "options": [
+                        "mark",
+                        "comma",
+                        "period",
+                        "dash"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "A question normally ends with a question {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 59,
+            "uuid": "bg-st-v3-c1-11",
+            "question": "A sentence that asks for information is a {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "command",
+                        "negative"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "sentence_purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_purpose"
+            ],
+            "variants": [
+                "A sentence that asks for information is a {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 60,
+            "uuid": "bg-st-v3-c1-12",
+            "question": "Use \"Does she like music?\", not \"{a1} she likes music?\"",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use \"Does she like music?\", not \"{a1} she likes music?\""
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 61,
+            "uuid": "bg-st-v3-c2-01",
+            "question": "\"She lives here\" is an {a1} sentence.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "affirmative",
+                    "options": [
+                        "affirmative",
+                        "negative",
+                        "imperative",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "affirmative_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "affirmative_statements"
+            ],
+            "variants": [
+                "\"She lives here\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 62,
+            "uuid": "bg-st-v3-c2-02",
+            "question": "\"She does not live here\" is a {a1} sentence.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "negative",
+                    "options": [
+                        "negative",
+                        "affirmative",
+                        "imperative",
+                        "exclamation"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_sentences"
+            ],
+            "variants": [
+                "\"She does not live here\" is a {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 63,
+            "uuid": "bg-st-v3-c2-03",
+            "question": "\"Do you like tea?\" is a {a1} question.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "yes/no",
+                    "options": [
+                        "yes/no",
+                        "wh",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "yes_no_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "yes_no_questions"
+            ],
+            "variants": [
+                "\"Do you like tea?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 64,
+            "uuid": "bg-st-v3-c2-04",
+            "question": "\"Where do you live?\" is a {a1} question.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "wh",
+                    "options": [
+                        "wh",
+                        "yes/no",
+                        "statement",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "wh_questions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "wh_questions"
+            ],
+            "variants": [
+                "\"Where do you live?\" is a {a1} question."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 65,
+            "uuid": "bg-st-v3-c2-05",
+            "question": "\"Open the door\" is an {a1} sentence.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "imperative",
+                    "options": [
+                        "imperative",
+                        "negative",
+                        "question",
+                        "statement"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "imperative_sentences"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "imperative_sentences"
+            ],
+            "variants": [
+                "\"Open the door\" is an {a1} sentence."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 66,
+            "uuid": "bg-st-v3-c2-06",
+            "question": "\"What a beautiful day!\" is an {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "exclamation",
+                    "options": [
+                        "exclamation",
+                        "question",
+                        "negative",
+                        "command"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "exclamations"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "exclamations"
+            ],
+            "variants": [
+                "\"What a beautiful day!\" is an {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 67,
+            "uuid": "bg-st-v3-c2-07",
+            "question": "A simple statement usually follows subject + {a1} + object.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "question word",
+                        "not",
+                        "auxiliary"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "statement_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "statement_word_order"
+            ],
+            "variants": [
+                "A simple statement usually follows subject + {a1} + object."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 68,
+            "uuid": "bg-st-v3-c2-08",
+            "question": "In \"Does she work here?\", {a1} comes before the subject.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "work",
+                        "here",
+                        "she"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_word_order"
+            ],
+            "variants": [
+                "In \"Does she work here?\", {a1} comes before the subject."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 69,
+            "uuid": "bg-st-v3-c2-09",
+            "question": "In \"I do not know\", not comes after {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "do",
+                    "options": [
+                        "do",
+                        "know",
+                        "I",
+                        "after"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_word_order"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_word_order"
+            ],
+            "variants": [
+                "In \"I do not know\", not comes after {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 70,
+            "uuid": "bg-st-v3-c2-10",
+            "question": "A question normally ends with a question {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "mark",
+                    "options": [
+                        "mark",
+                        "comma",
+                        "period",
+                        "dash"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "A question normally ends with a question {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 71,
+            "uuid": "bg-st-v3-c2-11",
+            "question": "A sentence that asks for information is a {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "question",
+                    "options": [
+                        "question",
+                        "statement",
+                        "command",
+                        "negative"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "sentence_purpose"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "sentence_purpose"
+            ],
+            "variants": [
+                "A sentence that asks for information is a {a1}."
+            ],
+            "source": "theory_page_sentence_types"
+        },
+        {
+            "id": 72,
+            "uuid": "bg-st-v3-c2-12",
+            "question": "Use \"Does she like music?\", not \"{a1} she likes music?\"",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is",
+                        "Has"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Use \"Does she like music?\", not \"{a1} she likes music?\""
+            ],
+            "source": "theory_page_sentence_types"
+        }
+    ],
+    "category": {
+        "name": "English Grammar"
+    },
+    "sources": {
+        "theory_page_sentence_types": {
+            "name": "Sentence Types"
+        }
+    },
+    "tags": {
+        "affirmative_statements": {
+            "name": "Affirmative statements",
+            "category": "topic"
+        },
+        "negative_sentences": {
+            "name": "Negative sentences",
+            "category": "topic"
+        },
+        "yes_no_questions": {
+            "name": "Yes no questions",
+            "category": "topic"
+        },
+        "wh_questions": {
+            "name": "Wh questions",
+            "category": "topic"
+        },
+        "imperative_sentences": {
+            "name": "Imperative sentences",
+            "category": "topic"
+        },
+        "exclamations": {
+            "name": "Exclamations",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement word order",
+            "category": "topic"
+        },
+        "question_word_order": {
+            "name": "Question word order",
+            "category": "topic"
+        },
+        "negative_word_order": {
+            "name": "Negative word order",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "sentence_purpose": {
+            "name": "Sentence purpose",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "affirmative_statements",
+        "negative_sentences",
+        "yes_no_questions",
+        "wh_questions",
+        "imperative_sentences",
+        "exclamations",
+        "statement_word_order",
+        "question_word_order",
+        "negative_word_order",
+        "punctuation",
+        "sentence_purpose",
+        "typical_mistakes"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 1,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}

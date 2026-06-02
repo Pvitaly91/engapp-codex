@@ -1,0 +1,2140 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\MixedRevision\\B1MixedRevisionAllLevelsV3Seeder",
+        "uuid_namespace": "B1MixedRevisionAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "mr-b1-v3-all",
+        "slug": "b1-mixed-revision-all-levels-v3",
+        "name": "B1 Mixed Revision: V3 All Levels",
+        "description": "Page-local V3 package for B1 Mixed Revision with A1-C2 coverage.",
+        "question_uuids": [
+            "mr-b1-v3-a1-01",
+            "mr-b1-v3-a1-02",
+            "mr-b1-v3-a1-03",
+            "mr-b1-v3-a1-04",
+            "mr-b1-v3-a1-05",
+            "mr-b1-v3-a1-06",
+            "mr-b1-v3-a1-07",
+            "mr-b1-v3-a1-08",
+            "mr-b1-v3-a1-09",
+            "mr-b1-v3-a1-10",
+            "mr-b1-v3-a1-11",
+            "mr-b1-v3-a1-12",
+            "mr-b1-v3-a2-01",
+            "mr-b1-v3-a2-02",
+            "mr-b1-v3-a2-03",
+            "mr-b1-v3-a2-04",
+            "mr-b1-v3-a2-05",
+            "mr-b1-v3-a2-06",
+            "mr-b1-v3-a2-07",
+            "mr-b1-v3-a2-08",
+            "mr-b1-v3-a2-09",
+            "mr-b1-v3-a2-10",
+            "mr-b1-v3-a2-11",
+            "mr-b1-v3-a2-12",
+            "mr-b1-v3-b1-01",
+            "mr-b1-v3-b1-02",
+            "mr-b1-v3-b1-03",
+            "mr-b1-v3-b1-04",
+            "mr-b1-v3-b1-05",
+            "mr-b1-v3-b1-06",
+            "mr-b1-v3-b1-07",
+            "mr-b1-v3-b1-08",
+            "mr-b1-v3-b1-09",
+            "mr-b1-v3-b1-10",
+            "mr-b1-v3-b1-11",
+            "mr-b1-v3-b1-12",
+            "mr-b1-v3-b2-01",
+            "mr-b1-v3-b2-02",
+            "mr-b1-v3-b2-03",
+            "mr-b1-v3-b2-04",
+            "mr-b1-v3-b2-05",
+            "mr-b1-v3-b2-06",
+            "mr-b1-v3-b2-07",
+            "mr-b1-v3-b2-08",
+            "mr-b1-v3-b2-09",
+            "mr-b1-v3-b2-10",
+            "mr-b1-v3-b2-11",
+            "mr-b1-v3-b2-12",
+            "mr-b1-v3-c1-01",
+            "mr-b1-v3-c1-02",
+            "mr-b1-v3-c1-03",
+            "mr-b1-v3-c1-04",
+            "mr-b1-v3-c1-05",
+            "mr-b1-v3-c1-06",
+            "mr-b1-v3-c1-07",
+            "mr-b1-v3-c1-08",
+            "mr-b1-v3-c1-09",
+            "mr-b1-v3-c1-10",
+            "mr-b1-v3-c1-11",
+            "mr-b1-v3-c1-12",
+            "mr-b1-v3-c2-01",
+            "mr-b1-v3-c2-02",
+            "mr-b1-v3-c2-03",
+            "mr-b1-v3-c2-04",
+            "mr-b1-v3-c2-05",
+            "mr-b1-v3-c2-06",
+            "mr-b1-v3-c2-07",
+            "mr-b1-v3-c2-08",
+            "mr-b1-v3-c2-09",
+            "mr-b1-v3-c2-10",
+            "mr-b1-v3-c2-11",
+            "mr-b1-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\MixedRevision\\B1MixedRevisionAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "mixed-revision",
+                "page_slug": "b1-mixed-revision",
+                "page_route": "/theory/mixed-revision/b1-mixed-revision",
+                "theory_page": {
+                    "slug": "b1-mixed-revision",
+                    "title": "B1 Mixed Revision",
+                    "category_slug_path": "mixed-revision",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarB1MixedRevisionTheorySeeder",
+                    "url": "https://gramlyze.com/theory/mixed-revision/b1-mixed-revision"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mr-b1-v3-a1-01",
+            "question": "I {a1} already seen that film.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "am",
+                        "was"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect"
+            ],
+            "variants": [
+                "I {a1} already seen that film."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 2,
+            "uuid": "mr-b1-v3-a1-02",
+            "question": "She visited Rome {a1} 2021.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for",
+                        "yet"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "past_simple_present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_simple_present_perfect"
+            ],
+            "variants": [
+                "She visited Rome {a1} 2021."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 3,
+            "uuid": "mr-b1-v3-a1-03",
+            "question": "While I was cooking, the phone {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "rang",
+                    "options": [
+                        "rang",
+                        "was ringing",
+                        "has rung",
+                        "rings"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "narrative_tenses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "narrative_tenses"
+            ],
+            "variants": [
+                "While I was cooking, the phone {a1}."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 4,
+            "uuid": "mr-b1-v3-a1-04",
+            "question": "We {a1} meet them tomorrow evening.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "have",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "future_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_forms"
+            ],
+            "variants": [
+                "We {a1} meet them tomorrow evening."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 5,
+            "uuid": "mr-b1-v3-a1-05",
+            "question": "If I had more time, I {a1} learn Italian.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "had",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conditionals"
+            ],
+            "variants": [
+                "If I had more time, I {a1} learn Italian."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 6,
+            "uuid": "mr-b1-v3-a1-06",
+            "question": "The email {a1} sent yesterday.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "passive_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_basics"
+            ],
+            "variants": [
+                "The email {a1} sent yesterday."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 7,
+            "uuid": "mr-b1-v3-a1-07",
+            "question": "He said he {a1} tired.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "will be",
+                        "has been"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reported_speech"
+            ],
+            "variants": [
+                "He said he {a1} tired."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 8,
+            "uuid": "mr-b1-v3-a1-08",
+            "question": "This is the book {a1} I told you about.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clauses"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 9,
+            "uuid": "mr-b1-v3-a1-09",
+            "question": "The train was late, {a1} we missed the meeting.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "linking_words"
+            ],
+            "variants": [
+                "The train was late, {a1} we missed the meeting."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 10,
+            "uuid": "mr-b1-v3-a1-10",
+            "question": "She decided {a1} a new course.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "to take",
+                    "options": [
+                        "to take",
+                        "taking",
+                        "take",
+                        "took"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "gerund_infinitive"
+            ],
+            "variants": [
+                "She decided {a1} a new course."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 11,
+            "uuid": "mr-b1-v3-a1-11",
+            "question": "You {a1} see a doctor if the pain continues.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must to",
+                        "can to",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "modal_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_verbs"
+            ],
+            "variants": [
+                "You {a1} see a doctor if the pain continues."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 12,
+            "uuid": "mr-b1-v3-a1-12",
+            "question": "There are {a1} people in the room.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "articles_quantifiers_prepositions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "articles_quantifiers_prepositions"
+            ],
+            "variants": [
+                "There are {a1} people in the room."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 13,
+            "uuid": "mr-b1-v3-a2-01",
+            "question": "She visited Rome {a1} 2021.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for",
+                        "yet"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "past_simple_present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_simple_present_perfect"
+            ],
+            "variants": [
+                "She visited Rome {a1} 2021."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 14,
+            "uuid": "mr-b1-v3-a2-02",
+            "question": "While I was cooking, the phone {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "rang",
+                    "options": [
+                        "rang",
+                        "was ringing",
+                        "has rung",
+                        "rings"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "narrative_tenses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "narrative_tenses"
+            ],
+            "variants": [
+                "While I was cooking, the phone {a1}."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 15,
+            "uuid": "mr-b1-v3-a2-03",
+            "question": "We {a1} meet them tomorrow evening.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "have",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "future_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_forms"
+            ],
+            "variants": [
+                "We {a1} meet them tomorrow evening."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 16,
+            "uuid": "mr-b1-v3-a2-04",
+            "question": "If I had more time, I {a1} learn Italian.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "had",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conditionals"
+            ],
+            "variants": [
+                "If I had more time, I {a1} learn Italian."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 17,
+            "uuid": "mr-b1-v3-a2-05",
+            "question": "The email {a1} sent yesterday.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "passive_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_basics"
+            ],
+            "variants": [
+                "The email {a1} sent yesterday."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 18,
+            "uuid": "mr-b1-v3-a2-06",
+            "question": "He said he {a1} tired.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "will be",
+                        "has been"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reported_speech"
+            ],
+            "variants": [
+                "He said he {a1} tired."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 19,
+            "uuid": "mr-b1-v3-a2-07",
+            "question": "This is the book {a1} I told you about.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clauses"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 20,
+            "uuid": "mr-b1-v3-a2-08",
+            "question": "The train was late, {a1} we missed the meeting.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "linking_words"
+            ],
+            "variants": [
+                "The train was late, {a1} we missed the meeting."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 21,
+            "uuid": "mr-b1-v3-a2-09",
+            "question": "She decided {a1} a new course.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "to take",
+                    "options": [
+                        "to take",
+                        "taking",
+                        "take",
+                        "took"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "gerund_infinitive"
+            ],
+            "variants": [
+                "She decided {a1} a new course."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 22,
+            "uuid": "mr-b1-v3-a2-10",
+            "question": "You {a1} see a doctor if the pain continues.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must to",
+                        "can to",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "modal_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_verbs"
+            ],
+            "variants": [
+                "You {a1} see a doctor if the pain continues."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 23,
+            "uuid": "mr-b1-v3-a2-11",
+            "question": "There are {a1} people in the room.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "articles_quantifiers_prepositions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "articles_quantifiers_prepositions"
+            ],
+            "variants": [
+                "There are {a1} people in the room."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 24,
+            "uuid": "mr-b1-v3-a2-12",
+            "question": "I {a1} already seen that film.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "am",
+                        "was"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect"
+            ],
+            "variants": [
+                "I {a1} already seen that film."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 25,
+            "uuid": "mr-b1-v3-b1-01",
+            "question": "While I was cooking, the phone {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "rang",
+                    "options": [
+                        "rang",
+                        "was ringing",
+                        "has rung",
+                        "rings"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "narrative_tenses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "narrative_tenses"
+            ],
+            "variants": [
+                "While I was cooking, the phone {a1}."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 26,
+            "uuid": "mr-b1-v3-b1-02",
+            "question": "We {a1} meet them tomorrow evening.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "have",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "future_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_forms"
+            ],
+            "variants": [
+                "We {a1} meet them tomorrow evening."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 27,
+            "uuid": "mr-b1-v3-b1-03",
+            "question": "If I had more time, I {a1} learn Italian.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "had",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conditionals"
+            ],
+            "variants": [
+                "If I had more time, I {a1} learn Italian."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 28,
+            "uuid": "mr-b1-v3-b1-04",
+            "question": "The email {a1} sent yesterday.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "passive_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_basics"
+            ],
+            "variants": [
+                "The email {a1} sent yesterday."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 29,
+            "uuid": "mr-b1-v3-b1-05",
+            "question": "He said he {a1} tired.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "will be",
+                        "has been"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reported_speech"
+            ],
+            "variants": [
+                "He said he {a1} tired."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 30,
+            "uuid": "mr-b1-v3-b1-06",
+            "question": "This is the book {a1} I told you about.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clauses"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 31,
+            "uuid": "mr-b1-v3-b1-07",
+            "question": "The train was late, {a1} we missed the meeting.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "linking_words"
+            ],
+            "variants": [
+                "The train was late, {a1} we missed the meeting."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 32,
+            "uuid": "mr-b1-v3-b1-08",
+            "question": "She decided {a1} a new course.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "to take",
+                    "options": [
+                        "to take",
+                        "taking",
+                        "take",
+                        "took"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "gerund_infinitive"
+            ],
+            "variants": [
+                "She decided {a1} a new course."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 33,
+            "uuid": "mr-b1-v3-b1-09",
+            "question": "You {a1} see a doctor if the pain continues.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must to",
+                        "can to",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "modal_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_verbs"
+            ],
+            "variants": [
+                "You {a1} see a doctor if the pain continues."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 34,
+            "uuid": "mr-b1-v3-b1-10",
+            "question": "There are {a1} people in the room.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "articles_quantifiers_prepositions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "articles_quantifiers_prepositions"
+            ],
+            "variants": [
+                "There are {a1} people in the room."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 35,
+            "uuid": "mr-b1-v3-b1-11",
+            "question": "I {a1} already seen that film.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "am",
+                        "was"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect"
+            ],
+            "variants": [
+                "I {a1} already seen that film."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 36,
+            "uuid": "mr-b1-v3-b1-12",
+            "question": "She visited Rome {a1} 2021.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for",
+                        "yet"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "past_simple_present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_simple_present_perfect"
+            ],
+            "variants": [
+                "She visited Rome {a1} 2021."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 37,
+            "uuid": "mr-b1-v3-b2-01",
+            "question": "We {a1} meet them tomorrow evening.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "have",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "future_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_forms"
+            ],
+            "variants": [
+                "We {a1} meet them tomorrow evening."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 38,
+            "uuid": "mr-b1-v3-b2-02",
+            "question": "If I had more time, I {a1} learn Italian.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "had",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conditionals"
+            ],
+            "variants": [
+                "If I had more time, I {a1} learn Italian."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 39,
+            "uuid": "mr-b1-v3-b2-03",
+            "question": "The email {a1} sent yesterday.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "passive_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_basics"
+            ],
+            "variants": [
+                "The email {a1} sent yesterday."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 40,
+            "uuid": "mr-b1-v3-b2-04",
+            "question": "He said he {a1} tired.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "will be",
+                        "has been"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reported_speech"
+            ],
+            "variants": [
+                "He said he {a1} tired."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 41,
+            "uuid": "mr-b1-v3-b2-05",
+            "question": "This is the book {a1} I told you about.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clauses"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 42,
+            "uuid": "mr-b1-v3-b2-06",
+            "question": "The train was late, {a1} we missed the meeting.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "linking_words"
+            ],
+            "variants": [
+                "The train was late, {a1} we missed the meeting."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 43,
+            "uuid": "mr-b1-v3-b2-07",
+            "question": "She decided {a1} a new course.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "to take",
+                    "options": [
+                        "to take",
+                        "taking",
+                        "take",
+                        "took"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "gerund_infinitive"
+            ],
+            "variants": [
+                "She decided {a1} a new course."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 44,
+            "uuid": "mr-b1-v3-b2-08",
+            "question": "You {a1} see a doctor if the pain continues.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must to",
+                        "can to",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "modal_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_verbs"
+            ],
+            "variants": [
+                "You {a1} see a doctor if the pain continues."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 45,
+            "uuid": "mr-b1-v3-b2-09",
+            "question": "There are {a1} people in the room.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "articles_quantifiers_prepositions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "articles_quantifiers_prepositions"
+            ],
+            "variants": [
+                "There are {a1} people in the room."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 46,
+            "uuid": "mr-b1-v3-b2-10",
+            "question": "I {a1} already seen that film.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "am",
+                        "was"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect"
+            ],
+            "variants": [
+                "I {a1} already seen that film."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 47,
+            "uuid": "mr-b1-v3-b2-11",
+            "question": "She visited Rome {a1} 2021.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for",
+                        "yet"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "past_simple_present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_simple_present_perfect"
+            ],
+            "variants": [
+                "She visited Rome {a1} 2021."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 48,
+            "uuid": "mr-b1-v3-b2-12",
+            "question": "While I was cooking, the phone {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "rang",
+                    "options": [
+                        "rang",
+                        "was ringing",
+                        "has rung",
+                        "rings"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "narrative_tenses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "narrative_tenses"
+            ],
+            "variants": [
+                "While I was cooking, the phone {a1}."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 49,
+            "uuid": "mr-b1-v3-c1-01",
+            "question": "If I had more time, I {a1} learn Italian.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "had",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conditionals"
+            ],
+            "variants": [
+                "If I had more time, I {a1} learn Italian."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 50,
+            "uuid": "mr-b1-v3-c1-02",
+            "question": "The email {a1} sent yesterday.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "passive_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_basics"
+            ],
+            "variants": [
+                "The email {a1} sent yesterday."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 51,
+            "uuid": "mr-b1-v3-c1-03",
+            "question": "He said he {a1} tired.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "will be",
+                        "has been"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reported_speech"
+            ],
+            "variants": [
+                "He said he {a1} tired."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 52,
+            "uuid": "mr-b1-v3-c1-04",
+            "question": "This is the book {a1} I told you about.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clauses"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 53,
+            "uuid": "mr-b1-v3-c1-05",
+            "question": "The train was late, {a1} we missed the meeting.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "linking_words"
+            ],
+            "variants": [
+                "The train was late, {a1} we missed the meeting."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 54,
+            "uuid": "mr-b1-v3-c1-06",
+            "question": "She decided {a1} a new course.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "to take",
+                    "options": [
+                        "to take",
+                        "taking",
+                        "take",
+                        "took"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "gerund_infinitive"
+            ],
+            "variants": [
+                "She decided {a1} a new course."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 55,
+            "uuid": "mr-b1-v3-c1-07",
+            "question": "You {a1} see a doctor if the pain continues.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must to",
+                        "can to",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "modal_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_verbs"
+            ],
+            "variants": [
+                "You {a1} see a doctor if the pain continues."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 56,
+            "uuid": "mr-b1-v3-c1-08",
+            "question": "There are {a1} people in the room.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "articles_quantifiers_prepositions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "articles_quantifiers_prepositions"
+            ],
+            "variants": [
+                "There are {a1} people in the room."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 57,
+            "uuid": "mr-b1-v3-c1-09",
+            "question": "I {a1} already seen that film.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "am",
+                        "was"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect"
+            ],
+            "variants": [
+                "I {a1} already seen that film."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 58,
+            "uuid": "mr-b1-v3-c1-10",
+            "question": "She visited Rome {a1} 2021.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for",
+                        "yet"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "past_simple_present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_simple_present_perfect"
+            ],
+            "variants": [
+                "She visited Rome {a1} 2021."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 59,
+            "uuid": "mr-b1-v3-c1-11",
+            "question": "While I was cooking, the phone {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "rang",
+                    "options": [
+                        "rang",
+                        "was ringing",
+                        "has rung",
+                        "rings"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "narrative_tenses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "narrative_tenses"
+            ],
+            "variants": [
+                "While I was cooking, the phone {a1}."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 60,
+            "uuid": "mr-b1-v3-c1-12",
+            "question": "We {a1} meet them tomorrow evening.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "have",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "future_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_forms"
+            ],
+            "variants": [
+                "We {a1} meet them tomorrow evening."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 61,
+            "uuid": "mr-b1-v3-c2-01",
+            "question": "The email {a1} sent yesterday.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "has",
+                        "did"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "passive_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "passive_basics"
+            ],
+            "variants": [
+                "The email {a1} sent yesterday."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 62,
+            "uuid": "mr-b1-v3-c2-02",
+            "question": "He said he {a1} tired.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "will be",
+                        "has been"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "reported_speech"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "reported_speech"
+            ],
+            "variants": [
+                "He said he {a1} tired."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 63,
+            "uuid": "mr-b1-v3-c2-03",
+            "question": "This is the book {a1} I told you about.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "where",
+                        "when"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "relative_clauses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "relative_clauses"
+            ],
+            "variants": [
+                "This is the book {a1} I told you about."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 64,
+            "uuid": "mr-b1-v3-c2-04",
+            "question": "The train was late, {a1} we missed the meeting.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although",
+                        "but"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "linking_words"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "linking_words"
+            ],
+            "variants": [
+                "The train was late, {a1} we missed the meeting."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 65,
+            "uuid": "mr-b1-v3-c2-05",
+            "question": "She decided {a1} a new course.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "to take",
+                    "options": [
+                        "to take",
+                        "taking",
+                        "take",
+                        "took"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "gerund_infinitive"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "gerund_infinitive"
+            ],
+            "variants": [
+                "She decided {a1} a new course."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 66,
+            "uuid": "mr-b1-v3-c2-06",
+            "question": "You {a1} see a doctor if the pain continues.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "should",
+                    "options": [
+                        "should",
+                        "must to",
+                        "can to",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "modal_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "modal_verbs"
+            ],
+            "variants": [
+                "You {a1} see a doctor if the pain continues."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 67,
+            "uuid": "mr-b1-v3-c2-07",
+            "question": "There are {a1} people in the room.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "many",
+                    "options": [
+                        "many",
+                        "much",
+                        "a",
+                        "an"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "articles_quantifiers_prepositions"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "articles_quantifiers_prepositions"
+            ],
+            "variants": [
+                "There are {a1} people in the room."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 68,
+            "uuid": "mr-b1-v3-c2-08",
+            "question": "I {a1} already seen that film.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "did",
+                        "am",
+                        "was"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_perfect"
+            ],
+            "variants": [
+                "I {a1} already seen that film."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 69,
+            "uuid": "mr-b1-v3-c2-09",
+            "question": "She visited Rome {a1} 2021.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "since",
+                        "for",
+                        "yet"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "past_simple_present_perfect"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "past_simple_present_perfect"
+            ],
+            "variants": [
+                "She visited Rome {a1} 2021."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 70,
+            "uuid": "mr-b1-v3-c2-10",
+            "question": "While I was cooking, the phone {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "rang",
+                    "options": [
+                        "rang",
+                        "was ringing",
+                        "has rung",
+                        "rings"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "narrative_tenses"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "narrative_tenses"
+            ],
+            "variants": [
+                "While I was cooking, the phone {a1}."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 71,
+            "uuid": "mr-b1-v3-c2-11",
+            "question": "We {a1} meet them tomorrow evening.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "are going to",
+                    "options": [
+                        "are going to",
+                        "have",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "future_forms"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "future_forms"
+            ],
+            "variants": [
+                "We {a1} meet them tomorrow evening."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        },
+        {
+            "id": 72,
+            "uuid": "mr-b1-v3-c2-12",
+            "question": "If I had more time, I {a1} learn Italian.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "had",
+                        "have"
+                    ],
+                    "verb_hint": "Choose the clear mixed-revision answer for this context.",
+                    "gap_tags": [
+                        "conditionals"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "conditionals"
+            ],
+            "variants": [
+                "If I had more time, I {a1} learn Italian."
+            ],
+            "source": "theory_page_b1_mixed_revision"
+        }
+    ],
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "theory_page_b1_mixed_revision": {
+            "name": "B1 Mixed Revision"
+        }
+    }
+}

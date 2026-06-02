@@ -1,0 +1,9 @@
+<?php
+
+namespace Database\Seeders\V2\Polyglot;
+
+use Database\Seeders\V3\Polyglot\PolyglotReportedCommandsAndRequestsLessonSeeder as V3PolyglotReportedCommandsAndRequestsLessonSeeder;
+
+class PolyglotReportedCommandsAndRequestsLessonSeeder extends V3PolyglotReportedCommandsAndRequestsLessonSeeder
+{
+}

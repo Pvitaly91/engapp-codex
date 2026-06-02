@@ -1,0 +1,2195 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\ZeroConditionalAllLevelsV3Seeder",
+        "uuid_namespace": "ZeroConditionalAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "theory_page_zero_conditional": {
+            "name": "Zero Conditional"
+        }
+    },
+    "tags": {
+        "conditionals_zero_conditional": {
+            "name": "Zero Conditional",
+            "category": "conditionals"
+        },
+        "if_present_simple": {
+            "name": "If Present Simple",
+            "category": "topic"
+        },
+        "present_simple_result": {
+            "name": "Present Simple Result",
+            "category": "topic"
+        },
+        "when_present_simple": {
+            "name": "When Present Simple",
+            "category": "topic"
+        },
+        "general_truth": {
+            "name": "General Truth",
+            "category": "topic"
+        },
+        "repeated_result": {
+            "name": "Repeated Result",
+            "category": "topic"
+        },
+        "instruction": {
+            "name": "Instruction",
+            "category": "topic"
+        },
+        "if_vs_when": {
+            "name": "If Vs When",
+            "category": "topic"
+        },
+        "comma_rules": {
+            "name": "Comma Rules",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_zero_conditional"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "zc-v3-a1-01",
+            "question": "If water {a1}, it boils.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "reaches one hundred degrees",
+                    "options": [
+                        "reaches one hundred degrees",
+                        "will reach one hundred degrees",
+                        "reached one hundred degrees",
+                        "would reach one hundred degrees"
+                    ],
+                    "verb_hint": "Use present simple in the if-clause.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If water {a1}, it boils."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 2,
+            "uuid": "zc-v3-a1-02",
+            "question": "If you heat ice, it {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "melts",
+                    "options": [
+                        "melts",
+                        "will melt",
+                        "melted",
+                        "would melt"
+                    ],
+                    "verb_hint": "The result clause also uses present simple.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you heat ice, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 3,
+            "uuid": "zc-v3-a1-03",
+            "question": "When the sun {a1}, the room gets warmer.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "shines",
+                    "options": [
+                        "shines",
+                        "will shine",
+                        "shone",
+                        "would shine"
+                    ],
+                    "verb_hint": "When can replace if for regular results.",
+                    "gap_tags": [
+                        "when_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_present_simple"
+            ],
+            "variants": [
+                "When the sun {a1}, the room gets warmer."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 4,
+            "uuid": "zc-v3-a1-04",
+            "question": "If plants do not get water, they {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "die",
+                    "options": [
+                        "die",
+                        "will die",
+                        "died",
+                        "would die"
+                    ],
+                    "verb_hint": "General truths use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If plants do not get water, they {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 5,
+            "uuid": "zc-v3-a1-05",
+            "question": "If I work late, I {a1} tired.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "feel",
+                    "options": [
+                        "feel",
+                        "will feel",
+                        "felt",
+                        "would feel"
+                    ],
+                    "verb_hint": "Use zero conditional for repeated results.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "If I work late, I {a1} tired."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 6,
+            "uuid": "zc-v3-a1-06",
+            "question": "If the light turns red, {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "stop",
+                    "options": [
+                        "stop",
+                        "will stop",
+                        "stopped",
+                        "would stop"
+                    ],
+                    "verb_hint": "Instructions can use the base imperative in the result.",
+                    "gap_tags": [
+                        "instruction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "instruction"
+            ],
+            "variants": [
+                "If the light turns red, {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 7,
+            "uuid": "zc-v3-a1-07",
+            "question": "{a1} I press this button, the machine starts.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Will",
+                        "Would",
+                        "Did"
+                    ],
+                    "verb_hint": "Use when for a regular automatic result.",
+                    "gap_tags": [
+                        "if_vs_when"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_vs_when"
+            ],
+            "variants": [
+                "{a1} I press this button, the machine starts."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 8,
+            "uuid": "zc-v3-a1-08",
+            "question": "If the if-clause comes first, we usually {a1} a comma.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "This is a zero conditional rule statement.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the if-clause comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 9,
+            "uuid": "zc-v3-a1-09",
+            "question": "If you {a1} oil, it floats on water.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "put",
+                    "options": [
+                        "put",
+                        "will put",
+                        "would put",
+                        "puts"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If you {a1} oil, it floats on water."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 10,
+            "uuid": "zc-v3-a1-10",
+            "question": "If metal gets hot, it {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "expands",
+                    "options": [
+                        "expands",
+                        "will expand",
+                        "expanded",
+                        "would expand"
+                    ],
+                    "verb_hint": "Scientific facts use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If metal gets hot, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 11,
+            "uuid": "zc-v3-a1-11",
+            "question": "When Marta misses breakfast, she {a1} hungry before noon.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "gets",
+                    "options": [
+                        "gets",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "Use present simple for a repeated personal result.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "When Marta misses breakfast, she {a1} hungry before noon."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 12,
+            "uuid": "zc-v3-a1-12",
+            "question": "If you mix blue and yellow, you {a1} green.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "get",
+                    "options": [
+                        "get",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "The result is always true.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you mix blue and yellow, you {a1} green."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 13,
+            "uuid": "zc-v3-a2-01",
+            "question": "If water {a1}, it boils.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "reaches one hundred degrees",
+                    "options": [
+                        "reaches one hundred degrees",
+                        "will reach one hundred degrees",
+                        "reached one hundred degrees",
+                        "would reach one hundred degrees"
+                    ],
+                    "verb_hint": "Use present simple in the if-clause.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If water {a1}, it boils."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 14,
+            "uuid": "zc-v3-a2-02",
+            "question": "If you heat ice, it {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "melts",
+                    "options": [
+                        "melts",
+                        "will melt",
+                        "melted",
+                        "would melt"
+                    ],
+                    "verb_hint": "The result clause also uses present simple.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you heat ice, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 15,
+            "uuid": "zc-v3-a2-03",
+            "question": "When the sun {a1}, the room gets warmer.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "shines",
+                    "options": [
+                        "shines",
+                        "will shine",
+                        "shone",
+                        "would shine"
+                    ],
+                    "verb_hint": "When can replace if for regular results.",
+                    "gap_tags": [
+                        "when_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_present_simple"
+            ],
+            "variants": [
+                "When the sun {a1}, the room gets warmer."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 16,
+            "uuid": "zc-v3-a2-04",
+            "question": "If plants do not get water, they {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "die",
+                    "options": [
+                        "die",
+                        "will die",
+                        "died",
+                        "would die"
+                    ],
+                    "verb_hint": "General truths use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If plants do not get water, they {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 17,
+            "uuid": "zc-v3-a2-05",
+            "question": "If I work late, I {a1} tired.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "feel",
+                    "options": [
+                        "feel",
+                        "will feel",
+                        "felt",
+                        "would feel"
+                    ],
+                    "verb_hint": "Use zero conditional for repeated results.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "If I work late, I {a1} tired."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 18,
+            "uuid": "zc-v3-a2-06",
+            "question": "If the light turns red, {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "stop",
+                    "options": [
+                        "stop",
+                        "will stop",
+                        "stopped",
+                        "would stop"
+                    ],
+                    "verb_hint": "Instructions can use the base imperative in the result.",
+                    "gap_tags": [
+                        "instruction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "instruction"
+            ],
+            "variants": [
+                "If the light turns red, {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 19,
+            "uuid": "zc-v3-a2-07",
+            "question": "{a1} I press this button, the machine starts.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Will",
+                        "Would",
+                        "Did"
+                    ],
+                    "verb_hint": "Use when for a regular automatic result.",
+                    "gap_tags": [
+                        "if_vs_when"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_vs_when"
+            ],
+            "variants": [
+                "{a1} I press this button, the machine starts."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 20,
+            "uuid": "zc-v3-a2-08",
+            "question": "If the if-clause comes first, we usually {a1} a comma.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "This is a zero conditional rule statement.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the if-clause comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 21,
+            "uuid": "zc-v3-a2-09",
+            "question": "If you {a1} oil, it floats on water.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "put",
+                    "options": [
+                        "put",
+                        "will put",
+                        "would put",
+                        "puts"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If you {a1} oil, it floats on water."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 22,
+            "uuid": "zc-v3-a2-10",
+            "question": "If metal gets hot, it {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "expands",
+                    "options": [
+                        "expands",
+                        "will expand",
+                        "expanded",
+                        "would expand"
+                    ],
+                    "verb_hint": "Scientific facts use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If metal gets hot, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 23,
+            "uuid": "zc-v3-a2-11",
+            "question": "When Marta misses breakfast, she {a1} hungry before noon.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "gets",
+                    "options": [
+                        "gets",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "Use present simple for a repeated personal result.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "When Marta misses breakfast, she {a1} hungry before noon."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 24,
+            "uuid": "zc-v3-a2-12",
+            "question": "If you mix blue and yellow, you {a1} green.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "get",
+                    "options": [
+                        "get",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "The result is always true.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you mix blue and yellow, you {a1} green."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 25,
+            "uuid": "zc-v3-b1-01",
+            "question": "If water {a1}, it boils.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "reaches one hundred degrees",
+                    "options": [
+                        "reaches one hundred degrees",
+                        "will reach one hundred degrees",
+                        "reached one hundred degrees",
+                        "would reach one hundred degrees"
+                    ],
+                    "verb_hint": "Use present simple in the if-clause.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If water {a1}, it boils."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 26,
+            "uuid": "zc-v3-b1-02",
+            "question": "If you heat ice, it {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "melts",
+                    "options": [
+                        "melts",
+                        "will melt",
+                        "melted",
+                        "would melt"
+                    ],
+                    "verb_hint": "The result clause also uses present simple.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you heat ice, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 27,
+            "uuid": "zc-v3-b1-03",
+            "question": "When the sun {a1}, the room gets warmer.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "shines",
+                    "options": [
+                        "shines",
+                        "will shine",
+                        "shone",
+                        "would shine"
+                    ],
+                    "verb_hint": "When can replace if for regular results.",
+                    "gap_tags": [
+                        "when_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_present_simple"
+            ],
+            "variants": [
+                "When the sun {a1}, the room gets warmer."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 28,
+            "uuid": "zc-v3-b1-04",
+            "question": "If plants do not get water, they {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "die",
+                    "options": [
+                        "die",
+                        "will die",
+                        "died",
+                        "would die"
+                    ],
+                    "verb_hint": "General truths use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If plants do not get water, they {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 29,
+            "uuid": "zc-v3-b1-05",
+            "question": "If I work late, I {a1} tired.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "feel",
+                    "options": [
+                        "feel",
+                        "will feel",
+                        "felt",
+                        "would feel"
+                    ],
+                    "verb_hint": "Use zero conditional for repeated results.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "If I work late, I {a1} tired."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 30,
+            "uuid": "zc-v3-b1-06",
+            "question": "If the light turns red, {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "stop",
+                    "options": [
+                        "stop",
+                        "will stop",
+                        "stopped",
+                        "would stop"
+                    ],
+                    "verb_hint": "Instructions can use the base imperative in the result.",
+                    "gap_tags": [
+                        "instruction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "instruction"
+            ],
+            "variants": [
+                "If the light turns red, {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 31,
+            "uuid": "zc-v3-b1-07",
+            "question": "{a1} I press this button, the machine starts.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Will",
+                        "Would",
+                        "Did"
+                    ],
+                    "verb_hint": "Use when for a regular automatic result.",
+                    "gap_tags": [
+                        "if_vs_when"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_vs_when"
+            ],
+            "variants": [
+                "{a1} I press this button, the machine starts."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 32,
+            "uuid": "zc-v3-b1-08",
+            "question": "If the if-clause comes first, we usually {a1} a comma.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "This is a zero conditional rule statement.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the if-clause comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 33,
+            "uuid": "zc-v3-b1-09",
+            "question": "If you {a1} oil, it floats on water.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "put",
+                    "options": [
+                        "put",
+                        "will put",
+                        "would put",
+                        "puts"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If you {a1} oil, it floats on water."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 34,
+            "uuid": "zc-v3-b1-10",
+            "question": "If metal gets hot, it {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "expands",
+                    "options": [
+                        "expands",
+                        "will expand",
+                        "expanded",
+                        "would expand"
+                    ],
+                    "verb_hint": "Scientific facts use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If metal gets hot, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 35,
+            "uuid": "zc-v3-b1-11",
+            "question": "When Marta misses breakfast, she {a1} hungry before noon.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "gets",
+                    "options": [
+                        "gets",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "Use present simple for a repeated personal result.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "When Marta misses breakfast, she {a1} hungry before noon."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 36,
+            "uuid": "zc-v3-b1-12",
+            "question": "If you mix blue and yellow, you {a1} green.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "get",
+                    "options": [
+                        "get",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "The result is always true.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you mix blue and yellow, you {a1} green."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 37,
+            "uuid": "zc-v3-b2-01",
+            "question": "If water {a1}, it boils.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "reaches one hundred degrees",
+                    "options": [
+                        "reaches one hundred degrees",
+                        "will reach one hundred degrees",
+                        "reached one hundred degrees",
+                        "would reach one hundred degrees"
+                    ],
+                    "verb_hint": "Use present simple in the if-clause.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If water {a1}, it boils."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 38,
+            "uuid": "zc-v3-b2-02",
+            "question": "If you heat ice, it {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "melts",
+                    "options": [
+                        "melts",
+                        "will melt",
+                        "melted",
+                        "would melt"
+                    ],
+                    "verb_hint": "The result clause also uses present simple.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you heat ice, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 39,
+            "uuid": "zc-v3-b2-03",
+            "question": "When the sun {a1}, the room gets warmer.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "shines",
+                    "options": [
+                        "shines",
+                        "will shine",
+                        "shone",
+                        "would shine"
+                    ],
+                    "verb_hint": "When can replace if for regular results.",
+                    "gap_tags": [
+                        "when_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_present_simple"
+            ],
+            "variants": [
+                "When the sun {a1}, the room gets warmer."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 40,
+            "uuid": "zc-v3-b2-04",
+            "question": "If plants do not get water, they {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "die",
+                    "options": [
+                        "die",
+                        "will die",
+                        "died",
+                        "would die"
+                    ],
+                    "verb_hint": "General truths use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If plants do not get water, they {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 41,
+            "uuid": "zc-v3-b2-05",
+            "question": "If I work late, I {a1} tired.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "feel",
+                    "options": [
+                        "feel",
+                        "will feel",
+                        "felt",
+                        "would feel"
+                    ],
+                    "verb_hint": "Use zero conditional for repeated results.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "If I work late, I {a1} tired."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 42,
+            "uuid": "zc-v3-b2-06",
+            "question": "If the light turns red, {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "stop",
+                    "options": [
+                        "stop",
+                        "will stop",
+                        "stopped",
+                        "would stop"
+                    ],
+                    "verb_hint": "Instructions can use the base imperative in the result.",
+                    "gap_tags": [
+                        "instruction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "instruction"
+            ],
+            "variants": [
+                "If the light turns red, {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 43,
+            "uuid": "zc-v3-b2-07",
+            "question": "{a1} I press this button, the machine starts.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Will",
+                        "Would",
+                        "Did"
+                    ],
+                    "verb_hint": "Use when for a regular automatic result.",
+                    "gap_tags": [
+                        "if_vs_when"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_vs_when"
+            ],
+            "variants": [
+                "{a1} I press this button, the machine starts."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 44,
+            "uuid": "zc-v3-b2-08",
+            "question": "If the if-clause comes first, we usually {a1} a comma.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "This is a zero conditional rule statement.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the if-clause comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 45,
+            "uuid": "zc-v3-b2-09",
+            "question": "If you {a1} oil, it floats on water.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "put",
+                    "options": [
+                        "put",
+                        "will put",
+                        "would put",
+                        "puts"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If you {a1} oil, it floats on water."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 46,
+            "uuid": "zc-v3-b2-10",
+            "question": "If metal gets hot, it {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "expands",
+                    "options": [
+                        "expands",
+                        "will expand",
+                        "expanded",
+                        "would expand"
+                    ],
+                    "verb_hint": "Scientific facts use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If metal gets hot, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 47,
+            "uuid": "zc-v3-b2-11",
+            "question": "When Marta misses breakfast, she {a1} hungry before noon.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "gets",
+                    "options": [
+                        "gets",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "Use present simple for a repeated personal result.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "When Marta misses breakfast, she {a1} hungry before noon."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 48,
+            "uuid": "zc-v3-b2-12",
+            "question": "If you mix blue and yellow, you {a1} green.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "get",
+                    "options": [
+                        "get",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "The result is always true.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you mix blue and yellow, you {a1} green."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 49,
+            "uuid": "zc-v3-c1-01",
+            "question": "If water {a1}, it boils.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "reaches one hundred degrees",
+                    "options": [
+                        "reaches one hundred degrees",
+                        "will reach one hundred degrees",
+                        "reached one hundred degrees",
+                        "would reach one hundred degrees"
+                    ],
+                    "verb_hint": "Use present simple in the if-clause.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If water {a1}, it boils."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 50,
+            "uuid": "zc-v3-c1-02",
+            "question": "If you heat ice, it {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "melts",
+                    "options": [
+                        "melts",
+                        "will melt",
+                        "melted",
+                        "would melt"
+                    ],
+                    "verb_hint": "The result clause also uses present simple.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you heat ice, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 51,
+            "uuid": "zc-v3-c1-03",
+            "question": "When the sun {a1}, the room gets warmer.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "shines",
+                    "options": [
+                        "shines",
+                        "will shine",
+                        "shone",
+                        "would shine"
+                    ],
+                    "verb_hint": "When can replace if for regular results.",
+                    "gap_tags": [
+                        "when_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_present_simple"
+            ],
+            "variants": [
+                "When the sun {a1}, the room gets warmer."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 52,
+            "uuid": "zc-v3-c1-04",
+            "question": "If plants do not get water, they {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "die",
+                    "options": [
+                        "die",
+                        "will die",
+                        "died",
+                        "would die"
+                    ],
+                    "verb_hint": "General truths use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If plants do not get water, they {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 53,
+            "uuid": "zc-v3-c1-05",
+            "question": "If I work late, I {a1} tired.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "feel",
+                    "options": [
+                        "feel",
+                        "will feel",
+                        "felt",
+                        "would feel"
+                    ],
+                    "verb_hint": "Use zero conditional for repeated results.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "If I work late, I {a1} tired."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 54,
+            "uuid": "zc-v3-c1-06",
+            "question": "If the light turns red, {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "stop",
+                    "options": [
+                        "stop",
+                        "will stop",
+                        "stopped",
+                        "would stop"
+                    ],
+                    "verb_hint": "Instructions can use the base imperative in the result.",
+                    "gap_tags": [
+                        "instruction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "instruction"
+            ],
+            "variants": [
+                "If the light turns red, {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 55,
+            "uuid": "zc-v3-c1-07",
+            "question": "{a1} I press this button, the machine starts.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Will",
+                        "Would",
+                        "Did"
+                    ],
+                    "verb_hint": "Use when for a regular automatic result.",
+                    "gap_tags": [
+                        "if_vs_when"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_vs_when"
+            ],
+            "variants": [
+                "{a1} I press this button, the machine starts."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 56,
+            "uuid": "zc-v3-c1-08",
+            "question": "If the if-clause comes first, we usually {a1} a comma.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "This is a zero conditional rule statement.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the if-clause comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 57,
+            "uuid": "zc-v3-c1-09",
+            "question": "If you {a1} oil, it floats on water.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "put",
+                    "options": [
+                        "put",
+                        "will put",
+                        "would put",
+                        "puts"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If you {a1} oil, it floats on water."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 58,
+            "uuid": "zc-v3-c1-10",
+            "question": "If metal gets hot, it {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "expands",
+                    "options": [
+                        "expands",
+                        "will expand",
+                        "expanded",
+                        "would expand"
+                    ],
+                    "verb_hint": "Scientific facts use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If metal gets hot, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 59,
+            "uuid": "zc-v3-c1-11",
+            "question": "When Marta misses breakfast, she {a1} hungry before noon.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "gets",
+                    "options": [
+                        "gets",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "Use present simple for a repeated personal result.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "When Marta misses breakfast, she {a1} hungry before noon."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 60,
+            "uuid": "zc-v3-c1-12",
+            "question": "If you mix blue and yellow, you {a1} green.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "get",
+                    "options": [
+                        "get",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "The result is always true.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you mix blue and yellow, you {a1} green."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 61,
+            "uuid": "zc-v3-c2-01",
+            "question": "If water {a1}, it boils.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "reaches one hundred degrees",
+                    "options": [
+                        "reaches one hundred degrees",
+                        "will reach one hundred degrees",
+                        "reached one hundred degrees",
+                        "would reach one hundred degrees"
+                    ],
+                    "verb_hint": "Use present simple in the if-clause.",
+                    "gap_tags": [
+                        "if_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_present_simple"
+            ],
+            "variants": [
+                "If water {a1}, it boils."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 62,
+            "uuid": "zc-v3-c2-02",
+            "question": "If you heat ice, it {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "melts",
+                    "options": [
+                        "melts",
+                        "will melt",
+                        "melted",
+                        "would melt"
+                    ],
+                    "verb_hint": "The result clause also uses present simple.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you heat ice, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 63,
+            "uuid": "zc-v3-c2-03",
+            "question": "When the sun {a1}, the room gets warmer.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "shines",
+                    "options": [
+                        "shines",
+                        "will shine",
+                        "shone",
+                        "would shine"
+                    ],
+                    "verb_hint": "When can replace if for regular results.",
+                    "gap_tags": [
+                        "when_present_simple"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "when_present_simple"
+            ],
+            "variants": [
+                "When the sun {a1}, the room gets warmer."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 64,
+            "uuid": "zc-v3-c2-04",
+            "question": "If plants do not get water, they {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "die",
+                    "options": [
+                        "die",
+                        "will die",
+                        "died",
+                        "would die"
+                    ],
+                    "verb_hint": "General truths use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If plants do not get water, they {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 65,
+            "uuid": "zc-v3-c2-05",
+            "question": "If I work late, I {a1} tired.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "feel",
+                    "options": [
+                        "feel",
+                        "will feel",
+                        "felt",
+                        "would feel"
+                    ],
+                    "verb_hint": "Use zero conditional for repeated results.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "If I work late, I {a1} tired."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 66,
+            "uuid": "zc-v3-c2-06",
+            "question": "If the light turns red, {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "stop",
+                    "options": [
+                        "stop",
+                        "will stop",
+                        "stopped",
+                        "would stop"
+                    ],
+                    "verb_hint": "Instructions can use the base imperative in the result.",
+                    "gap_tags": [
+                        "instruction"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "instruction"
+            ],
+            "variants": [
+                "If the light turns red, {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 67,
+            "uuid": "zc-v3-c2-07",
+            "question": "{a1} I press this button, the machine starts.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "options": [
+                        "When",
+                        "Will",
+                        "Would",
+                        "Did"
+                    ],
+                    "verb_hint": "Use when for a regular automatic result.",
+                    "gap_tags": [
+                        "if_vs_when"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "if_vs_when"
+            ],
+            "variants": [
+                "{a1} I press this button, the machine starts."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 68,
+            "uuid": "zc-v3-c2-08",
+            "question": "If the if-clause comes first, we usually {a1} a comma.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "will use",
+                        "used",
+                        "would use"
+                    ],
+                    "verb_hint": "This is a zero conditional rule statement.",
+                    "gap_tags": [
+                        "comma_rules"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "comma_rules"
+            ],
+            "variants": [
+                "If the if-clause comes first, we usually {a1} a comma."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 69,
+            "uuid": "zc-v3-c2-09",
+            "question": "If you {a1} oil, it floats on water.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "put",
+                    "options": [
+                        "put",
+                        "will put",
+                        "would put",
+                        "puts"
+                    ],
+                    "verb_hint": "Do not use will in the if-clause.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "If you {a1} oil, it floats on water."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 70,
+            "uuid": "zc-v3-c2-10",
+            "question": "If metal gets hot, it {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "expands",
+                    "options": [
+                        "expands",
+                        "will expand",
+                        "expanded",
+                        "would expand"
+                    ],
+                    "verb_hint": "Scientific facts use present simple.",
+                    "gap_tags": [
+                        "general_truth"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "general_truth"
+            ],
+            "variants": [
+                "If metal gets hot, it {a1}."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 71,
+            "uuid": "zc-v3-c2-11",
+            "question": "When Marta misses breakfast, she {a1} hungry before noon.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "gets",
+                    "options": [
+                        "gets",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "Use present simple for a repeated personal result.",
+                    "gap_tags": [
+                        "repeated_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "repeated_result"
+            ],
+            "variants": [
+                "When Marta misses breakfast, she {a1} hungry before noon."
+            ],
+            "source": "theory_page_zero_conditional"
+        },
+        {
+            "id": 72,
+            "uuid": "zc-v3-c2-12",
+            "question": "If you mix blue and yellow, you {a1} green.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "get",
+                    "options": [
+                        "get",
+                        "will get",
+                        "got",
+                        "would get"
+                    ],
+                    "verb_hint": "The result is always true.",
+                    "gap_tags": [
+                        "present_simple_result"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "present_simple_result"
+            ],
+            "variants": [
+                "If you mix blue and yellow, you {a1} green."
+            ],
+            "source": "theory_page_zero_conditional"
+        }
+    ],
+    "saved_test": {
+        "uuid": "conditionals-zero-v3-all",
+        "slug": "zero-conditional-all-levels-v3",
+        "name": "Zero Conditional: V3 All Levels",
+        "description": "Page-local V3 package for Zero Conditional with A1-C2 coverage.",
+        "question_uuids": [
+            "zc-v3-a1-01",
+            "zc-v3-a1-02",
+            "zc-v3-a1-03",
+            "zc-v3-a1-04",
+            "zc-v3-a1-05",
+            "zc-v3-a1-06",
+            "zc-v3-a1-07",
+            "zc-v3-a1-08",
+            "zc-v3-a1-09",
+            "zc-v3-a1-10",
+            "zc-v3-a1-11",
+            "zc-v3-a1-12",
+            "zc-v3-a2-01",
+            "zc-v3-a2-02",
+            "zc-v3-a2-03",
+            "zc-v3-a2-04",
+            "zc-v3-a2-05",
+            "zc-v3-a2-06",
+            "zc-v3-a2-07",
+            "zc-v3-a2-08",
+            "zc-v3-a2-09",
+            "zc-v3-a2-10",
+            "zc-v3-a2-11",
+            "zc-v3-a2-12",
+            "zc-v3-b1-01",
+            "zc-v3-b1-02",
+            "zc-v3-b1-03",
+            "zc-v3-b1-04",
+            "zc-v3-b1-05",
+            "zc-v3-b1-06",
+            "zc-v3-b1-07",
+            "zc-v3-b1-08",
+            "zc-v3-b1-09",
+            "zc-v3-b1-10",
+            "zc-v3-b1-11",
+            "zc-v3-b1-12",
+            "zc-v3-b2-01",
+            "zc-v3-b2-02",
+            "zc-v3-b2-03",
+            "zc-v3-b2-04",
+            "zc-v3-b2-05",
+            "zc-v3-b2-06",
+            "zc-v3-b2-07",
+            "zc-v3-b2-08",
+            "zc-v3-b2-09",
+            "zc-v3-b2-10",
+            "zc-v3-b2-11",
+            "zc-v3-b2-12",
+            "zc-v3-c1-01",
+            "zc-v3-c1-02",
+            "zc-v3-c1-03",
+            "zc-v3-c1-04",
+            "zc-v3-c1-05",
+            "zc-v3-c1-06",
+            "zc-v3-c1-07",
+            "zc-v3-c1-08",
+            "zc-v3-c1-09",
+            "zc-v3-c1-10",
+            "zc-v3-c1-11",
+            "zc-v3-c1-12",
+            "zc-v3-c2-01",
+            "zc-v3-c2-02",
+            "zc-v3-c2-03",
+            "zc-v3-c2-04",
+            "zc-v3-c2-05",
+            "zc-v3-c2-06",
+            "zc-v3-c2-07",
+            "zc-v3-c2-08",
+            "zc-v3-c2-09",
+            "zc-v3-c2-10",
+            "zc-v3-c2-11",
+            "zc-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\Conditionals\\ZeroConditionalAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "zero-conditional",
+                    "title": "Zero Conditional",
+                    "category_slug_path": "conditionals",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\Conditionals\\ConditionalsZeroTheorySeeder",
+                    "url": "https://gramlyze.com/theory/conditionals/zero-conditional"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,185 @@
+{
+    "question": {
+        "id": 46,
+        "uuid": "pos-cp-sn-c2-q03",
+        "question": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 2,
+        "source_id": 2,
+        "flag": 0,
+        "created_at": "2026-05-26T14:30:53.000000Z",
+        "updated_at": "2026-05-26T14:30:57.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "source": {
+        "id": 2,
+        "name": "Parts of Speech — Частини мови",
+        "created_at": "2026-05-26T14:30:52.000000Z",
+        "updated_at": "2026-05-26T14:30:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 41,
+                "name": "Conjunction identification",
+                "category": null,
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "tag_id": 41,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 139,
+                "option": "adjective",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "option_id": 139,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 141,
+                "option": "pronoun",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "option_id": 141,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 143,
+                "option": "conjunction",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 46,
+                "option_id": 143,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 156,
+                "question_id": 46,
+                "marker": "a1",
+                "option_id": 143,
+                "created_at": "2026-05-26T14:30:53.000000Z",
+                "updated_at": "2026-05-26T14:30:53.000000Z"
+            },
+            "option": {
+                "id": 143,
+                "option": "conjunction",
+                "created_at": "2026-05-26T14:30:52.000000Z",
+                "updated_at": "2026-05-26T14:30:52.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [],
+    "variants": [
+        {
+            "id": 28,
+            "question_id": 46,
+            "text": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 28,
+            "question_id": 46,
+            "provider": "copilot-sonate",
+            "locale": "uk",
+            "hint": "«That» може бути займенником, прикметником або сполучником залежно від контексту.\nСлово `that` вводить іменникове підрядне речення після дієслова 'know' — це сполучникова функція.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 167,
+            "question": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+            "wrong_answer": "adjective",
+            "correct_answer": "conjunction",
+            "language": "ua",
+            "explanation": "«That» є прикметником, коли стоїть перед іменником: 'that car'. Тут немає безпосереднього іменника після нього.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 168,
+            "question": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+            "wrong_answer": "adjective",
+            "correct_answer": "conjunction",
+            "language": "uk",
+            "explanation": "«That» є прикметником, коли стоїть перед іменником: 'that car'. Тут немає безпосереднього іменника після нього.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 163,
+            "question": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+            "wrong_answer": "conjunction",
+            "correct_answer": "conjunction",
+            "language": "ua",
+            "explanation": "«That» є підрядним сполучником, що вводить іменникове підрядне речення (додаток) після 'know'.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 164,
+            "question": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+            "wrong_answer": "conjunction",
+            "correct_answer": "conjunction",
+            "language": "uk",
+            "explanation": "«That» є підрядним сполучником, що вводить іменникове підрядне речення (додаток) після 'know'.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 165,
+            "question": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+            "wrong_answer": "pronoun",
+            "correct_answer": "conjunction",
+            "language": "ua",
+            "explanation": "«That» є займенником, коли замінює іменник: 'I want that'. Тут воно вводить підрядне речення.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        },
+        {
+            "id": 166,
+            "question": "The word 'that' in 'I know {a1} she left early.' is a ___.",
+            "wrong_answer": "pronoun",
+            "correct_answer": "conjunction",
+            "language": "uk",
+            "explanation": "«That» є займенником, коли замінює іменник: 'I want that'. Тут воно вводить підрядне речення.",
+            "created_at": "2026-05-26T14:30:53.000000Z",
+            "updated_at": "2026-05-26T14:30:53.000000Z"
+        }
+    ]
+}

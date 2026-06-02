@@ -1,0 +1,295 @@
+{
+    "question": {
+        "id": 33,
+        "uuid": "sentencestructu-15-a15-has-a-red-car",
+        "question": "{a15} has a red car.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 2,
+        "source_id": 1,
+        "flag": 2,
+        "created_at": "2026-05-26T14:31:55.000000Z",
+        "updated_at": "2026-05-26T14:32:03.000000Z"
+    },
+    "category": {
+        "id": 2,
+        "name": "Базова граматика",
+        "created_at": "2026-05-26T14:31:54.000000Z",
+        "updated_at": "2026-05-26T14:31:54.000000Z"
+    },
+    "source": {
+        "id": 1,
+        "name": "Sentence Structure — Будова речення (SVO)",
+        "created_at": "2026-05-26T14:31:53.000000Z",
+        "updated_at": "2026-05-26T14:31:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 5,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-05-26T14:31:50.000000Z",
+                "updated_at": "2026-05-26T14:31:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 5,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 36,
+                "name": "Subject identification",
+                "category": "pattern",
+                "created_at": "2026-05-26T14:31:54.000000Z",
+                "updated_at": "2026-05-26T14:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "tag_id": 36,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 90,
+                "option": "My father",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 90,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 92,
+                "option": "A red car",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 92,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 93,
+                "option": "Has",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 33,
+                "option_id": 93,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 33,
+                "question_id": 33,
+                "marker": "a15",
+                "option_id": 90,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 90,
+                "option": "My father",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 15,
+                "question_id": 33,
+                "marker": "a15",
+                "option_id": 91,
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            },
+            "option": {
+                "id": 91,
+                "option": "who has the car",
+                "created_at": "2026-05-26T14:31:55.000000Z",
+                "updated_at": "2026-05-26T14:31:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 33,
+            "question_id": 33,
+            "text": "{a15} has a red car.",
+            "created_at": "2026-05-26T14:31:55.000000Z",
+            "updated_at": "2026-05-26T14:31:55.000000Z"
+        }
+    ],
+    "hints": [
+        {
+            "id": 61,
+            "question_id": 33,
+            "provider": "copilot-opus46",
+            "locale": "en",
+            "hint": "The subject performs the action and comes before the verb.\nVerb: `has`, object: `a red car`. Who has the car?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 62,
+            "question_id": 33,
+            "provider": "copilot-opus46",
+            "locale": "pl",
+            "hint": "The subject performs the action and comes before the verb.\nVerb: `has`, object: `a red car`. Who has the car?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 63,
+            "question_id": 33,
+            "provider": "copilot-opus46",
+            "locale": "uk",
+            "hint": "Підмет — хто або що виконує дію. Він стоїть перед дієсловом.\nДієслово — `has`, додаток — `a red car`. Хто має автомобіль?",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        }
+    ],
+    "chatgpt_explanations": [
+        {
+            "id": 278,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "A red car",
+            "correct_answer": "My father",
+            "language": "en",
+            "explanation": "Incorrect: 'A red car' is the object.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 281,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "A red car",
+            "correct_answer": "My father",
+            "language": "pl",
+            "explanation": "Incorrect: 'A red car' is the object.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 285,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "A red car",
+            "correct_answer": "My father",
+            "language": "ua",
+            "explanation": "Неправильно: «A red car» — додаток, а не підмет.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 286,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "A red car",
+            "correct_answer": "My father",
+            "language": "uk",
+            "explanation": "Неправильно: «A red car» — додаток, а не підмет.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 279,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "Has",
+            "correct_answer": "My father",
+            "language": "en",
+            "explanation": "Incorrect: 'Has' is the verb.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 282,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "Has",
+            "correct_answer": "My father",
+            "language": "pl",
+            "explanation": "Incorrect: 'Has' is the verb.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 287,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "Has",
+            "correct_answer": "My father",
+            "language": "ua",
+            "explanation": "Неправильно: «Has» — дієслово, а не підмет.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 288,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "Has",
+            "correct_answer": "My father",
+            "language": "uk",
+            "explanation": "Неправильно: «Has» — дієслово, а не підмет.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 277,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "My father",
+            "correct_answer": "My father",
+            "language": "en",
+            "explanation": "Correct: 'My father' is the subject performing 'has'.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 280,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "My father",
+            "correct_answer": "My father",
+            "language": "pl",
+            "explanation": "Correct: 'My father' is the subject performing 'has'.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 283,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "My father",
+            "correct_answer": "My father",
+            "language": "ua",
+            "explanation": "Правильно: «My father» — підмет, що виконує дію `has`. SVO дотримано.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        },
+        {
+            "id": 284,
+            "question": "{a15} has a red car.",
+            "wrong_answer": "My father",
+            "correct_answer": "My father",
+            "language": "uk",
+            "explanation": "Правильно: «My father» — підмет, що виконує дію `has`. SVO дотримано.",
+            "created_at": "2026-05-26T14:31:56.000000Z",
+            "updated_at": "2026-05-26T14:31:56.000000Z"
+        }
+    ]
+}

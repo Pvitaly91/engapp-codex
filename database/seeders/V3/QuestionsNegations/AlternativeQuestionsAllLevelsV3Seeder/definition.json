@@ -1,0 +1,1885 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\AlternativeQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "AlternativeQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_alternative_questions": {
+            "name": "Alternative Questions"
+        }
+    },
+    "tags": {
+        "alternative_questions": {
+            "name": "Alternative Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "choice_between_options": {
+            "name": "Choice Between Options",
+            "category": "topic"
+        },
+        "or_questions": {
+            "name": "Or In Questions",
+            "category": "topic"
+        },
+        "tea_or_coffee": {
+            "name": "Tea Or Coffee",
+            "category": "topic"
+        },
+        "do_you_want_a_or_b": {
+            "name": "Do You Want A Or B",
+            "category": "topic"
+        },
+        "transport_alternative": {
+            "name": "Transport Alternative",
+            "category": "topic"
+        },
+        "alternative_vs_yes_no": {
+            "name": "Alternative Vs Yes No",
+            "category": "topic"
+        },
+        "answer_with_option": {
+            "name": "Answer With Option",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "alternative_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "altq-v3-a1-01",
+            "question": "An alternative question offers {a1}.",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "altq-v3-a1-02",
+            "question": "Is this your bag {a1} my bag?",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "altq-v3-a1-03",
+            "question": "Tea {a1} coffee?",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "tea_or_coffee"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "altq-v3-a1-04",
+            "question": "{a1} you want soup or salad?",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "do_you_want_a_or_b"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "altq-v3-a1-05",
+            "question": "Are we going by bus {a1} by train?",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "transport_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "altq-v3-a1-06",
+            "question": "This is an alternative question, so the answer should be {a1}",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "alternative_vs_yes_no"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "one option",
+                    "options": [
+                        "one option",
+                        "yes or no",
+                        "a full essay",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "altq-v3-a1-07",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Coffee, please.",
+                    "options": [
+                        "Coffee, please.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "altq-v3-a1-08",
+            "question": "{a1} you prefer apples or bananas?",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "altq-v3-a1-09",
+            "question": "An alternative question offers {a1}.",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "altq-v3-a1-10",
+            "question": "Are they at home {a1} at school?",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "altq-v3-a1-11",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "By train.",
+                    "options": [
+                        "By train.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "altq-v3-a1-12",
+            "question": "{a1} we start now or later?",
+            "level": "A1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "altq-v3-a2-01",
+            "question": "An alternative question offers {a1}.",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "altq-v3-a2-02",
+            "question": "Are we meeting today {a1} tomorrow?",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "altq-v3-a2-03",
+            "question": "Coffee {a1} tea?",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "tea_or_coffee"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "altq-v3-a2-04",
+            "question": "{a1} you want the blue pen or the black pen?",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "do_you_want_a_or_b"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "altq-v3-a2-05",
+            "question": "Are you travelling by bus {a1} by train?",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "transport_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "altq-v3-a2-06",
+            "question": "This is an alternative question, so the answer should be {a1}",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "alternative_vs_yes_no"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "one option",
+                    "options": [
+                        "one option",
+                        "yes or no",
+                        "a full essay",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "altq-v3-a2-07",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The blue pen, please.",
+                    "options": [
+                        "The blue pen, please.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "altq-v3-a2-08",
+            "question": "{a1} she call you or text you?",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "altq-v3-a2-09",
+            "question": "An alternative question offers {a1}.",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "altq-v3-a2-10",
+            "question": "Should we wait here {a1} outside?",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "altq-v3-a2-11",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Outside.",
+                    "options": [
+                        "Outside.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "altq-v3-a2-12",
+            "question": "{a1} you pay by card or in cash?",
+            "level": "A2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "altq-v3-b1-01",
+            "question": "An alternative question offers {a1}.",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "altq-v3-b1-02",
+            "question": "Did the manager approve the plan {a1} reject it?",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "altq-v3-b1-03",
+            "question": "Would you prefer tea {a1} coffee?",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "tea_or_coffee"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "altq-v3-b1-04",
+            "question": "{a1} you want a printed copy or a digital copy?",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "do_you_want_a_or_b"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "altq-v3-b1-05",
+            "question": "Are they arriving by taxi {a1} by metro?",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "transport_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "altq-v3-b1-06",
+            "question": "This is an alternative question, so the answer should be {a1}",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "alternative_vs_yes_no"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "one option",
+                    "options": [
+                        "one option",
+                        "yes or no",
+                        "a full essay",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "altq-v3-b1-07",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "A digital copy, please.",
+                    "options": [
+                        "A digital copy, please.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "altq-v3-b1-08",
+            "question": "{a1} they chosen the morning session or the afternoon session?",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "altq-v3-b1-09",
+            "question": "An alternative question offers {a1}.",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "altq-v3-b1-10",
+            "question": "Can we discuss the budget now {a1} after lunch?",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "altq-v3-b1-11",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "After lunch.",
+                    "options": [
+                        "After lunch.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "altq-v3-b1-12",
+            "question": "{a1} you rather call the client or send an email?",
+            "level": "B1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "altq-v3-b2-01",
+            "question": "An alternative question offers {a1}.",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "altq-v3-b2-02",
+            "question": "Has the editor shortened the article {a1} expanded it?",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "altq-v3-b2-03",
+            "question": "Would the guests prefer tea {a1} coffee after dinner?",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "tea_or_coffee"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "altq-v3-b2-04",
+            "question": "{a1} you want the summary version or the detailed version?",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "do_you_want_a_or_b"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "altq-v3-b2-05",
+            "question": "Are the delegates flying directly {a1} changing planes?",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "transport_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "altq-v3-b2-06",
+            "question": "This is an alternative question, so the answer should be {a1}",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "alternative_vs_yes_no"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "one option",
+                    "options": [
+                        "one option",
+                        "yes or no",
+                        "a full essay",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "altq-v3-b2-07",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "The detailed version, please.",
+                    "options": [
+                        "The detailed version, please.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "altq-v3-b2-08",
+            "question": "{a1} the committee postpone the vote or cancel it?",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Do",
+                        "Does",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "altq-v3-b2-09",
+            "question": "An alternative question offers {a1}.",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "altq-v3-b2-10",
+            "question": "Could we reduce the scope {a1} extend the deadline?",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "altq-v3-b2-11",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Extend the deadline.",
+                    "options": [
+                        "Extend the deadline.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "altq-v3-b2-12",
+            "question": "{a1} the evidence ignored or deliberately withheld?",
+            "level": "B2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "altq-v3-c1-01",
+            "question": "An alternative question offers {a1}.",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "altq-v3-c1-02",
+            "question": "Did the witness contradict herself {a1} clarify the timeline?",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "altq-v3-c1-03",
+            "question": "Would the panel prefer a break for tea {a1} for coffee?",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "tea_or_coffee"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "altq-v3-c1-04",
+            "question": "{a1} you want a cautious estimate or an optimistic forecast?",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "do_you_want_a_or_b"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "altq-v3-c1-05",
+            "question": "Are the supplies being shipped by air {a1} by sea?",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "transport_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "altq-v3-c1-06",
+            "question": "This is an alternative question, so the answer should be {a1}",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "alternative_vs_yes_no"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "one option",
+                    "options": [
+                        "one option",
+                        "yes or no",
+                        "a full essay",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "altq-v3-c1-07",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "A cautious estimate.",
+                    "options": [
+                        "A cautious estimate.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "altq-v3-c1-08",
+            "question": "{a1} the agency disclosed the risk or concealed it?",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "altq-v3-c1-09",
+            "question": "An alternative question offers {a1}.",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "altq-v3-c1-10",
+            "question": "Could the anomaly be accidental {a1} intentional?",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "altq-v3-c1-11",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Proceed to arbitration.",
+                    "options": [
+                        "Proceed to arbitration.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "altq-v3-c1-12",
+            "question": "{a1} the omission negligent or deliberate?",
+            "level": "C1",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "altq-v3-c2-01",
+            "question": "An alternative question offers {a1}.",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "altq-v3-c2-02",
+            "question": "Did the report reveal causation {a1} merely correlation?",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "altq-v3-c2-03",
+            "question": "Would the chair prefer tea {a1} coffee before the hearing?",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "tea_or_coffee"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "altq-v3-c2-04",
+            "question": "{a1} you want a literal interpretation or a purposive interpretation?",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "do_you_want_a_or_b"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are",
+                        "Is"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "altq-v3-c2-05",
+            "question": "Are the documents being archived locally {a1} stored remotely?",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "transport_alternative"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "altq-v3-c2-06",
+            "question": "This is an alternative question, so the answer should be {a1}",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "alternative_vs_yes_no"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "one option",
+                    "options": [
+                        "one option",
+                        "yes or no",
+                        "a full essay",
+                        "nothing"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "altq-v3-c2-07",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "A purposive interpretation.",
+                    "options": [
+                        "A purposive interpretation.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "altq-v3-c2-08",
+            "question": "{a1} the regulator encouraged disclosure or discouraged it?",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "altq-v3-c2-09",
+            "question": "An alternative question offers {a1}.",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "choice_between_options"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "a choice",
+                    "options": [
+                        "a choice",
+                        "only yes or no",
+                        "no answer",
+                        "a statement"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "altq-v3-c2-10",
+            "question": "Could the statement be privileged {a1} defamatory?",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "or_questions"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "because"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "altq-v3-c2-11",
+            "question": "Choose the natural answer to an alternative question: {a1}",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "answer_with_option"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Narrow the doctrine.",
+                    "options": [
+                        "Narrow the doctrine.",
+                        "Yes, I do.",
+                        "No, I don't.",
+                        "Maybe.",
+                        "Both are fine."
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "altq-v3-c2-12",
+            "question": "{a1} the ambiguity accidental or strategically useful?",
+            "level": "C2",
+            "source": "theory_page_alternative_questions",
+            "tag_keys": [
+                "alternative_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Do",
+                        "Does",
+                        "Did",
+                        "Are"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn2-alt-v3-all",
+        "slug": "alternative-questions-all-levels-v3",
+        "name": "Alternative Questions (All levels V3)",
+        "description": "Standard V3 package for Alternative Questions across A1-C2.",
+        "question_uuids": [
+            "altq-v3-a1-01",
+            "altq-v3-a1-02",
+            "altq-v3-a1-03",
+            "altq-v3-a1-04",
+            "altq-v3-a1-05",
+            "altq-v3-a1-06",
+            "altq-v3-a1-07",
+            "altq-v3-a1-08",
+            "altq-v3-a1-09",
+            "altq-v3-a1-10",
+            "altq-v3-a1-11",
+            "altq-v3-a1-12",
+            "altq-v3-a2-01",
+            "altq-v3-a2-02",
+            "altq-v3-a2-03",
+            "altq-v3-a2-04",
+            "altq-v3-a2-05",
+            "altq-v3-a2-06",
+            "altq-v3-a2-07",
+            "altq-v3-a2-08",
+            "altq-v3-a2-09",
+            "altq-v3-a2-10",
+            "altq-v3-a2-11",
+            "altq-v3-a2-12",
+            "altq-v3-b1-01",
+            "altq-v3-b1-02",
+            "altq-v3-b1-03",
+            "altq-v3-b1-04",
+            "altq-v3-b1-05",
+            "altq-v3-b1-06",
+            "altq-v3-b1-07",
+            "altq-v3-b1-08",
+            "altq-v3-b1-09",
+            "altq-v3-b1-10",
+            "altq-v3-b1-11",
+            "altq-v3-b1-12",
+            "altq-v3-b2-01",
+            "altq-v3-b2-02",
+            "altq-v3-b2-03",
+            "altq-v3-b2-04",
+            "altq-v3-b2-05",
+            "altq-v3-b2-06",
+            "altq-v3-b2-07",
+            "altq-v3-b2-08",
+            "altq-v3-b2-09",
+            "altq-v3-b2-10",
+            "altq-v3-b2-11",
+            "altq-v3-b2-12",
+            "altq-v3-c1-01",
+            "altq-v3-c1-02",
+            "altq-v3-c1-03",
+            "altq-v3-c1-04",
+            "altq-v3-c1-05",
+            "altq-v3-c1-06",
+            "altq-v3-c1-07",
+            "altq-v3-c1-08",
+            "altq-v3-c1-09",
+            "altq-v3-c1-10",
+            "altq-v3-c1-11",
+            "altq-v3-c1-12",
+            "altq-v3-c2-01",
+            "altq-v3-c2-02",
+            "altq-v3-c2-03",
+            "altq-v3-c2-04",
+            "altq-v3-c2-05",
+            "altq-v3-c2-06",
+            "altq-v3-c2-07",
+            "altq-v3-c2-08",
+            "altq-v3-c2-09",
+            "altq-v3-c2-10",
+            "altq-v3-c2-11",
+            "altq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\AlternativeQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "alternative-questions-coffee-or-tea",
+                    "title": "Alternative Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/alternative-questions-coffee-or-tea"
+                }
+            }
+        }
+    }
+}

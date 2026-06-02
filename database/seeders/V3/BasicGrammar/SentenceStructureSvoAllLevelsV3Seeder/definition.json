@@ -1,0 +1,2241 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammar\\SentenceStructureSvoAllLevelsV3Seeder",
+        "uuid_namespace": "SentenceStructureSvoAllLevelsV3Seeder"
+    },
+    "saved_test": {
+        "uuid": "bg-svo-v3-all",
+        "slug": "sentence-structure-svo-all-levels-v3",
+        "name": "Sentence Structure SVO: V3 All Levels",
+        "description": "Page-local V3 package for Sentence Structure SVO with A1-C2 coverage.",
+        "question_uuids": [
+            "bg-svo-v3-a1-01",
+            "bg-svo-v3-a1-02",
+            "bg-svo-v3-a1-03",
+            "bg-svo-v3-a1-04",
+            "bg-svo-v3-a1-05",
+            "bg-svo-v3-a1-06",
+            "bg-svo-v3-a1-07",
+            "bg-svo-v3-a1-08",
+            "bg-svo-v3-a1-09",
+            "bg-svo-v3-a1-10",
+            "bg-svo-v3-a1-11",
+            "bg-svo-v3-a1-12",
+            "bg-svo-v3-a2-01",
+            "bg-svo-v3-a2-02",
+            "bg-svo-v3-a2-03",
+            "bg-svo-v3-a2-04",
+            "bg-svo-v3-a2-05",
+            "bg-svo-v3-a2-06",
+            "bg-svo-v3-a2-07",
+            "bg-svo-v3-a2-08",
+            "bg-svo-v3-a2-09",
+            "bg-svo-v3-a2-10",
+            "bg-svo-v3-a2-11",
+            "bg-svo-v3-a2-12",
+            "bg-svo-v3-b1-01",
+            "bg-svo-v3-b1-02",
+            "bg-svo-v3-b1-03",
+            "bg-svo-v3-b1-04",
+            "bg-svo-v3-b1-05",
+            "bg-svo-v3-b1-06",
+            "bg-svo-v3-b1-07",
+            "bg-svo-v3-b1-08",
+            "bg-svo-v3-b1-09",
+            "bg-svo-v3-b1-10",
+            "bg-svo-v3-b1-11",
+            "bg-svo-v3-b1-12",
+            "bg-svo-v3-b2-01",
+            "bg-svo-v3-b2-02",
+            "bg-svo-v3-b2-03",
+            "bg-svo-v3-b2-04",
+            "bg-svo-v3-b2-05",
+            "bg-svo-v3-b2-06",
+            "bg-svo-v3-b2-07",
+            "bg-svo-v3-b2-08",
+            "bg-svo-v3-b2-09",
+            "bg-svo-v3-b2-10",
+            "bg-svo-v3-b2-11",
+            "bg-svo-v3-b2-12",
+            "bg-svo-v3-c1-01",
+            "bg-svo-v3-c1-02",
+            "bg-svo-v3-c1-03",
+            "bg-svo-v3-c1-04",
+            "bg-svo-v3-c1-05",
+            "bg-svo-v3-c1-06",
+            "bg-svo-v3-c1-07",
+            "bg-svo-v3-c1-08",
+            "bg-svo-v3-c1-09",
+            "bg-svo-v3-c1-10",
+            "bg-svo-v3-c1-11",
+            "bg-svo-v3-c1-12",
+            "bg-svo-v3-c2-01",
+            "bg-svo-v3-c2-02",
+            "bg-svo-v3-c2-03",
+            "bg-svo-v3-c2-04",
+            "bg-svo-v3-c2-05",
+            "bg-svo-v3-c2-06",
+            "bg-svo-v3-c2-07",
+            "bg-svo-v3-c2-08",
+            "bg-svo-v3-c2-09",
+            "bg-svo-v3-c2-10",
+            "bg-svo-v3-c2-11",
+            "bg-svo-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\BasicGrammar\\SentenceStructureSvoAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "category_slug": "basic-grammar",
+                "page_slug": "sentence-structure-svo",
+                "page_route": "/theory/basic-grammar/sentence-structure-svo",
+                "theory_page": {
+                    "slug": "sentence-structure-svo",
+                    "title": "Sentence Structure SVO",
+                    "category_slug_path": "basic-grammar",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceStructureSvoTheorySeeder",
+                    "url": "https://gramlyze.com/theory/basic-grammar/sentence-structure-svo"
+                }
+            }
+        }
+    },
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bg-svo-v3-a1-01",
+            "question": "In \"Anna reads a book\", \"Anna\" is the {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "verb",
+                        "object",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "svo_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo_basics"
+            ],
+            "variants": [
+                "In \"Anna reads a book\", \"Anna\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 2,
+            "uuid": "bg-svo-v3-a1-02",
+            "question": "The subject usually comes {a1} the verb in a statement.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "inside",
+                        "without"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "subject_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_position"
+            ],
+            "variants": [
+                "The subject usually comes {a1} the verb in a statement."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 3,
+            "uuid": "bg-svo-v3-a1-03",
+            "question": "In \"Tom watches films\", \"watches\" is the {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "adjective"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "verb_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_position"
+            ],
+            "variants": [
+                "In \"Tom watches films\", \"watches\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 4,
+            "uuid": "bg-svo-v3-a1-04",
+            "question": "In \"Mia plays tennis\", \"tennis\" is the {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "verb",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "object_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_position"
+            ],
+            "variants": [
+                "In \"Mia plays tennis\", \"tennis\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 5,
+            "uuid": "bg-svo-v3-a1-05",
+            "question": "In English, say \"a red car\", so the adjective comes {a1} the noun.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_before_noun"
+            ],
+            "variants": [
+                "In English, say \"a red car\", so the adjective comes {a1} the noun."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 6,
+            "uuid": "bg-svo-v3-a1-06",
+            "question": "In \"She reads books at home\", \"at home\" comes at the {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "end",
+                    "options": [
+                        "end",
+                        "start only",
+                        "middle only",
+                        "wrong place"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adverbial_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbial_position"
+            ],
+            "variants": [
+                "In \"She reads books at home\", \"at home\" comes at the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 7,
+            "uuid": "bg-svo-v3-a1-07",
+            "question": "English statements usually need a clear subject before the {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "object",
+                        "adjective",
+                        "period"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "uk_word_order_transfer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uk_word_order_transfer"
+            ],
+            "variants": [
+                "English statements usually need a clear subject before the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 8,
+            "uuid": "bg-svo-v3-a1-08",
+            "question": "The verb \"buy\" often needs an {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "article",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "transitive_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "transitive_verbs"
+            ],
+            "variants": [
+                "The verb \"buy\" often needs an {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 9,
+            "uuid": "bg-svo-v3-a1-09",
+            "question": "Choose the natural SVO order: \"The boy {a1} a sandwich.\"",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "eats",
+                    "options": [
+                        "eats",
+                        "the boy",
+                        "a sandwich",
+                        "quickly"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "simple_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "simple_statements"
+            ],
+            "variants": [
+                "Choose the natural SVO order: \"The boy {a1} a sandwich.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 10,
+            "uuid": "bg-svo-v3-a1-10",
+            "question": "In simple negative SVO, use do not before the main {a1}.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "noun"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_svo"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_svo"
+            ],
+            "variants": [
+                "In simple negative SVO, use do not before the main {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 11,
+            "uuid": "bg-svo-v3-a1-11",
+            "question": "In a question, auxiliary \"does\" can come {a1} the subject.",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_contrast"
+            ],
+            "variants": [
+                "In a question, auxiliary \"does\" can come {a1} the subject."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 12,
+            "uuid": "bg-svo-v3-a1-12",
+            "question": "Say \"I like this song,\" not \"This song {a1} like.\"",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "my",
+                        "mine"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Say \"I like this song,\" not \"This song {a1} like.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 13,
+            "uuid": "bg-svo-v3-a2-01",
+            "question": "In \"Anna reads a book\", \"Anna\" is the {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "verb",
+                        "object",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "svo_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo_basics"
+            ],
+            "variants": [
+                "In \"Anna reads a book\", \"Anna\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 14,
+            "uuid": "bg-svo-v3-a2-02",
+            "question": "The subject usually comes {a1} the verb in a statement.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "inside",
+                        "without"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "subject_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_position"
+            ],
+            "variants": [
+                "The subject usually comes {a1} the verb in a statement."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 15,
+            "uuid": "bg-svo-v3-a2-03",
+            "question": "In \"Tom watches films\", \"watches\" is the {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "adjective"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "verb_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_position"
+            ],
+            "variants": [
+                "In \"Tom watches films\", \"watches\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 16,
+            "uuid": "bg-svo-v3-a2-04",
+            "question": "In \"Mia plays tennis\", \"tennis\" is the {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "verb",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "object_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_position"
+            ],
+            "variants": [
+                "In \"Mia plays tennis\", \"tennis\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 17,
+            "uuid": "bg-svo-v3-a2-05",
+            "question": "In English, say \"a red car\", so the adjective comes {a1} the noun.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_before_noun"
+            ],
+            "variants": [
+                "In English, say \"a red car\", so the adjective comes {a1} the noun."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 18,
+            "uuid": "bg-svo-v3-a2-06",
+            "question": "In \"She reads books at home\", \"at home\" comes at the {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "end",
+                    "options": [
+                        "end",
+                        "start only",
+                        "middle only",
+                        "wrong place"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adverbial_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbial_position"
+            ],
+            "variants": [
+                "In \"She reads books at home\", \"at home\" comes at the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 19,
+            "uuid": "bg-svo-v3-a2-07",
+            "question": "English statements usually need a clear subject before the {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "object",
+                        "adjective",
+                        "period"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "uk_word_order_transfer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uk_word_order_transfer"
+            ],
+            "variants": [
+                "English statements usually need a clear subject before the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 20,
+            "uuid": "bg-svo-v3-a2-08",
+            "question": "The verb \"buy\" often needs an {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "article",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "transitive_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "transitive_verbs"
+            ],
+            "variants": [
+                "The verb \"buy\" often needs an {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 21,
+            "uuid": "bg-svo-v3-a2-09",
+            "question": "Choose the natural SVO order: \"The boy {a1} a sandwich.\"",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "eats",
+                    "options": [
+                        "eats",
+                        "the boy",
+                        "a sandwich",
+                        "quickly"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "simple_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "simple_statements"
+            ],
+            "variants": [
+                "Choose the natural SVO order: \"The boy {a1} a sandwich.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 22,
+            "uuid": "bg-svo-v3-a2-10",
+            "question": "In simple negative SVO, use do not before the main {a1}.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "noun"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_svo"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_svo"
+            ],
+            "variants": [
+                "In simple negative SVO, use do not before the main {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 23,
+            "uuid": "bg-svo-v3-a2-11",
+            "question": "In a question, auxiliary \"does\" can come {a1} the subject.",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_contrast"
+            ],
+            "variants": [
+                "In a question, auxiliary \"does\" can come {a1} the subject."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 24,
+            "uuid": "bg-svo-v3-a2-12",
+            "question": "Say \"I like this song,\" not \"This song {a1} like.\"",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "my",
+                        "mine"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Say \"I like this song,\" not \"This song {a1} like.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 25,
+            "uuid": "bg-svo-v3-b1-01",
+            "question": "In \"Anna reads a book\", \"Anna\" is the {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "verb",
+                        "object",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "svo_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo_basics"
+            ],
+            "variants": [
+                "In \"Anna reads a book\", \"Anna\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 26,
+            "uuid": "bg-svo-v3-b1-02",
+            "question": "The subject usually comes {a1} the verb in a statement.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "inside",
+                        "without"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "subject_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_position"
+            ],
+            "variants": [
+                "The subject usually comes {a1} the verb in a statement."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 27,
+            "uuid": "bg-svo-v3-b1-03",
+            "question": "In \"Tom watches films\", \"watches\" is the {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "adjective"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "verb_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_position"
+            ],
+            "variants": [
+                "In \"Tom watches films\", \"watches\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 28,
+            "uuid": "bg-svo-v3-b1-04",
+            "question": "In \"Mia plays tennis\", \"tennis\" is the {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "verb",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "object_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_position"
+            ],
+            "variants": [
+                "In \"Mia plays tennis\", \"tennis\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 29,
+            "uuid": "bg-svo-v3-b1-05",
+            "question": "In English, say \"a red car\", so the adjective comes {a1} the noun.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_before_noun"
+            ],
+            "variants": [
+                "In English, say \"a red car\", so the adjective comes {a1} the noun."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 30,
+            "uuid": "bg-svo-v3-b1-06",
+            "question": "In \"She reads books at home\", \"at home\" comes at the {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "end",
+                    "options": [
+                        "end",
+                        "start only",
+                        "middle only",
+                        "wrong place"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adverbial_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbial_position"
+            ],
+            "variants": [
+                "In \"She reads books at home\", \"at home\" comes at the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 31,
+            "uuid": "bg-svo-v3-b1-07",
+            "question": "English statements usually need a clear subject before the {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "object",
+                        "adjective",
+                        "period"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "uk_word_order_transfer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uk_word_order_transfer"
+            ],
+            "variants": [
+                "English statements usually need a clear subject before the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 32,
+            "uuid": "bg-svo-v3-b1-08",
+            "question": "The verb \"buy\" often needs an {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "article",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "transitive_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "transitive_verbs"
+            ],
+            "variants": [
+                "The verb \"buy\" often needs an {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 33,
+            "uuid": "bg-svo-v3-b1-09",
+            "question": "Choose the natural SVO order: \"The boy {a1} a sandwich.\"",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "eats",
+                    "options": [
+                        "eats",
+                        "the boy",
+                        "a sandwich",
+                        "quickly"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "simple_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "simple_statements"
+            ],
+            "variants": [
+                "Choose the natural SVO order: \"The boy {a1} a sandwich.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 34,
+            "uuid": "bg-svo-v3-b1-10",
+            "question": "In simple negative SVO, use do not before the main {a1}.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "noun"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_svo"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_svo"
+            ],
+            "variants": [
+                "In simple negative SVO, use do not before the main {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 35,
+            "uuid": "bg-svo-v3-b1-11",
+            "question": "In a question, auxiliary \"does\" can come {a1} the subject.",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_contrast"
+            ],
+            "variants": [
+                "In a question, auxiliary \"does\" can come {a1} the subject."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 36,
+            "uuid": "bg-svo-v3-b1-12",
+            "question": "Say \"I like this song,\" not \"This song {a1} like.\"",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "my",
+                        "mine"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Say \"I like this song,\" not \"This song {a1} like.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 37,
+            "uuid": "bg-svo-v3-b2-01",
+            "question": "In \"Anna reads a book\", \"Anna\" is the {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "verb",
+                        "object",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "svo_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo_basics"
+            ],
+            "variants": [
+                "In \"Anna reads a book\", \"Anna\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 38,
+            "uuid": "bg-svo-v3-b2-02",
+            "question": "The subject usually comes {a1} the verb in a statement.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "inside",
+                        "without"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "subject_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_position"
+            ],
+            "variants": [
+                "The subject usually comes {a1} the verb in a statement."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 39,
+            "uuid": "bg-svo-v3-b2-03",
+            "question": "In \"Tom watches films\", \"watches\" is the {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "adjective"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "verb_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_position"
+            ],
+            "variants": [
+                "In \"Tom watches films\", \"watches\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 40,
+            "uuid": "bg-svo-v3-b2-04",
+            "question": "In \"Mia plays tennis\", \"tennis\" is the {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "verb",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "object_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_position"
+            ],
+            "variants": [
+                "In \"Mia plays tennis\", \"tennis\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 41,
+            "uuid": "bg-svo-v3-b2-05",
+            "question": "In English, say \"a red car\", so the adjective comes {a1} the noun.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_before_noun"
+            ],
+            "variants": [
+                "In English, say \"a red car\", so the adjective comes {a1} the noun."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 42,
+            "uuid": "bg-svo-v3-b2-06",
+            "question": "In \"She reads books at home\", \"at home\" comes at the {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "end",
+                    "options": [
+                        "end",
+                        "start only",
+                        "middle only",
+                        "wrong place"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adverbial_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbial_position"
+            ],
+            "variants": [
+                "In \"She reads books at home\", \"at home\" comes at the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 43,
+            "uuid": "bg-svo-v3-b2-07",
+            "question": "English statements usually need a clear subject before the {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "object",
+                        "adjective",
+                        "period"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "uk_word_order_transfer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uk_word_order_transfer"
+            ],
+            "variants": [
+                "English statements usually need a clear subject before the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 44,
+            "uuid": "bg-svo-v3-b2-08",
+            "question": "The verb \"buy\" often needs an {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "article",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "transitive_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "transitive_verbs"
+            ],
+            "variants": [
+                "The verb \"buy\" often needs an {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 45,
+            "uuid": "bg-svo-v3-b2-09",
+            "question": "Choose the natural SVO order: \"The boy {a1} a sandwich.\"",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "eats",
+                    "options": [
+                        "eats",
+                        "the boy",
+                        "a sandwich",
+                        "quickly"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "simple_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "simple_statements"
+            ],
+            "variants": [
+                "Choose the natural SVO order: \"The boy {a1} a sandwich.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 46,
+            "uuid": "bg-svo-v3-b2-10",
+            "question": "In simple negative SVO, use do not before the main {a1}.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "noun"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_svo"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_svo"
+            ],
+            "variants": [
+                "In simple negative SVO, use do not before the main {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 47,
+            "uuid": "bg-svo-v3-b2-11",
+            "question": "In a question, auxiliary \"does\" can come {a1} the subject.",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_contrast"
+            ],
+            "variants": [
+                "In a question, auxiliary \"does\" can come {a1} the subject."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 48,
+            "uuid": "bg-svo-v3-b2-12",
+            "question": "Say \"I like this song,\" not \"This song {a1} like.\"",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "my",
+                        "mine"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Say \"I like this song,\" not \"This song {a1} like.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 49,
+            "uuid": "bg-svo-v3-c1-01",
+            "question": "In \"Anna reads a book\", \"Anna\" is the {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "verb",
+                        "object",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "svo_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo_basics"
+            ],
+            "variants": [
+                "In \"Anna reads a book\", \"Anna\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 50,
+            "uuid": "bg-svo-v3-c1-02",
+            "question": "The subject usually comes {a1} the verb in a statement.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "inside",
+                        "without"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "subject_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_position"
+            ],
+            "variants": [
+                "The subject usually comes {a1} the verb in a statement."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 51,
+            "uuid": "bg-svo-v3-c1-03",
+            "question": "In \"Tom watches films\", \"watches\" is the {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "adjective"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "verb_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_position"
+            ],
+            "variants": [
+                "In \"Tom watches films\", \"watches\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 52,
+            "uuid": "bg-svo-v3-c1-04",
+            "question": "In \"Mia plays tennis\", \"tennis\" is the {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "verb",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "object_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_position"
+            ],
+            "variants": [
+                "In \"Mia plays tennis\", \"tennis\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 53,
+            "uuid": "bg-svo-v3-c1-05",
+            "question": "In English, say \"a red car\", so the adjective comes {a1} the noun.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_before_noun"
+            ],
+            "variants": [
+                "In English, say \"a red car\", so the adjective comes {a1} the noun."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 54,
+            "uuid": "bg-svo-v3-c1-06",
+            "question": "In \"She reads books at home\", \"at home\" comes at the {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "end",
+                    "options": [
+                        "end",
+                        "start only",
+                        "middle only",
+                        "wrong place"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adverbial_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbial_position"
+            ],
+            "variants": [
+                "In \"She reads books at home\", \"at home\" comes at the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 55,
+            "uuid": "bg-svo-v3-c1-07",
+            "question": "English statements usually need a clear subject before the {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "object",
+                        "adjective",
+                        "period"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "uk_word_order_transfer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uk_word_order_transfer"
+            ],
+            "variants": [
+                "English statements usually need a clear subject before the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 56,
+            "uuid": "bg-svo-v3-c1-08",
+            "question": "The verb \"buy\" often needs an {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "article",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "transitive_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "transitive_verbs"
+            ],
+            "variants": [
+                "The verb \"buy\" often needs an {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 57,
+            "uuid": "bg-svo-v3-c1-09",
+            "question": "Choose the natural SVO order: \"The boy {a1} a sandwich.\"",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "eats",
+                    "options": [
+                        "eats",
+                        "the boy",
+                        "a sandwich",
+                        "quickly"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "simple_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "simple_statements"
+            ],
+            "variants": [
+                "Choose the natural SVO order: \"The boy {a1} a sandwich.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 58,
+            "uuid": "bg-svo-v3-c1-10",
+            "question": "In simple negative SVO, use do not before the main {a1}.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "noun"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_svo"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_svo"
+            ],
+            "variants": [
+                "In simple negative SVO, use do not before the main {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 59,
+            "uuid": "bg-svo-v3-c1-11",
+            "question": "In a question, auxiliary \"does\" can come {a1} the subject.",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_contrast"
+            ],
+            "variants": [
+                "In a question, auxiliary \"does\" can come {a1} the subject."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 60,
+            "uuid": "bg-svo-v3-c1-12",
+            "question": "Say \"I like this song,\" not \"This song {a1} like.\"",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "my",
+                        "mine"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Say \"I like this song,\" not \"This song {a1} like.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 61,
+            "uuid": "bg-svo-v3-c2-01",
+            "question": "In \"Anna reads a book\", \"Anna\" is the {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "subject",
+                    "options": [
+                        "subject",
+                        "verb",
+                        "object",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "svo_basics"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "svo_basics"
+            ],
+            "variants": [
+                "In \"Anna reads a book\", \"Anna\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 62,
+            "uuid": "bg-svo-v3-c2-02",
+            "question": "The subject usually comes {a1} the verb in a statement.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "inside",
+                        "without"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "subject_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "subject_position"
+            ],
+            "variants": [
+                "The subject usually comes {a1} the verb in a statement."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 63,
+            "uuid": "bg-svo-v3-c2-03",
+            "question": "In \"Tom watches films\", \"watches\" is the {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "adjective"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "verb_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "verb_position"
+            ],
+            "variants": [
+                "In \"Tom watches films\", \"watches\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 64,
+            "uuid": "bg-svo-v3-c2-04",
+            "question": "In \"Mia plays tennis\", \"tennis\" is the {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "verb",
+                        "adverb"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "object_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "object_position"
+            ],
+            "variants": [
+                "In \"Mia plays tennis\", \"tennis\" is the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 65,
+            "uuid": "bg-svo-v3-c2-05",
+            "question": "In English, say \"a red car\", so the adjective comes {a1} the noun.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adjective_before_noun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adjective_before_noun"
+            ],
+            "variants": [
+                "In English, say \"a red car\", so the adjective comes {a1} the noun."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 66,
+            "uuid": "bg-svo-v3-c2-06",
+            "question": "In \"She reads books at home\", \"at home\" comes at the {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "end",
+                    "options": [
+                        "end",
+                        "start only",
+                        "middle only",
+                        "wrong place"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "adverbial_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "adverbial_position"
+            ],
+            "variants": [
+                "In \"She reads books at home\", \"at home\" comes at the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 67,
+            "uuid": "bg-svo-v3-c2-07",
+            "question": "English statements usually need a clear subject before the {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "object",
+                        "adjective",
+                        "period"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "uk_word_order_transfer"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "uk_word_order_transfer"
+            ],
+            "variants": [
+                "English statements usually need a clear subject before the {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 68,
+            "uuid": "bg-svo-v3-c2-08",
+            "question": "The verb \"buy\" often needs an {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "object",
+                    "options": [
+                        "object",
+                        "subject",
+                        "article",
+                        "question"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "transitive_verbs"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "transitive_verbs"
+            ],
+            "variants": [
+                "The verb \"buy\" often needs an {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 69,
+            "uuid": "bg-svo-v3-c2-09",
+            "question": "Choose the natural SVO order: \"The boy {a1} a sandwich.\"",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "eats",
+                    "options": [
+                        "eats",
+                        "the boy",
+                        "a sandwich",
+                        "quickly"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "simple_statements"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "simple_statements"
+            ],
+            "variants": [
+                "Choose the natural SVO order: \"The boy {a1} a sandwich.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 70,
+            "uuid": "bg-svo-v3-c2-10",
+            "question": "In simple negative SVO, use do not before the main {a1}.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "verb",
+                    "options": [
+                        "verb",
+                        "subject",
+                        "object",
+                        "noun"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "negative_svo"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "negative_svo"
+            ],
+            "variants": [
+                "In simple negative SVO, use do not before the main {a1}."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 71,
+            "uuid": "bg-svo-v3-c2-11",
+            "question": "In a question, auxiliary \"does\" can come {a1} the subject.",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "before",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "inside"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "question_contrast"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "question_contrast"
+            ],
+            "variants": [
+                "In a question, auxiliary \"does\" can come {a1} the subject."
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        },
+        {
+            "id": 72,
+            "uuid": "bg-svo-v3-c2-12",
+            "question": "Say \"I like this song,\" not \"This song {a1} like.\"",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "my",
+                        "mine"
+                    ],
+                    "verb_hint": "Choose the clear basic grammar answer for this context.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Say \"I like this song,\" not \"This song {a1} like.\""
+            ],
+            "source": "theory_page_sentence_structure_svo"
+        }
+    ],
+    "category": {
+        "name": "English Grammar"
+    },
+    "sources": {
+        "theory_page_sentence_structure_svo": {
+            "name": "Sentence Structure SVO"
+        }
+    },
+    "tags": {
+        "svo_basics": {
+            "name": "SVO basics",
+            "category": "topic"
+        },
+        "subject_position": {
+            "name": "Subject position",
+            "category": "topic"
+        },
+        "verb_position": {
+            "name": "Verb position",
+            "category": "topic"
+        },
+        "object_position": {
+            "name": "Object position",
+            "category": "topic"
+        },
+        "adjective_before_noun": {
+            "name": "Adjective before noun",
+            "category": "topic"
+        },
+        "adverbial_position": {
+            "name": "Adverbial position",
+            "category": "topic"
+        },
+        "uk_word_order_transfer": {
+            "name": "Ukrainian word order transfer",
+            "category": "topic"
+        },
+        "transitive_verbs": {
+            "name": "Transitive verbs",
+            "category": "topic"
+        },
+        "simple_statements": {
+            "name": "Simple statements",
+            "category": "topic"
+        },
+        "negative_svo": {
+            "name": "Negative SVO",
+            "category": "topic"
+        },
+        "question_contrast": {
+            "name": "Question contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "svo_basics",
+        "subject_position",
+        "verb_position",
+        "object_position",
+        "adjective_before_noun",
+        "adverbial_position",
+        "uk_word_order_transfer",
+        "transitive_verbs",
+        "simple_statements",
+        "negative_svo",
+        "question_contrast",
+        "typical_mistakes"
+    ],
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 1,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    }
+}

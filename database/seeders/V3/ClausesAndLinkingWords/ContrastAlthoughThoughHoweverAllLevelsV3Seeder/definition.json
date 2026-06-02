@@ -1,0 +1,2199 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\ContrastAlthoughThoughHoweverAllLevelsV3Seeder",
+        "uuid_namespace": "ContrastAlthoughThoughHoweverAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "theory_page_contrast_although_though_however": {
+            "name": "Contrast: although / though / however"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_contrast": {
+            "name": "Contrast: although / though / however",
+            "category": "clauses_and_linking_words"
+        },
+        "although_clause": {
+            "name": "Although Clause",
+            "category": "topic"
+        },
+        "though_clause": {
+            "name": "Though Clause",
+            "category": "topic"
+        },
+        "even_though": {
+            "name": "Even Though",
+            "category": "topic"
+        },
+        "however": {
+            "name": "However",
+            "category": "topic"
+        },
+        "nevertheless": {
+            "name": "Nevertheless",
+            "category": "topic"
+        },
+        "despite_in_spite_of": {
+            "name": "Despite In Spite Of",
+            "category": "topic"
+        },
+        "contrast_clause_position": {
+            "name": "Contrast Clause Position",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "although_vs_however": {
+            "name": "Although Vs However",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_contrast"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ctr-v3-a1-01",
+            "question": "{a1} it was cold we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows although clause.",
+                    "gap_tags": [
+                        "although_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_clause"
+            ],
+            "variants": [
+                "{a1} it was cold we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 2,
+            "uuid": "ctr-v3-a1-02",
+            "question": "we played outside {a1} it was cold",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "though",
+                    "options": [
+                        "though",
+                        "because",
+                        "therefore",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows though clause.",
+                    "gap_tags": [
+                        "though_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_clause"
+            ],
+            "variants": [
+                "we played outside {a1} it was cold"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 3,
+            "uuid": "ctr-v3-a1-03",
+            "question": "{a1} it was cold we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Because",
+                        "Therefore",
+                        "So"
+                    ],
+                    "verb_hint": "Choose the linker that shows even though.",
+                    "gap_tags": [
+                        "even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "even_though"
+            ],
+            "variants": [
+                "{a1} it was cold we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 4,
+            "uuid": "ctr-v3-a1-04",
+            "question": "{a1} we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows however.",
+                    "gap_tags": [
+                        "however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however"
+            ],
+            "variants": [
+                "{a1} we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 5,
+            "uuid": "ctr-v3-a1-05",
+            "question": "{a1} we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Nevertheless",
+                    "options": [
+                        "Nevertheless",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows nevertheless.",
+                    "gap_tags": [
+                        "nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "nevertheless"
+            ],
+            "variants": [
+                "{a1} we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 6,
+            "uuid": "ctr-v3-a1-06",
+            "question": "{a1} the rain we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the rain we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 7,
+            "uuid": "ctr-v3-a1-07",
+            "question": "{a1} the rain we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "In spite of",
+                    "options": [
+                        "In spite of",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the rain we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 8,
+            "uuid": "ctr-v3-a1-08",
+            "question": "{a1} the shop was closed we came back later",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast clause position.",
+                    "gap_tags": [
+                        "contrast_clause_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_clause_position"
+            ],
+            "variants": [
+                "{a1} the shop was closed we came back later"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 9,
+            "uuid": "ctr-v3-a1-09",
+            "question": "It was cold {a1} we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "It was cold {a1} we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 10,
+            "uuid": "ctr-v3-a1-10",
+            "question": "It was cold {a1} we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Because",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "It was cold {a1} we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 11,
+            "uuid": "ctr-v3-a1-11",
+            "question": "{a1} it was cold we played outside",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "{a1} it was cold we played outside"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 12,
+            "uuid": "ctr-v3-a1-12",
+            "question": "we played outside {a1} it was cold",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "although",
+                    "options": [
+                        "although",
+                        "however",
+                        "therefore",
+                        "because"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "we played outside {a1} it was cold"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 13,
+            "uuid": "ctr-v3-a2-01",
+            "question": "{a1} the film was long the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows although clause.",
+                    "gap_tags": [
+                        "although_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_clause"
+            ],
+            "variants": [
+                "{a1} the film was long the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 14,
+            "uuid": "ctr-v3-a2-02",
+            "question": "the children enjoyed it {a1} the film was long",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "though",
+                    "options": [
+                        "though",
+                        "because",
+                        "therefore",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows though clause.",
+                    "gap_tags": [
+                        "though_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_clause"
+            ],
+            "variants": [
+                "the children enjoyed it {a1} the film was long"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 15,
+            "uuid": "ctr-v3-a2-03",
+            "question": "{a1} the film was long the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Because",
+                        "Therefore",
+                        "So"
+                    ],
+                    "verb_hint": "Choose the linker that shows even though.",
+                    "gap_tags": [
+                        "even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "even_though"
+            ],
+            "variants": [
+                "{a1} the film was long the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 16,
+            "uuid": "ctr-v3-a2-04",
+            "question": "{a1} the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows however.",
+                    "gap_tags": [
+                        "however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however"
+            ],
+            "variants": [
+                "{a1} the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 17,
+            "uuid": "ctr-v3-a2-05",
+            "question": "{a1} the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Nevertheless",
+                    "options": [
+                        "Nevertheless",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows nevertheless.",
+                    "gap_tags": [
+                        "nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "nevertheless"
+            ],
+            "variants": [
+                "{a1} the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 18,
+            "uuid": "ctr-v3-a2-06",
+            "question": "{a1} the cold evening the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the cold evening the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 19,
+            "uuid": "ctr-v3-a2-07",
+            "question": "{a1} the cold evening the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "In spite of",
+                    "options": [
+                        "In spite of",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the cold evening the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 20,
+            "uuid": "ctr-v3-a2-08",
+            "question": "{a1} the printer was broken we sent the files online",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast clause position.",
+                    "gap_tags": [
+                        "contrast_clause_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_clause_position"
+            ],
+            "variants": [
+                "{a1} the printer was broken we sent the files online"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 21,
+            "uuid": "ctr-v3-a2-09",
+            "question": "The film was long {a1} the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The film was long {a1} the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 22,
+            "uuid": "ctr-v3-a2-10",
+            "question": "The film was long {a1} the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Because",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "The film was long {a1} the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 23,
+            "uuid": "ctr-v3-a2-11",
+            "question": "{a1} the film was long the children enjoyed it",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "{a1} the film was long the children enjoyed it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 24,
+            "uuid": "ctr-v3-a2-12",
+            "question": "the children enjoyed it {a1} the film was long",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "although",
+                    "options": [
+                        "although",
+                        "however",
+                        "therefore",
+                        "because"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the children enjoyed it {a1} the film was long"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 25,
+            "uuid": "ctr-v3-b1-01",
+            "question": "{a1} the instructions looked simple the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows although clause.",
+                    "gap_tags": [
+                        "although_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_clause"
+            ],
+            "variants": [
+                "{a1} the instructions looked simple the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 26,
+            "uuid": "ctr-v3-b1-02",
+            "question": "the task took two hours {a1} the instructions looked simple",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "though",
+                    "options": [
+                        "though",
+                        "because",
+                        "therefore",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows though clause.",
+                    "gap_tags": [
+                        "though_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_clause"
+            ],
+            "variants": [
+                "the task took two hours {a1} the instructions looked simple"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 27,
+            "uuid": "ctr-v3-b1-03",
+            "question": "{a1} the instructions looked simple the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Because",
+                        "Therefore",
+                        "So"
+                    ],
+                    "verb_hint": "Choose the linker that shows even though.",
+                    "gap_tags": [
+                        "even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "even_though"
+            ],
+            "variants": [
+                "{a1} the instructions looked simple the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 28,
+            "uuid": "ctr-v3-b1-04",
+            "question": "{a1} the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows however.",
+                    "gap_tags": [
+                        "however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however"
+            ],
+            "variants": [
+                "{a1} the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 29,
+            "uuid": "ctr-v3-b1-05",
+            "question": "{a1} the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Nevertheless",
+                    "options": [
+                        "Nevertheless",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows nevertheless.",
+                    "gap_tags": [
+                        "nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "nevertheless"
+            ],
+            "variants": [
+                "{a1} the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 30,
+            "uuid": "ctr-v3-b1-06",
+            "question": "{a1} several absences the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} several absences the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 31,
+            "uuid": "ctr-v3-b1-07",
+            "question": "{a1} several absences the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "In spite of",
+                    "options": [
+                        "In spite of",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} several absences the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 32,
+            "uuid": "ctr-v3-b1-08",
+            "question": "{a1} the deadline was changed the team adjusted the plan",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast clause position.",
+                    "gap_tags": [
+                        "contrast_clause_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_clause_position"
+            ],
+            "variants": [
+                "{a1} the deadline was changed the team adjusted the plan"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 33,
+            "uuid": "ctr-v3-b1-09",
+            "question": "The instructions looked simple {a1} the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The instructions looked simple {a1} the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 34,
+            "uuid": "ctr-v3-b1-10",
+            "question": "The instructions looked simple {a1} the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Because",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "The instructions looked simple {a1} the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 35,
+            "uuid": "ctr-v3-b1-11",
+            "question": "{a1} the instructions looked simple the task took two hours",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "{a1} the instructions looked simple the task took two hours"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 36,
+            "uuid": "ctr-v3-b1-12",
+            "question": "the task took two hours {a1} the instructions looked simple",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "although",
+                    "options": [
+                        "although",
+                        "however",
+                        "therefore",
+                        "because"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the task took two hours {a1} the instructions looked simple"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 37,
+            "uuid": "ctr-v3-b2-01",
+            "question": "{a1} the proposal was ambitious the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows although clause.",
+                    "gap_tags": [
+                        "although_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_clause"
+            ],
+            "variants": [
+                "{a1} the proposal was ambitious the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 38,
+            "uuid": "ctr-v3-b2-02",
+            "question": "the board accepted it {a1} the proposal was ambitious",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "though",
+                    "options": [
+                        "though",
+                        "because",
+                        "therefore",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows though clause.",
+                    "gap_tags": [
+                        "though_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_clause"
+            ],
+            "variants": [
+                "the board accepted it {a1} the proposal was ambitious"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 39,
+            "uuid": "ctr-v3-b2-03",
+            "question": "{a1} the proposal was ambitious the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Because",
+                        "Therefore",
+                        "So"
+                    ],
+                    "verb_hint": "Choose the linker that shows even though.",
+                    "gap_tags": [
+                        "even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "even_though"
+            ],
+            "variants": [
+                "{a1} the proposal was ambitious the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 40,
+            "uuid": "ctr-v3-b2-04",
+            "question": "{a1} the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows however.",
+                    "gap_tags": [
+                        "however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however"
+            ],
+            "variants": [
+                "{a1} the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 41,
+            "uuid": "ctr-v3-b2-05",
+            "question": "{a1} the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Nevertheless",
+                    "options": [
+                        "Nevertheless",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows nevertheless.",
+                    "gap_tags": [
+                        "nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "nevertheless"
+            ],
+            "variants": [
+                "{a1} the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 42,
+            "uuid": "ctr-v3-b2-06",
+            "question": "{a1} the changing requirements the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the changing requirements the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 43,
+            "uuid": "ctr-v3-b2-07",
+            "question": "{a1} the changing requirements the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "In spite of",
+                    "options": [
+                        "In spite of",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the changing requirements the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 44,
+            "uuid": "ctr-v3-b2-08",
+            "question": "{a1} the evidence was incomplete the committee delayed the decision",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast clause position.",
+                    "gap_tags": [
+                        "contrast_clause_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_clause_position"
+            ],
+            "variants": [
+                "{a1} the evidence was incomplete the committee delayed the decision"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 45,
+            "uuid": "ctr-v3-b2-09",
+            "question": "The proposal was ambitious {a1} the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The proposal was ambitious {a1} the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 46,
+            "uuid": "ctr-v3-b2-10",
+            "question": "The proposal was ambitious {a1} the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Because",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "The proposal was ambitious {a1} the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 47,
+            "uuid": "ctr-v3-b2-11",
+            "question": "{a1} the proposal was ambitious the board accepted it",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "{a1} the proposal was ambitious the board accepted it"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 48,
+            "uuid": "ctr-v3-b2-12",
+            "question": "the board accepted it {a1} the proposal was ambitious",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "although",
+                    "options": [
+                        "although",
+                        "however",
+                        "therefore",
+                        "because"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the board accepted it {a1} the proposal was ambitious"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 49,
+            "uuid": "ctr-v3-c1-01",
+            "question": "{a1} the evidence seemed persuasive the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows although clause.",
+                    "gap_tags": [
+                        "although_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_clause"
+            ],
+            "variants": [
+                "{a1} the evidence seemed persuasive the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 50,
+            "uuid": "ctr-v3-c1-02",
+            "question": "the judge requested more data {a1} the evidence seemed persuasive",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "though",
+                    "options": [
+                        "though",
+                        "because",
+                        "therefore",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows though clause.",
+                    "gap_tags": [
+                        "though_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_clause"
+            ],
+            "variants": [
+                "the judge requested more data {a1} the evidence seemed persuasive"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 51,
+            "uuid": "ctr-v3-c1-03",
+            "question": "{a1} the evidence seemed persuasive the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Because",
+                        "Therefore",
+                        "So"
+                    ],
+                    "verb_hint": "Choose the linker that shows even though.",
+                    "gap_tags": [
+                        "even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "even_though"
+            ],
+            "variants": [
+                "{a1} the evidence seemed persuasive the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 52,
+            "uuid": "ctr-v3-c1-04",
+            "question": "{a1} the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows however.",
+                    "gap_tags": [
+                        "however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however"
+            ],
+            "variants": [
+                "{a1} the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 53,
+            "uuid": "ctr-v3-c1-05",
+            "question": "{a1} the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Nevertheless",
+                    "options": [
+                        "Nevertheless",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows nevertheless.",
+                    "gap_tags": [
+                        "nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "nevertheless"
+            ],
+            "variants": [
+                "{a1} the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 54,
+            "uuid": "ctr-v3-c1-06",
+            "question": "{a1} the rejected compromise the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the rejected compromise the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 55,
+            "uuid": "ctr-v3-c1-07",
+            "question": "{a1} the rejected compromise the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "In spite of",
+                    "options": [
+                        "In spite of",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the rejected compromise the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 56,
+            "uuid": "ctr-v3-c1-08",
+            "question": "{a1} the figures were unreliable the auditors repeated the analysis",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast clause position.",
+                    "gap_tags": [
+                        "contrast_clause_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_clause_position"
+            ],
+            "variants": [
+                "{a1} the figures were unreliable the auditors repeated the analysis"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 57,
+            "uuid": "ctr-v3-c1-09",
+            "question": "The evidence seemed persuasive {a1} the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The evidence seemed persuasive {a1} the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 58,
+            "uuid": "ctr-v3-c1-10",
+            "question": "The evidence seemed persuasive {a1} the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Because",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "The evidence seemed persuasive {a1} the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 59,
+            "uuid": "ctr-v3-c1-11",
+            "question": "{a1} the evidence seemed persuasive the judge requested more data",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "{a1} the evidence seemed persuasive the judge requested more data"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 60,
+            "uuid": "ctr-v3-c1-12",
+            "question": "the judge requested more data {a1} the evidence seemed persuasive",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "although",
+                    "options": [
+                        "although",
+                        "however",
+                        "therefore",
+                        "because"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "the judge requested more data {a1} the evidence seemed persuasive"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 61,
+            "uuid": "ctr-v3-c2-01",
+            "question": "{a1} the argument was elegantly constructed its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows although clause.",
+                    "gap_tags": [
+                        "although_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_clause"
+            ],
+            "variants": [
+                "{a1} the argument was elegantly constructed its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 62,
+            "uuid": "ctr-v3-c2-02",
+            "question": "its conclusion remained unconvincing {a1} the argument was elegantly constructed",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "though",
+                    "options": [
+                        "though",
+                        "because",
+                        "therefore",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows though clause.",
+                    "gap_tags": [
+                        "though_clause"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "though_clause"
+            ],
+            "variants": [
+                "its conclusion remained unconvincing {a1} the argument was elegantly constructed"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 63,
+            "uuid": "ctr-v3-c2-03",
+            "question": "{a1} the argument was elegantly constructed its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Because",
+                        "Therefore",
+                        "So"
+                    ],
+                    "verb_hint": "Choose the linker that shows even though.",
+                    "gap_tags": [
+                        "even_though"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "even_though"
+            ],
+            "variants": [
+                "{a1} the argument was elegantly constructed its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 64,
+            "uuid": "ctr-v3-c2-04",
+            "question": "{a1} its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows however.",
+                    "gap_tags": [
+                        "however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "however"
+            ],
+            "variants": [
+                "{a1} its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 65,
+            "uuid": "ctr-v3-c2-05",
+            "question": "{a1} its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Nevertheless",
+                    "options": [
+                        "Nevertheless",
+                        "Because",
+                        "Therefore",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows nevertheless.",
+                    "gap_tags": [
+                        "nevertheless"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "nevertheless"
+            ],
+            "variants": [
+                "{a1} its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 66,
+            "uuid": "ctr-v3-c2-06",
+            "question": "{a1} the missed deadline its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the missed deadline its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 67,
+            "uuid": "ctr-v3-c2-07",
+            "question": "{a1} the missed deadline its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "In spite of",
+                    "options": [
+                        "In spite of",
+                        "Although",
+                        "Because",
+                        "Therefore"
+                    ],
+                    "verb_hint": "Choose the linker that shows despite in spite of.",
+                    "gap_tags": [
+                        "despite_in_spite_of"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "despite_in_spite_of"
+            ],
+            "variants": [
+                "{a1} the missed deadline its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 68,
+            "uuid": "ctr-v3-c2-08",
+            "question": "{a1} the contract terms were ambiguous the parties requested clarification",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows contrast clause position.",
+                    "gap_tags": [
+                        "contrast_clause_position"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "contrast_clause_position"
+            ],
+            "variants": [
+                "{a1} the contract terms were ambiguous the parties requested clarification"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 69,
+            "uuid": "ctr-v3-c2-09",
+            "question": "The argument was elegantly constructed {a1} its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "although",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Choose the linker that shows punctuation.",
+                    "gap_tags": [
+                        "punctuation"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "punctuation"
+            ],
+            "variants": [
+                "The argument was elegantly constructed {a1} its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 70,
+            "uuid": "ctr-v3-c2-10",
+            "question": "The argument was elegantly constructed {a1} its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Because",
+                        "Since"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "The argument was elegantly constructed {a1} its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 71,
+            "uuid": "ctr-v3-c2-11",
+            "question": "{a1} the argument was elegantly constructed its conclusion remained unconvincing",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "However",
+                        "Therefore",
+                        "Because"
+                    ],
+                    "verb_hint": "Choose the linker that shows although vs however.",
+                    "gap_tags": [
+                        "although_vs_however"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "although_vs_however"
+            ],
+            "variants": [
+                "{a1} the argument was elegantly constructed its conclusion remained unconvincing"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        },
+        {
+            "id": 72,
+            "uuid": "ctr-v3-c2-12",
+            "question": "its conclusion remained unconvincing {a1} the argument was elegantly constructed",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "although",
+                    "options": [
+                        "although",
+                        "however",
+                        "therefore",
+                        "because"
+                    ],
+                    "verb_hint": "Choose the linker that shows typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "its conclusion remained unconvincing {a1} the argument was elegantly constructed"
+            ],
+            "source": "theory_page_contrast_although_though_however"
+        }
+    ],
+    "saved_test": {
+        "uuid": "clw-ctr-v3-all",
+        "slug": "contrast-although-though-however-all-levels-v3",
+        "name": "Contrast: although / though / however: V3 All Levels",
+        "description": "Page-local V3 package for Contrast: although / though / however with A1-C2 coverage.",
+        "question_uuids": [
+            "ctr-v3-a1-01",
+            "ctr-v3-a1-02",
+            "ctr-v3-a1-03",
+            "ctr-v3-a1-04",
+            "ctr-v3-a1-05",
+            "ctr-v3-a1-06",
+            "ctr-v3-a1-07",
+            "ctr-v3-a1-08",
+            "ctr-v3-a1-09",
+            "ctr-v3-a1-10",
+            "ctr-v3-a1-11",
+            "ctr-v3-a1-12",
+            "ctr-v3-a2-01",
+            "ctr-v3-a2-02",
+            "ctr-v3-a2-03",
+            "ctr-v3-a2-04",
+            "ctr-v3-a2-05",
+            "ctr-v3-a2-06",
+            "ctr-v3-a2-07",
+            "ctr-v3-a2-08",
+            "ctr-v3-a2-09",
+            "ctr-v3-a2-10",
+            "ctr-v3-a2-11",
+            "ctr-v3-a2-12",
+            "ctr-v3-b1-01",
+            "ctr-v3-b1-02",
+            "ctr-v3-b1-03",
+            "ctr-v3-b1-04",
+            "ctr-v3-b1-05",
+            "ctr-v3-b1-06",
+            "ctr-v3-b1-07",
+            "ctr-v3-b1-08",
+            "ctr-v3-b1-09",
+            "ctr-v3-b1-10",
+            "ctr-v3-b1-11",
+            "ctr-v3-b1-12",
+            "ctr-v3-b2-01",
+            "ctr-v3-b2-02",
+            "ctr-v3-b2-03",
+            "ctr-v3-b2-04",
+            "ctr-v3-b2-05",
+            "ctr-v3-b2-06",
+            "ctr-v3-b2-07",
+            "ctr-v3-b2-08",
+            "ctr-v3-b2-09",
+            "ctr-v3-b2-10",
+            "ctr-v3-b2-11",
+            "ctr-v3-b2-12",
+            "ctr-v3-c1-01",
+            "ctr-v3-c1-02",
+            "ctr-v3-c1-03",
+            "ctr-v3-c1-04",
+            "ctr-v3-c1-05",
+            "ctr-v3-c1-06",
+            "ctr-v3-c1-07",
+            "ctr-v3-c1-08",
+            "ctr-v3-c1-09",
+            "ctr-v3-c1-10",
+            "ctr-v3-c1-11",
+            "ctr-v3-c1-12",
+            "ctr-v3-c2-01",
+            "ctr-v3-c2-02",
+            "ctr-v3-c2-03",
+            "ctr-v3-c2-04",
+            "ctr-v3-c2-05",
+            "ctr-v3-c2-06",
+            "ctr-v3-c2-07",
+            "ctr-v3-c2-08",
+            "ctr-v3-c2-09",
+            "ctr-v3-c2-10",
+            "ctr-v3-c2-11",
+            "ctr-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\ClausesAndLinkingWords\\ContrastAlthoughThoughHoweverAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "contrast-although-though-however",
+                    "title": "Contrast: although / though / however",
+                    "category_slug_path": "clauses-and-linking-words",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\ClausesAndLinkingWords\\ClausesAndLinkingWordsContrastTheorySeeder",
+                    "url": "https://gramlyze.com/theory/clauses-and-linking-words/contrast-although-though-however"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Localizations\\Pl\\AI\\ChatGpt\\CodexWithTags\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlyLocalizationSeeder"
+  },
+  "target": {
+    "seeder_class": "Database\\Seeders\\V3\\AI\\ChatGpt\\CodexWithTags\\PluralNounsMnozinaImennikivPravilaViniatkiPrikladiV3QuestionsOnlySeeder",
+    "definition_path": "../definition.json"
+  },
+  "locale": "pl",
+  "hint_provider": "chatgpt-codex-with-tags",
+  "questions": [
+    {
+      "id": 1,
+      "hints": [
+        "Zasada: większość zwykłych rzeczowników policzalnych tworzy liczbę mnogą przez dodanie `-s`.",
+        "Wskazówka: wyrażenie `two` pokazuje, że w luce potrzebna jest forma liczby mnogiej."
+      ],
+      "explanations": {
+        "a1": {
+          "book": "`book` jest niepoprawne, bo to liczba pojedyncza. Po `two` potrzebny jest rzeczownik w liczbie mnogiej.",
+          "books": "`books` jest poprawne, bo ten rzeczownik tworzy liczbę mnogą przez zwykłe dodanie `-s`. Tego wymaga sygnał ilości `two`.",
+          "bookes": "`bookes` jest niepoprawne, bo tutaj nie potrzebujemy końcówki `-es`. Ten rzeczownik przyjmuje zwykłe `-s`."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "hints": [
+        "Zasada: rzeczowniki zakończone na głoski syczące lub szumiące, takie jak `-s`, często przyjmują `-es` w liczbie mnogiej.",
+        "Wskazówka: `three` wymaga liczby mnogiej, a forma podstawowa kończy się już na `-s`."
+      ],
+      "explanations": {
+        "a1": {
+          "buses": "`buses` jest poprawne, bo `bus` tworzy liczbę mnogą przez dodanie `-es`. Taka forma jest potrzebna po `three`.",
+          "bus": "`bus` jest niepoprawne, bo to liczba pojedyncza. W zdaniu potrzebna jest liczba mnoga.",
+          "buss": "`buss` jest niepoprawne, bo samo podwojenie ostatniej litery nie tworzy tutaj liczby mnogiej. Potrzebne jest `-es`."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "hints": [
+        "Zasada: po spółgłosce + `y` liczba mnoga zmienia `y` na `-ies`.",
+        "Wskazówka: fraza `two other` pokazuje, że po luce musi stać forma liczby mnogiej."
+      ],
+      "explanations": {
+        "a1": {
+          "baby": "`baby` jest niepoprawne, bo to liczba pojedyncza. Po `two other` potrzebna jest liczba mnoga.",
+          "babies": "`babies` jest poprawne, bo ten rzeczownik po spółgłosce + `y` zmienia końcówkę na `-ies`.",
+          "babys": "`babys` jest niepoprawne, bo ten rzeczownik nie przyjmuje zwykłego `-s` po spółgłosce + `y`."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "hints": [
+        "Zasada: po samogłosce + `y` liczba mnoga zachowuje `y` i dodaje `-s`.",
+        "Wskazówka: `many` wymaga liczby mnogiej, a przed `y` w tym słowie stoi samogłoska."
+      ],
+      "explanations": {
+        "a1": {
+          "toies": "`toies` jest niepoprawne, bo zmiana `y -> ies` zachodzi po spółgłosce, nie po samogłosce.",
+          "toys": "`toys` jest poprawne, bo ten rzeczownik zachowuje `y` i dodaje `-s`.",
+          "toyes": "`toyes` jest niepoprawne, bo ten rzeczownik nie potrzebuje końcówki `-es`."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "hints": [
+        "Zasada: niektóre rzeczowniki zakończone na `-f` lub `-fe` zmieniają się w liczbie mnogiej na `-ves`.",
+        "Wskazówka: wyrażenie `several fresh` pokazuje, że po luce potrzebna jest liczba mnoga."
+      ],
+      "explanations": {
+        "a1": {
+          "loafes": "`loafes` jest niepoprawne, bo ten rzeczownik nie tworzy liczby mnogiej przez dodanie `-es` do całej podstawy.",
+          "loaves": "`loaves` jest poprawne, bo `loaf` zmienia `-f` na `-ves` w liczbie mnogiej.",
+          "loafs": "`loafs` jest niepoprawne, bo ten rzeczownik nie przyjmuje zwykłego `-s`."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "hints": [
+        "Zasada: `child` ma nieregularną formę liczby mnogiej.",
+        "Wskazówka: `Two` i `are drawing` pokazują, że w luce musi znaleźć się liczba mnoga."
+      ],
+      "explanations": {
+        "a1": {
+          "childs": "`childs` jest niepoprawne, bo `child` nie tworzy tu regularnej liczby mnogiej przez `-s`.",
+          "children": "`children` jest poprawne, bo to nieregularna liczba mnoga od `child`.",
+          "childrens": "`childrens` jest niepoprawne, bo `children` jest już formą mnogą i nie może dostać kolejnej końcówki liczby mnogiej."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "hints": [
+        "Zasada: wiele rzeczowników zakończonych na spółgłoskę + `o` tworzy liczbę mnogą przez `-es`.",
+        "Wskazówka: `many` sygnalizuje, że po luce potrzebna jest liczba mnoga."
+      ],
+      "explanations": {
+        "a1": {
+          "tomatoes": "`tomatoes` jest poprawne, bo `tomato` tworzy liczbę mnogą przez `-es`.",
+          "tomatos": "`tomatos` jest niepoprawne, bo ten rzeczownik zwykle potrzebuje `-es`, a nie samego `-s`.",
+          "tomato": "`tomato` jest niepoprawne, bo to liczba pojedyncza, a zdanie wymaga liczby mnogiej."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "hints": [
+        "Zasada: niektóre rzeczowniki na `-o` są wyjątkami i w liczbie mnogiej przyjmują zwykłe `-s`.",
+        "Wskazówka: `several` pokazuje liczbę mnogą, ale to słowo nie należy do grupy z `-es`."
+      ],
+      "explanations": {
+        "a1": {
+          "photoes": "`photoes` jest niepoprawne, bo `photo` jest wyjątkiem i nie przyjmuje `-es`.",
+          "photos": "`photos` jest poprawne, bo `photo` tworzy liczbę mnogą przez zwykłe `-s`.",
+          "photo": "`photo` jest niepoprawne, bo to liczba pojedyncza. Tutaj potrzebna jest liczba mnoga."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "hints": [
+        "Zasada: niektóre rzeczowniki mają taką samą formę w liczbie pojedynczej i mnogiej.",
+        "Wskazówka: `six` wyraźnie pokazuje znaczenie mnogie, ale kształt tego rzeczownika się nie zmienia."
+      ],
+      "explanations": {
+        "a1": {
+          "deers": "`deers` jest niepoprawne, bo ten rzeczownik nie przyjmuje `-s` w liczbie mnogiej.",
+          "deer": "`deer` jest poprawne, bo ten rzeczownik ma tę samą formę w liczbie pojedynczej i mnogiej.",
+          "deeres": "`deeres` jest niepoprawne, bo ten rzeczownik nie tworzy liczby mnogiej przez `-es`."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "hints": [
+        "Zasada: niektóre rzeczowniki są niepoliczalne i nie używają zwykłej liczby mnogiej ani `a/an`.",
+        "Wskazówka: `useful ... before the exam` odnosi się do ogólnych porad, a nie do osobnych policzalnych elementów."
+      ],
+      "explanations": {
+        "a1": {
+          "advices": "`advices` jest niepoprawne, bo `advice` w tym znaczeniu jest zwykle niepoliczalne.",
+          "advice": "`advice` jest poprawne, bo ten rzeczownik pozostaje tutaj niepoliczalny i nie potrzebuje końcówki liczby mnogiej.",
+          "an advice": "`an advice` jest niepoprawne, bo ten rzeczownik w tym zdaniu jest niepoliczalny i nie łączy się z `an`."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "hints": [
+        "Zasada: podmiot w liczbie mnogiej wymaga orzeczenia w liczbie mnogiej.",
+        "Wskazówka: rzeczownikiem nadrzędnym w podmiocie jest `figures`, więc czasownik musi zgadzać się z liczbą mnogą."
+      ],
+      "explanations": {
+        "a1": {
+          "is": "`is` jest niepoprawne, bo zgadza się z liczbą pojedynczą, a `figures` jest w liczbie mnogiej.",
+          "are": "`are` jest poprawne, bo zgadza się z podmiotem mnogim `The latest figures`.",
+          "be": "`be` jest niepoprawne, bo zdanie wymaga osobowej formy czasownika, a nie formy podstawowej."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "hints": [
+        "Zasada: niektóre rzeczowniki formalne używają klasycznej liczby mnogiej pochodzenia greckiego lub łacińskiego.",
+        "Wskazówka: `were published` pokazuje, że w luce potrzebna jest liczba mnoga."
+      ],
+      "explanations": {
+        "a1": {
+          "criterions": "`criterions` nie jest tu oczekiwaną formą w tym formalnym kontekście. Ćwiczenie sprawdza klasyczną liczbę mnogą.",
+          "criteria": "`criteria` jest poprawne, bo to oczekiwana liczba mnoga od `criterion` w formalnym użyciu.",
+          "criterion": "`criterion` jest niepoprawne, bo to liczba pojedyncza, a zdanie wymaga liczby mnogiej."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "hints": [
+        "Zasada: niektóre rzeczowniki występują zwykle tylko w formie liczby mnogiej.",
+        "Wskazówka: czasownik `make` i fraza `of the village` pokazują, że chodzi o otoczenie wyrażone rzeczownikiem w formie mnogiej."
+      ],
+      "explanations": {
+        "a1": {
+          "surrounding": "`surrounding` jest niepoprawne, bo to zdanie potrzebuje rzeczownika oznaczającego otoczenie w ustalonej formie mnogiej.",
+          "surroundings": "`surroundings` jest poprawne, bo to znaczenie zwykle wyraża się rzeczownikiem w formie mnogiej.",
+          "surroundingses": "`surroundingses` jest niepoprawne, bo `surroundings` jest już potrzebną formą mnogą."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "hints": [
+        "Zasada: nie każdy rzeczownik zakończony na `-f` przechodzi w `-ves`; niektóre są wyjątkami i przyjmują zwykłe `-s`.",
+        "Wskazówka: `were repaired` pokazuje, że rzeczownik po luce musi być w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a1": {
+          "rooves": "`rooves` jest niepoprawne, bo `roof` jest wyjątkiem i tutaj nie zmienia się na `-ves`.",
+          "roofs": "`roofs` jest poprawne, bo `roof` tworzy liczbę mnogą przez zwykłe `-s`.",
+          "roofes": "`roofes` jest niepoprawne, bo ten rzeczownik nie przyjmuje `-es` w liczbie mnogiej."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "hints": [
+        "Zasada: niektóre rzeczowniki formalne używają klasycznej liczby mnogiej pochodzenia greckiego lub łacińskiego.",
+        "Wskazówka: `several social` pokazuje, że po luce potrzebny jest rzeczownik w liczbie mnogiej."
+      ],
+      "explanations": {
+        "a1": {
+          "phenomena": "`phenomena` jest poprawne, bo to klasyczna liczba mnoga od `phenomenon`.",
+          "phenomenon": "`phenomenon` jest niepoprawne, bo to liczba pojedyncza, a zdanie wymaga liczby mnogiej.",
+          "phenomenons": "`phenomenons` jest niepoprawne w tym formalnym kontekście, bo ćwiczenie oczekuje klasycznej formy liczby mnogiej."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "hints": [
+        "Zasada: niektóre rzeczowniki zakończone na `-is` zmieniają się w liczbie mnogiej na `-es`.",
+        "Wskazówka: kontekst badawczy i czasownik `repeated` sugerują więcej niż jedną analizę."
+      ],
+      "explanations": {
+        "a1": {
+          "analysis": "`analysis` jest niepoprawne, bo to liczba pojedyncza. Zdanie odnosi się do więcej niż jednej analizy.",
+          "analyses": "`analyses` jest poprawne, bo `analysis` zmienia w liczbie mnogiej `-is` na `-es`.",
+          "analysises": "`analysises` jest niepoprawne, bo ten rzeczownik nie tworzy liczby mnogiej przez dodanie `-es` do całego wyrazu."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "hints": [
+        "Zasada: czasem wybór liczby mnogiej zależy od znaczenia, a nie tylko od ilości.",
+        "Wskazówka: `many indigenous ... of the region` odnosi się do odrębnych narodów lub grup etnicznych, a nie po prostu do ludzi ogólnie."
+      ],
+      "explanations": {
+        "a1": {
+          "people": "`people` jest tutaj niepoprawne, bo zdanie mówi o odrębnych narodach lub grupach etnicznych.",
+          "peoples": "`peoples` jest poprawne, bo to znaczenie odnosi się do różnych ludów lub społeczności.",
+          "peopleses": "`peopleses` jest niepoprawne, bo `peoples` jest już wymaganą formą mnogą dla tego znaczenia."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "hints": [
+        "Zasada zgody: `trousers` zachowuje się jak rzeczownik w liczbie mnogiej, ale `pair` wymusza czasownik w liczbie pojedynczej.",
+        "Wskazówka: porównaj podmioty `These trousers` i `that pair by the mirror`; każdy z nich wymaga innej formy czasownika."
+      ],
+      "explanations": {
+        "a1": {
+          "is": "`is` jest niepoprawne w pierwszej luce, bo `These trousers` wymaga czasownika w liczbie mnogiej.",
+          "are": "`are` jest poprawne w pierwszej luce, bo `These trousers` traktujemy jak podmiot w liczbie mnogiej.",
+          "am": "`am` jest niepoprawne, bo używa się go tylko z `I`."
+        },
+        "a2": {
+          "is": "`is` jest poprawne w drugiej luce, bo podmiotem jest `that pair`, czyli liczba pojedyncza.",
+          "are": "`are` jest niepoprawne w drugiej luce, bo czasownik musi zgadzać się z `pair`, a nie z nazwą ubrania w środku frazy.",
+          "be": "`be` jest niepoprawne, bo zdanie potrzebuje osobowej formy czasownika, a nie formy podstawowej."
+        }
+      }
+    }
+  ]
+}

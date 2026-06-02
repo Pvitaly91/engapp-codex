@@ -1,0 +1,2915 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\DemonstrativesThisThatTheseThoseAllLevelsV3Seeder",
+        "uuid_namespace": "DemonstrativesThisThatTheseThoseAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "theory_page_demonstratives_this_that_these_those": {
+            "name": "Demonstratives This That These Those"
+        }
+    },
+    "tags": {
+        "demonstratives_this_that_these_those": {
+            "name": "Demonstratives This That These Those",
+            "category": "pronouns_demonstratives"
+        },
+        "this_near_singular": {
+            "name": "This Near Singular",
+            "category": "topic"
+        },
+        "that_far_singular": {
+            "name": "That Far Singular",
+            "category": "topic"
+        },
+        "these_near_plural": {
+            "name": "These Near Plural",
+            "category": "topic"
+        },
+        "those_far_plural": {
+            "name": "Those Far Plural",
+            "category": "topic"
+        },
+        "demonstrative_adjective": {
+            "name": "Demonstrative Adjective",
+            "category": "topic"
+        },
+        "demonstrative_pronoun": {
+            "name": "Demonstrative Pronoun",
+            "category": "topic"
+        },
+        "time_situation_use": {
+            "name": "Time Situation Use",
+            "category": "topic"
+        },
+        "plural_noun_agreement": {
+            "name": "Plural Noun Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "demonstratives_this_that_these_those"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "dtt-v3-a1-01",
+            "question": "{a1} pen in my hand is blue today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for this near singular.",
+                    "gap_tags": [
+                        "this_near_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_near_singular"
+            ],
+            "variants": [
+                "{a1} pen in my hand is blue today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 2,
+            "uuid": "dtt-v3-a1-02",
+            "question": "{a1} tower over there is old today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for that far singular.",
+                    "gap_tags": [
+                        "that_far_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_far_singular"
+            ],
+            "variants": [
+                "{a1} tower over there is old today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 3,
+            "uuid": "dtt-v3-a1-03",
+            "question": "{a1} files on my desk are ready today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "options": [
+                        "These",
+                        "This",
+                        "That",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for these near plural.",
+                    "gap_tags": [
+                        "these_near_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_near_plural"
+            ],
+            "variants": [
+                "{a1} files on my desk are ready today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 4,
+            "uuid": "dtt-v3-a1-04",
+            "question": "{a1} mountains in the distance are high today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for those far plural.",
+                    "gap_tags": [
+                        "those_far_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "those_far_plural"
+            ],
+            "variants": [
+                "{a1} mountains in the distance are high today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 5,
+            "uuid": "dtt-v3-a1-05",
+            "question": "{a1} document needs your signature today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} document needs your signature today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 6,
+            "uuid": "dtt-v3-a1-06",
+            "question": "{a1} chairs near the door are free today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} chairs near the door are free today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 7,
+            "uuid": "dtt-v3-a1-07",
+            "question": "{a1} is important today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} is important today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 8,
+            "uuid": "dtt-v3-a1-08",
+            "question": "{a1} was unexpected today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} was unexpected today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 9,
+            "uuid": "dtt-v3-a1-09",
+            "question": "I like {a1} idea today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I like {a1} idea today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 10,
+            "uuid": "dtt-v3-a1-10",
+            "question": "I remember {a1} day clearly today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I remember {a1} day clearly today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 11,
+            "uuid": "dtt-v3-a1-11",
+            "question": "Are {a1} shoes too small today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "these",
+                    "options": [
+                        "these",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for plural noun agreement.",
+                    "gap_tags": [
+                        "plural_noun_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_noun_agreement"
+            ],
+            "variants": [
+                "Are {a1} shoes too small today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 12,
+            "uuid": "dtt-v3-a1-12",
+            "question": "Look at {a1} stars far away today",
+            "level": "A1",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Look at {a1} stars far away today"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 13,
+            "uuid": "dtt-v3-a2-01",
+            "question": "{a1} pen in my hand is blue at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for this near singular.",
+                    "gap_tags": [
+                        "this_near_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_near_singular"
+            ],
+            "variants": [
+                "{a1} pen in my hand is blue at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 14,
+            "uuid": "dtt-v3-a2-02",
+            "question": "{a1} tower over there is old at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for that far singular.",
+                    "gap_tags": [
+                        "that_far_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_far_singular"
+            ],
+            "variants": [
+                "{a1} tower over there is old at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 15,
+            "uuid": "dtt-v3-a2-03",
+            "question": "{a1} files on my desk are ready at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "options": [
+                        "These",
+                        "This",
+                        "That",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for these near plural.",
+                    "gap_tags": [
+                        "these_near_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_near_plural"
+            ],
+            "variants": [
+                "{a1} files on my desk are ready at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 16,
+            "uuid": "dtt-v3-a2-04",
+            "question": "{a1} mountains in the distance are high at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for those far plural.",
+                    "gap_tags": [
+                        "those_far_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "those_far_plural"
+            ],
+            "variants": [
+                "{a1} mountains in the distance are high at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 17,
+            "uuid": "dtt-v3-a2-05",
+            "question": "{a1} document needs your signature at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} document needs your signature at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 18,
+            "uuid": "dtt-v3-a2-06",
+            "question": "{a1} chairs near the door are free at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} chairs near the door are free at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 19,
+            "uuid": "dtt-v3-a2-07",
+            "question": "{a1} is important at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} is important at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 20,
+            "uuid": "dtt-v3-a2-08",
+            "question": "{a1} was unexpected at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} was unexpected at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 21,
+            "uuid": "dtt-v3-a2-09",
+            "question": "I like {a1} idea at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I like {a1} idea at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 22,
+            "uuid": "dtt-v3-a2-10",
+            "question": "I remember {a1} day clearly at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I remember {a1} day clearly at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 23,
+            "uuid": "dtt-v3-a2-11",
+            "question": "Are {a1} shoes too small at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "these",
+                    "options": [
+                        "these",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for plural noun agreement.",
+                    "gap_tags": [
+                        "plural_noun_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_noun_agreement"
+            ],
+            "variants": [
+                "Are {a1} shoes too small at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 24,
+            "uuid": "dtt-v3-a2-12",
+            "question": "Look at {a1} stars far away at school",
+            "level": "A2",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Look at {a1} stars far away at school"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 25,
+            "uuid": "dtt-v3-b1-01",
+            "question": "{a1} pen in my hand is blue during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for this near singular.",
+                    "gap_tags": [
+                        "this_near_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_near_singular"
+            ],
+            "variants": [
+                "{a1} pen in my hand is blue during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 26,
+            "uuid": "dtt-v3-b1-02",
+            "question": "{a1} tower over there is old during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for that far singular.",
+                    "gap_tags": [
+                        "that_far_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_far_singular"
+            ],
+            "variants": [
+                "{a1} tower over there is old during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 27,
+            "uuid": "dtt-v3-b1-03",
+            "question": "{a1} files on my desk are ready during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "options": [
+                        "These",
+                        "This",
+                        "That",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for these near plural.",
+                    "gap_tags": [
+                        "these_near_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_near_plural"
+            ],
+            "variants": [
+                "{a1} files on my desk are ready during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 28,
+            "uuid": "dtt-v3-b1-04",
+            "question": "{a1} mountains in the distance are high during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for those far plural.",
+                    "gap_tags": [
+                        "those_far_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "those_far_plural"
+            ],
+            "variants": [
+                "{a1} mountains in the distance are high during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 29,
+            "uuid": "dtt-v3-b1-05",
+            "question": "{a1} document needs your signature during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} document needs your signature during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 30,
+            "uuid": "dtt-v3-b1-06",
+            "question": "{a1} chairs near the door are free during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} chairs near the door are free during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 31,
+            "uuid": "dtt-v3-b1-07",
+            "question": "{a1} is important during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} is important during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 32,
+            "uuid": "dtt-v3-b1-08",
+            "question": "{a1} was unexpected during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} was unexpected during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 33,
+            "uuid": "dtt-v3-b1-09",
+            "question": "I like {a1} idea during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I like {a1} idea during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 34,
+            "uuid": "dtt-v3-b1-10",
+            "question": "I remember {a1} day clearly during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I remember {a1} day clearly during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 35,
+            "uuid": "dtt-v3-b1-11",
+            "question": "Are {a1} shoes too small during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "these",
+                    "options": [
+                        "these",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for plural noun agreement.",
+                    "gap_tags": [
+                        "plural_noun_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_noun_agreement"
+            ],
+            "variants": [
+                "Are {a1} shoes too small during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 36,
+            "uuid": "dtt-v3-b1-12",
+            "question": "Look at {a1} stars far away during the lesson",
+            "level": "B1",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Look at {a1} stars far away during the lesson"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 37,
+            "uuid": "dtt-v3-b2-01",
+            "question": "{a1} pen in my hand is blue at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for this near singular.",
+                    "gap_tags": [
+                        "this_near_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_near_singular"
+            ],
+            "variants": [
+                "{a1} pen in my hand is blue at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 38,
+            "uuid": "dtt-v3-b2-02",
+            "question": "{a1} tower over there is old at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for that far singular.",
+                    "gap_tags": [
+                        "that_far_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_far_singular"
+            ],
+            "variants": [
+                "{a1} tower over there is old at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 39,
+            "uuid": "dtt-v3-b2-03",
+            "question": "{a1} files on my desk are ready at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "options": [
+                        "These",
+                        "This",
+                        "That",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for these near plural.",
+                    "gap_tags": [
+                        "these_near_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_near_plural"
+            ],
+            "variants": [
+                "{a1} files on my desk are ready at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 40,
+            "uuid": "dtt-v3-b2-04",
+            "question": "{a1} mountains in the distance are high at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for those far plural.",
+                    "gap_tags": [
+                        "those_far_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "those_far_plural"
+            ],
+            "variants": [
+                "{a1} mountains in the distance are high at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 41,
+            "uuid": "dtt-v3-b2-05",
+            "question": "{a1} document needs your signature at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} document needs your signature at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 42,
+            "uuid": "dtt-v3-b2-06",
+            "question": "{a1} chairs near the door are free at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} chairs near the door are free at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 43,
+            "uuid": "dtt-v3-b2-07",
+            "question": "{a1} is important at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} is important at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 44,
+            "uuid": "dtt-v3-b2-08",
+            "question": "{a1} was unexpected at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} was unexpected at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 45,
+            "uuid": "dtt-v3-b2-09",
+            "question": "I like {a1} idea at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I like {a1} idea at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 46,
+            "uuid": "dtt-v3-b2-10",
+            "question": "I remember {a1} day clearly at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I remember {a1} day clearly at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 47,
+            "uuid": "dtt-v3-b2-11",
+            "question": "Are {a1} shoes too small at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "these",
+                    "options": [
+                        "these",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for plural noun agreement.",
+                    "gap_tags": [
+                        "plural_noun_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_noun_agreement"
+            ],
+            "variants": [
+                "Are {a1} shoes too small at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 48,
+            "uuid": "dtt-v3-b2-12",
+            "question": "Look at {a1} stars far away at the office",
+            "level": "B2",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Look at {a1} stars far away at the office"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 49,
+            "uuid": "dtt-v3-c1-01",
+            "question": "{a1} pen in my hand is blue during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for this near singular.",
+                    "gap_tags": [
+                        "this_near_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_near_singular"
+            ],
+            "variants": [
+                "{a1} pen in my hand is blue during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 50,
+            "uuid": "dtt-v3-c1-02",
+            "question": "{a1} tower over there is old during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for that far singular.",
+                    "gap_tags": [
+                        "that_far_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_far_singular"
+            ],
+            "variants": [
+                "{a1} tower over there is old during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 51,
+            "uuid": "dtt-v3-c1-03",
+            "question": "{a1} files on my desk are ready during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "options": [
+                        "These",
+                        "This",
+                        "That",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for these near plural.",
+                    "gap_tags": [
+                        "these_near_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_near_plural"
+            ],
+            "variants": [
+                "{a1} files on my desk are ready during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 52,
+            "uuid": "dtt-v3-c1-04",
+            "question": "{a1} mountains in the distance are high during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for those far plural.",
+                    "gap_tags": [
+                        "those_far_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "those_far_plural"
+            ],
+            "variants": [
+                "{a1} mountains in the distance are high during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 53,
+            "uuid": "dtt-v3-c1-05",
+            "question": "{a1} document needs your signature during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} document needs your signature during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 54,
+            "uuid": "dtt-v3-c1-06",
+            "question": "{a1} chairs near the door are free during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} chairs near the door are free during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 55,
+            "uuid": "dtt-v3-c1-07",
+            "question": "{a1} is important during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} is important during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 56,
+            "uuid": "dtt-v3-c1-08",
+            "question": "{a1} was unexpected during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} was unexpected during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 57,
+            "uuid": "dtt-v3-c1-09",
+            "question": "I like {a1} idea during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I like {a1} idea during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 58,
+            "uuid": "dtt-v3-c1-10",
+            "question": "I remember {a1} day clearly during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I remember {a1} day clearly during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 59,
+            "uuid": "dtt-v3-c1-11",
+            "question": "Are {a1} shoes too small during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "these",
+                    "options": [
+                        "these",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for plural noun agreement.",
+                    "gap_tags": [
+                        "plural_noun_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_noun_agreement"
+            ],
+            "variants": [
+                "Are {a1} shoes too small during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 60,
+            "uuid": "dtt-v3-c1-12",
+            "question": "Look at {a1} stars far away during the review",
+            "level": "C1",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Look at {a1} stars far away during the review"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 61,
+            "uuid": "dtt-v3-c2-01",
+            "question": "{a1} pen in my hand is blue after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for this near singular.",
+                    "gap_tags": [
+                        "this_near_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "this_near_singular"
+            ],
+            "variants": [
+                "{a1} pen in my hand is blue after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 62,
+            "uuid": "dtt-v3-c2-02",
+            "question": "{a1} tower over there is old after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for that far singular.",
+                    "gap_tags": [
+                        "that_far_singular"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "that_far_singular"
+            ],
+            "variants": [
+                "{a1} tower over there is old after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 63,
+            "uuid": "dtt-v3-c2-03",
+            "question": "{a1} files on my desk are ready after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "options": [
+                        "These",
+                        "This",
+                        "That",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for these near plural.",
+                    "gap_tags": [
+                        "these_near_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "these_near_plural"
+            ],
+            "variants": [
+                "{a1} files on my desk are ready after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 64,
+            "uuid": "dtt-v3-c2-04",
+            "question": "{a1} mountains in the distance are high after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for those far plural.",
+                    "gap_tags": [
+                        "those_far_plural"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "those_far_plural"
+            ],
+            "variants": [
+                "{a1} mountains in the distance are high after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 65,
+            "uuid": "dtt-v3-c2-05",
+            "question": "{a1} document needs your signature after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} document needs your signature after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 66,
+            "uuid": "dtt-v3-c2-06",
+            "question": "{a1} chairs near the door are free after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "options": [
+                        "Those",
+                        "This",
+                        "That",
+                        "These",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative adjective.",
+                    "gap_tags": [
+                        "demonstrative_adjective"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_adjective"
+            ],
+            "variants": [
+                "{a1} chairs near the door are free after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 67,
+            "uuid": "dtt-v3-c2-07",
+            "question": "{a1} is important after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} is important after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 68,
+            "uuid": "dtt-v3-c2-08",
+            "question": "{a1} was unexpected after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "This",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for demonstrative pronoun.",
+                    "gap_tags": [
+                        "demonstrative_pronoun"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "demonstrative_pronoun"
+            ],
+            "variants": [
+                "{a1} was unexpected after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 69,
+            "uuid": "dtt-v3-c2-09",
+            "question": "I like {a1} idea after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "this",
+                    "options": [
+                        "this",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "that",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I like {a1} idea after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 70,
+            "uuid": "dtt-v3-c2-10",
+            "question": "I remember {a1} day clearly after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "these",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for time situation use.",
+                    "gap_tags": [
+                        "time_situation_use"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "time_situation_use"
+            ],
+            "variants": [
+                "I remember {a1} day clearly after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 71,
+            "uuid": "dtt-v3-c2-11",
+            "question": "Are {a1} shoes too small after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "these",
+                    "options": [
+                        "these",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "those",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for plural noun agreement.",
+                    "gap_tags": [
+                        "plural_noun_agreement"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "plural_noun_agreement"
+            ],
+            "variants": [
+                "Are {a1} shoes too small after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        },
+        {
+            "id": 72,
+            "uuid": "dtt-v3-c2-12",
+            "question": "Look at {a1} stars far away after the final discussion",
+            "level": "C2",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "This",
+                        "That",
+                        "These",
+                        "Those",
+                        "this",
+                        "that",
+                        "these",
+                        "it",
+                        "they",
+                        "there",
+                        "here",
+                        "the",
+                        "a"
+                    ],
+                    "verb_hint": "Choose the correct pronoun or demonstrative for typical mistakes.",
+                    "gap_tags": [
+                        "typical_mistakes"
+                    ]
+                }
+            },
+            "tag_keys": [
+                "typical_mistakes"
+            ],
+            "variants": [
+                "Look at {a1} stars far away after the final discussion"
+            ],
+            "source": "theory_page_demonstratives_this_that_these_those"
+        }
+    ],
+    "saved_test": {
+        "uuid": "pd-dtt-v3-all",
+        "slug": "demonstratives-this-that-these-those-all-levels-v3",
+        "name": "Demonstratives This That These Those (All levels V3)",
+        "description": "Standard V3 package for Demonstratives This That These Those across A1-C2.",
+        "question_uuids": [
+            "dtt-v3-a1-01",
+            "dtt-v3-a1-02",
+            "dtt-v3-a1-03",
+            "dtt-v3-a1-04",
+            "dtt-v3-a1-05",
+            "dtt-v3-a1-06",
+            "dtt-v3-a1-07",
+            "dtt-v3-a1-08",
+            "dtt-v3-a1-09",
+            "dtt-v3-a1-10",
+            "dtt-v3-a1-11",
+            "dtt-v3-a1-12",
+            "dtt-v3-a2-01",
+            "dtt-v3-a2-02",
+            "dtt-v3-a2-03",
+            "dtt-v3-a2-04",
+            "dtt-v3-a2-05",
+            "dtt-v3-a2-06",
+            "dtt-v3-a2-07",
+            "dtt-v3-a2-08",
+            "dtt-v3-a2-09",
+            "dtt-v3-a2-10",
+            "dtt-v3-a2-11",
+            "dtt-v3-a2-12",
+            "dtt-v3-b1-01",
+            "dtt-v3-b1-02",
+            "dtt-v3-b1-03",
+            "dtt-v3-b1-04",
+            "dtt-v3-b1-05",
+            "dtt-v3-b1-06",
+            "dtt-v3-b1-07",
+            "dtt-v3-b1-08",
+            "dtt-v3-b1-09",
+            "dtt-v3-b1-10",
+            "dtt-v3-b1-11",
+            "dtt-v3-b1-12",
+            "dtt-v3-b2-01",
+            "dtt-v3-b2-02",
+            "dtt-v3-b2-03",
+            "dtt-v3-b2-04",
+            "dtt-v3-b2-05",
+            "dtt-v3-b2-06",
+            "dtt-v3-b2-07",
+            "dtt-v3-b2-08",
+            "dtt-v3-b2-09",
+            "dtt-v3-b2-10",
+            "dtt-v3-b2-11",
+            "dtt-v3-b2-12",
+            "dtt-v3-c1-01",
+            "dtt-v3-c1-02",
+            "dtt-v3-c1-03",
+            "dtt-v3-c1-04",
+            "dtt-v3-c1-05",
+            "dtt-v3-c1-06",
+            "dtt-v3-c1-07",
+            "dtt-v3-c1-08",
+            "dtt-v3-c1-09",
+            "dtt-v3-c1-10",
+            "dtt-v3-c1-11",
+            "dtt-v3-c1-12",
+            "dtt-v3-c2-01",
+            "dtt-v3-c2-02",
+            "dtt-v3-c2-03",
+            "dtt-v3-c2-04",
+            "dtt-v3-c2-05",
+            "dtt-v3-c2-06",
+            "dtt-v3-c2-07",
+            "dtt-v3-c2-08",
+            "dtt-v3-c2-09",
+            "dtt-v3-c2-10",
+            "dtt-v3-c2-11",
+            "dtt-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\PronounsDemonstratives\\DemonstrativesThisThatTheseThoseAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "demonstratives-this-that-these-those",
+                    "title": "Demonstratives: this / that / these / those",
+                    "category_slug_path": "zaimennyky-ta-vkazivni-slova",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesThisThatTheseThoseTheorySeeder",
+                    "url": "https://gramlyze.com/theory/zaimennyky-ta-vkazivni-slova/demonstratives-this-that-these-those"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1096 @@
+@extends('layouts.catalog-public')
+
+@section('title', __('verbs.title'))
+
+@section('content')
+  <div class="nd-page space-y-6 verbs-page">
+    {{-- Hero Section --}}
+    <section class="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8 shadow-card">
+      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div class="space-y-2">
+          <span class="verb-pill inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700">{{ __('verbs.subtitle') }}</span>
+          <h1 class="text-3xl md:text-4xl font-bold">{{ __('verbs.title') }}</h1>
+          <p class="text-[var(--muted)] max-w-3xl">{{ __('verbs.description') }}</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="flex flex-col gap-4 lg:grid lg:grid-cols-[1.5fr_0.9fr]">
+      <div class="space-y-4 order-2 lg:order-1">
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card">
+          <div class="flex items-center justify-between gap-3 mb-5">
+            <div>
+              <h2 class="text-lg font-semibold">{{ __('verbs.settings') }}</h2>
+              <span class="verb-pill inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 mt-2" id="verbs-count-badge">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                {{ count($verbs) }} {{ __('verbs.verbs_total') }}
+              </span>
+            </div>
+            <button id="settingsToggle" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-brand-500 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+              <span class="h-2 w-2 rounded-full bg-brand-600 shadow-inner"></span>
+              <span id="settingsToggleText" class="uppercase tracking-[0.08em]">{{ __('verbs.settings_hide') }}</span>
+            </button>
+          </div>
+          <div id="settingsBody" class="grid gap-4 md:grid-cols-2">
+            <div class="space-y-3">
+              <p class="text-sm font-semibold text-brand-600">{{ __('verbs.mode') }}</p>
+              <div id="modeButtons" class="grid grid-cols-2 gap-2">
+                <button type="button" data-mode-button value="hard" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_typing') }}</button>
+                <button type="button" data-mode-button value="medium" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_medium') }}</button>
+                <button type="button" data-mode-button value="easy" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.mode_choice') }}</button>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <p class="text-sm font-semibold text-brand-600">{{ __('verbs.ask_what') }}</p>
+              <div id="askButtons" class="grid grid-cols-2 gap-2 md:grid-cols-3">
+                <button type="button" data-ask-button value="random" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_random') }}</button>
+                <button type="button" data-ask-button value="f1" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f1') }}</button>
+                <button type="button" data-ask-button value="f2" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f2') }}</button>
+                <button type="button" data-ask-button value="f3" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f3') }}</button>
+                <button type="button" data-ask-button value="f4" class="verb-toggle-button w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">{{ __('verbs.ask_f4') }}</button>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-brand-50/50 px-4 py-3">
+              <input id="showUk" type="checkbox" class="h-4 w-4 rounded border-[var(--border)] text-brand-600 focus:ring-brand-500" />
+              <label for="showUk" class="text-sm font-semibold">{{ __('verbs.show_translation') }}</label>
+            </div>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <button id="startBtn" class="verb-button-primary inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              {{ __('verbs.start') }}
+            </button>
+            <button id="restartBtn" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+              {{ __('verbs.restart') }}
+            </button>
+          </div>
+        </div>
+
+        <div id="questionCard" class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card space-y-4 hidden">
+          <div class="flex items-center justify-between gap-3">
+            <div class="space-y-2">
+              <p class="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">{{ __('verbs.question') }}</p>
+              <span id="askLabel" class="verb-pill inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1.5 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200"></span>
+            </div>
+            <div class="text-sm text-[var(--muted)]">
+              <span id="progressText">0 / 0</span>
+            </div>
+          </div>
+
+          <div class="space-y-3 rounded-xl border border-[var(--border)] bg-brand-50/30 px-4 py-4">
+            <p class="text-sm text-brand-600 font-semibold">{{ __('verbs.answer_for') }}</p>
+            <div class="flex flex-col gap-1">
+              <div id="baseVerb" class="text-3xl font-bold text-brand-900">—</div>
+              <div id="ukVerb" class="text-sm text-[var(--muted)]"></div>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 shadow-sm">
+            <p class="text-xs uppercase tracking-[0.12em] text-brand-600 font-semibold">{{ __('verbs.hint') }}</p>
+            <p id="hint" class="mt-1 text-sm"></p>
+          </div>
+
+          <div id="typingBox" class="space-y-3">
+            <label for="answerInput" class="text-sm font-semibold text-brand-600">{{ __('verbs.type_answer') }}</label>
+            <input id="answerInput" type="text" autocomplete="off" class="w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-lg font-semibold shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100" />
+            <div id="suggestionsBox" class="hidden rounded-xl border border-[var(--border)] bg-brand-50/50 p-2 text-sm space-y-1"></div>
+          </div>
+
+          <div id="choiceBox" class="grid gap-3 md:grid-cols-2"></div>
+
+          <div id="controlButtons" class="flex flex-wrap items-center gap-3">
+            <button id="checkBtn" class="verb-button-primary inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              {{ __('verbs.check') }}
+            </button>
+            <button id="revealBtn" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              {{ __('verbs.reveal') }}
+            </button>
+            <button id="nextBtn" class="verb-button-secondary inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow hover:border-brand-500">
+              {{ __('verbs.next') }}
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </button>
+          </div>
+
+          <div id="feedback" class="text-sm font-semibold text-muted-foreground"></div>
+
+          <div id="doneBox" class="hidden rounded-xl border border-border/70 bg-muted/50 px-4 py-3 text-sm font-semibold text-foreground">
+            <p id="doneText"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4 order-1 lg:order-2">
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-card sticky top-2 z-20 lg:static">
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-sm font-semibold text-brand-600">{{ __('verbs.progress') }}</p>
+            <span id="progressPercent" class="text-sm font-semibold text-brand-700">0%</span>
+          </div>
+          <div class="h-3 rounded-full bg-[var(--muted)]/20">
+            <div id="progressBar" class="h-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-500 shadow-sm" style="width:0%"></div>
+          </div>
+          <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+            <div class="rounded-xl bg-brand-50 px-3 py-3 text-brand-700 border border-brand-200">
+              <dt class="font-semibold">{{ __('verbs.correct') }}</dt>
+              <dd id="correct" class="text-xl font-bold mt-1">0</dd>
+            </div>
+            <div class="rounded-xl bg-rose-50 px-3 py-3 text-rose-700 border border-rose-200">
+              <dt class="font-semibold">{{ __('verbs.wrong') }}</dt>
+              <dd id="wrong" class="text-xl font-bold mt-1">0</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-brand-50 to-white p-5 shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <svg class="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <p class="font-semibold text-brand-900">{{ __('verbs.how_it_works') }}</p>
+          </div>
+          <ul class="space-y-2 text-sm text-brand-700">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>{{ __('verbs.tip_start') }}</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>{{ __('verbs.tip_modes') }}</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>{{ __('verbs.tip_storage') }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="failureModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-background/80 backdrop-blur-sm animate-fade"></div>
+    <div class="relative mx-4 w-full max-w-md rounded-2xl border border-destructive/40 bg-card p-6 shadow-2xl space-y-3 animate-bounce-in">
+      <div class="flex items-start gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-red-600 dark:bg-red-500/15 dark:text-red-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4m0 4h.01M4.93 4.93l14.14 14.14"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div class="space-y-2">
+          <p class="text-sm font-semibold text-red-600 dark:text-red-200">{{ __('verbs.failed_title') }}</p>
+          <p class="text-muted-foreground">{{ __('verbs.failed_message') }}</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button id="retryBtn" class="verb-button-primary inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition hover:-translate-y-0.5 hover:shadow">
+          {{ __('verbs.restart') }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .verbs-page > section:first-child {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 1.9rem;
+      padding: 1.75rem;
+      background:
+        radial-gradient(circle at top right, rgba(245, 155, 47, 0.12), transparent 24%),
+        radial-gradient(circle at top left, rgba(47, 103, 177, 0.10), transparent 22%),
+        var(--surface-strong);
+      box-shadow: 0 12px 28px rgba(17, 38, 63, 0.10);
+    }
+
+    .verbs-page > section:first-child h1,
+    .verbs-page h2 {
+      font-family: Archivo, sans-serif;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .verb-pill {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      background: var(--accent-soft) !important;
+      color: var(--accent) !important;
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+    }
+
+    .verb-button-primary {
+      background: var(--accent) !important;
+      color: #fff !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 16px 32px rgba(47, 103, 177, 0.22);
+    }
+
+    .verb-button-primary:hover {
+      background: #245592 !important;
+    }
+
+    .verb-button-secondary,
+    .verb-toggle-button {
+      border-color: var(--line) !important;
+      background: var(--surface-strong) !important;
+      color: var(--text) !important;
+    }
+
+    .verb-toggle-button.active {
+      background: var(--accent-soft) !important;
+      color: var(--accent) !important;
+      border-color: color-mix(in srgb, var(--accent) 38%, var(--line)) !important;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+
+    #questionCard,
+    #failureModal .relative,
+    .verbs-page > div > div:first-child > div:first-child,
+    .verbs-page > div > div:nth-child(2) > div {
+      border-color: var(--line) !important;
+      background: var(--surface-strong) !important;
+      box-shadow: 0 12px 28px rgba(17, 38, 63, 0.10) !important;
+    }
+
+    #questionCard > div:nth-child(2),
+    #questionCard > .rounded-xl,
+    #questionCard #typingBox,
+    #questionCard #suggestionsBox,
+    #settingsBody > div,
+    #doneBox {
+      border-color: var(--line) !important;
+      background: var(--surface) !important;
+    }
+
+    #questionCard #baseVerb {
+      font-family: Archivo, sans-serif;
+      font-weight: 800;
+      color: var(--text) !important;
+    }
+
+    #questionCard #answerInput {
+      border-color: var(--line) !important;
+      background: var(--surface-strong) !important;
+      color: var(--text) !important;
+      box-shadow: 0 10px 24px rgba(17, 38, 63, 0.08);
+    }
+
+    #questionCard #answerInput:focus {
+      border-color: color-mix(in srgb, var(--accent) 44%, var(--line)) !important;
+      box-shadow: 0 0 0 4px rgba(47, 103, 177, 0.12);
+    }
+
+    .verb-feedback-positive { color: #166534 !important; }
+    .verb-feedback-negative { color: #b91c1c !important; }
+    .dark .verb-feedback-positive { color: #bbf7d0 !important; }
+    .dark .verb-feedback-negative { color: #fecaca !important; }
+
+    .verb-choice-button {
+      border-color: var(--line) !important;
+      background: var(--surface) !important;
+      color: var(--text) !important;
+      box-shadow: 0 12px 28px rgba(17, 38, 63, 0.08);
+    }
+
+    .verb-choice-correct {
+      border-color: rgba(22, 163, 74, 0.35) !important;
+      background: linear-gradient(135deg, rgba(22, 163, 74, 0.12), rgba(22, 163, 74, 0.04)) !important;
+      color: #166534 !important;
+    }
+
+    .verb-choice-wrong {
+      border-color: rgba(220, 38, 38, 0.35) !important;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(220, 38, 38, 0.04)) !important;
+      color: #b91c1c !important;
+    }
+
+    .dark .verb-choice-correct { color: #bbf7d0 !important; }
+    .dark .verb-choice-wrong { color: #fecaca !important; }
+
+    #failureModal > .absolute {
+      background: radial-gradient(circle at center, rgba(15, 23, 42, 0.16), rgba(15, 23, 42, 0.58));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    @keyframes fade-in-soft {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes bounce-in {
+      0% { transform: scale(0.96); opacity: 0; }
+      60% { transform: scale(1.03); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .animate-fade { animation: fade-in-soft 200ms ease; }
+    .animate-bounce-in { animation: bounce-in 260ms ease; }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+    .shake {
+      animation: shake 0.35s ease;
+    }
+  </style>
+
+  <script>
+    window.__VERBS__ = @json($verbs);
+    @php
+      $verbsI18n = [
+          'form1' => __('verbs.form_label', ['number' => 1]),
+          'form2' => __('verbs.form_label', ['number' => 2]),
+          'form3' => __('verbs.form_label', ['number' => 3]),
+          'form4' => __('verbs.form_label', ['number' => 4]),
+          'askLabel' => __('verbs.ask_label', ['form' => ':form']),
+          'startNeeded' => __('verbs.start_needed'),
+          'completed' => __('verbs.completed'),
+          'progressRestored' => __('verbs.progress_restored'),
+          'revealed' => __('verbs.revealed', ['answer' => ':answer']),
+          'correctAnswer' => __('verbs.correct_answer'),
+          'wrongAnswer' => __('verbs.wrong_answer'),
+          'noVerbs' => __('verbs.no_verbs'),
+          'done' => __('verbs.done'),
+          'result' => __('verbs.result'),
+          'answerFor' => __('verbs.answer_for'),
+          'settings_show' => __('verbs.settings_show'),
+          'settings_hide' => __('verbs.settings_hide'),
+      ];
+    @endphp
+    window.__VERBS_I18N__ = @json($verbsI18n);
+  </script>
+  <script>
+    (function () {
+      const verbs = Array.isArray(window.__VERBS__) ? window.__VERBS__ : [];
+      const i18n = window.__VERBS_I18N__ || {};
+      const storageKey = 'verbs_test_state_v1';
+      const signature = createSignature(verbs);
+      const choiceSuccessClasses = ['verb-choice-correct'];
+      const choiceErrorClasses = ['verb-choice-wrong'];
+      const suggestionsByForm = buildSuggestionsByForm(verbs);
+      const maxMistakes = 3;
+
+      const els = {
+          startBtn: document.getElementById('startBtn'),
+          restartBtn: document.getElementById('restartBtn'),
+          checkBtn: document.getElementById('checkBtn'),
+          revealBtn: document.getElementById('revealBtn'),
+          nextBtn: document.getElementById('nextBtn'),
+          controlButtons: document.getElementById('controlButtons'),
+          modeButtons: document.querySelectorAll('[data-mode-button]'),
+          askButtons: document.querySelectorAll('[data-ask-button]'),
+          showUk: document.getElementById('showUk'),
+          settingsToggle: document.getElementById('settingsToggle'),
+          settingsToggleText: document.getElementById('settingsToggleText'),
+          settingsBody: document.getElementById('settingsBody'),
+          baseVerb: document.getElementById('baseVerb'),
+          ukVerb: document.getElementById('ukVerb'),
+          askLabel: document.getElementById('askLabel'),
+          hint: document.getElementById('hint'),
+          typingBox: document.getElementById('typingBox'),
+          choiceBox: document.getElementById('choiceBox'),
+          answerInput: document.getElementById('answerInput'),
+          suggestionsBox: document.getElementById('suggestionsBox'),
+          progressText: document.getElementById('progressText'),
+          progressBar: document.getElementById('progressBar'),
+          progressPercent: document.getElementById('progressPercent'),
+          correct: document.getElementById('correct'),
+          wrong: document.getElementById('wrong'),
+          feedback: document.getElementById('feedback'),
+          doneBox: document.getElementById('doneBox'),
+          doneText: document.getElementById('doneText'),
+          questionCard: document.getElementById('questionCard'),
+          failureModal: document.getElementById('failureModal'),
+          retryBtn: document.getElementById('retryBtn'),
+      };
+
+      const defaultState = () => ({
+          settings: {
+              mode: 'hard',
+              askWhat: 'random',
+              showTranslation: false,
+              settingsCollapsed: false,
+          },
+          queue: [],
+          pos: 0,
+          correct: 0,
+          wrong: 0,
+          failed: false,
+          current: null,
+          signature,
+      });
+
+      let state = defaultState();
+
+      function buildSuggestionsByForm(list) {
+          const map = { f1: new Set(), f2: new Set(), f3: new Set(), f4: new Set() };
+          list.forEach((verb) => {
+              if (verb.f1) map.f1.add(verb.f1);
+              (verb.f2 || []).forEach((v) => map.f2.add(v));
+              (verb.f3 || []).forEach((v) => map.f3.add(v));
+              if (verb.f4) map.f4.add(verb.f4);
+          });
+          return {
+              f1: Array.from(map.f1),
+              f2: Array.from(map.f2),
+              f3: Array.from(map.f3),
+              f4: Array.from(map.f4),
+          };
+      }
+
+      function createSignature(list) {
+          return list
+              .map((verb) => {
+                  const f2 = Array.isArray(verb.f2) ? verb.f2.join(',') : '';
+                  const f3 = Array.isArray(verb.f3) ? verb.f3.join(',') : '';
+                  return `${verb.base}|${verb.translation}|${verb.f1}|${verb.f4}|${f2}|${f3}`;
+              })
+              .join(';');
+      }
+
+      function normalize(str) {
+          return (str || '').toString().trim().toLowerCase();
+      }
+
+      function shuffle(array) {
+          const arr = [...array];
+          for (let i = arr.length - 1; i > 0; i -= 1) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [arr[i], arr[j]] = [arr[j], arr[i]];
+          }
+          return arr;
+      }
+
+      function saveState() {
+          if (!window.localStorage) return;
+          const payload = {
+              ...state,
+              current: state.current
+                  ? {
+                      ...state.current,
+                      answers: Array.isArray(state.current.answers) ? [...state.current.answers] : [],
+                      answersRaw: Array.isArray(state.current.answersRaw) ? [...state.current.answersRaw] : [],
+                      options: Array.isArray(state.current.options) ? [...state.current.options] : [],
+                      selected: state.current.selected || null,
+                  }
+                  : null,
+          };
+          window.localStorage.setItem(storageKey, JSON.stringify(payload));
+      }
+
+      function loadState() {
+          if (!window.localStorage) return null;
+          const raw = window.localStorage.getItem(storageKey);
+          if (!raw) return null;
+          try {
+              const parsed = JSON.parse(raw);
+              if (parsed.signature !== signature) return null;
+              if (!Array.isArray(parsed.queue) || !parsed.queue.length) return null;
+              const cleanedQueue = parsed.queue.filter((i) => Number.isInteger(i) && i >= 0 && i < verbs.length);
+              if (!cleanedQueue.length) return null;
+              const settings = {
+                  ...defaultState().settings,
+                  ...(parsed.settings || {}),
+              };
+              const current = parsed.current && typeof parsed.current === 'object'
+                  ? {
+                      verbIndex: parsed.current.verbIndex,
+                      askKey: parsed.current.askKey,
+                      answers: Array.isArray(parsed.current.answers) ? parsed.current.answers : [],
+                      answersRaw: Array.isArray(parsed.current.answersRaw) ? parsed.current.answersRaw : [],
+                      answered: Boolean(parsed.current.answered),
+                      wasCorrect: Boolean(parsed.current.wasCorrect),
+                      options: Array.isArray(parsed.current.options) ? parsed.current.options : [],
+                      selected: parsed.current.selected || null,
+                  }
+                  : null;
+
+              return {
+                  ...defaultState(),
+                  ...parsed,
+                  settings,
+                  queue: cleanedQueue,
+                  pos: Math.min(Math.max(parsed.pos || 0, 0), cleanedQueue.length),
+                  current,
+                  signature,
+              };
+          } catch (e) {
+              return null;
+          }
+      }
+
+      function readSettingsFromControls() {
+          const modeButton = Array.from(els.modeButtons || []).find((btn) => btn.classList.contains('active'));
+          const askButton = Array.from(els.askButtons || []).find((btn) => btn.classList.contains('active'));
+          return {
+              mode: modeButton?.value || 'hard',
+              askWhat: askButton?.value || 'random',
+              showTranslation: Boolean(els.showUk?.checked),
+              settingsCollapsed: state.settings?.settingsCollapsed ?? false,
+          };
+      }
+
+      function applySettingsToControls(settings) {
+          Array.from(els.modeButtons || []).forEach((btn) => {
+              const isActive = btn.value === settings.mode;
+              btn.classList.toggle('active', isActive);
+          });
+          Array.from(els.askButtons || []).forEach((btn) => {
+              const isActive = btn.value === settings.askWhat;
+              btn.classList.toggle('active', isActive);
+          });
+          if (els.showUk) els.showUk.checked = settings.showTranslation;
+          toggleSettingsBody(Boolean(settings.settingsCollapsed));
+      }
+
+      function toggleModeVisibility(mode) {
+          if (!els.typingBox || !els.choiceBox) return;
+          if (mode === 'easy') {
+              els.typingBox.classList.add('hidden');
+              els.choiceBox.classList.remove('hidden');
+              hideSuggestions();
+          } else {
+              els.typingBox.classList.remove('hidden');
+              els.choiceBox.classList.add('hidden');
+              hideSuggestions();
+          }
+          if (els.controlButtons) {
+              els.controlButtons.classList.toggle('hidden', mode === 'easy');
+          }
+      }
+
+      function setFeedback(message, isPositive = false) {
+          if (!els.feedback) return;
+          els.feedback.textContent = message || '';
+          els.feedback.classList.remove('verb-feedback-positive', 'verb-feedback-negative');
+          if (message) {
+              els.feedback.classList.add(isPositive ? 'verb-feedback-positive' : 'verb-feedback-negative');
+          }
+      }
+
+      function updateProgress() {
+          if (!els.progressText || !els.progressBar || !els.progressPercent) return;
+          const total = state.queue.length;
+          const currentIndex = Math.min(state.pos + 1, total);
+          els.progressText.textContent = `${total ? currentIndex : 0} / ${total}`;
+          const percent = total ? Math.round((state.pos / total) * 100) : 0;
+          els.progressBar.style.width = `${percent}%`;
+          els.progressPercent.textContent = `${percent}%`;
+      }
+
+      function updateStats() {
+          if (els.correct) els.correct.textContent = state.correct;
+          if (els.wrong) els.wrong.textContent = state.wrong;
+      }
+
+      function hintForVerb(verb) {
+          if (!verb) return '';
+          const base = Array.isArray(verb.base_forms) && verb.base_forms.length ? verb.base_forms.join(' / ') : verb.base;
+          const f2 = Array.isArray(verb.f2) ? verb.f2.join(' / ') : verb.f2;
+          const f3 = Array.isArray(verb.f3) ? verb.f3.join(' / ') : verb.f3;
+          return `Base: ${base} • f1: ${verb.f1} • f2: ${f2} • f3: ${f3} • f4: ${verb.f4}`;
+      }
+
+      function labelForAskKey(key) {
+          return {
+              f1: i18n.form1 || 'Form 1',
+              f2: i18n.form2 || 'Form 2',
+              f3: i18n.form3 || 'Form 3',
+              f4: i18n.form4 || 'Form 4',
+          }[key] || key;
+      }
+
+      function resolveAskKey() {
+          if (state.settings.askWhat === 'random') {
+              const options = ['f1', 'f2', 'f3', 'f4'];
+              return options[Math.floor(Math.random() * options.length)];
+          }
+          return state.settings.askWhat;
+      }
+
+      function getAnswersForVerb(verb, askKey) {
+          if (!verb) return [];
+          switch (askKey) {
+              case 'f1':
+                  return verb.f1 ? [verb.f1] : [];
+              case 'f2':
+                  return Array.isArray(verb.f2) ? verb.f2 : [];
+              case 'f3':
+                  return Array.isArray(verb.f3) ? verb.f3 : [];
+              case 'f4':
+                  return verb.f4 ? [verb.f4] : [];
+              default:
+                  return [];
+          }
+      }
+
+      function createQueue() {
+          const baseIndexes = verbs.map((_, idx) => idx);
+          return shuffle(baseIndexes);
+      }
+
+      function setTranslationVisibility() {
+          if (!els.ukVerb) return;
+          els.ukVerb.classList.toggle('hidden', !state.settings.showTranslation);
+      }
+
+      function formatAskLabel(askKey) {
+          const formLabel = labelForAskKey(askKey);
+          return (i18n.askLabel || ':form').replace(':form', formLabel);
+      }
+
+      function setDone(message) {
+          state.current = null;
+          if (els.doneBox) els.doneBox.classList.remove('hidden');
+          if (els.doneText) els.doneText.textContent = message;
+          setFeedback('', true);
+          updateProgress();
+          saveState();
+      }
+
+      function setQuestionVisibility(visible) {
+          if (!els.questionCard) return;
+          els.questionCard.classList.toggle('hidden', !visible);
+      }
+
+      function toggleFailureModal(show) {
+          if (!els.failureModal) return;
+          els.failureModal.classList.toggle('hidden', !show);
+          if (show) {
+              els.failureModal.classList.add('flex', 'items-center', 'justify-center');
+              const panel = els.failureModal.querySelector('.animate-bounce-in');
+              const backdrop = els.failureModal.querySelector('.animate-fade');
+              if (panel) {
+                  panel.classList.remove('animate-bounce-in');
+                  void panel.offsetWidth;
+                  panel.classList.add('animate-bounce-in');
+              }
+              if (backdrop) {
+                  backdrop.classList.remove('animate-fade');
+                  void backdrop.offsetWidth;
+                  backdrop.classList.add('animate-fade');
+              }
+          } else {
+              els.failureModal.classList.remove('flex', 'items-center', 'justify-center');
+          }
+      }
+
+      function toggleSettingsBody(collapsed) {
+          if (!els.settingsBody || !els.settingsToggleText) return;
+          els.settingsBody.classList.toggle('hidden', collapsed);
+          els.settingsToggleText.textContent = collapsed
+              ? (i18n.settings_show || 'Show settings')
+              : (i18n.settings_hide || 'Hide settings');
+      }
+
+      function hideSuggestions() {
+          if (els.suggestionsBox) {
+              els.suggestionsBox.classList.add('hidden');
+              els.suggestionsBox.innerHTML = '';
+          }
+      }
+
+      function renderSuggestions(askKey, query = '') {
+          if (!els.suggestionsBox || state.settings.mode !== 'medium') {
+              hideSuggestions();
+              return;
+          }
+          const list = suggestionsByForm[askKey] || [];
+          const normalizedQuery = normalize(query);
+          const matches = list
+              .filter((item) => !normalizedQuery || normalize(item).includes(normalizedQuery))
+              .slice(0, 6);
+          if (!matches.length) {
+              hideSuggestions();
+              return;
+          }
+          els.suggestionsBox.innerHTML = '';
+          matches.forEach((text) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-left text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow';
+              btn.textContent = text;
+              btn.addEventListener('click', () => {
+                  if (!els.answerInput) return;
+                  els.answerInput.value = text;
+                  els.answerInput.focus();
+                  hideSuggestions();
+              });
+              els.suggestionsBox.appendChild(btn);
+          });
+          els.suggestionsBox.classList.remove('hidden');
+      }
+
+      function resetChoiceHighlights() {
+          if (!els.choiceBox) return;
+          Array.from(els.choiceBox.children).forEach((button) => {
+              const btn = button;
+              choiceSuccessClasses.forEach((cls) => btn.classList.remove(cls));
+              choiceErrorClasses.forEach((cls) => btn.classList.remove(cls));
+              btn.classList.remove('shake');
+          });
+      }
+
+      function findChoiceButtonByValue(value) {
+          if (!els.choiceBox) return null;
+          return Array.from(els.choiceBox.children).find((button) => {
+              const normalized = button.dataset.value || normalize(button.textContent || '');
+              return normalized === value;
+          }) || null;
+      }
+
+      function applyChoiceResult(isCorrect, chosenBtn) {
+          resetChoiceHighlights();
+          if (!chosenBtn) return;
+          const target = chosenBtn;
+          if (isCorrect) {
+              choiceSuccessClasses.forEach((cls) => target.classList.add(cls));
+          } else {
+              choiceErrorClasses.forEach((cls) => target.classList.add(cls));
+              target.classList.add('shake');
+              target.addEventListener('animationend', () => target.classList.remove('shake'), { once: true });
+          }
+      }
+
+      function renderChoices(options) {
+          if (!els.choiceBox) return;
+          els.choiceBox.innerHTML = '';
+          options.forEach((option, idx) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'verb-choice-button w-full rounded-xl border border-border/70 bg-background px-4 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow';
+              btn.textContent = option.label;
+              btn.dataset.index = idx.toString();
+              btn.dataset.value = option.normalized;
+              btn.addEventListener('click', () => {
+                  if (state.current?.answered) return;
+                  evaluateAnswer(option.normalized, btn);
+              });
+              els.choiceBox.appendChild(btn);
+          });
+      }
+
+      function buildChoiceOptions(verb, askKey, answers) {
+          const correctRaw = getAnswersForVerb(verb, askKey)[0] || answers[0];
+          const pool = verbs
+              .map((item) => {
+                  const value = getAnswersForVerb(item, askKey)[0];
+                  return value || null;
+              })
+              .filter(Boolean)
+              .map((value) => value);
+
+          const uniquePool = Array.from(new Set(pool.filter((value) => !answers.includes(normalize(value)))));
+          const distractors = shuffle(uniquePool).slice(0, 3);
+          const optionValues = shuffle([correctRaw, ...distractors].filter(Boolean));
+
+          return optionValues.map((value) => ({
+              label: value,
+              normalized: normalize(value),
+              correct: answers.includes(normalize(value)),
+          }));
+      }
+
+      function renderQuestion() {
+          if (!verbs.length) {
+              setFeedback(i18n.noVerbs || '');
+              if (els.baseVerb) els.baseVerb.textContent = '—';
+              if (els.ukVerb) els.ukVerb.textContent = '';
+              setQuestionVisibility(false);
+              toggleFailureModal(false);
+              return;
+          }
+
+          if (state.pos >= state.queue.length) {
+              const total = state.queue.length || 0;
+              const resultText = `${i18n.completed || ''}. ${i18n.result || 'Result'}: ${state.correct}/${total}`;
+              setDone(resultText);
+              toggleFailureModal(false);
+              return;
+          }
+
+          setQuestionVisibility(true);
+          const verbIndex = state.queue[state.pos];
+          const verb = verbs[verbIndex];
+          const existingCurrent = state.current && state.current.verbIndex === verbIndex ? state.current : null;
+          const askKey = existingCurrent?.askKey || resolveAskKey();
+          const answersRaw = (existingCurrent?.answersRaw && existingCurrent.answersRaw.length
+              ? existingCurrent.answersRaw
+              : getAnswersForVerb(verb, askKey).map((a) => a || '').filter(Boolean)
+          );
+          const answersNormalized = answersRaw.map((a) => normalize(a));
+
+          state.current = {
+              verbIndex,
+              askKey,
+              answers: answersNormalized,
+              answersRaw,
+              answered: existingCurrent?.answered || false,
+              wasCorrect: existingCurrent?.wasCorrect || false,
+              options: [],
+              selected: existingCurrent?.selected || null,
+          };
+
+          if (els.baseVerb) els.baseVerb.textContent = verb?.base || '—';
+          if (els.ukVerb) els.ukVerb.textContent = verb?.translation || '';
+          setTranslationVisibility();
+
+          if (els.askLabel) els.askLabel.textContent = formatAskLabel(askKey);
+          if (els.hint) els.hint.textContent = hintForVerb(verb);
+
+          if (state.settings.mode !== 'easy' && els.answerInput) {
+              els.answerInput.value = '';
+              els.answerInput.focus();
+              renderSuggestions(askKey, '');
+          }
+
+          toggleModeVisibility(state.settings.mode);
+          setFeedback('');
+          if (els.doneBox) els.doneBox.classList.add('hidden');
+
+          if (state.settings.mode === 'easy') {
+              const options = (existingCurrent?.options && existingCurrent.options.length)
+                  ? existingCurrent.options
+                  : buildChoiceOptions(verb, askKey, answersNormalized);
+              state.current.options = options;
+              renderChoices(options);
+              resetChoiceHighlights();
+          } else if (els.choiceBox) {
+              els.choiceBox.innerHTML = '';
+          }
+
+          if (state.current.answered) {
+              const reveal = (i18n.revealed || 'Correct answer: :answer').replace(
+                  ':answer',
+                  state.current.answersRaw?.[0] || state.current.answers?.[0] || ''
+              );
+              setFeedback(
+                  state.current.wasCorrect ? (i18n.correctAnswer || 'Correct!') : `${i18n.wrongAnswer || 'Wrong'}. ${reveal}`,
+                  state.current.wasCorrect
+              );
+              if (state.settings.mode === 'easy') {
+                  const chosenBtn = state.current.selected
+                      ? findChoiceButtonByValue(state.current.selected)
+                      : null;
+                  applyChoiceResult(state.current.wasCorrect, chosenBtn);
+              }
+          }
+
+          updateProgress();
+          updateStats();
+          saveState();
+      }
+
+      function evaluateAnswer(rawAnswer, choiceBtn = null) {
+          if (!state.current || state.current.answered) return;
+          const answer = normalize(rawAnswer);
+          const isCorrect = state.current.answers.includes(answer);
+          state.current.answered = true;
+          state.current.wasCorrect = isCorrect;
+          if (choiceBtn) {
+              state.current.selected = answer;
+          }
+
+          if (isCorrect) {
+              state.correct += 1;
+              setFeedback(i18n.correctAnswer || 'Correct!', true);
+          } else {
+              state.wrong += 1;
+              const revealed = (i18n.revealed || 'Correct answer: :answer').replace(
+                  ':answer',
+                  state.current.answers[0] || ''
+              );
+              setFeedback(`${i18n.wrongAnswer || 'Wrong'}. ${revealed}`, false);
+          }
+
+          updateStats();
+          if (state.settings.mode === 'easy') {
+              const targetBtn = choiceBtn || (state.current.selected ? findChoiceButtonByValue(state.current.selected) : null);
+              applyChoiceResult(isCorrect, targetBtn);
+              setTimeout(() => nextQuestion(), 650);
+          }
+          if (state.wrong >= maxMistakes) {
+              state.failed = true;
+              setFeedback('');
+              toggleFailureModal(true);
+              setQuestionVisibility(false);
+          }
+          saveState();
+      }
+
+      function nextQuestion() {
+          if (!state.queue.length) return;
+          if (state.pos < state.queue.length) {
+              state.pos += 1;
+          }
+          renderQuestion();
+      }
+
+      function revealAnswer() {
+          if (!state.current) return;
+          const revealed = state.current.answers[0] || '';
+          if (state.settings.mode !== 'easy' && els.answerInput) {
+              els.answerInput.value = revealed;
+          }
+          if (state.settings.mode === 'easy' && els.choiceBox) {
+              resetChoiceHighlights();
+              Array.from(els.choiceBox.children).forEach((button) => {
+                  const btn = button;
+                  const normalized = btn.dataset.value || normalize(btn.textContent || '');
+                  if (state.current.answers.includes(normalized)) {
+                      choiceSuccessClasses.forEach((cls) => btn.classList.add(cls));
+                  }
+              });
+              if (state.current.selected) {
+                  const chosenBtn = findChoiceButtonByValue(state.current.selected);
+                  if (chosenBtn && !state.current.wasCorrect) {
+                      choiceErrorClasses.forEach((cls) => chosenBtn.classList.add(cls));
+                      chosenBtn.classList.add('shake');
+                      chosenBtn.addEventListener('animationend', () => chosenBtn.classList.remove('shake'), { once: true });
+                  }
+              }
+          }
+          const message = (i18n.revealed || 'Correct answer: :answer').replace(':answer', revealed);
+          setFeedback(message, true);
+          saveState();
+      }
+
+      function startTest() {
+          state = defaultState();
+          state.settings = readSettingsFromControls();
+          state.settings.settingsCollapsed = true;
+          applySettingsToControls(state.settings);
+          state.queue = createQueue();
+          if (!state.queue.length) {
+              setFeedback(i18n.noVerbs || '');
+              return;
+          }
+          state.pos = 0;
+          state.correct = 0;
+          state.wrong = 0;
+          state.failed = false;
+          toggleFailureModal(false);
+          setQuestionVisibility(true);
+          renderQuestion();
+      }
+
+      function restoreState(saved) {
+          state = {
+              ...defaultState(),
+              ...saved,
+          };
+          applySettingsToControls(state.settings);
+          toggleModeVisibility(state.settings.mode);
+          setQuestionVisibility(true);
+          renderQuestion();
+          if (i18n.progressRestored) {
+              setFeedback(i18n.progressRestored, true);
+          }
+      }
+
+      function bindEvents() {
+          els.startBtn?.addEventListener('click', () => startTest());
+          els.restartBtn?.addEventListener('click', () => startTest());
+          els.retryBtn?.addEventListener('click', () => startTest());
+          els.settingsToggle?.addEventListener('click', () => {
+              state.settings.settingsCollapsed = !state.settings.settingsCollapsed;
+              toggleSettingsBody(state.settings.settingsCollapsed);
+              saveState();
+          });
+          els.checkBtn?.addEventListener('click', () => {
+              if (state.settings.mode === 'easy') return;
+              evaluateAnswer(els.answerInput?.value || '');
+          });
+          els.nextBtn?.addEventListener('click', () => nextQuestion());
+          els.revealBtn?.addEventListener('click', () => revealAnswer());
+          Array.from(els.modeButtons || []).forEach((btn) => {
+              btn.addEventListener('click', () => {
+                  state.settings.mode = btn.value;
+                  applySettingsToControls(state.settings);
+                  toggleModeVisibility(state.settings.mode);
+                  saveState();
+              });
+          });
+          Array.from(els.askButtons || []).forEach((btn) => {
+              btn.addEventListener('click', () => {
+                  state.settings.askWhat = btn.value;
+                  applySettingsToControls(state.settings);
+                  saveState();
+              });
+          });
+          els.showUk?.addEventListener('change', () => {
+              state.settings.showTranslation = Boolean(els.showUk.checked);
+              setTranslationVisibility();
+              saveState();
+          });
+          els.answerInput?.addEventListener('keydown', (event) => {
+              if (event.key === 'Enter') {
+                  event.preventDefault();
+                  evaluateAnswer(els.answerInput.value);
+              }
+          });
+          els.answerInput?.addEventListener('input', (event) => {
+              const value = event.target.value || '';
+              const askKey = state.current?.askKey || 'f1';
+              renderSuggestions(askKey, value);
+          });
+          els.answerInput?.addEventListener('focus', (event) => {
+              const askKey = state.current?.askKey || 'f1';
+              renderSuggestions(askKey, event.target.value || '');
+          });
+          els.answerInput?.addEventListener('blur', () => {
+              setTimeout(() => hideSuggestions(), 150);
+          });
+      }
+
+      function init() {
+          if (!els.baseVerb) return;
+          bindEvents();
+
+          if (!verbs.length) {
+              setFeedback(i18n.noVerbs || '');
+              return;
+          }
+
+          const savedState = loadState();
+          if (savedState) {
+              restoreState(savedState);
+          } else {
+              toggleModeVisibility(state.settings.mode);
+              applySettingsToControls(state.settings);
+              setFeedback(i18n.startNeeded || '');
+              setQuestionVisibility(false);
+              toggleFailureModal(false);
+              updateProgress();
+              updateStats();
+          }
+      }
+
+      document.addEventListener('DOMContentLoaded', init);
+    })();
+  </script>
+@endsection

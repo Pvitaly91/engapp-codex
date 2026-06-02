@@ -1,0 +1,1859 @@
+{
+    "schema_version": 1,
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\EmbeddedQuestionsAllLevelsV3Seeder",
+        "uuid_namespace": "EmbeddedQuestionsAllLevelsV3Seeder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "theory_page_embedded_questions": {
+            "name": "Embedded Questions"
+        }
+    },
+    "tags": {
+        "embedded_questions": {
+            "name": "Embedded Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "embedded_statement": {
+            "name": "Embedded Statement",
+            "category": "topic"
+        },
+        "embedded_question": {
+            "name": "Embedded Question",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "no_inversion": {
+            "name": "No Inversion",
+            "category": "topic"
+        },
+        "wh_embedded": {
+            "name": "Wh Embedded",
+            "category": "topic"
+        },
+        "if_whether_embedded": {
+            "name": "If Whether Embedded",
+            "category": "topic"
+        },
+        "reporting_frames": {
+            "name": "Reporting Frames",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "embedded_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "embq-v3-a1-01",
+            "question": "I know {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "embedded_statement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where he lives",
+                    "options": [
+                        "where he lives",
+                        "where does he live",
+                        "where lives he",
+                        "where he live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "uuid": "embq-v3-a1-02",
+            "question": "Can you tell me {a1}?",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "embedded_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the station is",
+                    "options": [
+                        "where the station is",
+                        "where is the station",
+                        "where the station",
+                        "where does the station"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "uuid": "embq-v3-a1-03",
+            "question": "Do you know {a1}?",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the shop closes",
+                    "options": [
+                        "when the shop closes",
+                        "when does the shop close",
+                        "when closes the shop",
+                        "when the shop close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "uuid": "embq-v3-a1-04",
+            "question": "I wonder {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why they left early",
+                    "options": [
+                        "why they left early",
+                        "why did they leave early",
+                        "why they did leave early",
+                        "why left they early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "uuid": "embq-v3-a1-05",
+            "question": "She asked {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "wh_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what we wanted",
+                    "options": [
+                        "what we wanted",
+                        "what did we want",
+                        "what we did want",
+                        "what wanted we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "uuid": "embq-v3-a1-06",
+            "question": "Do you know {a1}?",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if he is ready",
+                    "options": [
+                        "if he is ready",
+                        "is he ready",
+                        "if is he ready",
+                        "whether is he ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "uuid": "embq-v3-a1-07",
+            "question": "I am not sure {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they can join us",
+                    "options": [
+                        "whether they can join us",
+                        "can they join us",
+                        "whether can they join us",
+                        "if can they join us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "uuid": "embq-v3-a1-08",
+            "question": "I do not know {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why she was upset",
+                    "options": [
+                        "why she was upset",
+                        "why was she upset",
+                        "why she upset was",
+                        "why did she be upset"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "uuid": "embq-v3-a1-09",
+            "question": "I wonder {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this app works",
+                    "options": [
+                        "how this app works",
+                        "how does this app work",
+                        "how works this app",
+                        "how this app does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "uuid": "embq-v3-a1-10",
+            "question": "Can you explain {a1}?",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what this message means",
+                    "options": [
+                        "what this message means",
+                        "what does this message mean",
+                        "what means this message",
+                        "what this message mean"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "uuid": "embq-v3-a1-11",
+            "question": "He remembered {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where we parked the car",
+                    "options": [
+                        "where we parked the car",
+                        "where did we park the car",
+                        "where parked we the car",
+                        "where we did park the car"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 12,
+            "uuid": "embq-v3-a1-12",
+            "question": "The correct embedded question is {a1}.",
+            "level": "A1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she is",
+                    "options": [
+                        "where she is",
+                        "where is she",
+                        "where does she be",
+                        "where she does be"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "uuid": "embq-v3-a2-01",
+            "question": "I know {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "embedded_statement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where he lives",
+                    "options": [
+                        "where he lives",
+                        "where does he live",
+                        "where lives he",
+                        "where he live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "uuid": "embq-v3-a2-02",
+            "question": "Can you tell me {a1}?",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "embedded_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the station is",
+                    "options": [
+                        "where the station is",
+                        "where is the station",
+                        "where the station",
+                        "where does the station"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "uuid": "embq-v3-a2-03",
+            "question": "Do you know {a1}?",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the shop closes",
+                    "options": [
+                        "when the shop closes",
+                        "when does the shop close",
+                        "when closes the shop",
+                        "when the shop close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "uuid": "embq-v3-a2-04",
+            "question": "I wonder {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why they left early",
+                    "options": [
+                        "why they left early",
+                        "why did they leave early",
+                        "why they did leave early",
+                        "why left they early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "uuid": "embq-v3-a2-05",
+            "question": "She asked {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "wh_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what we wanted",
+                    "options": [
+                        "what we wanted",
+                        "what did we want",
+                        "what we did want",
+                        "what wanted we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "uuid": "embq-v3-a2-06",
+            "question": "Do you know {a1}?",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if he is ready",
+                    "options": [
+                        "if he is ready",
+                        "is he ready",
+                        "if is he ready",
+                        "whether is he ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "uuid": "embq-v3-a2-07",
+            "question": "I am not sure {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they can join us",
+                    "options": [
+                        "whether they can join us",
+                        "can they join us",
+                        "whether can they join us",
+                        "if can they join us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "uuid": "embq-v3-a2-08",
+            "question": "I do not know {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why she was upset",
+                    "options": [
+                        "why she was upset",
+                        "why was she upset",
+                        "why she upset was",
+                        "why did she be upset"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 21,
+            "uuid": "embq-v3-a2-09",
+            "question": "I wonder {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this app works",
+                    "options": [
+                        "how this app works",
+                        "how does this app work",
+                        "how works this app",
+                        "how this app does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "uuid": "embq-v3-a2-10",
+            "question": "Can you explain {a1}?",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what this message means",
+                    "options": [
+                        "what this message means",
+                        "what does this message mean",
+                        "what means this message",
+                        "what this message mean"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 23,
+            "uuid": "embq-v3-a2-11",
+            "question": "He remembered {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where we parked the car",
+                    "options": [
+                        "where we parked the car",
+                        "where did we park the car",
+                        "where parked we the car",
+                        "where we did park the car"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "uuid": "embq-v3-a2-12",
+            "question": "The correct embedded question is {a1}.",
+            "level": "A2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_a2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she is",
+                    "options": [
+                        "where she is",
+                        "where is she",
+                        "where does she be",
+                        "where she does be"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 25,
+            "uuid": "embq-v3-b1-01",
+            "question": "I know {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "embedded_statement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where he lives",
+                    "options": [
+                        "where he lives",
+                        "where does he live",
+                        "where lives he",
+                        "where he live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "uuid": "embq-v3-b1-02",
+            "question": "Can you tell me {a1}?",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "embedded_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the station is",
+                    "options": [
+                        "where the station is",
+                        "where is the station",
+                        "where the station",
+                        "where does the station"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 27,
+            "uuid": "embq-v3-b1-03",
+            "question": "Do you know {a1}?",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the shop closes",
+                    "options": [
+                        "when the shop closes",
+                        "when does the shop close",
+                        "when closes the shop",
+                        "when the shop close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "uuid": "embq-v3-b1-04",
+            "question": "I wonder {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why they left early",
+                    "options": [
+                        "why they left early",
+                        "why did they leave early",
+                        "why they did leave early",
+                        "why left they early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 29,
+            "uuid": "embq-v3-b1-05",
+            "question": "She asked {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "wh_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what we wanted",
+                    "options": [
+                        "what we wanted",
+                        "what did we want",
+                        "what we did want",
+                        "what wanted we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "uuid": "embq-v3-b1-06",
+            "question": "Do you know {a1}?",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if he is ready",
+                    "options": [
+                        "if he is ready",
+                        "is he ready",
+                        "if is he ready",
+                        "whether is he ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 31,
+            "uuid": "embq-v3-b1-07",
+            "question": "I am not sure {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they can join us",
+                    "options": [
+                        "whether they can join us",
+                        "can they join us",
+                        "whether can they join us",
+                        "if can they join us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "uuid": "embq-v3-b1-08",
+            "question": "I do not know {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why she was upset",
+                    "options": [
+                        "why she was upset",
+                        "why was she upset",
+                        "why she upset was",
+                        "why did she be upset"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 33,
+            "uuid": "embq-v3-b1-09",
+            "question": "I wonder {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this app works",
+                    "options": [
+                        "how this app works",
+                        "how does this app work",
+                        "how works this app",
+                        "how this app does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "uuid": "embq-v3-b1-10",
+            "question": "Can you explain {a1}?",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what this message means",
+                    "options": [
+                        "what this message means",
+                        "what does this message mean",
+                        "what means this message",
+                        "what this message mean"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 35,
+            "uuid": "embq-v3-b1-11",
+            "question": "He remembered {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where we parked the car",
+                    "options": [
+                        "where we parked the car",
+                        "where did we park the car",
+                        "where parked we the car",
+                        "where we did park the car"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 36,
+            "uuid": "embq-v3-b1-12",
+            "question": "The correct embedded question is {a1} today.",
+            "level": "B1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she is",
+                    "options": [
+                        "where she is",
+                        "where is she",
+                        "where does she be",
+                        "where she does be"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "uuid": "embq-v3-b2-01",
+            "question": "At this point, I know {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "embedded_statement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where he lives",
+                    "options": [
+                        "where he lives",
+                        "where does he live",
+                        "where lives he",
+                        "where he live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 38,
+            "uuid": "embq-v3-b2-02",
+            "question": "Can you tell me {a1}?",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "embedded_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the station is",
+                    "options": [
+                        "where the station is",
+                        "where is the station",
+                        "where the station",
+                        "where does the station"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "uuid": "embq-v3-b2-03",
+            "question": "Do you know {a1}?",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the shop closes",
+                    "options": [
+                        "when the shop closes",
+                        "when does the shop close",
+                        "when closes the shop",
+                        "when the shop close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 40,
+            "uuid": "embq-v3-b2-04",
+            "question": "At this point, I wonder {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why they left early",
+                    "options": [
+                        "why they left early",
+                        "why did they leave early",
+                        "why they did leave early",
+                        "why left they early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "uuid": "embq-v3-b2-05",
+            "question": "At this point, she asked {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "wh_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what we wanted",
+                    "options": [
+                        "what we wanted",
+                        "what did we want",
+                        "what we did want",
+                        "what wanted we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 42,
+            "uuid": "embq-v3-b2-06",
+            "question": "Do you know {a1}?",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if he is ready",
+                    "options": [
+                        "if he is ready",
+                        "is he ready",
+                        "if is he ready",
+                        "whether is he ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "uuid": "embq-v3-b2-07",
+            "question": "At this point, I am not sure {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they can join us",
+                    "options": [
+                        "whether they can join us",
+                        "can they join us",
+                        "whether can they join us",
+                        "if can they join us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 44,
+            "uuid": "embq-v3-b2-08",
+            "question": "At this point, I do not know {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why she was upset",
+                    "options": [
+                        "why she was upset",
+                        "why was she upset",
+                        "why she upset was",
+                        "why did she be upset"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "uuid": "embq-v3-b2-09",
+            "question": "At this point, I wonder {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this app works",
+                    "options": [
+                        "how this app works",
+                        "how does this app work",
+                        "how works this app",
+                        "how this app does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 46,
+            "uuid": "embq-v3-b2-10",
+            "question": "Can you explain {a1}?",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what this message means",
+                    "options": [
+                        "what this message means",
+                        "what does this message mean",
+                        "what means this message",
+                        "what this message mean"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "uuid": "embq-v3-b2-11",
+            "question": "He remembered {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where we parked the car",
+                    "options": [
+                        "where we parked the car",
+                        "where did we park the car",
+                        "where parked we the car",
+                        "where we did park the car"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 48,
+            "uuid": "embq-v3-b2-12",
+            "question": "The correct embedded question is {a1}.",
+            "level": "B2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_b2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she is",
+                    "options": [
+                        "where she is",
+                        "where is she",
+                        "where does she be",
+                        "where she does be"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "uuid": "embq-v3-c1-01",
+            "question": "I know {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "embedded_statement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where he lives",
+                    "options": [
+                        "where he lives",
+                        "where does he live",
+                        "where lives he",
+                        "where he live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 50,
+            "uuid": "embq-v3-c1-02",
+            "question": "Can you tell me {a1}?",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "embedded_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the station is",
+                    "options": [
+                        "where the station is",
+                        "where is the station",
+                        "where the station",
+                        "where does the station"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "uuid": "embq-v3-c1-03",
+            "question": "Do you know {a1}?",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the shop closes",
+                    "options": [
+                        "when the shop closes",
+                        "when does the shop close",
+                        "when closes the shop",
+                        "when the shop close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 52,
+            "uuid": "embq-v3-c1-04",
+            "question": "I wonder {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why they left early",
+                    "options": [
+                        "why they left early",
+                        "why did they leave early",
+                        "why they did leave early",
+                        "why left they early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 53,
+            "uuid": "embq-v3-c1-05",
+            "question": "She asked {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "wh_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what we wanted",
+                    "options": [
+                        "what we wanted",
+                        "what did we want",
+                        "what we did want",
+                        "what wanted we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "uuid": "embq-v3-c1-06",
+            "question": "Do you know {a1}?",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if he is ready",
+                    "options": [
+                        "if he is ready",
+                        "is he ready",
+                        "if is he ready",
+                        "whether is he ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 55,
+            "uuid": "embq-v3-c1-07",
+            "question": "I am not sure {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they can join us",
+                    "options": [
+                        "whether they can join us",
+                        "can they join us",
+                        "whether can they join us",
+                        "if can they join us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "uuid": "embq-v3-c1-08",
+            "question": "I do not know {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why she was upset",
+                    "options": [
+                        "why she was upset",
+                        "why was she upset",
+                        "why she upset was",
+                        "why did she be upset"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 57,
+            "uuid": "embq-v3-c1-09",
+            "question": "I wonder {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this app works",
+                    "options": [
+                        "how this app works",
+                        "how does this app work",
+                        "how works this app",
+                        "how this app does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "uuid": "embq-v3-c1-10",
+            "question": "Can you explain {a1}?",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what this message means",
+                    "options": [
+                        "what this message means",
+                        "what does this message mean",
+                        "what means this message",
+                        "what this message mean"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 59,
+            "uuid": "embq-v3-c1-11",
+            "question": "He remembered {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where we parked the car",
+                    "options": [
+                        "where we parked the car",
+                        "where did we park the car",
+                        "where parked we the car",
+                        "where we did park the car"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "uuid": "embq-v3-c1-12",
+            "question": "In formal English, the correct embedded question is {a1}.",
+            "level": "C1",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c1",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she is",
+                    "options": [
+                        "where she is",
+                        "where is she",
+                        "where does she be",
+                        "where she does be"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 61,
+            "uuid": "embq-v3-c2-01",
+            "question": "I know {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "embedded_statement"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where he lives",
+                    "options": [
+                        "where he lives",
+                        "where does he live",
+                        "where lives he",
+                        "where he live"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "uuid": "embq-v3-c2-02",
+            "question": "Can you tell me {a1}?",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "embedded_question"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where the station is",
+                    "options": [
+                        "where the station is",
+                        "where is the station",
+                        "where the station",
+                        "where does the station"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 63,
+            "uuid": "embq-v3-c2-03",
+            "question": "Do you know {a1}?",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "when the shop closes",
+                    "options": [
+                        "when the shop closes",
+                        "when does the shop close",
+                        "when closes the shop",
+                        "when the shop close"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "uuid": "embq-v3-c2-04",
+            "question": "I wonder {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "no_inversion"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why they left early",
+                    "options": [
+                        "why they left early",
+                        "why did they leave early",
+                        "why they did leave early",
+                        "why left they early"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 65,
+            "uuid": "embq-v3-c2-05",
+            "question": "She asked {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "wh_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what we wanted",
+                    "options": [
+                        "what we wanted",
+                        "what did we want",
+                        "what we did want",
+                        "what wanted we"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "uuid": "embq-v3-c2-06",
+            "question": "Do you know {a1}?",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "if he is ready",
+                    "options": [
+                        "if he is ready",
+                        "is he ready",
+                        "if is he ready",
+                        "whether is he ready"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 67,
+            "uuid": "embq-v3-c2-07",
+            "question": "I am not sure {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "if_whether_embedded"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "whether they can join us",
+                    "options": [
+                        "whether they can join us",
+                        "can they join us",
+                        "whether can they join us",
+                        "if can they join us"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "uuid": "embq-v3-c2-08",
+            "question": "I do not know {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "why she was upset",
+                    "options": [
+                        "why she was upset",
+                        "why was she upset",
+                        "why she upset was",
+                        "why did she be upset"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 69,
+            "uuid": "embq-v3-c2-09",
+            "question": "I wonder {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "reporting_frames"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "how this app works",
+                    "options": [
+                        "how this app works",
+                        "how does this app work",
+                        "how works this app",
+                        "how this app does work"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 70,
+            "uuid": "embq-v3-c2-10",
+            "question": "Can you explain {a1}?",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "punctuation"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "what this message means",
+                    "options": [
+                        "what this message means",
+                        "what does this message mean",
+                        "what means this message",
+                        "what this message mean"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "uuid": "embq-v3-c2-11",
+            "question": "He remembered {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "statement_word_order"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where we parked the car",
+                    "options": [
+                        "where we parked the car",
+                        "where did we park the car",
+                        "where parked we the car",
+                        "where we did park the car"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 72,
+            "uuid": "embq-v3-c2-12",
+            "question": "The correct embedded question is {a1}.",
+            "level": "C2",
+            "source": "theory_page_embedded_questions",
+            "tag_keys": [
+                "embedded_questions",
+                "level_c2",
+                "typical_mistakes"
+            ],
+            "markers": {
+                "a1": {
+                    "answer": "where she is",
+                    "options": [
+                        "where she is",
+                        "where is she",
+                        "where does she be",
+                        "where she does be"
+                    ]
+                }
+            }
+        }
+    ],
+    "saved_test": {
+        "uuid": "qn3-emb-v3-all",
+        "slug": "embedded-questions-all-levels-v3",
+        "name": "Embedded Questions (All levels V3)",
+        "description": "Standard V3 package for Embedded Questions across A1-C2.",
+        "question_uuids": [
+            "embq-v3-a1-01",
+            "embq-v3-a1-02",
+            "embq-v3-a1-03",
+            "embq-v3-a1-04",
+            "embq-v3-a1-05",
+            "embq-v3-a1-06",
+            "embq-v3-a1-07",
+            "embq-v3-a1-08",
+            "embq-v3-a1-09",
+            "embq-v3-a1-10",
+            "embq-v3-a1-11",
+            "embq-v3-a1-12",
+            "embq-v3-a2-01",
+            "embq-v3-a2-02",
+            "embq-v3-a2-03",
+            "embq-v3-a2-04",
+            "embq-v3-a2-05",
+            "embq-v3-a2-06",
+            "embq-v3-a2-07",
+            "embq-v3-a2-08",
+            "embq-v3-a2-09",
+            "embq-v3-a2-10",
+            "embq-v3-a2-11",
+            "embq-v3-a2-12",
+            "embq-v3-b1-01",
+            "embq-v3-b1-02",
+            "embq-v3-b1-03",
+            "embq-v3-b1-04",
+            "embq-v3-b1-05",
+            "embq-v3-b1-06",
+            "embq-v3-b1-07",
+            "embq-v3-b1-08",
+            "embq-v3-b1-09",
+            "embq-v3-b1-10",
+            "embq-v3-b1-11",
+            "embq-v3-b1-12",
+            "embq-v3-b2-01",
+            "embq-v3-b2-02",
+            "embq-v3-b2-03",
+            "embq-v3-b2-04",
+            "embq-v3-b2-05",
+            "embq-v3-b2-06",
+            "embq-v3-b2-07",
+            "embq-v3-b2-08",
+            "embq-v3-b2-09",
+            "embq-v3-b2-10",
+            "embq-v3-b2-11",
+            "embq-v3-b2-12",
+            "embq-v3-c1-01",
+            "embq-v3-c1-02",
+            "embq-v3-c1-03",
+            "embq-v3-c1-04",
+            "embq-v3-c1-05",
+            "embq-v3-c1-06",
+            "embq-v3-c1-07",
+            "embq-v3-c1-08",
+            "embq-v3-c1-09",
+            "embq-v3-c1-10",
+            "embq-v3-c1-11",
+            "embq-v3-c1-12",
+            "embq-v3-c2-01",
+            "embq-v3-c2-02",
+            "embq-v3-c2-03",
+            "embq-v3-c2-04",
+            "embq-v3-c2-05",
+            "embq-v3-c2-06",
+            "embq-v3-c2-07",
+            "embq-v3-c2-08",
+            "embq-v3-c2-09",
+            "embq-v3-c2-10",
+            "embq-v3-c2-11",
+            "embq-v3-c2-12"
+        ],
+        "filters": {
+            "levels": [
+                "A1",
+                "A2",
+                "B1",
+                "B2",
+                "C1",
+                "C2"
+            ],
+            "num_questions": 72,
+            "seeder_classes": [
+                "Database\\Seeders\\V3\\QuestionsNegations\\EmbeddedQuestionsAllLevelsV3Seeder"
+            ],
+            "prompt_generator": {
+                "source_type": "theory_page",
+                "theory_page": {
+                    "slug": "embedded-questions",
+                    "title": "Embedded Questions",
+                    "category_slug_path": "pytalni-rechennia-ta-zaperechennia/types-of-questions",
+                    "page_seeder_class": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsEmbeddedQuestionsTheorySeeder",
+                    "url": "https://gramlyze.com/theory/pytalni-rechennia-ta-zaperechennia/types-of-questions/embedded-questions"
+                }
+            }
+        }
+    }
+}

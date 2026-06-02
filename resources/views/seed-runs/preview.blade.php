@@ -1,0 +1,1443 @@
+﻿@extends('layouts.app')
+
+@section('title', __('Попередній перегляд сидера'))
+
+@section('content')
+    @php
+        use Illuminate\Support\Str;
+
+        $previewType = $preview['type'] ?? 'questions';
+        $previewTypeLabel = match ($previewType) {
+            'page' => __('Сторінка'),
+            'category' => __('Категорія'),
+            'question_localizations' => __('Локалізації'),
+            'page_localizations' => __('Локалізації сторінок'),
+            default => __('Питання'),
+        };
+        $questionPreviews = $preview['questions'] ?? collect();
+
+        if (! $questionPreviews instanceof \Illuminate\Support\Collection) {
+            $questionPreviews = collect($questionPreviews);
+        }
+
+        $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
+        $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
+        $categoryPreview = $previewType === 'category' ? ($preview['category'] ?? null) : null;
+        $localizationsPreview = $previewType === 'question_localizations' ? ($preview['questions'] ?? collect()) : collect();
+        $pageLocalizationsPreview = $previewType === 'page_localizations' ? ($preview['blocks'] ?? collect()) : collect();
+
+        if (! $localizationsPreview instanceof \Illuminate\Support\Collection) {
+            $localizationsPreview = collect($localizationsPreview);
+        }
+
+        if (! $pageLocalizationsPreview instanceof \Illuminate\Support\Collection) {
+            $pageLocalizationsPreview = collect($pageLocalizationsPreview);
+        }
+
+        $localizationTarget = $preview['target'] ?? [];
+        $localizationLocale = $preview['locale'] ?? null;
+        $levelsSummary = collect($preview['levelsSummary'] ?? []);
+        $answersSummary = collect($preview['answersSummary'] ?? []);
+    @endphp
+
+    <div class="max-w-5xl mx-auto space-y-6">
+        <div class="bg-white shadow rounded-lg p-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div>
+                    <h1 class="text-2xl font-semibold text-gray-800">{{ __('Попередній перегляд сидера') }}</h1>
+                    <p class="text-sm text-gray-500">
+                        {{ match ($previewType) {
+                            'page' => __('Переконайтеся, що сторінка виглядає коректно, перш ніж запускати сидер.'),
+                            'category' => __('Переконайтеся, що опис категорії виглядає коректно, перш ніж запускати сидер.'),
+                            'question_localizations' => __('Переконайтеся, що локалізовані hints та explanations прив’язані до правильних питань і locale.'),
+                            'page_localizations' => __('Переконайтеся, що локалізовані блоки прив’язані до правильної сторінки або категорії та locale.'),
+                            default => __('Переконайтеся, що питання та пов’язані дані виглядають коректно, перш ніж запускати сидер.'),
+                        } }}
+                    </p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="{{ route('seed-runs.index') }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 text-gray-700 text-xs font-medium rounded-md hover:bg-gray-200 transition">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        {{ __('Повернутися до списку') }}
+                    </a>
+                    <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
+                        @csrf
+                        <input type="hidden" name="class_name" value="{{ $className }}">
+                        <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition">
+                            <i class="fa-solid fa-play"></i>
+                            {{ __('Виконати сидер') }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
+                <div>
+                    <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Клас сидера') }}</dt>
+                    <dd class="font-mono break-all">{{ $className }}</dd>
+                </div>
+                <div>
+                    <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Читабельна назва') }}</dt>
+                    <dd>{{ $displayClassName }}</dd>
+                </div>
+                <div>
+                    <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Тип попереднього перегляду') }}</dt>
+                    <dd>{{ $previewTypeLabel }}</dd>
+                </div>
+
+                @if($previewType === 'questions')
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Кількість питань у сидері') }}</dt>
+                        <dd>{{ $questionPreviews->count() }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Існуючих питань із такими UUID') }}</dt>
+                        <dd>{{ $existingQuestionCount === null ? __('—') : $existingQuestionCount }}</dd>
+                    </div>
+                    @if($levelsSummary->isNotEmpty())
+                        <div class="md:col-span-2">
+                            <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs mb-2">{{ __('Рівні в сидері') }}</dt>
+                            <dd class="flex flex-wrap gap-2">
+                                @foreach($levelsSummary as $level)
+                                    <button type="button"
+                                            class="inline-flex items-center px-3 py-1 rounded-md bg-indigo-100 text-indigo-800 text-sm font-medium hover:bg-indigo-200 hover:ring-2 hover:ring-indigo-300 transition cursor-pointer"
+                                            data-level-filter="{{ $level }}"
+                                            title="{{ __('Клікніть, щоб побачити питання з цим рівнем') }}">
+                                        {{ $level }}
+                                    </button>
+                                @endforeach
+                            </dd>
+                        </div>
+                    @endif
+                @elseif($previewType === 'page' && $pagePreview)
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Заголовок сторінки') }}</dt>
+                        <dd>{{ $pagePreview['title'] ?? __('Без назви') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('URL сторінки') }}</dt>
+                        <dd>{{ $pagePreview['url'] ?? __('Немає посилання') }}</dd>
+                    </div>
+                @elseif($previewType === 'category' && $categoryPreview)
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Категорія') }}</dt>
+                        <dd>{{ $categoryPreview['title'] ?? __('Без назви') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('URL категорії') }}</dt>
+                        <dd>{{ $categoryPreview['url'] ?? __('Немає посилання') }}</dd>
+                    </div>
+                @elseif($previewType === 'question_localizations')
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Locale') }}</dt>
+                        <dd>{{ strtoupper((string) $localizationLocale) }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий сидер') }}</dt>
+                        <dd class="font-mono break-all">{{ $localizationTarget['seeder_class'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий definition') }}</dt>
+                        <dd>{{ $localizationTarget['definition'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Локалізованих питань') }}</dt>
+                        <dd>{{ $preview['localizedQuestionCount'] ?? $localizationsPreview->count() }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Питань уже в БД') }}</dt>
+                        <dd>{{ $preview['existingQuestionCount'] ?? 0 }}</dd>
+                    </div>
+                @elseif($previewType === 'page_localizations')
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Locale') }}</dt>
+                        <dd>{{ strtoupper((string) $localizationLocale) }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Тип цілі') }}</dt>
+                        <dd>{{ $localizationTarget['content_type'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий сидер') }}</dt>
+                        <dd class="font-mono break-all">{{ $localizationTarget['seeder_class'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Цільовий definition') }}</dt>
+                        <dd>{{ $localizationTarget['definition'] ?? __('Не вказано') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Локалізованих блоків') }}</dt>
+                        <dd>{{ $preview['localizedBlockCount'] ?? $pageLocalizationsPreview->count() }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Ціль уже є в БД') }}</dt>
+                        <dd>{{ !empty($preview['hasExistingTarget']) ? __('Так') : __('Ні') }}</dd>
+                    </div>
+                @endif
+            </dl>
+
+            @if($previewType === 'questions' && ! is_null($existingQuestionCount) && $existingQuestionCount > 0)
+                <div class="mt-4 rounded-md bg-yellow-50 border border-yellow-200 px-4 py-3 text-sm text-yellow-800">
+                    {{ __('Деякі з цих питань вже існують у базі. Переконайтеся, що дублікати — це очікувана поведінка або змініть UUID.') }}
+                </div>
+            @endif
+        </div>
+
+        @if($previewType === 'question_localizations')
+            @if($localizationsPreview->isEmpty())
+                <div class="bg-white shadow rounded-lg p-6 text-sm text-slate-500">
+                    {{ __('У localization seeder немає елементів для попереднього перегляду.') }}
+                </div>
+            @else
+                <div class="space-y-4">
+                    @foreach($localizationsPreview as $localizedQuestion)
+                        <div class="bg-white shadow rounded-lg border border-slate-200 p-6 space-y-4">
+                            <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                                <div class="space-y-1">
+                                    <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        {{ __('UUID') }}: <span class="font-mono normal-case">{{ $localizedQuestion['uuid'] ?? '—' }}</span>
+                                    </div>
+                                    <h2 class="text-lg font-semibold text-slate-800">{{ $localizedQuestion['raw_text'] ?? __('Питання не знайдено') }}</h2>
+                                </div>
+                                <div>
+                                    @if(!empty($localizedQuestion['database_exists']))
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">
+                                            {{ __('Питання вже є в БД') }}
+                                        </span>
+                                    @else
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold">
+                                            {{ __('Ще не створене в БД') }}
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            @if(!empty($localizedQuestion['answers']))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Правильні відповіді') }}</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($localizedQuestion['answers'] as $answer)
+                                            <span class="inline-flex items-center px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-sm">
+                                                {{ $answer['marker'] ?? '—' }}: {{ $answer['label'] ?? '—' }}
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if(!empty($localizedQuestion['hints']))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Hints') }}</h3>
+                                    <div class="space-y-2">
+                                        @foreach($localizedQuestion['hints'] as $hint)
+                                            <div class="rounded-lg bg-sky-50 border border-sky-200 px-4 py-3 text-sm text-sky-900">
+                                                {!! nl2br(e($hint)) !!}
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if(!empty($localizedQuestion['explanations']))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Explanations') }}</h3>
+                                    <div class="space-y-3">
+                                        @foreach($localizedQuestion['explanations'] as $explanation)
+                                            <div class="rounded-lg bg-violet-50 border border-violet-200 px-4 py-3">
+                                                <div class="text-xs text-violet-700 font-semibold">{{ __('Маркер') }}: {{ $explanation['marker'] ?? '—' }}</div>
+                                                <div class="text-xs text-violet-700">{{ __('Неправильна відповідь') }}: {{ $explanation['wrong_answer'] ?? '—' }}</div>
+                                                <div class="text-xs text-violet-700 mb-2">{{ __('Правильна відповідь') }}: {{ $explanation['correct_answer'] ?? '—' }}</div>
+                                                <div class="text-sm text-violet-950">{!! nl2br(e($explanation['text'] ?? '')) !!}</div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        @endif
+
+        @if($previewType === 'page_localizations')
+            @if($pageLocalizationsPreview->isEmpty())
+                <div class="bg-white shadow rounded-lg p-6 text-sm text-slate-500">
+                    {{ __('У localization seeder сторінок немає блоків для попереднього перегляду.') }}
+                </div>
+            @else
+                <div class="space-y-4">
+                    @foreach($pageLocalizationsPreview as $localizedBlock)
+                        <div class="bg-white shadow rounded-lg border border-slate-200 p-6 space-y-4">
+                            <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                                <div class="space-y-1">
+                                    <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        {{ __('Посилання на блок') }}:
+                                        <span class="font-mono normal-case">{{ $localizedBlock['reference'] ?? '—' }}</span>
+                                    </div>
+                                    <h2 class="text-lg font-semibold text-slate-800">
+                                        {{ $localizedBlock['type'] ?? __('Блок') }}
+                                        @if(filled($localizedBlock['column'] ?? null))
+                                            <span class="text-sm font-normal text-slate-500">({{ $localizedBlock['column'] }})</span>
+                                        @endif
+                                    </h2>
+                                </div>
+                                @if(filled($localizedBlock['level'] ?? null))
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">
+                                        {{ $localizedBlock['level'] }}
+                                    </span>
+                                @endif
+                            </div>
+
+                            @if(filled($localizedBlock['heading'] ?? null))
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Heading') }}</h3>
+                                    <div class="rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 text-sm text-slate-900">
+                                        {!! nl2br(e($localizedBlock['heading'])) !!}
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div>
+                                <h3 class="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">{{ __('Body') }}</h3>
+                                <div class="rounded-lg bg-sky-50 border border-sky-200 px-4 py-3 text-sm text-sky-950 whitespace-pre-wrap break-words">
+                                    {!! nl2br(e((string) ($localizedBlock['body'] ?? ''))) !!}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        @endif
+
+        @if($previewType === 'questions')
+            {{-- Tags Summary Block - Moved to top and made collapsible --}}
+            @php
+                $tagsSummary = collect($preview['tagsSummary'] ?? []);
+            @endphp
+
+            @if($tagsSummary->isNotEmpty())
+                <div class="bg-white shadow rounded-lg overflow-hidden" data-tags-summary-section>
+                    <button type="button"
+                            class="w-full flex items-center justify-between gap-3 px-6 py-4 text-left transition hover:bg-slate-50"
+                            data-tags-summary-toggle
+                            aria-expanded="true">
+                        <div>
+                            <h2 class="text-lg font-semibold text-gray-800">{{ __('Усі теги в сидері') }}</h2>
+                            <p class="text-sm text-gray-500 mt-1">
+                                {{ __('Перелік усіх унікальних тегів, які присутні в цьому сидері. Нові теги будуть додані до бази даних під час виконання сидера.') }}
+                            </p>
+                            <p class="text-sm text-purple-600 font-medium mt-1 flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                </svg>
+                                {{ __('Клікніть на тег, щоб побачити питання з цим тегом') }}
+                            </p>
+                        </div>
+                        <svg class="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200 rotate-180"
+                             viewBox="0 0 20 20"
+                             fill="currentColor"
+                             data-tags-summary-icon>
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <div class="border-t border-slate-200 px-6 py-4" data-tags-summary-content>
+                        @php
+                            $newTags = $tagsSummary->where('is_new', true);
+                            $existingTags = $tagsSummary->where('is_new', false);
+                        @endphp
+
+                        <div class="space-y-4">
+                            @if($newTags->isNotEmpty())
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-green-100 text-green-800 text-xs font-medium">
+                                            {{ __('Нові') }}
+                                        </span>
+                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $newTags->count(), ['count' => $newTags->count()]) }}</span>
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($newTags as $tag)
+                                            <button type="button"
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium hover:bg-green-100 hover:border-green-300 transition cursor-pointer"
+                                                    data-tag-filter="{{ $tag['name'] }}"
+                                                    title="{{ __('Клікніть, щоб побачити питання з цим тегом') }}">
+                                                <svg class="w-4 h-4 mr-1.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                </svg>
+                                                {{ $tag['name'] }}
+                                                @if(filled($tag['category']))
+                                                    <span class="ml-1.5 text-xs text-green-600">({{ $tag['category'] }})</span>
+                                                @endif
+                                            </button>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if($existingTags->isNotEmpty())
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-medium">
+                                            {{ __('Існуючі') }}
+                                        </span>
+                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $existingTags->count(), ['count' => $existingTags->count()]) }}</span>
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($existingTags as $tag)
+                                            <button type="button"
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 text-sm font-medium hover:bg-blue-100 hover:border-blue-300 transition cursor-pointer"
+                                                    data-tag-filter="{{ $tag['name'] }}"
+                                                    title="{{ __('Клікніть, щоб побачити питання з цим тегом') }}">
+                                                <svg class="w-4 h-4 mr-1.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                                </svg>
+                                                {{ $tag['name'] }}
+                                                @if(filled($tag['category']))
+                                                    <span class="ml-1.5 text-xs text-blue-600">({{ $tag['category'] }})</span>
+                                                @endif
+                                            </button>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Answers Summary Block - Similar to tags --}}
+            @if($answersSummary->isNotEmpty())
+                <div class="bg-white shadow rounded-lg overflow-hidden" data-answers-summary-section>
+                    <button type="button"
+                            class="w-full flex items-center justify-between gap-3 px-6 py-4 text-left transition hover:bg-slate-50"
+                            data-answers-summary-toggle
+                            aria-expanded="true">
+                        <div>
+                            <h2 class="text-lg font-semibold text-gray-800">{{ __('Усі правильні відповіді в сидері') }}</h2>
+                            <p class="text-sm text-gray-500 mt-1">
+                                {{ __('Перелік усіх унікальних правильних відповідей, які присутні в цьому сидері.') }}
+                            </p>
+                            <p class="text-sm text-emerald-600 font-medium mt-1 flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                </svg>
+                                {{ __('Клікніть на відповідь, щоб побачити питання з цією відповіддю') }}
+                            </p>
+                        </div>
+                        <svg class="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200 rotate-180"
+                             viewBox="0 0 20 20"
+                             fill="currentColor"
+                             data-answers-summary-icon>
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <div class="border-t border-slate-200 px-6 py-4" data-answers-summary-content>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">
+                                        {{ __('Відповіді') }}
+                                    </span>
+                                    <span>{{ trans_choice('{1} :count відповідь|[2,4] :count відповіді|[5,*] :count відповідей', $answersSummary->count(), ['count' => $answersSummary->count()]) }}</span>
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    @foreach($answersSummary as $answer)
+                                        <button type="button"
+                                                class="inline-flex items-center px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium hover:bg-emerald-100 hover:border-emerald-300 transition cursor-pointer"
+                                                data-answer-filter="{{ $answer }}"
+                                                title="{{ __('Клікніть, щоб побачити питання з цією відповіддю') }}">
+                                            <svg class="w-4 h-4 mr-1.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            {{ $answer }}
+                                        </button>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if($questionPreviews->isEmpty())
+                <div class="bg-white shadow rounded-lg p-6">
+                    <p class="text-sm text-gray-500">
+                        {{ __('У цьому сидері немає питань для перегляду. Можливо, він створює лише пов’язані дані.') }}
+                    </p>
+                </div>
+            @else
+                @php
+                    $groupedBySource = $questionPreviews->groupBy(function ($question) {
+                        $source = data_get($question, 'source');
+
+                        return filled($source) ? $source : __('Без джерела');
+                    });
+                @endphp
+
+                <div class="space-y-6">
+                    @foreach($groupedBySource as $sourceLabel => $questions)
+                        @php
+                            $panelId = 'source-panel-' . Str::slug($sourceLabel . '-' . $loop->index);
+                            $isExpanded = $loop->first;
+                            $count = $questions->count();
+                            $questionsLabel = trans_choice('{1} :count питання|[2,4] :count питання|[5,*] :count питань', $count, ['count' => $count]);
+                        @endphp
+
+                        <div class="rounded-xl border border-slate-200 bg-white shadow-sm" data-source-group>
+                            <button
+                                type="button"
+                                class="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition hover:bg-slate-50"
+                                data-source-toggle
+                                aria-expanded="{{ $isExpanded ? 'true' : 'false' }}"
+                                aria-controls="{{ $panelId }}"
+                            >
+                                <div>
+                                    <span class="block text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">{{ __('Джерело') }}</span>
+                                    <span class="mt-1 block text-lg font-bold text-slate-800 sm:text-xl">{{ $sourceLabel }}</span>
+                                    <span class="mt-2 inline-flex items-center rounded-full bg-slate-100 px-3 py-0.5 text-xs font-medium text-slate-600">
+                                        {{ $questionsLabel }}
+                                    </span>
+                                </div>
+                                <svg
+                                    class="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200 {{ $isExpanded ? 'rotate-180' : '' }}"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    data-source-toggle-icon
+                                >
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+
+                            <div
+                                id="{{ $panelId }}"
+                                class="space-y-4 border-t border-slate-200 px-5 py-5 {{ $isExpanded ? '' : 'hidden' }}"
+                                data-source-content
+                            >
+                                @foreach($questions as $question)
+                                    @php
+                                        $answers = collect(data_get($question, 'answers', []));
+                                        $filledAnswers = $answers->filter(fn ($answer) => filled(data_get($answer, 'label')));
+
+                                        $questionTags = collect(data_get($question, 'tags', []));
+                                        $questionTopics = collect(data_get($question, 'topics', []));
+                                        $questionOptions = collect(data_get($question, 'options', []));
+                                        $questionVerbHints = collect(data_get($question, 'verb_hints', []));
+                                        $questionVariants = collect(data_get($question, 'variants', []));
+                                        $questionLocalizations = collect(data_get($question, 'localizations', []));
+                                        $defaultQuestionLocale = data_get($question, 'default_locale');
+                                        $questionLocaleGroupId = 'question-locale-' . ($loop->parent->index ?? 0) . '-' . $loop->index;
+                                    @endphp
+
+                                    <div class="rounded-xl border border-slate-200 bg-white/60 p-6 shadow-sm transition-all" 
+                                         data-question-preview
+                                         data-question-tags="{{ $questionTags->pluck('name')->implode(',') }}"
+                                         data-question-level="{{ $question['level'] ?? '' }}"
+                                         data-question-answers="{{ $filledAnswers->pluck('label')->implode(',') }}">
+                                        <div class="space-y-1">
+                                            <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
+                                            <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
+                                        </div>
+
+                                        @if($questionLocalizations->isNotEmpty())
+                                            <div class="flex flex-wrap items-center gap-2">
+                                                <span class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Локалізації') }}</span>
+                                                @foreach($questionLocalizations as $localization)
+                                                    @php
+                                                        $isActiveLocale = ($localization['locale'] ?? null) === $defaultQuestionLocale;
+                                                    @endphp
+                                                    <button
+                                                        type="button"
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-semibold transition {{ $isActiveLocale ? 'border-sky-300 bg-sky-100 text-sky-800 shadow-sm' : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50' }}"
+                                                        data-question-locale-switch="{{ $localization['locale'] }}"
+                                                        data-question-locale-group="{{ $questionLocaleGroupId }}"
+                                                        aria-pressed="{{ $isActiveLocale ? 'true' : 'false' }}"
+                                                    >
+                                                        {{ $localization['locale_label'] ?? strtoupper((string) ($localization['locale'] ?? '')) }}
+                                                    </button>
+                                                @endforeach
+                                            </div>
+                                        @endif
+
+                                        <div>
+                                            <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">{{ __('Варіанти відповіді') }}</h3>
+                                            @if($filledAnswers->isEmpty())
+                                                <p class="mt-2 text-sm text-gray-500">{{ __('Варіанти відповідей відсутні.') }}</p>
+                                            @else
+                                                <ul class="mt-2 space-y-1">
+                                                    @foreach($filledAnswers as $answer)
+                                                        @php
+                                                            $verbHint = $questionVerbHints->firstWhere('marker', $answer['marker']);
+                                                        @endphp
+                                                        <li class="flex items-center gap-2">
+                                                            <span class="font-mono text-xs text-gray-500">{{ $answer['marker'] }}</span>
+                                                            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">{{ $answer['label'] }}</span>
+                                                            @if($verbHint && filled($verbHint['label']))
+                                                                <span class="text-xs text-gray-500">({{ $verbHint['label'] }})</span>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </div>
+
+                                        <div class="space-y-3">
+                                            <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                                <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                                    <span>{{ __('Деталі питання') }}</span>
+                                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </button>
+                                                <div class="hidden border-t border-slate-200 px-3 py-3 text-sm text-slate-700 space-y-3" data-preview-section-content>
+                                                    <dl class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                                        <div>
+                                                            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Категорія') }}</dt>
+                                                            <dd>{{ $question['category'] ?? __('Без категорії') }}</dd>
+                                                        </div>
+                                                        <div>
+                                                            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Джерело') }}</dt>
+                                                            <dd>{{ $question['source'] ?? __('Без джерела') }}</dd>
+                                                        </div>
+                                                        <div>
+                                                            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Рівень') }}</dt>
+                                                            <dd>{{ $question['level'] ?? __('Невідомо') }}</dd>
+                                                        </div>
+                                                        <div>
+                                                            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Складність') }}</dt>
+                                                            <dd>{{ $question['difficulty'] }}</dd>
+                                                        </div>
+                                                        <div>
+                                                            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Теги') }}</dt>
+                                                            <dd>
+                                                                @if($questionTags->isEmpty())
+                                                                    {{ __('Без тегів') }}
+                                                                @else
+                                                                    <div class="flex flex-wrap gap-1.5 mt-1">
+                                                                        @foreach($questionTags as $tag)
+                                                                            <span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 text-xs font-medium">
+                                                                                {{ $tag['name'] }}
+                                                                                @if(filled($tag['category']))
+                                                                                    <span class="text-indigo-500">({{ $tag['category'] }})</span>
+                                                                                @endif
+                                                                            </span>
+                                                                        @endforeach
+                                                                    </div>
+                                                                @endif
+                                                            </dd>
+                                                        </div>
+                                                        <div>
+                                                            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Теми') }}</dt>
+                                                            <dd>{{ $questionTopics->isEmpty() ? __('Без тем') : $questionTopics->implode(', ') }}</dd>
+                                                        </div>
+                                                    </dl>
+                                                </div>
+                                            </div>
+
+                                            @if($questionOptions->isNotEmpty())
+                                                <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                                        <span>{{ __('Додаткові опції') }}</span>
+                                                        <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                    <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
+                                                        <div class="flex flex-wrap gap-2">
+                                                            @foreach($questionOptions as $option)
+                                                                <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 text-xs font-medium">{{ $option }}</span>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if($questionVerbHints->isNotEmpty())
+                                                <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                                        <span>{{ __('Підказки дієслів') }}</span>
+                                                        <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                    <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
+                                                        <ul class="space-y-1 text-sm text-gray-600">
+                                                            @foreach($questionVerbHints as $hint)
+                                                                <li><span class="font-mono text-xs text-gray-500">{{ $hint['marker'] }}</span> — {{ $hint['label'] }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if($questionVariants->isNotEmpty())
+                                                <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-сlate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                                        <span>{{ __('Альтернативні формулювання') }}</span>
+                                                        <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                    <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
+                                                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                                                            @foreach($questionVariants as $variant)
+                                                                <li>{{ $variant }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if($questionLocalizations->isNotEmpty())
+                                                <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                                        <span>{{ __('Локалізації питання') }}</span>
+                                                        <svg class="h-4 w-4 text-slate-500 transition-transform durée-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                    <div class="hidden border-t border-slate-200 px-3 py-3 space-y-3" data-preview-section-content>
+                                                        @foreach($questionLocalizations as $localization)
+                                                            @php
+                                                                $localeHints = collect($localization['hints'] ?? []);
+                                                                $localeExplanations = collect($localization['explanations'] ?? []);
+                                                                $isDefaultLocalePanel = ($localization['locale'] ?? null) === $defaultQuestionLocale;
+                                                            @endphp
+                                                            <div
+                                                                class="space-y-3 {{ $isDefaultLocalePanel ? '' : 'hidden' }}"
+                                                                data-question-locale-panel="{{ $localization['locale'] }}"
+                                                                data-question-locale-group="{{ $questionLocaleGroupId }}"
+                                                            >
+                                                                <div class="flex items-center justify-between gap-3 rounded-lg bg-slate-50 border border-slate-200 px-3 py-2">
+                                                                    <div class="text-sm font-semibold text-slate-700">
+                                                                        {{ __('Locale') }}: {{ $localization['locale_label'] ?? strtoupper((string) ($localization['locale'] ?? '')) }}
+                                                                    </div>
+                                                                    <div class="text-xs text-slate-500">
+                                                                        {{ trans_choice('{1} :count підказка|[2,4] :count підказки|[5,*] :count підказок', $localeHints->count(), ['count' => $localeHints->count()]) }},
+                                                                        {{ trans_choice('{1} :count пояснення|[2,4] :count пояснення|[5,*] :count пояснень', $localeExplanations->count(), ['count' => $localeExplanations->count()]) }}
+                                                                    </div>
+                                                                </div>
+
+                                                                @if($localeHints->isNotEmpty())
+                                                                    <div class="space-y-2">
+                                                                        <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Підказки') }}</h4>
+                                                                        @foreach($localeHints as $hint)
+                                                                            <div class="rounded bg-slate-50 border border-slate-200 px-3 py-2 text-sm text-gray-600 space-y-1">
+                                                                                <div class="flex items-center justify-between text-xs text-slate-500">
+                                                                                    <span>{{ $hint['provider'] ?? __('Невідомий провайдер') }}</span>
+                                                                                    <span>{{ $localization['locale_label'] ?? strtoupper((string) ($localization['locale'] ?? '')) }}</span>
+                                                                                </div>
+                                                                                <p class="whitespace-pre-line">{{ $hint['text'] }}</p>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($localeExplanations->isNotEmpty())
+                                                                    <div class="space-y-2">
+                                                                        <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ __('Пояснення ChatGPT') }}</h4>
+                                                                        @foreach($localeExplanations as $explanation)
+                                                                            <div class="rounded bg-purple-50 border border-purple-200 px-3 py-2 text-sm text-purple-800 space-y-1">
+                                                                                <div class="text-xs text-purple-600 font-semibold">{{ __('Неправильна відповідь:') }} {{ $explanation['wrong_answer'] }}</div>
+                                                                                @if(filled($explanation['correct_answer'] ?? null))
+                                                                                    <div class="text-xs text-purple-600">{{ __('Правильна відповідь:') }} {{ $explanation['correct_answer'] }}</div>
+                                                                                @endif
+                                                                                <p class="whitespace-pre-line">{{ $explanation['text'] }}</p>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($localeHints->isEmpty() && $localeExplanations->isEmpty())
+                                                                    <div class="rounded border border-dashed border-slate-300 bg-slate-50 px-3 py-4 text-sm text-slate-500">
+                                                                        {{ __('Для цієї локалі немає hints або explanations.') }}
+                                                                    </div>
+                                                                @endif
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        @elseif($previewType === 'page')
+            <div class="bg-white shadow rounded-lg p-6 space-y-4">
+                <h2 class="text-lg font-semibold text-gray-800">{{ __('Попередній перегляд сторінки') }}</h2>
+                <p class="text-sm text-gray-500">
+                    {{ __('Нижче відображено HTML, який буде створений сидером. Перевірте вміст перед запуском.') }}
+                </p>
+
+                @if($pagePreview && ! empty($pagePreview['html']))
+                    <div
+                        class="border border-gray-200 rounded-lg overflow-hidden"
+                        data-page-preview
+                        data-page-preview-html="{{ base64_encode($pagePreview['html']) }}"
+                    >
+                        <iframe
+                            class="w-full"
+                            style="min-height: 900px;"
+                            data-page-preview-frame
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                @else
+                    <div class="rounded border border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-sm text-gray-500">
+                        {{ __('Сидер не надав HTML для попереднього перегляду.') }}
+                    </div>
+                @endif
+            </div>
+        @elseif($previewType === 'category')
+            <div class="bg-white shadow rounded-lg p-6 space-y-4">
+                <h2 class="text-lg font-semibold text-gray-800">{{ __('Попередній перегляд категорії') }}</h2>
+                <p class="text-sm text-gray-500">
+                    {{ __('Нижче відображено HTML опису категорії. Переконайтеся, що блоки та сторінки відображаються коректно.') }}
+                </p>
+
+                @if($categoryPreview && ! empty($categoryPreview['html']))
+                    <div
+                        class="border border-gray-200 rounded-lg overflow-hidden"
+                        data-page-preview
+                        data-page-preview-html="{{ base64_encode($categoryPreview['html']) }}"
+                    >
+                        <iframe
+                            class="w-full"
+                            style="min-height: 900px;"
+                            data-page-preview-frame
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                @else
+                    <div class="rounded border border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-sm text-gray-500">
+                        {{ __('Сидер не надав HTML для попереднього перегляду категорії.') }}
+                    </div>
+                @endif
+            </div>
+        @else
+            <div class="bg-white shadow rounded-lg p-6">
+                <p class="text-sm text-gray-500">{{ __('Цей тип попереднього перегляду ще не підтримується.') }}</p>
+            </div>
+        @endif
+    </div>
+
+    <script>
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-preview-section-toggle]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const section = toggle.closest('[data-preview-section]');
+
+            if (!section) {
+                return;
+            }
+
+            const content = section.querySelector('[data-preview-section-content]');
+
+            if (!content) {
+                return;
+            }
+
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            const icon = toggle.querySelector('[data-preview-section-icon]');
+
+            if (isExpanded) {
+                toggle.setAttribute('aria-expanded', 'false');
+                content.classList.add('hidden');
+
+                if (icon) {
+                    icon.classList.remove('rotate-180');
+                }
+            } else {
+                toggle.setAttribute('aria-expanded', 'true');
+                content.classList.remove('hidden');
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-source-toggle]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const container = toggle.closest('[data-source-group]');
+
+            if (!container) {
+                return;
+            }
+
+            const content = container.querySelector('[data-source-content]');
+            const icon = toggle.querySelector('[data-source-toggle-icon]');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                toggle.setAttribute('aria-expanded', 'false');
+                content?.classList.add('hidden');
+                icon?.classList.remove('rotate-180');
+            } else {
+                toggle.setAttribute('aria-expanded', 'true');
+                content?.classList.remove('hidden');
+                icon?.classList.add('rotate-180');
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-question-locale-switch]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const group = toggle.getAttribute('data-question-locale-group');
+            const locale = toggle.getAttribute('data-question-locale-switch');
+
+            if (!group || !locale) {
+                return;
+            }
+
+            const escapedGroup = CSS.escape(group);
+
+            document.querySelectorAll(`[data-question-locale-switch][data-question-locale-group="${escapedGroup}"]`).forEach((button) => {
+                const isActive = button.getAttribute('data-question-locale-switch') === locale;
+
+                button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                button.classList.toggle('border-sky-300', isActive);
+                button.classList.toggle('bg-sky-100', isActive);
+                button.classList.toggle('text-sky-800', isActive);
+                button.classList.toggle('shadow-sm', isActive);
+                button.classList.toggle('border-slate-200', !isActive);
+                button.classList.toggle('bg-white', !isActive);
+                button.classList.toggle('text-slate-600', !isActive);
+            });
+
+            document.querySelectorAll(`[data-question-locale-panel][data-question-locale-group="${escapedGroup}"]`).forEach((panel) => {
+                const isActive = panel.getAttribute('data-question-locale-panel') === locale;
+                panel.classList.toggle('hidden', !isActive);
+            });
+        });
+
+        // Tags summary toggle
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-tags-summary-toggle]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const section = toggle.closest('[data-tags-summary-section]');
+
+            if (!section) {
+                return;
+            }
+
+            const content = section.querySelector('[data-tags-summary-content]');
+            const icon = toggle.querySelector('[data-tags-summary-icon]');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                toggle.setAttribute('aria-expanded', 'false');
+                content?.classList.add('hidden');
+                icon?.classList.remove('rotate-180');
+            } else {
+                toggle.setAttribute('aria-expanded', 'true');
+                content?.classList.remove('hidden');
+                icon?.classList.add('rotate-180');
+            }
+        });
+
+        // Answers summary toggle
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-answers-summary-toggle]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const section = toggle.closest('[data-answers-summary-section]');
+
+            if (!section) {
+                return;
+            }
+
+            const content = section.querySelector('[data-answers-summary-content]');
+            const icon = toggle.querySelector('[data-answers-summary-icon]');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                toggle.setAttribute('aria-expanded', 'false');
+                content?.classList.add('hidden');
+                icon?.classList.remove('rotate-180');
+            } else {
+                toggle.setAttribute('aria-expanded', 'true');
+                content?.classList.remove('hidden');
+                icon?.classList.add('rotate-180');
+            }
+        });
+
+        document.querySelectorAll('[data-page-preview-frame]').forEach((frame) => {
+            const container = frame.closest('[data-page-preview]');
+            const encodedHtml = container?.getAttribute('data-page-preview-html');
+
+            if (encodedHtml) {
+                try {
+                    const binary = atob(encodedHtml);
+                    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+                    const decoder = new TextDecoder('utf-8');
+
+                    frame.srcdoc = decoder.decode(bytes);
+                } catch (error) {
+                    try {
+                        frame.srcdoc = decodeURIComponent(escape(atob(encodedHtml)));
+                    } catch (fallbackError) {
+                        // ignore decoding errors
+                    }
+                }
+            }
+
+            frame.addEventListener('load', () => {
+                try {
+                    const doc = frame.contentDocument || frame.contentWindow.document;
+                    const height = doc?.body?.scrollHeight;
+
+                    if (height) {
+                        frame.style.height = `${height + 40}px`;
+                    }
+                } catch (error) {
+                    // ignore sizing errors
+                }
+            });
+        });
+
+        // Tag filter functionality
+        let activeTagFilter = null;
+
+        document.addEventListener('click', function (event) {
+            const tagButton = event.target.closest('[data-tag-filter]');
+            
+            if (!tagButton) {
+                return;
+            }
+
+            const tagName = tagButton.getAttribute('data-tag-filter');
+            
+            // Toggle filter if clicking the same tag
+            if (activeTagFilter === tagName) {
+                activeTagFilter = null;
+                resetTagFilter();
+                return;
+            }
+
+            activeTagFilter = tagName;
+            applyTagFilter(tagName);
+        });
+
+        function applyTagFilter(tagName) {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allTagButtons = document.querySelectorAll('[data-tag-filter]');
+            let matchCount = 0;
+
+            // Reset all tag buttons to normal state
+            allTagButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-purple-500', 'ring-offset-2');
+            });
+
+            // Highlight the active tag button
+            const activeButton = document.querySelector(`[data-tag-filter="${CSS.escape(tagName)}"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-purple-500', 'ring-offset-2');
+            }
+
+            // Filter questions
+            allQuestions.forEach(question => {
+                const questionTags = question.getAttribute('data-question-tags') || '';
+                const tagsArray = questionTags.split(',').map(t => t.trim()).filter(t => t);
+                const hasTag = tagsArray.includes(tagName);
+
+                if (hasTag) {
+                    question.classList.remove('opacity-30', 'scale-95');
+                    question.classList.add('ring-2', 'ring-purple-400', 'shadow-lg');
+                    matchCount++;
+
+                    // Auto-expand the source section if collapsed
+                    const sourceContent = question.closest('[data-source-content]');
+                    if (sourceContent && sourceContent.classList.contains('hidden')) {
+                        const sourceGroup = sourceContent.closest('[data-source-group]');
+                        const sourceToggle = sourceGroup?.querySelector('[data-source-toggle]');
+                        if (sourceToggle) {
+                            sourceToggle.setAttribute('aria-expanded', 'true');
+                            sourceContent.classList.remove('hidden');
+                            const icon = sourceToggle.querySelector('[data-source-toggle-icon]');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                } else {
+                    question.classList.add('opacity-30', 'scale-95');
+                    question.classList.remove('ring-2', 'ring-purple-400', 'shadow-lg');
+                }
+            });
+
+            // Show notification
+            showFilterNotification(tagName, matchCount);
+
+            // Scroll to first matching question
+            const firstMatch = document.querySelector('[data-question-preview].ring-2');
+            if (firstMatch) {
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        function resetTagFilter() {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allTagButtons = document.querySelectorAll('[data-tag-filter]');
+
+            // Reset all tag buttons
+            allTagButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-purple-500', 'ring-offset-2');
+            });
+
+            // Reset all questions
+            allQuestions.forEach(question => {
+                question.classList.remove('opacity-30', 'scale-95', 'ring-2', 'ring-purple-400', 'shadow-lg');
+            });
+
+            // Remove notification
+            const existingNotification = document.getElementById('tag-filter-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+        }
+
+        function showFilterNotification(tagName, count) {
+            // Remove existing notification
+            const existing = document.getElementById('tag-filter-notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'tag-filter-notification';
+            notification.className = 'fixed top-4 right-4 z-50 bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in';
+            notification.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                <span class="font-medium">Фільтр: <strong>${escapeHtml(tagName)}</strong> (${count} ${getPluralForm(count)})</span>
+                <button type="button" onclick="activeTagFilter = null; resetTagFilter();" class="ml-2 hover:bg-purple-700 rounded p-1 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function getPluralForm(count) {
+            if (count === 1) return 'питання';
+            if (count >= 2 && count <= 4) return 'питання';
+            return 'питань';
+        }
+
+        // Level filter functionality
+        let activeLevelFilter = null;
+
+        document.addEventListener('click', function (event) {
+            const levelButton = event.target.closest('[data-level-filter]');
+            
+            if (!levelButton) {
+                return;
+            }
+
+            const levelName = levelButton.getAttribute('data-level-filter');
+            
+            // Toggle filter if clicking the same level
+            if (activeLevelFilter === levelName) {
+                activeLevelFilter = null;
+                resetLevelFilter();
+                return;
+            }
+
+            activeLevelFilter = levelName;
+            applyLevelFilter(levelName);
+        });
+
+        function applyLevelFilter(levelName) {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allLevelButtons = document.querySelectorAll('[data-level-filter]');
+            let matchCount = 0;
+
+            // Reset all level buttons to normal state
+            allLevelButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            });
+
+            // Highlight the active level button
+            const activeButton = document.querySelector(`[data-level-filter="${CSS.escape(levelName)}"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            }
+
+            // Filter questions
+            allQuestions.forEach(question => {
+                const questionLevel = question.getAttribute('data-question-level') || '';
+                const hasLevel = questionLevel === levelName;
+
+                if (hasLevel) {
+                    question.classList.remove('hidden');
+                    question.classList.add('ring-2', 'ring-indigo-400', 'shadow-lg');
+                    matchCount++;
+
+                    // Auto-expand the source section if collapsed
+                    const sourceContent = question.closest('[data-source-content]');
+                    if (sourceContent && sourceContent.classList.contains('hidden')) {
+                        const sourceGroup = sourceContent.closest('[data-source-group]');
+                        const sourceToggle = sourceGroup?.querySelector('[data-source-toggle]');
+                        if (sourceToggle) {
+                            sourceToggle.setAttribute('aria-expanded', 'true');
+                            sourceContent.classList.remove('hidden');
+                            const icon = sourceToggle.querySelector('[data-source-toggle-icon]');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                } else {
+                    question.classList.add('hidden');
+                    question.classList.remove('ring-2', 'ring-indigo-400', 'shadow-lg');
+                }
+            });
+
+            // Show notification
+            showLevelFilterNotification(levelName, matchCount);
+
+            // Scroll to first matching question
+            const firstMatch = document.querySelector('[data-question-preview].ring-2.ring-indigo-400');
+            if (firstMatch) {
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        function resetLevelFilter() {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allLevelButtons = document.querySelectorAll('[data-level-filter]');
+
+            // Reset all level buttons
+            allLevelButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            });
+
+            // Reset all questions
+            allQuestions.forEach(question => {
+                question.classList.remove('hidden', 'ring-2', 'ring-indigo-400', 'shadow-lg');
+            });
+
+            // Remove notification
+            const existingNotification = document.getElementById('level-filter-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+        }
+
+        function showLevelFilterNotification(levelName, count) {
+            // Remove existing notification
+            const existing = document.getElementById('level-filter-notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'level-filter-notification';
+            notification.className = 'fixed top-4 right-4 z-50 bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in';
+            notification.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                <span class="font-medium">Фільтр рівня: <strong>${escapeHtml(levelName)}</strong> (${count} ${getPluralForm(count)})</span>
+                <button type="button" onclick="activeLevelFilter = null; resetLevelFilter();" class="ml-2 hover:bg-indigo-700 rounded p-1 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Answer filter functionality
+        let activeAnswerFilter = null;
+
+        document.addEventListener('click', function (event) {
+            const answerButton = event.target.closest('[data-answer-filter]');
+            
+            if (!answerButton) {
+                return;
+            }
+
+            const answerName = answerButton.getAttribute('data-answer-filter');
+            
+            // Toggle filter if clicking the same answer
+            if (activeAnswerFilter === answerName) {
+                activeAnswerFilter = null;
+                resetAnswerFilter();
+                return;
+            }
+
+            activeAnswerFilter = answerName;
+            applyAnswerFilter(answerName);
+        });
+
+        function applyAnswerFilter(answerName) {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allAnswerButtons = document.querySelectorAll('[data-answer-filter]');
+            let matchCount = 0;
+
+            // Reset all answer buttons to normal state
+            allAnswerButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-emerald-500', 'ring-offset-2');
+            });
+
+            // Highlight the active answer button
+            const activeButton = document.querySelector(`[data-answer-filter="${CSS.escape(answerName)}"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-emerald-500', 'ring-offset-2');
+            }
+
+            // Filter questions
+            allQuestions.forEach(question => {
+                const questionAnswers = question.getAttribute('data-question-answers') || '';
+                const answersArray = questionAnswers.split(',').map(a => a.trim()).filter(a => a);
+                const hasAnswer = answersArray.includes(answerName);
+
+                if (hasAnswer) {
+                    question.classList.remove('hidden');
+                    question.classList.add('ring-2', 'ring-emerald-400', 'shadow-lg');
+                    matchCount++;
+
+                    // Auto-expand the source section if collapsed
+                    const sourceContent = question.closest('[data-source-content]');
+                    if (sourceContent && sourceContent.classList.contains('hidden')) {
+                        const sourceGroup = sourceContent.closest('[data-source-group]');
+                        const sourceToggle = sourceGroup?.querySelector('[data-source-toggle]');
+                        if (sourceToggle) {
+                            sourceToggle.setAttribute('aria-expanded', 'true');
+                            sourceContent.classList.remove('hidden');
+                            const icon = sourceToggle.querySelector('[data-source-toggle-icon]');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                } else {
+                    question.classList.add('hidden');
+                    question.classList.remove('ring-2', 'ring-emerald-400', 'shadow-lg');
+                }
+            });
+
+            // Show notification
+            showAnswerFilterNotification(answerName, matchCount);
+
+            // Scroll to first matching question
+            const firstMatch = document.querySelector('[data-question-preview].ring-2.ring-emerald-400');
+            if (firstMatch) {
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        function resetAnswerFilter() {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allAnswerButtons = document.querySelectorAll('[data-answer-filter]');
+
+            // Reset all answer buttons
+            allAnswerButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-emerald-500', 'ring-offset-2');
+            });
+
+            // Reset all questions
+            allQuestions.forEach(question => {
+                question.classList.remove('hidden', 'ring-2', 'ring-emerald-400', 'shadow-lg');
+            });
+
+            // Remove notification
+            const existingNotification = document.getElementById('answer-filter-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+        }
+
+        function showAnswerFilterNotification(answerName, count) {
+            // Remove existing notification
+            const existing = document.getElementById('answer-filter-notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'answer-filter-notification';
+            notification.className = 'fixed top-4 right-4 z-50 bg-emerald-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in';
+            notification.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                <span class="font-medium">Фільтр відповіді: <strong>${escapeHtml(answerName)}</strong> (${count} ${getPluralForm(count)})</span>
+                <button type="button" onclick="activeAnswerFilter = null; resetAnswerFilter();" class="ml-2 hover:bg-emerald-700 rounded p-1 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    </script>
+@endsection
