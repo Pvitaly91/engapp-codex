@@ -7,6 +7,13 @@ return [
         'input_title' => 'Fill in the blanks',
         'rephrase_title' => 'Rephrase',
         'example_label' => 'Example:',
+        'check' => 'Check',
+        'reset' => 'Try again',
+        'correct' => 'Correct',
+        'incorrect' => 'Incorrect.',
+        'empty' => 'Choose or enter an answer.',
+        'score' => 'Score: :correct of :total',
+        'answer' => 'Correct answer',
     ],
 
     'comparison_table' => [

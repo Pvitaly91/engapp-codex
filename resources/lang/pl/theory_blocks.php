@@ -7,6 +7,13 @@ return [
         'input_title' => 'Uzupełnij luki',
         'rephrase_title' => 'Przekształć zdanie',
         'example_label' => 'Przykład:',
+        'check' => 'Sprawdź',
+        'reset' => 'Spróbuj ponownie',
+        'correct' => 'Poprawnie',
+        'incorrect' => 'Niepoprawnie.',
+        'empty' => 'Wybierz albo wpisz odpowiedź.',
+        'score' => 'Wynik: :correct z :total',
+        'answer' => 'Poprawna odpowiedź',
     ],
 
     'comparison_table' => [

@@ -7,6 +7,13 @@ return [
         'input_title' => 'Заповни пропуски',
         'rephrase_title' => 'Перефразуй',
         'example_label' => 'Приклад:',
+        'check' => 'Перевірити',
+        'reset' => 'Спробувати ще раз',
+        'correct' => 'Правильно',
+        'incorrect' => 'Неправильно.',
+        'empty' => 'Обери або введи відповідь.',
+        'score' => 'Результат: :correct з :total',
+        'answer' => 'Правильна відповідь',
     ],
 
     'comparison_table' => [
