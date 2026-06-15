@@ -45,7 +45,7 @@
         <div class="space-y-5">
             @foreach($contentBlocks as $block)
                 @php($blockData = json_decode($block->body ?? '[]', true) ?? [])
-                @if(in_array($block->type, ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
+                @if(in_array($block->type, ['forms-grid', 'lesson-rule-cards', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
                     @includeIf('engram.theory.blocks-v3.' . $block->type, [
                         'block' => $block,
                         'data' => $blockData,

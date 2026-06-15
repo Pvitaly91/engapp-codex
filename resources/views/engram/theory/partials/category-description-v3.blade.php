@@ -3,7 +3,7 @@
     $blocks = $categoryDescription['blocks'] ?? collect();
     $subtitleBlock = $categoryDescription['subtitleBlock'] ?? null;
     $excludedTypes = ['subtitle', 'hero', 'hero-v2', 'navigation-chips'];
-    $v3BlockTypes = ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'tense-forms-table'];
+    $v3BlockTypes = ['forms-grid', 'lesson-rule-cards', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'tense-forms-table'];
     $contentBlocks = $blocks->reject(fn($b) => in_array($b->type, $excludedTypes));
     $heroBlock = $blocks->firstWhere('type', 'hero') ?? $blocks->firstWhere('type', 'hero-v2');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];

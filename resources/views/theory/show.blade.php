@@ -184,7 +184,7 @@
                 <div class="space-y-6">
                     @foreach($contentBlocks as $block)
                         <div id="block-{{ $block->id }}" class="theory-lazy-section">
-                            @if(in_array($block->type, ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
+                            @if(in_array($block->type, ['forms-grid', 'lesson-rule-cards', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
                                 @includeIf('engram.theory.blocks-v3.' . $block->type, [
                                     'page' => $page,
                                     'block' => $block,
