@@ -4,6 +4,7 @@
     $contentBlocks = $blocks->reject(fn($block) => in_array($block->type, ['subtitle', 'hero', 'hero-v2', 'navigation-chips']));
     $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
     $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
+    $lessonLinks = $categoryDescription['lessonLinks'] ?? [];
 @endphp
 
 <section class="space-y-6 rounded-[30px] border p-7 shadow-card surface-card-strong" style="border-color: var(--line);">
@@ -44,10 +45,11 @@
         <div class="space-y-5">
             @foreach($contentBlocks as $block)
                 @php($blockData = json_decode($block->body ?? '[]', true) ?? [])
-                @if(in_array($block->type, ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set']))
+                @if(in_array($block->type, ['forms-grid', 'usage-panels', 'comparison-table', 'mistakes-grid', 'summary-list', 'practice-set', 'tense-forms-table']))
                     @includeIf('engram.theory.blocks-v3.' . $block->type, [
                         'block' => $block,
                         'data' => $blockData,
+                        'lessonLinks' => $lessonLinks,
                     ])
                 @elseif($block->type === 'box' || empty($block->type))
                     <article class="rounded-[24px] border p-5 surface-card" style="border-color: var(--line);">

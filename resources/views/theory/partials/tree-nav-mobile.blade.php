@@ -18,12 +18,12 @@
     @endphp
 
     <div x-data="{ expanded: {{ $isExpanded ? 'true' : 'false' }} }" class="space-y-2.5">
-        <div class="flex items-start gap-2.5" style="padding-left: {{ $indent }}px;">
+        <div class="flex items-center gap-2.5" style="padding-left: {{ $indent }}px;">
             @if($orderedItems->isNotEmpty())
                 <button
                     type="button"
                     @click="expanded = !expanded"
-                    class="mt-2.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl border surface-card"
+                    class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl border surface-card"
                     style="border-color: {{ $isBranchActive ? 'color-mix(in srgb, var(--accent) 35%, var(--line))' : 'var(--line)' }}; color: {{ $isBranchActive ? 'var(--accent)' : 'var(--muted)' }};"
                     :aria-expanded="expanded.toString()"
                 >
@@ -32,7 +32,7 @@
                     </svg>
                 </button>
             @else
-                <span class="mt-2.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl border surface-card" style="border-color: var(--line); color: var(--muted);">
+                <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-2xl border surface-card" style="border-color: var(--line); color: var(--muted);">
                     <span class="inline-flex h-2.5 w-2.5 rounded-full" style="background: {{ $isBranchActive ? 'var(--accent)' : 'color-mix(in srgb, var(--muted) 30%, white)' }};"></span>
                 </span>
             @endif
@@ -46,7 +46,7 @@
                         ? 'border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); background: color-mix(in srgb, var(--accent-soft) 46%, white); color: var(--text);'
                         : 'border-color: var(--line); color: var(--text);') }}"
             >
-                <span class="flex items-start gap-3">
+                <span class="flex items-center gap-3">
                     <span
                         class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[16px] border"
                         style="{{ $isBranchActive
@@ -60,14 +60,11 @@
                     </span>
                     <span class="min-w-0 flex-1">
                         <span class="flex items-center justify-between gap-3">
-                            <span class="block text-[10px] font-extrabold uppercase tracking-[0.2em]" style="color: {{ $isBranchActive ? 'var(--accent)' : 'var(--muted)' }};">
-                                {{ __('public.theory.section_badge') }}
-                            </span>
+                            <span class="block text-sm font-extrabold leading-5">{{ $category->title }}</span>
                             <span class="inline-flex min-w-[2rem] items-center justify-center rounded-full px-2 py-1 text-[10px] font-extrabold" style="background: {{ $isBranchActive ? 'rgba(47, 103, 177, 0.12)' : 'rgba(91, 108, 128, 0.10)' }}; color: {{ $isBranchActive ? 'var(--accent)' : 'var(--muted)' }};">
                                 {{ $itemCount }}
                             </span>
                         </span>
-                        <span class="mt-1 block text-sm font-extrabold leading-5">{{ $category->title }}</span>
                     </span>
                 </span>
             </a>
